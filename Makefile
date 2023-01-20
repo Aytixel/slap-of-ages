@@ -1,22 +1,36 @@
+TARGET=main test_timer
+
 CC=gcc
 CFLAGS=-g -Wall
-OBJ=main.o
+LFLAGS=-Wall
 
 SRC_DIR=src
 OBJ_DIR=obj
 BIN_DIR=bin
+TRGS:=$(TARGET:%=$(BIN_DIR)/%)
 
-build: clean main
+SOURCES:=$(wildcard $(SRC_DIR)/*.c)
+INCLUDES:=$(wildcard $(SRC_DIR)/*.h)
+OBJECTS:=$(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+MAINS:=$(TARGET:%=$(OBJ_DIR)/%.o)
+OBJS:=$(filter-out $(MAINS),$(OBJECTS))
 
-run: build
-	bin/main
+all: $(TRGS)
 
-main: ${OBJ_DIR}/${OBJ}
-	${CC} $^ -o ${BIN_DIR}/$@ ${CFLAGS}
+$(TRGS): $(OBJECTS)
+	@$(CC) $(subst $(BIN_DIR),$(OBJ_DIR),$@).o $(OBJS) $(LFLAGS) -o $@
+	@echo "Linking $(subst $(BIN_DIR)/,,$@) complete!"
 
-${OBJ_DIR}/%.o: ${SRC_DIR}/%.c
-	${CC} -c $< -o $@ ${CFLAGS}
+$(OBJECTS): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "Compiled "$<" successfully!"
 
+.PHONY: clean
 clean:
-	@rm -f ${OBJ_DIR}/*.o
-	@rm -f ${BIN_DIR}/main
+	@rm -f $(OBJECTS)
+	@echo "Cleanup complete!"
+
+.PHONY: remove
+remove: clean
+	@rm -f $(BIN_DIR)/$(TARGET)
+	@echo "Executable removed!"
