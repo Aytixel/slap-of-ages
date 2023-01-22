@@ -1,4 +1,4 @@
-TARGET=main test_timer
+TARGET=main test_timer test_socket
 
 CC=gcc
 CFLAGS=-g -Wall
