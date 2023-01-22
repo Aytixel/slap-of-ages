@@ -3,7 +3,7 @@
 
 #include <sys/time.h>
 
-typedef struct timer_s
+typedef struct
 {
     time_t interval;
     struct timeval last_time;
