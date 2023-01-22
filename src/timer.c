@@ -50,7 +50,7 @@ extern int checkTime(frame_timer_t *timer)
 
 extern int deleteTimer(frame_timer_t **timer)
 {
-    if (timer == NULL)
+    if (timer == NULL || *timer == NULL)
         return -1;
 
     free(*timer);
