@@ -23,7 +23,7 @@ int main()
 
     assert(timeLeft(timer) < 0);
     printf("\n\tTime left after OK\n");
-    assert(checkTime(timer));
+    assert(checkTime(timer) > 0);
     printf("\tCheck time after OK\n");
 
     assert(timeLeft(timer) > 0);
@@ -34,8 +34,7 @@ int main()
     assert(timer->frame_per_second > 0.99 && timer->frame_per_second < 1.01);
     printf("\n\tFrame per second OK\n");
 
-    deleteTimer(&timer);
-
+    assert(!deleteTimer(&timer));
     assert(timer == NULL);
     printf("\nTimer deletion OK\n");
 

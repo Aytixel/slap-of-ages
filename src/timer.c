@@ -17,6 +17,9 @@ extern frame_timer_t *createTimer(time_t interval)
 
 extern long timeLeft(frame_timer_t *timer)
 {
+    if (timer == NULL)
+        return 0;
+
     struct timeval now;
 
     gettimeofday(&now, NULL);
@@ -28,6 +31,9 @@ extern long timeLeft(frame_timer_t *timer)
 
 extern int checkTime(frame_timer_t *timer)
 {
+    if (timer == NULL)
+        return -1;
+
     time_t time_spend = timeLeft(timer);
 
     if (time_spend < 0)
@@ -42,8 +48,13 @@ extern int checkTime(frame_timer_t *timer)
     return 0;
 }
 
-extern void deleteTimer(frame_timer_t **timer)
+extern int deleteTimer(frame_timer_t **timer)
 {
+    if (timer == NULL)
+        return -1;
+
     free(*timer);
     *timer = NULL;
+
+    return 0;
 }

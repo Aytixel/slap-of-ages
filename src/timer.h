@@ -16,6 +16,6 @@ extern long timeLeft(frame_timer_t *);
 
 extern int checkTime(frame_timer_t *);
 
-extern void deleteTimer(frame_timer_t **);
+extern int deleteTimer(frame_timer_t **);
 
 #endif
