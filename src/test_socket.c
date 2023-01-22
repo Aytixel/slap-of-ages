@@ -12,6 +12,13 @@ int main()
     assert(server != NULL);
     printf("Server creation OK\n");
 
+    server_client_t *client;
+
+    printf("\n\tClient pointer %p\n", client = acceptServerClient(server));
+
+    if (client != NULL)
+        deleteServerClient(&client);
+
     deleteServer(&server);
 
     assert(server == NULL);
