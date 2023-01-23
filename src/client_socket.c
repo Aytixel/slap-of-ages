@@ -12,7 +12,12 @@ extern client_t *createClient(char *hostname, uint16_t port)
 
     client->address_length = sizeof(client->address);
 
-    setupAddress(&client->address, client->address_length, hostname, port);
+    if (setupAddress(&client->address, client->address_length, hostname, port) == -1)
+    {
+        free(client);
+
+        return NULL;
+    }
 
     if ((client->socket_fd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
     {

@@ -4,19 +4,21 @@
 #include <sys/fcntl.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include "socket.h"
 #include "server_socket.h"
 
-extern server_t *createServer(uint16_t port)
+extern server_t *createServer(char *hostname, uint16_t port)
 {
     server_t *server = malloc(sizeof(server_t));
 
     server->address_length = sizeof(server->address);
 
-    bzero(&server->address, server->address_length);
+    if (setupAddress(&server->address, server->address_length, hostname, port) == -1)
+    {
+        free(server);
 
-    server->address.sin_port = htons(port);
-    server->address.sin_family = AF_INET;
-    server->address.sin_addr.s_addr = htonl(INADDR_ANY);
+        return NULL;
+    }
 
     if ((server->socket_fd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
     {

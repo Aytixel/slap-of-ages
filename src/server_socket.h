@@ -17,7 +17,7 @@ typedef struct
     int socket_fd;
 } server_client_t;
 
-extern server_t *createServer(uint16_t);
+extern server_t *createServer(char *, uint16_t);
 
 extern server_client_t *acceptServerClient(server_t *);
 

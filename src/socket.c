@@ -10,21 +10,21 @@ extern int setupAddress(struct sockaddr_in *address, size_t address_length, char
     address->sin_port = htons(port);
     address->sin_family = AF_INET;
 
-    long host_address = inet_addr(hostname);
+    struct hostent *host_info = gethostbyname(hostname);
 
-    if (host_address != -1)
+    if (host_info != NULL)
     {
-        bcopy(&host_address, &address->sin_addr, sizeof(host_address));
+        bcopy(host_info->h_addr_list[0], &address->sin_addr, host_info->h_length);
 
         return 0;
     }
 
-    struct hostent *host_info = gethostbyname(hostname);
+    long host_address = inet_addr(hostname);
 
-    if (host_info == NULL)
+    if (host_address == -1)
         return -1;
 
-    bcopy(host_info->h_addr_list[0], &address->sin_addr, host_info->h_length);
+    bcopy(&host_address, &address->sin_addr, sizeof(host_address));
 
     return 0;
 }

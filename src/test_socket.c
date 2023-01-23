@@ -7,22 +7,24 @@ int main()
 {
     printf("Testing server_socket.h client_socket.h\n\n");
 
-    server_t *server = createServer(4539);
+    server_t *server = createServer("0.0.0.0", 4539);
 
     assert(server != NULL);
     printf("Server creation OK\n");
 
-    client_t *client = createClient("127.0.0.1", 4539);
+    client_t *client = createClient("localhost", 4539);
 
     assert(client != NULL);
     printf("Client creation OK\n");
 
-    server_client_t *server_client;
+    server_client_t *server_client = acceptServerClient(server);
 
-    printf("\n\tClient pointer %p\n", server_client = acceptServerClient(server));
+    assert(server_client != NULL);
+    printf("\n\tServer client acceptance OK\n");
 
-    if (server_client != NULL)
-        deleteServerClient(&server_client);
+    assert(!deleteServerClient(&server_client));
+    assert(server_client == NULL);
+    printf("\n\tServer client deletion OK\n");
 
     assert(!deleteClient(&client));
     assert(client == NULL);
