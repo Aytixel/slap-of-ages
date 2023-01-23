@@ -12,24 +12,29 @@ int main()
     assert(server != NULL);
     printf("Server creation OK\n");
 
+    server_client_t *server_client = acceptServerClient(server);
+
+    assert(server_client == NULL);
+    printf("The server tried to accept the client without blocking OK\n");
+
     client_t *client = createClient("localhost", 4539);
 
     assert(client != NULL);
     printf("Client creation OK\n");
 
-    server_client_t *server_client = acceptServerClient(server);
+    server_client = acceptServerClient(server);
 
     assert(server_client != NULL);
-    printf("\n\tServer client acceptance OK\n");
+    printf("\n\tThe server accepted the client OK\n");
 
     long test_data = 2352850823;
     packet_t test_packet = {0, &test_data, sizeof(test_data)};
 
     assert(!sendToServer(client, &test_packet));
-    printf("\n\t\tData sent to the server\n");
+    printf("\n\t\tData sent to the server OK\n");
 
     assert(!sendToServerClient(server_client, &test_packet));
-    printf("\n\t\tData sent to the client\n");
+    printf("\n\t\tData sent to the client OK\n");
 
     assert(!deleteServerClient(&server_client));
     assert(server_client == NULL);
