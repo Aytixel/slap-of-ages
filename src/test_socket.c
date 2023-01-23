@@ -12,17 +12,25 @@ int main()
     assert(server != NULL);
     printf("Server creation OK\n");
 
-    server_client_t *client;
+    client_t *client = createClient("127.0.0.1", 4539);
 
-    printf("\n\tClient pointer %p\n", client = acceptServerClient(server));
+    assert(client != NULL);
+    printf("Client creation OK\n");
 
-    if (client != NULL)
-        deleteServerClient(&client);
+    server_client_t *server_client;
 
-    deleteServer(&server);
+    printf("\n\tClient pointer %p\n", server_client = acceptServerClient(server));
 
+    if (server_client != NULL)
+        deleteServerClient(&server_client);
+
+    assert(!deleteClient(&client));
+    assert(client == NULL);
+    printf("\nClient deletion OK\n");
+
+    assert(!deleteServer(&server));
     assert(server == NULL);
-    printf("\nServer deletion OK\n");
+    printf("Server deletion OK\n");
 
     printf("\nTesting server_socket.h client_socket.h successful\n");
 

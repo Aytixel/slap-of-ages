@@ -19,7 +19,11 @@ extern server_t *createServer(uint16_t port)
     server->address.sin_addr.s_addr = htonl(INADDR_ANY);
 
     if ((server->socket_fd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
+    {
+        free(server);
+
         return NULL;
+    }
 
     // set the socket to non blocking
     fcntl(server->socket_fd, F_SETFL, O_NONBLOCK);
@@ -45,6 +49,9 @@ extern server_client_t *acceptServerClient(server_t *server)
 
         return NULL;
     }
+
+    // set the socket to non blocking
+    fcntl(client->socket_fd, F_SETFL, O_NONBLOCK);
 
     return client;
 }
