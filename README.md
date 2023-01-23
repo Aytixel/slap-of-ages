@@ -2,7 +2,7 @@
 
 ## Membres du groupe :
 - **Lucas Dureau** alias `Aytixel`
-- **Hôa Le Luet** alias `ABTonierre`
+- **Hôa Le Luet** alias `ABTonniere`
 - **Arthur Dureau** alias `MasterPNJ`
 - **Chadii Basma**
 
