@@ -28,6 +28,11 @@ extern server_t *createServer(uint16_t port)
     // set the socket to non blocking
     fcntl(server->socket_fd, F_SETFL, O_NONBLOCK);
 
+    // tell the socket to reuse address
+    int optval = 1;
+
+    setsockopt(server->socket_fd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
+
     bind(server->socket_fd, (struct sockaddr *)&server->address, server->address_length);
     listen(server->socket_fd, 5);
 
