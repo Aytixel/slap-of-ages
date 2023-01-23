@@ -39,6 +39,18 @@ extern client_t *createClient(char *hostname, uint16_t port)
     return client;
 }
 
+extern int sendToServer(client_t *client, packet_t *packet)
+{
+    if (send(client->socket_fd, &packet->data_length, sizeof(packet->data_length), 0) == -1)
+        return -1;
+    if (send(client->socket_fd, &packet->id, sizeof(packet->id), 0) == -1)
+        return -1;
+    if (send(client->socket_fd, packet->data, packet->data_length, 0) == -1)
+        return -1;
+
+    return 0;
+}
+
 extern int deleteClient(client_t **client)
 {
     if (client == NULL || *client == NULL)

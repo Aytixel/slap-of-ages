@@ -22,6 +22,15 @@ int main()
     assert(server_client != NULL);
     printf("\n\tServer client acceptance OK\n");
 
+    long test_data = 2352850823;
+    packet_t test_packet = {0, &test_data, sizeof(test_data)};
+
+    assert(!sendToServer(client, &test_packet));
+    printf("\n\t\tData sent to the server\n");
+
+    assert(!sendToServerClient(server_client, &test_packet));
+    printf("\n\t\tData sent to the client\n");
+
     assert(!deleteServerClient(&server_client));
     assert(server_client == NULL);
     printf("\n\tServer client deletion OK\n");

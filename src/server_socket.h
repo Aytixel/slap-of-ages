@@ -2,6 +2,7 @@
 #define __SERVER_SOCKET_H
 
 #include <netinet/in.h>
+#include "socket.h"
 
 typedef struct
 {
@@ -20,6 +21,8 @@ typedef struct
 extern server_t *createServer(char *, uint16_t);
 
 extern server_client_t *acceptServerClient(server_t *);
+
+extern int sendToServerClient(server_client_t *, packet_t *);
 
 extern int deleteServerClient(server_client_t **);
 
