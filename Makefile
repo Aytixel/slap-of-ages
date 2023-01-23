@@ -34,3 +34,9 @@ clean:
 remove: clean
 	@rm -f $(BIN_DIR)/$(TARGET)
 	@echo "Executable removed!"
+
+.PHONY: docs
+docs:
+	@rm -rf doc/html/
+	@rm -rf doc/latex/
+	doxygen doc/doxyfile
