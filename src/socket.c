@@ -2,6 +2,19 @@
 #include <strings.h>
 #include <netdb.h>
 #include <arpa/inet.h>
+#include "socket.h"
+
+extern int deletePacket(packet_t **packet)
+{
+    if (packet == NULL || *packet == NULL)
+        return -1;
+
+    free((*packet)->data);
+    free(*packet);
+    *packet = NULL;
+
+    return 0;
+}
 
 extern int setupAddress(struct sockaddr_in *address, size_t address_length, char *hostname, uint16_t port)
 {

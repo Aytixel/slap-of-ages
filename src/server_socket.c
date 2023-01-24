@@ -57,6 +57,8 @@ extern server_client_t *acceptServerClient(server_t *server)
         return NULL;
     }
 
+    client->packet_buffer = NULL;
+
     // set the socket to non blocking
     fcntl(client->socket_fd, F_SETFL, O_NONBLOCK);
 
@@ -75,6 +77,55 @@ extern int sendToServerClient(server_client_t *client, packet_t *packet)
     return 0;
 }
 
+extern packet_t *recvFromServerClient(server_client_t *client)
+{
+    // new packet setup
+    if (client->packet_buffer == NULL)
+    {
+        size_t data_length = 0;
+
+        if (recv(client->socket_fd, &data_length, sizeof(data_length), MSG_DONTWAIT) == -1)
+            return NULL;
+
+        client->recv_length = -1;
+        client->packet_buffer = malloc(sizeof(packet_t));
+        client->packet_buffer->data_length = data_length;
+        client->packet_buffer->id = 0;
+        client->packet_buffer->data = malloc(data_length);
+    }
+
+    // get packet id
+    if (client->recv_length == -1)
+    {
+        uint8_t id = 0;
+
+        if (recv(client->socket_fd, &id, sizeof(id), MSG_DONTWAIT) == -1)
+            return NULL;
+
+        client->recv_length = 0;
+        client->packet_buffer->id = id;
+    }
+
+    // get packet data part
+    if (client->recv_length < client->packet_buffer->data_length)
+    {
+        ssize_t recv_length = recv(client->socket_fd, client->packet_buffer->data + client->recv_length, client->packet_buffer->data_length - client->recv_length, MSG_DONTWAIT);
+
+        if (recv_length > -1)
+            client->recv_length += recv_length;
+
+        if (client->recv_length < client->packet_buffer->data_length)
+            return NULL;
+    }
+
+    // return completed packet
+    packet_t *packet = client->packet_buffer;
+
+    client->packet_buffer = NULL;
+
+    return packet;
+}
+
 extern int deleteServerClient(server_client_t **client)
 {
     if (client == NULL || *client == NULL)
@@ -82,6 +133,9 @@ extern int deleteServerClient(server_client_t **client)
 
     shutdown((*client)->socket_fd, SHUT_RDWR);
     close((*client)->socket_fd);
+
+    if ((*client)->packet_buffer != NULL)
+        deletePacket(&(*client)->packet_buffer);
 
     free(*client);
     *client = NULL;

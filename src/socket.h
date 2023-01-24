@@ -10,6 +10,8 @@ typedef struct
     size_t data_length;
 } packet_t;
 
+extern int deletePacket(packet_t **);
+
 extern int setupAddress(struct sockaddr_in *, size_t, char *, uint16_t);
 
 #endif
