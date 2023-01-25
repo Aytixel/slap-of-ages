@@ -4,7 +4,7 @@
 - **Lucas Dureau** alias `Aytixel`
 - **Hôa Le Luet** alias `ABTonniere`
 - **Arthur Dureau** alias `MasterPNJ`
-- **Chadii Basma**
+- **Chadli Basma** alias `Basmachadli`
 
 ## Compilation
 
