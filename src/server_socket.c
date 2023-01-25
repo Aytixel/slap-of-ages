@@ -39,6 +39,11 @@ extern server_t *createServer(char *hostname, uint16_t port)
         return NULL;
     }
 
+    // tell the socket to reuse address
+    int optval = 1;
+
+    setsockopt(server->socket_fd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
+
     // set the socket to non blocking
 #ifdef WIN32
     u_long mode = 1;
@@ -47,11 +52,6 @@ extern server_t *createServer(char *hostname, uint16_t port)
 #else
     fcntl(server->socket_fd, F_SETFL, O_NONBLOCK);
 #endif
-
-    // tell the socket to reuse address
-    char optval = 1;
-
-    setsockopt(server->socket_fd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
 
     bind(server->socket_fd, (struct sockaddr *)&server->address, server->address_length);
     listen(server->socket_fd, 5);
