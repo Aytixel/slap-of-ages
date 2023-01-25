@@ -1,7 +1,18 @@
 #ifndef __SERVER_SOCKET_H
 #define __SERVER_SOCKET_H
 
+#ifdef WIN32
+
+#include <winsock2.h>
+
+typedef struct SOCKADDR_IN sockaddr_in;
+
+#else
+
 #include <netinet/in.h>
+
+#endif
+
 #include "socket.h"
 
 typedef struct

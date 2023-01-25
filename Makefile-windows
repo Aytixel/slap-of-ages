@@ -1,4 +1,4 @@
-TARGET=main test_timer
+TARGET=main test_timer test_socket
 
 LIB_DIR=lib/windows
 INC_DIR=include/windows
@@ -6,7 +6,7 @@ LIB_TARGET=SDL2.dll SDL2_ttf.dll SDL2_image.dll
 
 CC=gcc
 CFLAGS=-g -Wall -I$(INC_DIR)
-LFLAGS=-Wall -L$(LIB_DIR) -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+LFLAGS=-Wall -L$(LIB_DIR) -lmingw32 -lws2_32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf 
 
 SRC_DIR=src
 OBJ_DIR=obj

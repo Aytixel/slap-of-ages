@@ -1,9 +1,21 @@
-#include <stdlib.h>
-#include <strings.h>
+#ifdef WIN32
+
+#include <winsock2.h>
+
+#define close closesocket
+#define SHUT_RDWR SD_BOTH
+
+#else
+
 #include <unistd.h>
 #include <sys/fcntl.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+
+#endif
+
+#include <stdlib.h>
+#include <strings.h>
 #include "socket.h"
 #include "server_socket.h"
 
@@ -28,10 +40,16 @@ extern server_t *createServer(char *hostname, uint16_t port)
     }
 
     // set the socket to non blocking
+#ifdef WIN32
+    u_long mode = 1;
+
+    ioctlsocket(server->socket_fd, FIONBIO, &mode);
+#else
     fcntl(server->socket_fd, F_SETFL, O_NONBLOCK);
+#endif
 
     // tell the socket to reuse address
-    int optval = 1;
+    char optval = 1;
 
     setsockopt(server->socket_fd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
 
@@ -60,16 +78,22 @@ extern server_client_t *acceptServerClient(server_t *server)
     client->packet_buffer = NULL;
 
     // set the socket to non blocking
+#ifdef WIN32
+    u_long mode = 1;
+
+    ioctlsocket(client->socket_fd, FIONBIO, &mode);
+#else
     fcntl(client->socket_fd, F_SETFL, O_NONBLOCK);
+#endif
 
     return client;
 }
 
 extern int sendToServerClient(server_client_t *client, packet_t *packet)
 {
-    if (send(client->socket_fd, &packet->data_length, sizeof(packet->data_length), 0) == -1)
+    if (send(client->socket_fd, (char *)&packet->data_length, sizeof(packet->data_length), 0) == -1)
         return -1;
-    if (send(client->socket_fd, &packet->id, sizeof(packet->id), 0) == -1)
+    if (send(client->socket_fd, (char *)&packet->id, sizeof(packet->id), 0) == -1)
         return -1;
     if (send(client->socket_fd, packet->data, packet->data_length, 0) == -1)
         return -1;
@@ -84,7 +108,7 @@ extern packet_t *recvFromServerClient(server_client_t *client)
     {
         size_t data_length = 0;
 
-        if (recv(client->socket_fd, &data_length, sizeof(data_length), MSG_DONTWAIT) == -1)
+        if (recv(client->socket_fd, (char *)&data_length, sizeof(data_length), 0) == -1)
             return NULL;
 
         client->recv_length = -1;
@@ -99,7 +123,7 @@ extern packet_t *recvFromServerClient(server_client_t *client)
     {
         uint8_t id = 0;
 
-        if (recv(client->socket_fd, &id, sizeof(id), MSG_DONTWAIT) == -1)
+        if (recv(client->socket_fd, (char *)&id, sizeof(id), 0) == -1)
             return NULL;
 
         client->recv_length = 0;
@@ -109,7 +133,7 @@ extern packet_t *recvFromServerClient(server_client_t *client)
     // get packet data part
     if (client->recv_length < client->packet_buffer->data_length)
     {
-        ssize_t recv_length = recv(client->socket_fd, client->packet_buffer->data + client->recv_length, client->packet_buffer->data_length - client->recv_length, MSG_DONTWAIT);
+        ssize_t recv_length = recv(client->socket_fd, client->packet_buffer->data + client->recv_length, client->packet_buffer->data_length - client->recv_length, 0);
 
         if (recv_length > -1)
             client->recv_length += recv_length;

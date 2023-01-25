@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <strings.h>
+#include <string.h>
 #include <assert.h>
 #include "server_socket.h"
 #include "client_socket.h"
@@ -7,6 +7,9 @@
 int main()
 {
     printf("Testing server_socket.h client_socket.h socket.h\n\n");
+
+    assert(initSocket() == 0);
+    printf("Socket initialized OK\n");
 
     server_t *server = createServer("0.0.0.0", 4539);
 
@@ -39,7 +42,7 @@ int main()
 
     assert(packet != NULL);
 
-    bcopy(packet->data, &data, packet->data_length);
+    memcpy(&data, packet->data, packet->data_length);
 
     assert(test_data == data);
     assert(deletePacket(&packet) != -1);
@@ -53,7 +56,7 @@ int main()
 
     assert(packet != NULL);
 
-    bcopy(packet->data, &data, packet->data_length);
+    memcpy(&data, packet->data, packet->data_length);
 
     assert(test_data == data);
     assert(deletePacket(&packet) != -1);
@@ -70,6 +73,8 @@ int main()
     assert(!deleteServer(&server));
     assert(server == NULL);
     printf("Server deletion OK\n");
+
+    endSocket();
 
     printf("\nTesting server_socket.h client_socket.h socket.h successful\n");
 

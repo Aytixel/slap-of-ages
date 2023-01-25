@@ -1,7 +1,12 @@
 #ifndef __CLIENT_SOCKET_H
 #define __CLIENT_SOCKET_H
 
+#ifndef WIN32
+
 #include <netinet/in.h>
+
+#endif
+
 #include "socket.h"
 
 typedef struct

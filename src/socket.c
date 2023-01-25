@@ -1,8 +1,39 @@
-#include <stdlib.h>
-#include <strings.h>
+#ifdef WIN32
+
+#include <winsock2.h>
+
+#else
+
 #include <netdb.h>
 #include <arpa/inet.h>
+
+#endif
+
+#include <stdlib.h>
+#include <string.h>
 #include "socket.h"
+
+extern int initSocket()
+{
+#ifdef WIN32
+
+    WSADATA wsa;
+
+    return WSAStartup(MAKEWORD(2, 2), &wsa);
+
+#endif
+
+    return 0;
+}
+
+extern void endSocket()
+{
+#ifdef WIN32
+
+    WSACleanup();
+
+#endif
+}
 
 extern int deletePacket(packet_t **packet)
 {
@@ -18,7 +49,7 @@ extern int deletePacket(packet_t **packet)
 
 extern int setupAddress(struct sockaddr_in *address, size_t address_length, char *hostname, uint16_t port)
 {
-    bzero(address, address_length);
+    memset(address, 0, address_length);
 
     address->sin_port = htons(port);
     address->sin_family = AF_INET;
@@ -27,7 +58,7 @@ extern int setupAddress(struct sockaddr_in *address, size_t address_length, char
 
     if (host_info != NULL)
     {
-        bcopy(host_info->h_addr_list[0], &address->sin_addr, host_info->h_length);
+        memcpy(&address->sin_addr, host_info->h_addr_list[0], host_info->h_length);
 
         return 0;
     }
@@ -37,7 +68,7 @@ extern int setupAddress(struct sockaddr_in *address, size_t address_length, char
     if (host_address == -1)
         return -1;
 
-    bcopy(&host_address, &address->sin_addr, sizeof(host_address));
+    memcpy(&address->sin_addr, &host_address, sizeof(host_address));
 
     return 0;
 }

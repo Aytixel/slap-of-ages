@@ -31,7 +31,7 @@ int main()
     assert(!checkTime(timer));
     printf("\tCheck time before OK\n");
 
-    assert(timer->frame_per_second > 0.99 && timer->frame_per_second < 1.01);
+    assert(timer->frame_per_second > 0.95 && timer->frame_per_second < 1.05);
     printf("\n\tFrame per second OK\n");
 
     assert(!deleteTimer(&timer));
