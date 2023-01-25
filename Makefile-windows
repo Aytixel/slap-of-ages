@@ -1,7 +1,8 @@
 TARGET=main test_timer
 
-LIB_DIR=./lib/windows
-INC_DIR=./include/windows
+LIB_DIR=lib/windows
+INC_DIR=include/windows
+LIB_TARGET=SDL2.dll SDL2_ttf.dll SDL2_image.dll
 
 CC=gcc
 CFLAGS=-g -Wall -I$(INC_DIR)
@@ -18,8 +19,7 @@ OBJECTS:=$(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 MAINS:=$(TARGET:%=$(OBJ_DIR)/%.o)
 OBJS:=$(filter-out $(MAINS),$(OBJECTS))
 
-all: $(TRGS)
-	@copy $(DLL_DIR)\*.dll $(BIN_DIR)
+all: $(TRGS) copy_lib
 
 $(TRGS): $(OBJECTS)
 	@$(CC) $(subst $(BIN_DIR),$(OBJ_DIR),$@).o $(OBJS) $(LFLAGS) -o $@.exe
@@ -28,6 +28,13 @@ $(TRGS): $(OBJECTS)
 $(OBJECTS): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo Compiled $< successfully!
+	
+.PHONY: copy_lib
+copy_lib: $(LIB_TARGET)
+
+$(LIB_TARGET):
+	@copy $(DLL_DIR)\$@ $(BIN_DIR)\$@
+	@echo Library $(DLL_DIR)/$@ -^> $(BIN_DIR)/$@ copied correctly!
 
 .PHONY: clean
 clean:
