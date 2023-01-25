@@ -1,0 +1,44 @@
+TARGET=main test_timer
+
+LIB_DIR=./lib/windows
+INC_DIR=./include/windows
+
+CC=gcc
+CFLAGS=-g -Wall -I"$(INC_DIR)"
+LFLAGS=-Wall -L"$(LIB_DIR)" -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+
+SRC_DIR=src
+OBJ_DIR=obj
+BIN_DIR=bin
+TRGS:=$(TARGET:%=$(BIN_DIR)/%)
+
+SOURCES:=$(wildcard $(SRC_DIR)/*.c)
+OBJECTS:=$(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+MAINS:=$(TARGET:%=$(OBJ_DIR)/%.o)
+OBJS:=$(filter-out $(MAINS),$(OBJECTS))
+
+all: $(TRGS)
+
+$(TRGS): $(OBJECTS)
+	@$(CC) $(subst $(BIN_DIR),$(OBJ_DIR),$@).o $(OBJS) $(LFLAGS) -o $@.exe
+	@echo "Linking $(subst $(BIN_DIR)/,,$@) complete!"
+
+$(OBJECTS): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "Compiled "$<" successfully!"
+
+.PHONY: clean
+clean:
+	@del $(subst /,\,$(OBJECTS))
+	@echo "Cleanup complete!"
+
+.PHONY: remove
+remove: clean
+	@del $(addsuffix .exe,$(subst /,\,$(TRGS)))
+	@echo "Executable removed!"
+
+.PHONY: docs
+docs:
+	@del /q "doc\html\"
+	@del /q "doc\latex\"
+	doxygen doc/doxyfile
