@@ -82,7 +82,7 @@ int checkTTFLib(SDL_Window *window, SDL_Renderer *renderer)
 TTF_Font *loadFont(SDL_Window *window, SDL_Renderer *renderer)
 {
   // Chargement de la police
-  TTF_Font *font = TTF_OpenFont("arial.ttf", 24);
+  TTF_Font *font = TTF_OpenFont("asset/font/arial.ttf", 24);
   if (font == NULL)
   {
     fprintf(stderr, "Erreur lors du chargement de la police : %s", TTF_GetError());
