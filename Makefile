@@ -25,7 +25,7 @@ $(TRGS): $(OBJECTS)
 
 $(OBJECTS): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "Compiled "$<" successfully!"
+	@echo "Compiled $< successfully!"
 
 .PHONY: clean
 clean:
