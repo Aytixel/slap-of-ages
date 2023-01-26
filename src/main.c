@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_main.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 
@@ -34,7 +35,7 @@ int initialisationSDL()
 SDL_Window *creationFenetre()
 {
   // Création de la fenêtre
-  SDL_Window *window = SDL_CreateWindow("Premier test SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+  SDL_Window *window = SDL_CreateWindow("Tests Animations", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
   if (window == NULL)
   {
     fprintf(stderr, "Erreur lors de la création de la fenêtre : %s", SDL_GetError());
@@ -118,7 +119,7 @@ int main(int argc, char *argv[])
     while (SDL_PollEvent(&event))
     {
       handleEvent(&event);
-      printf("c");
+      //printf("c");
     }
 
     // Effacement de l'écran
