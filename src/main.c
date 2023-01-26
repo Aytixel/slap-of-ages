@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
 
   checkTTFLib(window, renderer);
 
-  TTF_Font *font = loadFont(window, renderer);
+  //TTF_Font *font = loadFont(window, renderer);
 
   while (1)
   {
@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
     SDL_RenderPresent(renderer);
   }
 
-  TTF_CloseFont(font);
+  //TTF_CloseFont(font);
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
   TTF_Quit();
