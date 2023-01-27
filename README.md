@@ -1,6 +1,6 @@
 # Slap of Ages
 
-**Slap of Ages est un projet mené par 4 étudiants le l'université du Mans sur une durée de 3 mois, le jeu consiste en la création d'un village et d'une armée pour combattre d'autres joueurs.**
+**Slap of Ages est un projet mené par 4 étudiants en L2 Informatique de l'université du Mans sur une durée de 3 mois, le jeu consiste en la création d'un village et d'une armée pour combattre les villages des autres joueurs.**
 
 ## Membres du groupe :
 - **Lucas Dureau** alias `Aytixel`
