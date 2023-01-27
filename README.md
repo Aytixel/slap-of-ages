@@ -1,10 +1,18 @@
 # Slap of Ages
 
+**Slap of Ages est un projet mené par 4 étudiants en L2 Informatique de l'université du Mans sur une durée de 3 mois, le jeu consiste en la création d'un village et d'une armée pour combattre les villages des autres joueurs. Ce jeu est inspiré de Clash of Clans**
+
+[Lien vers le jeu](https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=fr&gl=US)
+
 ## Membres du groupe :
 - **Lucas Dureau** alias `Aytixel`
-- **Hôa Le Luet** alias `ABTonierre`
+- **Hôa Le Luet** alias `ABTonniere`
 - **Arthur Dureau** alias `MasterPNJ`
-- **Chadii Basma**
+- **Chadli Basma** alias `Basmachadli`
+
+## Compilation
+
+Attention pour compiler sur **Windows** vous deverez utilisez le fichier `Makefile-windows`.
 
 ## Convention de nommage :
 
