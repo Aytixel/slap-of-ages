@@ -1,4 +1,4 @@
-TARGET=main test_timer test_socket
+TARGET=main test_timer test_socket menu
 
 LIB_DIR=lib/linux
 INC_DIR=include/linux
