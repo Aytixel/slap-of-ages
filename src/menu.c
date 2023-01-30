@@ -5,8 +5,8 @@
 #include <SDL2/SDL_ttf.h>
 #include "menu.h"
 
-const int WINDOW_WIDTH = 640;
-const int WINDOW_HEIGHT = 480;
+const int WINDOW_WIDTH = 920;
+const int WINDOW_HEIGHT = 600;
 
 // Fonction de gestion des évènements
 void handleEvent(SDL_Event *event)
@@ -83,7 +83,7 @@ int checkTTFLib(SDL_Window *window, SDL_Renderer *renderer)
 TTF_Font *loadFont(SDL_Window *window, SDL_Renderer *renderer)
 {
   // Chargement de la police
-  TTF_Font *font = TTF_OpenFont("asset/font/arial.ttf", 24);
+  TTF_Font *font = TTF_OpenFont("asset/font/8-BIT WONDER.TTF", 24);
   if (font == NULL)
   {
     fprintf(stderr, "Erreur lors du chargement de la police : %s", TTF_GetError());
@@ -126,6 +126,23 @@ int menu(int argc, char **argv)
   SDL_Rect buttonRect0;
   SDL_Rect buttonRect1;
   SDL_Rect buttonRect2;
+
+  // Création Image
+
+  SDL_Surface* imagep = IMG_Load("asset/PixelBooksVers1.0/RADL_Book4.png");
+  if(!imagep)
+  {
+      printf("Erreur de chargement de l'image : %s",SDL_GetError());
+      return -1;
+  }
+  SDL_Texture* texturep = SDL_CreateTextureFromSurface(renderer, imagep);
+  SDL_Rect ImageRect;
+
+  ImageRect.h = imagep->h;
+  ImageRect.w = imagep->w;
+  ImageRect.x = WINDOW_WIDTH;
+  ImageRect.x = WINDOW_HEIGHT;
+
   
   // Bouton "JOUER"
   buttonSurface0 = TTF_RenderText_Solid(font, "JOUER", color);
@@ -162,7 +179,6 @@ int menu(int argc, char **argv)
     while (SDL_PollEvent(&event))
     {
       handleEvent(&event);
-      printf("c");
 
       // Si l'utilisateur clique sur le bouton "QUITTER"
       if (event.type == SDL_MOUSEBUTTONDOWN &&
@@ -218,6 +234,9 @@ int menu(int argc, char **argv)
       // Effacement de l'écran
       SDL_RenderClear(renderer);
 
+      // Affichage de l'image de fond
+      SDL_RenderCopy(renderer, texturep, NULL, NULL);
+
       // Affichage des boutons
       SDL_RenderCopy(renderer, buttonTexture0, NULL, &buttonRect0);
       SDL_RenderCopy(renderer, buttonTexture1, NULL, &buttonRect1);
@@ -235,6 +254,8 @@ int menu(int argc, char **argv)
     SDL_FreeSurface(buttonSurface1);
     SDL_DestroyTexture(buttonTexture2);
     SDL_FreeSurface(buttonSurface2);
+    SDL_DestroyTexture(texturep);
+    SDL_FreeSurface(imagep);
 
   TTF_CloseFont(font);
   SDL_DestroyRenderer(renderer);
