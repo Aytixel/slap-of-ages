@@ -3,7 +3,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-#include <sys/time.h>
+#include <time.h>
+#include <assert.h>
 #include "menu.h"
 
 const int WINDOW_WIDTH = 1000;
@@ -172,10 +173,11 @@ int menu(int argc, char **argv)
   buttonRect2.y = WINDOW_HEIGHT / 2 - buttonRect2.h / 2 + 50; // Placer en-dessous du centre
 
   
-
+  int time = 0;
  // Boucle principale
   while (1)
   {
+    int tick = SDL_GetTicks();
     SDL_Event event;
 
     // Gestion des évènements
@@ -197,6 +199,13 @@ int menu(int argc, char **argv)
         SDL_FreeSurface(buttonSurface1);
         SDL_DestroyTexture(buttonTexture2);
         SDL_FreeSurface(buttonSurface2);
+        if((time = (1000/60)-(SDL_GetTicks() - tick)) > 0) //asssure le 60 fps
+        {
+          SDL_Delay(time);
+          
+        }else {
+          SDL_Delay(1000/60);
+        }
         // Quitter le programme
         exit(0);
       }
