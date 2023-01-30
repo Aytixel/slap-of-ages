@@ -3,6 +3,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <sys/time.h>
 #include "menu.h"
 
 const int WINDOW_WIDTH = 1000;
@@ -129,7 +130,7 @@ int menu(int argc, char **argv)
   SDL_Rect buttonRect1;
   SDL_Rect buttonRect2;
 
-  // Création Image
+  // Création de l'Image du Menu Principal
 
   SDL_Surface* imagep = IMG_Load("asset/PixelBooksVers1.0/RADL_Book4.png");
   if(!imagep)
@@ -190,6 +191,12 @@ int menu(int argc, char **argv)
           event.button.y >= buttonRect2.y &&
           event.button.y <= buttonRect2.y + buttonRect2.h)
       {
+        SDL_DestroyTexture(buttonTexture0);
+        SDL_FreeSurface(buttonSurface0);
+        SDL_DestroyTexture(buttonTexture1);
+        SDL_FreeSurface(buttonSurface1);
+        SDL_DestroyTexture(buttonTexture2);
+        SDL_FreeSurface(buttonSurface2);
         // Quitter le programme
         exit(0);
       }
