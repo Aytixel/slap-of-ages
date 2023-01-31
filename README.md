@@ -10,10 +10,6 @@
 - **Arthur Dureau** alias `MasterPNJ`
 - **Chadli Basma** alias `Basmachadli`
 
-## Compilation
-
-Attention pour compiler sur **Windows** vous deverez utilisez le fichier `Makefile-windows`.
-
 ## Convention de nommage :
 
 **Code en anglais.**
