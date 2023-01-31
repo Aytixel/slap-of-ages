@@ -1,4 +1,4 @@
-TARGET=main test_timer test_socket
+TARGET=main test_timer test_socket test_animation
 
 LIB_DIR=lib/windows
 INC_DIR=include/windows
