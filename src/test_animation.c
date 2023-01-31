@@ -4,9 +4,13 @@
 #include <SDL2/SDL_main.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include "timer.h"
+#include "test_animation.h"
 
 const int WINDOW_WIDTH = 640;
 const int WINDOW_HEIGHT = 480;
+
+
 
 // Fonction de gestion des évènements
 void handleEvent(SDL_Event *event)
@@ -97,6 +101,52 @@ return font;
 }
 
 
+int initFrames(SDL_Rect *tab, int nb_frames, SDL_Surface *src, int line, int nb_lines){
+
+  for(int i = 0; i < nb_frames; i++){
+
+    tab[i].x = (src->w / nb_frames) * i;
+    tab[i].y = (src->h / nb_lines) * (line-1);
+
+    tab[i].w = src->w / nb_frames;
+    tab[i].h = src->h / nb_lines;
+  }
+  return 0;
+}
+
+
+anim_portal_t * createPortalAnim(int nb_frames, SDL_Texture *color, SDL_Surface *dim, SDL_Surface *src){
+
+  anim_portal_t * new = malloc(sizeof(anim_portal_t));
+
+  new->nb_frames = nb_frames;
+  new->state = 1;
+  new->current_frame = 0;
+  new->color = color;
+
+  new->summon = malloc(sizeof(SDL_Rect));
+  new->idle = malloc(sizeof(SDL_Rect));
+  new->disappear = malloc(sizeof(SDL_Rect));
+
+  initFrames(new->summon, nb_frames, dim, 2, 3);
+  initFrames(new->idle, nb_frames, dim, 1, 3);
+  initFrames(new->disappear, nb_frames, dim, 3, 3);
+
+  return new;
+}
+
+
+int DestroyPortalAnim(anim_portal_t ** anim){
+
+  free((*anim)->summon);
+  free((*anim)->idle);
+  free((*anim)->disappear);
+  free(*anim);
+  anim = NULL;
+
+  return 0;
+}
+
 
 
 
@@ -123,27 +173,31 @@ int main(int argc, char *argv[])
 
   SDL_Window *window = creationFenetre();
   SDL_Renderer *renderer = creationRenderer(window);
-  SDL_Surface *img = IMG_Load("asset/GreenPortal.png");
-  SDL_Texture *img_tex = SDL_CreateTextureFromSurface(renderer, img);
+  SDL_Surface *green_portal = IMG_Load("asset/GreenPortal.png");
+  SDL_Surface *purple_portal = IMG_Load("asset/PurplePortal.png");
+  SDL_Texture *green_tex = SDL_CreateTextureFromSurface(renderer, green_portal);
+  SDL_Texture *purple_tex = SDL_CreateTextureFromSurface(renderer, purple_portal);
+
+  SDL_Texture *current;
+
 
   SDL_Rect portal_idle[8];
   SDL_Rect portal_spawn[8];
   SDL_Rect portal_unspawn[8];
-  SDL_Rect portal_size = {10,10,100,100};
+  SDL_Rect portal_size = {0,0,150,150};
 
   int nbf = 0;
-  int state = 1;
-
-  int *win_w = malloc(sizeof(int));
-  int *win_h = malloc(sizeof(int));
+  int state = 0;
   
+
+  frame_timer_t *main_timer = createTimer(1000 / 10);
 
   //renderDrawColor(renderer);
   //checkTTFLib(window, renderer);
 
   //TTF_Font *font = loadFont(window, renderer);
 
-  for(int i = 0; i < 8; i++){
+  /*for(int i = 0; i < 8; i++){
 
     portal_idle[i].x = 64 * i;
     portal_idle[i].y = 0;
@@ -162,80 +216,94 @@ int main(int argc, char *argv[])
 
     portal_unspawn[i].w = img->w / 8;
     portal_unspawn[i].h = img->h / 3;
-  }
+  }*/
+
+  initFrames(portal_spawn, 8, green_portal, 2, 3);
+  initFrames(portal_idle, 8, green_portal, 1, 3);
+  initFrames(portal_unspawn, 8, green_portal, 3, 3);
 
   while (1)
   {
     SDL_Event e;
 
-    // Gestion des évènements
-    /*while (SDL_PollEvent(&event))
-    {
-      handleEvent(&event);
-      //printf("c");
-    }*/
+    if(checkTime(main_timer)){
+      
 
-    if (SDL_PollEvent(&e)) {
-		if (e.type == SDL_QUIT) {
-			break;
-		}
-	}
+      // Gestion des évènements
+      /*while (SDL_PollEvent(&event))
+      {
+        handleEvent(&event);
+        //printf("c");
+      }*/
 
-  if(nbf > 7){
-    nbf = 0;
-    state++;
-    if(state > 3){
+      if (SDL_PollEvent(&e)) {
+		    if (e.type == SDL_QUIT) {
+			    break;
+		    }
+        else if(e.type == SDL_MOUSEBUTTONDOWN){
 
-      SDL_GetWindowSize(window, win_w, win_h);
+          if(e.button.clicks == 1 && (e.button.button == SDL_BUTTON_LEFT || e.button.button == SDL_BUTTON_RIGHT)){
 
-      state = 1;
-      portal_size.w = portal_size.h = (rand() % 500) + 50;
-      portal_size.x = rand() % (*win_w - portal_size.w);
-      portal_size.y = rand() % (*win_h - portal_size.w);
+            e.button.button == SDL_BUTTON_LEFT ? (current = green_tex) : (current = purple_tex);
+            portal_size.x = e.button.x - portal_size.h/2;
+            portal_size.y = e.button.y - portal_size.h/2;
+            state = 1;
+            nbf = 0;
+          }
+        }
+	    }
+
+    if(nbf > 7 && state != 0){
+      nbf = 0;
+      state++;
+      if(state > 3){
+        state = 0;
+      }
     }
-  }
 
 
-  SDL_RenderClear(renderer);
+    SDL_RenderClear(renderer);
 
 
-  switch (state)
-  {
-  case 1:
-    SDL_RenderCopy(renderer, img_tex, &portal_spawn[nbf], &portal_size);
-    break;
+    switch (state)
+    {
+    case 1:
+      SDL_RenderCopy(renderer, current, &portal_spawn[nbf], &portal_size);
+      break;
   
-  case 2:
-    SDL_RenderCopy(renderer, img_tex, &portal_idle[nbf], &portal_size);
-    break;
+    case 2:
+      SDL_RenderCopy(renderer, current, &portal_idle[nbf], &portal_size);
+      break;
   
-  case 3:
-    SDL_RenderCopy(renderer, img_tex, &portal_unspawn[nbf], &portal_size);
-    break;
+    case 3:
+      SDL_RenderCopy(renderer, current, &portal_unspawn[nbf], &portal_size);
+      break;
   
-  default:
-    break;
-  }
+    default:
+      break;
+    }
 
-	SDL_RenderPresent(renderer);
-  nbf++;
+	  SDL_RenderPresent(renderer);
+    nbf++;
 
-  SDL_Delay(100);
+    SDL_Delay(timeLeft(main_timer));
 
-    // Effacement de l'écran
-    //SDL_RenderClear(renderer);
+      // Effacement de l'écran
+      //SDL_RenderClear(renderer);
 
-    // Mise à jour de l'affichage
-    //SDL_RenderPresent(renderer);
+      // Mise à jour de l'affichage
+      //SDL_RenderPresent(renderer);
+    }
+    
   }
 
   //TTF_CloseFont(font);
-  SDL_FreeSurface(img);
-  SDL_DestroyTexture(img_tex);
+  SDL_FreeSurface(green_portal);
+  SDL_FreeSurface(purple_portal);
+  SDL_DestroyTexture(green_tex);
+  SDL_DestroyTexture(purple_tex);
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
-  free(win_h);
-  free(win_w);
   TTF_Quit();
   SDL_Quit();
 
