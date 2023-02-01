@@ -1,3 +1,12 @@
+/**
+ * @file socket.c
+ * @author Lucas Dureau
+ * @brief Enssemble de fonctions utilitaire pour l'utilisation des sockets
+ * @version 0.1
+ * @date 31/01/2023
+ *
+ */
+
 #ifdef WIN32
 
 #include <winsock2.h>
@@ -13,6 +22,13 @@
 #include <string.h>
 #include "socket.h"
 
+/**
+ * @brief Initialisation des sockets
+ *
+ * Windows à besoin de charger des bibliothèques pour les sockets
+ *
+ * @return **0** si tous se passe bien
+ */
 extern int initSocket()
 {
 #ifdef WIN32
@@ -26,6 +42,12 @@ extern int initSocket()
     return 0;
 }
 
+/**
+ * @brief Déinitialisation des sockets
+ *
+ * Windows à besoin de décharger les bibliothèques pour les sockets
+ *
+ */
 extern void endSocket()
 {
 #ifdef WIN32
@@ -35,6 +57,14 @@ extern void endSocket()
 #endif
 }
 
+/**
+ * @brief Détruit un paquet
+ *
+ * Utilitaire pour détruire un paquet retourné par le serveur ou le client
+ *
+ * @param packet une référence d'un pointeur sur un paquet
+ * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
+ */
 extern int deletePacket(packet_t **packet)
 {
     if (packet == NULL || *packet == NULL)
@@ -47,6 +77,15 @@ extern int deletePacket(packet_t **packet)
     return 0;
 }
 
+/**
+ * @brief Initialise l'adresse à partir du nom d'hôte et du port
+ *
+ * @param address
+ * @param address_length
+ * @param hostname
+ * @param port
+ * @return **0** si tous se passe bien, **-1** si elle n'arrive pas à convertir le nom d'hôte et le port en adresse
+ */
 extern int setupAddress(struct sockaddr_in *address, size_t address_length, char *hostname, uint16_t port)
 {
     memset(address, 0, address_length);

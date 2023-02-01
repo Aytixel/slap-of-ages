@@ -1,0 +1,160 @@
+\hypertarget{server__socket_8h}{}\doxysection{Référence du fichier src/server\+\_\+socket.h}
+\label{server__socket_8h}\index{src/server\_socket.h@{src/server\_socket.h}}
+
+
+Implémentation des prototypes de \mbox{\hyperlink{server__socket_8c}{server\+\_\+socket.\+c}}.  
+
+
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}socket.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structserver__t}{server\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Serveur socket. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Client serveur socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$ \mbox{\hyperlink{server__socket_8h_a23000340578844cb9a1cb94f2b5b4b36}{create\+Server}} (char $\ast$, uint16\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Créer un server. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$ \mbox{\hyperlink{server__socket_8h_adc16f382bf7eb3ec482138dba8b826ca}{accept\+Server\+Client}} (\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Vérifie si il y a des connexions à accepter, et les accepte. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{server__socket_8h_a910388186954673ecc867782657b6098}{send\+To\+Server\+Client}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$, \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Envoie un paquet au client. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{server__socket_8h_afaa291d6b1aaffd47edb1dc84baa96cf}{recv\+From\+Server\+Client}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Essaye de recevoir un paquet du client. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{server__socket_8h_ae883bd89b333aa0acde7f5d0e095baad}{delete\+Server\+Client}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Détruit un client serveur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{server__socket_8h_a33d2602b875f1070fe3085e98cacfd87}{delete\+Server}} (\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Détruit un seveur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des prototypes de \mbox{\hyperlink{server__socket_8c}{server\+\_\+socket.\+c}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+31/01/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{server__socket_8h_adc16f382bf7eb3ec482138dba8b826ca}\label{server__socket_8h_adc16f382bf7eb3ec482138dba8b826ca}} 
+\index{server\_socket.h@{server\_socket.h}!acceptServerClient@{acceptServerClient}}
+\index{acceptServerClient@{acceptServerClient}!server\_socket.h@{server\_socket.h}}
+\doxysubsubsection{\texorpdfstring{acceptServerClient()}{acceptServerClient()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}}$\ast$ accept\+Server\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$}]{server }\end{DoxyParamCaption})}
+
+
+
+Vérifie si il y a des connexions à accepter, et les accepte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em server} & serveur à utiliser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointeur sur un {\bfseries{client serveur}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{server__socket_8h_a23000340578844cb9a1cb94f2b5b4b36}\label{server__socket_8h_a23000340578844cb9a1cb94f2b5b4b36}} 
+\index{server\_socket.h@{server\_socket.h}!createServer@{createServer}}
+\index{createServer@{createServer}!server\_socket.h@{server\_socket.h}}
+\doxysubsubsection{\texorpdfstring{createServer()}{createServer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structserver__t}{server\+\_\+t}}$\ast$ create\+Server (\begin{DoxyParamCaption}\item[{char $\ast$}]{hostname,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+
+
+Créer un server. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em hostname} & nom d\textquotesingle{}hôte à écouter \\
+\hline
+{\em port} & port à écouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur un {\bfseries{server}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{server__socket_8h_a33d2602b875f1070fe3085e98cacfd87}\label{server__socket_8h_a33d2602b875f1070fe3085e98cacfd87}} 
+\index{server\_socket.h@{server\_socket.h}!deleteServer@{deleteServer}}
+\index{deleteServer@{deleteServer}!server\_socket.h@{server\_socket.h}}
+\doxysubsubsection{\texorpdfstring{deleteServer()}{deleteServer()}}
+{\footnotesize\ttfamily int delete\+Server (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$$\ast$}]{server }\end{DoxyParamCaption})}
+
+
+
+Détruit un seveur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em server} & une référence d\textquotesingle{}un pointeur sur un serveur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{server__socket_8h_ae883bd89b333aa0acde7f5d0e095baad}\label{server__socket_8h_ae883bd89b333aa0acde7f5d0e095baad}} 
+\index{server\_socket.h@{server\_socket.h}!deleteServerClient@{deleteServerClient}}
+\index{deleteServerClient@{deleteServerClient}!server\_socket.h@{server\_socket.h}}
+\doxysubsubsection{\texorpdfstring{deleteServerClient()}{deleteServerClient()}}
+{\footnotesize\ttfamily int delete\+Server\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$$\ast$}]{client }\end{DoxyParamCaption})}
+
+
+
+Détruit un client serveur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em client} & une référence d\textquotesingle{}un pointeur sur un client serveur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{server__socket_8h_afaa291d6b1aaffd47edb1dc84baa96cf}\label{server__socket_8h_afaa291d6b1aaffd47edb1dc84baa96cf}} 
+\index{server\_socket.h@{server\_socket.h}!recvFromServerClient@{recvFromServerClient}}
+\index{recvFromServerClient@{recvFromServerClient}!server\_socket.h@{server\_socket.h}}
+\doxysubsubsection{\texorpdfstring{recvFromServerClient()}{recvFromServerClient()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ recv\+From\+Server\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$}]{client }\end{DoxyParamCaption})}
+
+
+
+Essaye de recevoir un paquet du client. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em client} & client serveur à utiliser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointeur sur un {\bfseries{paquet}}, et si la réception n\textquotesingle{}est pas terminé, ou rien n\textquotesingle{}a été envoyer renvoie {\bfseries{null}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{server__socket_8h_a910388186954673ecc867782657b6098}\label{server__socket_8h_a910388186954673ecc867782657b6098}} 
+\index{server\_socket.h@{server\_socket.h}!sendToServerClient@{sendToServerClient}}
+\index{sendToServerClient@{sendToServerClient}!server\_socket.h@{server\_socket.h}}
+\doxysubsubsection{\texorpdfstring{sendToServerClient()}{sendToServerClient()}}
+{\footnotesize\ttfamily int send\+To\+Server\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet }\end{DoxyParamCaption})}
+
+
+
+Envoie un paquet au client. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em client} & client serveur à utiliser \\
+\hline
+{\em packet} & paquet à envoyer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si il y a un problème durant l\textquotesingle{}envoie 
+\end{DoxyReturn}

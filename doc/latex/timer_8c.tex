@@ -1,0 +1,110 @@
+\hypertarget{timer_8c}{}\doxysection{Référence du fichier src/timer.c}
+\label{timer_8c}\index{src/timer.c@{src/timer.c}}
+
+
+Timer permettant l\textquotesingle{}éxécution de code à intervalle régulier.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$ \mbox{\hyperlink{timer_8c_a4571f6f39ab7b9ee851ea2cf1edeea60}{create\+Timer}} (time\+\_\+t interval)
+\begin{DoxyCompactList}\small\item\em Créer un timer. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{timer_8c_a9dee6b2101c6ecee96b7891920ee6aa6}{time\+Left}} (\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Donne le temps restant avant la fin de l\textquotesingle{}intervalle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{timer_8c_a3c122eff4b27971cd4a5dc294ef81b1d}{check\+Time}} (\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Vérifie si le code doit être éxécuter et reset le timer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{timer_8c_a6efd58959ff5fc9a124c31c98178dc25}{delete\+Timer}} (\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$$\ast$timer)
+\begin{DoxyCompactList}\small\item\em Détruit un timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Timer permettant l\textquotesingle{}éxécution de code à intervalle régulier. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+31/01/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{timer_8c_a3c122eff4b27971cd4a5dc294ef81b1d}\label{timer_8c_a3c122eff4b27971cd4a5dc294ef81b1d}} 
+\index{timer.c@{timer.c}!checkTime@{checkTime}}
+\index{checkTime@{checkTime}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{checkTime()}{checkTime()}}
+{\footnotesize\ttfamily int check\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$}]{timer }\end{DoxyParamCaption})}
+
+
+
+Vérifie si le code doit être éxécuter et reset le timer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em timer} & un pointeur sur un timer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{1 ou 0}} en fonction de si on peut éxécuter le code ou non ({\itshape -\/1 si on lui passe un pointeur null en entrée}) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_a4571f6f39ab7b9ee851ea2cf1edeea60}\label{timer_8c_a4571f6f39ab7b9ee851ea2cf1edeea60}} 
+\index{timer.c@{timer.c}!createTimer@{createTimer}}
+\index{createTimer@{createTimer}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{createTimer()}{createTimer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}}$\ast$ create\+Timer (\begin{DoxyParamCaption}\item[{time\+\_\+t}]{interval }\end{DoxyParamCaption})}
+
+
+
+Créer un timer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em interval} & en milliseconde \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un pointer sur un {\bfseries{timer}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_a6efd58959ff5fc9a124c31c98178dc25}\label{timer_8c_a6efd58959ff5fc9a124c31c98178dc25}} 
+\index{timer.c@{timer.c}!deleteTimer@{deleteTimer}}
+\index{deleteTimer@{deleteTimer}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{deleteTimer()}{deleteTimer()}}
+{\footnotesize\ttfamily int delete\+Timer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$$\ast$}]{timer }\end{DoxyParamCaption})}
+
+
+
+Détruit un timer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em timer} & une référence d\textquotesingle{}un pointeur sur un timer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_a9dee6b2101c6ecee96b7891920ee6aa6}\label{timer_8c_a9dee6b2101c6ecee96b7891920ee6aa6}} 
+\index{timer.c@{timer.c}!timeLeft@{timeLeft}}
+\index{timeLeft@{timeLeft}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timeLeft()}{timeLeft()}}
+{\footnotesize\ttfamily long time\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$}]{timer }\end{DoxyParamCaption})}
+
+
+
+Donne le temps restant avant la fin de l\textquotesingle{}intervalle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em timer} & un pointeur sur un timer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un {\itshape long} représentant le temps avant la fin de l\textquotesingle{}intervalle {\bfseries{en milliseconde}} ({\itshape 0 si on lui passe un pointeur null en entrée}) 
+\end{DoxyReturn}
