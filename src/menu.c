@@ -103,6 +103,7 @@ SDL_Point getMousePosition()
 {
   int mouseX, mouseY;
   SDL_GetMouseState(&mouseX, &mouseY);
+  printf("Mouse position : (%d, %d)\n", mouseX, mouseY);
   return (SDL_Point){mouseX, mouseY};
 }
 
@@ -178,8 +179,8 @@ int menu(int argc, char **argv)
   // Boucle principale
   while (1)
   {
-    if (checkTime(main_timer))
-    {
+    //if (checkTime(main_timer))
+    //{
       SDL_Event event;
 
       // Gestion des évènements
@@ -275,6 +276,7 @@ int menu(int argc, char **argv)
           buttonSurface2 = TTF_RenderText_Solid(font, "QUITTER", color);
           buttonTexture2 = SDL_CreateTextureFromSurface(renderer, buttonSurface2);
         }
+        
 
         // Effacement de l'écran
         SDL_RenderClear(renderer);
@@ -291,8 +293,8 @@ int menu(int argc, char **argv)
         SDL_RenderPresent(renderer);
       }
 
-      SDL_Delay(timeLeft(main_timer));
-    }
+      //SDL_Delay(timeLeft(main_timer));
+    //}
   }
 
   // Libération de la mémoire
