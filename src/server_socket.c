@@ -1,3 +1,12 @@
+/**
+ * @file server_socket.c
+ * @author Lucas Dureau
+ * @brief Serveur socket simple permettant l'échange de paquet de manière non bloquante
+ * @version 0.1
+ * @date 31/01/2023
+ *
+ */
+
 #ifdef WIN32
 
 #include <winsock2.h>
@@ -19,6 +28,13 @@
 #include "socket.h"
 #include "server_socket.h"
 
+/**
+ * @brief Créer un server
+ *
+ * @param hostname nom d'hôte à écouter
+ * @param port port à écouter
+ * @return un pointer sur un **server**
+ */
 extern server_t *createServer(char *hostname, uint16_t port)
 {
     server_t *server = malloc(sizeof(server_t));
@@ -39,12 +55,12 @@ extern server_t *createServer(char *hostname, uint16_t port)
         return NULL;
     }
 
-    // tell the socket to reuse address
+    // dit au socket qu'il peut réutiliser la même adresse
     int optval = 1;
 
     setsockopt(server->socket_fd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
 
-    // set the socket to non blocking
+    // définit le socket comme non bloquant
 #ifdef WIN32
     u_long mode = 1;
 
@@ -59,6 +75,12 @@ extern server_t *createServer(char *hostname, uint16_t port)
     return server;
 }
 
+/**
+ * @brief Vérifie si il y a des connexions à accepter, et les accepte
+ *
+ * @param server serveur à utiliser
+ * @return un pointeur sur un **client serveur**
+ */
 extern server_client_t *acceptServerClient(server_t *server)
 {
     if (server == NULL)
@@ -76,8 +98,9 @@ extern server_client_t *acceptServerClient(server_t *server)
     }
 
     client->packet_buffer = NULL;
+    client->recv_length = -1;
 
-    // set the socket to non blocking
+    // définit le socket comme non bloquant
 #ifdef WIN32
     u_long mode = 1;
 
@@ -89,6 +112,13 @@ extern server_client_t *acceptServerClient(server_t *server)
     return client;
 }
 
+/**
+ * @brief Envoie un paquet au client
+ *
+ * @param client client serveur à utiliser
+ * @param packet paquet à envoyer
+ * @return **0** si tous se passe bien, **-1** si il y a un problème durant l'envoie
+ */
 extern int sendToServerClient(server_client_t *client, packet_t *packet)
 {
     if (send(client->socket_fd, (char *)&packet->data_length, sizeof(packet->data_length), 0) == -1)
@@ -101,9 +131,15 @@ extern int sendToServerClient(server_client_t *client, packet_t *packet)
     return 0;
 }
 
+/**
+ * @brief Essaye de recevoir un paquet du client
+ *
+ * @param client client serveur à utiliser
+ * @return un pointeur sur un **paquet**, et si la réception n'est pas terminé, ou rien n'a été envoyer renvoie **null**
+ */
 extern packet_t *recvFromServerClient(server_client_t *client)
 {
-    // new packet setup
+    // création d'un nouveau paquet
     if (client->packet_buffer == NULL)
     {
         size_t data_length = 0;
@@ -118,7 +154,7 @@ extern packet_t *recvFromServerClient(server_client_t *client)
         client->packet_buffer->data = malloc(data_length);
     }
 
-    // get packet id
+    // récupération de l'id du paquet
     if (client->recv_length == -1)
     {
         uint8_t id = 0;
@@ -130,7 +166,7 @@ extern packet_t *recvFromServerClient(server_client_t *client)
         client->packet_buffer->id = id;
     }
 
-    // get packet data part
+    // récupération des données du paquet
     if (client->recv_length < client->packet_buffer->data_length)
     {
         ssize_t recv_length = recv(client->socket_fd, client->packet_buffer->data + client->recv_length, client->packet_buffer->data_length - client->recv_length, 0);
@@ -142,7 +178,7 @@ extern packet_t *recvFromServerClient(server_client_t *client)
             return NULL;
     }
 
-    // return completed packet
+    // retour du paquet compléter
     packet_t *packet = client->packet_buffer;
 
     client->packet_buffer = NULL;
@@ -150,6 +186,12 @@ extern packet_t *recvFromServerClient(server_client_t *client)
     return packet;
 }
 
+/**
+ * @brief Détruit un client serveur
+ *
+ * @param client une référence d'un pointeur sur un client serveur
+ * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
+ */
 extern int deleteServerClient(server_client_t **client)
 {
     if (client == NULL || *client == NULL)
@@ -167,6 +209,12 @@ extern int deleteServerClient(server_client_t **client)
     return 0;
 }
 
+/**
+ * @brief Détruit un seveur
+ *
+ * @param server une référence d'un pointeur sur un serveur
+ * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
+ */
 extern int deleteServer(server_t **server)
 {
     if (server == NULL || *server == NULL)

@@ -1,3 +1,12 @@
+/**
+ * @file server_socket.h
+ * @author Lucas Dureau
+ * @brief Implémentation des prototypes de server_socket.c
+ * @version 0.1
+ * @date 31/01/2023
+ *
+ */
+
 #ifndef __SERVER_SOCKET_H
 #define __SERVER_SOCKET_H
 
@@ -15,20 +24,28 @@ typedef struct SOCKADDR_IN sockaddr_in;
 
 #include "socket.h"
 
+/**
+ * @brief Serveur socket
+ *
+ */
 typedef struct
 {
-    unsigned int address_length;
-    struct sockaddr_in address;
-    int socket_fd;
+    unsigned int address_length; /**< longueur de l'adresse serveur*/
+    struct sockaddr_in address;  /**< adresse du serveur*/
+    int socket_fd;               /**< descipteur du socket serveur*/
 } server_t;
 
+/**
+ * @brief Client serveur socket
+ *
+ */
 typedef struct
 {
-    unsigned int address_length;
-    struct sockaddr_in address;
-    int socket_fd;
-    ssize_t recv_length;
-    packet_t *packet_buffer;
+    unsigned int address_length; /**< longueur de l'adresse client*/
+    struct sockaddr_in address;  /**< adresse du client*/
+    int socket_fd;               /**< descipteur du socket client*/
+    ssize_t recv_length;         /**< longueur des données reçues*/
+    packet_t *packet_buffer;     /**< buffer de paquet*/
 } server_client_t;
 
 extern server_t *createServer(char *, uint16_t);
