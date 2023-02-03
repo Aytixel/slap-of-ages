@@ -74,7 +74,8 @@ $(function() {
 
 <p>Timer permettant l'éxécution de code à intervalle régulier.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="timer_8h_source.html">timer.h</a>&quot;</code><br />
 </div><table class="memberdecls">
@@ -92,6 +93,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a6efd58959ff5fc9a124c31c98178dc25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8c.html#a6efd58959ff5fc9a124c31c98178dc25">deleteTimer</a> (<a class="el" href="structframe__timer__t.html">frame_timer_t</a> **timer)</td></tr>
 <tr class="memdesc:a6efd58959ff5fc9a124c31c98178dc25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un timer.  <a href="timer_8c.html#a6efd58959ff5fc9a124c31c98178dc25">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a6efd58959ff5fc9a124c31c98178dc25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a21ec195b342510ccf1f5f2fdce20d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8c.html#a4a21ec195b342510ccf1f5f2fdce20d8">sleepMs</a> (time_t time)</td></tr>
+<tr class="memdesc:a4a21ec195b342510ccf1f5f2fdce20d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attend le nombre de milliseconde spécifié  <a href="timer_8c.html#a4a21ec195b342510ccf1f5f2fdce20d8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4a21ec195b342510ccf1f5f2fdce20d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Timer permettant l'éxécution de code à intervalle régulier. </p>
@@ -177,6 +181,32 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="a4a21ec195b342510ccf1f5f2fdce20d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a21ec195b342510ccf1f5f2fdce20d8">&#9670;&nbsp;</a></span>sleepMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sleepMs </td>
+          <td>(</td>
+          <td class="paramtype">time_t&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Attend le nombre de milliseconde spécifié </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>temps en milliseconde </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

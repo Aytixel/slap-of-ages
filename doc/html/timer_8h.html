@@ -99,6 +99,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a2d4f601ba35467b45d3ebf772b86daf3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#a2d4f601ba35467b45d3ebf772b86daf3">deleteTimer</a> (<a class="el" href="structframe__timer__t.html">frame_timer_t</a> **)</td></tr>
 <tr class="memdesc:a2d4f601ba35467b45d3ebf772b86daf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un timer.  <a href="timer_8h.html#a2d4f601ba35467b45d3ebf772b86daf3">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a2d4f601ba35467b45d3ebf772b86daf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a682011160c4888771aa479a5f9e7b0de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#a682011160c4888771aa479a5f9e7b0de">sleepMs</a> (time_t)</td></tr>
+<tr class="memdesc:a682011160c4888771aa479a5f9e7b0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attend le nombre de milliseconde spécifié  <a href="timer_8h.html#a682011160c4888771aa479a5f9e7b0de">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a682011160c4888771aa479a5f9e7b0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Implémentation des prototypes de <a class="el" href="timer_8c.html" title="Timer permettant l&#39;éxécution de code à intervalle régulier.">timer.c</a>. </p>
@@ -184,6 +187,32 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="a682011160c4888771aa479a5f9e7b0de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a682011160c4888771aa479a5f9e7b0de">&#9670;&nbsp;</a></span>sleepMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sleepMs </td>
+          <td>(</td>
+          <td class="paramtype">time_t&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Attend le nombre de milliseconde spécifié </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>temps en milliseconde </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

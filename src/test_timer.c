@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <unistd.h>
-#include <time.h>
 #include <assert.h>
 #include "timer.h"
 
@@ -19,7 +17,7 @@ int main()
     printf("\tTest du timer, avant OK\n");
 
     printf("\nAttend 1 seconde\n");
-    sleep(1);
+    sleepMs(1000);
 
     assert(timeLeft(timer) < 0);
     printf("\n\tTemps restant, après OK\n");

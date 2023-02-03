@@ -31,4 +31,6 @@ extern int checkTime(frame_timer_t *);
 
 extern int deleteTimer(frame_timer_t **);
 
+extern void sleepMs(time_t);
+
 #endif

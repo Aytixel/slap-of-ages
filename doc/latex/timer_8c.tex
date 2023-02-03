@@ -5,6 +5,7 @@
 Timer permettant l\textquotesingle{}éxécution de code à intervalle régulier.  
 
 
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$time.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
@@ -18,7 +19,9 @@ long \mbox{\hyperlink{timer_8c_a9dee6b2101c6ecee96b7891920ee6aa6}{time\+Left}} (
 int \mbox{\hyperlink{timer_8c_a3c122eff4b27971cd4a5dc294ef81b1d}{check\+Time}} (\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$timer)
 \begin{DoxyCompactList}\small\item\em Vérifie si le code doit être éxécuter et reset le timer. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{timer_8c_a6efd58959ff5fc9a124c31c98178dc25}{delete\+Timer}} (\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$$\ast$timer)
-\begin{DoxyCompactList}\small\item\em Détruit un timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Détruit un timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{timer_8c_a4a21ec195b342510ccf1f5f2fdce20d8}{sleep\+Ms}} (time\+\_\+t time)
+\begin{DoxyCompactList}\small\item\em Attend le nombre de milliseconde spécifié \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -90,6 +93,21 @@ Détruit un timer.
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
 \end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_a4a21ec195b342510ccf1f5f2fdce20d8}\label{timer_8c_a4a21ec195b342510ccf1f5f2fdce20d8}} 
+\index{timer.c@{timer.c}!sleepMs@{sleepMs}}
+\index{sleepMs@{sleepMs}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{sleepMs()}{sleepMs()}}
+{\footnotesize\ttfamily void sleep\+Ms (\begin{DoxyParamCaption}\item[{time\+\_\+t}]{time }\end{DoxyParamCaption})}
+
+
+
+Attend le nombre de milliseconde spécifié 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em time} & temps en milliseconde \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{timer_8c_a9dee6b2101c6ecee96b7891920ee6aa6}\label{timer_8c_a9dee6b2101c6ecee96b7891920ee6aa6}} 
 \index{timer.c@{timer.c}!timeLeft@{timeLeft}}
 \index{timeLeft@{timeLeft}!timer.c@{timer.c}}

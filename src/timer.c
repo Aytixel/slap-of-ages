@@ -7,6 +7,16 @@
  *
  */
 
+#ifdef WIN32
+
+#include <windows.h>
+
+#else
+
+#include <unistd.h>
+
+#endif
+
 #include <stdlib.h>
 #include <time.h>
 #include "timer.h"
@@ -90,4 +100,21 @@ extern int deleteTimer(frame_timer_t **timer)
     *timer = NULL;
 
     return 0;
+}
+
+/**
+ * @brief Attend le nombre de milliseconde spécifié
+ *
+ * @param time temps en milliseconde
+ */
+extern void sleepMs(time_t time)
+{
+    if (time > 0)
+    {
+#ifdef WIN32
+        Sleep(time);
+#else
+        usleep(time * 1000);
+#endif
+    }
 }
