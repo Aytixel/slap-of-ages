@@ -1,4 +1,4 @@
-TARGET=main test_timer test_socket
+TARGET=main_client main_server test_timer test_socket
 
 ifeq ($(OS), Windows_NT)
 
