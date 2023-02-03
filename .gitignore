@@ -3,6 +3,6 @@ bin/*
 obj/*
 lib/linux/*
 include/linux/*
-SDL*/*
+SDL*/
 
 !.gitkeep
