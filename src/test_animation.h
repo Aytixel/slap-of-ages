@@ -1,15 +1,22 @@
 
+typedef enum
+{
+    IDLE,
+    SPAWN,
+    DESPAWN
 
-typedef struct{
+} portal_e;
 
-    int nb_frames;
+typedef struct
+{
 
-    SDL_Rect *summon;
-    SDL_Rect *idle;
-    SDL_Rect *disappear;
+    int *state_frame_count;
+    int state_count;
 
-    SDL_Texture *color;
+    SDL_Rect **anims;
 
-    int state;
+    SDL_Texture *sprite;
+
+    int current_state;
     int current_frame;
-}anim_portal_t;
+} anim_t;

@@ -10,8 +10,6 @@
 const int WINDOW_WIDTH = 640;
 const int WINDOW_HEIGHT = 480;
 
-
-
 // Fonction de gestion des évènements
 void handleEvent(SDL_Event *event)
 {
@@ -97,16 +95,17 @@ TTF_Font *loadFont(SDL_Window *window, SDL_Renderer *renderer)
     return NULL;
   }
 
-return font;
+  return font;
 }
 
+int initFrames(SDL_Rect *tab, int nb_frames, SDL_Surface *src, int line, int nb_lines)
+{
 
-int initFrames(SDL_Rect *tab, int nb_frames, SDL_Surface *src, int line, int nb_lines){
-
-  for(int i = 0; i < nb_frames; i++){
+  for (int i = 0; i < nb_frames; i++)
+  {
 
     tab[i].x = (src->w / nb_frames) * i;
-    tab[i].y = (src->h / nb_lines) * (line-1);
+    tab[i].y = (src->h / nb_lines) * (line - 1);
 
     tab[i].w = src->w / nb_frames;
     tab[i].h = src->h / nb_lines;
@@ -114,57 +113,61 @@ int initFrames(SDL_Rect *tab, int nb_frames, SDL_Surface *src, int line, int nb_
   return 0;
 }
 
+anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, SDL_Texture *sprite, SDL_Surface *dim, SDL_Surface *src)
+{
 
-anim_portal_t * createPortalAnim(int nb_frames, SDL_Texture *color, SDL_Surface *dim, SDL_Surface *src){
+  anim_t *new = malloc(sizeof(anim_t));
 
-  anim_portal_t * new = malloc(sizeof(anim_portal_t));
+  new->state_frame_count = malloc(sizeof(int) * state_count);
 
-  new->nb_frames = nb_frames;
-  new->state = 1;
+  for (int i = 0; i < state_count; i++)
+  {
+
+    new->state_frame_count[i] = state_frame_count[i];
+  }
+
+  new->state_count = state_count;
   new->current_frame = 0;
-  new->color = color;
+  new->sprite = sprite;
 
-  new->summon = malloc(sizeof(SDL_Rect));
-  new->idle = malloc(sizeof(SDL_Rect));
-  new->disappear = malloc(sizeof(SDL_Rect));
+  new->anims = malloc(sizeof(SDL_Rect *) * state_count);
 
-  initFrames(new->summon, nb_frames, dim, 2, 3);
-  initFrames(new->idle, nb_frames, dim, 1, 3);
-  initFrames(new->disappear, nb_frames, dim, 3, 3);
+  for (int i = 0; i < state_count; i++)
+  {
+
+    new->anims[i] = malloc(sizeof(SDL_Rect) * max_frames);
+    initFrames(new->anims[i], max_frames, dim, i, state_count);
+  }
 
   return new;
 }
 
+int destroyAnim(anim_t **anim)
+{
+  free((*anim)->state_frame_count);
 
-int DestroyPortalAnim(anim_portal_t ** anim){
+  for (int i = 0; i < (*anim)->state_count; i++)
+  {
+    free((*anim)->anims[i]);
+  }
 
-  free((*anim)->summon);
-  free((*anim)->idle);
-  free((*anim)->disappear);
+  free((*anim)->anims);
   free(*anim);
   anim = NULL;
 
   return 0;
 }
 
+void updateAnim(anim_t *anim)
+{
 
+  anim->current_frame++;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  if (anim->current_frame > anim->state_frame_count[anim->current_state])
+  {
+    anim->current_frame = 0;
+  }
+}
 
 int main(int argc, char *argv[])
 {
@@ -180,22 +183,20 @@ int main(int argc, char *argv[])
 
   SDL_Texture *current;
 
-
   SDL_Rect portal_idle[8];
   SDL_Rect portal_spawn[8];
   SDL_Rect portal_unspawn[8];
-  SDL_Rect portal_size = {0,0,150,150};
+  SDL_Rect portal_size = {0, 0, 150, 150};
 
   int nbf = 0;
   int state = 0;
-  
 
   frame_timer_t *main_timer = createTimer(1000 / 10);
 
-  //renderDrawColor(renderer);
-  //checkTTFLib(window, renderer);
+  // renderDrawColor(renderer);
+  // checkTTFLib(window, renderer);
 
-  //TTF_Font *font = loadFont(window, renderer);
+  // TTF_Font *font = loadFont(window, renderer);
 
   /*for(int i = 0; i < 8; i++){
 
@@ -226,8 +227,8 @@ int main(int argc, char *argv[])
   {
     SDL_Event e;
 
-    if(checkTime(main_timer)){
-      
+    if (checkTime(main_timer))
+    {
 
       // Gestion des évènements
       /*while (SDL_PollEvent(&event))
@@ -236,68 +237,71 @@ int main(int argc, char *argv[])
         //printf("c");
       }*/
 
-      if (SDL_PollEvent(&e)) {
-		    if (e.type == SDL_QUIT) {
-			    break;
-		    }
-        else if(e.type == SDL_MOUSEBUTTONDOWN){
+      if (SDL_PollEvent(&e))
+      {
+        if (e.type == SDL_QUIT)
+        {
+          break;
+        }
+        else if (e.type == SDL_MOUSEBUTTONDOWN)
+        {
 
-          if(e.button.clicks == 1 && (e.button.button == SDL_BUTTON_LEFT || e.button.button == SDL_BUTTON_RIGHT)){
+          if (e.button.clicks == 1 && (e.button.button == SDL_BUTTON_LEFT || e.button.button == SDL_BUTTON_RIGHT))
+          {
 
             e.button.button == SDL_BUTTON_LEFT ? (current = green_tex) : (current = purple_tex);
-            portal_size.x = e.button.x - portal_size.h/2;
-            portal_size.y = e.button.y - portal_size.h/2;
+            portal_size.x = e.button.x - portal_size.h / 2;
+            portal_size.y = e.button.y - portal_size.h / 2;
             state = 1;
             nbf = 0;
           }
         }
-	    }
-
-    if(nbf > 7 && state != 0){
-      nbf = 0;
-      state++;
-      if(state > 3){
-        state = 0;
       }
-    }
 
+      if (nbf > 7 && state != 0)
+      {
+        nbf = 0;
+        state++;
+        if (state > 3)
+        {
+          state = 0;
+        }
+      }
 
-    SDL_RenderClear(renderer);
+      SDL_RenderClear(renderer);
 
+      switch (state)
+      {
+      case 1:
+        SDL_RenderCopy(renderer, current, &portal_spawn[nbf], &portal_size);
+        break;
 
-    switch (state)
-    {
-    case 1:
-      SDL_RenderCopy(renderer, current, &portal_spawn[nbf], &portal_size);
-      break;
-  
-    case 2:
-      SDL_RenderCopy(renderer, current, &portal_idle[nbf], &portal_size);
-      break;
-  
-    case 3:
-      SDL_RenderCopy(renderer, current, &portal_unspawn[nbf], &portal_size);
-      break;
-  
-    default:
-      break;
-    }
+      case 2:
+        SDL_RenderCopy(renderer, current, &portal_idle[nbf], &portal_size);
+        break;
 
-	  SDL_RenderPresent(renderer);
-    nbf++;
+      case 3:
+        SDL_RenderCopy(renderer, current, &portal_unspawn[nbf], &portal_size);
+        break;
 
-    SDL_Delay(timeLeft(main_timer));
+      default:
+        break;
+      }
+
+      SDL_RenderPresent(renderer);
+      nbf++;
+
+      SDL_Delay(timeLeft(main_timer));
 
       // Effacement de l'écran
-      //SDL_RenderClear(renderer);
+      // SDL_RenderClear(renderer);
 
       // Mise à jour de l'affichage
-      //SDL_RenderPresent(renderer);
+      // SDL_RenderPresent(renderer);
     }
-    
   }
 
-  //TTF_CloseFont(font);
+  // TTF_CloseFont(font);
   SDL_FreeSurface(green_portal);
   SDL_FreeSurface(purple_portal);
   SDL_DestroyTexture(green_tex);
