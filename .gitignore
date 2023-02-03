@@ -1,4 +1,8 @@
+.vscode/*
 bin/*
 obj/*
+lib/linux/*
+include/linux/*
+SDL*/*
 
 !.gitkeep
