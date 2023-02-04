@@ -6,6 +6,20 @@
 
 int main(int argc, char **argv) 
 {
-    menu(argc, argv);
+    int i;
+    printf("Marqué 1 pour le menu principal, 2 pour le menu multi-joueur: ");
+    scanf("%d", &i);
+    if(i == 1)
+    {
+        menu_principal(argc, argv);
+    }
+    else if(i == 2)
+    {
+        menu_multi(argc, argv);
+    }
+    else
+    {
+        printf("Erreur, veuillez réessayer");
+    }
     return 1;
 }
