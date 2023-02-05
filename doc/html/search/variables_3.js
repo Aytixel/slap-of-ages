@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['id_80',['id',['../structpacket__t.html#a71251cbc5bba8c3f0be835b1bd9fe107',1,'packet_t']]],
-  ['interval_81',['interval',['../structframe__timer__t.html#a110868dbf0c237ccb836277240ba8bcb',1,'frame_timer_t']]]
+  ['frame_5fper_5fsecond_102',['frame_per_second',['../structframe__timer__t.html#aee7c54f6889abd981bc7fabd87dcf36c',1,'frame_timer_t']]]
 ];

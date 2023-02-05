@@ -17,11 +17,11 @@ Client socket simple permettant l\textquotesingle{}échange de paquet de manièr
 \item 
 \mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$ \mbox{\hyperlink{client__socket_8c_a2a9f51039d23f3acdbba20956d7d3fd7}{create\+Client}} (char $\ast$hostname, uint16\+\_\+t port)
 \begin{DoxyCompactList}\small\item\em Créer un client. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{client__socket_8c_a92069b2c0e12755446d1e8d9dba8359f}{send\+To\+Server}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$client, \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet)
+int \mbox{\hyperlink{client__socket_8c_a92069b2c0e12755446d1e8d9dba8359f}{send\+To\+Server}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet)
 \begin{DoxyCompactList}\small\item\em Envoie un paquet au server. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{client__socket_8c_a8810d7842db652c20ad3c6f8329de8e0}{recv\+From\+Server}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$client)
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{client__socket_8c_a8810d7842db652c20ad3c6f8329de8e0}{recv\+From\+Server}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
 \begin{DoxyCompactList}\small\item\em Essaye de recevoir un paquet du serveur. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{client__socket_8c_a0b2b235ea1ce623a7bbf6fb106679681}{delete\+Client}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$$\ast$client)
+int \mbox{\hyperlink{client__socket_8c_a0b2b235ea1ce623a7bbf6fb106679681}{delete\+Client}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$$\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
 \begin{DoxyCompactList}\small\item\em Détruit un client. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
