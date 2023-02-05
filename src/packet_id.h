@@ -16,8 +16,7 @@
  */
 typedef enum
 {
-    PACKET_ID_HANDSHAKE,        /**< poigné de main*/
-    PACKET_ID_CONNECTION_CLOSE, /**< connexion fermé*/
+    HANDSHAKE_PACKET_ID, /**< poigné de main*/
 } packet_id_e;
 
 #endif
