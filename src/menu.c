@@ -211,6 +211,12 @@ int menu_multi(int argc, char **argv){
               strcat(inputText, event.text.text);
               printf("Texte saisi : %s", inputText);
               break;
+            case SDL_KEYDOWN:
+              if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputText) > 0)
+              {
+                inputText[strlen(inputText) - 1] = '\0';
+              }
+              break;
           }
 
           // Rendre le texte à partir de la surface
