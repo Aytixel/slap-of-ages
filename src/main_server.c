@@ -22,15 +22,11 @@ int get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port)
             strcpy(*hostname, argv[i]);
         }
         else if (*port == 0 && (strcmp(argv[i], "-p") == 0 || strcmp(argv[i], "--port") == 0) && ++i < argc)
-        {
             *port = atoi(argv[i]);
-        }
     }
 
     if (*hostname == NULL)
-    {
         return -1;
-    }
     if (*port == 0)
     {
         free(*hostname);

@@ -33,9 +33,7 @@ int initClientConnection(char *hostname, uint16_t port)
         client = createClient(hostname, port);
 
         if (client == NULL)
-        {
             return -1;
-        }
 
         handshake_data = rand();
 
@@ -62,20 +60,14 @@ int initClientConnection(char *hostname, uint16_t port)
 int waitServerHandshake()
 {
     if (client_connection_state == CLIENT_WAITING_INFO)
-    {
         return 0; // tant que la poignée de main n'est pas effectuée
-    }
     if (client_connection_state == CLIENT_CONNECTED)
-    {
         return 1; // si la poignée de main est réussie
-    }
 
     packet_t *packet = recvFromServer(client);
 
     if (packet == NULL)
-    {
         return 0; // tant que la poignée de main n'est pas effectuée
-    }
 
     if (packet->id == HANDSHAKE_PACKET_ID && sizeof(handshake_data) == packet->data_length && memcmp(&handshake_data, packet->data, sizeof(handshake_data)) == 0)
     {
@@ -102,9 +94,7 @@ int waitServerHandshake()
 int closeClientConnection()
 {
     if (client_connection_state == CLIENT_CONNECTED || client_connection_state == CLIENT_WAITING_INFO)
-    {
         return 0;
-    }
 
     return deleteClient(&client);
 }

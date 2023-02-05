@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     {
         if (checkTime(main_timer))
         {
-            // gestion de quel chose faire en fonction de l'état de la connexion
+            // gestion de quelle chose faire en fonction de l'état de la connexion
             switch (client_connection_state)
             {
             case CLIENT_WAITING_INFO:
@@ -46,9 +46,7 @@ int main(int argc, char *argv[])
                 break;
             case CLIENT_WAITING_HANDSHAKE:
                 if (waitServerHandshake() == -1)
-                {
                     printf("Connexion impossible réessayer.\n");
-                }
                 break;
             case CLIENT_CONNECTED:
                 printf("Client\n");
