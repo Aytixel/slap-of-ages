@@ -97,7 +97,7 @@ extern int isServerDown(client_t *client)
     pollfd.events = POLLIN | POLLHUP;
     pollfd.revents = 0;
 
-    if (poll(&pollfd, 1, 100) > 0)
+    if (poll(&pollfd, 1, 0) > 0)
     {
         char buffer[8];
         if (recv(client->socket_fd, buffer, sizeof(buffer), MSG_PEEK | MSG_DONTWAIT) == 0)
