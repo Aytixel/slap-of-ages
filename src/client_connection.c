@@ -90,12 +90,11 @@ extern int waitServerHandshake()
 /**
  * @brief Ferme la connexion au serveur
  *
- * @return **0** si tous c'est bien passé, **-1** si il y a eu un problème
  */
-extern int closeClientConnection()
+extern void closeClientConnection()
 {
     if (client_connection_state == CLIENT_CONNECTED || client_connection_state == CLIENT_WAITING_INFO)
-        return 0;
+        return;
 
-    return deleteClient(&client);
+    deleteClient(&client);
 }

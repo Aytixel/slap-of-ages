@@ -1,0 +1,44 @@
+\hypertarget{server__connection_8c}{}\doxysection{Référence du fichier src/server\+\_\+connection.c}
+\label{server__connection_8c}\index{src/server\_connection.c@{src/server\_connection.c}}
+
+
+Permet de gérer la connexion des clients au serveur.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}server\+\_\+connection.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{server__connection_8c_ad592b3bc523be6dc9257e5441c381d3e}\label{server__connection_8c_ad592b3bc523be6dc9257e5441c381d3e}} 
+void {\bfseries accept\+Client\+Connections} (\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$server)
+\item 
+\mbox{\Hypertarget{server__connection_8c_a6ff5417f900e8fa5e14d180006a5ee86}\label{server__connection_8c_a6ff5417f900e8fa5e14d180006a5ee86}} 
+void {\bfseries close\+Client\+Connections} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{server__connection_8c_a13929f0e2944a2190e5e3ca4aab21f44}\label{server__connection_8c_a13929f0e2944a2190e5e3ca4aab21f44}} 
+int {\bfseries server\+\_\+client\+\_\+count} = 0
+\item 
+\mbox{\Hypertarget{server__connection_8c_a22bdf51bdeb7bdf6fe48fd83745845ca}\label{server__connection_8c_a22bdf51bdeb7bdf6fe48fd83745845ca}} 
+\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$$\ast$ {\bfseries server\+\_\+clients} = NULL
+\item 
+\mbox{\Hypertarget{server__connection_8c_a297c23f4f449cf533cd0e72bb4a5ef27}\label{server__connection_8c_a297c23f4f449cf533cd0e72bb4a5ef27}} 
+\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$ {\bfseries server\+\_\+client} = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Permet de gérer la connexion des clients au serveur. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+05/02/2023 
+\end{DoxyDate}

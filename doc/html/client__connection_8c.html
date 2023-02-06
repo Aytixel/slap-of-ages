@@ -89,9 +89,10 @@ Fonctions</h2></td></tr>
 <tr class="memitem:ac909041a5b1d4ae68f56d64fc93695d3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__connection_8c.html#ac909041a5b1d4ae68f56d64fc93695d3">waitServerHandshake</a> ()</td></tr>
 <tr class="memdesc:ac909041a5b1d4ae68f56d64fc93695d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attend la poignée de main du serveur.  <a href="client__connection_8c.html#ac909041a5b1d4ae68f56d64fc93695d3">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac909041a5b1d4ae68f56d64fc93695d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a366329ea6b0be846d4a8437ff0aa97d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__connection_8c.html#a366329ea6b0be846d4a8437ff0aa97d0">closeClientConnection</a> ()</td></tr>
-<tr class="memdesc:a366329ea6b0be846d4a8437ff0aa97d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ferme la connexion au serveur.  <a href="client__connection_8c.html#a366329ea6b0be846d4a8437ff0aa97d0">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a366329ea6b0be846d4a8437ff0aa97d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1d388dec34ec146546b3b59606209a1"><td class="memItemLeft" align="right" valign="top"><a id="ac1d388dec34ec146546b3b59606209a1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__connection_8c.html#ac1d388dec34ec146546b3b59606209a1">closeClientConnection</a> ()</td></tr>
+<tr class="memdesc:ac1d388dec34ec146546b3b59606209a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ferme la connexion au serveur. <br /></td></tr>
+<tr class="separator:ac1d388dec34ec146546b3b59606209a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -99,12 +100,10 @@ Variables</h2></td></tr>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>handshake_data</b> = 0</td></tr>
 <tr class="separator:a4e36b10d39ecf853113459b6f8fececc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad72bb670c0751a5e8729d02bf7482d63"><td class="memItemLeft" align="right" valign="top"><a id="ad72bb670c0751a5e8729d02bf7482d63"></a>
-<a class="el" href="structclient__t.html">client_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__connection_8c.html#ad72bb670c0751a5e8729d02bf7482d63">client</a> = NULL</td></tr>
-<tr class="memdesc:ad72bb670c0751a5e8729d02bf7482d63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client socket. <br /></td></tr>
+<a class="el" href="structclient__t.html">client_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>client</b> = NULL</td></tr>
 <tr class="separator:ad72bb670c0751a5e8729d02bf7482d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a752118a20ea115ecfae15cdd47f62b"><td class="memItemLeft" align="right" valign="top"><a id="a1a752118a20ea115ecfae15cdd47f62b"></a>
-<a class="el" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109">client_connection_state_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__connection_8c.html#a1a752118a20ea115ecfae15cdd47f62b">client_connection_state</a> = <a class="el" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109ac3cbef5e484efeed88a0b2313b0ba4f4">CLIENT_WAITING_INFO</a></td></tr>
-<tr class="memdesc:a1a752118a20ea115ecfae15cdd47f62b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente l'état courant de la connexion. <br /></td></tr>
+<a class="el" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109">client_connection_state_e</a>&#160;</td><td class="memItemRight" valign="bottom"><b>client_connection_state</b> = <a class="el" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109ac3cbef5e484efeed88a0b2313b0ba4f4">CLIENT_WAITING_INFO</a></td></tr>
 <tr class="separator:a1a752118a20ea115ecfae15cdd47f62b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -113,27 +112,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>handshake_data</b> = 0
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>05/02/2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a366329ea6b0be846d4a8437ff0aa97d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a366329ea6b0be846d4a8437ff0aa97d0">&#9670;&nbsp;</a></span>closeClientConnection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int closeClientConnection </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Ferme la connexion au serveur. </p>
-<p>Envoie aussi un packet de déconnexion au serveur</p>
-<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous c'est bien passé, <b>-1</b> si il y a eu un problème </dd></dl>
-
-</div>
-</div>
 <a id="a51fbf21273be90a4799a30e527efe4d9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a51fbf21273be90a4799a30e527efe4d9">&#9670;&nbsp;</a></span>initClientConnection()</h2>
 
