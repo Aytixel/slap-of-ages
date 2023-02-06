@@ -9,18 +9,18 @@ Implémentation des prototypes de \mbox{\hyperlink{server__connection_8c}{server
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{server__connection_8h_a42d09a269aed691255500efddd6aab18}\label{server__connection_8h_a42d09a269aed691255500efddd6aab18}} 
-void {\bfseries accept\+Client\+Connections} (\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$)
-\item 
+void \mbox{\hyperlink{server__connection_8h_a42d09a269aed691255500efddd6aab18}{accept\+Client\+Connections}} (\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Accept les nouvelles connexion de client. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{server__connection_8h_a6a647b23b1b3410dcba1a6271e3f8f9e}{next\+Client\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}itérer sur les connexions ouvertes. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{server__connection_8h_a6ff5417f900e8fa5e14d180006a5ee86}\label{server__connection_8h_a6ff5417f900e8fa5e14d180006a5ee86}} 
-void {\bfseries close\+Client\+Connections} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{server__connection_8h_a6ff5417f900e8fa5e14d180006a5ee86}{close\+Client\+Connections}} ()
+\begin{DoxyCompactList}\small\item\em Ferme toutes les connexions aux clients. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{server__connection_8h_a297c23f4f449cf533cd0e72bb4a5ef27}\label{server__connection_8h_a297c23f4f449cf533cd0e72bb4a5ef27}} 
-\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$ {\bfseries server\+\_\+client}
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$ \mbox{\hyperlink{server__connection_8h_a297c23f4f449cf533cd0e72bb4a5ef27}{server\+\_\+client}}
+\begin{DoxyCompactList}\small\item\em Client serveur socket courant. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -35,3 +35,50 @@ Lucas Dureau
 \begin{DoxyDate}{Date}
 05/02/2023 
 \end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{server__connection_8h_a42d09a269aed691255500efddd6aab18}\label{server__connection_8h_a42d09a269aed691255500efddd6aab18}} 
+\index{server\_connection.h@{server\_connection.h}!acceptClientConnections@{acceptClientConnections}}
+\index{acceptClientConnections@{acceptClientConnections}!server\_connection.h@{server\_connection.h}}
+\doxysubsubsection{\texorpdfstring{acceptClientConnections()}{acceptClientConnections()}}
+{\footnotesize\ttfamily void accept\+Client\+Connections (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$}]{server }\end{DoxyParamCaption})}
+
+
+
+Accept les nouvelles connexion de client. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em server} & serveur à utiliser \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{server__connection_8h_a6a647b23b1b3410dcba1a6271e3f8f9e}\label{server__connection_8h_a6a647b23b1b3410dcba1a6271e3f8f9e}} 
+\index{server\_connection.h@{server\_connection.h}!nextClientConnection@{nextClientConnection}}
+\index{nextClientConnection@{nextClientConnection}!server\_connection.h@{server\_connection.h}}
+\doxysubsubsection{\texorpdfstring{nextClientConnection()}{nextClientConnection()}}
+{\footnotesize\ttfamily int next\+Client\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}itérer sur les connexions ouvertes. 
+
+Supprime aussi toute connexion fermé
+
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{1}} si l\textquotesingle{}on peut encore itérer, {\bfseries{0}} sinon 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentation des variables}
+\mbox{\Hypertarget{server__connection_8h_a297c23f4f449cf533cd0e72bb4a5ef27}\label{server__connection_8h_a297c23f4f449cf533cd0e72bb4a5ef27}} 
+\index{server\_connection.h@{server\_connection.h}!server\_client@{server\_client}}
+\index{server\_client@{server\_client}!server\_connection.h@{server\_connection.h}}
+\doxysubsubsection{\texorpdfstring{server\_client}{server\_client}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}}$\ast$ server\+\_\+client\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Client serveur socket courant. 
+
+Connexion courante itérer par \mbox{\hyperlink{server__connection_8h_a6a647b23b1b3410dcba1a6271e3f8f9e}{next\+Client\+Connection()}} 

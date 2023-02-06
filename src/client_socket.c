@@ -84,8 +84,6 @@ extern client_t *createClient(char *hostname, uint16_t port)
  * @param client client à utiliser
  * @return **1 ou 0** en fonction se si la connexion est fermer ou non
  */
-
-#include <stdio.h>
 extern int isServerDown(client_t *client)
 {
     if (client == NULL)

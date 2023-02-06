@@ -17,6 +17,8 @@ struct \mbox{\hyperlink{structclient__t}{client\+\_\+t}}
 \item 
 \mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$ \mbox{\hyperlink{client__socket_8h_a23a233e1902908407a9470cbe2c1ae99}{create\+Client}} (char $\ast$, uint16\+\_\+t)
 \begin{DoxyCompactList}\small\item\em Créer un client. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{client__socket_8h_a8657a43a348651839e9a3d1e2c3fa2aa}{is\+Server\+Down}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Vérifie si la connexion au serveur est fermée. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{client__socket_8h_a2395f81995f605532340b1f9b525dc81}{send\+To\+Server}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$, \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$)
 \begin{DoxyCompactList}\small\item\em Envoie un paquet au server. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{client__socket_8h_ab3e7dafaa2ee3af1a674c478f311af59}{recv\+From\+Server}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$)
@@ -77,6 +79,24 @@ Détruit un client.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{client__socket_8h_a8657a43a348651839e9a3d1e2c3fa2aa}\label{client__socket_8h_a8657a43a348651839e9a3d1e2c3fa2aa}} 
+\index{client\_socket.h@{client\_socket.h}!isServerDown@{isServerDown}}
+\index{isServerDown@{isServerDown}!client\_socket.h@{client\_socket.h}}
+\doxysubsubsection{\texorpdfstring{isServerDown()}{isServerDown()}}
+{\footnotesize\ttfamily int is\+Server\+Down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client }\end{DoxyParamCaption})}
+
+
+
+Vérifie si la connexion au serveur est fermée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em client} & client à utiliser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{1 ou 0}} en fonction se si la connexion est fermer ou non 
 \end{DoxyReturn}
 \mbox{\Hypertarget{client__socket_8h_ab3e7dafaa2ee3af1a674c478f311af59}\label{client__socket_8h_ab3e7dafaa2ee3af1a674c478f311af59}} 
 \index{client\_socket.h@{client\_socket.h}!recvFromServer@{recvFromServer}}

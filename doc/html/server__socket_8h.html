@@ -97,6 +97,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:adc16f382bf7eb3ec482138dba8b826ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#adc16f382bf7eb3ec482138dba8b826ca">acceptServerClient</a> (<a class="el" href="structserver__t.html">server_t</a> *)</td></tr>
 <tr class="memdesc:adc16f382bf7eb3ec482138dba8b826ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si il y a des connexions à accepter, et les accepte.  <a href="server__socket_8h.html#adc16f382bf7eb3ec482138dba8b826ca">Plus de détails...</a><br /></td></tr>
 <tr class="separator:adc16f382bf7eb3ec482138dba8b826ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0cc74c69f36e5fec81ab56f3cc179ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#ae0cc74c69f36e5fec81ab56f3cc179ce">isClientDown</a> (<a class="el" href="structserver__client__t.html">server_client_t</a> *)</td></tr>
+<tr class="memdesc:ae0cc74c69f36e5fec81ab56f3cc179ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si la connexion au client est fermée.  <a href="server__socket_8h.html#ae0cc74c69f36e5fec81ab56f3cc179ce">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae0cc74c69f36e5fec81ab56f3cc179ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a910388186954673ecc867782657b6098"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#a910388186954673ecc867782657b6098">sendToServerClient</a> (<a class="el" href="structserver__client__t.html">server_client_t</a> *, <a class="el" href="structpacket__t.html">packet_t</a> *)</td></tr>
 <tr class="memdesc:a910388186954673ecc867782657b6098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoie un paquet au client.  <a href="server__socket_8h.html#a910388186954673ecc867782657b6098">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a910388186954673ecc867782657b6098"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -232,6 +235,33 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="ae0cc74c69f36e5fec81ab56f3cc179ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0cc74c69f36e5fec81ab56f3cc179ce">&#9670;&nbsp;</a></span>isClientDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isClientDown </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie si la connexion au client est fermée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client</td><td>client serveur à utiliser </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1 ou 0</b> en fonction se si la connexion est fermer ou non </dd></dl>
 
 </div>
 </div>

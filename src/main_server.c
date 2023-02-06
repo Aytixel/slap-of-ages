@@ -4,6 +4,7 @@
 #include <string.h>
 #include "timer.h"
 #include "server_socket.h"
+#include "server_connection.h"
 
 int running = 1;
 
@@ -74,11 +75,22 @@ int main(int argc, char *argv[])
     {
         if (checkTime(main_timer))
         {
+            acceptClientConnections(server);
+
+            while (nextClientConnection())
+            {
+                packet_t *p = recvFromServerClient(server_client);
+                deletePacket(&p);
+
+                printf("Client adresse : %p\n", server_client);
+            }
+
             sleepMs(timeLeft(main_timer));
         }
     }
 
     deleteTimer(&main_timer);
+    closeClientConnections();
     deleteServer(&server);
     endSocket();
     free(hostname);

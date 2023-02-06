@@ -21,6 +21,8 @@ struct \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Créer un server. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$ \mbox{\hyperlink{server__socket_8h_adc16f382bf7eb3ec482138dba8b826ca}{accept\+Server\+Client}} (\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$)
 \begin{DoxyCompactList}\small\item\em Vérifie si il y a des connexions à accepter, et les accepte. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{server__socket_8h_ae0cc74c69f36e5fec81ab56f3cc179ce}{is\+Client\+Down}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Vérifie si la connexion au client est fermée. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{server__socket_8h_a910388186954673ecc867782657b6098}{send\+To\+Server\+Client}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$, \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$)
 \begin{DoxyCompactList}\small\item\em Envoie un paquet au client. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{server__socket_8h_afaa291d6b1aaffd47edb1dc84baa96cf}{recv\+From\+Server\+Client}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$)
@@ -119,6 +121,24 @@ Détruit un client serveur.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{server__socket_8h_ae0cc74c69f36e5fec81ab56f3cc179ce}\label{server__socket_8h_ae0cc74c69f36e5fec81ab56f3cc179ce}} 
+\index{server\_socket.h@{server\_socket.h}!isClientDown@{isClientDown}}
+\index{isClientDown@{isClientDown}!server\_socket.h@{server\_socket.h}}
+\doxysubsubsection{\texorpdfstring{isClientDown()}{isClientDown()}}
+{\footnotesize\ttfamily int is\+Client\+Down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$}]{client }\end{DoxyParamCaption})}
+
+
+
+Vérifie si la connexion au client est fermée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em client} & client serveur à utiliser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{1 ou 0}} en fonction se si la connexion est fermer ou non 
 \end{DoxyReturn}
 \mbox{\Hypertarget{server__socket_8h_afaa291d6b1aaffd47edb1dc84baa96cf}\label{server__socket_8h_afaa291d6b1aaffd47edb1dc84baa96cf}} 
 \index{server\_socket.h@{server\_socket.h}!recvFromServerClient@{recvFromServerClient}}
