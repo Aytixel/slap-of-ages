@@ -14,9 +14,8 @@
 #include "client_connection.h"
 
 int handshake_data = 0;
-
-extern client_t *client = NULL;
-extern client_connection_state_e client_connection_state = CLIENT_WAITING_INFO;
+client_t *client = NULL;
+client_connection_state_e client_connection_state = CLIENT_WAITING_INFO;
 
 /**
  * @brief Initialise la connexion au serveur avec les paramètres spécifiés

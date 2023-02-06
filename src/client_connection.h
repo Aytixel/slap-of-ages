@@ -40,6 +40,6 @@ extern int initClientConnection(char *, uint16_t);
 
 extern int waitServerHandshake();
 
-extern int closeClientConnection();
+extern void closeClientConnection();
 
 #endif
