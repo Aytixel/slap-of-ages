@@ -119,8 +119,8 @@ extern int sendToServer(client_t *client, packet_t *packet)
     void *buffer = malloc(sizeof(packet->data_length) + sizeof(packet->id) + packet->data_length);
 
     memcpy(buffer, &packet->data_length, sizeof(packet->data_length));
-    memcpy(buffer + sizeof(packet->data_length), &packet->id, sizeof(packet->data_length));
-    memcpy(buffer + sizeof(packet->data_length) + sizeof(packet->id), packet->data, sizeof(packet->data_length));
+    memcpy(buffer + sizeof(packet->data_length), &packet->id, sizeof(packet->id));
+    memcpy(buffer + sizeof(packet->data_length) + sizeof(packet->id), packet->data, packet->data_length);
 
     if (send(client->socket_fd, buffer, sizeof(packet->data_length) + sizeof(packet->id) + packet->data_length, 0) == -1)
     {
