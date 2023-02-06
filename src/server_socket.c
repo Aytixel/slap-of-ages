@@ -24,6 +24,7 @@
 #endif
 
 #include <stdlib.h>
+#include <poll.h>
 #include <string.h>
 #include "socket.h"
 #include "server_socket.h"
@@ -110,6 +111,33 @@ extern server_client_t *acceptServerClient(server_t *server)
 #endif
 
     return client;
+}
+
+/**
+ * @brief Vérifie si la connexion au client est fermée
+ *
+ * @param client client serveur à utiliser
+ * @return **1 ou 0** en fonction se si la connexion est fermer ou non
+ */
+extern int isClientDown(server_client_t *client)
+{
+    if (client == NULL)
+        return 1;
+
+    struct pollfd pollfd;
+
+    pollfd.fd = client->socket_fd;
+    pollfd.events = POLLIN | POLLHUP;
+    pollfd.revents = 0;
+
+    if (poll(&pollfd, 1, 100) > 0)
+    {
+        char buffer[8];
+        if (recv(client->socket_fd, buffer, sizeof(buffer), MSG_PEEK | MSG_DONTWAIT) == 0)
+            return 1;
+    }
+
+    return 0;
 }
 
 /**

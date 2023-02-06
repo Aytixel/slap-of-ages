@@ -33,6 +33,8 @@ typedef struct
 
 extern client_t *createClient(char *, uint16_t);
 
+extern int isServerDown(client_t *);
+
 extern int sendToServer(client_t *, packet_t *);
 
 extern packet_t *recvFromServer(client_t *);

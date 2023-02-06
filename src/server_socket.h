@@ -52,6 +52,8 @@ extern server_t *createServer(char *, uint16_t);
 
 extern server_client_t *acceptServerClient(server_t *);
 
+extern int isClientDown(server_client_t *);
+
 extern int sendToServerClient(server_client_t *, packet_t *);
 
 extern packet_t *recvFromServerClient(server_client_t *);

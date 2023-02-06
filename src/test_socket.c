@@ -26,10 +26,14 @@ int main()
     assert(client != NULL);
     printf("Création du client OK\n");
 
+    // --------------------------------------------------------------------
+
     server_client = acceptServerClient(server);
 
     assert(server_client != NULL);
     printf("\n\tLe serveur accepte un client OK\n");
+
+    // --------------------------------------------------------------------
 
     long test_data = 2352850823;
     packet_t test_packet = {10, &test_data, sizeof(test_data)};
@@ -48,6 +52,8 @@ int main()
     assert(deletePacket(&packet) != -1);
     printf("\t\tLe serveur reçoit les données OK\n");
 
+    // --------------------------------------------------------------------
+
     assert(!sendToServerClient(server_client, &test_packet));
     printf("\n\t\tDonnées envoyer au client OK\n");
 
@@ -62,9 +68,13 @@ int main()
     assert(deletePacket(&packet) != -1);
     printf("\t\tLe client reçoit les données OK\n");
 
+    // --------------------------------------------------------------------
+
     assert(!deleteServerClient(&server_client));
     assert(server_client == NULL);
     printf("\n\tDestruction du client côté serveur OK\n");
+
+    // --------------------------------------------------------------------
 
     assert(!deleteClient(&client));
     assert(client == NULL);
@@ -73,6 +83,52 @@ int main()
     assert(!deleteServer(&server));
     assert(server == NULL);
     printf("Destruction du serveur OK\n");
+
+    // --------------------------------------------------------------------
+
+    printf("\nTest des fonctions pour vérifier l'état d'un connexion :\n");
+
+    // --------------------------------------------------------------------
+
+    server = createServer("0.0.0.0", 4539);
+    client = createClient("localhost", 4539);
+    server_client = acceptServerClient(server);
+
+    assert(isServerDown(client) == 0);
+    printf("\n\tConnexion au serveur ouverte OK\n");
+
+    assert(isClientDown(server_client) == 0);
+    printf("\tConnexion au client ouverte OK\n");
+
+    // --------------------------------------------------------------------
+
+    deleteClient(&client);
+
+    assert(isClientDown(server_client) == 1);
+    printf("\n\tConnexion au client fermée OK\n");
+
+    deleteServerClient(&server_client);
+
+    // --------------------------------------------------------------------
+
+    client = createClient("localhost", 4539);
+    server_client = acceptServerClient(server);
+
+    deleteServerClient(&server_client);
+
+    assert(isServerDown(client) == 1);
+    printf("\n\tConnexion au serveur fermée OK\n");
+
+    deleteClient(&client);
+    deleteServer(&server);
+
+    // --------------------------------------------------------------------
+
+    assert(isClientDown(server_client) == 1);
+    printf("\n\tConnexion au client fermée OK\n");
+
+    assert(isServerDown(client) == 1);
+    printf("\tConnexion au serveur fermée OK\n");
 
     endSocket();
 
