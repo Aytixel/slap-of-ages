@@ -77,6 +77,7 @@ $(function() {
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="packet__id_8h_source.html">packet_id.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="server__connection_8h_source.html">server_connection.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -87,6 +88,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a6a647b23b1b3410dcba1a6271e3f8f9e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__connection_8c.html#a6a647b23b1b3410dcba1a6271e3f8f9e">nextClientConnection</a> ()</td></tr>
 <tr class="memdesc:a6a647b23b1b3410dcba1a6271e3f8f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'itérer sur les connexions ouvertes.  <a href="server__connection_8c.html#a6a647b23b1b3410dcba1a6271e3f8f9e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a6a647b23b1b3410dcba1a6271e3f8f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac12cd916a09a69510fb2688caf974ea2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__connection_8c.html#ac12cd916a09a69510fb2688caf974ea2">waitClientHandshake</a> ()</td></tr>
+<tr class="memdesc:ac12cd916a09a69510fb2688caf974ea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attend la poignée de main du client.  <a href="server__connection_8c.html#ac12cd916a09a69510fb2688caf974ea2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac12cd916a09a69510fb2688caf974ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ff5417f900e8fa5e14d180006a5ee86"><td class="memItemLeft" align="right" valign="top"><a id="a6ff5417f900e8fa5e14d180006a5ee86"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__connection_8c.html#a6ff5417f900e8fa5e14d180006a5ee86">closeClientConnections</a> ()</td></tr>
 <tr class="memdesc:a6ff5417f900e8fa5e14d180006a5ee86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ferme toutes les connexions aux clients. <br /></td></tr>
@@ -97,15 +101,27 @@ Variables</h2></td></tr>
 <tr class="memitem:a13929f0e2944a2190e5e3ca4aab21f44"><td class="memItemLeft" align="right" valign="top"><a id="a13929f0e2944a2190e5e3ca4aab21f44"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>server_client_count</b> = 0</td></tr>
 <tr class="separator:a13929f0e2944a2190e5e3ca4aab21f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22bdf51bdeb7bdf6fe48fd83745845ca"><td class="memItemLeft" align="right" valign="top"><a id="a22bdf51bdeb7bdf6fe48fd83745845ca"></a>
-<a class="el" href="structserver__client__t.html">server_client_t</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>server_clients</b> = NULL</td></tr>
-<tr class="separator:a22bdf51bdeb7bdf6fe48fd83745845ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15ef759308f6d3bb16a6a89b3c4edace"><td class="memItemLeft" align="right" valign="top"><a id="a15ef759308f6d3bb16a6a89b3c4edace"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>current_server_client</b> = 0</td></tr>
-<tr class="separator:a15ef759308f6d3bb16a6a89b3c4edace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1b883295c131ce0bc7953b6100f2a7e"><td class="memItemLeft" align="right" valign="top"><a id="aa1b883295c131ce0bc7953b6100f2a7e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>next_server_client_index</b> = 0</td></tr>
+<tr class="separator:aa1b883295c131ce0bc7953b6100f2a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01e5d2051b41b690c41bd8e4ccbd4c44"><td class="memItemLeft" align="right" valign="top"><a id="a01e5d2051b41b690c41bd8e4ccbd4c44"></a>
+<a class="el" href="structserver__client__connection__t.html">server_client_connection_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>server_client_connections</b> = NULL</td></tr>
+<tr class="separator:a01e5d2051b41b690c41bd8e4ccbd4c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add6c6fbe8d797ac0aca22a4ba036b038"><td class="memItemLeft" align="right" valign="top"><a id="add6c6fbe8d797ac0aca22a4ba036b038"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__connection_8c.html#add6c6fbe8d797ac0aca22a4ba036b038">deleted_socket_fd_count</a> = 0</td></tr>
+<tr class="memdesc:add6c6fbe8d797ac0aca22a4ba036b038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre d'id socket client supprimé <br /></td></tr>
+<tr class="separator:add6c6fbe8d797ac0aca22a4ba036b038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7aca607c352e64a6f7f67099351ec8d"><td class="memItemLeft" align="right" valign="top"><a id="ad7aca607c352e64a6f7f67099351ec8d"></a>
+int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__connection_8c.html#ad7aca607c352e64a6f7f67099351ec8d">deleted_socket_fds</a> = NULL</td></tr>
+<tr class="memdesc:ad7aca607c352e64a6f7f67099351ec8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id des sockets clients supprimé <br /></td></tr>
+<tr class="separator:ad7aca607c352e64a6f7f67099351ec8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a297c23f4f449cf533cd0e72bb4a5ef27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__connection_8c.html#a297c23f4f449cf533cd0e72bb4a5ef27">server_client</a> = NULL</td></tr>
 <tr class="memdesc:a297c23f4f449cf533cd0e72bb4a5ef27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client serveur socket courant.  <a href="server__connection_8c.html#a297c23f4f449cf533cd0e72bb4a5ef27">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a297c23f4f449cf533cd0e72bb4a5ef27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0310b6cb636995d99c457980a9ccb8fa"><td class="memItemLeft" align="right" valign="top"><a id="a0310b6cb636995d99c457980a9ccb8fa"></a>
+<a class="el" href="server__connection_8h.html#a4f72aa08096f869ed5f76e97c4b896cd">server_client_connection_state_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__connection_8c.html#a0310b6cb636995d99c457980a9ccb8fa">server_client_connection_state</a> = <a class="el" href="server__connection_8h.html#a4f72aa08096f869ed5f76e97c4b896cdaf410b2afc00d25efce0b8981166bc72b">SERVER_CLIENT_WAITING_HANDSHAKE</a></td></tr>
+<tr class="memdesc:a0310b6cb636995d99c457980a9ccb8fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente l'état courant de la connexion coursante. <br /></td></tr>
+<tr class="separator:a0310b6cb636995d99c457980a9ccb8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Permet de gérer la connexion des clients au serveur. </p>
@@ -155,8 +171,34 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>current_server_client<
 </div><div class="memdoc">
 
 <p>Permet d'itérer sur les connexions ouvertes. </p>
-<p>Supprime aussi toute connexion fermé</p>
+<p>Supprime aussi toute connexion fermé, et met leur id de socket dans le tableau de client supprimé</p>
 <dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si l'on peut encore itérer, <b>0</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="ac12cd916a09a69510fb2688caf974ea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac12cd916a09a69510fb2688caf974ea2">&#9670;&nbsp;</a></span>waitClientHandshake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int waitClientHandshake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Attend la poignée de main du client. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>serveur à utiliser </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> tant que la poignée de main n'est pas effectuée, <b>1</b> si la poignée de main est réussie </dd></dl>
 
 </div>
 </div>
