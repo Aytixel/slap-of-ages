@@ -113,7 +113,7 @@ int initFrames(SDL_Rect *tab, int nb_frames, SDL_Surface *src, int line, int nb_
   return 0;
 }
 
-anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, SDL_Texture *sprite, SDL_Surface *dim, SDL_Surface *src)
+anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, SDL_Texture *sprite, SDL_Surface *dim, SDL_Rect *size)
 {
 
   anim_t *new = malloc(sizeof(anim_t));
@@ -129,6 +129,7 @@ anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, SDL_
   new->state_count = state_count;
   new->current_frame = 0;
   new->sprite = sprite;
+  new->size = size;
 
   new->anims = malloc(sizeof(SDL_Rect *) * state_count);
 
@@ -158,15 +159,31 @@ int destroyAnim(anim_t **anim)
   return 0;
 }
 
-void updateAnim(anim_t *anim)
+void updateAnim(anim_t *anim, portal_e *current_state, SDL_Renderer *renderer)
 {
 
   anim->current_frame++;
+
+  if (current_state != ANIMATION_NULL)
+  {
+    anim->current_state = (int)current_state;
+  }
+
+  if (current_state == ANIMATION_DELETE)
+  {
+    destroyAnim(&anim);
+    SDL_RenderClear(renderer);
+    return;
+  }
 
   if (anim->current_frame > anim->state_frame_count[anim->current_state])
   {
     anim->current_frame = 0;
   }
+
+  SDL_RenderClear(renderer);
+  SDL_RenderCopy(renderer, anim->sprite, &anim->anims[anim->current_state][anim->current_frame], anim->size);
+  SDL_RenderPresent(renderer);
 }
 
 int main(int argc, char *argv[])
@@ -176,52 +193,29 @@ int main(int argc, char *argv[])
 
   SDL_Window *window = creationFenetre();
   SDL_Renderer *renderer = creationRenderer(window);
-  SDL_Surface *green_portal = IMG_Load("asset/GreenPortal.png");
-  SDL_Surface *purple_portal = IMG_Load("asset/PurplePortal.png");
-  SDL_Texture *green_tex = SDL_CreateTextureFromSurface(renderer, green_portal);
-  SDL_Texture *purple_tex = SDL_CreateTextureFromSurface(renderer, purple_portal);
 
-  SDL_Texture *current;
+  SDL_Surface *dim;
 
-  SDL_Rect portal_idle[8];
-  SDL_Rect portal_spawn[8];
-  SDL_Rect portal_unspawn[8];
   SDL_Rect portal_size = {0, 0, 150, 150};
+  int states[] = {8, 8, 6};
 
-  int nbf = 0;
-  int state = 0;
+  anim_t *green_portal = createAnim(
+      8,
+      states,
+      3,
+      SDL_CreateTextureFromSurface(renderer, dim = IMG_Load("asset/GreenPortal.png")),
+      dim,
+      &portal_size);
+
+  anim_t *purple_portal = createAnim(
+      8,
+      states,
+      3,
+      SDL_CreateTextureFromSurface(renderer, dim = IMG_Load("asset/PurplePortal.png")),
+      dim,
+      &portal_size);
 
   frame_timer_t *main_timer = createTimer(1000 / 10);
-
-  // renderDrawColor(renderer);
-  // checkTTFLib(window, renderer);
-
-  // TTF_Font *font = loadFont(window, renderer);
-
-  /*for(int i = 0; i < 8; i++){
-
-    portal_idle[i].x = 64 * i;
-    portal_idle[i].y = 0;
-
-    portal_idle[i].w = img->w / 8;
-    portal_idle[i].h = img->h / 3;
-
-    portal_spawn[i].x = 64 * i;
-    portal_spawn[i].y = 64;
-
-    portal_spawn[i].w = img->w / 8;
-    portal_spawn[i].h = img->h / 3;
-
-    portal_unspawn[i].x = 64 * i;
-    portal_unspawn[i].y = 128;
-
-    portal_unspawn[i].w = img->w / 8;
-    portal_unspawn[i].h = img->h / 3;
-  }*/
-
-  initFrames(portal_spawn, 8, green_portal, 2, 3);
-  initFrames(portal_idle, 8, green_portal, 1, 3);
-  initFrames(portal_unspawn, 8, green_portal, 3, 3);
 
   while (1)
   {
@@ -229,13 +223,6 @@ int main(int argc, char *argv[])
 
     if (checkTime(main_timer))
     {
-
-      // Gestion des évènements
-      /*while (SDL_PollEvent(&event))
-      {
-        handleEvent(&event);
-        //printf("c");
-      }*/
 
       if (SDL_PollEvent(&e))
       {
@@ -248,48 +235,18 @@ int main(int argc, char *argv[])
 
           if (e.button.clicks == 1 && (e.button.button == SDL_BUTTON_LEFT || e.button.button == SDL_BUTTON_RIGHT))
           {
+            if (e.button.button == SDL_BUTTON_LEFT)
+            {
+              updateAnim(green_portal, ANIMATION_SPAWN, renderer);
+            }
 
-            e.button.button == SDL_BUTTON_LEFT ? (current = green_tex) : (current = purple_tex);
-            portal_size.x = e.button.x - portal_size.h / 2;
-            portal_size.y = e.button.y - portal_size.h / 2;
-            state = 1;
-            nbf = 0;
+            else
+            {
+              updateAnim(purple_portal, ANIMATION_SPAWN, renderer);
+            }
           }
         }
       }
-
-      if (nbf > 7 && state != 0)
-      {
-        nbf = 0;
-        state++;
-        if (state > 3)
-        {
-          state = 0;
-        }
-      }
-
-      SDL_RenderClear(renderer);
-
-      switch (state)
-      {
-      case 1:
-        SDL_RenderCopy(renderer, current, &portal_spawn[nbf], &portal_size);
-        break;
-
-      case 2:
-        SDL_RenderCopy(renderer, current, &portal_idle[nbf], &portal_size);
-        break;
-
-      case 3:
-        SDL_RenderCopy(renderer, current, &portal_unspawn[nbf], &portal_size);
-        break;
-
-      default:
-        break;
-      }
-
-      SDL_RenderPresent(renderer);
-      nbf++;
 
       SDL_Delay(timeLeft(main_timer));
 
@@ -302,10 +259,6 @@ int main(int argc, char *argv[])
   }
 
   // TTF_CloseFont(font);
-  SDL_FreeSurface(green_portal);
-  SDL_FreeSurface(purple_portal);
-  SDL_DestroyTexture(green_tex);
-  SDL_DestroyTexture(purple_tex);
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
   TTF_Quit();

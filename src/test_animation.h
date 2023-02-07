@@ -1,9 +1,11 @@
 
 typedef enum
 {
-    IDLE,
-    SPAWN,
-    DESPAWN
+    ANIMATION_IDLE,
+    ANIMATION_SPAWN,
+    ANIMATION_DESPAWN,
+    ANIMATION_DELETE,
+    ANIMATION_NULL
 
 } portal_e;
 
@@ -14,6 +16,7 @@ typedef struct
     int state_count;
 
     SDL_Rect **anims;
+    SDL_Rect *size;
 
     SDL_Texture *sprite;
 
