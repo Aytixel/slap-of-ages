@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 
     if (get_connection_info(argc, argv, &hostname, &port) == -1)
     {
-        printf("Erreur : Nom d'hôte ou port non spécifié.\n");
+        printf("Erreur : Nom d'hôte ou port non spécifié\n");
 
         return 1;
     }

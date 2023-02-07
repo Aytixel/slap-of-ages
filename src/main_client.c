@@ -46,17 +46,17 @@ int main(int argc, char *argv[])
                 switch (waitServerHandshake())
                 {
                 case -1:
-                    printf("(Erreur): Connexion impossible réessayer.\n");
+                    printf("(Erreur): Connexion impossible réessayer\n");
                     break;
                 case 1:
-                    printf("Connexion établie avec succès.\n");
+                    printf("Connexion établie avec succès\n");
                     break;
                 }
                 break;
             case CLIENT_CONNECTED:
                 if (isServerDown(client))
                 {
-                    printf("(Erreur): Déconnexion du serveur.\n");
+                    printf("(Erreur): Déconnexion du serveur\n");
                     running = 0;
                     break;
                 }
