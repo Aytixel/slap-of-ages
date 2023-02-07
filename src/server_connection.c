@@ -9,12 +9,14 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include "packet_id.h"
 #include "server_connection.h"
 
 int server_client_count = 0;
-server_client_t **server_clients = NULL;
-int current_server_client = 0;
+int next_server_client_index = 0;
+server_client_connection_t *server_clients = NULL;
 server_client_t *server_client = NULL;
+server_client_connection_state_e server_client_connection_state = SERVER_CLIENT_WAITING_HANDSHAKE;
 
 /**
  * @brief Accept les nouvelles connexion de client
@@ -27,14 +29,19 @@ extern void acceptClientConnections(server_t *server)
 
     while ((client = acceptServerClient(server)) != NULL)
     {
-        int server_clients_size = sizeof(server_client_t *) * ++server_client_count;
+        int server_clients_size = sizeof(server_client_connection_t) * ++server_client_count;
 
         if (server_clients == NULL)
             server_clients = malloc(server_clients_size);
         else
             server_clients = realloc(server_clients, server_clients_size);
 
-        server_clients[server_client_count - 1] = client;
+        server_client_connection_t connection;
+
+        connection.client = client;
+        connection.state = SERVER_CLIENT_WAITING_HANDSHAKE;
+
+        server_clients[server_client_count - 1] = connection;
     }
 }
 
@@ -48,10 +55,11 @@ extern void acceptClientConnections(server_t *server)
 extern int nextClientConnection()
 {
     // dans le cas ou l'on arrive à la fin du tableau
-    if (current_server_client == server_client_count)
+    if (next_server_client_index == server_client_count)
     {
-        current_server_client = 0;
+        next_server_client_index = 0;
         server_client = NULL;
+        server_client_connection_state = SERVER_CLIENT_WAITING_HANDSHAKE;
 
         return 0;
     }
@@ -59,8 +67,8 @@ extern int nextClientConnection()
     int i = 0;
 
     // cherche la première connexion ouverte et supprime les autres
-    while (current_server_client + i < server_client_count && isClientDown(server_clients[current_server_client + i]))
-        deleteServerClient(server_clients + current_server_client + i++);
+    while (next_server_client_index + i < server_client_count && isClientDown(server_clients[next_server_client_index + i].client))
+        deleteServerClient(&server_clients[next_server_client_index + i++].client);
 
     // si une connexion à été supprimé
     if (i)
@@ -69,24 +77,56 @@ extern int nextClientConnection()
 
         if (server_client_count) // supprime du tableau les connexions supprimé
         {
-            memmove(server_clients + current_server_client, server_clients + current_server_client + i, sizeof(*server_clients) * (server_client_count - current_server_client));
+            memmove(server_clients + next_server_client_index, server_clients + next_server_client_index + i, sizeof(server_client_connection_t) * (server_client_count - next_server_client_index));
 
-            server_clients = realloc(server_clients, sizeof(*server_clients) * server_client_count);
+            server_clients = realloc(server_clients, sizeof(server_client_connection_t) * server_client_count);
         }
         else // si il n'y a plus de connexion ouverte désalloue le tableau de connexion
         {
             free(server_clients);
+            next_server_client_index = 0;
             server_clients = NULL;
-            current_server_client = 0;
             server_client = NULL;
+            server_client_connection_state = SERVER_CLIENT_WAITING_HANDSHAKE;
 
             return 0;
         }
     }
 
-    server_client = server_clients[current_server_client++];
+    server_client = server_clients[next_server_client_index].client;
+    server_client_connection_state = server_clients[next_server_client_index++].state;
 
     return 1;
+}
+
+/**
+ * @brief Attend la poignée de main du client
+ *
+ * @param server serveur à utiliser
+ * @return **0** tant que la poignée de main n'est pas effectuée, **1** si la poignée de main est réussie
+ */
+extern int waitClientHandshake()
+{
+    if (server_client_connection_state == SERVER_CLIENT_CONNECTED)
+        return 1; // si la poignée de main est réussie
+
+    packet_t *handshake_packet = recvFromServerClient(server_client);
+
+    if (handshake_packet == NULL)
+        return 0;
+
+    int correct_packet = (handshake_packet->id == HANDSHAKE_PACKET_ID);
+
+    if (correct_packet)
+    {
+        sendToServerClient(server_client, handshake_packet);
+
+        server_clients[next_server_client_index - 1].state = server_client_connection_state = SERVER_CLIENT_CONNECTED;
+    }
+
+    deletePacket(&handshake_packet);
+
+    return correct_packet;
 }
 
 /**
@@ -97,7 +137,7 @@ extern void closeClientConnections()
 {
     for (int i = 0; i < server_client_count; i++)
     {
-        deleteServerClient(server_clients + i);
+        deleteServerClient(&server_clients[i].client);
     }
 
     free(server_clients);

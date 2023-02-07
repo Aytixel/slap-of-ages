@@ -3,7 +3,6 @@
 #include <signal.h>
 #include <string.h>
 #include "timer.h"
-#include "server_socket.h"
 #include "server_connection.h"
 
 int running = 1;
@@ -79,10 +78,20 @@ int main(int argc, char *argv[])
 
             while (nextClientConnection())
             {
-                packet_t *p = recvFromServerClient(server_client);
-                deletePacket(&p);
+                switch (server_client_connection_state)
+                {
+                case SERVER_CLIENT_WAITING_HANDSHAKE:
+                    if (waitClientHandshake(server))
+                        printf("Nouveau client connecté avec succès : %p\n", server_client);
+                    break;
+                case SERVER_CLIENT_CONNECTED:
+                    packet_t *packet = recvFromServerClient(server_client);
 
-                printf("Client adresse : %p\n", server_client);
+                    // code
+
+                    deletePacket(&packet);
+                    break;
+                }
             }
 
             sleepMs(timeLeft(main_timer));
