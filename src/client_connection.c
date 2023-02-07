@@ -8,7 +8,6 @@
  */
 
 #include <stdlib.h>
-#include <time.h>
 #include <string.h>
 #include "packet_id.h"
 #include "client_connection.h"
@@ -92,7 +91,7 @@ extern int waitServerHandshake()
  */
 extern void closeClientConnection()
 {
-    if (client_connection_state == CLIENT_CONNECTED || client_connection_state == CLIENT_WAITING_INFO)
+    if (client_connection_state == CLIENT_WAITING_INFO)
         return;
 
     deleteClient(&client);

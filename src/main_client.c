@@ -3,7 +3,6 @@
 #include <time.h>
 #include <signal.h>
 #include "timer.h"
-#include "client_socket.h"
 #include "client_connection.h"
 
 int running = 1;
@@ -23,7 +22,6 @@ int main(int argc, char *argv[])
 
     initSocket();
 
-    client_t *client = NULL;
     frame_timer_t *main_timer = createTimer(1000 / 60);
 
     char hostname[256] = {0};
@@ -45,14 +43,29 @@ int main(int argc, char *argv[])
                 initClientConnection(hostname, port);
                 break;
             case CLIENT_WAITING_HANDSHAKE:
-                if (waitServerHandshake() == -1)
-                    printf("Connexion impossible réessayer.\n");
+                switch (waitServerHandshake())
+                {
+                case -1:
+                    printf("(Erreur): Connexion impossible réessayer.\n");
+                    break;
+                case 1:
+                    printf("Connexion établie avec succès.\n");
+                    break;
+                }
                 break;
             case CLIENT_CONNECTED:
-                printf("Client\n");
-                break;
-            case CLIENT_CLOSED:
-                running = 0;
+                if (isServerDown(client))
+                {
+                    printf("(Erreur): Déconnexion du serveur.\n");
+                    running = 0;
+                    break;
+                }
+
+                packet_t *packet = recvFromServer(client);
+
+                // code
+
+                deletePacket(&packet);
                 break;
             }
 

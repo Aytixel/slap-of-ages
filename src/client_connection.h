@@ -21,7 +21,6 @@ typedef enum
     CLIENT_WAITING_INFO,      /**< attend les informations de connexion*/
     CLIENT_WAITING_HANDSHAKE, /**< attend la poignée de main du serveur*/
     CLIENT_CONNECTED,         /**< connexion au serveur établie*/
-    CLIENT_CLOSED,            /**< connexion au serveur fermé*/
 } client_connection_state_e;
 
 /**
