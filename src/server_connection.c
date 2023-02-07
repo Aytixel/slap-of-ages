@@ -14,7 +14,9 @@
 
 int server_client_count = 0;
 int next_server_client_index = 0;
-server_client_connection_t *server_clients = NULL;
+server_client_connection_t *server_client_connections = NULL;
+int deleted_socket_fd_count = 0;
+int *deleted_socket_fds = NULL;
 server_client_t *server_client = NULL;
 server_client_connection_state_e server_client_connection_state = SERVER_CLIENT_WAITING_HANDSHAKE;
 
@@ -29,33 +31,41 @@ extern void acceptClientConnections(server_t *server)
 
     while ((client = acceptServerClient(server)) != NULL)
     {
-        int server_clients_size = sizeof(server_client_connection_t) * ++server_client_count;
+        int server_client_connections_size = sizeof(server_client_connection_t) * ++server_client_count;
 
-        if (server_clients == NULL)
-            server_clients = malloc(server_clients_size);
+        if (server_client_connections == NULL)
+            server_client_connections = malloc(server_client_connections_size);
         else
-            server_clients = realloc(server_clients, server_clients_size);
+            server_client_connections = realloc(server_client_connections, server_client_connections_size);
 
         server_client_connection_t connection;
 
         connection.client = client;
         connection.state = SERVER_CLIENT_WAITING_HANDSHAKE;
 
-        server_clients[server_client_count - 1] = connection;
+        server_client_connections[server_client_count - 1] = connection;
     }
 }
 
 /**
  * @brief Permet d'itérer sur les connexions ouvertes
  *
- * Supprime aussi toute connexion fermé
+ * Supprime aussi toute connexion fermé, et met leur id de socket dans le tableau de client supprimé
  *
  * @return **1** si l'on peut encore itérer, **0** sinon
  */
 extern int nextClientConnection()
 {
+    // reset le tableau de client supprimé quand on commence à itérer
+    if (next_server_client_index == 0 && deleted_socket_fds != NULL)
+    {
+        free(deleted_socket_fds);
+        deleted_socket_fds = NULL;
+        deleted_socket_fd_count = 0;
+    }
+
     // dans le cas ou l'on arrive à la fin du tableau
-    if (next_server_client_index == server_client_count)
+    if (next_server_client_index >= server_client_count)
     {
         next_server_client_index = 0;
         server_client = NULL;
@@ -67,8 +77,20 @@ extern int nextClientConnection()
     int i = 0;
 
     // cherche la première connexion ouverte et supprime les autres
-    while (next_server_client_index + i < server_client_count && isClientDown(server_clients[next_server_client_index + i].client))
-        deleteServerClient(&server_clients[next_server_client_index + i++].client);
+    while (next_server_client_index + i < server_client_count && isClientDown(server_client_connections[next_server_client_index + i].client))
+    {
+        // ajoute le client qui va être supprimé au tableau de client supprimé
+        int deleted_server_clients_size = sizeof(server_client_connection_t) * ++deleted_socket_fd_count;
+
+        if (deleted_socket_fds == NULL)
+            deleted_socket_fds = malloc(deleted_server_clients_size);
+        else
+            deleted_socket_fds = realloc(deleted_socket_fds, deleted_server_clients_size);
+
+        deleted_socket_fds[deleted_socket_fd_count - 1] = server_client_connections[next_server_client_index + i].client->socket_fd;
+
+        deleteServerClient(&server_client_connections[next_server_client_index + i++].client);
+    }
 
     // si une connexion à été supprimé
     if (i)
@@ -77,15 +99,25 @@ extern int nextClientConnection()
 
         if (server_client_count) // supprime du tableau les connexions supprimé
         {
-            memmove(server_clients + next_server_client_index, server_clients + next_server_client_index + i, sizeof(server_client_connection_t) * (server_client_count - next_server_client_index));
+            memmove(server_client_connections + next_server_client_index, server_client_connections + next_server_client_index + i, sizeof(server_client_connection_t) * (server_client_count - next_server_client_index));
 
-            server_clients = realloc(server_clients, sizeof(server_client_connection_t) * server_client_count);
+            server_client_connections = realloc(server_client_connections, sizeof(server_client_connection_t) * server_client_count);
+
+            // dans le cas ou l'on arrive à la fin du tableau après réallocation
+            if (next_server_client_index >= server_client_count)
+            {
+                next_server_client_index = 0;
+                server_client = NULL;
+                server_client_connection_state = SERVER_CLIENT_WAITING_HANDSHAKE;
+
+                return 0;
+            }
         }
         else // si il n'y a plus de connexion ouverte désalloue le tableau de connexion
         {
-            free(server_clients);
+            free(server_client_connections);
             next_server_client_index = 0;
-            server_clients = NULL;
+            server_client_connections = NULL;
             server_client = NULL;
             server_client_connection_state = SERVER_CLIENT_WAITING_HANDSHAKE;
 
@@ -93,8 +125,8 @@ extern int nextClientConnection()
         }
     }
 
-    server_client = server_clients[next_server_client_index].client;
-    server_client_connection_state = server_clients[next_server_client_index++].state;
+    server_client = server_client_connections[next_server_client_index].client;
+    server_client_connection_state = server_client_connections[next_server_client_index++].state;
 
     return 1;
 }
@@ -121,7 +153,8 @@ extern int waitClientHandshake()
     {
         sendToServerClient(server_client, handshake_packet);
 
-        server_clients[next_server_client_index - 1].state = server_client_connection_state = SERVER_CLIENT_CONNECTED;
+        server_client_connections[next_server_client_index - 1].state = SERVER_CLIENT_CONNECTED;
+        server_client_connection_state = SERVER_CLIENT_CONNECTED;
     }
 
     deletePacket(&handshake_packet);
@@ -137,11 +170,23 @@ extern void closeClientConnections()
 {
     for (int i = 0; i < server_client_count; i++)
     {
-        deleteServerClient(&server_clients[i].client);
+        deleteServerClient(&server_client_connections[i].client);
     }
 
-    free(server_clients);
-    server_client_count = 0;
-    server_clients = NULL;
+    if (server_client_connections != NULL)
+    {
+        free(server_client_connections);
+        server_client_connections = NULL;
+        server_client_count = 0;
+    }
+
+    if (deleted_socket_fds != NULL)
+    {
+        free(deleted_socket_fds);
+        deleted_socket_fds = NULL;
+        deleted_socket_fd_count = 0;
+    }
+
     server_client = NULL;
+    server_client_connection_state = SERVER_CLIENT_WAITING_HANDSHAKE;
 }

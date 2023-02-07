@@ -33,6 +33,18 @@ typedef struct
 } server_client_connection_t;
 
 /**
+ * @brief Nombre d'id socket client supprimé
+ *
+ */
+extern int deleted_socket_fd_count;
+
+/**
+ * @brief Id des sockets clients supprimé
+ *
+ */
+extern int *deleted_socket_fds;
+
+/**
  * @brief Client serveur socket courant
  *
  * Connexion courante itérer par nextClientConnection()

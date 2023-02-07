@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
                 {
                 case SERVER_CLIENT_WAITING_HANDSHAKE:
                     if (waitClientHandshake(server))
-                        printf("Nouveau client connecté avec succès : %p\n", server_client);
+                        printf("Nouveau client connecté avec succès : %d\n", server_client->socket_fd);
                     break;
                 case SERVER_CLIENT_CONNECTED:
                     packet_t *packet = recvFromServerClient(server_client);
@@ -92,6 +92,11 @@ int main(int argc, char *argv[])
                     deletePacket(&packet);
                     break;
                 }
+            }
+
+            for (int i = 0; i < deleted_socket_fd_count; i++)
+            {
+                printf("(Erreur): Déconnexion du client : %d\n", deleted_socket_fds[i]);
             }
 
             sleepMs(timeLeft(main_timer));
