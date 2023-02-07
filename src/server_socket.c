@@ -13,6 +13,7 @@
 
 #define close closesocket
 #define SHUT_RDWR SD_BOTH
+#define poll WSAPoll
 
 #else
 
@@ -20,11 +21,11 @@
 #include <sys/fcntl.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <poll.h>
 
 #endif
 
 #include <stdlib.h>
-#include <poll.h>
 #include <string.h>
 #include "socket.h"
 #include "server_socket.h"
@@ -133,7 +134,8 @@ extern int isClientDown(server_client_t *client)
     if (poll(&pollfd, 1, 0) > 0)
     {
         char buffer[8];
-        if (recv(client->socket_fd, buffer, sizeof(buffer), MSG_PEEK | MSG_DONTWAIT) == 0)
+
+        if (recv(client->socket_fd, buffer, sizeof(buffer), MSG_PEEK) == 0)
             return 1;
     }
 
