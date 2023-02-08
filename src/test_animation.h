@@ -5,7 +5,7 @@ typedef enum
     ANIMATION_SPAWN,
     ANIMATION_DESPAWN,
     ANIMATION_DELETE,
-    ANIMATION_NULL
+    ANIMATION_CURRENT
 
 } portal_e;
 

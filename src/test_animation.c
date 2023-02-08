@@ -159,12 +159,12 @@ int destroyAnim(anim_t **anim)
   return 0;
 }
 
-void updateAnim(anim_t *anim, portal_e *current_state, SDL_Renderer *renderer)
+void updateAnim(anim_t *anim, portal_e current_state, SDL_Renderer *renderer)
 {
 
   anim->current_frame++;
 
-  if (current_state != ANIMATION_NULL)
+  if (current_state != ANIMATION_CURRENT)
   {
     anim->current_state = (int)current_state;
   }
@@ -181,9 +181,8 @@ void updateAnim(anim_t *anim, portal_e *current_state, SDL_Renderer *renderer)
     anim->current_frame = 0;
   }
 
-  SDL_RenderClear(renderer);
   SDL_RenderCopy(renderer, anim->sprite, &anim->anims[anim->current_state][anim->current_frame], anim->size);
-  SDL_RenderPresent(renderer);
+  
 }
 
 int main(int argc, char *argv[])
@@ -223,6 +222,7 @@ int main(int argc, char *argv[])
 
     if (checkTime(main_timer))
     {
+      SDL_RenderClear(renderer);
 
       if (SDL_PollEvent(&e))
       {
@@ -237,17 +237,23 @@ int main(int argc, char *argv[])
           {
             if (e.button.button == SDL_BUTTON_LEFT)
             {
-              updateAnim(green_portal, ANIMATION_SPAWN, renderer);
+              green_portal->size->x = e.button.x - (green_portal->size->w/2);
+              green_portal->size->y = e.button.y - (green_portal->size->h/2);
+              updateAnim(green_portal, ANIMATION_IDLE, renderer);
             }
 
             else
             {
+              purple_portal->size->x = e.button.x - (purple_portal->size->w/2);
+              purple_portal->size->y = e.button.y - (purple_portal->size->h/2);
               updateAnim(purple_portal, ANIMATION_SPAWN, renderer);
             }
           }
         }
       }
-
+      updateAnim(green_portal, ANIMATION_CURRENT, renderer);
+      updateAnim(purple_portal, ANIMATION_CURRENT, renderer);
+      SDL_RenderPresent(renderer);
       SDL_Delay(timeLeft(main_timer));
 
       // Effacement de l'écran
