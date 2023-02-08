@@ -35,7 +35,7 @@ extern client_t *client;
  */
 extern client_connection_state_e client_connection_state;
 
-extern int initClientConnection(char *, uint16_t);
+extern int initClientConnection(char *hostname, uint16_t port);
 
 extern int waitServerHandshake();
 

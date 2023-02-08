@@ -15,9 +15,11 @@
  * @brief Créer une fenêtre
  *
  * Définis :
- *  - la taille minimale de la fenêtre, comme étant la taille passé en paramètre
- *  - la couleur de nettoyage au noir
- *  - la fenêtre comme redimensionnable
+ *  - la taille minimale de la fenêtre, comme étant la taille passé en paramètre.
+ *  - la couleur de nettoyage au noir.
+ *  - la fenêtre comme redimensionnable.
+ *
+ * Puis nettoie la fenêtre.
  *
  * @param title nom de la fenêtre
  * @param width largeur de la fenêtre
@@ -59,6 +61,7 @@ extern window_t *createWindow(char *title, int width, int height)
     SDL_SetWindowMinimumSize(window->window, width, height);
     SDL_SetRenderDrawColor(window->renderer, 0, 0, 0, 255);
     SDL_RenderClear(window->renderer);
+    SDL_RenderPresent(window->renderer);
 
     return window;
 }

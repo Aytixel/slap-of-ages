@@ -58,7 +58,7 @@ extern server_client_t *server_client;
  */
 extern server_client_connection_state_e server_client_connection_state;
 
-extern void acceptClientConnections(server_t *);
+extern void acceptClientConnections(server_t *server);
 
 extern int nextClientConnection();
 

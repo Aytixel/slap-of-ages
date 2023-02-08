@@ -23,14 +23,14 @@ typedef struct
     double frame_per_second;  /**< nombre d'image par seconde*/
 } frame_timer_t;
 
-extern frame_timer_t *createTimer(time_t);
+extern frame_timer_t *createTimer(time_t interval);
 
-extern long timeLeft(frame_timer_t *);
+extern long timeLeft(frame_timer_t *timer);
 
-extern int checkTime(frame_timer_t *);
+extern int checkTime(frame_timer_t *timer);
 
-extern int deleteTimer(frame_timer_t **);
+extern int deleteTimer(frame_timer_t **timer);
 
-extern void sleepMs(time_t);
+extern void sleepMs(time_t time);
 
 #endif

@@ -38,8 +38,8 @@ extern int initSocket();
 
 extern void endSocket();
 
-extern int deletePacket(packet_t **);
+extern int deletePacket(packet_t **packet);
 
-extern int setupAddress(struct sockaddr_in *, size_t, char *, uint16_t);
+extern int setupAddress(struct sockaddr_in *address, size_t address_length, char *hostname, uint16_t port);
 
 #endif

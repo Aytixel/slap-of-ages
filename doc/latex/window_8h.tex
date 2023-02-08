@@ -14,10 +14,20 @@ struct \mbox{\hyperlink{structwindow__t}{window\+\_\+t}}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8h_af2f27d4456704f7ed606ca61e14c40e8}{create\+Window}} (char $\ast$, int, int)
-\begin{DoxyCompactList}\small\item\em Créer une fenêtre. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{window_8h_a5c99ec5fa59f256952979f2bd938a000}{destroy\+Window}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$$\ast$)
+int \mbox{\hyperlink{window_8h_a2b6afcc06737563c2c82cb5b822bcb6e}{destroy\+Window}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$$\ast$window)
 \begin{DoxyCompactList}\small\item\em Détruit une fenêtre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{window_8h_a592effeb7d985a1e8b60168d75aab07f}\label{window_8h_a592effeb7d985a1e8b60168d75aab07f}} 
+\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$char $\ast$ {\bfseries title}
+\item 
+\mbox{\Hypertarget{window_8h_a40f90f372d460e166a6c67f13bf29b18}\label{window_8h_a40f90f372d460e166a6c67f13bf29b18}} 
+\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$char int {\bfseries width}
+\item 
+\mbox{\Hypertarget{window_8h_ad9aedc445de01450b55647864b55c3da}\label{window_8h_ad9aedc445de01450b55647864b55c3da}} 
+\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$char int int {\bfseries height}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -35,36 +45,7 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{window_8h_af2f27d4456704f7ed606ca61e14c40e8}\label{window_8h_af2f27d4456704f7ed606ca61e14c40e8}} 
-\index{window.h@{window.h}!createWindow@{createWindow}}
-\index{createWindow@{createWindow}!window.h@{window.h}}
-\doxysubsubsection{\texorpdfstring{createWindow()}{createWindow()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structwindow__t}{window\+\_\+t}}$\ast$ create\+Window (\begin{DoxyParamCaption}\item[{char $\ast$}]{title,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
-
-
-
-Créer une fenêtre. 
-
-Définis \+:
-\begin{DoxyItemize}
-\item la taille minimale de la fenêtre, comme étant la taille passé en paramètre
-\item la couleur de nettoyage au noir
-\item la fenêtre comme redimensionnable
-\end{DoxyItemize}
-
-
-\begin{DoxyParams}{Paramètres}
-{\em title} & nom de la fenêtre \\
-\hline
-{\em width} & largeur de la fenêtre \\
-\hline
-{\em height} & longueur de la fenêtre \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-un pointer sur une {\bfseries{fenêtre}} 
-\end{DoxyReturn}
-\mbox{\Hypertarget{window_8h_a5c99ec5fa59f256952979f2bd938a000}\label{window_8h_a5c99ec5fa59f256952979f2bd938a000}} 
+\mbox{\Hypertarget{window_8h_a2b6afcc06737563c2c82cb5b822bcb6e}\label{window_8h_a2b6afcc06737563c2c82cb5b822bcb6e}} 
 \index{window.h@{window.h}!destroyWindow@{destroyWindow}}
 \index{destroyWindow@{destroyWindow}!window.h@{window.h}}
 \doxysubsubsection{\texorpdfstring{destroyWindow()}{destroyWindow()}}

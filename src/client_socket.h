@@ -31,14 +31,14 @@ typedef struct
     packet_t *packet_buffer;     /**< buffer de paquet*/
 } client_t;
 
-extern client_t *createClient(char *, uint16_t);
+extern client_t *createClient(char *hostname, uint16_t port);
 
-extern int isServerDown(client_t *);
+extern int isServerDown(client_t *client);
 
-extern int sendToServer(client_t *, packet_t *);
+extern int sendToServer(client_t *client, packet_t *packet);
 
-extern packet_t *recvFromServer(client_t *);
+extern packet_t *recvFromServer(client_t *client);
 
-extern int deleteClient(client_t **);
+extern int deleteClient(client_t **client);
 
 #endif
