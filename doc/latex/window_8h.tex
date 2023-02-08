@@ -1,0 +1,84 @@
+\hypertarget{window_8h}{}\doxysection{Référence du fichier src/window.h}
+\label{window_8h}\index{src/window.h@{src/window.h}}
+
+
+Implémentation des prototypes de \mbox{\hyperlink{window_8c}{window.\+c}}.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structwindow__t}{window\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure contenant toutes les données de la fenêtre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8h_af2f27d4456704f7ed606ca61e14c40e8}{create\+Window}} (char $\ast$, int, int)
+\begin{DoxyCompactList}\small\item\em Créer une fenêtre. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{window_8h_a5c99ec5fa59f256952979f2bd938a000}{destroy\+Window}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Détruit une fenêtre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des prototypes de \mbox{\hyperlink{window_8c}{window.\+c}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+08/02/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{window_8h_af2f27d4456704f7ed606ca61e14c40e8}\label{window_8h_af2f27d4456704f7ed606ca61e14c40e8}} 
+\index{window.h@{window.h}!createWindow@{createWindow}}
+\index{createWindow@{createWindow}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{createWindow()}{createWindow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structwindow__t}{window\+\_\+t}}$\ast$ create\+Window (\begin{DoxyParamCaption}\item[{char $\ast$}]{title,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Créer une fenêtre. 
+
+Définis \+:
+\begin{DoxyItemize}
+\item la taille minimale de la fenêtre, comme étant la taille passé en paramètre
+\item la couleur de nettoyage au noir
+\item la fenêtre comme redimensionnable
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em title} & nom de la fenêtre \\
+\hline
+{\em width} & largeur de la fenêtre \\
+\hline
+{\em height} & longueur de la fenêtre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur une {\bfseries{fenêtre}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8h_a5c99ec5fa59f256952979f2bd938a000}\label{window_8h_a5c99ec5fa59f256952979f2bd938a000}} 
+\index{window.h@{window.h}!destroyWindow@{destroyWindow}}
+\index{destroyWindow@{destroyWindow}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{destroyWindow()}{destroyWindow()}}
+{\footnotesize\ttfamily int destroy\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$$\ast$}]{window }\end{DoxyParamCaption})}
+
+
+
+Détruit une fenêtre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & une référence d\textquotesingle{}un pointeur sur une fenêtre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}

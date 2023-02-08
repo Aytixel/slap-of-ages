@@ -25,7 +25,7 @@
  * @brief Créer un timer
  *
  * @param interval en milliseconde
- * @return Un pointer sur un **timer**
+ * @return un pointer sur un **timer**
  */
 extern frame_timer_t *createTimer(time_t interval)
 {

@@ -31,11 +31,11 @@
 #include "server_socket.h"
 
 /**
- * @brief Créer un server
+ * @brief Créer un serveur
  *
  * @param hostname nom d'hôte à écouter
  * @param port port à écouter
- * @return un pointer sur un **server**
+ * @return un pointer sur un **serveur**
  */
 extern server_t *createServer(char *hostname, uint16_t port)
 {
@@ -248,7 +248,7 @@ extern int deleteServerClient(server_client_t **client)
 }
 
 /**
- * @brief Détruit un seveur
+ * @brief Détruit un serveur
  *
  * @param server une référence d'un pointeur sur un serveur
  * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null

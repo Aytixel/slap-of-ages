@@ -9,8 +9,8 @@ Serveur socket simple permettant l\textquotesingle{}échange de paquet de maniè
 {\ttfamily \#include $<$sys/fcntl.\+h$>$}\newline
 {\ttfamily \#include $<$sys/types.\+h$>$}\newline
 {\ttfamily \#include $<$sys/socket.\+h$>$}\newline
-{\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$poll.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}socket.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}server\+\_\+socket.\+h\char`\"{}}\newline
@@ -18,7 +18,7 @@ Serveur socket simple permettant l\textquotesingle{}échange de paquet de maniè
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$ \mbox{\hyperlink{server__socket_8c_a641d3877e58ea8e6c9760312e23fa650}{create\+Server}} (char $\ast$hostname, uint16\+\_\+t port)
-\begin{DoxyCompactList}\small\item\em Créer un server. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Créer un serveur. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$ \mbox{\hyperlink{server__socket_8c_a028de4bec914124d8950eb1501b4cb39}{accept\+Server\+Client}} (\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$server)
 \begin{DoxyCompactList}\small\item\em Vérifie si il y a des connexions à accepter, et les accepte. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{server__socket_8c_ae64319cb1d181c48adea7f3b1deb0cee}{is\+Client\+Down}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
@@ -30,7 +30,7 @@ int \mbox{\hyperlink{server__socket_8c_a020eb9c58a6fcf5fbb6e9425dee34e81}{send\+
 int \mbox{\hyperlink{server__socket_8c_aab1b91251a1b3c6b7efb503af44d6ba8}{delete\+Server\+Client}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$$\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
 \begin{DoxyCompactList}\small\item\em Détruit un client serveur. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{server__socket_8c_a1778c7f9e97e6068abe92d0d47d33a7d}{delete\+Server}} (\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$$\ast$server)
-\begin{DoxyCompactList}\small\item\em Détruit un seveur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Détruit un serveur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -74,7 +74,7 @@ un pointeur sur un {\bfseries{client serveur}}
 
 
 
-Créer un server. 
+Créer un serveur. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -84,7 +84,7 @@ Créer un server.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-un pointer sur un {\bfseries{server}} 
+un pointer sur un {\bfseries{serveur}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{server__socket_8c_a1778c7f9e97e6068abe92d0d47d33a7d}\label{server__socket_8c_a1778c7f9e97e6068abe92d0d47d33a7d}} 
 \index{server\_socket.c@{server\_socket.c}!deleteServer@{deleteServer}}
@@ -94,7 +94,7 @@ un pointer sur un {\bfseries{server}}
 
 
 
-Détruit un seveur. 
+Détruit un serveur. 
 
 
 \begin{DoxyParams}{Paramètres}

@@ -78,8 +78,8 @@ $(function() {
 <code>#include &lt;sys/fcntl.h&gt;</code><br />
 <code>#include &lt;sys/types.h&gt;</code><br />
 <code>#include &lt;sys/socket.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;poll.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="socket_8h_source.html">socket.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="server__socket_8h_source.html">server_socket.h</a>&quot;</code><br />
@@ -87,7 +87,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a641d3877e58ea8e6c9760312e23fa650"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structserver__t.html">server_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8c.html#a641d3877e58ea8e6c9760312e23fa650">createServer</a> (char *hostname, uint16_t port)</td></tr>
-<tr class="memdesc:a641d3877e58ea8e6c9760312e23fa650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un server.  <a href="server__socket_8c.html#a641d3877e58ea8e6c9760312e23fa650">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a641d3877e58ea8e6c9760312e23fa650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un serveur.  <a href="server__socket_8c.html#a641d3877e58ea8e6c9760312e23fa650">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a641d3877e58ea8e6c9760312e23fa650"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a028de4bec914124d8950eb1501b4cb39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8c.html#a028de4bec914124d8950eb1501b4cb39">acceptServerClient</a> (<a class="el" href="structserver__t.html">server_t</a> *server)</td></tr>
 <tr class="memdesc:a028de4bec914124d8950eb1501b4cb39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si il y a des connexions à accepter, et les accepte.  <a href="server__socket_8c.html#a028de4bec914124d8950eb1501b4cb39">Plus de détails...</a><br /></td></tr>
@@ -105,7 +105,7 @@ Fonctions</h2></td></tr>
 <tr class="memdesc:aab1b91251a1b3c6b7efb503af44d6ba8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un client serveur.  <a href="server__socket_8c.html#aab1b91251a1b3c6b7efb503af44d6ba8">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aab1b91251a1b3c6b7efb503af44d6ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1778c7f9e97e6068abe92d0d47d33a7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8c.html#a1778c7f9e97e6068abe92d0d47d33a7d">deleteServer</a> (<a class="el" href="structserver__t.html">server_t</a> **server)</td></tr>
-<tr class="memdesc:a1778c7f9e97e6068abe92d0d47d33a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un seveur.  <a href="server__socket_8c.html#a1778c7f9e97e6068abe92d0d47d33a7d">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a1778c7f9e97e6068abe92d0d47d33a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un serveur.  <a href="server__socket_8c.html#a1778c7f9e97e6068abe92d0d47d33a7d">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a1778c7f9e97e6068abe92d0d47d33a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -167,7 +167,7 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Créer un server. </p>
+<p>Créer un serveur. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">hostname</td><td>nom d'hôte à écouter </td></tr>
@@ -175,7 +175,7 @@ Fonctions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>server</b> </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>serveur</b> </dd></dl>
 
 </div>
 </div>
@@ -195,7 +195,7 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Détruit un seveur. </p>
+<p>Détruit un serveur. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>une référence d'un pointeur sur un serveur </td></tr>
