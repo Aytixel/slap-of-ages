@@ -67,8 +67,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Fonctions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier window.h</div>  </div>
 </div><!--header-->
@@ -88,21 +87,12 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
+<tr class="memitem:ae86a3185973be72e90ebb6ec30e5daa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#ae86a3185973be72e90ebb6ec30e5daa7">createWindow</a> (char *title, int width, int height)</td></tr>
+<tr class="memdesc:ae86a3185973be72e90ebb6ec30e5daa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer une fenêtre.  <a href="window_8h.html#ae86a3185973be72e90ebb6ec30e5daa7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae86a3185973be72e90ebb6ec30e5daa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b6afcc06737563c2c82cb5b822bcb6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a2b6afcc06737563c2c82cb5b822bcb6e">destroyWindow</a> (<a class="el" href="structwindow__t.html">window_t</a> **window)</td></tr>
 <tr class="memdesc:a2b6afcc06737563c2c82cb5b822bcb6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une fenêtre.  <a href="window_8h.html#a2b6afcc06737563c2c82cb5b822bcb6e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a2b6afcc06737563c2c82cb5b822bcb6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a592effeb7d985a1e8b60168d75aab07f"><td class="memItemLeft" align="right" valign="top"><a id="a592effeb7d985a1e8b60168d75aab07f"></a>
-<a class="el" href="structwindow__t.html">window_t</a> *char *&#160;</td><td class="memItemRight" valign="bottom"><b>title</b></td></tr>
-<tr class="separator:a592effeb7d985a1e8b60168d75aab07f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40f90f372d460e166a6c67f13bf29b18"><td class="memItemLeft" align="right" valign="top"><a id="a40f90f372d460e166a6c67f13bf29b18"></a>
-<a class="el" href="structwindow__t.html">window_t</a> *char int&#160;</td><td class="memItemRight" valign="bottom"><b>width</b></td></tr>
-<tr class="separator:a40f90f372d460e166a6c67f13bf29b18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9aedc445de01450b55647864b55c3da"><td class="memItemLeft" align="right" valign="top"><a id="ad9aedc445de01450b55647864b55c3da"></a>
-<a class="el" href="structwindow__t.html">window_t</a> *char int int&#160;</td><td class="memItemRight" valign="bottom"><b>height</b></td></tr>
-<tr class="separator:ad9aedc445de01450b55647864b55c3da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Implémentation des prototypes de <a class="el" href="window_8c.html" title="Permets de gérer la fenêtre.">window.c</a>. </p>
@@ -110,6 +100,57 @@ Variables</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>08/02/2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ae86a3185973be72e90ebb6ec30e5daa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae86a3185973be72e90ebb6ec30e5daa7">&#9670;&nbsp;</a></span>createWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structwindow__t.html">window_t</a>* createWindow </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer une fenêtre. </p>
+<p>Définis :</p><ul>
+<li>la taille minimale de la fenêtre, comme étant la taille passé en paramètre.</li>
+<li>la couleur de nettoyage au noir.</li>
+<li>la fenêtre comme redimensionnable.</li>
+</ul>
+<p>Puis nettoie la fenêtre.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>nom de la fenêtre </td></tr>
+    <tr><td class="paramname">width</td><td>largeur de la fenêtre </td></tr>
+    <tr><td class="paramname">height</td><td>longueur de la fenêtre </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur une <b>fenêtre</b> </dd></dl>
+
+</div>
+</div>
 <a id="a2b6afcc06737563c2c82cb5b822bcb6e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2b6afcc06737563c2c82cb5b822bcb6e">&#9670;&nbsp;</a></span>destroyWindow()</h2>
 

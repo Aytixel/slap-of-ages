@@ -7,7 +7,7 @@
 
 int running = 1;
 
-void handler(int s)
+void signalHandler(int s)
 {
     running = 0;
 }
@@ -51,9 +51,9 @@ int main(int argc, char *argv[])
 
     printf("Ecoute sur %s:%d\n", hostname, port);
 
-    signal(SIGINT, handler);
-    signal(SIGABRT, handler);
-    signal(SIGTERM, handler);
+    signal(SIGINT, signalHandler);
+    signal(SIGABRT, signalHandler);
+    signal(SIGTERM, signalHandler);
 
     initSocket();
 

@@ -2,23 +2,40 @@
 #include <stdlib.h>
 #include <time.h>
 #include <signal.h>
+#include "window.h"
 #include "timer.h"
 #include "client_connection.h"
 
 int running = 1;
 
-void handler(int s)
+void signalHandler(int s)
 {
     running = 0;
+}
+
+void windowEventHandler(SDL_Event *event)
+{
+    // gestion des évènements de la fenêtre
+    switch (event->type)
+    {
+    case SDL_QUIT:
+        running = 0;
+        break;
+    }
 }
 
 int main(int argc, char *argv[])
 {
     srand(time(NULL));
 
-    signal(SIGINT, handler);
-    signal(SIGABRT, handler);
-    signal(SIGTERM, handler);
+    signal(SIGINT, signalHandler);
+    signal(SIGABRT, signalHandler);
+    signal(SIGTERM, signalHandler);
+
+    window_t *window = createWindow("Slap of Ages", 600, 600);
+
+    if (window == NULL)
+        return 1;
 
     initSocket();
 
@@ -30,8 +47,16 @@ int main(int argc, char *argv[])
     // boucle principale
     while (running)
     {
+        SDL_Event event;
+        int time_left = timeLeft(main_timer);
+
+        if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
+            windowEventHandler(&event);
+
         if (checkTime(main_timer))
         {
+            SDL_RenderClear(window->renderer);
+
             // gestion de quelle chose faire en fonction de l'état de la connexion
             switch (client_connection_state)
             {
@@ -69,14 +94,14 @@ int main(int argc, char *argv[])
                 break;
             }
 
-            sleepMs(timeLeft(main_timer));
+            SDL_RenderPresent(window->renderer);
         }
     }
 
     closeClientConnection();
     deleteTimer(&main_timer);
-    deleteClient(&client);
     endSocket();
+    destroyWindow(&window);
 
     return 0;
 }

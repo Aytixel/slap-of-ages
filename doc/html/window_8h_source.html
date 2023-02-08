@@ -83,7 +83,7 @@ $(function() {
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structwindow__t.html#a2e4e3c4402eb7b5f67e7574ec0e8c7bf">   24</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structwindow__t.html#a2e4e3c4402eb7b5f67e7574ec0e8c7bf">height</a>;             </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;} <a class="code" href="structwindow__t.html">window_t</a>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">extern</span> <a class="code" href="structwindow__t.html">window_t</a> *(<span class="keywordtype">char</span> *title, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">extern</span> <a class="code" href="structwindow__t.html">window_t</a> *<a class="code" href="window_8h.html#ae86a3185973be72e90ebb6ec30e5daa7">createWindow</a>(<span class="keywordtype">char</span> *title, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="window_8h.html#a2b6afcc06737563c2c82cb5b822bcb6e">destroyWindow</a>(<a class="code" href="structwindow__t.html">window_t</a> **window);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
@@ -94,6 +94,7 @@ $(function() {
 <div class="ttc" id="astructwindow__t_html_a79ad8be3dbb4a46cbf4554b64f64d70c"><div class="ttname"><a href="structwindow__t.html#a79ad8be3dbb4a46cbf4554b64f64d70c">window_t::renderer</a></div><div class="ttdeci">SDL_Renderer * renderer</div><div class="ttdef"><b>Definition:</b> window.h:22</div></div>
 <div class="ttc" id="astructwindow__t_html_ade23597c3ed81f62276a0ade09f936be"><div class="ttname"><a href="structwindow__t.html#ade23597c3ed81f62276a0ade09f936be">window_t::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition:</b> window.h:23</div></div>
 <div class="ttc" id="awindow_8h_html_a2b6afcc06737563c2c82cb5b822bcb6e"><div class="ttname"><a href="window_8h.html#a2b6afcc06737563c2c82cb5b822bcb6e">destroyWindow</a></div><div class="ttdeci">int destroyWindow(window_t **window)</div><div class="ttdoc">Détruit une fenêtre.</div><div class="ttdef"><b>Definition:</b> window.c:75</div></div>
+<div class="ttc" id="awindow_8h_html_ae86a3185973be72e90ebb6ec30e5daa7"><div class="ttname"><a href="window_8h.html#ae86a3185973be72e90ebb6ec30e5daa7">createWindow</a></div><div class="ttdeci">window_t * createWindow(char *title, int width, int height)</div><div class="ttdoc">Créer une fenêtre.</div><div class="ttdef"><b>Definition:</b> window.c:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

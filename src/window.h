@@ -24,7 +24,7 @@ typedef struct
     int height;             /**< longueur de la fenêtre*/
 } window_t;
 
-extern window_t *(char *title, int width, int height);
+extern window_t *createWindow(char *title, int width, int height);
 
 extern int destroyWindow(window_t **window);
 
