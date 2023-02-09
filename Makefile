@@ -57,7 +57,7 @@ TEST_MAINS:=$(TEST_TARGET:%=$(OBJ_DIR)/%.o)
 
 OBJS:=$(filter-out $(MAINS),$(OBJECTS))
 
-all: install_sdl build
+all: install_sdl build build_test
 	
 build: $(TRGS) copy_lib
 	
