@@ -99,6 +99,22 @@ TTF_Font *loadFont(SDL_Window *window, SDL_Renderer *renderer)
   return font;
 }
 
+TTF_Font *loadFontTextBox(SDL_Window *window, SDL_Renderer *renderer)
+{
+  // Chargement de la police
+  TTF_Font *fontTextBox = TTF_OpenFont("asset/font/arial.TTF", 24);
+  if (fontTextBox == NULL)
+  {
+    fprintf(stderr, "Erreur lors du chargement de la police : %s", TTF_GetError());
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return NULL;
+  }
+
+  return fontTextBox;
+}
+
 SDL_Point getMousePosition()
 {
   int mouseX, mouseY;
@@ -138,16 +154,20 @@ int menu_multi(int argc, char **argv){
   SDL_Color color = {52, 36, 20, 0}; // Rouge
   SDL_Surface *buttonSurfaceHost = NULL;
   SDL_Surface *buttonSurfaceJoin = NULL;
+  SDL_Surface *buttonSurfaceQuitter = NULL;
   SDL_Texture *buttonTextureHost = NULL;
   SDL_Texture *buttonTextureJoin = NULL;
+  SDL_Texture *buttonTextureQuitter = NULL;
   SDL_Rect buttonRectHost;
   SDL_Rect buttonRectJoin;
+  SDL_Rect buttonRectQuitter;
 
   // Variables pour le texte
     char inputText[1024] = {0};
     SDL_Color textColor = {255, 255, 255};
     SDL_Surface* textSurface = NULL;
     SDL_Texture* textTexture = NULL;
+    int taille_textbox = 1;
 
   // Création de l'Image du Menu Principal
 
@@ -170,18 +190,26 @@ int menu_multi(int argc, char **argv){
   buttonTextureHost = SDL_CreateTextureFromSurface(renderer, buttonSurfaceHost);
   buttonRectHost.w = buttonSurfaceHost->w;
   buttonRectHost.h = buttonSurfaceHost->h;
-  buttonRectHost.x = WINDOW_WIDTH / 2 - buttonRectHost.w * 2;       // Centrer horizontalement
-  buttonRectHost.y = WINDOW_HEIGHT / 2 - buttonRectHost.h / 2 - 50; // Placer au-dessus du centre
+  buttonRectHost.x = WINDOW_WIDTH / 2 - buttonRectHost.w * 2;       
+  buttonRectHost.y = WINDOW_HEIGHT / 2 - buttonRectHost.h / 2 - 50; 
 
   // Bouton "JOIN"
   buttonSurfaceJoin = TTF_RenderText_Solid(font, "JOIN", color);
   buttonTextureJoin = SDL_CreateTextureFromSurface(renderer, buttonSurfaceJoin);
   buttonRectJoin.w = buttonSurfaceJoin->w;
   buttonRectJoin.h = buttonSurfaceJoin->h;
-  buttonRectJoin.x = buttonRectHost.x;                         // Centrer horizontalement
-  buttonRectJoin.y = WINDOW_HEIGHT / 2 - buttonRectJoin.h / 2; // Placer au centre
+  buttonRectJoin.x = buttonRectHost.x;                        
+  buttonRectJoin.y = WINDOW_HEIGHT / 2 - buttonRectJoin.h / 2; 
 
-  SDL_Rect TextInputRect = {buttonRectHost.x*2, buttonRectHost.y, buttonRectJoin.w, buttonRectJoin.h};
+  // Bouton "QUITTER"
+  buttonSurfaceQuitter = TTF_RenderText_Solid(font, "QUITTER", color);
+  buttonTextureQuitter = SDL_CreateTextureFromSurface(renderer, buttonSurfaceQuitter);
+  buttonRectQuitter.w = buttonSurfaceQuitter->w;
+  buttonRectQuitter.h = buttonSurfaceQuitter->h;
+  buttonRectQuitter.x = buttonRectHost.x;                         // Centrer horizontalement
+  buttonRectQuitter.y = buttonRectJoin.y + 50 ; // Placer au centre
+
+  SDL_Rect TextInputRect = {buttonRectHost.x*2, buttonRectHost.y, buttonRectJoin.w*2.5, buttonRectJoin.h};
   SDL_SetTextInputRect(&TextInputRect);
 
   frame_timer_t *multi_timer = createTimer(1000 / 60);
@@ -202,6 +230,28 @@ int menu_multi(int argc, char **argv){
           buttonTextureHost = SDL_CreateTextureFromSurface(renderer, buttonSurfaceHost);
           buttonSurfaceJoin = TTF_RenderText_Solid(font, "JOIN", color);
           buttonTextureJoin = SDL_CreateTextureFromSurface(renderer, buttonSurfaceJoin);
+          buttonSurfaceQuitter = TTF_RenderText_Solid(font, "QUITTER", color);
+          buttonTextureQuitter = SDL_CreateTextureFromSurface(renderer, buttonSurfaceQuitter);
+          
+          // Si l'utilisateur clique sur le bouton "QUITTER"
+          if (event.type == SDL_MOUSEBUTTONDOWN &&
+              event.button.button == SDL_BUTTON_LEFT &&
+              event.button.x >= buttonRectQuitter.x &&
+              event.button.x <= buttonRectQuitter.x + buttonRectQuitter.w &&
+              event.button.y >= buttonRectQuitter.y &&
+              event.button.y <= buttonRectQuitter.y + buttonRectQuitter.h 
+              && inoption == 0)
+          {
+            SDL_DestroyTexture(buttonTextureHost);
+            SDL_FreeSurface(buttonSurfaceHost);
+            SDL_DestroyTexture(buttonTextureJoin);
+            SDL_FreeSurface(buttonSurfaceJoin);
+            SDL_DestroyTexture(buttonTextureQuitter);
+            SDL_FreeSurface(buttonSurfaceQuitter);
+
+            // Quitter le programme
+            exit(0);
+          }
 
           switch (event.type)
           {
@@ -219,6 +269,14 @@ int menu_multi(int argc, char **argv){
               break;
           }
 
+          //calcule taille du text
+          if(strlen(inputText) == 0){
+            taille_textbox = 1;
+          }
+          else{
+            taille_textbox = strlen(inputText);
+          }
+
           // Rendre le texte à partir de la surface
           SDL_FreeSurface(textSurface);
           textSurface = TTF_RenderText_Solid(font, inputText, textColor);
@@ -233,6 +291,7 @@ int menu_multi(int argc, char **argv){
           // Affichage des boutons
           SDL_RenderCopy(renderer, buttonTextureHost, NULL, &buttonRectHost);
           SDL_RenderCopy(renderer, buttonTextureJoin, NULL, &buttonRectJoin);
+          SDL_RenderCopy(renderer, buttonTextureQuitter, NULL, &buttonRectQuitter);
 
           //---------//
 
@@ -241,7 +300,8 @@ int menu_multi(int argc, char **argv){
           SDL_RenderFillRect(renderer, &TextInputRect);
 
           // Dessiner le texte
-          SDL_Rect textRect = {buttonRectHost.x*2,  buttonRectHost.y, buttonRectJoin.w, buttonRectJoin.h};
+          SDL_Rect textRect = {buttonRectHost.x*2,  buttonRectHost.y, ((buttonRectJoin.w*2)/16+(taille_textbox)*10), (buttonRectJoin.h)};
+          //printf("Valeur actuel : %d, valeur diviser : %d", buttonRectJoin.w*2, ((buttonRectJoin.w*2)/16+(taille_textbox*10)));
           SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
                                        
 
@@ -272,6 +332,8 @@ int menu_multi(int argc, char **argv){
   SDL_FreeSurface(buttonSurfaceHost);
   SDL_DestroyTexture(buttonTextureJoin);
   SDL_FreeSurface(buttonSurfaceJoin);
+  SDL_DestroyTexture(buttonTextureQuitter);
+  SDL_FreeSurface(buttonSurfaceQuitter);
   SDL_DestroyTexture(texturep);
   SDL_FreeSurface(imagep);
 
