@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
                     if (waitClientHandshake(server))
                         printf("Nouveau client connecté avec succès : %d\n", server_client->socket_fd);
                     break;
-                case SERVER_CLIENT_CONNECTED:
+                case SERVER_CLIENT_CONNECTED:; //Pour éviter l'erreur de compilation avec les anciennes versions de gcc
                     packet_t *packet = recvFromServerClient(server_client);
 
                     // code
