@@ -146,6 +146,7 @@ int menu_multi(int argc, char **argv){
   checkTTFLib(window, renderer);
 
   TTF_Font *font = loadFont(window, renderer);
+  TTF_Font *fontTextBox = loadFontTextBox(window, renderer);
 
   // Commencer la saisie de texte
   SDL_StartTextInput();
@@ -190,7 +191,7 @@ int menu_multi(int argc, char **argv){
   buttonTextureHost = SDL_CreateTextureFromSurface(renderer, buttonSurfaceHost);
   buttonRectHost.w = buttonSurfaceHost->w;
   buttonRectHost.h = buttonSurfaceHost->h;
-  buttonRectHost.x = WINDOW_WIDTH / 2 - buttonRectHost.w * 2;       
+  buttonRectHost.x = WINDOW_WIDTH / 2 - buttonRectHost.w * 3;       
   buttonRectHost.y = WINDOW_HEIGHT / 2 - buttonRectHost.h / 2 - 50; 
 
   // Bouton "JOIN"
@@ -209,7 +210,7 @@ int menu_multi(int argc, char **argv){
   buttonRectQuitter.x = buttonRectHost.x;                         // Centrer horizontalement
   buttonRectQuitter.y = buttonRectJoin.y + 50 ; // Placer au centre
 
-  SDL_Rect TextInputRect = {buttonRectHost.x*2, buttonRectHost.y, buttonRectJoin.w*2.5, buttonRectJoin.h};
+  SDL_Rect TextInputRect = {buttonRectHost.x*3, buttonRectHost.y, buttonRectJoin.w*2.5, buttonRectJoin.h};
   SDL_SetTextInputRect(&TextInputRect);
 
   frame_timer_t *multi_timer = createTimer(1000 / 60);
@@ -259,7 +260,7 @@ int menu_multi(int argc, char **argv){
               return 0;
             case SDL_TEXTINPUT:
               strcat(inputText, event.text.text);
-              printf("Texte saisi : %s", inputText);
+              //printf("Texte saisi : %s", inputText);
               break;
             case SDL_KEYDOWN:
               if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputText) > 0)
@@ -279,8 +280,39 @@ int menu_multi(int argc, char **argv){
 
           // Rendre le texte à partir de la surface
           SDL_FreeSurface(textSurface);
-          textSurface = TTF_RenderText_Solid(font, inputText, textColor);
+          textSurface = TTF_RenderText_Solid(fontTextBox , inputText, textColor);
           textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+
+          //---------//
+
+          // Si l'utilisateur met sa souris au dessus
+          SDL_Point mousePoint = getMousePosition();
+          if (SDL_PointInRect(&mousePoint, &buttonRectHost))
+          {
+            SDL_Color color = {52, 36, 155, 0};
+            buttonSurfaceHost = TTF_RenderText_Solid(font, "HOST", color);
+            buttonTextureHost = SDL_CreateTextureFromSurface(renderer, buttonSurfaceHost);
+          }else if (SDL_PointInRect(&mousePoint, &buttonRectJoin))
+          {
+            SDL_Color color = {52, 36, 155, 0};
+            buttonSurfaceJoin = TTF_RenderText_Solid(font, "JOIN", color);
+            buttonTextureJoin = SDL_CreateTextureFromSurface(renderer, buttonSurfaceJoin);
+          }else if (SDL_PointInRect(&mousePoint, &buttonRectQuitter))
+          {
+            SDL_Color color = {52, 36, 155, 0};
+            buttonSurfaceQuitter = TTF_RenderText_Solid(font, "QUITTER", color);
+            buttonTextureQuitter = SDL_CreateTextureFromSurface(renderer, buttonSurfaceQuitter);
+          }else{
+            SDL_Color color = {52, 36, 20, 0};
+            buttonSurfaceHost = TTF_RenderText_Solid(font, "HOST", color);
+            buttonTextureHost = SDL_CreateTextureFromSurface(renderer, buttonSurfaceHost);
+            buttonSurfaceJoin = TTF_RenderText_Solid(font, "JOIN", color);
+            buttonTextureJoin = SDL_CreateTextureFromSurface(renderer, buttonSurfaceJoin);
+            buttonSurfaceQuitter = TTF_RenderText_Solid(font, "QUITTER", color);
+            buttonTextureQuitter = SDL_CreateTextureFromSurface(renderer, buttonSurfaceQuitter);
+          }
+
+          //------------------//
 
           // Effacement de l'écran
           SDL_RenderClear(renderer);
@@ -293,6 +325,7 @@ int menu_multi(int argc, char **argv){
           SDL_RenderCopy(renderer, buttonTextureJoin, NULL, &buttonRectJoin);
           SDL_RenderCopy(renderer, buttonTextureQuitter, NULL, &buttonRectQuitter);
 
+
           //---------//
 
           // Dessiner le rectangle de saisie de texte
@@ -300,7 +333,7 @@ int menu_multi(int argc, char **argv){
           SDL_RenderFillRect(renderer, &TextInputRect);
 
           // Dessiner le texte
-          SDL_Rect textRect = {buttonRectHost.x*2,  buttonRectHost.y, ((buttonRectJoin.w*2)/16+(taille_textbox)*10), (buttonRectJoin.h)};
+          SDL_Rect textRect = {buttonRectHost.x*3,  buttonRectHost.y, ((buttonRectJoin.w*2)/16+(taille_textbox)*10), (buttonRectJoin.h)};
           //printf("Valeur actuel : %d, valeur diviser : %d", buttonRectJoin.w*2, ((buttonRectJoin.w*2)/16+(taille_textbox*10)));
           SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
                                        
