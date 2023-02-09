@@ -19,4 +19,6 @@ int main(int argc, char *argv[])
     printf("\nDestruction du window OK\n");
 
     printf("\nTest de window.h succès\n");
+
+    return 0;
 }
