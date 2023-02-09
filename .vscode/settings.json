@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "sdl_image.h": "c",
-        "string.h": "c",
-        "main_menu.h": "c",
-        "sdl_ttf.h": "c"
-    }
-}

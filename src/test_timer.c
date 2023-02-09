@@ -1,44 +1,42 @@
 #include <stdio.h>
-#include <unistd.h>
-#include <time.h>
 #include <assert.h>
 #include "timer.h"
 
 int main()
 {
-    printf("Testing timer.h\n\n");
+    printf("Test de timer.h\n\n");
 
     frame_timer_t *timer = createTimer(1000 / 30);
 
     assert(timer != NULL);
-    printf("Timer creation OK\n");
+    printf("Création du timer OK\n");
 
     assert(timeLeft(timer) > 0);
-    printf("\n\tTime left before OK\n");
+    printf("\n\tTemps restant, avant OK\n");
     assert(!checkTime(timer));
-    printf("\tCheck time before OK\n");
+    printf("\tTest du timer, avant OK\n");
 
-    printf("\nWait for 1 second\n");
-    sleep(1);
+    printf("\nAttend 1 seconde\n");
+    sleepMs(1000);
 
     assert(timeLeft(timer) < 0);
-    printf("\n\tTime left after OK\n");
+    printf("\n\tTemps restant, après OK\n");
     assert(checkTime(timer) > 0);
-    printf("\tCheck time after OK\n");
+    printf("\tTest du timer, après OK\n");
 
     assert(timeLeft(timer) > 0);
-    printf("\n\tTime left before OK\n");
+    printf("\n\tTemps restant, avant OK\n");
     assert(!checkTime(timer));
-    printf("\tCheck time before OK\n");
+    printf("\tTest du timer, avant OK\n");
 
     assert(timer->frame_per_second > 0.95 && timer->frame_per_second < 1.05);
-    printf("\n\tFrame per second OK\n");
+    printf("\n\tImage par seconde OK\n");
 
     assert(!deleteTimer(&timer));
     assert(timer == NULL);
-    printf("\nTimer deletion OK\n");
+    printf("\nDestruction du timer OK\n");
 
-    printf("\nTesting timer.h successful\n");
+    printf("\nTest de timer.h succès\n");
 
     return 0;
 }

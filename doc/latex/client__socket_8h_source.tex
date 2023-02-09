@@ -1,0 +1,35 @@
+\hypertarget{client__socket_8h_source}{}\doxysection{client\+\_\+socket.\+h}
+\label{client__socket_8h_source}\index{src/client\_socket.h@{src/client\_socket.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_\_CLIENT\_SOCKET\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_\_CLIENT\_SOCKET\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifndef WIN32}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <netinet/in.h>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}socket.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} address\_length;}
+\DoxyCodeLine{15     \textcolor{keyword}{struct }sockaddr\_in address;}
+\DoxyCodeLine{16     \textcolor{keywordtype}{int} socket\_fd;}
+\DoxyCodeLine{17     ssize\_t recv\_length;}
+\DoxyCodeLine{18     \mbox{\hyperlink{structpacket__t}{packet\_t}} *packet\_buffer;}
+\DoxyCodeLine{19 \} \mbox{\hyperlink{structclient__t}{client\_t}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{extern} \mbox{\hyperlink{structclient__t}{client\_t}} *createClient(\textcolor{keywordtype}{char} *, uint16\_t);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} sendToServer(\mbox{\hyperlink{structclient__t}{client\_t}} *, \mbox{\hyperlink{structpacket__t}{packet\_t}} *);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{extern} \mbox{\hyperlink{structpacket__t}{packet\_t}} *recvFromServer(\mbox{\hyperlink{structclient__t}{client\_t}} *);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} deleteClient(\mbox{\hyperlink{structclient__t}{client\_t}} **);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

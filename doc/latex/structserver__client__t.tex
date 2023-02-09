@@ -1,0 +1,65 @@
+\hypertarget{structserver__client__t}{}\doxysection{Référence de la structure server\+\_\+client\+\_\+t}
+\label{structserver__client__t}\index{server\_client\_t@{server\_client\_t}}
+
+
+Client serveur socket.  
+
+
+
+
+{\ttfamily \#include $<$server\+\_\+socket.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{structserver__client__t_a43729035655c9fe7801f8f44fafdc4fd}{address\+\_\+length}}
+\item 
+struct sockaddr\+\_\+in \mbox{\hyperlink{structserver__client__t_aa7052749e6fc4365a8ddd59a8b87d24e}{address}}
+\item 
+int \mbox{\hyperlink{structserver__client__t_a07429603d359b82e66bd078c3a638b4c}{socket\+\_\+fd}}
+\item 
+ssize\+\_\+t \mbox{\hyperlink{structserver__client__t_ac1d78d04464accf90c40d4327c21a119}{recv\+\_\+length}}
+\item 
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{structserver__client__t_a84c1d44e081636e53c69b37e119add16}{packet\+\_\+buffer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Client serveur socket. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structserver__client__t_aa7052749e6fc4365a8ddd59a8b87d24e}\label{structserver__client__t_aa7052749e6fc4365a8ddd59a8b87d24e}} 
+\index{server\_client\_t@{server\_client\_t}!address@{address}}
+\index{address@{address}!server\_client\_t@{server\_client\_t}}
+\doxysubsubsection{\texorpdfstring{address}{address}}
+{\footnotesize\ttfamily struct sockaddr\+\_\+in server\+\_\+client\+\_\+t\+::address}
+
+adresse du client \mbox{\Hypertarget{structserver__client__t_a43729035655c9fe7801f8f44fafdc4fd}\label{structserver__client__t_a43729035655c9fe7801f8f44fafdc4fd}} 
+\index{server\_client\_t@{server\_client\_t}!address\_length@{address\_length}}
+\index{address\_length@{address\_length}!server\_client\_t@{server\_client\_t}}
+\doxysubsubsection{\texorpdfstring{address\_length}{address\_length}}
+{\footnotesize\ttfamily unsigned int server\+\_\+client\+\_\+t\+::address\+\_\+length}
+
+longueur de l\textquotesingle{}adresse client \mbox{\Hypertarget{structserver__client__t_a84c1d44e081636e53c69b37e119add16}\label{structserver__client__t_a84c1d44e081636e53c69b37e119add16}} 
+\index{server\_client\_t@{server\_client\_t}!packet\_buffer@{packet\_buffer}}
+\index{packet\_buffer@{packet\_buffer}!server\_client\_t@{server\_client\_t}}
+\doxysubsubsection{\texorpdfstring{packet\_buffer}{packet\_buffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ server\+\_\+client\+\_\+t\+::packet\+\_\+buffer}
+
+buffer de paquet \mbox{\Hypertarget{structserver__client__t_ac1d78d04464accf90c40d4327c21a119}\label{structserver__client__t_ac1d78d04464accf90c40d4327c21a119}} 
+\index{server\_client\_t@{server\_client\_t}!recv\_length@{recv\_length}}
+\index{recv\_length@{recv\_length}!server\_client\_t@{server\_client\_t}}
+\doxysubsubsection{\texorpdfstring{recv\_length}{recv\_length}}
+{\footnotesize\ttfamily ssize\+\_\+t server\+\_\+client\+\_\+t\+::recv\+\_\+length}
+
+longueur des données reçues \mbox{\Hypertarget{structserver__client__t_a07429603d359b82e66bd078c3a638b4c}\label{structserver__client__t_a07429603d359b82e66bd078c3a638b4c}} 
+\index{server\_client\_t@{server\_client\_t}!socket\_fd@{socket\_fd}}
+\index{socket\_fd@{socket\_fd}!server\_client\_t@{server\_client\_t}}
+\doxysubsubsection{\texorpdfstring{socket\_fd}{socket\_fd}}
+{\footnotesize\ttfamily int server\+\_\+client\+\_\+t\+::socket\+\_\+fd}
+
+descipteur du socket client 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{server__socket_8h}{server\+\_\+socket.\+h}}\end{DoxyCompactItemize}
