@@ -1,6 +1,8 @@
 TARGET=main_client main_server
 TEST_TARGET=test_timer test_socket test_window test_animation
 
+CPU_COUNT=$(grep -c processor /proc/cpuinfo)
+
 ifeq ($(OS), Windows_NT)
 
 LIB_DIR=lib/windows
@@ -114,17 +116,17 @@ ifneq ($(OS), Windows_NT)
 
 	@rm -rf SDL
 	@git clone https://github.com/libsdl-org/SDL.git && cd SDL && git checkout release-2.26.2
-	@cd SDL && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j2 && $(MAKE) -j2 install
+	@cd SDL && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j$(CPU_COUNT) && $(MAKE) -j$(CPU_COUNT) install
 	@rm -rf SDL
 
 	@rm -rf SDL_image
 	@git clone https://github.com/libsdl-org/SDL_image.git && cd SDL_image && git checkout release-2.6.2
-	@cd SDL_image && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j2 && $(MAKE) -j2 install
+	@cd SDL_image && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j$(CPU_COUNT) && $(MAKE) -j$(CPU_COUNT) install
 	@rm -rf SDL_image
 
 	@rm -rf SDL_ttf
 	@git clone https://github.com/libsdl-org/SDL_ttf.git && cd SDL_ttf && git checkout release-2.0.18
-	@cd SDL_ttf && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j2 && $(MAKE) -j2 install
+	@cd SDL_ttf && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j$(CPU_COUNT) && $(MAKE) -j$(CPU_COUNT) install
 	@rm -rf SDL_ttf
 
 	@cp -r SDL_lib/lib/* $(LIB_DIR)
