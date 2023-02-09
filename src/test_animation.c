@@ -8,9 +8,6 @@
 #include "test_animation.h"
 #include "window.h"
 
-const int WINDOW_WIDTH = 640;
-const int WINDOW_HEIGHT = 480;
-
 int initFrames(SDL_Rect *tab, int nb_frames, SDL_Surface *src, int line, int nb_lines)
 {
 
@@ -100,7 +97,7 @@ void updateAnim(anim_t *anim, portal_e current_state, window_t *window)
 int main(int argc, char *argv[])
 {
 
-  window_t *window = createWindow("Test Animations", WINDOW_WIDTH, WINDOW_HEIGHT);
+  window_t *window = createWindow("Test Animations", 640, 480);
 
   SDL_Surface *dim = IMG_Load("asset/GreenPortal.png");
 
