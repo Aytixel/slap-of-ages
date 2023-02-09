@@ -1,0 +1,110 @@
+\hypertarget{socket_8h}{}\doxysection{Référence du fichier src/socket.h}
+\label{socket_8h}\index{src/socket.h@{src/socket.h}}
+
+
+Implémentation des prototypes de \mbox{\hyperlink{socket_8c}{socket.\+c}}.  
+
+
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Paquet réseaux pour les sockets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{socket_8h_ae98edd9cbb3dd2b3808a598d54ed9607}{init\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation des sockets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{socket_8h_ad1bf922764060ce9980c6fbb9038a9d9}{end\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Déinitialisation des sockets. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{socket_8h_a28f1b203ad94365d7f6f23fb785d6d8e}{delete\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$$\ast$packet)
+\begin{DoxyCompactList}\small\item\em Détruit un paquet. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{socket_8h_aa3be97b9b72d6fba64253f61bfe4e6b6}{setup\+Address}} (struct sockaddr\+\_\+in $\ast$address, size\+\_\+t address\+\_\+length, char $\ast$hostname, uint16\+\_\+t port)
+\begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}adresse à partir du nom d\textquotesingle{}hôte et du port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des prototypes de \mbox{\hyperlink{socket_8c}{socket.\+c}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+31/01/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{socket_8h_a28f1b203ad94365d7f6f23fb785d6d8e}\label{socket_8h_a28f1b203ad94365d7f6f23fb785d6d8e}} 
+\index{socket.h@{socket.h}!deletePacket@{deletePacket}}
+\index{deletePacket@{deletePacket}!socket.h@{socket.h}}
+\doxysubsubsection{\texorpdfstring{deletePacket()}{deletePacket()}}
+{\footnotesize\ttfamily int delete\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$$\ast$}]{packet }\end{DoxyParamCaption})}
+
+
+
+Détruit un paquet. 
+
+Utilitaire pour détruire un paquet retourné par le serveur ou le client
+
+
+\begin{DoxyParams}{Paramètres}
+{\em packet} & une référence d\textquotesingle{}un pointeur sur un paquet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{socket_8h_ad1bf922764060ce9980c6fbb9038a9d9}\label{socket_8h_ad1bf922764060ce9980c6fbb9038a9d9}} 
+\index{socket.h@{socket.h}!endSocket@{endSocket}}
+\index{endSocket@{endSocket}!socket.h@{socket.h}}
+\doxysubsubsection{\texorpdfstring{endSocket()}{endSocket()}}
+{\footnotesize\ttfamily void end\+Socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Déinitialisation des sockets. 
+
+Windows à besoin de décharger les bibliothèques pour les sockets \mbox{\Hypertarget{socket_8h_ae98edd9cbb3dd2b3808a598d54ed9607}\label{socket_8h_ae98edd9cbb3dd2b3808a598d54ed9607}} 
+\index{socket.h@{socket.h}!initSocket@{initSocket}}
+\index{initSocket@{initSocket}!socket.h@{socket.h}}
+\doxysubsubsection{\texorpdfstring{initSocket()}{initSocket()}}
+{\footnotesize\ttfamily int init\+Socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation des sockets. 
+
+Windows à besoin de charger des bibliothèques pour les sockets
+
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{socket_8h_aa3be97b9b72d6fba64253f61bfe4e6b6}\label{socket_8h_aa3be97b9b72d6fba64253f61bfe4e6b6}} 
+\index{socket.h@{socket.h}!setupAddress@{setupAddress}}
+\index{setupAddress@{setupAddress}!socket.h@{socket.h}}
+\doxysubsubsection{\texorpdfstring{setupAddress()}{setupAddress()}}
+{\footnotesize\ttfamily int setup\+Address (\begin{DoxyParamCaption}\item[{struct sockaddr\+\_\+in $\ast$}]{address,  }\item[{size\+\_\+t}]{address\+\_\+length,  }\item[{char $\ast$}]{hostname,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+
+
+Initialise l\textquotesingle{}adresse à partir du nom d\textquotesingle{}hôte et du port. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em address} & \\
+\hline
+{\em address\+\_\+length} & \\
+\hline
+{\em hostname} & \\
+\hline
+{\em port} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si elle n\textquotesingle{}arrive pas à convertir le nom d\textquotesingle{}hôte et le port en adresse 
+\end{DoxyReturn}

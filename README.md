@@ -1,14 +1,18 @@
 # Slap of Ages
 
+**Slap of Ages est un projet mené par 4 étudiants en L2 Informatique de l'université du Mans sur une durée de 3 mois, le jeu consiste en la création d'un village et d'une armée pour combattre les villages des autres joueurs. Ce jeu est inspiré de Clash of Clans**
+
+[Lien vers le jeu](https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=fr&gl=US)
+
 ## Membres du groupe :
 - **Lucas Dureau** alias `Aytixel`
 - **Hôa Le Luet** alias `ABTonniere`
 - **Arthur Dureau** alias `MasterPNJ`
 - **Chadli Basma** alias `Basmachadli`
 
-## Compilation
+## Documents liés :
 
-Attention pour compiler sur **Windows** vous deverez utilisez le fichier `Makefile-windows`.
+Gantt : https://docs.google.com/spreadsheets/d/1tzo2DsVGko6vCwdnjP4RdRnp5ozh0s1jijUkGqu_1Vs/edit?usp=sharing
 
 ## Convention de nommage :
 
@@ -26,8 +30,28 @@ typedef unsigned long foo_t;
 
 Définition de structure en snake case, et finissant par `s` :
 ```c
+typedef struct foo_s {
+    int bar;
+    struct foo_s *foo;
+} foo_t;
+```
+```c
 struct foo_s {
     int bar;
+};
+```
+
+Définition d'enum en snake case, et finissant par `e` :
+```c
+typedef enum {
+    FOO = 12,
+    BAR,
+} bar_e;
+```
+```c
+enum bar_e {
+    FOO,
+    BAR = 12,
 };
 ```
 

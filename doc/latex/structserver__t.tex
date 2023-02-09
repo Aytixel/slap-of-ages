@@ -1,19 +1,49 @@
 \hypertarget{structserver__t}{}\doxysection{Référence de la structure server\+\_\+t}
 \label{structserver__t}\index{server\_t@{server\_t}}
+
+
+Serveur socket.  
+
+
+
+
+{\ttfamily \#include $<$server\+\_\+socket.\+h$>$}
+
 \doxysubsection*{Attributs publics}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structserver__t_a3b1e18c61476fbdc4fc77906d16d03c8}\label{structserver__t_a3b1e18c61476fbdc4fc77906d16d03c8}} 
-unsigned int {\bfseries address\+\_\+length}
+unsigned int \mbox{\hyperlink{structserver__t_a3b1e18c61476fbdc4fc77906d16d03c8}{address\+\_\+length}}
 \item 
-\mbox{\Hypertarget{structserver__t_a11bebb587b3f62b8d5c7768169906789}\label{structserver__t_a11bebb587b3f62b8d5c7768169906789}} 
-struct sockaddr\+\_\+in {\bfseries address}
+struct sockaddr\+\_\+in \mbox{\hyperlink{structserver__t_a11bebb587b3f62b8d5c7768169906789}{address}}
 \item 
-\mbox{\Hypertarget{structserver__t_a529cf0dee35461dcd663cde8b5d676d0}\label{structserver__t_a529cf0dee35461dcd663cde8b5d676d0}} 
-int {\bfseries socket\+\_\+fd}
+int \mbox{\hyperlink{structserver__t_a529cf0dee35461dcd663cde8b5d676d0}{socket\+\_\+fd}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Description détaillée}
+Serveur socket. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structserver__t_a11bebb587b3f62b8d5c7768169906789}\label{structserver__t_a11bebb587b3f62b8d5c7768169906789}} 
+\index{server\_t@{server\_t}!address@{address}}
+\index{address@{address}!server\_t@{server\_t}}
+\doxysubsubsection{\texorpdfstring{address}{address}}
+{\footnotesize\ttfamily struct sockaddr\+\_\+in server\+\_\+t\+::address}
+
+adresse du serveur \mbox{\Hypertarget{structserver__t_a3b1e18c61476fbdc4fc77906d16d03c8}\label{structserver__t_a3b1e18c61476fbdc4fc77906d16d03c8}} 
+\index{server\_t@{server\_t}!address\_length@{address\_length}}
+\index{address\_length@{address\_length}!server\_t@{server\_t}}
+\doxysubsubsection{\texorpdfstring{address\_length}{address\_length}}
+{\footnotesize\ttfamily unsigned int server\+\_\+t\+::address\+\_\+length}
+
+longueur de l\textquotesingle{}adresse serveur \mbox{\Hypertarget{structserver__t_a529cf0dee35461dcd663cde8b5d676d0}\label{structserver__t_a529cf0dee35461dcd663cde8b5d676d0}} 
+\index{server\_t@{server\_t}!socket\_fd@{socket\_fd}}
+\index{socket\_fd@{socket\_fd}!server\_t@{server\_t}}
+\doxysubsubsection{\texorpdfstring{socket\_fd}{socket\_fd}}
+{\footnotesize\ttfamily int server\+\_\+t\+::socket\+\_\+fd}
+
+descipteur du socket serveur 
+
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-src/server\+\_\+socket.\+h\end{DoxyCompactItemize}
+src/\mbox{\hyperlink{server__socket_8h}{server\+\_\+socket.\+h}}\end{DoxyCompactItemize}

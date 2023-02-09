@@ -1,25 +1,65 @@
 \hypertarget{structclient__t}{}\doxysection{Référence de la structure client\+\_\+t}
 \label{structclient__t}\index{client\_t@{client\_t}}
+
+
+Client socket.  
+
+
+
+
+{\ttfamily \#include $<$client\+\_\+socket.\+h$>$}
+
 \doxysubsection*{Attributs publics}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structclient__t_a9573944360077a5621f8d423e59b5139}\label{structclient__t_a9573944360077a5621f8d423e59b5139}} 
-unsigned int {\bfseries address\+\_\+length}
+unsigned int \mbox{\hyperlink{structclient__t_a9573944360077a5621f8d423e59b5139}{address\+\_\+length}}
 \item 
-\mbox{\Hypertarget{structclient__t_a8fd458d44d7accfe301e7a43f3f7fcb0}\label{structclient__t_a8fd458d44d7accfe301e7a43f3f7fcb0}} 
-struct sockaddr\+\_\+in {\bfseries address}
+struct sockaddr\+\_\+in \mbox{\hyperlink{structclient__t_a8fd458d44d7accfe301e7a43f3f7fcb0}{address}}
 \item 
-\mbox{\Hypertarget{structclient__t_af63afab19e60f07b5bc64f329183671e}\label{structclient__t_af63afab19e60f07b5bc64f329183671e}} 
-int {\bfseries socket\+\_\+fd}
+int \mbox{\hyperlink{structclient__t_af63afab19e60f07b5bc64f329183671e}{socket\+\_\+fd}}
 \item 
-\mbox{\Hypertarget{structclient__t_a570e2ac54279c17f79dbba934a640831}\label{structclient__t_a570e2ac54279c17f79dbba934a640831}} 
-ssize\+\_\+t {\bfseries recv\+\_\+length}
+ssize\+\_\+t \mbox{\hyperlink{structclient__t_a570e2ac54279c17f79dbba934a640831}{recv\+\_\+length}}
 \item 
-\mbox{\Hypertarget{structclient__t_a86845384b7035f326951f6af8e2b829c}\label{structclient__t_a86845384b7035f326951f6af8e2b829c}} 
-\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ {\bfseries packet\+\_\+buffer}
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{structclient__t_a86845384b7035f326951f6af8e2b829c}{packet\+\_\+buffer}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Description détaillée}
+Client socket. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structclient__t_a8fd458d44d7accfe301e7a43f3f7fcb0}\label{structclient__t_a8fd458d44d7accfe301e7a43f3f7fcb0}} 
+\index{client\_t@{client\_t}!address@{address}}
+\index{address@{address}!client\_t@{client\_t}}
+\doxysubsubsection{\texorpdfstring{address}{address}}
+{\footnotesize\ttfamily struct sockaddr\+\_\+in client\+\_\+t\+::address}
+
+adresse du client \mbox{\Hypertarget{structclient__t_a9573944360077a5621f8d423e59b5139}\label{structclient__t_a9573944360077a5621f8d423e59b5139}} 
+\index{client\_t@{client\_t}!address\_length@{address\_length}}
+\index{address\_length@{address\_length}!client\_t@{client\_t}}
+\doxysubsubsection{\texorpdfstring{address\_length}{address\_length}}
+{\footnotesize\ttfamily unsigned int client\+\_\+t\+::address\+\_\+length}
+
+longueur de l\textquotesingle{}adresse client \mbox{\Hypertarget{structclient__t_a86845384b7035f326951f6af8e2b829c}\label{structclient__t_a86845384b7035f326951f6af8e2b829c}} 
+\index{client\_t@{client\_t}!packet\_buffer@{packet\_buffer}}
+\index{packet\_buffer@{packet\_buffer}!client\_t@{client\_t}}
+\doxysubsubsection{\texorpdfstring{packet\_buffer}{packet\_buffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ client\+\_\+t\+::packet\+\_\+buffer}
+
+buffer de paquet \mbox{\Hypertarget{structclient__t_a570e2ac54279c17f79dbba934a640831}\label{structclient__t_a570e2ac54279c17f79dbba934a640831}} 
+\index{client\_t@{client\_t}!recv\_length@{recv\_length}}
+\index{recv\_length@{recv\_length}!client\_t@{client\_t}}
+\doxysubsubsection{\texorpdfstring{recv\_length}{recv\_length}}
+{\footnotesize\ttfamily ssize\+\_\+t client\+\_\+t\+::recv\+\_\+length}
+
+longueur des données reçues \mbox{\Hypertarget{structclient__t_af63afab19e60f07b5bc64f329183671e}\label{structclient__t_af63afab19e60f07b5bc64f329183671e}} 
+\index{client\_t@{client\_t}!socket\_fd@{socket\_fd}}
+\index{socket\_fd@{socket\_fd}!client\_t@{client\_t}}
+\doxysubsubsection{\texorpdfstring{socket\_fd}{socket\_fd}}
+{\footnotesize\ttfamily int client\+\_\+t\+::socket\+\_\+fd}
+
+descipteur du socket client 
+
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-src/client\+\_\+socket.\+h\end{DoxyCompactItemize}
+src/\mbox{\hyperlink{client__socket_8h}{client\+\_\+socket.\+h}}\end{DoxyCompactItemize}

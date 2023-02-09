@@ -1,19 +1,49 @@
 \hypertarget{structframe__timer__t}{}\doxysection{Référence de la structure frame\+\_\+timer\+\_\+t}
 \label{structframe__timer__t}\index{frame\_timer\_t@{frame\_timer\_t}}
+
+
+Timer permettant l\textquotesingle{}éxécution de code à intervalle régulier.  
+
+
+
+
+{\ttfamily \#include $<$timer.\+h$>$}
+
 \doxysubsection*{Attributs publics}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structframe__timer__t_a110868dbf0c237ccb836277240ba8bcb}\label{structframe__timer__t_a110868dbf0c237ccb836277240ba8bcb}} 
-time\+\_\+t {\bfseries interval}
+time\+\_\+t \mbox{\hyperlink{structframe__timer__t_a110868dbf0c237ccb836277240ba8bcb}{interval}}
 \item 
-\mbox{\Hypertarget{structframe__timer__t_ad64a8fea40dd1135f43470c802204d06}\label{structframe__timer__t_ad64a8fea40dd1135f43470c802204d06}} 
-struct timeval {\bfseries last\+\_\+time}
+struct timeval \mbox{\hyperlink{structframe__timer__t_ad64a8fea40dd1135f43470c802204d06}{last\+\_\+time}}
 \item 
-\mbox{\Hypertarget{structframe__timer__t_aee7c54f6889abd981bc7fabd87dcf36c}\label{structframe__timer__t_aee7c54f6889abd981bc7fabd87dcf36c}} 
-double {\bfseries frame\+\_\+per\+\_\+second}
+double \mbox{\hyperlink{structframe__timer__t_aee7c54f6889abd981bc7fabd87dcf36c}{frame\+\_\+per\+\_\+second}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Description détaillée}
+Timer permettant l\textquotesingle{}éxécution de code à intervalle régulier. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structframe__timer__t_aee7c54f6889abd981bc7fabd87dcf36c}\label{structframe__timer__t_aee7c54f6889abd981bc7fabd87dcf36c}} 
+\index{frame\_timer\_t@{frame\_timer\_t}!frame\_per\_second@{frame\_per\_second}}
+\index{frame\_per\_second@{frame\_per\_second}!frame\_timer\_t@{frame\_timer\_t}}
+\doxysubsubsection{\texorpdfstring{frame\_per\_second}{frame\_per\_second}}
+{\footnotesize\ttfamily double frame\+\_\+timer\+\_\+t\+::frame\+\_\+per\+\_\+second}
+
+nombre d\textquotesingle{}image par seconde \mbox{\Hypertarget{structframe__timer__t_a110868dbf0c237ccb836277240ba8bcb}\label{structframe__timer__t_a110868dbf0c237ccb836277240ba8bcb}} 
+\index{frame\_timer\_t@{frame\_timer\_t}!interval@{interval}}
+\index{interval@{interval}!frame\_timer\_t@{frame\_timer\_t}}
+\doxysubsubsection{\texorpdfstring{interval}{interval}}
+{\footnotesize\ttfamily time\+\_\+t frame\+\_\+timer\+\_\+t\+::interval}
+
+intervalle de temps en milliseconde \mbox{\Hypertarget{structframe__timer__t_ad64a8fea40dd1135f43470c802204d06}\label{structframe__timer__t_ad64a8fea40dd1135f43470c802204d06}} 
+\index{frame\_timer\_t@{frame\_timer\_t}!last\_time@{last\_time}}
+\index{last\_time@{last\_time}!frame\_timer\_t@{frame\_timer\_t}}
+\doxysubsubsection{\texorpdfstring{last\_time}{last\_time}}
+{\footnotesize\ttfamily struct timeval frame\+\_\+timer\+\_\+t\+::last\+\_\+time}
+
+temps à la dernière éxécution 
+
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-src/timer.\+h\end{DoxyCompactItemize}
+src/\mbox{\hyperlink{timer_8h}{timer.\+h}}\end{DoxyCompactItemize}
