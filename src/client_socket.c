@@ -13,6 +13,7 @@
 
 #define close closesocket
 #define SHUT_RDWR SD_BOTH
+#define poll WSAPoll
 
 #else
 
@@ -20,10 +21,12 @@
 #include <sys/fcntl.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <poll.h>
 
 #endif
 
 #include <stdlib.h>
+#include <string.h>
 #include "socket.h"
 #include "client_socket.h"
 
@@ -77,6 +80,34 @@ extern client_t *createClient(char *hostname, uint16_t port)
 }
 
 /**
+ * @brief Vérifie si la connexion au serveur est fermée
+ *
+ * @param client client à utiliser
+ * @return **1 ou 0** en fonction se si la connexion est fermer ou non
+ */
+extern int isServerDown(client_t *client)
+{
+    if (client == NULL)
+        return 1;
+
+    struct pollfd pollfd;
+
+    pollfd.fd = client->socket_fd;
+    pollfd.events = POLLIN | POLLHUP;
+    pollfd.revents = 0;
+
+    if (poll(&pollfd, 1, 0) > 0)
+    {
+        char buffer[8];
+
+        if (recv(client->socket_fd, buffer, sizeof(buffer), MSG_PEEK) == 0)
+            return 1;
+    }
+
+    return 0;
+}
+
+/**
  * @brief Envoie un paquet au server
  *
  * @param client client à utiliser
@@ -85,12 +116,20 @@ extern client_t *createClient(char *hostname, uint16_t port)
  */
 extern int sendToServer(client_t *client, packet_t *packet)
 {
-    if (send(client->socket_fd, (char *)&packet->data_length, sizeof(packet->data_length), 0) == -1)
+    void *buffer = malloc(sizeof(packet->data_length) + sizeof(packet->id) + packet->data_length);
+
+    memcpy(buffer, &packet->data_length, sizeof(packet->data_length));
+    memcpy(buffer + sizeof(packet->data_length), &packet->id, sizeof(packet->id));
+    memcpy(buffer + sizeof(packet->data_length) + sizeof(packet->id), packet->data, packet->data_length);
+
+    if (send(client->socket_fd, buffer, sizeof(packet->data_length) + sizeof(packet->id) + packet->data_length, 0) == -1)
+    {
+        free(buffer);
+
         return -1;
-    if (send(client->socket_fd, (char *)&packet->id, sizeof(packet->id), 0) == -1)
-        return -1;
-    if (send(client->socket_fd, packet->data, packet->data_length, 0) == -1)
-        return -1;
+    }
+
+    free(buffer);
 
     return 0;
 }

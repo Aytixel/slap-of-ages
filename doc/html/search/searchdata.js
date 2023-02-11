@@ -1,10 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "acdefilprst",
-  1: "cfps",
-  2: "cst",
-  3: "acdeirst",
-  4: "adfilprs"
+  0: "acdefhilnprstw",
+  1: "acfpsw",
+  2: "cpstw",
+  3: "acdeinrstw",
+  4: "acdfhilprsw",
+  5: "cps",
+  6: "chs"
 };
 
 var indexSectionNames =
@@ -13,7 +15,9 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "variables"
+  4: "variables",
+  5: "enums",
+  6: "enumvalues"
 };
 
 var indexSectionLabels =
@@ -22,6 +26,8 @@ var indexSectionLabels =
   1: "Classes",
   2: "Fichiers",
   3: "Fonctions",
-  4: "Variables"
+  4: "Variables",
+  5: "Énumérations",
+  6: "Valeurs énumérées"
 };
 

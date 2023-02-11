@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['socket_5ffd_85',['socket_fd',['../structclient__t.html#af63afab19e60f07b5bc64f329183671e',1,'client_t::socket_fd()'],['../structserver__t.html#a529cf0dee35461dcd663cde8b5d676d0',1,'server_t::socket_fd()'],['../structserver__client__t.html#a07429603d359b82e66bd078c3a638b4c',1,'server_client_t::socket_fd()']]]
+  ['packet_5fbuffer_150',['packet_buffer',['../structclient__t.html#a86845384b7035f326951f6af8e2b829c',1,'client_t::packet_buffer()'],['../structserver__client__t.html#a84c1d44e081636e53c69b37e119add16',1,'server_client_t::packet_buffer()']]]
 ];

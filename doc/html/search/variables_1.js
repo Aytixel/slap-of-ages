@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['data_77',['data',['../structpacket__t.html#a7ffaf98d63ade660840115d443db70d3',1,'packet_t']]],
-  ['data_5flength_78',['data_length',['../structpacket__t.html#a0f48965d2d9996e55eef2910737a8f6b',1,'packet_t']]]
+  ['client_139',['client',['../structserver__client__connection__t.html#ade3e7b2f8e407748d0c350ed0dad7d58',1,'server_client_connection_t::client()'],['../client__connection_8c.html#ad72bb670c0751a5e8729d02bf7482d63',1,'client():&#160;client_connection.c'],['../client__connection_8h.html#ad72bb670c0751a5e8729d02bf7482d63',1,'client():&#160;client_connection.c']]],
+  ['client_5fconnection_5fstate_140',['client_connection_state',['../client__connection_8c.html#a1a752118a20ea115ecfae15cdd47f62b',1,'client_connection_state():&#160;client_connection.c'],['../client__connection_8h.html#a1a752118a20ea115ecfae15cdd47f62b',1,'client_connection_state():&#160;client_connection.c']]]
 ];

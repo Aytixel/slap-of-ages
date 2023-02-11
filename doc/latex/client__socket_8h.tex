@@ -15,13 +15,15 @@ struct \mbox{\hyperlink{structclient__t}{client\+\_\+t}}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$ \mbox{\hyperlink{client__socket_8h_a23a233e1902908407a9470cbe2c1ae99}{create\+Client}} (char $\ast$, uint16\+\_\+t)
+\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$ \mbox{\hyperlink{client__socket_8h_a2a9f51039d23f3acdbba20956d7d3fd7}{create\+Client}} (char $\ast$hostname, uint16\+\_\+t port)
 \begin{DoxyCompactList}\small\item\em Créer un client. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{client__socket_8h_a2395f81995f605532340b1f9b525dc81}{send\+To\+Server}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$, \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$)
+int \mbox{\hyperlink{client__socket_8h_a73fd66570eec05fd79dbe07030386687}{is\+Server\+Down}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
+\begin{DoxyCompactList}\small\item\em Vérifie si la connexion au serveur est fermée. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{client__socket_8h_a92069b2c0e12755446d1e8d9dba8359f}{send\+To\+Server}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet)
 \begin{DoxyCompactList}\small\item\em Envoie un paquet au server. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{client__socket_8h_ab3e7dafaa2ee3af1a674c478f311af59}{recv\+From\+Server}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$)
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{client__socket_8h_a8810d7842db652c20ad3c6f8329de8e0}{recv\+From\+Server}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
 \begin{DoxyCompactList}\small\item\em Essaye de recevoir un paquet du serveur. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{client__socket_8h_a946b98630b0e1f30fa04f4e9fb34dde0}{delete\+Client}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$$\ast$)
+int \mbox{\hyperlink{client__socket_8h_a0b2b235ea1ce623a7bbf6fb106679681}{delete\+Client}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$$\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
 \begin{DoxyCompactList}\small\item\em Détruit un client. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -40,7 +42,7 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{client__socket_8h_a23a233e1902908407a9470cbe2c1ae99}\label{client__socket_8h_a23a233e1902908407a9470cbe2c1ae99}} 
+\mbox{\Hypertarget{client__socket_8h_a2a9f51039d23f3acdbba20956d7d3fd7}\label{client__socket_8h_a2a9f51039d23f3acdbba20956d7d3fd7}} 
 \index{client\_socket.h@{client\_socket.h}!createClient@{createClient}}
 \index{createClient@{createClient}!client\_socket.h@{client\_socket.h}}
 \doxysubsubsection{\texorpdfstring{createClient()}{createClient()}}
@@ -60,7 +62,7 @@ Créer un client.
 \begin{DoxyReturn}{Renvoie}
 un pointer sur un {\bfseries{client}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{client__socket_8h_a946b98630b0e1f30fa04f4e9fb34dde0}\label{client__socket_8h_a946b98630b0e1f30fa04f4e9fb34dde0}} 
+\mbox{\Hypertarget{client__socket_8h_a0b2b235ea1ce623a7bbf6fb106679681}\label{client__socket_8h_a0b2b235ea1ce623a7bbf6fb106679681}} 
 \index{client\_socket.h@{client\_socket.h}!deleteClient@{deleteClient}}
 \index{deleteClient@{deleteClient}!client\_socket.h@{client\_socket.h}}
 \doxysubsubsection{\texorpdfstring{deleteClient()}{deleteClient()}}
@@ -78,7 +80,25 @@ Détruit un client.
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
 \end{DoxyReturn}
-\mbox{\Hypertarget{client__socket_8h_ab3e7dafaa2ee3af1a674c478f311af59}\label{client__socket_8h_ab3e7dafaa2ee3af1a674c478f311af59}} 
+\mbox{\Hypertarget{client__socket_8h_a73fd66570eec05fd79dbe07030386687}\label{client__socket_8h_a73fd66570eec05fd79dbe07030386687}} 
+\index{client\_socket.h@{client\_socket.h}!isServerDown@{isServerDown}}
+\index{isServerDown@{isServerDown}!client\_socket.h@{client\_socket.h}}
+\doxysubsubsection{\texorpdfstring{isServerDown()}{isServerDown()}}
+{\footnotesize\ttfamily int is\+Server\+Down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client }\end{DoxyParamCaption})}
+
+
+
+Vérifie si la connexion au serveur est fermée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em client} & client à utiliser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{1 ou 0}} en fonction se si la connexion est fermer ou non 
+\end{DoxyReturn}
+\mbox{\Hypertarget{client__socket_8h_a8810d7842db652c20ad3c6f8329de8e0}\label{client__socket_8h_a8810d7842db652c20ad3c6f8329de8e0}} 
 \index{client\_socket.h@{client\_socket.h}!recvFromServer@{recvFromServer}}
 \index{recvFromServer@{recvFromServer}!client\_socket.h@{client\_socket.h}}
 \doxysubsubsection{\texorpdfstring{recvFromServer()}{recvFromServer()}}
@@ -96,7 +116,7 @@ Essaye de recevoir un paquet du serveur.
 \begin{DoxyReturn}{Renvoie}
 un pointeur sur un {\bfseries{paquet}}, et si la réception n\textquotesingle{}est pas terminé, ou rien n\textquotesingle{}a été envoyer renvoie {\bfseries{null}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{client__socket_8h_a2395f81995f605532340b1f9b525dc81}\label{client__socket_8h_a2395f81995f605532340b1f9b525dc81}} 
+\mbox{\Hypertarget{client__socket_8h_a92069b2c0e12755446d1e8d9dba8359f}\label{client__socket_8h_a92069b2c0e12755446d1e8d9dba8359f}} 
 \index{client\_socket.h@{client\_socket.h}!sendToServer@{sendToServer}}
 \index{sendToServer@{sendToServer}!client\_socket.h@{client\_socket.h}}
 \doxysubsubsection{\texorpdfstring{sendToServer()}{sendToServer()}}

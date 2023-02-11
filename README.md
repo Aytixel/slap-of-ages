@@ -10,6 +10,10 @@
 - **Arthur Dureau** alias `MasterPNJ`
 - **Chadli Basma** alias `Basmachadli`
 
+## Documents liés :
+
+Gantt : https://docs.google.com/spreadsheets/d/1tzo2DsVGko6vCwdnjP4RdRnp5ozh0s1jijUkGqu_1Vs/edit?usp=sharing
+
 ## Convention de nommage :
 
 **Code en anglais.**
@@ -26,8 +30,28 @@ typedef unsigned long foo_t;
 
 Définition de structure en snake case, et finissant par `s` :
 ```c
+typedef struct foo_s {
+    int bar;
+    struct foo_s *foo;
+} foo_t;
+```
+```c
 struct foo_s {
     int bar;
+};
+```
+
+Définition d'enum en snake case, et finissant par `e` :
+```c
+typedef enum {
+    FOO = 12,
+    BAR,
+} bar_e;
+```
+```c
+enum bar_e {
+    FOO,
+    BAR = 12,
 };
 ```
 

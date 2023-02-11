@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['recv_5flength_84',['recv_length',['../structclient__t.html#a570e2ac54279c17f79dbba934a640831',1,'client_t::recv_length()'],['../structserver__client__t.html#ac1d78d04464accf90c40d4327c21a119',1,'server_client_t::recv_length()']]]
+  ['last_5ftime_149',['last_time',['../structframe__timer__t.html#ad64a8fea40dd1135f43470c802204d06',1,'frame_timer_t']]]
 ];

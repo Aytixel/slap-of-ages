@@ -18,9 +18,9 @@ int \mbox{\hyperlink{socket_8h_ae98edd9cbb3dd2b3808a598d54ed9607}{init\+Socket}}
 \begin{DoxyCompactList}\small\item\em Initialisation des sockets. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{socket_8h_ad1bf922764060ce9980c6fbb9038a9d9}{end\+Socket}} ()
 \begin{DoxyCompactList}\small\item\em Déinitialisation des sockets. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{socket_8h_a522ee2b3812b4300b8c3f350a875bebf}{delete\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$$\ast$)
+int \mbox{\hyperlink{socket_8h_a28f1b203ad94365d7f6f23fb785d6d8e}{delete\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$$\ast$packet)
 \begin{DoxyCompactList}\small\item\em Détruit un paquet. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{socket_8h_a20007b17e6625e9f776e95b31f450e9b}{setup\+Address}} (struct sockaddr\+\_\+in $\ast$, size\+\_\+t, char $\ast$, uint16\+\_\+t)
+int \mbox{\hyperlink{socket_8h_aa3be97b9b72d6fba64253f61bfe4e6b6}{setup\+Address}} (struct sockaddr\+\_\+in $\ast$address, size\+\_\+t address\+\_\+length, char $\ast$hostname, uint16\+\_\+t port)
 \begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}adresse à partir du nom d\textquotesingle{}hôte et du port. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -39,7 +39,7 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{socket_8h_a522ee2b3812b4300b8c3f350a875bebf}\label{socket_8h_a522ee2b3812b4300b8c3f350a875bebf}} 
+\mbox{\Hypertarget{socket_8h_a28f1b203ad94365d7f6f23fb785d6d8e}\label{socket_8h_a28f1b203ad94365d7f6f23fb785d6d8e}} 
 \index{socket.h@{socket.h}!deletePacket@{deletePacket}}
 \index{deletePacket@{deletePacket}!socket.h@{socket.h}}
 \doxysubsubsection{\texorpdfstring{deletePacket()}{deletePacket()}}
@@ -84,7 +84,7 @@ Windows à besoin de charger des bibliothèques pour les sockets
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien 
 \end{DoxyReturn}
-\mbox{\Hypertarget{socket_8h_a20007b17e6625e9f776e95b31f450e9b}\label{socket_8h_a20007b17e6625e9f776e95b31f450e9b}} 
+\mbox{\Hypertarget{socket_8h_aa3be97b9b72d6fba64253f61bfe4e6b6}\label{socket_8h_aa3be97b9b72d6fba64253f61bfe4e6b6}} 
 \index{socket.h@{socket.h}!setupAddress@{setupAddress}}
 \index{setupAddress@{setupAddress}!socket.h@{socket.h}}
 \doxysubsubsection{\texorpdfstring{setupAddress()}{setupAddress()}}

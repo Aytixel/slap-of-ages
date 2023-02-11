@@ -48,16 +48,18 @@ typedef struct
     packet_t *packet_buffer;     /**< buffer de paquet*/
 } server_client_t;
 
-extern server_t *createServer(char *, uint16_t);
+extern server_t *createServer(char *hostname, uint16_t port);
 
-extern server_client_t *acceptServerClient(server_t *);
+extern server_client_t *acceptServerClient(server_t *server);
 
-extern int sendToServerClient(server_client_t *, packet_t *);
+extern int isClientDown(server_client_t *client);
 
-extern packet_t *recvFromServerClient(server_client_t *);
+extern int sendToServerClient(server_client_t *client, packet_t *packet);
 
-extern int deleteServerClient(server_client_t **);
+extern packet_t *recvFromServerClient(server_client_t *client);
 
-extern int deleteServer(server_t **);
+extern int deleteServerClient(server_client_t **client);
+
+extern int deleteServer(server_t **server);
 
 #endif

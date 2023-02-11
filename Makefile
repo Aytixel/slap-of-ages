@@ -1,4 +1,7 @@
-TARGET=main_client main_server test_timer test_socket
+TARGET=main_client main_server
+TEST_TARGET=test_timer test_socket test_window test_animation
+
+CPU_COUNT=$(grep -c processor /proc/cpuinfo)
 
 ifeq ($(OS), Windows_NT)
 
@@ -34,28 +37,47 @@ CP=cp
 
 endif
 
-CC=gcc
-CFLAGS=-g -Wall -I$(INC_DIR)
-
 SRC_DIR=src
 OBJ_DIR=obj
 BIN_DIR=bin
+TEST_DIR=tests
+
+CC=gcc
+CFLAGS=-g -Wall -I$(INC_DIR) -I$(SRC_DIR)
+
 TRGS:=$(TARGET:%=$(BIN_DIR)/%)
+TEST_TRGS:=$(TEST_TARGET:%=$(BIN_DIR)/%)
 
 SOURCES:=$(wildcard $(SRC_DIR)/*.c)
+TESTS:=$(wildcard $(TEST_DIR)/*.c)
+
 OBJECTS:=$(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+TEST_OBJECTS:=$(TESTS:$(TEST_DIR)/%.c=$(OBJ_DIR)/%.o)
+
 MAINS:=$(TARGET:%=$(OBJ_DIR)/%.o)
+TEST_MAINS:=$(TEST_TARGET:%=$(OBJ_DIR)/%.o)
+
 OBJS:=$(filter-out $(MAINS),$(OBJECTS))
 
-all: install_sdl build
+all: install_sdl build build_test
 	
 build: $(TRGS) copy_lib
+	
+build_test: $(TEST_TRGS) copy_lib
 
 $(TRGS): $(OBJECTS)
 	@$(CC) $(subst $(BIN_DIR),$(OBJ_DIR),$@).o $(OBJS) $(LFLAGS) -o $@$(EXE_EXT)
 	@echo "Linking $(subst $(BIN_DIR)/,,$@) complete!"
 
+$(TEST_TRGS): $(OBJS) $(TEST_OBJECTS)
+	@$(CC) $(subst $(BIN_DIR),$(OBJ_DIR),$@).o $(OBJS) $(LFLAGS) -o $@$(EXE_EXT)
+	@echo "Linking $(subst $(BIN_DIR)/,,$@) complete!"
+	
 $(OBJECTS): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "Compiled $< successfully!"
+	
+$(TEST_OBJECTS): $(OBJ_DIR)/%.o : $(TEST_DIR)/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "Compiled $< successfully!"
 	
@@ -68,12 +90,12 @@ $(LIB_TARGET):
 
 .PHONY: clean
 clean:
-	@$(RM) $(subst /,$(PATH_SEP),$(OBJECTS))
+	@$(RM) $(subst /,$(PATH_SEP),$(OBJECTS) $(TEST_OBJECTS))
 	@echo "Cleanup complete!"
 
 .PHONY: remove
 remove: clean
-	@$(RM) $(addsuffix $(EXE_EXT),$(subst /,$(PATH_SEP),$(TRGS)))
+	@$(RM) $(addsuffix $(EXE_EXT),$(subst /,$(PATH_SEP),$(TRGS) $(TEST_TRGS)))
 	@echo "Executable removed!"
 
 .PHONY: docs
@@ -94,17 +116,17 @@ ifneq ($(OS), Windows_NT)
 
 	@rm -rf SDL
 	@git clone https://github.com/libsdl-org/SDL.git && cd SDL && git checkout release-2.26.2
-	@cd SDL && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j2 && $(MAKE) -j2 install
+	@cd SDL && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j$(CPU_COUNT) && $(MAKE) -j$(CPU_COUNT) install
 	@rm -rf SDL
 
 	@rm -rf SDL_image
 	@git clone https://github.com/libsdl-org/SDL_image.git && cd SDL_image && git checkout release-2.6.2
-	@cd SDL_image && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j2 && $(MAKE) -j2 install
+	@cd SDL_image && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j$(CPU_COUNT) && $(MAKE) -j$(CPU_COUNT) install
 	@rm -rf SDL_image
 
 	@rm -rf SDL_ttf
 	@git clone https://github.com/libsdl-org/SDL_ttf.git && cd SDL_ttf && git checkout release-2.0.18
-	@cd SDL_ttf && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j2 && $(MAKE) -j2 install
+	@cd SDL_ttf && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j$(CPU_COUNT) && $(MAKE) -j$(CPU_COUNT) install
 	@rm -rf SDL_ttf
 
 	@cp -r SDL_lib/lib/* $(LIB_DIR)

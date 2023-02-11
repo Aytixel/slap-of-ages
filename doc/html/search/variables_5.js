@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['packet_5fbuffer_83',['packet_buffer',['../structclient__t.html#a86845384b7035f326951f6af8e2b829c',1,'client_t::packet_buffer()'],['../structserver__client__t.html#a84c1d44e081636e53c69b37e119add16',1,'server_client_t::packet_buffer()']]]
+  ['id_147',['id',['../structpacket__t.html#a71251cbc5bba8c3f0be835b1bd9fe107',1,'packet_t']]],
+  ['interval_148',['interval',['../structframe__timer__t.html#a110868dbf0c237ccb836277240ba8bcb',1,'frame_timer_t']]]
 ];

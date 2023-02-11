@@ -88,18 +88,21 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a23a233e1902908407a9470cbe2c1ae99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structclient__t.html">client_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__socket_8h.html#a23a233e1902908407a9470cbe2c1ae99">createClient</a> (char *, uint16_t)</td></tr>
-<tr class="memdesc:a23a233e1902908407a9470cbe2c1ae99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un client.  <a href="client__socket_8h.html#a23a233e1902908407a9470cbe2c1ae99">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a23a233e1902908407a9470cbe2c1ae99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2395f81995f605532340b1f9b525dc81"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__socket_8h.html#a2395f81995f605532340b1f9b525dc81">sendToServer</a> (<a class="el" href="structclient__t.html">client_t</a> *, <a class="el" href="structpacket__t.html">packet_t</a> *)</td></tr>
-<tr class="memdesc:a2395f81995f605532340b1f9b525dc81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoie un paquet au server.  <a href="client__socket_8h.html#a2395f81995f605532340b1f9b525dc81">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a2395f81995f605532340b1f9b525dc81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3e7dafaa2ee3af1a674c478f311af59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__socket_8h.html#ab3e7dafaa2ee3af1a674c478f311af59">recvFromServer</a> (<a class="el" href="structclient__t.html">client_t</a> *)</td></tr>
-<tr class="memdesc:ab3e7dafaa2ee3af1a674c478f311af59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Essaye de recevoir un paquet du serveur.  <a href="client__socket_8h.html#ab3e7dafaa2ee3af1a674c478f311af59">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ab3e7dafaa2ee3af1a674c478f311af59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a946b98630b0e1f30fa04f4e9fb34dde0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__socket_8h.html#a946b98630b0e1f30fa04f4e9fb34dde0">deleteClient</a> (<a class="el" href="structclient__t.html">client_t</a> **)</td></tr>
-<tr class="memdesc:a946b98630b0e1f30fa04f4e9fb34dde0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un client.  <a href="client__socket_8h.html#a946b98630b0e1f30fa04f4e9fb34dde0">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a946b98630b0e1f30fa04f4e9fb34dde0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a9f51039d23f3acdbba20956d7d3fd7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structclient__t.html">client_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__socket_8h.html#a2a9f51039d23f3acdbba20956d7d3fd7">createClient</a> (char *hostname, uint16_t port)</td></tr>
+<tr class="memdesc:a2a9f51039d23f3acdbba20956d7d3fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un client.  <a href="client__socket_8h.html#a2a9f51039d23f3acdbba20956d7d3fd7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2a9f51039d23f3acdbba20956d7d3fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73fd66570eec05fd79dbe07030386687"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__socket_8h.html#a73fd66570eec05fd79dbe07030386687">isServerDown</a> (<a class="el" href="structclient__t.html">client_t</a> *<a class="el" href="client__connection_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>)</td></tr>
+<tr class="memdesc:a73fd66570eec05fd79dbe07030386687"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si la connexion au serveur est fermée.  <a href="client__socket_8h.html#a73fd66570eec05fd79dbe07030386687">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a73fd66570eec05fd79dbe07030386687"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92069b2c0e12755446d1e8d9dba8359f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__socket_8h.html#a92069b2c0e12755446d1e8d9dba8359f">sendToServer</a> (<a class="el" href="structclient__t.html">client_t</a> *<a class="el" href="client__connection_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>, <a class="el" href="structpacket__t.html">packet_t</a> *packet)</td></tr>
+<tr class="memdesc:a92069b2c0e12755446d1e8d9dba8359f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoie un paquet au server.  <a href="client__socket_8h.html#a92069b2c0e12755446d1e8d9dba8359f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a92069b2c0e12755446d1e8d9dba8359f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8810d7842db652c20ad3c6f8329de8e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__socket_8h.html#a8810d7842db652c20ad3c6f8329de8e0">recvFromServer</a> (<a class="el" href="structclient__t.html">client_t</a> *<a class="el" href="client__connection_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>)</td></tr>
+<tr class="memdesc:a8810d7842db652c20ad3c6f8329de8e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Essaye de recevoir un paquet du serveur.  <a href="client__socket_8h.html#a8810d7842db652c20ad3c6f8329de8e0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8810d7842db652c20ad3c6f8329de8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b2b235ea1ce623a7bbf6fb106679681"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__socket_8h.html#a0b2b235ea1ce623a7bbf6fb106679681">deleteClient</a> (<a class="el" href="structclient__t.html">client_t</a> **<a class="el" href="client__connection_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>)</td></tr>
+<tr class="memdesc:a0b2b235ea1ce623a7bbf6fb106679681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un client.  <a href="client__socket_8h.html#a0b2b235ea1ce623a7bbf6fb106679681">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0b2b235ea1ce623a7bbf6fb106679681"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Implémentation des prototypes de <a class="el" href="client__socket_8c.html" title="Client socket simple permettant l&#39;échange de paquet de manière non bloquante.">client_socket.c</a>. </p>
@@ -107,8 +110,8 @@ Fonctions</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>31/01/2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a23a233e1902908407a9470cbe2c1ae99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23a233e1902908407a9470cbe2c1ae99">&#9670;&nbsp;</a></span>createClient()</h2>
+<a id="a2a9f51039d23f3acdbba20956d7d3fd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a9f51039d23f3acdbba20956d7d3fd7">&#9670;&nbsp;</a></span>createClient()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,8 +148,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a946b98630b0e1f30fa04f4e9fb34dde0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a946b98630b0e1f30fa04f4e9fb34dde0">&#9670;&nbsp;</a></span>deleteClient()</h2>
+<a id="a0b2b235ea1ce623a7bbf6fb106679681"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b2b235ea1ce623a7bbf6fb106679681">&#9670;&nbsp;</a></span>deleteClient()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,8 +175,35 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab3e7dafaa2ee3af1a674c478f311af59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3e7dafaa2ee3af1a674c478f311af59">&#9670;&nbsp;</a></span>recvFromServer()</h2>
+<a id="a73fd66570eec05fd79dbe07030386687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73fd66570eec05fd79dbe07030386687">&#9670;&nbsp;</a></span>isServerDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isServerDown </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structclient__t.html">client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie si la connexion au serveur est fermée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client</td><td>client à utiliser </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1 ou 0</b> en fonction se si la connexion est fermer ou non </dd></dl>
+
+</div>
+</div>
+<a id="a8810d7842db652c20ad3c6f8329de8e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8810d7842db652c20ad3c6f8329de8e0">&#9670;&nbsp;</a></span>recvFromServer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,8 +229,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2395f81995f605532340b1f9b525dc81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2395f81995f605532340b1f9b525dc81">&#9670;&nbsp;</a></span>sendToServer()</h2>
+<a id="a92069b2c0e12755446d1e8d9dba8359f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92069b2c0e12755446d1e8d9dba8359f">&#9670;&nbsp;</a></span>sendToServer()</h2>
 
 <div class="memitem">
 <div class="memproto">

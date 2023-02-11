@@ -93,12 +93,12 @@ Fonctions</h2></td></tr>
 <tr class="memitem:ad1bf922764060ce9980c6fbb9038a9d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8h.html#ad1bf922764060ce9980c6fbb9038a9d9">endSocket</a> ()</td></tr>
 <tr class="memdesc:ad1bf922764060ce9980c6fbb9038a9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Déinitialisation des sockets.  <a href="socket_8h.html#ad1bf922764060ce9980c6fbb9038a9d9">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ad1bf922764060ce9980c6fbb9038a9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a522ee2b3812b4300b8c3f350a875bebf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8h.html#a522ee2b3812b4300b8c3f350a875bebf">deletePacket</a> (<a class="el" href="structpacket__t.html">packet_t</a> **)</td></tr>
-<tr class="memdesc:a522ee2b3812b4300b8c3f350a875bebf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un paquet.  <a href="socket_8h.html#a522ee2b3812b4300b8c3f350a875bebf">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a522ee2b3812b4300b8c3f350a875bebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20007b17e6625e9f776e95b31f450e9b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8h.html#a20007b17e6625e9f776e95b31f450e9b">setupAddress</a> (struct sockaddr_in *, size_t, char *, uint16_t)</td></tr>
-<tr class="memdesc:a20007b17e6625e9f776e95b31f450e9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise l'adresse à partir du nom d'hôte et du port.  <a href="socket_8h.html#a20007b17e6625e9f776e95b31f450e9b">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a20007b17e6625e9f776e95b31f450e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f1b203ad94365d7f6f23fb785d6d8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8h.html#a28f1b203ad94365d7f6f23fb785d6d8e">deletePacket</a> (<a class="el" href="structpacket__t.html">packet_t</a> **packet)</td></tr>
+<tr class="memdesc:a28f1b203ad94365d7f6f23fb785d6d8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un paquet.  <a href="socket_8h.html#a28f1b203ad94365d7f6f23fb785d6d8e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a28f1b203ad94365d7f6f23fb785d6d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3be97b9b72d6fba64253f61bfe4e6b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8h.html#aa3be97b9b72d6fba64253f61bfe4e6b6">setupAddress</a> (struct sockaddr_in *address, size_t address_length, char *hostname, uint16_t port)</td></tr>
+<tr class="memdesc:aa3be97b9b72d6fba64253f61bfe4e6b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise l'adresse à partir du nom d'hôte et du port.  <a href="socket_8h.html#aa3be97b9b72d6fba64253f61bfe4e6b6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa3be97b9b72d6fba64253f61bfe4e6b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Implémentation des prototypes de <a class="el" href="socket_8c.html" title="Enssemble de fonctions utilitaire pour l&#39;utilisation des sockets.">socket.c</a>. </p>
@@ -106,8 +106,8 @@ Fonctions</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>31/01/2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a522ee2b3812b4300b8c3f350a875bebf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a522ee2b3812b4300b8c3f350a875bebf">&#9670;&nbsp;</a></span>deletePacket()</h2>
+<a id="a28f1b203ad94365d7f6f23fb785d6d8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28f1b203ad94365d7f6f23fb785d6d8e">&#9670;&nbsp;</a></span>deletePacket()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,8 +175,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a20007b17e6625e9f776e95b31f450e9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20007b17e6625e9f776e95b31f450e9b">&#9670;&nbsp;</a></span>setupAddress()</h2>
+<a id="aa3be97b9b72d6fba64253f61bfe4e6b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3be97b9b72d6fba64253f61bfe4e6b6">&#9670;&nbsp;</a></span>setupAddress()</h2>
 
 <div class="memitem">
 <div class="memproto">

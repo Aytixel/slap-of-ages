@@ -91,24 +91,27 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a23000340578844cb9a1cb94f2b5b4b36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structserver__t.html">server_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#a23000340578844cb9a1cb94f2b5b4b36">createServer</a> (char *, uint16_t)</td></tr>
-<tr class="memdesc:a23000340578844cb9a1cb94f2b5b4b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un server.  <a href="server__socket_8h.html#a23000340578844cb9a1cb94f2b5b4b36">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a23000340578844cb9a1cb94f2b5b4b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc16f382bf7eb3ec482138dba8b826ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#adc16f382bf7eb3ec482138dba8b826ca">acceptServerClient</a> (<a class="el" href="structserver__t.html">server_t</a> *)</td></tr>
-<tr class="memdesc:adc16f382bf7eb3ec482138dba8b826ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si il y a des connexions à accepter, et les accepte.  <a href="server__socket_8h.html#adc16f382bf7eb3ec482138dba8b826ca">Plus de détails...</a><br /></td></tr>
-<tr class="separator:adc16f382bf7eb3ec482138dba8b826ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a910388186954673ecc867782657b6098"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#a910388186954673ecc867782657b6098">sendToServerClient</a> (<a class="el" href="structserver__client__t.html">server_client_t</a> *, <a class="el" href="structpacket__t.html">packet_t</a> *)</td></tr>
-<tr class="memdesc:a910388186954673ecc867782657b6098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoie un paquet au client.  <a href="server__socket_8h.html#a910388186954673ecc867782657b6098">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a910388186954673ecc867782657b6098"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afaa291d6b1aaffd47edb1dc84baa96cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#afaa291d6b1aaffd47edb1dc84baa96cf">recvFromServerClient</a> (<a class="el" href="structserver__client__t.html">server_client_t</a> *)</td></tr>
-<tr class="memdesc:afaa291d6b1aaffd47edb1dc84baa96cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Essaye de recevoir un paquet du client.  <a href="server__socket_8h.html#afaa291d6b1aaffd47edb1dc84baa96cf">Plus de détails...</a><br /></td></tr>
-<tr class="separator:afaa291d6b1aaffd47edb1dc84baa96cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae883bd89b333aa0acde7f5d0e095baad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#ae883bd89b333aa0acde7f5d0e095baad">deleteServerClient</a> (<a class="el" href="structserver__client__t.html">server_client_t</a> **)</td></tr>
-<tr class="memdesc:ae883bd89b333aa0acde7f5d0e095baad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un client serveur.  <a href="server__socket_8h.html#ae883bd89b333aa0acde7f5d0e095baad">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ae883bd89b333aa0acde7f5d0e095baad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33d2602b875f1070fe3085e98cacfd87"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#a33d2602b875f1070fe3085e98cacfd87">deleteServer</a> (<a class="el" href="structserver__t.html">server_t</a> **)</td></tr>
-<tr class="memdesc:a33d2602b875f1070fe3085e98cacfd87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un seveur.  <a href="server__socket_8h.html#a33d2602b875f1070fe3085e98cacfd87">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a33d2602b875f1070fe3085e98cacfd87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a641d3877e58ea8e6c9760312e23fa650"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structserver__t.html">server_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#a641d3877e58ea8e6c9760312e23fa650">createServer</a> (char *hostname, uint16_t port)</td></tr>
+<tr class="memdesc:a641d3877e58ea8e6c9760312e23fa650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un serveur.  <a href="server__socket_8h.html#a641d3877e58ea8e6c9760312e23fa650">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a641d3877e58ea8e6c9760312e23fa650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a028de4bec914124d8950eb1501b4cb39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#a028de4bec914124d8950eb1501b4cb39">acceptServerClient</a> (<a class="el" href="structserver__t.html">server_t</a> *server)</td></tr>
+<tr class="memdesc:a028de4bec914124d8950eb1501b4cb39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si il y a des connexions à accepter, et les accepte.  <a href="server__socket_8h.html#a028de4bec914124d8950eb1501b4cb39">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a028de4bec914124d8950eb1501b4cb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae64319cb1d181c48adea7f3b1deb0cee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#ae64319cb1d181c48adea7f3b1deb0cee">isClientDown</a> (<a class="el" href="structserver__client__t.html">server_client_t</a> *<a class="el" href="client__connection_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>)</td></tr>
+<tr class="memdesc:ae64319cb1d181c48adea7f3b1deb0cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si la connexion au client est fermée.  <a href="server__socket_8h.html#ae64319cb1d181c48adea7f3b1deb0cee">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae64319cb1d181c48adea7f3b1deb0cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a020eb9c58a6fcf5fbb6e9425dee34e81"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#a020eb9c58a6fcf5fbb6e9425dee34e81">sendToServerClient</a> (<a class="el" href="structserver__client__t.html">server_client_t</a> *<a class="el" href="client__connection_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>, <a class="el" href="structpacket__t.html">packet_t</a> *packet)</td></tr>
+<tr class="memdesc:a020eb9c58a6fcf5fbb6e9425dee34e81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoie un paquet au client.  <a href="server__socket_8h.html#a020eb9c58a6fcf5fbb6e9425dee34e81">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a020eb9c58a6fcf5fbb6e9425dee34e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d43d2b6f23fa8f52382a3cdb4d595dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#a9d43d2b6f23fa8f52382a3cdb4d595dd">recvFromServerClient</a> (<a class="el" href="structserver__client__t.html">server_client_t</a> *<a class="el" href="client__connection_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>)</td></tr>
+<tr class="memdesc:a9d43d2b6f23fa8f52382a3cdb4d595dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Essaye de recevoir un paquet du client.  <a href="server__socket_8h.html#a9d43d2b6f23fa8f52382a3cdb4d595dd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9d43d2b6f23fa8f52382a3cdb4d595dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab1b91251a1b3c6b7efb503af44d6ba8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#aab1b91251a1b3c6b7efb503af44d6ba8">deleteServerClient</a> (<a class="el" href="structserver__client__t.html">server_client_t</a> **<a class="el" href="client__connection_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>)</td></tr>
+<tr class="memdesc:aab1b91251a1b3c6b7efb503af44d6ba8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un client serveur.  <a href="server__socket_8h.html#aab1b91251a1b3c6b7efb503af44d6ba8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aab1b91251a1b3c6b7efb503af44d6ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1778c7f9e97e6068abe92d0d47d33a7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server__socket_8h.html#a1778c7f9e97e6068abe92d0d47d33a7d">deleteServer</a> (<a class="el" href="structserver__t.html">server_t</a> **server)</td></tr>
+<tr class="memdesc:a1778c7f9e97e6068abe92d0d47d33a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un serveur.  <a href="server__socket_8h.html#a1778c7f9e97e6068abe92d0d47d33a7d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1778c7f9e97e6068abe92d0d47d33a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Implémentation des prototypes de <a class="el" href="server__socket_8c.html" title="Serveur socket simple permettant l&#39;échange de paquet de manière non bloquante.">server_socket.c</a>. </p>
@@ -116,8 +119,8 @@ Fonctions</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>31/01/2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="adc16f382bf7eb3ec482138dba8b826ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc16f382bf7eb3ec482138dba8b826ca">&#9670;&nbsp;</a></span>acceptServerClient()</h2>
+<a id="a028de4bec914124d8950eb1501b4cb39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a028de4bec914124d8950eb1501b4cb39">&#9670;&nbsp;</a></span>acceptServerClient()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -143,8 +146,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a23000340578844cb9a1cb94f2b5b4b36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23000340578844cb9a1cb94f2b5b4b36">&#9670;&nbsp;</a></span>createServer()</h2>
+<a id="a641d3877e58ea8e6c9760312e23fa650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a641d3877e58ea8e6c9760312e23fa650">&#9670;&nbsp;</a></span>createServer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +172,7 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Créer un server. </p>
+<p>Créer un serveur. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">hostname</td><td>nom d'hôte à écouter </td></tr>
@@ -177,12 +180,12 @@ Fonctions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>server</b> </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>serveur</b> </dd></dl>
 
 </div>
 </div>
-<a id="a33d2602b875f1070fe3085e98cacfd87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33d2602b875f1070fe3085e98cacfd87">&#9670;&nbsp;</a></span>deleteServer()</h2>
+<a id="a1778c7f9e97e6068abe92d0d47d33a7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1778c7f9e97e6068abe92d0d47d33a7d">&#9670;&nbsp;</a></span>deleteServer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +200,7 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Détruit un seveur. </p>
+<p>Détruit un serveur. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>une référence d'un pointeur sur un serveur </td></tr>
@@ -208,8 +211,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae883bd89b333aa0acde7f5d0e095baad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae883bd89b333aa0acde7f5d0e095baad">&#9670;&nbsp;</a></span>deleteServerClient()</h2>
+<a id="aab1b91251a1b3c6b7efb503af44d6ba8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab1b91251a1b3c6b7efb503af44d6ba8">&#9670;&nbsp;</a></span>deleteServerClient()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,8 +238,35 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="afaa291d6b1aaffd47edb1dc84baa96cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaa291d6b1aaffd47edb1dc84baa96cf">&#9670;&nbsp;</a></span>recvFromServerClient()</h2>
+<a id="ae64319cb1d181c48adea7f3b1deb0cee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae64319cb1d181c48adea7f3b1deb0cee">&#9670;&nbsp;</a></span>isClientDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isClientDown </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td>
+          <td class="paramname"><em>client</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie si la connexion au client est fermée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client</td><td>client serveur à utiliser </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1 ou 0</b> en fonction se si la connexion est fermer ou non </dd></dl>
+
+</div>
+</div>
+<a id="a9d43d2b6f23fa8f52382a3cdb4d595dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d43d2b6f23fa8f52382a3cdb4d595dd">&#9670;&nbsp;</a></span>recvFromServerClient()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,8 +292,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a910388186954673ecc867782657b6098"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a910388186954673ecc867782657b6098">&#9670;&nbsp;</a></span>sendToServerClient()</h2>
+<a id="a020eb9c58a6fcf5fbb6e9425dee34e81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a020eb9c58a6fcf5fbb6e9425dee34e81">&#9670;&nbsp;</a></span>sendToServerClient()</h2>
 
 <div class="memitem">
 <div class="memproto">

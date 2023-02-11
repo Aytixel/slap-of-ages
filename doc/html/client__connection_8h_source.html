@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages:  Fichier source de src/client_connection.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">client_connection.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="client__connection_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef __CLIENT_CONNECTION_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define __CLIENT_CONNECTION_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="client__socket_8h.html">client_socket.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109">   19</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109ac3cbef5e484efeed88a0b2313b0ba4f4">   21</a></span>&#160;    <a class="code" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109ac3cbef5e484efeed88a0b2313b0ba4f4">CLIENT_WAITING_INFO</a>,      </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109a9e4012e1c852a4746f71569e3c3ef5b2">   22</a></span>&#160;    <a class="code" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109a9e4012e1c852a4746f71569e3c3ef5b2">CLIENT_WAITING_HANDSHAKE</a>, </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109a0a688bcbb16a63434cfec434f3c04b84">   23</a></span>&#160;    <a class="code" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109a0a688bcbb16a63434cfec434f3c04b84">CLIENT_CONNECTED</a>,         </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;} <a class="code" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109">client_connection_state_e</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">extern</span> <a class="code" href="structclient__t.html">client_t</a> *<a class="code" href="client__connection_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">extern</span> <a class="code" href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109">client_connection_state_e</a> <a class="code" href="client__connection_8h.html#a1a752118a20ea115ecfae15cdd47f62b">client_connection_state</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="client__connection_8h.html#a51fbf21273be90a4799a30e527efe4d9">initClientConnection</a>(<span class="keywordtype">char</span> *hostname, uint16_t port);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="client__connection_8h.html#ac909041a5b1d4ae68f56d64fc93695d3">waitServerHandshake</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="client__connection_8h.html#ac1d388dec34ec146546b3b59606209a1">closeClientConnection</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclient__connection_8h_html_a1a752118a20ea115ecfae15cdd47f62b"><div class="ttname"><a href="client__connection_8h.html#a1a752118a20ea115ecfae15cdd47f62b">client_connection_state</a></div><div class="ttdeci">client_connection_state_e client_connection_state</div><div class="ttdoc">Représente l'état courant de la connexion.</div><div class="ttdef"><b>Definition:</b> client_connection.c:17</div></div>
+<div class="ttc" id="aclient__connection_8h_html_a51fbf21273be90a4799a30e527efe4d9"><div class="ttname"><a href="client__connection_8h.html#a51fbf21273be90a4799a30e527efe4d9">initClientConnection</a></div><div class="ttdeci">int initClientConnection(char *hostname, uint16_t port)</div><div class="ttdoc">Initialise la connexion au serveur avec les paramètres spécifiés.</div><div class="ttdef"><b>Definition:</b> client_connection.c:28</div></div>
+<div class="ttc" id="aclient__connection_8h_html_a7c97443fe3e0cc3faa9c6203a19b6109"><div class="ttname"><a href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109">client_connection_state_e</a></div><div class="ttdeci">client_connection_state_e</div><div class="ttdoc">Représente l'état de la connexion.</div><div class="ttdef"><b>Definition:</b> client_connection.h:20</div></div>
+<div class="ttc" id="aclient__connection_8h_html_a7c97443fe3e0cc3faa9c6203a19b6109a0a688bcbb16a63434cfec434f3c04b84"><div class="ttname"><a href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109a0a688bcbb16a63434cfec434f3c04b84">CLIENT_CONNECTED</a></div><div class="ttdeci">@ CLIENT_CONNECTED</div><div class="ttdef"><b>Definition:</b> client_connection.h:23</div></div>
+<div class="ttc" id="aclient__connection_8h_html_a7c97443fe3e0cc3faa9c6203a19b6109a9e4012e1c852a4746f71569e3c3ef5b2"><div class="ttname"><a href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109a9e4012e1c852a4746f71569e3c3ef5b2">CLIENT_WAITING_HANDSHAKE</a></div><div class="ttdeci">@ CLIENT_WAITING_HANDSHAKE</div><div class="ttdef"><b>Definition:</b> client_connection.h:22</div></div>
+<div class="ttc" id="aclient__connection_8h_html_a7c97443fe3e0cc3faa9c6203a19b6109ac3cbef5e484efeed88a0b2313b0ba4f4"><div class="ttname"><a href="client__connection_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109ac3cbef5e484efeed88a0b2313b0ba4f4">CLIENT_WAITING_INFO</a></div><div class="ttdeci">@ CLIENT_WAITING_INFO</div><div class="ttdef"><b>Definition:</b> client_connection.h:21</div></div>
+<div class="ttc" id="aclient__connection_8h_html_ac1d388dec34ec146546b3b59606209a1"><div class="ttname"><a href="client__connection_8h.html#ac1d388dec34ec146546b3b59606209a1">closeClientConnection</a></div><div class="ttdeci">void closeClientConnection()</div><div class="ttdoc">Ferme la connexion au serveur.</div><div class="ttdef"><b>Definition:</b> client_connection.c:92</div></div>
+<div class="ttc" id="aclient__connection_8h_html_ac909041a5b1d4ae68f56d64fc93695d3"><div class="ttname"><a href="client__connection_8h.html#ac909041a5b1d4ae68f56d64fc93695d3">waitServerHandshake</a></div><div class="ttdeci">int waitServerHandshake()</div><div class="ttdoc">Attend la poignée de main du serveur.</div><div class="ttdef"><b>Definition:</b> client_connection.c:59</div></div>
+<div class="ttc" id="aclient__connection_8h_html_ad72bb670c0751a5e8729d02bf7482d63"><div class="ttname"><a href="client__connection_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a></div><div class="ttdeci">client_t * client</div><div class="ttdoc">Client socket.</div><div class="ttdef"><b>Definition:</b> client_connection.c:16</div></div>
+<div class="ttc" id="aclient__socket_8h_html"><div class="ttname"><a href="client__socket_8h.html">client_socket.h</a></div><div class="ttdoc">Implémentation des prototypes de client_socket.c.</div></div>
+<div class="ttc" id="astructclient__t_html"><div class="ttname"><a href="structclient__t.html">client_t</a></div><div class="ttdoc">Client socket.</div><div class="ttdef"><b>Definition:</b> client_socket.h:26</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
