@@ -35,11 +35,22 @@ extern window_t *createWindow(char *title, int width, int height)
         return NULL;
     }
 
+    if (TTF_Init() < 0)
+    {
+        fprintf(stderr, "(Erreur): Initialisation d'SDL2_ttf impossible : %s\n", TTF_GetError());
+
+        SDL_Quit();
+
+        return NULL;
+    }
+
     window_t *window = malloc(sizeof(window_t));
 
     if ((window->window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE)) == NULL)
     {
         fprintf(stderr, "(Erreur): Création de la fenêtre impossible : %s\n", SDL_GetError());
+
+        TTF_Quit();
         SDL_Quit();
 
         return NULL;
@@ -50,6 +61,7 @@ extern window_t *createWindow(char *title, int width, int height)
         fprintf(stderr, "(Erreur): Création du renderer impossible : %s\n", SDL_GetError());
 
         SDL_DestroyWindow(window->window);
+        TTF_Quit();
         SDL_Quit();
 
         return NULL;
@@ -79,6 +91,7 @@ int destroyWindow(window_t **window)
 
     SDL_DestroyRenderer((*window)->renderer);
     SDL_DestroyWindow((*window)->window);
+    TTF_Quit();
     SDL_Quit();
 
     free(*window);
