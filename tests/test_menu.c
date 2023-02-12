@@ -86,7 +86,7 @@ int checkTTFLib(SDL_Window *window, SDL_Renderer *renderer)
 TTF_Font *loadFont(SDL_Window *window, SDL_Renderer *renderer)
 {
   // Chargement de la police
-  TTF_Font *font = TTF_OpenFont("asset/font/8-BIT WONDER.TTF", 24);
+  TTF_Font *font = TTF_OpenFont("asset/font/8-BIT-WONDER.ttf", 24);
   if (font == NULL)
   {
     fprintf(stderr, "Erreur lors du chargement de la police : %s", TTF_GetError());
@@ -102,7 +102,7 @@ TTF_Font *loadFont(SDL_Window *window, SDL_Renderer *renderer)
 TTF_Font *loadFontTextBox(SDL_Window *window, SDL_Renderer *renderer)
 {
   // Chargement de la police
-  TTF_Font *fontTextBox = TTF_OpenFont("asset/font/arial.TTF", 24);
+  TTF_Font *fontTextBox = TTF_OpenFont("asset/font/arial.ttf", 24);
   if (fontTextBox == NULL)
   {
     fprintf(stderr, "Erreur lors du chargement de la police : %s", TTF_GetError());
@@ -119,17 +119,19 @@ SDL_Point getMousePosition()
 {
   int mouseX, mouseY;
   SDL_GetMouseState(&mouseX, &mouseY);
-  //printf("Mouse position : (%d, %d)\n", mouseX, mouseY);
+  // printf("Mouse position : (%d, %d)\n", mouseX, mouseY);
   return (SDL_Point){mouseX, mouseY};
 }
 
-void SetTextInputRect(SDL_Rect rect) {
-    SDL_SetTextInputRect(&rect);
+void SetTextInputRect(SDL_Rect rect)
+{
+  SDL_SetTextInputRect(&rect);
 }
 
-int main(int argc, char **argv){
+int main(int argc, char **argv)
+{
 
-  //Initialisation 
+  // Initialisation
 
   int inoption = 0;
   int box = 0;
@@ -165,22 +167,22 @@ int main(int argc, char **argv){
   SDL_Rect buttonRectQuitter;
 
   // Variables pour le texte adresse ip
-    char inputTextIp[1024] = {0};
-    SDL_Surface* textSurfaceIp = NULL;
-    SDL_Texture* textTextureIp = NULL;
-    int taille_textboxIp = 1;
+  char inputTextIp[1024] = {0};
+  SDL_Surface *textSurfaceIp = NULL;
+  SDL_Texture *textTextureIp = NULL;
+  int taille_textboxIp = 1;
 
   // Variables pour le texte port
-    char inputTextPort[1024] = {0};
-    SDL_Surface* textSurfacePort = NULL;
-    SDL_Texture* textTexturePort = NULL;
-    int taille_textboxPort = 1;
+  char inputTextPort[1024] = {0};
+  SDL_Surface *textSurfacePort = NULL;
+  SDL_Texture *textTexturePort = NULL;
+  int taille_textboxPort = 1;
 
   // Variables pour le texte pseudo
-    char inputTextPseudo[1024] = {0};
-    SDL_Surface* textSurfacePseudo = NULL;
-    SDL_Texture* textTexturePseudo = NULL;
-    int taille_textboxPseudo = 1;
+  char inputTextPseudo[1024] = {0};
+  SDL_Surface *textSurfacePseudo = NULL;
+  SDL_Texture *textTexturePseudo = NULL;
+  int taille_textboxPseudo = 1;
 
   SDL_Color textColor = {255, 255, 255};
 
@@ -205,30 +207,30 @@ int main(int argc, char **argv){
   buttonTextureHost = SDL_CreateTextureFromSurface(renderer, buttonSurfaceHost);
   buttonRectHost.w = buttonSurfaceHost->w;
   buttonRectHost.h = buttonSurfaceHost->h;
-  buttonRectHost.x = WINDOW_WIDTH / 2 - buttonRectHost.w * 3;       
-  buttonRectHost.y = WINDOW_HEIGHT / 2 - buttonRectHost.h / 2 - 50; 
+  buttonRectHost.x = WINDOW_WIDTH / 2 - buttonRectHost.w * 3;
+  buttonRectHost.y = WINDOW_HEIGHT / 2 - buttonRectHost.h / 2 - 50;
 
   // Bouton "JOIN"
   buttonSurfaceJoin = TTF_RenderText_Solid(font, "JOIN", color);
   buttonTextureJoin = SDL_CreateTextureFromSurface(renderer, buttonSurfaceJoin);
   buttonRectJoin.w = buttonSurfaceJoin->w;
   buttonRectJoin.h = buttonSurfaceJoin->h;
-  buttonRectJoin.x = buttonRectHost.x;                        
-  buttonRectJoin.y = WINDOW_HEIGHT / 2 - buttonRectJoin.h / 2; 
+  buttonRectJoin.x = buttonRectHost.x;
+  buttonRectJoin.y = WINDOW_HEIGHT / 2 - buttonRectJoin.h / 2;
 
   // Bouton "QUITTER"
   buttonSurfaceQuitter = TTF_RenderText_Solid(font, "QUITTER", color);
   buttonTextureQuitter = SDL_CreateTextureFromSurface(renderer, buttonSurfaceQuitter);
   buttonRectQuitter.w = buttonSurfaceQuitter->w;
   buttonRectQuitter.h = buttonSurfaceQuitter->h;
-  buttonRectQuitter.x = buttonRectHost.x;                         // Centrer horizontalement
-  buttonRectQuitter.y = buttonRectJoin.y + 50 ; // Placer au centre
+  buttonRectQuitter.x = buttonRectHost.x;      // Centrer horizontalement
+  buttonRectQuitter.y = buttonRectJoin.y + 50; // Placer au centre
 
-  SDL_Rect TextInputRectIp = {buttonRectHost.x*3, buttonRectHost.y, buttonRectJoin.w*2.5, buttonRectJoin.h};
+  SDL_Rect TextInputRectIp = {buttonRectHost.x * 3, buttonRectHost.y, buttonRectJoin.w * 2.5, buttonRectJoin.h};
   SDL_SetTextInputRect(&TextInputRectIp);
-  SDL_Rect TextInputRectPort = {buttonRectHost.x*3, buttonRectHost.y*1.2, buttonRectJoin.w*2.5, buttonRectJoin.h};
+  SDL_Rect TextInputRectPort = {buttonRectHost.x * 3, buttonRectHost.y * 1.2, buttonRectJoin.w * 2.5, buttonRectJoin.h};
   SDL_SetTextInputRect(&TextInputRectPort);
-  SDL_Rect TextInputRectPseudo = {buttonRectHost.x*3, buttonRectHost.y*1.4, buttonRectJoin.w*2.5, buttonRectJoin.h};
+  SDL_Rect TextInputRectPseudo = {buttonRectHost.x * 3, buttonRectHost.y * 1.4, buttonRectJoin.w * 2.5, buttonRectJoin.h};
   SDL_SetTextInputRect(&TextInputRectPseudo);
 
   frame_timer_t *multi_timer = createTimer(1000 / 60);
@@ -236,250 +238,252 @@ int main(int argc, char **argv){
   // Boucle principale
   while (1)
   {
-      SDL_Event event;
+    SDL_Event event;
 
-      // Gestion des évènements
-      while (SDL_PollEvent(&event))
+    // Gestion des évènements
+    while (SDL_PollEvent(&event))
+    {
+      handleEvent(&event);
+
+      SDL_Color color = {52, 36, 20, 0};
+      buttonSurfaceHost = TTF_RenderText_Solid(font, "HOST", color);
+      buttonTextureHost = SDL_CreateTextureFromSurface(renderer, buttonSurfaceHost);
+      buttonSurfaceJoin = TTF_RenderText_Solid(font, "JOIN", color);
+      buttonTextureJoin = SDL_CreateTextureFromSurface(renderer, buttonSurfaceJoin);
+      buttonSurfaceQuitter = TTF_RenderText_Solid(font, "QUITTER", color);
+      buttonTextureQuitter = SDL_CreateTextureFromSurface(renderer, buttonSurfaceQuitter);
+
+      // Si l'utilisateur clique sur le bouton "QUITTER"
+      if (event.type == SDL_MOUSEBUTTONDOWN &&
+          event.button.button == SDL_BUTTON_LEFT &&
+          event.button.x >= buttonRectQuitter.x &&
+          event.button.x <= buttonRectQuitter.x + buttonRectQuitter.w &&
+          event.button.y >= buttonRectQuitter.y &&
+          event.button.y <= buttonRectQuitter.y + buttonRectQuitter.h && inoption == 0)
       {
-        handleEvent(&event);
+        SDL_DestroyTexture(buttonTextureHost);
+        SDL_FreeSurface(buttonSurfaceHost);
+        SDL_DestroyTexture(buttonTextureJoin);
+        SDL_FreeSurface(buttonSurfaceJoin);
+        SDL_DestroyTexture(buttonTextureQuitter);
+        SDL_FreeSurface(buttonSurfaceQuitter);
 
-        
-          SDL_Color color = {52, 36, 20, 0};
-          buttonSurfaceHost = TTF_RenderText_Solid(font, "HOST", color);
-          buttonTextureHost = SDL_CreateTextureFromSurface(renderer, buttonSurfaceHost);
-          buttonSurfaceJoin = TTF_RenderText_Solid(font, "JOIN", color);
-          buttonTextureJoin = SDL_CreateTextureFromSurface(renderer, buttonSurfaceJoin);
-          buttonSurfaceQuitter = TTF_RenderText_Solid(font, "QUITTER", color);
-          buttonTextureQuitter = SDL_CreateTextureFromSurface(renderer, buttonSurfaceQuitter);
-          
-          // Si l'utilisateur clique sur le bouton "QUITTER"
-          if (event.type == SDL_MOUSEBUTTONDOWN &&
-              event.button.button == SDL_BUTTON_LEFT &&
-              event.button.x >= buttonRectQuitter.x &&
-              event.button.x <= buttonRectQuitter.x + buttonRectQuitter.w &&
-              event.button.y >= buttonRectQuitter.y &&
-              event.button.y <= buttonRectQuitter.y + buttonRectQuitter.h 
-              && inoption == 0)
-          {
-            SDL_DestroyTexture(buttonTextureHost);
-            SDL_FreeSurface(buttonSurfaceHost);
-            SDL_DestroyTexture(buttonTextureJoin);
-            SDL_FreeSurface(buttonSurfaceJoin);
-            SDL_DestroyTexture(buttonTextureQuitter);
-            SDL_FreeSurface(buttonSurfaceQuitter);
-
-            // Quitter le programme
-            exit(0);
-          }
-
-          // Si l'utilisateur clique dans l'un des rectangles de texte
-          if (event.type == SDL_MOUSEBUTTONDOWN &&
-              event.button.button == SDL_BUTTON_LEFT &&
-              event.button.x >= TextInputRectIp.x &&
-              event.button.x <= TextInputRectIp.x + TextInputRectIp.w &&
-              event.button.y >= TextInputRectIp.y &&
-              event.button.y <= TextInputRectIp.y + TextInputRectIp.h 
-              && inoption == 0)
-          {
-            box = 1;
-          }else if (event.type == SDL_MOUSEBUTTONDOWN &&
-              event.button.button == SDL_BUTTON_LEFT &&
-              event.button.x >= TextInputRectPort.x &&
-              event.button.x <= TextInputRectPort.x + TextInputRectPort.w &&
-              event.button.y >= TextInputRectPort.y &&
-              event.button.y <= TextInputRectPort.y + TextInputRectPort.h 
-              && inoption == 0)
-          {
-            box = 2;
-          }else if (event.type == SDL_MOUSEBUTTONDOWN &&
-              event.button.button == SDL_BUTTON_LEFT &&
-              event.button.x >= TextInputRectPseudo.x &&
-              event.button.x <= TextInputRectPseudo.x + TextInputRectPseudo.w &&
-              event.button.y >= TextInputRectPseudo.y &&
-              event.button.y <= TextInputRectPseudo.y + TextInputRectPseudo.h 
-              && inoption == 0)
-          {
-            box = 3;
-          }else
-          {
-            
-          }
-
-          if(box == 1){
-
-            switch (event.type)
-            {
-              case SDL_QUIT: 
-                return 0;
-              case SDL_TEXTINPUT:
-                strcat(inputTextIp, event.text.text);
-                printf("Texte saisi : %s", inputTextIp);
-                break;
-              case SDL_KEYDOWN:
-                if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextIp) > 0)
-                {
-                  inputTextIp[strlen(inputTextIp) - 1] = '\0';
-                }
-                break;
-            }
-
-            //calcule taille du text
-            if(strlen(inputTextIp) == 0){
-              taille_textboxIp = 1;
-            }
-            else{
-              taille_textboxIp = strlen(inputTextIp);
-            }
-
-          }else if(box == 2){
-
-            switch (event.type)
-            {
-              case SDL_QUIT: 
-                return 0;
-              case SDL_TEXTINPUT:
-                strcat(inputTextPort, event.text.text);
-                printf("Texte saisi : %s", inputTextPort);
-                break;
-              case SDL_KEYDOWN:
-                if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextPort) > 0)
-                {
-                  inputTextPort[strlen(inputTextPort) - 1] = '\0';
-                }
-                break;
-            }
-
-            //calcule taille du text
-            if(strlen(inputTextPort) == 0){
-              taille_textboxPort = 1;
-            }
-            else{
-              taille_textboxPort = strlen(inputTextPort);
-            }
-          }else if(box == 3){
-
-            switch (event.type)
-            {
-              case SDL_QUIT: 
-                return 0;
-              case SDL_TEXTINPUT:
-                strcat(inputTextPseudo, event.text.text);
-                printf("Texte saisi : %s", inputTextPseudo);
-                break;
-              case SDL_KEYDOWN:
-                if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextPseudo) > 0)
-                {
-                  inputTextPseudo[strlen(inputTextPseudo) - 1] = '\0';
-                }
-                break;
-            }
-
-            //calcule taille du text
-            if(strlen(inputTextPseudo) == 0){
-              taille_textboxPseudo = 1;
-            }
-            else{
-              taille_textboxPseudo = strlen(inputTextPseudo);
-            }
-          }else{
-
-          }
-
-
-          // Rendre le texte à partir de la surface
-          SDL_FreeSurface(textSurfaceIp);
-          textSurfaceIp = TTF_RenderText_Solid(fontTextBox , inputTextIp, textColor);
-          textTextureIp = SDL_CreateTextureFromSurface(renderer, textSurfaceIp);
-          SDL_FreeSurface(textSurfacePort);
-          textSurfacePort = TTF_RenderText_Solid(fontTextBox , inputTextPort, textColor);
-          textTexturePort = SDL_CreateTextureFromSurface(renderer, textSurfacePort);
-          SDL_FreeSurface(textSurfacePseudo);
-          textSurfacePseudo = TTF_RenderText_Solid(fontTextBox , inputTextPseudo, textColor);
-          textTexturePseudo = SDL_CreateTextureFromSurface(renderer, textSurfacePseudo);
-
-          //---------//
-
-          // Si l'utilisateur met sa souris au dessus
-          SDL_Point mousePoint = getMousePosition();
-          if (SDL_PointInRect(&mousePoint, &buttonRectHost))
-          {
-            SDL_Color color = {52, 36, 155, 0};
-            buttonSurfaceHost = TTF_RenderText_Solid(font, "HOST", color);
-            buttonTextureHost = SDL_CreateTextureFromSurface(renderer, buttonSurfaceHost);
-          }else if (SDL_PointInRect(&mousePoint, &buttonRectJoin))
-          {
-            SDL_Color color = {52, 36, 155, 0};
-            buttonSurfaceJoin = TTF_RenderText_Solid(font, "JOIN", color);
-            buttonTextureJoin = SDL_CreateTextureFromSurface(renderer, buttonSurfaceJoin);
-          }else if (SDL_PointInRect(&mousePoint, &buttonRectQuitter))
-          {
-            SDL_Color color = {52, 36, 155, 0};
-            buttonSurfaceQuitter = TTF_RenderText_Solid(font, "QUITTER", color);
-            buttonTextureQuitter = SDL_CreateTextureFromSurface(renderer, buttonSurfaceQuitter);
-          }else{
-            SDL_Color color = {52, 36, 20, 0};
-            buttonSurfaceHost = TTF_RenderText_Solid(font, "HOST", color);
-            buttonTextureHost = SDL_CreateTextureFromSurface(renderer, buttonSurfaceHost);
-            buttonSurfaceJoin = TTF_RenderText_Solid(font, "JOIN", color);
-            buttonTextureJoin = SDL_CreateTextureFromSurface(renderer, buttonSurfaceJoin);
-            buttonSurfaceQuitter = TTF_RenderText_Solid(font, "QUITTER", color);
-            buttonTextureQuitter = SDL_CreateTextureFromSurface(renderer, buttonSurfaceQuitter);
-          }
-
-          //------------------//
-
-          // Effacement de l'écran
-          SDL_RenderClear(renderer);
-
-          // Affichage de l'image de fond
-          SDL_RenderCopy(renderer, texturep, NULL, NULL);
-
-          // Affichage des boutons
-          SDL_RenderCopy(renderer, buttonTextureHost, NULL, &buttonRectHost);
-          SDL_RenderCopy(renderer, buttonTextureJoin, NULL, &buttonRectJoin);
-          SDL_RenderCopy(renderer, buttonTextureQuitter, NULL, &buttonRectQuitter);
-
-
-          //---------//
-
-          // Dessiner le rectangle de saisie de texte pour l'IP
-          SDL_SetRenderDrawColor(renderer, 192, 148, 115, 0);
-          SDL_RenderFillRect(renderer, &TextInputRectIp);
-          // Dessiner le rectangle de saisie de texte pour le port
-          SDL_SetRenderDrawColor(renderer, 192, 148, 115, 0);
-          SDL_RenderFillRect(renderer, &TextInputRectPort);
-          // Dessiner le rectangle de saisie de texte pour le pseudo
-          SDL_SetRenderDrawColor(renderer, 192, 148, 115, 0);
-          SDL_RenderFillRect(renderer, &TextInputRectPseudo);
-
-          // Dessiner le texte des text box
-          SDL_Rect textRectIp = {buttonRectHost.x*3,  buttonRectHost.y, ((buttonRectJoin.w*2)/16+(taille_textboxIp)*10), (buttonRectJoin.h)};
-          SDL_RenderCopy(renderer, textTextureIp, NULL, &textRectIp);
-          SDL_Rect textRectPort = {buttonRectHost.x*3,  buttonRectHost.y*1.2, ((buttonRectJoin.w*2)/16+(taille_textboxPort)*10), (buttonRectJoin.h)};
-          SDL_RenderCopy(renderer, textTexturePort, NULL, &textRectPort);
-          SDL_Rect textRectPseudo = {buttonRectHost.x*3,  buttonRectHost.y*1.4, ((buttonRectJoin.w*2)/16+(taille_textboxPseudo)*10), (buttonRectJoin.h)};
-          SDL_RenderCopy(renderer, textTexturePseudo, NULL, &textRectPseudo);
-
-                                       
-
-          // Mise à jour de l'affichage
-          SDL_RenderPresent(renderer);
-
-          // Gestion du temps
-
-          long time_left = timeLeft(multi_timer);
-
-          if (time_left > 0)
-          {
-            SDL_Delay(time_left);
-          }
-
-
+        // Quitter le programme
+        exit(0);
       }
 
-      
+      // Si l'utilisateur clique dans l'un des rectangles de texte
+      if (event.type == SDL_MOUSEBUTTONDOWN &&
+          event.button.button == SDL_BUTTON_LEFT &&
+          event.button.x >= TextInputRectIp.x &&
+          event.button.x <= TextInputRectIp.x + TextInputRectIp.w &&
+          event.button.y >= TextInputRectIp.y &&
+          event.button.y <= TextInputRectIp.y + TextInputRectIp.h && inoption == 0)
+      {
+        box = 1;
+      }
+      else if (event.type == SDL_MOUSEBUTTONDOWN &&
+               event.button.button == SDL_BUTTON_LEFT &&
+               event.button.x >= TextInputRectPort.x &&
+               event.button.x <= TextInputRectPort.x + TextInputRectPort.w &&
+               event.button.y >= TextInputRectPort.y &&
+               event.button.y <= TextInputRectPort.y + TextInputRectPort.h && inoption == 0)
+      {
+        box = 2;
+      }
+      else if (event.type == SDL_MOUSEBUTTONDOWN &&
+               event.button.button == SDL_BUTTON_LEFT &&
+               event.button.x >= TextInputRectPseudo.x &&
+               event.button.x <= TextInputRectPseudo.x + TextInputRectPseudo.w &&
+               event.button.y >= TextInputRectPseudo.y &&
+               event.button.y <= TextInputRectPseudo.y + TextInputRectPseudo.h && inoption == 0)
+      {
+        box = 3;
+      }
+      else
+      {
+      }
 
+      if (box == 1)
+      {
 
+        switch (event.type)
+        {
+        case SDL_QUIT:
+          return 0;
+        case SDL_TEXTINPUT:
+          strcat(inputTextIp, event.text.text);
+          printf("Texte saisi : %s", inputTextIp);
+          break;
+        case SDL_KEYDOWN:
+          if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextIp) > 0)
+          {
+            inputTextIp[strlen(inputTextIp) - 1] = '\0';
+          }
+          break;
+        }
+
+        // calcule taille du text
+        if (strlen(inputTextIp) == 0)
+        {
+          taille_textboxIp = 1;
+        }
+        else
+        {
+          taille_textboxIp = strlen(inputTextIp);
+        }
+      }
+      else if (box == 2)
+      {
+
+        switch (event.type)
+        {
+        case SDL_QUIT:
+          return 0;
+        case SDL_TEXTINPUT:
+          strcat(inputTextPort, event.text.text);
+          printf("Texte saisi : %s", inputTextPort);
+          break;
+        case SDL_KEYDOWN:
+          if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextPort) > 0)
+          {
+            inputTextPort[strlen(inputTextPort) - 1] = '\0';
+          }
+          break;
+        }
+
+        // calcule taille du text
+        if (strlen(inputTextPort) == 0)
+        {
+          taille_textboxPort = 1;
+        }
+        else
+        {
+          taille_textboxPort = strlen(inputTextPort);
+        }
+      }
+      else if (box == 3)
+      {
+
+        switch (event.type)
+        {
+        case SDL_QUIT:
+          return 0;
+        case SDL_TEXTINPUT:
+          strcat(inputTextPseudo, event.text.text);
+          printf("Texte saisi : %s", inputTextPseudo);
+          break;
+        case SDL_KEYDOWN:
+          if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextPseudo) > 0)
+          {
+            inputTextPseudo[strlen(inputTextPseudo) - 1] = '\0';
+          }
+          break;
+        }
+
+        // calcule taille du text
+        if (strlen(inputTextPseudo) == 0)
+        {
+          taille_textboxPseudo = 1;
+        }
+        else
+        {
+          taille_textboxPseudo = strlen(inputTextPseudo);
+        }
+      }
+      else
+      {
+      }
+
+      // Rendre le texte à partir de la surface
+      SDL_FreeSurface(textSurfaceIp);
+      textSurfaceIp = TTF_RenderText_Solid(fontTextBox, inputTextIp, textColor);
+      textTextureIp = SDL_CreateTextureFromSurface(renderer, textSurfaceIp);
+      SDL_FreeSurface(textSurfacePort);
+      textSurfacePort = TTF_RenderText_Solid(fontTextBox, inputTextPort, textColor);
+      textTexturePort = SDL_CreateTextureFromSurface(renderer, textSurfacePort);
+      SDL_FreeSurface(textSurfacePseudo);
+      textSurfacePseudo = TTF_RenderText_Solid(fontTextBox, inputTextPseudo, textColor);
+      textTexturePseudo = SDL_CreateTextureFromSurface(renderer, textSurfacePseudo);
+
+      //---------//
+
+      // Si l'utilisateur met sa souris au dessus
+      SDL_Point mousePoint = getMousePosition();
+      if (SDL_PointInRect(&mousePoint, &buttonRectHost))
+      {
+        SDL_Color color = {52, 36, 155, 0};
+        buttonSurfaceHost = TTF_RenderText_Solid(font, "HOST", color);
+        buttonTextureHost = SDL_CreateTextureFromSurface(renderer, buttonSurfaceHost);
+      }
+      else if (SDL_PointInRect(&mousePoint, &buttonRectJoin))
+      {
+        SDL_Color color = {52, 36, 155, 0};
+        buttonSurfaceJoin = TTF_RenderText_Solid(font, "JOIN", color);
+        buttonTextureJoin = SDL_CreateTextureFromSurface(renderer, buttonSurfaceJoin);
+      }
+      else if (SDL_PointInRect(&mousePoint, &buttonRectQuitter))
+      {
+        SDL_Color color = {52, 36, 155, 0};
+        buttonSurfaceQuitter = TTF_RenderText_Solid(font, "QUITTER", color);
+        buttonTextureQuitter = SDL_CreateTextureFromSurface(renderer, buttonSurfaceQuitter);
+      }
+      else
+      {
+        SDL_Color color = {52, 36, 20, 0};
+        buttonSurfaceHost = TTF_RenderText_Solid(font, "HOST", color);
+        buttonTextureHost = SDL_CreateTextureFromSurface(renderer, buttonSurfaceHost);
+        buttonSurfaceJoin = TTF_RenderText_Solid(font, "JOIN", color);
+        buttonTextureJoin = SDL_CreateTextureFromSurface(renderer, buttonSurfaceJoin);
+        buttonSurfaceQuitter = TTF_RenderText_Solid(font, "QUITTER", color);
+        buttonTextureQuitter = SDL_CreateTextureFromSurface(renderer, buttonSurfaceQuitter);
+      }
+
+      //------------------//
+
+      // Effacement de l'écran
+      SDL_RenderClear(renderer);
+
+      // Affichage de l'image de fond
+      SDL_RenderCopy(renderer, texturep, NULL, NULL);
+
+      // Affichage des boutons
+      SDL_RenderCopy(renderer, buttonTextureHost, NULL, &buttonRectHost);
+      SDL_RenderCopy(renderer, buttonTextureJoin, NULL, &buttonRectJoin);
+      SDL_RenderCopy(renderer, buttonTextureQuitter, NULL, &buttonRectQuitter);
+
+      //---------//
+
+      // Dessiner le rectangle de saisie de texte pour l'IP
+      SDL_SetRenderDrawColor(renderer, 192, 148, 115, 0);
+      SDL_RenderFillRect(renderer, &TextInputRectIp);
+      // Dessiner le rectangle de saisie de texte pour le port
+      SDL_SetRenderDrawColor(renderer, 192, 148, 115, 0);
+      SDL_RenderFillRect(renderer, &TextInputRectPort);
+      // Dessiner le rectangle de saisie de texte pour le pseudo
+      SDL_SetRenderDrawColor(renderer, 192, 148, 115, 0);
+      SDL_RenderFillRect(renderer, &TextInputRectPseudo);
+
+      // Dessiner le texte des text box
+      SDL_Rect textRectIp = {buttonRectHost.x * 3, buttonRectHost.y, ((buttonRectJoin.w * 2) / 16 + (taille_textboxIp)*10), (buttonRectJoin.h)};
+      SDL_RenderCopy(renderer, textTextureIp, NULL, &textRectIp);
+      SDL_Rect textRectPort = {buttonRectHost.x * 3, buttonRectHost.y * 1.2, ((buttonRectJoin.w * 2) / 16 + (taille_textboxPort)*10), (buttonRectJoin.h)};
+      SDL_RenderCopy(renderer, textTexturePort, NULL, &textRectPort);
+      SDL_Rect textRectPseudo = {buttonRectHost.x * 3, buttonRectHost.y * 1.4, ((buttonRectJoin.w * 2) / 16 + (taille_textboxPseudo)*10), (buttonRectJoin.h)};
+      SDL_RenderCopy(renderer, textTexturePseudo, NULL, &textRectPseudo);
+
+      // Mise à jour de l'affichage
+      SDL_RenderPresent(renderer);
+
+      // Gestion du temps
+
+      long time_left = timeLeft(multi_timer);
+
+      if (time_left > 0)
+      {
+        SDL_Delay(time_left);
+      }
+    }
   }
 
   // Libération de la mémoire
@@ -501,6 +505,4 @@ int main(int argc, char **argv){
   SDL_Quit();
 
   return 0;
-
-
 }
