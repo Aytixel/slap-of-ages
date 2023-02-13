@@ -13,10 +13,14 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
+/**
+ * @brief Structure contenant les données d'un sprite
+ *
+ */
 typedef struct
 {
-    SDL_Texture *texture;
-    SDL_Surface *surface;
+    SDL_Texture *texture; /**< texture du sprite*/
+    SDL_Surface *surface; /**< surface du sprite*/
 } sprite_t;
 
 /**

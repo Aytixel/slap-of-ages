@@ -103,6 +103,13 @@ extern int destroyWindow(window_t **window)
     return 0;
 }
 
+/**
+ * @brief Charge un sprite depuis un fichier
+ *
+ * @param window un pointeur sur une fenêtre
+ * @param path chemin vers le fichier du sprite
+ * @return un pointer sur un **sprite**
+ */
 extern sprite_t *loadSprite(window_t *window, char *path)
 {
     sprite_t *sprite = malloc(sizeof(sprite_t));
@@ -129,6 +136,12 @@ extern sprite_t *loadSprite(window_t *window, char *path)
     return sprite;
 }
 
+/**
+ * @brief Détruit un sprite
+ *
+ * @param sprite une référence d'un pointeur sur un sprite
+ * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
+ */
 extern int destroySprite(sprite_t **sprite)
 {
     if (sprite == NULL || *sprite == NULL)

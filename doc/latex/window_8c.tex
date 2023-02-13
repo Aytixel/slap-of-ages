@@ -5,8 +5,9 @@
 Permets de gérer la fenêtre.  
 
 
-{\ttfamily \#include \char`\"{}stdio.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}window.\+h\char`\"{}}\newline
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
@@ -14,7 +15,11 @@ Permets de gérer la fenêtre.
 \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8c_ae86a3185973be72e90ebb6ec30e5daa7}{create\+Window}} (char $\ast$title, int width, int height)
 \begin{DoxyCompactList}\small\item\em Créer une fenêtre. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{window_8c_a2b6afcc06737563c2c82cb5b822bcb6e}{destroy\+Window}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$$\ast$window)
-\begin{DoxyCompactList}\small\item\em Détruit une fenêtre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Détruit une fenêtre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8c_a12caaf6efa15b7b7ef17f25474d3f4ce}{load\+Sprite}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Charge un sprite depuis un fichier. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{window_8c_ac84ead18493a5445ba473190996fe36b}{destroy\+Sprite}} (\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$$\ast$sprite)
+\begin{DoxyCompactList}\small\item\em Détruit un sprite. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -63,6 +68,24 @@ Puis nettoie la fenêtre.
 \begin{DoxyReturn}{Renvoie}
 un pointer sur une {\bfseries{fenêtre}} 
 \end{DoxyReturn}
+\mbox{\Hypertarget{window_8c_ac84ead18493a5445ba473190996fe36b}\label{window_8c_ac84ead18493a5445ba473190996fe36b}} 
+\index{window.c@{window.c}!destroySprite@{destroySprite}}
+\index{destroySprite@{destroySprite}!window.c@{window.c}}
+\doxysubsubsection{\texorpdfstring{destroySprite()}{destroySprite()}}
+{\footnotesize\ttfamily int destroy\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$$\ast$}]{sprite }\end{DoxyParamCaption})}
+
+
+
+Détruit un sprite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sprite} & une référence d\textquotesingle{}un pointeur sur un sprite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
 \mbox{\Hypertarget{window_8c_a2b6afcc06737563c2c82cb5b822bcb6e}\label{window_8c_a2b6afcc06737563c2c82cb5b822bcb6e}} 
 \index{window.c@{window.c}!destroyWindow@{destroyWindow}}
 \index{destroyWindow@{destroyWindow}!window.c@{window.c}}
@@ -80,4 +103,24 @@ Détruit une fenêtre.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8c_a12caaf6efa15b7b7ef17f25474d3f4ce}\label{window_8c_a12caaf6efa15b7b7ef17f25474d3f4ce}} 
+\index{window.c@{window.c}!loadSprite@{loadSprite}}
+\index{loadSprite@{loadSprite}!window.c@{window.c}}
+\doxysubsubsection{\texorpdfstring{loadSprite()}{loadSprite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ load\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Charge un sprite depuis un fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em path} & chemin vers le fichier du sprite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur un {\bfseries{sprite}} 
 \end{DoxyReturn}

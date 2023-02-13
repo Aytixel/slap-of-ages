@@ -74,8 +74,9 @@ $(function() {
 
 <p>Permets de gérer la fenêtre.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &quot;stdio.h&quot;</code><br />
-<code>#include &quot;stdlib.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="window_8h_source.html">window.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -86,6 +87,12 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a2b6afcc06737563c2c82cb5b822bcb6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#a2b6afcc06737563c2c82cb5b822bcb6e">destroyWindow</a> (<a class="el" href="structwindow__t.html">window_t</a> **window)</td></tr>
 <tr class="memdesc:a2b6afcc06737563c2c82cb5b822bcb6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une fenêtre.  <a href="window_8c.html#a2b6afcc06737563c2c82cb5b822bcb6e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a2b6afcc06737563c2c82cb5b822bcb6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12caaf6efa15b7b7ef17f25474d3f4ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsprite__t.html">sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#a12caaf6efa15b7b7ef17f25474d3f4ce">loadSprite</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, char *path)</td></tr>
+<tr class="memdesc:a12caaf6efa15b7b7ef17f25474d3f4ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge un sprite depuis un fichier.  <a href="window_8c.html#a12caaf6efa15b7b7ef17f25474d3f4ce">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a12caaf6efa15b7b7ef17f25474d3f4ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac84ead18493a5445ba473190996fe36b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#ac84ead18493a5445ba473190996fe36b">destroySprite</a> (<a class="el" href="structsprite__t.html">sprite_t</a> **sprite)</td></tr>
+<tr class="memdesc:ac84ead18493a5445ba473190996fe36b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un sprite.  <a href="window_8c.html#ac84ead18493a5445ba473190996fe36b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac84ead18493a5445ba473190996fe36b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Permets de gérer la fenêtre. </p>
@@ -144,6 +151,33 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac84ead18493a5445ba473190996fe36b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac84ead18493a5445ba473190996fe36b">&#9670;&nbsp;</a></span>destroySprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int destroySprite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsprite__t.html">sprite_t</a> **&#160;</td>
+          <td class="paramname"><em>sprite</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit un sprite. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite</td><td>une référence d'un pointeur sur un sprite </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
 <a id="a2b6afcc06737563c2c82cb5b822bcb6e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2b6afcc06737563c2c82cb5b822bcb6e">&#9670;&nbsp;</a></span>destroyWindow()</h2>
 
@@ -168,6 +202,44 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="a12caaf6efa15b7b7ef17f25474d3f4ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12caaf6efa15b7b7ef17f25474d3f4ce">&#9670;&nbsp;</a></span>loadSprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsprite__t.html">sprite_t</a>* loadSprite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge un sprite depuis un fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">path</td><td>chemin vers le fichier du sprite </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>sprite</b> </dd></dl>
 
 </div>
 </div>

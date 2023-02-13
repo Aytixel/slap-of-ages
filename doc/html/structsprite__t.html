@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Slap of Ages: Liste des classes</title>
+<title>Slap of Ages: Référence de la structure sprite_t</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,23 +59,64 @@ $(function() {
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Attributs publics</a> &#124;
+<a href="structsprite__t-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
-<div class="title">Liste des classes</div>  </div>
+<div class="title">Référence de la structure sprite_t</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Liste des classes, structures, unions et interfaces avec une brève description :</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structclient__t.html" target="_self">client_t</a></td><td class="desc">Client socket </td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structframe__timer__t.html" target="_self">frame_timer_t</a></td><td class="desc">Timer permettant l'éxécution de code à intervalle régulier </td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structpacket__t.html" target="_self">packet_t</a></td><td class="desc">Paquet réseaux pour les sockets </td></tr>
-<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structserver__client__connection__t.html" target="_self">server_client_connection_t</a></td><td class="desc">Représente une connexion au serveur </td></tr>
-<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structserver__client__t.html" target="_self">server_client_t</a></td><td class="desc">Client serveur socket </td></tr>
-<tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structserver__t.html" target="_self">server_t</a></td><td class="desc">Serveur socket </td></tr>
-<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structsprite__t.html" target="_self">sprite_t</a></td><td class="desc">Structure contenant les données d'un sprite </td></tr>
-<tr id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structwindow__t.html" target="_self">window_t</a></td><td class="desc">Structure contenant toutes les données de la fenêtre </td></tr>
+
+<p>Structure contenant les données d'un sprite.  
+ <a href="structsprite__t.html#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="window_8h_source.html">window.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:ab2dd1ee545b01b43bff646fe10b29d5d"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsprite__t.html#ab2dd1ee545b01b43bff646fe10b29d5d">texture</a></td></tr>
+<tr class="separator:ab2dd1ee545b01b43bff646fe10b29d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1151814eb7ff111b626274bfb4e8f4e2"><td class="memItemLeft" align="right" valign="top">SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsprite__t.html#a1151814eb7ff111b626274bfb4e8f4e2">surface</a></td></tr>
+<tr class="separator:a1151814eb7ff111b626274bfb4e8f4e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- directory -->
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Structure contenant les données d'un sprite. </p>
+</div><h2 class="groupheader">Documentation des données membres</h2>
+<a id="a1151814eb7ff111b626274bfb4e8f4e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1151814eb7ff111b626274bfb4e8f4e2">&#9670;&nbsp;</a></span>surface</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Surface* sprite_t::surface</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>surface du sprite </p>
+
+</div>
+</div>
+<a id="ab2dd1ee545b01b43bff646fe10b29d5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2dd1ee545b01b43bff646fe10b29d5d">&#9670;&nbsp;</a></span>texture</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture* sprite_t::texture</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>texture du sprite </p>
+
+</div>
+</div>
+<hr/>La documentation de cette structure a été générée à partir du fichier suivant :<ul>
+<li>src/<a class="el" href="window_8h_source.html">window.h</a></li>
+</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
