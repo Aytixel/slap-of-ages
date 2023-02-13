@@ -13,13 +13,22 @@ void signalHandler(int s)
     running = 0;
 }
 
-void windowEventHandler(SDL_Event *event)
+void windowEventHandler(SDL_Event *event, window_t *window)
 {
     // gestion des évènements de la fenêtre
     switch (event->type)
     {
     case SDL_QUIT:
         running = 0;
+        break;
+    case SDL_WINDOWEVENT:
+        switch (event->window.event)
+        {
+        case SDL_WINDOWEVENT_RESIZED:
+            window->width = event->window.data1;
+            window->height = event->window.data2;
+            break;
+        }
         break;
     }
 }
@@ -51,7 +60,7 @@ int main(int argc, char *argv[])
         int time_left = timeLeft(main_timer);
 
         if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
-            windowEventHandler(&event);
+            windowEventHandler(&event, window);
 
         if (checkTime(main_timer))
         {
