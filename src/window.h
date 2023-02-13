@@ -13,6 +13,12 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
+typedef struct
+{
+    SDL_Texture *texture;
+    SDL_Surface *surface;
+} sprite_t;
+
 /**
  * @brief Structure contenant toutes les données de la fenêtre
  *
@@ -27,6 +33,12 @@ typedef struct
 
 extern window_t *createWindow(char *title, int width, int height);
 
+extern void updateWindowSize(window_t *window, SDL_Event *event);
+
 extern int destroyWindow(window_t **window);
+
+extern sprite_t *loadSprite(window_t *window, char *path);
+
+extern int destroySprite(sprite_t **sprite);
 
 #endif

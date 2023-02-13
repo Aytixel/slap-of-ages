@@ -7,8 +7,9 @@
  *
  */
 
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <SDL2/SDL_image.h>
 #include "window.h"
 
 /**
@@ -52,6 +53,7 @@ extern window_t *createWindow(char *title, int width, int height)
 
         TTF_Quit();
         SDL_Quit();
+        free(window);
 
         return NULL;
     }
@@ -63,6 +65,7 @@ extern window_t *createWindow(char *title, int width, int height)
         SDL_DestroyWindow(window->window);
         TTF_Quit();
         SDL_Quit();
+        free(window);
 
         return NULL;
     }
@@ -84,7 +87,7 @@ extern window_t *createWindow(char *title, int width, int height)
  * @param window une référence d'un pointeur sur une fenêtre
  * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
  */
-int destroyWindow(window_t **window)
+extern int destroyWindow(window_t **window)
 {
     if (window == NULL || *window == NULL)
         return -1;
@@ -96,6 +99,45 @@ int destroyWindow(window_t **window)
 
     free(*window);
     *window = NULL;
+
+    return 0;
+}
+
+extern sprite_t *loadSprite(window_t *window, char *path)
+{
+    sprite_t *sprite = malloc(sizeof(sprite_t));
+
+    if ((sprite->surface = IMG_Load(path)) == NULL)
+    {
+        fprintf(stderr, "(Erreur): Impossible de charger le sprite \"%s\" : %s\n", path, SDL_GetError());
+
+        free(sprite);
+
+        return NULL;
+    }
+
+    if ((sprite->texture = SDL_CreateTextureFromSurface(window->renderer, sprite->surface)) == NULL)
+    {
+        fprintf(stderr, "(Erreur): Création de la texture pour le sprite \"%s\" impossible : %s\n", path, SDL_GetError());
+
+        SDL_FreeSurface(sprite->surface);
+        free(sprite);
+
+        return NULL;
+    }
+
+    return sprite;
+}
+
+extern int destroySprite(sprite_t **sprite)
+{
+    if (sprite == NULL || *sprite == NULL)
+        return -1;
+
+    SDL_DestroyTexture((*sprite)->texture);
+    SDL_FreeSurface((*sprite)->surface);
+    free(*sprite);
+    *sprite = NULL;
 
     return 0;
 }
