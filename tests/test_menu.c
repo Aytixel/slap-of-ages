@@ -5,8 +5,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <time.h>
 #include <assert.h>
-#include "timer.h"
-#include "test_menu.h"
+#include "timer/timer.h"
 
 const int WINDOW_WIDTH = 1000;
 const int WINDOW_HEIGHT = 680;
@@ -314,7 +313,7 @@ int main(int argc, char **argv)
           return 0;
         case SDL_TEXTINPUT:
           strcat(inputTextIp, event.text.text);
-          //printf("Texte saisi : %s", inputTextIp);
+          // printf("Texte saisi : %s", inputTextIp);
           break;
         case SDL_KEYDOWN:
           if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextIp) > 0)
@@ -334,7 +333,7 @@ int main(int argc, char **argv)
           return 0;
         case SDL_TEXTINPUT:
           strcat(inputTextPort, event.text.text);
-          //printf("Texte saisi : %s", inputTextPort);
+          // printf("Texte saisi : %s", inputTextPort);
           break;
         case SDL_KEYDOWN:
           if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextPort) > 0)
@@ -354,7 +353,7 @@ int main(int argc, char **argv)
           return 0;
         case SDL_TEXTINPUT:
           strcat(inputTextPseudo, event.text.text);
-          //printf("Texte saisi : %s", inputTextPseudo);
+          // printf("Texte saisi : %s", inputTextPseudo);
           break;
         case SDL_KEYDOWN:
           if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextPseudo) > 0)
@@ -439,11 +438,11 @@ int main(int argc, char **argv)
       SDL_RenderFillRect(renderer, &TextInputRectPseudo);
 
       // Dessiner le texte des text box
-      SDL_Rect textRectIp = {buttonRectHost.x * 3, buttonRectHost.y, (widthIp/2), (buttonRectJoin.h)};
+      SDL_Rect textRectIp = {buttonRectHost.x * 3, buttonRectHost.y, (widthIp / 2), (buttonRectJoin.h)};
       SDL_RenderCopy(renderer, textTextureIp, NULL, &textRectIp);
-      SDL_Rect textRectPort = {buttonRectHost.x * 3, buttonRectHost.y * 1.2, (widthPort/2), (buttonRectJoin.h)};
+      SDL_Rect textRectPort = {buttonRectHost.x * 3, buttonRectHost.y * 1.2, (widthPort / 2), (buttonRectJoin.h)};
       SDL_RenderCopy(renderer, textTexturePort, NULL, &textRectPort);
-      SDL_Rect textRectPseudo = {buttonRectHost.x * 3, buttonRectHost.y * 1.4, (widthPseudo/2), (buttonRectJoin.h)};
+      SDL_Rect textRectPseudo = {buttonRectHost.x * 3, buttonRectHost.y * 1.4, (widthPseudo / 2), (buttonRectJoin.h)};
       SDL_RenderCopy(renderer, textTexturePseudo, NULL, &textRectPseudo);
 
       // Mise à jour de l'affichage

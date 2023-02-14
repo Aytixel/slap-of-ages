@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <string.h>
-#include "timer.h"
-#include "server_connection.h"
+#include "timer/timer.h"
+#include "connection/server.h"
 
 int running = 1;
 

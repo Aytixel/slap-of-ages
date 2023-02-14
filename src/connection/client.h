@@ -1,7 +1,7 @@
 /**
- * @file client_connection.h
+ * @file client.h
  * @author Lucas Dureau
- * @brief Implémentation des prototypes de client_connection.c
+ * @brief Implémentation des prototypes de connection/client.c
  * @version 0.1
  * @date 05/02/2023
  *
@@ -10,7 +10,7 @@
 #ifndef __CLIENT_CONNECTION_H
 #define __CLIENT_CONNECTION_H
 
-#include "client_socket.h"
+#include "socket/client.h"
 
 /**
  * @brief Représente l'état de la connexion

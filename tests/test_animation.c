@@ -4,9 +4,9 @@
 #include <SDL2/SDL_main.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-#include "timer.h"
+#include "timer/timer.h"
 #include "test_animation.h"
-#include "window.h"
+#include "window/window.h"
 
 int initFrames(SDL_Rect *tab, int nb_frames, SDL_Surface *src, int line, int nb_lines)
 {

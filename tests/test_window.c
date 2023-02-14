@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
-#include "timer.h"
-#include "window.h"
+#include "timer/timer.h"
+#include "window/window.h"
 
 int running = 1;
 
@@ -27,7 +27,7 @@ void windowEventHandler(SDL_Event *event, window_t *window)
 
 int main(int argc, char *argv[])
 {
-    printf("Test de window.h\n\n");
+    printf("Test de window/window.h\n\n");
 
     window_t *window = createWindow("Test Window", 500, 400);
 
@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
     assert(window == NULL);
     printf("\nDestruction de window OK\n");
 
-    printf("\nTest de window.h succès\n");
+    printf("\nTest de window/window.h succès\n");
 
     return 0;
 }

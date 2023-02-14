@@ -1,5 +1,5 @@
 /**
- * @file client_connection.c
+ * @file client.c
  * @author Lucas Dureau
  * @brief Permet de gérer la connexion du client au serveur
  * @version 0.1
@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "packet_id.h"
-#include "client_connection.h"
+#include "client.h"
 
 int handshake_data = 0;
 client_t *client = NULL;

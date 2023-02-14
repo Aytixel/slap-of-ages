@@ -1,7 +1,7 @@
 /**
- * @file server_socket.c
+ * @file client.c
  * @author Lucas Dureau
- * @brief Serveur socket simple permettant l'échange de paquet de manière non bloquante
+ * @brief Client socket simple permettant l'échange de paquet de manière non bloquante
  * @version 0.1
  * @date 31/01/2023
  *
@@ -27,72 +27,36 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "socket.h"
-#include "server_socket.h"
+#include "client.h"
 
 /**
- * @brief Créer un serveur
+ * @brief Créer un client
  *
- * @param hostname nom d'hôte à écouter
- * @param port port à écouter
- * @return un pointer sur un **serveur**
+ * @param hostname nom d'hôte du serveur
+ * @param port port du serveur
+ * @return un pointer sur un **client**
  */
-extern server_t *createServer(char *hostname, uint16_t port)
+extern client_t *createClient(char *hostname, uint16_t port)
 {
-    server_t *server = malloc(sizeof(server_t));
-
-    server->address_length = sizeof(server->address);
-
-    if (setupAddress(&server->address, server->address_length, hostname, port) == -1)
-    {
-        free(server);
-
-        return NULL;
-    }
-
-    if ((server->socket_fd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
-    {
-        free(server);
-
-        return NULL;
-    }
-
-    // dit au socket qu'il peut réutiliser la même adresse
-    int optval = 1;
-
-    setsockopt(server->socket_fd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
-
-    // définit le socket comme non bloquant
-#ifdef WIN32
-    u_long mode = 1;
-
-    ioctlsocket(server->socket_fd, FIONBIO, &mode);
-#else
-    fcntl(server->socket_fd, F_SETFL, O_NONBLOCK);
-#endif
-
-    bind(server->socket_fd, (struct sockaddr *)&server->address, server->address_length);
-    listen(server->socket_fd, 5);
-
-    return server;
-}
-
-/**
- * @brief Vérifie si il y a des connexions à accepter, et les accepte
- *
- * @param server serveur à utiliser
- * @return un pointeur sur un **client serveur**
- */
-extern server_client_t *acceptServerClient(server_t *server)
-{
-    if (server == NULL)
-        return NULL;
-
-    server_client_t *client = malloc(sizeof(server_client_t));
+    client_t *client = malloc(sizeof(client_t));
 
     client->address_length = sizeof(client->address);
 
-    if ((client->socket_fd = accept(server->socket_fd, (struct sockaddr *)&client->address, &client->address_length)) == -1)
+    if (setupAddress(&client->address, client->address_length, hostname, port) == -1)
+    {
+        free(client);
+
+        return NULL;
+    }
+
+    if ((client->socket_fd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
+    {
+        free(client);
+
+        return NULL;
+    }
+
+    if (connect(client->socket_fd, (struct sockaddr *)&client->address, client->address_length) == -1)
     {
         free(client);
 
@@ -115,12 +79,12 @@ extern server_client_t *acceptServerClient(server_t *server)
 }
 
 /**
- * @brief Vérifie si la connexion au client est fermée
+ * @brief Vérifie si la connexion au serveur est fermée
  *
- * @param client client serveur à utiliser
+ * @param client client à utiliser
  * @return **1 ou 0** en fonction se si la connexion est fermer ou non
  */
-extern int isClientDown(server_client_t *client)
+extern int isServerDown(client_t *client)
 {
     if (client == NULL)
         return 1;
@@ -143,13 +107,13 @@ extern int isClientDown(server_client_t *client)
 }
 
 /**
- * @brief Envoie un paquet au client
+ * @brief Envoie un paquet au server
  *
- * @param client client serveur à utiliser
+ * @param client client à utiliser
  * @param packet paquet à envoyer
  * @return **0** si tous se passe bien, **-1** si il y a un problème durant l'envoie
  */
-extern int sendToServerClient(server_client_t *client, packet_t *packet)
+extern int sendToServer(client_t *client, packet_t *packet)
 {
     void *buffer = malloc(sizeof(packet->data_length) + sizeof(packet->id) + packet->data_length);
 
@@ -170,12 +134,12 @@ extern int sendToServerClient(server_client_t *client, packet_t *packet)
 }
 
 /**
- * @brief Essaye de recevoir un paquet du client
+ * @brief Essaye de recevoir un paquet du serveur
  *
- * @param client client serveur à utiliser
+ * @param client client à utiliser
  * @return un pointeur sur un **paquet**, et si la réception n'est pas terminé, ou rien n'a été envoyer renvoie **null**
  */
-extern packet_t *recvFromServerClient(server_client_t *client)
+extern packet_t *recvFromServer(client_t *client)
 {
     // création d'un nouveau paquet
     if (client->packet_buffer == NULL)
@@ -225,12 +189,12 @@ extern packet_t *recvFromServerClient(server_client_t *client)
 }
 
 /**
- * @brief Détruit un client serveur
+ * @brief Détruit un client
  *
- * @param client une référence d'un pointeur sur un client serveur
+ * @param client une référence d'un pointeur sur un client
  * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
  */
-extern int deleteServerClient(server_client_t **client)
+extern int deleteClient(client_t **client)
 {
     if (client == NULL || *client == NULL)
         return -1;
@@ -243,26 +207,6 @@ extern int deleteServerClient(server_client_t **client)
 
     free(*client);
     *client = NULL;
-
-    return 0;
-}
-
-/**
- * @brief Détruit un serveur
- *
- * @param server une référence d'un pointeur sur un serveur
- * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
- */
-extern int deleteServer(server_t **server)
-{
-    if (server == NULL || *server == NULL)
-        return -1;
-
-    shutdown((*server)->socket_fd, SHUT_RDWR);
-    close((*server)->socket_fd);
-
-    free(*server);
-    *server = NULL;
 
     return 0;
 }

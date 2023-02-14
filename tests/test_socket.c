@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
-#include "server_socket.h"
-#include "client_socket.h"
+#include "socket/server.h"
+#include "socket/client.h"
 
 int main()
 {
-    printf("Test de server_socket.h client_socket.h socket.h\n\n");
+    printf("Test de socket/server.h socket/client.h socket/socket.h\n\n");
 
     assert(initSocket() == 0);
     printf("Initialisation du socket  OK\n");
@@ -132,7 +132,7 @@ int main()
 
     endSocket();
 
-    printf("\nTest de server_socket.h client_socket.h socket.h succès\n");
+    printf("\nTest de socket/server.h socket/client.h socket/socket.h succès\n");
 
     return 0;
 }

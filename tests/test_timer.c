@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <assert.h>
-#include "timer.h"
+#include "timer/timer.h"
 
 int main()
 {
-    printf("Test de timer.h\n\n");
+    printf("Test de timer/timer.h\n\n");
 
     frame_timer_t *timer = createTimer(1000 / 30);
 
@@ -36,7 +36,7 @@ int main()
     assert(timer == NULL);
     printf("\nDestruction du timer OK\n");
 
-    printf("\nTest de timer.h succès\n");
+    printf("\nTest de timer/timer.h succès\n");
 
     return 0;
 }

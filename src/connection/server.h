@@ -1,7 +1,7 @@
 /**
- * @file server_connection.h
+ * @file server.h
  * @author Lucas Dureau
- * @brief Implémentation des prototypes de server_connection.c
+ * @brief Implémentation des prototypes de connection/server.c
  * @version 0.1
  * @date 05/02/2023
  *
@@ -10,7 +10,7 @@
 #ifndef __SERVER_CONNECTION_H
 #define __SERVER_CONNECTION_H
 
-#include "server_socket.h"
+#include "socket/server.h"
 
 /**
  * @brief Représente l'état d'une connexion

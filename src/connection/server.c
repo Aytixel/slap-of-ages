@@ -1,5 +1,5 @@
 /**
- * @file server_connection.c
+ * @file server.c
  * @author Lucas Dureau
  * @brief Permet de gérer la connexion des clients au serveur
  * @version 0.1
@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "packet_id.h"
-#include "server_connection.h"
+#include "server.h"
 
 int server_client_count = 0;
 int next_server_client_index = 0;

@@ -1,7 +1,7 @@
 /**
- * @file client_socket.h
+ * @file client.h
  * @author Lucas Dureau
- * @brief Implémentation des prototypes de client_socket.c
+ * @brief Implémentation des prototypes de socket/client.c
  * @version 0.1
  * @date 31/01/2023
  *

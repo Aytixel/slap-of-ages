@@ -1,5 +1,5 @@
-\hypertarget{server__socket_8c}{}\doxysection{Référence du fichier src/server\+\_\+socket.c}
-\label{server__socket_8c}\index{src/server\_socket.c@{src/server\_socket.c}}
+\hypertarget{server__socket_8c}{}\doxysection{Référence du fichier src/socket/server\+\_\+socket.c}
+\label{server__socket_8c}\index{src/socket/server\_socket.c@{src/socket/server\_socket.c}}
 
 
 Serveur socket simple permettant l\textquotesingle{}échange de paquet de manière non bloquante.  
@@ -12,7 +12,6 @@ Serveur socket simple permettant l\textquotesingle{}échange de paquet de maniè
 {\ttfamily \#include $<$poll.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}socket.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}server\+\_\+socket.\+h\char`\"{}}\newline
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
@@ -21,13 +20,13 @@ Serveur socket simple permettant l\textquotesingle{}échange de paquet de maniè
 \begin{DoxyCompactList}\small\item\em Créer un serveur. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$ \mbox{\hyperlink{server__socket_8c_a028de4bec914124d8950eb1501b4cb39}{accept\+Server\+Client}} (\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$server)
 \begin{DoxyCompactList}\small\item\em Vérifie si il y a des connexions à accepter, et les accepte. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{server__socket_8c_ae64319cb1d181c48adea7f3b1deb0cee}{is\+Client\+Down}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
+int \mbox{\hyperlink{server__socket_8c_ae64319cb1d181c48adea7f3b1deb0cee}{is\+Client\+Down}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$\mbox{\hyperlink{client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
 \begin{DoxyCompactList}\small\item\em Vérifie si la connexion au client est fermée. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{server__socket_8c_a020eb9c58a6fcf5fbb6e9425dee34e81}{send\+To\+Server\+Client}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet)
+int \mbox{\hyperlink{server__socket_8c_a020eb9c58a6fcf5fbb6e9425dee34e81}{send\+To\+Server\+Client}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$\mbox{\hyperlink{client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet)
 \begin{DoxyCompactList}\small\item\em Envoie un paquet au client. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{server__socket_8c_a9d43d2b6f23fa8f52382a3cdb4d595dd}{recv\+From\+Server\+Client}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{server__socket_8c_a9d43d2b6f23fa8f52382a3cdb4d595dd}{recv\+From\+Server\+Client}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$\mbox{\hyperlink{client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
 \begin{DoxyCompactList}\small\item\em Essaye de recevoir un paquet du client. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{server__socket_8c_aab1b91251a1b3c6b7efb503af44d6ba8}{delete\+Server\+Client}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$$\ast$\mbox{\hyperlink{client__connection_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
+int \mbox{\hyperlink{server__socket_8c_aab1b91251a1b3c6b7efb503af44d6ba8}{delete\+Server\+Client}} (\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$$\ast$\mbox{\hyperlink{client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}})
 \begin{DoxyCompactList}\small\item\em Détruit un client serveur. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{server__socket_8c_a1778c7f9e97e6068abe92d0d47d33a7d}{delete\+Server}} (\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$$\ast$server)
 \begin{DoxyCompactList}\small\item\em Détruit un serveur. \end{DoxyCompactList}\end{DoxyCompactItemize}

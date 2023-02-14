@@ -1,7 +1,7 @@
 /**
- * @file server_socket.h
+ * @file server.h
  * @author Lucas Dureau
- * @brief Implémentation des prototypes de server_socket.c
+ * @brief Implémentation des prototypes de socket/server.c
  * @version 0.1
  * @date 31/01/2023
  *

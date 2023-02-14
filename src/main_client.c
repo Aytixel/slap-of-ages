@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <signal.h>
-#include "window.h"
-#include "timer.h"
-#include "client_connection.h"
+#include "window/window.h"
+#include "timer/timer.h"
+#include "connection/client.h"
 
 int running = 1;
 
