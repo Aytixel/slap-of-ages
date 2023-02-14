@@ -170,19 +170,16 @@ int main(int argc, char **argv)
   char inputTextIp[1024] = {0};
   SDL_Surface *textSurfaceIp = NULL;
   SDL_Texture *textTextureIp = NULL;
-  int taille_textboxIp = 1;
 
   // Variables pour le texte port
   char inputTextPort[1024] = {0};
   SDL_Surface *textSurfacePort = NULL;
   SDL_Texture *textTexturePort = NULL;
-  int taille_textboxPort = 1;
 
   // Variables pour le texte pseudo
   char inputTextPseudo[1024] = {0};
   SDL_Surface *textSurfacePseudo = NULL;
   SDL_Texture *textTexturePseudo = NULL;
-  int taille_textboxPseudo = 1;
 
   SDL_Color textColor = {255, 255, 255};
 
@@ -234,6 +231,10 @@ int main(int argc, char **argv)
   SDL_SetTextInputRect(&TextInputRectPseudo);
 
   frame_timer_t *multi_timer = createTimer(1000 / 60);
+
+  int widthIp, heightIp;
+  int widthPort, heightPort;
+  int widthPseudo, heightPseudo;
 
   // Boucle principale
   while (1)
@@ -313,7 +314,7 @@ int main(int argc, char **argv)
           return 0;
         case SDL_TEXTINPUT:
           strcat(inputTextIp, event.text.text);
-          printf("Texte saisi : %s", inputTextIp);
+          //printf("Texte saisi : %s", inputTextIp);
           break;
         case SDL_KEYDOWN:
           if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextIp) > 0)
@@ -322,16 +323,7 @@ int main(int argc, char **argv)
           }
           break;
         }
-
-        // calcule taille du text
-        if (strlen(inputTextIp) == 0)
-        {
-          taille_textboxIp = 1;
-        }
-        else
-        {
-          taille_textboxIp = strlen(inputTextIp);
-        }
+        TTF_SizeUTF8(font, inputTextIp, &widthIp, &heightIp);
       }
       else if (box == 2)
       {
@@ -342,7 +334,7 @@ int main(int argc, char **argv)
           return 0;
         case SDL_TEXTINPUT:
           strcat(inputTextPort, event.text.text);
-          printf("Texte saisi : %s", inputTextPort);
+          //printf("Texte saisi : %s", inputTextPort);
           break;
         case SDL_KEYDOWN:
           if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextPort) > 0)
@@ -351,16 +343,7 @@ int main(int argc, char **argv)
           }
           break;
         }
-
-        // calcule taille du text
-        if (strlen(inputTextPort) == 0)
-        {
-          taille_textboxPort = 1;
-        }
-        else
-        {
-          taille_textboxPort = strlen(inputTextPort);
-        }
+        TTF_SizeUTF8(font, inputTextPort, &widthPort, &heightPort);
       }
       else if (box == 3)
       {
@@ -371,7 +354,7 @@ int main(int argc, char **argv)
           return 0;
         case SDL_TEXTINPUT:
           strcat(inputTextPseudo, event.text.text);
-          printf("Texte saisi : %s", inputTextPseudo);
+          //printf("Texte saisi : %s", inputTextPseudo);
           break;
         case SDL_KEYDOWN:
           if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextPseudo) > 0)
@@ -380,16 +363,7 @@ int main(int argc, char **argv)
           }
           break;
         }
-
-        // calcule taille du text
-        if (strlen(inputTextPseudo) == 0)
-        {
-          taille_textboxPseudo = 1;
-        }
-        else
-        {
-          taille_textboxPseudo = strlen(inputTextPseudo);
-        }
+        TTF_SizeUTF8(font, inputTextPseudo, &widthPseudo, &heightPseudo);
       }
       else
       {
@@ -465,11 +439,11 @@ int main(int argc, char **argv)
       SDL_RenderFillRect(renderer, &TextInputRectPseudo);
 
       // Dessiner le texte des text box
-      SDL_Rect textRectIp = {buttonRectHost.x * 3, buttonRectHost.y, ((buttonRectJoin.w * 2) / 16 + (taille_textboxIp)*10), (buttonRectJoin.h)};
+      SDL_Rect textRectIp = {buttonRectHost.x * 3, buttonRectHost.y, (widthIp/2), (buttonRectJoin.h)};
       SDL_RenderCopy(renderer, textTextureIp, NULL, &textRectIp);
-      SDL_Rect textRectPort = {buttonRectHost.x * 3, buttonRectHost.y * 1.2, ((buttonRectJoin.w * 2) / 16 + (taille_textboxPort)*10), (buttonRectJoin.h)};
+      SDL_Rect textRectPort = {buttonRectHost.x * 3, buttonRectHost.y * 1.2, (widthPort/2), (buttonRectJoin.h)};
       SDL_RenderCopy(renderer, textTexturePort, NULL, &textRectPort);
-      SDL_Rect textRectPseudo = {buttonRectHost.x * 3, buttonRectHost.y * 1.4, ((buttonRectJoin.w * 2) / 16 + (taille_textboxPseudo)*10), (buttonRectJoin.h)};
+      SDL_Rect textRectPseudo = {buttonRectHost.x * 3, buttonRectHost.y * 1.4, (widthPseudo/2), (buttonRectJoin.h)};
       SDL_RenderCopy(renderer, textTexturePseudo, NULL, &textRectPseudo);
 
       // Mise à jour de l'affichage
