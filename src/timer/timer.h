@@ -1,7 +1,7 @@
 /**
  * @file timer.h
  * @author Lucas Dureau
- * @brief Implémentation des prototypes de timer.c
+ * @brief Implémentation des prototypes de timer/timer.c
  * @version 0.1
  * @date 31/01/2023
  *

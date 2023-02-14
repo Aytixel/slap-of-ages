@@ -1,7 +1,7 @@
 /**
  * @file socket.h
  * @author Lucas Dureau
- * @brief Implémentation des prototypes de socket.c
+ * @brief Implémentation des prototypes de socket/socket.c
  * @version 0.1
  * @date 31/01/2023
  *
