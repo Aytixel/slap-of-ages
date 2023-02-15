@@ -189,3 +189,59 @@ extern int destroySprite(sprite_t **sprite)
 
     return 0;
 }
+
+/**
+ * @brief Calcule une position par rapport au centre de l'écran
+ *
+ * @param window un pointeur sur une fenêtre
+ * @param width largeur de l'élément à afficher
+ * @param height hauteur de l'élément à afficher
+ * @param x décalage en x depuis le centre
+ * @param y décalage en y depuis le centre
+ * @return une **position** sur la fenêtre
+ */
+extern SDL_Rect positionFromCenter(window_t *window, int width, int height, int x, int y)
+{
+    SDL_Rect position = {window->width / 2 - width / 2 + x, window->height / 2 - height / 2 + y, width, height};
+
+    return position;
+}
+
+/**
+ * @brief Calcule une position par rapport au centre de l'écran à partir d'une **surface**
+ *
+ * @param window un pointeur sur une fenêtre
+ * @param surface un pointeur sur une surface
+ * @param x décalage en x depuis le centre
+ * @param y décalage en y depuis le centre
+ * @return une **position** sur la fenêtre
+ */
+extern SDL_Rect surfaceFromCenter(window_t *window, SDL_Surface *surface, int x, int y)
+{
+    return positionFromCenter(window, surface->w, surface->h, x, y);
+}
+
+/**
+ * @brief Calcule la position au centre de l'écran
+ *
+ * @param window un pointeur sur une fenêtre
+ * @param width largeur de l'élément à afficher
+ * @param height hauteur de l'élément à afficher
+ * @return une **position** sur la fenêtre
+ */
+extern SDL_Rect positionToCenter(window_t *window, int width, int height)
+{
+    return positionFromCenter(window, width, height, 0, 0);
+}
+
+/**
+ * @brief Calcule la position au centre de l'écran à partir d'une **surface**
+ *
+ * @param window un pointeur sur une fenêtre
+ * @param surface un pointeur sur une surface
+ * @return une **position** sur la fenêtre
+ */
+extern SDL_Rect surfaceToCenter(window_t *window, SDL_Surface *surface)
+{
+    return positionToCenter(window, surface->w, surface->h);
+}

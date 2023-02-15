@@ -64,11 +64,17 @@ int main(int argc, char *argv[])
         {
             SDL_RenderClear(window->renderer);
 
-            SDL_Rect image_dest = {window->width / 2 - image_sprite->surface->w / 2, window->height / 2 - image_sprite->surface->h / 2, image_sprite->surface->w, image_sprite->surface->h};
+            SDL_Rect image_dest = surfaceToCenter(window, image_sprite->surface);
+
+            assert(window->width / 2 - image_sprite->surface->w / 2 == image_dest.x);
+            assert(window->height / 2 - image_sprite->surface->h / 2 == image_dest.y);
 
             SDL_RenderCopy(window->renderer, image_sprite->texture, NULL, &image_dest);
 
-            SDL_Rect text_dest = {window->width / 2 - text_sprite->surface->w / 2, window->height / 2 - text_sprite->surface->h / 2, text_sprite->surface->w, text_sprite->surface->h};
+            SDL_Rect text_dest = surfaceFromCenter(window, text_sprite->surface, -35, -20);
+
+            assert(window->width / 2 - text_sprite->surface->w / 2 - 35 == text_dest.x);
+            assert(window->height / 2 - text_sprite->surface->h / 2 - 20 == text_dest.y);
 
             SDL_RenderCopy(window->renderer, text_sprite->texture, NULL, &text_dest);
 

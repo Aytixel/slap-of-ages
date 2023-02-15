@@ -47,4 +47,12 @@ extern sprite_t *createTextSprite(window_t *window, TTF_Font *font, char *text, 
 
 extern int destroySprite(sprite_t **sprite);
 
+extern SDL_Rect positionFromCenter(window_t *window, int width, int height, int x, int y);
+
+extern SDL_Rect surfaceFromCenter(window_t *window, SDL_Surface *surface, int x, int y);
+
+extern SDL_Rect positionToCenter(window_t *window, int width, int height);
+
+extern SDL_Rect surfaceToCenter(window_t *window, SDL_Surface *surface);
+
 #endif
