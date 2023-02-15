@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     assert(loadSprite(window, "test") == NULL);
     printf("\n\tEssaie de chargement d'un sprite d'image inexistante OK\n");
 
-    sprite_t *image_sprite = loadSprite(window, "asset/PixelBooksVers1.0/RADL_Book4.png");
+    sprite_t *image_sprite = loadSprite(window, "asset/sprite/menu/RADL_Book4.png");
 
     assert(image_sprite != NULL);
     printf("\tChargement d'un sprite d'image OK\n");

@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
 
   window_t *window = createWindow("Test Animations", 640, 480);
 
-  SDL_Surface *dim = IMG_Load("asset/GreenPortal.png");
+  SDL_Surface *dim = IMG_Load("asset/sprite/portal/GreenPortal.png");
 
   SDL_Rect portal_size = {0, 0, 150, 150};
   int states[] = {8, 8, 6};
@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
       dim,
       &portal_size);
 
-  dim = IMG_Load("asset/PurplePortal.png");
+  dim = IMG_Load("asset/sprite/portal/PurplePortal.png");
   anim_t *purple_portal = createAnim(
       8,
       states,

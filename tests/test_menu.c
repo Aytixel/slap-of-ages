@@ -184,7 +184,7 @@ int main(int argc, char **argv)
 
   // Création de l'Image du Menu Principal
 
-  SDL_Surface *imagep = IMG_Load("asset/PixelBooksVers1.0/RADL_Book4.png");
+  SDL_Surface *imagep = IMG_Load("asset/sprite/menu/RADL_Book4.png");
   if (!imagep)
   {
     printf("Erreur de chargement de l'image : %s", SDL_GetError());
