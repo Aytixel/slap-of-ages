@@ -198,11 +198,33 @@ extern int destroySprite(sprite_t **sprite)
  * @param height hauteur de l'élément à afficher
  * @param x décalage en x depuis le centre
  * @param y décalage en y depuis le centre
+ * @param origin point d'origine sur lequel est centrée l'élément
  * @return une **position** sur la fenêtre
  */
-extern SDL_Rect positionFromCenter(window_t *window, int width, int height, int x, int y)
+extern SDL_Rect positionFromCenter(window_t *window, int width, int height, int x, int y, transform_origin_e origin)
 {
-    SDL_Rect position = {window->width / 2 - width / 2 + x, window->height / 2 - height / 2 + y, width, height};
+    int offset_x = 0, offset_y = 0;
+
+    switch (origin)
+    {
+    case TRANSFORM_ORIGIN_TOP_LEFT:
+        break;
+    case TRANSFORM_ORIGIN_TOP_RIGHT:
+        offset_x = -width;
+        break;
+    case TRANSFORM_ORIGIN_BOTTOM_RIGHT:
+        offset_x = -width;
+    case TRANSFORM_ORIGIN_BOTTOM_LEFT:
+        offset_y = -height;
+        break;
+    case TRANSFORM_ORIGIN_CENTER:
+    default:
+        offset_x = -width / 2;
+        offset_y = -height / 2;
+        break;
+    }
+
+    SDL_Rect position = {window->width / 2 + offset_x + x, window->height / 2 + offset_y + y, width, height};
 
     return position;
 }
@@ -214,11 +236,12 @@ extern SDL_Rect positionFromCenter(window_t *window, int width, int height, int 
  * @param surface un pointeur sur une surface
  * @param x décalage en x depuis le centre
  * @param y décalage en y depuis le centre
+ * @param origin point d'origine sur lequel est centrée l'élément
  * @return une **position** sur la fenêtre
  */
-extern SDL_Rect surfaceFromCenter(window_t *window, SDL_Surface *surface, int x, int y)
+extern SDL_Rect surfaceFromCenter(window_t *window, SDL_Surface *surface, int x, int y, transform_origin_e origin)
 {
-    return positionFromCenter(window, surface->w, surface->h, x, y);
+    return positionFromCenter(window, surface->w, surface->h, x, y, origin);
 }
 
 /**
@@ -231,7 +254,7 @@ extern SDL_Rect surfaceFromCenter(window_t *window, SDL_Surface *surface, int x,
  */
 extern SDL_Rect positionToCenter(window_t *window, int width, int height)
 {
-    return positionFromCenter(window, width, height, 0, 0);
+    return positionFromCenter(window, width, height, 0, 0, TRANSFORM_ORIGIN_CENTER);
 }
 
 /**

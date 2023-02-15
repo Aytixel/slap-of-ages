@@ -20,6 +20,6 @@ var searchData=
   ['sprite_5ft_73',['sprite_t',['../structsprite__t.html',1,'']]],
   ['state_74',['state',['../structserver__client__connection__t.html#a49b9cd456ab67d09f6983242a37edef4',1,'server_client_connection_t']]],
   ['surface_75',['surface',['../structsprite__t.html#a1151814eb7ff111b626274bfb4e8f4e2',1,'sprite_t']]],
-  ['surfacefromcenter_76',['surfaceFromCenter',['../window_8c.html#a257781aaeae43982bc04944da2a1bb32',1,'surfaceFromCenter(window_t *window, SDL_Surface *surface, int x, int y):&#160;window.c'],['../window_8h.html#a257781aaeae43982bc04944da2a1bb32',1,'surfaceFromCenter(window_t *window, SDL_Surface *surface, int x, int y):&#160;window.c']]],
+  ['surfacefromcenter_76',['surfaceFromCenter',['../window_8c.html#ac05108459018248d3a388c9ac0aac7c9',1,'surfaceFromCenter(window_t *window, SDL_Surface *surface, int x, int y, transform_origin_e origin):&#160;window.c'],['../window_8h.html#ac05108459018248d3a388c9ac0aac7c9',1,'surfaceFromCenter(window_t *window, SDL_Surface *surface, int x, int y, transform_origin_e origin):&#160;window.c']]],
   ['surfacetocenter_77',['surfaceToCenter',['../window_8c.html#a7ab22661089f642ec7edc5b018e878c5',1,'surfaceToCenter(window_t *window, SDL_Surface *surface):&#160;window.c'],['../window_8h.html#a7ab22661089f642ec7edc5b018e878c5',1,'surfaceToCenter(window_t *window, SDL_Surface *surface):&#160;window.c']]]
 ];

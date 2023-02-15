@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['server_5fclient_5fconnection_5ft_92',['server_client_connection_t',['../structserver__client__connection__t.html',1,'']]],
-  ['server_5fclient_5ft_93',['server_client_t',['../structserver__client__t.html',1,'']]],
-  ['server_5ft_94',['server_t',['../structserver__t.html',1,'']]],
-  ['sprite_5ft_95',['sprite_t',['../structsprite__t.html',1,'']]]
+  ['server_5fclient_5fconnection_5ft_98',['server_client_connection_t',['../structserver__client__connection__t.html',1,'']]],
+  ['server_5fclient_5ft_99',['server_client_t',['../structserver__client__t.html',1,'']]],
+  ['server_5ft_100',['server_t',['../structserver__t.html',1,'']]],
+  ['sprite_5ft_101',['sprite_t',['../structsprite__t.html',1,'']]]
 ];

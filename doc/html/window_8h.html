@@ -67,6 +67,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier window.h</div>  </div>
@@ -89,6 +90,20 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure contenant toutes les données de la fenêtre.  <a href="structwindow__t.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a8dca14cd1fd60c17927c8df815a291b4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">transform_origin_e</a> { <br />
+&#160;&#160;<a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4ad9b7f98a369f4755e8483489ba719568">TRANSFORM_ORIGIN_CENTER</a>
+, <a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4a6c41e93fd42d5964079522d8ad6a70b0">TRANSFORM_ORIGIN_TOP_LEFT</a>
+, <a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4a53f95045ad6f5210940ee929671b19bd">TRANSFORM_ORIGIN_TOP_RIGHT</a>
+, <a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4aab263f21f40738ff355ef5ccbf4e12ef">TRANSFORM_ORIGIN_BOTTOM_LEFT</a>
+, <br />
+&#160;&#160;<a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4af03d714b80b92cb5f075e8f64f16f03f">TRANSFORM_ORIGIN_BOTTOM_RIGHT</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a8dca14cd1fd60c17927c8df815a291b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumération représentant le point d'origin d'un transformation 2D.  <a href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8dca14cd1fd60c17927c8df815a291b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:ae86a3185973be72e90ebb6ec30e5daa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#ae86a3185973be72e90ebb6ec30e5daa7">createWindow</a> (char *title, int width, int height)</td></tr>
@@ -109,12 +124,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateWindowSize</b> 
 <tr class="memitem:ac84ead18493a5445ba473190996fe36b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#ac84ead18493a5445ba473190996fe36b">destroySprite</a> (<a class="el" href="structsprite__t.html">sprite_t</a> **sprite)</td></tr>
 <tr class="memdesc:ac84ead18493a5445ba473190996fe36b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un sprite.  <a href="window_8h.html#ac84ead18493a5445ba473190996fe36b">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac84ead18493a5445ba473190996fe36b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73afbb752e922dee14da5caabad9533f"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a73afbb752e922dee14da5caabad9533f">positionFromCenter</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, int width, int height, int x, int y)</td></tr>
-<tr class="memdesc:a73afbb752e922dee14da5caabad9533f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule une position par rapport au centre de l'écran.  <a href="window_8h.html#a73afbb752e922dee14da5caabad9533f">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a73afbb752e922dee14da5caabad9533f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a257781aaeae43982bc04944da2a1bb32"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a257781aaeae43982bc04944da2a1bb32">surfaceFromCenter</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, SDL_Surface *surface, int x, int y)</td></tr>
-<tr class="memdesc:a257781aaeae43982bc04944da2a1bb32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule une position par rapport au centre de l'écran à partir d'une <b>surface</b>  <a href="window_8h.html#a257781aaeae43982bc04944da2a1bb32">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a257781aaeae43982bc04944da2a1bb32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3c4f018bc737c5c0b0436fe379817ba"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#ad3c4f018bc737c5c0b0436fe379817ba">positionFromCenter</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, int width, int height, int x, int y, <a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">transform_origin_e</a> origin)</td></tr>
+<tr class="memdesc:ad3c4f018bc737c5c0b0436fe379817ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule une position par rapport au centre de l'écran.  <a href="window_8h.html#ad3c4f018bc737c5c0b0436fe379817ba">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad3c4f018bc737c5c0b0436fe379817ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac05108459018248d3a388c9ac0aac7c9"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#ac05108459018248d3a388c9ac0aac7c9">surfaceFromCenter</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, SDL_Surface *surface, int x, int y, <a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">transform_origin_e</a> origin)</td></tr>
+<tr class="memdesc:ac05108459018248d3a388c9ac0aac7c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule une position par rapport au centre de l'écran à partir d'une <b>surface</b>  <a href="window_8h.html#ac05108459018248d3a388c9ac0aac7c9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac05108459018248d3a388c9ac0aac7c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1de1e31a95e63b3a09ad7c3f4a7637c6"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a1de1e31a95e63b3a09ad7c3f4a7637c6">positionToCenter</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, int width, int height)</td></tr>
 <tr class="memdesc:a1de1e31a95e63b3a09ad7c3f4a7637c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la position au centre de l'écran.  <a href="window_8h.html#a1de1e31a95e63b3a09ad7c3f4a7637c6">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a1de1e31a95e63b3a09ad7c3f4a7637c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,7 +142,36 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateWindowSize</b> 
 <dl class="section author"><dt>Auteur</dt><dd>Lucas Dureau </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>08/02/2023 </dd></dl>
-</div><h2 class="groupheader">Documentation des fonctions</h2>
+</div><h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a8dca14cd1fd60c17927c8df815a291b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dca14cd1fd60c17927c8df815a291b4">&#9670;&nbsp;</a></span>transform_origin_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">transform_origin_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enumération représentant le point d'origin d'un transformation 2D. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a8dca14cd1fd60c17927c8df815a291b4ad9b7f98a369f4755e8483489ba719568"></a>TRANSFORM_ORIGIN_CENTER&#160;</td><td class="fielddoc"><p>centre </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8dca14cd1fd60c17927c8df815a291b4a6c41e93fd42d5964079522d8ad6a70b0"></a>TRANSFORM_ORIGIN_TOP_LEFT&#160;</td><td class="fielddoc"><p>coin haut gauche </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8dca14cd1fd60c17927c8df815a291b4a53f95045ad6f5210940ee929671b19bd"></a>TRANSFORM_ORIGIN_TOP_RIGHT&#160;</td><td class="fielddoc"><p>coin haut droit </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8dca14cd1fd60c17927c8df815a291b4aab263f21f40738ff355ef5ccbf4e12ef"></a>TRANSFORM_ORIGIN_BOTTOM_LEFT&#160;</td><td class="fielddoc"><p>coin bas gauche </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8dca14cd1fd60c17927c8df815a291b4af03d714b80b92cb5f075e8f64f16f03f"></a>TRANSFORM_ORIGIN_BOTTOM_RIGHT&#160;</td><td class="fielddoc"><p>coin bas gauche </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
 <a id="a62b282ec4c4144041dc9263805726a73"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a62b282ec4c4144041dc9263805726a73">&#9670;&nbsp;</a></span>createTextSprite()</h2>
 
@@ -323,8 +367,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateWindowSize</b> 
 
 </div>
 </div>
-<a id="a73afbb752e922dee14da5caabad9533f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73afbb752e922dee14da5caabad9533f">&#9670;&nbsp;</a></span>positionFromCenter()</h2>
+<a id="ad3c4f018bc737c5c0b0436fe379817ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3c4f018bc737c5c0b0436fe379817ba">&#9670;&nbsp;</a></span>positionFromCenter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -357,7 +401,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateWindowSize</b> 
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">transform_origin_e</a>&#160;</td>
+          <td class="paramname"><em>origin</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -375,6 +425,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateWindowSize</b> 
     <tr><td class="paramname">height</td><td>hauteur de l'élément à afficher </td></tr>
     <tr><td class="paramname">x</td><td>décalage en x depuis le centre </td></tr>
     <tr><td class="paramname">y</td><td>décalage en y depuis le centre </td></tr>
+    <tr><td class="paramname">origin</td><td>point d'origine sur lequel est centrée l'élément </td></tr>
   </table>
   </dd>
 </dl>
@@ -427,8 +478,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateWindowSize</b> 
 
 </div>
 </div>
-<a id="a257781aaeae43982bc04944da2a1bb32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a257781aaeae43982bc04944da2a1bb32">&#9670;&nbsp;</a></span>surfaceFromCenter()</h2>
+<a id="ac05108459018248d3a388c9ac0aac7c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac05108459018248d3a388c9ac0aac7c9">&#9670;&nbsp;</a></span>surfaceFromCenter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -455,7 +506,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateWindowSize</b> 
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">transform_origin_e</a>&#160;</td>
+          <td class="paramname"><em>origin</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -472,6 +529,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateWindowSize</b> 
     <tr><td class="paramname">surface</td><td>un pointeur sur une surface </td></tr>
     <tr><td class="paramname">x</td><td>décalage en x depuis le centre </td></tr>
     <tr><td class="paramname">y</td><td>décalage en y depuis le centre </td></tr>
+    <tr><td class="paramname">origin</td><td>point d'origine sur lequel est centrée l'élément </td></tr>
   </table>
   </dd>
 </dl>

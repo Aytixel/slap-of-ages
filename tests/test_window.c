@@ -51,6 +51,38 @@ int main(int argc, char *argv[])
     assert(text_sprite != NULL);
     printf("\n\tCréation du sprite d'un texte OK\n");
 
+    SDL_Rect test_dest = surfaceFromCenter(window, text_sprite->surface, -35, -20, TRANSFORM_ORIGIN_CENTER);
+
+    printf("\n\tTest de la fonction surfaceFromCenter :\n");
+
+    assert(window->width / 2 - text_sprite->surface->w / 2 - 35 == test_dest.x);
+    assert(window->height / 2 - text_sprite->surface->h / 2 - 20 == test_dest.y);
+    printf("\n\t\tPoint d'origine centré OK\n");
+
+    test_dest = surfaceFromCenter(window, text_sprite->surface, -35, -20, TRANSFORM_ORIGIN_TOP_LEFT);
+
+    assert(window->width / 2 - 35 == test_dest.x);
+    assert(window->height / 2 - 20 == test_dest.y);
+    printf("\t\tPoint d'origine en haut à gauche OK\n");
+
+    test_dest = surfaceFromCenter(window, text_sprite->surface, -35, -20, TRANSFORM_ORIGIN_TOP_RIGHT);
+
+    assert(window->width / 2 - text_sprite->surface->w - 35 == test_dest.x);
+    assert(window->height / 2 - 20 == test_dest.y);
+    printf("\t\tPoint d'origine en haut à droite OK\n");
+
+    test_dest = surfaceFromCenter(window, text_sprite->surface, -35, -20, TRANSFORM_ORIGIN_BOTTOM_LEFT);
+
+    assert(window->width / 2 - 35 == test_dest.x);
+    assert(window->height / 2 - text_sprite->surface->h - 20 == test_dest.y);
+    printf("\t\tPoint d'origine en bas à gauche OK\n");
+
+    test_dest = surfaceFromCenter(window, text_sprite->surface, -35, -20, TRANSFORM_ORIGIN_BOTTOM_RIGHT);
+
+    assert(window->width / 2 - text_sprite->surface->w - 35 == test_dest.x);
+    assert(window->height / 2 - text_sprite->surface->h - 20 == test_dest.y);
+    printf("\t\tPoint d'origine en bas à droite OK\n");
+
     // boucle principale
     while (running)
     {
@@ -71,7 +103,7 @@ int main(int argc, char *argv[])
 
             SDL_RenderCopy(window->renderer, image_sprite->texture, NULL, &image_dest);
 
-            SDL_Rect text_dest = surfaceFromCenter(window, text_sprite->surface, -35, -20);
+            SDL_Rect text_dest = surfaceFromCenter(window, text_sprite->surface, -35, -20, TRANSFORM_ORIGIN_CENTER);
 
             assert(window->width / 2 - text_sprite->surface->w / 2 - 35 == text_dest.x);
             assert(window->height / 2 - text_sprite->surface->h / 2 - 20 == text_dest.y);

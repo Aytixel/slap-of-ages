@@ -5,8 +5,8 @@ var indexSectionsWithContent =
   2: "cpstw",
   3: "acdeilnprstw",
   4: "acdfhilprstw",
-  5: "cps",
-  6: "chs"
+  5: "cpst",
+  6: "chst"
 };
 
 var indexSectionNames =

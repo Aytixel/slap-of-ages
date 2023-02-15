@@ -14,6 +14,19 @@
 #include <SDL2/SDL_ttf.h>
 
 /**
+ * @brief Enumération représentant le point d'origin d'un transformation 2D
+ *
+ */
+typedef enum
+{
+    TRANSFORM_ORIGIN_CENTER,       /**< centre*/
+    TRANSFORM_ORIGIN_TOP_LEFT,     /**< coin haut gauche*/
+    TRANSFORM_ORIGIN_TOP_RIGHT,    /**< coin haut droit*/
+    TRANSFORM_ORIGIN_BOTTOM_LEFT,  /**< coin bas gauche*/
+    TRANSFORM_ORIGIN_BOTTOM_RIGHT, /**< coin bas gauche*/
+} transform_origin_e;
+
+/**
  * @brief Structure contenant les données d'un sprite
  *
  */
@@ -47,9 +60,9 @@ extern sprite_t *createTextSprite(window_t *window, TTF_Font *font, char *text, 
 
 extern int destroySprite(sprite_t **sprite);
 
-extern SDL_Rect positionFromCenter(window_t *window, int width, int height, int x, int y);
+extern SDL_Rect positionFromCenter(window_t *window, int width, int height, int x, int y, transform_origin_e origin);
 
-extern SDL_Rect surfaceFromCenter(window_t *window, SDL_Surface *surface, int x, int y);
+extern SDL_Rect surfaceFromCenter(window_t *window, SDL_Surface *surface, int x, int y, transform_origin_e origin);
 
 extern SDL_Rect positionToCenter(window_t *window, int width, int height);
 
