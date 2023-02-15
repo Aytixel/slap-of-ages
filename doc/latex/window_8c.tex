@@ -17,7 +17,9 @@ Permets de gérer la fenêtre.
 int \mbox{\hyperlink{window_8c_a2b6afcc06737563c2c82cb5b822bcb6e}{destroy\+Window}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$$\ast$window)
 \begin{DoxyCompactList}\small\item\em Détruit une fenêtre. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8c_a12caaf6efa15b7b7ef17f25474d3f4ce}{load\+Sprite}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, char $\ast$path)
-\begin{DoxyCompactList}\small\item\em Charge un sprite depuis un fichier. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Charge un sprite depuis une image. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8c_a62b282ec4c4144041dc9263805726a73}{create\+Text\+Sprite}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, TTF\+\_\+\+Font $\ast$font, char $\ast$text, SDL\+\_\+\+Color color)
+\begin{DoxyCompactList}\small\item\em Génère un sprite à partir d\textquotesingle{}un texte. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{window_8c_ac84ead18493a5445ba473190996fe36b}{destroy\+Sprite}} (\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$$\ast$sprite)
 \begin{DoxyCompactList}\small\item\em Détruit un sprite. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -37,6 +39,30 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{window_8c_a62b282ec4c4144041dc9263805726a73}\label{window_8c_a62b282ec4c4144041dc9263805726a73}} 
+\index{window.c@{window.c}!createTextSprite@{createTextSprite}}
+\index{createTextSprite@{createTextSprite}!window.c@{window.c}}
+\doxysubsubsection{\texorpdfstring{createTextSprite()}{createTextSprite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ create\+Text\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{TTF\+\_\+\+Font $\ast$}]{font,  }\item[{char $\ast$}]{text,  }\item[{SDL\+\_\+\+Color}]{color }\end{DoxyParamCaption})}
+
+
+
+Génère un sprite à partir d\textquotesingle{}un texte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em font} & un pointeur sur une police d\textquotesingle{}écriture \\
+\hline
+{\em text} & le texte à génèrer \\
+\hline
+{\em color} & couleur du texte à génèrer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur un {\bfseries{sprite}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{window_8c_ae86a3185973be72e90ebb6ec30e5daa7}\label{window_8c_ae86a3185973be72e90ebb6ec30e5daa7}} 
 \index{window.c@{window.c}!createWindow@{createWindow}}
 \index{createWindow@{createWindow}!window.c@{window.c}}
@@ -112,7 +138,7 @@ Détruit une fenêtre.
 
 
 
-Charge un sprite depuis un fichier. 
+Charge un sprite depuis une image. 
 
 
 \begin{DoxyParams}{Paramètres}

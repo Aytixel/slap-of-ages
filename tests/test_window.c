@@ -37,12 +37,19 @@ int main(int argc, char *argv[])
     frame_timer_t *main_timer = createTimer(1000 / 60);
 
     assert(loadSprite(window, "test") == NULL);
-    printf("\n\tEssaie de chargement d'un sprite inexistant OK\n");
+    printf("\n\tEssaie de chargement d'un sprite d'image inexistante OK\n");
 
-    sprite_t *sprite = loadSprite(window, "asset/PixelBooksVers1.0/RADL_Book4.png");
+    sprite_t *image_sprite = loadSprite(window, "asset/PixelBooksVers1.0/RADL_Book4.png");
 
-    assert(sprite != NULL);
-    printf("\tChargement d'un sprite OK\n");
+    assert(image_sprite != NULL);
+    printf("\tChargement d'un sprite d'image OK\n");
+
+    TTF_Font *font = TTF_OpenFont("asset/font/8-BIT-WONDER.ttf", 10);
+    SDL_Color text_color = {52, 36, 20, 0};
+    sprite_t *text_sprite = createTextSprite(window, font, "test", text_color);
+
+    assert(text_sprite != NULL);
+    printf("\n\tCréation du sprite d'un texte OK\n");
 
     // boucle principale
     while (running)
@@ -57,9 +64,13 @@ int main(int argc, char *argv[])
         {
             SDL_RenderClear(window->renderer);
 
-            SDL_Rect dest = {window->width / 2 - sprite->surface->w / 2, window->height / 2 - sprite->surface->h / 2, sprite->surface->w, sprite->surface->h};
+            SDL_Rect image_dest = {window->width / 2 - image_sprite->surface->w / 2, window->height / 2 - image_sprite->surface->h / 2, image_sprite->surface->w, image_sprite->surface->h};
 
-            SDL_RenderCopy(window->renderer, sprite->texture, NULL, &dest);
+            SDL_RenderCopy(window->renderer, image_sprite->texture, NULL, &image_dest);
+
+            SDL_Rect text_dest = {window->width / 2 - text_sprite->surface->w / 2, window->height / 2 - text_sprite->surface->h / 2, text_sprite->surface->w, text_sprite->surface->h};
+
+            SDL_RenderCopy(window->renderer, text_sprite->texture, NULL, &text_dest);
 
             SDL_RenderPresent(window->renderer);
         }
@@ -67,9 +78,15 @@ int main(int argc, char *argv[])
 
     deleteTimer(&main_timer);
 
-    assert(!destroySprite(&sprite));
-    assert(sprite == NULL);
-    printf("\n\tDestruction du sprite OK\n");
+    assert(!destroySprite(&text_sprite));
+    assert(text_sprite == NULL);
+    printf("\n\tDestruction du sprite d'un texte OK\n");
+
+    TTF_CloseFont(font);
+
+    assert(!destroySprite(&image_sprite));
+    assert(image_sprite == NULL);
+    printf("\n\tDestruction du sprite d'image OK\n");
 
     assert(!destroyWindow(&window));
     assert(window == NULL);

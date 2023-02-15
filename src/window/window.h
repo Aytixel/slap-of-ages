@@ -43,6 +43,8 @@ extern int destroyWindow(window_t **window);
 
 extern sprite_t *loadSprite(window_t *window, char *path);
 
+extern sprite_t *createTextSprite(window_t *window, TTF_Font *font, char *text, SDL_Color color);
+
 extern int destroySprite(sprite_t **sprite);
 
 #endif

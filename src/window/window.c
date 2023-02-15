@@ -104,7 +104,7 @@ extern int destroyWindow(window_t **window)
 }
 
 /**
- * @brief Charge un sprite depuis un fichier
+ * @brief Charge un sprite depuis une image
  *
  * @param window un pointeur sur une fenêtre
  * @param path chemin vers le fichier du sprite
@@ -126,6 +126,41 @@ extern sprite_t *loadSprite(window_t *window, char *path)
     if ((sprite->texture = SDL_CreateTextureFromSurface(window->renderer, sprite->surface)) == NULL)
     {
         fprintf(stderr, "(Erreur): Création de la texture pour le sprite \"%s\" impossible : %s\n", path, SDL_GetError());
+
+        SDL_FreeSurface(sprite->surface);
+        free(sprite);
+
+        return NULL;
+    }
+
+    return sprite;
+}
+
+/**
+ * @brief Génère un sprite à partir d'un texte
+ *
+ * @param window un pointeur sur une fenêtre
+ * @param font un pointeur sur une police d'écriture
+ * @param text le texte à génèrer
+ * @param color couleur du texte à génèrer
+ * @return un pointer sur un **sprite**
+ */
+extern sprite_t *createTextSprite(window_t *window, TTF_Font *font, char *text, SDL_Color color)
+{
+    sprite_t *sprite = malloc(sizeof(sprite_t));
+
+    if ((sprite->surface = TTF_RenderText_Solid(font, text, color)) == NULL)
+    {
+        fprintf(stderr, "(Erreur): Impossible de créer le sprite du texte \"%s\" : %s\n", text, TTF_GetError());
+
+        free(sprite);
+
+        return NULL;
+    }
+
+    if ((sprite->texture = SDL_CreateTextureFromSurface(window->renderer, sprite->surface)) == NULL)
+    {
+        fprintf(stderr, "(Erreur): Création de la texture pour le sprite du texte \"%s\" impossible : %s\n", text, SDL_GetError());
 
         SDL_FreeSurface(sprite->surface);
         free(sprite);
