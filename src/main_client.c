@@ -5,6 +5,9 @@
 #include "window/window.h"
 #include "timer/timer.h"
 #include "connection/client.h"
+#include "map/map.h"
+
+#define MAP_SIZE 32
 
 int running = 1;
 
@@ -46,6 +49,11 @@ int main(int argc, char *argv[])
     if (window == NULL)
         return 1;
 
+    map_t *map = createMap(window, MAP_SIZE, 16);
+
+    if (map == NULL)
+        return 1;
+
     initSocket();
 
     frame_timer_t *main_timer = createTimer(1000 / 60);
@@ -64,8 +72,6 @@ int main(int argc, char *argv[])
 
         if (checkTime(main_timer))
         {
-            SDL_RenderClear(window->renderer);
-
             // gestion de quelle chose faire en fonction de l'état de la connexion
             switch (client_connection_state)
             {
@@ -103,6 +109,12 @@ int main(int argc, char *argv[])
                 break;
             }
 
+            SDL_RenderClear(window->renderer);
+
+            map->tile_size = window->height / (MAP_SIZE + 2);
+
+            renderMap(window, map);
+
             SDL_RenderPresent(window->renderer);
         }
     }
@@ -110,6 +122,7 @@ int main(int argc, char *argv[])
     closeClientConnection();
     deleteTimer(&main_timer);
     endSocket();
+    deleteMap(&map);
     destroyWindow(&window);
 
     return 0;
