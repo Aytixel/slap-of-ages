@@ -58,7 +58,7 @@ extern void renderMap(window_t *window, map_t *map)
 
     int offset = map->tile_size * ((float)map->map_size / 2 - 1);
     int width_filling_tile_count = window->width / 2 / map->tile_size - map->map_size / 2 + 1;
-    int height_filling_tile_count = window->width / 2 / map->tile_size - map->map_size / 2 + 1;
+    int height_filling_tile_count = window->height / 2 / map->tile_size - map->map_size / 2 + 1;
 
     for (int x = -width_filling_tile_count; x < map->map_size + width_filling_tile_count; x++)
     {
