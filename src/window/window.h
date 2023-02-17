@@ -24,6 +24,10 @@ typedef enum
     TRANSFORM_ORIGIN_TOP_RIGHT,    /**< coin haut droit*/
     TRANSFORM_ORIGIN_BOTTOM_LEFT,  /**< coin bas gauche*/
     TRANSFORM_ORIGIN_BOTTOM_RIGHT, /**< coin bas gauche*/
+    TRANSFORM_ORIGIN_TOP,          /**< côté haut*/
+    TRANSFORM_ORIGIN_RIGHT,        /**< côté droite*/
+    TRANSFORM_ORIGIN_BOTTOM,       /**< côté bas*/
+    TRANSFORM_ORIGIN_LEFT,         /**< côté gauche*/
 } transform_origin_e;
 
 /**

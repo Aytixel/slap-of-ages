@@ -217,6 +217,16 @@ extern SDL_Rect positionFromCenter(window_t *window, int width, int height, int 
     case TRANSFORM_ORIGIN_BOTTOM_LEFT:
         offset_y = -height;
         break;
+    case TRANSFORM_ORIGIN_BOTTOM:
+        offset_y = -height;
+    case TRANSFORM_ORIGIN_TOP:
+        offset_x = -width / 2;
+        break;
+    case TRANSFORM_ORIGIN_RIGHT:
+        offset_x = -width;
+    case TRANSFORM_ORIGIN_LEFT:
+        offset_y = -height / 2;
+        break;
     case TRANSFORM_ORIGIN_CENTER:
     default:
         offset_x = -width / 2;

@@ -83,6 +83,30 @@ int main(int argc, char *argv[])
     assert(window->height / 2 - text_sprite->surface->h - 20 == test_dest.y);
     printf("\t\tPoint d'origine en bas à droite OK\n");
 
+    test_dest = surfaceFromCenter(window, text_sprite->surface, -35, -20, TRANSFORM_ORIGIN_TOP);
+
+    assert(window->width / 2 - text_sprite->surface->w / 2 - 35 == test_dest.x);
+    assert(window->height / 2 - 20 == test_dest.y);
+    printf("\t\tPoint d'origine en haut OK\n");
+
+    test_dest = surfaceFromCenter(window, text_sprite->surface, -35, -20, TRANSFORM_ORIGIN_RIGHT);
+
+    assert(window->width / 2 - text_sprite->surface->w - 35 == test_dest.x);
+    assert(window->height / 2 - text_sprite->surface->h / 2 - 20 == test_dest.y);
+    printf("\t\tPoint d'origine à droite OK\n");
+
+    test_dest = surfaceFromCenter(window, text_sprite->surface, -35, -20, TRANSFORM_ORIGIN_BOTTOM);
+
+    assert(window->width / 2 - text_sprite->surface->w / 2 - 35 == test_dest.x);
+    assert(window->height / 2 - text_sprite->surface->h - 20 == test_dest.y);
+    printf("\t\tPoint d'origine en bas OK\n");
+
+    test_dest = surfaceFromCenter(window, text_sprite->surface, -35, -20, TRANSFORM_ORIGIN_LEFT);
+
+    assert(window->width / 2 - 35 == test_dest.x);
+    assert(window->height / 2 - text_sprite->surface->h / 2 - 20 == test_dest.y);
+    printf("\t\tPoint d'origine à gauche OK\n");
+
     // boucle principale
     while (running)
     {
