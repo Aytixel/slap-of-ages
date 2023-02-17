@@ -49,14 +49,14 @@ int main(int argc, char *argv[])
     if (window == NULL)
         return 1;
 
-    map_t *map = createMap(window, MAP_SIZE, 16);
+    map_t *map = createMap(window, MAP_SIZE);
 
     if (map == NULL)
         return 1;
 
     initSocket();
 
-    frame_timer_t *main_timer = createTimer(1000 / 60);
+    frame_timer_t *main_timer = createTimer(1000 / 30);
 
     char hostname[256] = {0};
     uint16_t port = 0;
@@ -110,8 +110,6 @@ int main(int argc, char *argv[])
             }
 
             SDL_RenderClear(window->renderer);
-
-            map->tile_size = window->height / (MAP_SIZE + 2);
 
             renderMap(window, map);
 

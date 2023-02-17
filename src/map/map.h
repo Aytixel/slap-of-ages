@@ -36,7 +36,7 @@ typedef struct
     map_sprite_rects_t map_sprite_rects;
 } map_t;
 
-extern map_t *createMap(window_t *window, int map_size, int tile_size);
+extern map_t *createMap(window_t *window, int map_size);
 
 extern void renderMap(window_t *window, map_t *map);
 
