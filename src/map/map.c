@@ -77,6 +77,67 @@ extern map_t *createMap(window_t *window, int map_size)
 }
 
 /**
+ * @brief Choisie un type d'arbre de manière pseudo-aléatoire à partir de coordonnées
+ *
+ * @param map un pointeur sur la carte
+ * @param x position x en case
+ * @param y position y en case
+ * @param tree_source_rect un pointeur sur la position et la taille de l'arbre en pixel
+ * @param tree_tile_rect un pointeur sur la position et la taille de l'arbre en case
+ */
+static void randomizeTreeType(map_t *map, int x, int y, SDL_Rect *tree_source_rect, SDL_Rect *tree_tile_rect)
+{
+    *tree_source_rect = map->sprite_rects.medium_tree;
+    *tree_tile_rect = map->sprite_tile_rects.medium_tree;
+
+    // decide quel type d'arbre afficher
+    switch ((y * y + y - x) % 7)
+    {
+    case -3:
+    case 4:
+        *tree_source_rect = map->sprite_rects.large_tree;
+        *tree_tile_rect = map->sprite_tile_rects.large_tree;
+        break;
+    case -2:
+    case 2:
+    case 3:
+        *tree_source_rect = map->sprite_rects.small_tree;
+        *tree_tile_rect = map->sprite_tile_rects.small_tree;
+        break;
+    case -5:
+    case -7:
+        *tree_source_rect = map->sprite_rects.small_dead_tree;
+        *tree_tile_rect = map->sprite_tile_rects.small_dead_tree;
+        break;
+    case -4:
+    case -6:
+    case 0:
+        *tree_source_rect = map->sprite_rects.medium_dead_tree;
+        *tree_tile_rect = map->sprite_tile_rects.medium_dead_tree;
+        break;
+    case 5:
+    case 7:
+        *tree_source_rect = map->sprite_rects.large_dead_tree;
+        *tree_tile_rect = map->sprite_tile_rects.large_dead_tree;
+        break;
+    default:
+        break;
+    }
+}
+
+/**
+ * @brief Choisi si un arbre doit être placer de manière pseudo-aléatoire à partir de coordonnées
+ *
+ * @param x position x en case
+ * @param y position y en case
+ * @return **1 ou 0** en fonction de si l'on peut placer l'arbre ou non
+ */
+static int randomizeTreePlacement(int x, int y)
+{
+    return (x * y * 3 + x - y) % 9 == 0;
+}
+
+/**
  * @brief Fait le rendu de la carte sur la fenêtre
  *
  * Fait le rendu du sol en premier, avant de faire celui des arbres
@@ -154,42 +215,10 @@ extern void renderMap(window_t *window, map_t *map)
         for (int x = -halft_width_tile_count; x < map->size + halft_width_tile_count + 7; x++)
         {
             // texture de l'arbre moyen par default
-            SDL_Rect tree_source_rect = map->sprite_rects.medium_tree;
-            SDL_Rect tree_tile_rect = map->sprite_tile_rects.medium_tree;
+            SDL_Rect tree_source_rect;
+            SDL_Rect tree_tile_rect;
 
-            // decide quel type d'arbre afficher
-            switch ((y * y + y - x) % 7)
-            {
-            case -3:
-            case 4:
-                tree_source_rect = map->sprite_rects.large_tree;
-                tree_tile_rect = map->sprite_tile_rects.large_tree;
-                break;
-            case -2:
-            case 2:
-            case 3:
-                tree_source_rect = map->sprite_rects.small_tree;
-                tree_tile_rect = map->sprite_tile_rects.small_tree;
-                break;
-            case -5:
-            case -7:
-                tree_source_rect = map->sprite_rects.small_dead_tree;
-                tree_tile_rect = map->sprite_tile_rects.small_dead_tree;
-                break;
-            case -4:
-            case -6:
-            case 0:
-                tree_source_rect = map->sprite_rects.medium_dead_tree;
-                tree_tile_rect = map->sprite_tile_rects.medium_dead_tree;
-                break;
-            case 5:
-            case 7:
-                tree_source_rect = map->sprite_rects.large_dead_tree;
-                tree_tile_rect = map->sprite_tile_rects.large_dead_tree;
-                break;
-            default:
-                break;
-            }
+            randomizeTreeType(map, x, y, &tree_source_rect, &tree_tile_rect);
 
             // decide s'il faut afficher un arbre
             if ((
@@ -197,7 +226,7 @@ extern void renderMap(window_t *window, map_t *map)
                     x > map->size + tree_tile_rect.w - 1 ||
                     y < -1 ||
                     y > map->size + tree_tile_rect.h - 1) &&
-                (x * y * 3 + x - y) % 9 == 0)
+                randomizeTreePlacement(x, y))
             {
                 SDL_Rect tree_destination_rect = positionFromCenter(
                     window,
