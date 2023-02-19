@@ -143,6 +143,18 @@ void createButton(SDL_Renderer *renderer, TTF_Font *font, const char* buttonText
     buttonRect->y = (int)(WINDOW_HEIGHT * buttonYRatio);
 }
 
+void createTextbox(SDL_Renderer* renderer, TTF_Font* font, SDL_Color color, int x, int y, int w, int h, SDL_Rect* rect) {
+    SDL_Surface* surface = NULL;
+    SDL_Texture* texture = NULL;
+    surface = TTF_RenderText_Solid(font, " ", color);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    rect->x = x;
+    rect->y = y;
+    rect->w = w;
+    rect->h = h;
+    SDL_SetTextInputRect(rect);
+}
 
 
 
@@ -226,12 +238,12 @@ int main(int argc, char **argv)
   // Bouton "NEWQUITTER"
   createButton(renderer, font, "QUITTER", &buttonRectQuitter, &buttonTextureQuitter, color, 0.21f, 0.55f, 0.15f, 0.04f);
 
-  SDL_Rect TextInputRectIp = {buttonRectHost.x * 3, buttonRectHost.y, buttonRectJoin.w * 2.5, buttonRectJoin.h};
-  SDL_SetTextInputRect(&TextInputRectIp);
-  SDL_Rect TextInputRectPort = {buttonRectHost.x * 3, buttonRectHost.y * 1.2, buttonRectJoin.w * 2.5, buttonRectJoin.h};
-  SDL_SetTextInputRect(&TextInputRectPort);
-  SDL_Rect TextInputRectPseudo = {buttonRectHost.x * 3, buttonRectHost.y * 1.4, buttonRectJoin.w * 2.5, buttonRectJoin.h};
-  SDL_SetTextInputRect(&TextInputRectPseudo);
+  SDL_Rect TextInputRectIp;
+  createTextbox(renderer, font, color, buttonRectHost.x * 2.8, buttonRectHost.y, buttonRectJoin.w * 2.5, buttonRectJoin.h, &TextInputRectIp);
+  SDL_Rect TextInputRectPort;
+  createTextbox(renderer, font, color, buttonRectHost.x * 2.8, buttonRectHost.y * 1.2, buttonRectJoin.w * 2.5, buttonRectJoin.h, &TextInputRectPort);
+  SDL_Rect TextInputRectPseudo;
+  createTextbox(renderer, font, color, buttonRectHost.x * 2.8, buttonRectHost.y * 1.4, buttonRectJoin.w * 2.5, buttonRectJoin.h, &TextInputRectPseudo);
 
   frame_timer_t *multi_timer = createTimer(1000 / 60);
 
@@ -441,11 +453,11 @@ int main(int argc, char **argv)
       SDL_RenderFillRect(renderer, &TextInputRectPseudo);
 
       // Dessiner le texte des text box
-      SDL_Rect textRectIp = {buttonRectHost.x * 3, buttonRectHost.y, (widthIp / 2), (buttonRectJoin.h)};
+      SDL_Rect textRectIp = {buttonRectHost.x * 2.8, buttonRectHost.y, (widthIp / 2), (buttonRectJoin.h)};
       SDL_RenderCopy(renderer, textTextureIp, NULL, &textRectIp);
-      SDL_Rect textRectPort = {buttonRectHost.x * 3, buttonRectHost.y * 1.2, (widthPort / 2), (buttonRectJoin.h)};
+      SDL_Rect textRectPort = {buttonRectHost.x * 2.8, buttonRectHost.y * 1.2, (widthPort / 2), (buttonRectJoin.h)};
       SDL_RenderCopy(renderer, textTexturePort, NULL, &textRectPort);
-      SDL_Rect textRectPseudo = {buttonRectHost.x * 3, buttonRectHost.y * 1.4, (widthPseudo / 2), (buttonRectJoin.h)};
+      SDL_Rect textRectPseudo = {buttonRectHost.x * 2.8, buttonRectHost.y * 1.4, (widthPseudo / 2), (buttonRectJoin.h)};
       SDL_RenderCopy(renderer, textTexturePseudo, NULL, &textRectPseudo);
 
       
