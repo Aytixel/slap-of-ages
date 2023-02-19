@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     window_t *window = createWindow("Test Window", 500, 400);
 
     assert(window != NULL);
-    printf("Création du window OK\n");
+    printf("Création de la fenêtre OK\n");
 
     frame_timer_t *main_timer = createTimer(1000 / 60);
 
@@ -152,7 +152,7 @@ int main(int argc, char *argv[])
 
     assert(!destroyWindow(&window));
     assert(window == NULL);
-    printf("\nDestruction de window OK\n");
+    printf("\nDestruction de la fenêtre OK\n");
 
     printf("\nTest de window/window.h succès\n");
 
