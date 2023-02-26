@@ -1,12 +1,13 @@
-\hypertarget{window_8c}{}\doxysection{Référence du fichier src/window.c}
-\label{window_8c}\index{src/window.c@{src/window.c}}
+\hypertarget{window_8c}{}\doxysection{Référence du fichier src/window/window.c}
+\label{window_8c}\index{src/window/window.c@{src/window/window.c}}
 
 
 Permets de gérer la fenêtre.  
 
 
-{\ttfamily \#include \char`\"{}stdio.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}window.\+h\char`\"{}}\newline
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
@@ -14,7 +15,21 @@ Permets de gérer la fenêtre.
 \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8c_ae86a3185973be72e90ebb6ec30e5daa7}{create\+Window}} (char $\ast$title, int width, int height)
 \begin{DoxyCompactList}\small\item\em Créer une fenêtre. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{window_8c_a2b6afcc06737563c2c82cb5b822bcb6e}{destroy\+Window}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$$\ast$window)
-\begin{DoxyCompactList}\small\item\em Détruit une fenêtre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Détruit une fenêtre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8c_a12caaf6efa15b7b7ef17f25474d3f4ce}{load\+Sprite}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Charge un sprite depuis une image. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8c_a62b282ec4c4144041dc9263805726a73}{create\+Text\+Sprite}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, TTF\+\_\+\+Font $\ast$font, char $\ast$text, SDL\+\_\+\+Color color)
+\begin{DoxyCompactList}\small\item\em Génère un sprite à partir d\textquotesingle{}un texte. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{window_8c_ac84ead18493a5445ba473190996fe36b}{destroy\+Sprite}} (\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$$\ast$sprite)
+\begin{DoxyCompactList}\small\item\em Détruit un sprite. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{window_8c_ad3c4f018bc737c5c0b0436fe379817ba}{position\+From\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, int width, int height, int x, int y, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}} origin)
+\begin{DoxyCompactList}\small\item\em Calcule une position par rapport au centre de l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{window_8c_ac05108459018248d3a388c9ac0aac7c9}{surface\+From\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, SDL\+\_\+\+Surface $\ast$surface, int x, int y, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}} origin)
+\begin{DoxyCompactList}\small\item\em Calcule une position par rapport au centre de l\textquotesingle{}écran à partir d\textquotesingle{}une {\bfseries{surface}} \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{window_8c_a1de1e31a95e63b3a09ad7c3f4a7637c6}{position\+To\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, int width, int height)
+\begin{DoxyCompactList}\small\item\em Calcule la position au centre de l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{window_8c_a7ab22661089f642ec7edc5b018e878c5}{surface\+To\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, SDL\+\_\+\+Surface $\ast$surface)
+\begin{DoxyCompactList}\small\item\em Calcule la position au centre de l\textquotesingle{}écran à partir d\textquotesingle{}une {\bfseries{surface}} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -32,6 +47,30 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{window_8c_a62b282ec4c4144041dc9263805726a73}\label{window_8c_a62b282ec4c4144041dc9263805726a73}} 
+\index{window.c@{window.c}!createTextSprite@{createTextSprite}}
+\index{createTextSprite@{createTextSprite}!window.c@{window.c}}
+\doxysubsubsection{\texorpdfstring{createTextSprite()}{createTextSprite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ create\+Text\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{TTF\+\_\+\+Font $\ast$}]{font,  }\item[{char $\ast$}]{text,  }\item[{SDL\+\_\+\+Color}]{color }\end{DoxyParamCaption})}
+
+
+
+Génère un sprite à partir d\textquotesingle{}un texte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em font} & un pointeur sur une police d\textquotesingle{}écriture \\
+\hline
+{\em text} & le texte à génèrer \\
+\hline
+{\em color} & couleur du texte à génèrer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur un {\bfseries{sprite}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{window_8c_ae86a3185973be72e90ebb6ec30e5daa7}\label{window_8c_ae86a3185973be72e90ebb6ec30e5daa7}} 
 \index{window.c@{window.c}!createWindow@{createWindow}}
 \index{createWindow@{createWindow}!window.c@{window.c}}
@@ -63,6 +102,24 @@ Puis nettoie la fenêtre.
 \begin{DoxyReturn}{Renvoie}
 un pointer sur une {\bfseries{fenêtre}} 
 \end{DoxyReturn}
+\mbox{\Hypertarget{window_8c_ac84ead18493a5445ba473190996fe36b}\label{window_8c_ac84ead18493a5445ba473190996fe36b}} 
+\index{window.c@{window.c}!destroySprite@{destroySprite}}
+\index{destroySprite@{destroySprite}!window.c@{window.c}}
+\doxysubsubsection{\texorpdfstring{destroySprite()}{destroySprite()}}
+{\footnotesize\ttfamily int destroy\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$$\ast$}]{sprite }\end{DoxyParamCaption})}
+
+
+
+Détruit un sprite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sprite} & une référence d\textquotesingle{}un pointeur sur un sprite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
 \mbox{\Hypertarget{window_8c_a2b6afcc06737563c2c82cb5b822bcb6e}\label{window_8c_a2b6afcc06737563c2c82cb5b822bcb6e}} 
 \index{window.c@{window.c}!destroyWindow@{destroyWindow}}
 \index{destroyWindow@{destroyWindow}!window.c@{window.c}}
@@ -80,4 +137,120 @@ Détruit une fenêtre.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8c_a12caaf6efa15b7b7ef17f25474d3f4ce}\label{window_8c_a12caaf6efa15b7b7ef17f25474d3f4ce}} 
+\index{window.c@{window.c}!loadSprite@{loadSprite}}
+\index{loadSprite@{loadSprite}!window.c@{window.c}}
+\doxysubsubsection{\texorpdfstring{loadSprite()}{loadSprite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ load\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Charge un sprite depuis une image. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em path} & chemin vers le fichier du sprite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur un {\bfseries{sprite}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8c_ad3c4f018bc737c5c0b0436fe379817ba}\label{window_8c_ad3c4f018bc737c5c0b0436fe379817ba}} 
+\index{window.c@{window.c}!positionFromCenter@{positionFromCenter}}
+\index{positionFromCenter@{positionFromCenter}!window.c@{window.c}}
+\doxysubsubsection{\texorpdfstring{positionFromCenter()}{positionFromCenter()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect position\+From\+Center (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}}}]{origin }\end{DoxyParamCaption})}
+
+
+
+Calcule une position par rapport au centre de l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em width} & largeur de l\textquotesingle{}élément à afficher \\
+\hline
+{\em height} & hauteur de l\textquotesingle{}élément à afficher \\
+\hline
+{\em x} & décalage en x depuis le centre \\
+\hline
+{\em y} & décalage en y depuis le centre \\
+\hline
+{\em origin} & point d\textquotesingle{}origine sur lequel est centrée l\textquotesingle{}élément \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une {\bfseries{position}} sur la fenêtre 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8c_a1de1e31a95e63b3a09ad7c3f4a7637c6}\label{window_8c_a1de1e31a95e63b3a09ad7c3f4a7637c6}} 
+\index{window.c@{window.c}!positionToCenter@{positionToCenter}}
+\index{positionToCenter@{positionToCenter}!window.c@{window.c}}
+\doxysubsubsection{\texorpdfstring{positionToCenter()}{positionToCenter()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect position\+To\+Center (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Calcule la position au centre de l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em width} & largeur de l\textquotesingle{}élément à afficher \\
+\hline
+{\em height} & hauteur de l\textquotesingle{}élément à afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une {\bfseries{position}} sur la fenêtre 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8c_ac05108459018248d3a388c9ac0aac7c9}\label{window_8c_ac05108459018248d3a388c9ac0aac7c9}} 
+\index{window.c@{window.c}!surfaceFromCenter@{surfaceFromCenter}}
+\index{surfaceFromCenter@{surfaceFromCenter}!window.c@{window.c}}
+\doxysubsubsection{\texorpdfstring{surfaceFromCenter()}{surfaceFromCenter()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect surface\+From\+Center (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}}}]{origin }\end{DoxyParamCaption})}
+
+
+
+Calcule une position par rapport au centre de l\textquotesingle{}écran à partir d\textquotesingle{}une {\bfseries{surface}} 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em surface} & un pointeur sur une surface \\
+\hline
+{\em x} & décalage en x depuis le centre \\
+\hline
+{\em y} & décalage en y depuis le centre \\
+\hline
+{\em origin} & point d\textquotesingle{}origine sur lequel est centrée l\textquotesingle{}élément \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une {\bfseries{position}} sur la fenêtre 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8c_a7ab22661089f642ec7edc5b018e878c5}\label{window_8c_a7ab22661089f642ec7edc5b018e878c5}} 
+\index{window.c@{window.c}!surfaceToCenter@{surfaceToCenter}}
+\index{surfaceToCenter@{surfaceToCenter}!window.c@{window.c}}
+\doxysubsubsection{\texorpdfstring{surfaceToCenter()}{surfaceToCenter()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect surface\+To\+Center (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface }\end{DoxyParamCaption})}
+
+
+
+Calcule la position au centre de l\textquotesingle{}écran à partir d\textquotesingle{}une {\bfseries{surface}} 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em surface} & un pointeur sur une surface \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une {\bfseries{position}} sur la fenêtre 
 \end{DoxyReturn}

@@ -1,27 +1,64 @@
-\hypertarget{window_8h}{}\doxysection{Référence du fichier src/window.h}
-\label{window_8h}\index{src/window.h@{src/window.h}}
+\hypertarget{window_8h}{}\doxysection{Référence du fichier src/window/window.h}
+\label{window_8h}\index{src/window/window.h@{src/window/window.h}}
 
 
-Implémentation des prototypes de \mbox{\hyperlink{window_8c}{window.\+c}}.  
+Implémentation des prototypes de \mbox{\hyperlink{window_8c}{window/window.\+c}}.  
 
 
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+struct \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure contenant les données d\textquotesingle{}un sprite. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structwindow__t}{window\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Structure contenant toutes les données de la fenêtre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}} \{ \newline
+\mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4ad9b7f98a369f4755e8483489ba719568}{TRANSFORM\+\_\+\+ORIGIN\+\_\+\+CENTER}}
+, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4a6c41e93fd42d5964079522d8ad6a70b0}{TRANSFORM\+\_\+\+ORIGIN\+\_\+\+TOP\+\_\+\+LEFT}}
+, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4a53f95045ad6f5210940ee929671b19bd}{TRANSFORM\+\_\+\+ORIGIN\+\_\+\+TOP\+\_\+\+RIGHT}}
+, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4aab263f21f40738ff355ef5ccbf4e12ef}{TRANSFORM\+\_\+\+ORIGIN\+\_\+\+BOTTOM\+\_\+\+LEFT}}
+, \newline
+\mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4af03d714b80b92cb5f075e8f64f16f03f}{TRANSFORM\+\_\+\+ORIGIN\+\_\+\+BOTTOM\+\_\+\+RIGHT}}
+, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4afc291ac9e11cb27b8ea26a642c021931}{TRANSFORM\+\_\+\+ORIGIN\+\_\+\+TOP}}
+, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4a61d20d25cda646627fc116f18e1ac52c}{TRANSFORM\+\_\+\+ORIGIN\+\_\+\+RIGHT}}
+, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4a9d0b2b5fe1b6f9b2041d4f2671fe9c7f}{TRANSFORM\+\_\+\+ORIGIN\+\_\+\+BOTTOM}}
+, \newline
+\mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4a14dfffb9c34f7d8b78332358a8728b80}{TRANSFORM\+\_\+\+ORIGIN\+\_\+\+LEFT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumération représentant le point d\textquotesingle{}origin d\textquotesingle{}un transformation 2D. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8h_ae86a3185973be72e90ebb6ec30e5daa7}{create\+Window}} (char $\ast$title, int width, int height)
 \begin{DoxyCompactList}\small\item\em Créer une fenêtre. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{window_8h_ab1efa57caae2a77f346b314c3076d89f}\label{window_8h_ab1efa57caae2a77f346b314c3076d89f}} 
+void {\bfseries update\+Window\+Size} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, SDL\+\_\+\+Event $\ast$event)
+\item 
 int \mbox{\hyperlink{window_8h_a2b6afcc06737563c2c82cb5b822bcb6e}{destroy\+Window}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$$\ast$window)
-\begin{DoxyCompactList}\small\item\em Détruit une fenêtre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Détruit une fenêtre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8h_a12caaf6efa15b7b7ef17f25474d3f4ce}{load\+Sprite}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Charge un sprite depuis une image. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8h_a62b282ec4c4144041dc9263805726a73}{create\+Text\+Sprite}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, TTF\+\_\+\+Font $\ast$font, char $\ast$text, SDL\+\_\+\+Color color)
+\begin{DoxyCompactList}\small\item\em Génère un sprite à partir d\textquotesingle{}un texte. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{window_8h_ac84ead18493a5445ba473190996fe36b}{destroy\+Sprite}} (\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$$\ast$sprite)
+\begin{DoxyCompactList}\small\item\em Détruit un sprite. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{window_8h_ad3c4f018bc737c5c0b0436fe379817ba}{position\+From\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, int width, int height, int x, int y, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}} origin)
+\begin{DoxyCompactList}\small\item\em Calcule une position par rapport au centre de l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{window_8h_ac05108459018248d3a388c9ac0aac7c9}{surface\+From\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, SDL\+\_\+\+Surface $\ast$surface, int x, int y, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}} origin)
+\begin{DoxyCompactList}\small\item\em Calcule une position par rapport au centre de l\textquotesingle{}écran à partir d\textquotesingle{}une {\bfseries{surface}} \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{window_8h_a1de1e31a95e63b3a09ad7c3f4a7637c6}{position\+To\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, int width, int height)
+\begin{DoxyCompactList}\small\item\em Calcule la position au centre de l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{window_8h_a7ab22661089f642ec7edc5b018e878c5}{surface\+To\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, SDL\+\_\+\+Surface $\ast$surface)
+\begin{DoxyCompactList}\small\item\em Calcule la position au centre de l\textquotesingle{}écran à partir d\textquotesingle{}une {\bfseries{surface}} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
-Implémentation des prototypes de \mbox{\hyperlink{window_8c}{window.\+c}}. 
+Implémentation des prototypes de \mbox{\hyperlink{window_8c}{window/window.\+c}}. 
 
 \begin{DoxyAuthor}{Auteur}
 Lucas Dureau 
@@ -34,7 +71,82 @@ Lucas Dureau
 \end{DoxyDate}
 
 
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{window_8h_a8dca14cd1fd60c17927c8df815a291b4}\label{window_8h_a8dca14cd1fd60c17927c8df815a291b4}} 
+\index{window.h@{window.h}!transform\_origin\_e@{transform\_origin\_e}}
+\index{transform\_origin\_e@{transform\_origin\_e}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{transform\_origin\_e}{transform\_origin\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}}}
+
+
+
+Enumération représentant le point d\textquotesingle{}origin d\textquotesingle{}un transformation 2D. 
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORM\_ORIGIN\_CENTER@{TRANSFORM\_ORIGIN\_CENTER}!window.h@{window.h}}\index{window.h@{window.h}!TRANSFORM\_ORIGIN\_CENTER@{TRANSFORM\_ORIGIN\_CENTER}}}\mbox{\Hypertarget{window_8h_a8dca14cd1fd60c17927c8df815a291b4ad9b7f98a369f4755e8483489ba719568}\label{window_8h_a8dca14cd1fd60c17927c8df815a291b4ad9b7f98a369f4755e8483489ba719568}} 
+TRANSFORM\+\_\+\+ORIGIN\+\_\+\+CENTER&centre \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORM\_ORIGIN\_TOP\_LEFT@{TRANSFORM\_ORIGIN\_TOP\_LEFT}!window.h@{window.h}}\index{window.h@{window.h}!TRANSFORM\_ORIGIN\_TOP\_LEFT@{TRANSFORM\_ORIGIN\_TOP\_LEFT}}}\mbox{\Hypertarget{window_8h_a8dca14cd1fd60c17927c8df815a291b4a6c41e93fd42d5964079522d8ad6a70b0}\label{window_8h_a8dca14cd1fd60c17927c8df815a291b4a6c41e93fd42d5964079522d8ad6a70b0}} 
+TRANSFORM\+\_\+\+ORIGIN\+\_\+\+TOP\+\_\+\+LEFT&coin haut gauche \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORM\_ORIGIN\_TOP\_RIGHT@{TRANSFORM\_ORIGIN\_TOP\_RIGHT}!window.h@{window.h}}\index{window.h@{window.h}!TRANSFORM\_ORIGIN\_TOP\_RIGHT@{TRANSFORM\_ORIGIN\_TOP\_RIGHT}}}\mbox{\Hypertarget{window_8h_a8dca14cd1fd60c17927c8df815a291b4a53f95045ad6f5210940ee929671b19bd}\label{window_8h_a8dca14cd1fd60c17927c8df815a291b4a53f95045ad6f5210940ee929671b19bd}} 
+TRANSFORM\+\_\+\+ORIGIN\+\_\+\+TOP\+\_\+\+RIGHT&coin haut droit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORM\_ORIGIN\_BOTTOM\_LEFT@{TRANSFORM\_ORIGIN\_BOTTOM\_LEFT}!window.h@{window.h}}\index{window.h@{window.h}!TRANSFORM\_ORIGIN\_BOTTOM\_LEFT@{TRANSFORM\_ORIGIN\_BOTTOM\_LEFT}}}\mbox{\Hypertarget{window_8h_a8dca14cd1fd60c17927c8df815a291b4aab263f21f40738ff355ef5ccbf4e12ef}\label{window_8h_a8dca14cd1fd60c17927c8df815a291b4aab263f21f40738ff355ef5ccbf4e12ef}} 
+TRANSFORM\+\_\+\+ORIGIN\+\_\+\+BOTTOM\+\_\+\+LEFT&coin bas gauche \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORM\_ORIGIN\_BOTTOM\_RIGHT@{TRANSFORM\_ORIGIN\_BOTTOM\_RIGHT}!window.h@{window.h}}\index{window.h@{window.h}!TRANSFORM\_ORIGIN\_BOTTOM\_RIGHT@{TRANSFORM\_ORIGIN\_BOTTOM\_RIGHT}}}\mbox{\Hypertarget{window_8h_a8dca14cd1fd60c17927c8df815a291b4af03d714b80b92cb5f075e8f64f16f03f}\label{window_8h_a8dca14cd1fd60c17927c8df815a291b4af03d714b80b92cb5f075e8f64f16f03f}} 
+TRANSFORM\+\_\+\+ORIGIN\+\_\+\+BOTTOM\+\_\+\+RIGHT&coin bas gauche \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORM\_ORIGIN\_TOP@{TRANSFORM\_ORIGIN\_TOP}!window.h@{window.h}}\index{window.h@{window.h}!TRANSFORM\_ORIGIN\_TOP@{TRANSFORM\_ORIGIN\_TOP}}}\mbox{\Hypertarget{window_8h_a8dca14cd1fd60c17927c8df815a291b4afc291ac9e11cb27b8ea26a642c021931}\label{window_8h_a8dca14cd1fd60c17927c8df815a291b4afc291ac9e11cb27b8ea26a642c021931}} 
+TRANSFORM\+\_\+\+ORIGIN\+\_\+\+TOP&côté haut \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORM\_ORIGIN\_RIGHT@{TRANSFORM\_ORIGIN\_RIGHT}!window.h@{window.h}}\index{window.h@{window.h}!TRANSFORM\_ORIGIN\_RIGHT@{TRANSFORM\_ORIGIN\_RIGHT}}}\mbox{\Hypertarget{window_8h_a8dca14cd1fd60c17927c8df815a291b4a61d20d25cda646627fc116f18e1ac52c}\label{window_8h_a8dca14cd1fd60c17927c8df815a291b4a61d20d25cda646627fc116f18e1ac52c}} 
+TRANSFORM\+\_\+\+ORIGIN\+\_\+\+RIGHT&côté droite \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORM\_ORIGIN\_BOTTOM@{TRANSFORM\_ORIGIN\_BOTTOM}!window.h@{window.h}}\index{window.h@{window.h}!TRANSFORM\_ORIGIN\_BOTTOM@{TRANSFORM\_ORIGIN\_BOTTOM}}}\mbox{\Hypertarget{window_8h_a8dca14cd1fd60c17927c8df815a291b4a9d0b2b5fe1b6f9b2041d4f2671fe9c7f}\label{window_8h_a8dca14cd1fd60c17927c8df815a291b4a9d0b2b5fe1b6f9b2041d4f2671fe9c7f}} 
+TRANSFORM\+\_\+\+ORIGIN\+\_\+\+BOTTOM&côté bas \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORM\_ORIGIN\_LEFT@{TRANSFORM\_ORIGIN\_LEFT}!window.h@{window.h}}\index{window.h@{window.h}!TRANSFORM\_ORIGIN\_LEFT@{TRANSFORM\_ORIGIN\_LEFT}}}\mbox{\Hypertarget{window_8h_a8dca14cd1fd60c17927c8df815a291b4a14dfffb9c34f7d8b78332358a8728b80}\label{window_8h_a8dca14cd1fd60c17927c8df815a291b4a14dfffb9c34f7d8b78332358a8728b80}} 
+TRANSFORM\+\_\+\+ORIGIN\+\_\+\+LEFT&côté gauche \\
+\hline
+
+\end{DoxyEnumFields}
+
+
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{window_8h_a62b282ec4c4144041dc9263805726a73}\label{window_8h_a62b282ec4c4144041dc9263805726a73}} 
+\index{window.h@{window.h}!createTextSprite@{createTextSprite}}
+\index{createTextSprite@{createTextSprite}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{createTextSprite()}{createTextSprite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ create\+Text\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{TTF\+\_\+\+Font $\ast$}]{font,  }\item[{char $\ast$}]{text,  }\item[{SDL\+\_\+\+Color}]{color }\end{DoxyParamCaption})}
+
+
+
+Génère un sprite à partir d\textquotesingle{}un texte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em font} & un pointeur sur une police d\textquotesingle{}écriture \\
+\hline
+{\em text} & le texte à génèrer \\
+\hline
+{\em color} & couleur du texte à génèrer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur un {\bfseries{sprite}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{window_8h_ae86a3185973be72e90ebb6ec30e5daa7}\label{window_8h_ae86a3185973be72e90ebb6ec30e5daa7}} 
 \index{window.h@{window.h}!createWindow@{createWindow}}
 \index{createWindow@{createWindow}!window.h@{window.h}}
@@ -66,6 +178,24 @@ Puis nettoie la fenêtre.
 \begin{DoxyReturn}{Renvoie}
 un pointer sur une {\bfseries{fenêtre}} 
 \end{DoxyReturn}
+\mbox{\Hypertarget{window_8h_ac84ead18493a5445ba473190996fe36b}\label{window_8h_ac84ead18493a5445ba473190996fe36b}} 
+\index{window.h@{window.h}!destroySprite@{destroySprite}}
+\index{destroySprite@{destroySprite}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{destroySprite()}{destroySprite()}}
+{\footnotesize\ttfamily int destroy\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$$\ast$}]{sprite }\end{DoxyParamCaption})}
+
+
+
+Détruit un sprite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sprite} & une référence d\textquotesingle{}un pointeur sur un sprite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
 \mbox{\Hypertarget{window_8h_a2b6afcc06737563c2c82cb5b822bcb6e}\label{window_8h_a2b6afcc06737563c2c82cb5b822bcb6e}} 
 \index{window.h@{window.h}!destroyWindow@{destroyWindow}}
 \index{destroyWindow@{destroyWindow}!window.h@{window.h}}
@@ -83,4 +213,120 @@ Détruit une fenêtre.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8h_a12caaf6efa15b7b7ef17f25474d3f4ce}\label{window_8h_a12caaf6efa15b7b7ef17f25474d3f4ce}} 
+\index{window.h@{window.h}!loadSprite@{loadSprite}}
+\index{loadSprite@{loadSprite}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{loadSprite()}{loadSprite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ load\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Charge un sprite depuis une image. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em path} & chemin vers le fichier du sprite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur un {\bfseries{sprite}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8h_ad3c4f018bc737c5c0b0436fe379817ba}\label{window_8h_ad3c4f018bc737c5c0b0436fe379817ba}} 
+\index{window.h@{window.h}!positionFromCenter@{positionFromCenter}}
+\index{positionFromCenter@{positionFromCenter}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{positionFromCenter()}{positionFromCenter()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect position\+From\+Center (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}}}]{origin }\end{DoxyParamCaption})}
+
+
+
+Calcule une position par rapport au centre de l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em width} & largeur de l\textquotesingle{}élément à afficher \\
+\hline
+{\em height} & hauteur de l\textquotesingle{}élément à afficher \\
+\hline
+{\em x} & décalage en x depuis le centre \\
+\hline
+{\em y} & décalage en y depuis le centre \\
+\hline
+{\em origin} & point d\textquotesingle{}origine sur lequel est centrée l\textquotesingle{}élément \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une {\bfseries{position}} sur la fenêtre 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8h_a1de1e31a95e63b3a09ad7c3f4a7637c6}\label{window_8h_a1de1e31a95e63b3a09ad7c3f4a7637c6}} 
+\index{window.h@{window.h}!positionToCenter@{positionToCenter}}
+\index{positionToCenter@{positionToCenter}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{positionToCenter()}{positionToCenter()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect position\+To\+Center (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Calcule la position au centre de l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em width} & largeur de l\textquotesingle{}élément à afficher \\
+\hline
+{\em height} & hauteur de l\textquotesingle{}élément à afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une {\bfseries{position}} sur la fenêtre 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8h_ac05108459018248d3a388c9ac0aac7c9}\label{window_8h_ac05108459018248d3a388c9ac0aac7c9}} 
+\index{window.h@{window.h}!surfaceFromCenter@{surfaceFromCenter}}
+\index{surfaceFromCenter@{surfaceFromCenter}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{surfaceFromCenter()}{surfaceFromCenter()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect surface\+From\+Center (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}}}]{origin }\end{DoxyParamCaption})}
+
+
+
+Calcule une position par rapport au centre de l\textquotesingle{}écran à partir d\textquotesingle{}une {\bfseries{surface}} 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em surface} & un pointeur sur une surface \\
+\hline
+{\em x} & décalage en x depuis le centre \\
+\hline
+{\em y} & décalage en y depuis le centre \\
+\hline
+{\em origin} & point d\textquotesingle{}origine sur lequel est centrée l\textquotesingle{}élément \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une {\bfseries{position}} sur la fenêtre 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8h_a7ab22661089f642ec7edc5b018e878c5}\label{window_8h_a7ab22661089f642ec7edc5b018e878c5}} 
+\index{window.h@{window.h}!surfaceToCenter@{surfaceToCenter}}
+\index{surfaceToCenter@{surfaceToCenter}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{surfaceToCenter()}{surfaceToCenter()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect surface\+To\+Center (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface }\end{DoxyParamCaption})}
+
+
+
+Calcule la position au centre de l\textquotesingle{}écran à partir d\textquotesingle{}une {\bfseries{surface}} 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em surface} & un pointeur sur une surface \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une {\bfseries{position}} sur la fenêtre 
 \end{DoxyReturn}

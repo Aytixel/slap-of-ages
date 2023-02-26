@@ -1,0 +1,125 @@
+\hypertarget{connection_2server_8c}{}\doxysection{Référence du fichier src/connection/server.c}
+\label{connection_2server_8c}\index{src/connection/server.c@{src/connection/server.c}}
+
+
+Permet de gérer la connexion des clients au serveur.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}packet\+\_\+id.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}server.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{connection_2server_8c_ad592b3bc523be6dc9257e5441c381d3e}{accept\+Client\+Connections}} (\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$server)
+\begin{DoxyCompactList}\small\item\em Accept les nouvelles connexion de client. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{connection_2server_8c_a6a647b23b1b3410dcba1a6271e3f8f9e}{next\+Client\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}itérer sur les connexions ouvertes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{connection_2server_8c_ac12cd916a09a69510fb2688caf974ea2}{wait\+Client\+Handshake}} ()
+\begin{DoxyCompactList}\small\item\em Attend la poignée de main du client. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{connection_2server_8c_a6ff5417f900e8fa5e14d180006a5ee86}\label{connection_2server_8c_a6ff5417f900e8fa5e14d180006a5ee86}} 
+void \mbox{\hyperlink{connection_2server_8c_a6ff5417f900e8fa5e14d180006a5ee86}{close\+Client\+Connections}} ()
+\begin{DoxyCompactList}\small\item\em Ferme toutes les connexions aux clients. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{connection_2server_8c_a13929f0e2944a2190e5e3ca4aab21f44}\label{connection_2server_8c_a13929f0e2944a2190e5e3ca4aab21f44}} 
+int {\bfseries server\+\_\+client\+\_\+count} = 0
+\item 
+\mbox{\Hypertarget{connection_2server_8c_aa1b883295c131ce0bc7953b6100f2a7e}\label{connection_2server_8c_aa1b883295c131ce0bc7953b6100f2a7e}} 
+int {\bfseries next\+\_\+server\+\_\+client\+\_\+index} = 0
+\item 
+\mbox{\Hypertarget{connection_2server_8c_a01e5d2051b41b690c41bd8e4ccbd4c44}\label{connection_2server_8c_a01e5d2051b41b690c41bd8e4ccbd4c44}} 
+\mbox{\hyperlink{structserver__client__connection__t}{server\+\_\+client\+\_\+connection\+\_\+t}} $\ast$ {\bfseries server\+\_\+client\+\_\+connections} = NULL
+\item 
+\mbox{\Hypertarget{connection_2server_8c_add6c6fbe8d797ac0aca22a4ba036b038}\label{connection_2server_8c_add6c6fbe8d797ac0aca22a4ba036b038}} 
+int \mbox{\hyperlink{connection_2server_8c_add6c6fbe8d797ac0aca22a4ba036b038}{deleted\+\_\+socket\+\_\+fd\+\_\+count}} = 0
+\begin{DoxyCompactList}\small\item\em Nombre d\textquotesingle{}id socket client supprimé \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{connection_2server_8c_ad7aca607c352e64a6f7f67099351ec8d}\label{connection_2server_8c_ad7aca607c352e64a6f7f67099351ec8d}} 
+int $\ast$ \mbox{\hyperlink{connection_2server_8c_ad7aca607c352e64a6f7f67099351ec8d}{deleted\+\_\+socket\+\_\+fds}} = NULL
+\begin{DoxyCompactList}\small\item\em Id des sockets clients supprimé \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$ \mbox{\hyperlink{connection_2server_8c_a297c23f4f449cf533cd0e72bb4a5ef27}{server\+\_\+client}} = NULL
+\begin{DoxyCompactList}\small\item\em Client serveur socket courant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{connection_2server_8c_a0310b6cb636995d99c457980a9ccb8fa}\label{connection_2server_8c_a0310b6cb636995d99c457980a9ccb8fa}} 
+\mbox{\hyperlink{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cd}{server\+\_\+client\+\_\+connection\+\_\+state\+\_\+e}} \mbox{\hyperlink{connection_2server_8c_a0310b6cb636995d99c457980a9ccb8fa}{server\+\_\+client\+\_\+connection\+\_\+state}} = \mbox{\hyperlink{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cdaf410b2afc00d25efce0b8981166bc72b}{SERVER\+\_\+\+CLIENT\+\_\+\+WAITING\+\_\+\+HANDSHAKE}}
+\begin{DoxyCompactList}\small\item\em Représente l\textquotesingle{}état courant de la connexion coursante. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Permet de gérer la connexion des clients au serveur. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+05/02/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{connection_2server_8c_ad592b3bc523be6dc9257e5441c381d3e}\label{connection_2server_8c_ad592b3bc523be6dc9257e5441c381d3e}} 
+\index{server.c@{server.c}!acceptClientConnections@{acceptClientConnections}}
+\index{acceptClientConnections@{acceptClientConnections}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{acceptClientConnections()}{acceptClientConnections()}}
+{\footnotesize\ttfamily void accept\+Client\+Connections (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$}]{server }\end{DoxyParamCaption})}
+
+
+
+Accept les nouvelles connexion de client. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em server} & serveur à utiliser \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{connection_2server_8c_a6a647b23b1b3410dcba1a6271e3f8f9e}\label{connection_2server_8c_a6a647b23b1b3410dcba1a6271e3f8f9e}} 
+\index{server.c@{server.c}!nextClientConnection@{nextClientConnection}}
+\index{nextClientConnection@{nextClientConnection}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{nextClientConnection()}{nextClientConnection()}}
+{\footnotesize\ttfamily int next\+Client\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}itérer sur les connexions ouvertes. 
+
+Supprime aussi toute connexion fermé, et met leur id de socket dans le tableau de client supprimé
+
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{1}} si l\textquotesingle{}on peut encore itérer, {\bfseries{0}} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{connection_2server_8c_ac12cd916a09a69510fb2688caf974ea2}\label{connection_2server_8c_ac12cd916a09a69510fb2688caf974ea2}} 
+\index{server.c@{server.c}!waitClientHandshake@{waitClientHandshake}}
+\index{waitClientHandshake@{waitClientHandshake}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{waitClientHandshake()}{waitClientHandshake()}}
+{\footnotesize\ttfamily int wait\+Client\+Handshake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Attend la poignée de main du client. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em server} & serveur à utiliser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} tant que la poignée de main n\textquotesingle{}est pas effectuée, {\bfseries{1}} si la poignée de main est réussie 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentation des variables}
+\mbox{\Hypertarget{connection_2server_8c_a297c23f4f449cf533cd0e72bb4a5ef27}\label{connection_2server_8c_a297c23f4f449cf533cd0e72bb4a5ef27}} 
+\index{server.c@{server.c}!server\_client@{server\_client}}
+\index{server\_client@{server\_client}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{server\_client}{server\_client}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}}$\ast$ server\+\_\+client = NULL}
+
+
+
+Client serveur socket courant. 
+
+Connexion courante itérer par \mbox{\hyperlink{connection_2server_8h_a6a647b23b1b3410dcba1a6271e3f8f9e}{next\+Client\+Connection()}} 

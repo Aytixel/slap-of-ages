@@ -1,5 +1,5 @@
 TARGET=main_client main_server
-TEST_TARGET=test_timer test_socket test_window test_animation
+TEST_TARGET=test_timer test_socket test_window test_animation test_menu
 
 CPU_COUNT=$(grep -c processor /proc/cpuinfo)
 
@@ -48,10 +48,10 @@ CFLAGS=-g -Wall -I$(INC_DIR) -I$(SRC_DIR)
 TRGS:=$(TARGET:%=$(BIN_DIR)/%)
 TEST_TRGS:=$(TEST_TARGET:%=$(BIN_DIR)/%)
 
-SOURCES:=$(wildcard $(SRC_DIR)/*.c)
+SOURCES:=$(wildcard $(SRC_DIR)/*.c) $(wildcard $(SRC_DIR)/*/*.c)
 TESTS:=$(wildcard $(TEST_DIR)/*.c)
 
-OBJECTS:=$(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+OBJECTS:=$(addprefix $(OBJ_DIR)/,$(subst /,___,$(SOURCES:$(SRC_DIR)/%.c=%.o)))
 TEST_OBJECTS:=$(TESTS:$(TEST_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 MAINS:=$(TARGET:%=$(OBJ_DIR)/%.o)
@@ -67,15 +67,16 @@ build_test: $(TEST_TRGS) copy_lib
 
 $(TRGS): $(OBJECTS)
 	@$(CC) $(subst $(BIN_DIR),$(OBJ_DIR),$@).o $(OBJS) $(LFLAGS) -o $@$(EXE_EXT)
-	@echo "Linking $(subst $(BIN_DIR)/,,$@) complete!"
+	@echo "Linking $(notdir $@) complete!"
 
 $(TEST_TRGS): $(OBJS) $(TEST_OBJECTS)
 	@$(CC) $(subst $(BIN_DIR),$(OBJ_DIR),$@).o $(OBJS) $(LFLAGS) -o $@$(EXE_EXT)
-	@echo "Linking $(subst $(BIN_DIR)/,,$@) complete!"
+	@echo "Linking $(notdir $@) complete!"
 	
-$(OBJECTS): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
-	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "Compiled $< successfully!"
+$(OBJECTS):
+	$(eval SRC_FILE:=$(filter %/$(subst ___,/,$(subst .o,.c,$(notdir $@))),$(SOURCES)))
+	@$(CC) $(CFLAGS) -c $(SRC_FILE) -o $@
+	@echo "Compiled $(SRC_FILE) successfully!"
 	
 $(TEST_OBJECTS): $(OBJ_DIR)/%.o : $(TEST_DIR)/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@

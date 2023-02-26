@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages:  Fichier source de src/socket/server.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_9ad1227260954e346101f3844f0abb3d.html">socket</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">server.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="socket_2server_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef __SERVER_SOCKET_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define __SERVER_SOCKET_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifdef WIN32</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;winsock2.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>SOCKADDR_IN sockaddr_in;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;netinet/in.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="socket_8h.html">socket.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structserver__t.html">   31</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structserver__t.html#a11bebb587b3f62b8d5c7768169906789">   33</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> address_length; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">struct </span>sockaddr_in address;  </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structserver__t.html#a529cf0dee35461dcd663cde8b5d676d0">   35</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structserver__t.html#a529cf0dee35461dcd663cde8b5d676d0">socket_fd</a>;               </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;} <a class="code" href="structserver__t.html">server_t</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structserver__client__t.html">   42</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structserver__client__t.html#aa7052749e6fc4365a8ddd59a8b87d24e">   44</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> address_length; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">struct </span>sockaddr_in address;  </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structserver__client__t.html#a07429603d359b82e66bd078c3a638b4c">   46</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structserver__client__t.html#a07429603d359b82e66bd078c3a638b4c">socket_fd</a>;               </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structserver__client__t.html#ac1d78d04464accf90c40d4327c21a119">   47</a></span>&#160;    ssize_t <a class="code" href="structserver__client__t.html#ac1d78d04464accf90c40d4327c21a119">recv_length</a>;         </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structserver__client__t.html#a84c1d44e081636e53c69b37e119add16">   48</a></span>&#160;    <a class="code" href="structpacket__t.html">packet_t</a> *<a class="code" href="structserver__client__t.html#a84c1d44e081636e53c69b37e119add16">packet_buffer</a>;     </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <a class="code" href="structserver__client__t.html">server_client_t</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">extern</span> <a class="code" href="structserver__t.html">server_t</a> *<a class="code" href="socket_2server_8h.html#a641d3877e58ea8e6c9760312e23fa650">createServer</a>(<span class="keywordtype">char</span> *hostname, uint16_t port);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">extern</span> <a class="code" href="structserver__client__t.html">server_client_t</a> *<a class="code" href="socket_2server_8h.html#a028de4bec914124d8950eb1501b4cb39">acceptServerClient</a>(<a class="code" href="structserver__t.html">server_t</a> *server);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="socket_2server_8h.html#ae64319cb1d181c48adea7f3b1deb0cee">isClientDown</a>(<a class="code" href="structserver__client__t.html">server_client_t</a> *<a class="code" href="connection_2client_8c.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="socket_2server_8h.html#a020eb9c58a6fcf5fbb6e9425dee34e81">sendToServerClient</a>(<a class="code" href="structserver__client__t.html">server_client_t</a> *<a class="code" href="connection_2client_8c.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>, <a class="code" href="structpacket__t.html">packet_t</a> *packet);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">extern</span> <a class="code" href="structpacket__t.html">packet_t</a> *<a class="code" href="socket_2server_8h.html#a9d43d2b6f23fa8f52382a3cdb4d595dd">recvFromServerClient</a>(<a class="code" href="structserver__client__t.html">server_client_t</a> *<a class="code" href="connection_2client_8c.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="socket_2server_8h.html#aab1b91251a1b3c6b7efb503af44d6ba8">deleteServerClient</a>(<a class="code" href="structserver__client__t.html">server_client_t</a> **<a class="code" href="connection_2client_8c.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="socket_2server_8h.html#a1778c7f9e97e6068abe92d0d47d33a7d">deleteServer</a>(<a class="code" href="structserver__t.html">server_t</a> **server);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aconnection_2client_8c_html_ad72bb670c0751a5e8729d02bf7482d63"><div class="ttname"><a href="connection_2client_8c.html#ad72bb670c0751a5e8729d02bf7482d63">client</a></div><div class="ttdeci">client_t * client</div><div class="ttdoc">Client socket.</div><div class="ttdef"><b>Definition:</b> client.c:16</div></div>
+<div class="ttc" id="asocket_2server_8h_html_a020eb9c58a6fcf5fbb6e9425dee34e81"><div class="ttname"><a href="socket_2server_8h.html#a020eb9c58a6fcf5fbb6e9425dee34e81">sendToServerClient</a></div><div class="ttdeci">int sendToServerClient(server_client_t *client, packet_t *packet)</div><div class="ttdoc">Envoie un paquet au client.</div><div class="ttdef"><b>Definition:</b> server.c:149</div></div>
+<div class="ttc" id="asocket_2server_8h_html_a028de4bec914124d8950eb1501b4cb39"><div class="ttname"><a href="socket_2server_8h.html#a028de4bec914124d8950eb1501b4cb39">acceptServerClient</a></div><div class="ttdeci">server_client_t * acceptServerClient(server_t *server)</div><div class="ttdoc">Vérifie si il y a des connexions à accepter, et les accepte.</div><div class="ttdef"><b>Definition:</b> server.c:83</div></div>
+<div class="ttc" id="asocket_2server_8h_html_a1778c7f9e97e6068abe92d0d47d33a7d"><div class="ttname"><a href="socket_2server_8h.html#a1778c7f9e97e6068abe92d0d47d33a7d">deleteServer</a></div><div class="ttdeci">int deleteServer(server_t **server)</div><div class="ttdoc">Détruit un serveur.</div><div class="ttdef"><b>Definition:</b> server.c:253</div></div>
+<div class="ttc" id="asocket_2server_8h_html_a641d3877e58ea8e6c9760312e23fa650"><div class="ttname"><a href="socket_2server_8h.html#a641d3877e58ea8e6c9760312e23fa650">createServer</a></div><div class="ttdeci">server_t * createServer(char *hostname, uint16_t port)</div><div class="ttdoc">Créer un serveur.</div><div class="ttdef"><b>Definition:</b> server.c:37</div></div>
+<div class="ttc" id="asocket_2server_8h_html_a9d43d2b6f23fa8f52382a3cdb4d595dd"><div class="ttname"><a href="socket_2server_8h.html#a9d43d2b6f23fa8f52382a3cdb4d595dd">recvFromServerClient</a></div><div class="ttdeci">packet_t * recvFromServerClient(server_client_t *client)</div><div class="ttdoc">Essaye de recevoir un paquet du client.</div><div class="ttdef"><b>Definition:</b> server.c:175</div></div>
+<div class="ttc" id="asocket_2server_8h_html_aab1b91251a1b3c6b7efb503af44d6ba8"><div class="ttname"><a href="socket_2server_8h.html#aab1b91251a1b3c6b7efb503af44d6ba8">deleteServerClient</a></div><div class="ttdeci">int deleteServerClient(server_client_t **client)</div><div class="ttdoc">Détruit un client serveur.</div><div class="ttdef"><b>Definition:</b> server.c:230</div></div>
+<div class="ttc" id="asocket_2server_8h_html_ae64319cb1d181c48adea7f3b1deb0cee"><div class="ttname"><a href="socket_2server_8h.html#ae64319cb1d181c48adea7f3b1deb0cee">isClientDown</a></div><div class="ttdeci">int isClientDown(server_client_t *client)</div><div class="ttdoc">Vérifie si la connexion au client est fermée.</div><div class="ttdef"><b>Definition:</b> server.c:120</div></div>
+<div class="ttc" id="asocket_8h_html"><div class="ttname"><a href="socket_8h.html">socket.h</a></div><div class="ttdoc">Implémentation des prototypes de socket/socket.c.</div></div>
+<div class="ttc" id="astructpacket__t_html"><div class="ttname"><a href="structpacket__t.html">packet_t</a></div><div class="ttdoc">Paquet réseaux pour les sockets.</div><div class="ttdef"><b>Definition:</b> socket.h:31</div></div>
+<div class="ttc" id="astructserver__client__t_html"><div class="ttname"><a href="structserver__client__t.html">server_client_t</a></div><div class="ttdoc">Client serveur socket.</div><div class="ttdef"><b>Definition:</b> server.h:43</div></div>
+<div class="ttc" id="astructserver__client__t_html_a07429603d359b82e66bd078c3a638b4c"><div class="ttname"><a href="structserver__client__t.html#a07429603d359b82e66bd078c3a638b4c">server_client_t::socket_fd</a></div><div class="ttdeci">int socket_fd</div><div class="ttdef"><b>Definition:</b> server.h:46</div></div>
+<div class="ttc" id="astructserver__client__t_html_a84c1d44e081636e53c69b37e119add16"><div class="ttname"><a href="structserver__client__t.html#a84c1d44e081636e53c69b37e119add16">server_client_t::packet_buffer</a></div><div class="ttdeci">packet_t * packet_buffer</div><div class="ttdef"><b>Definition:</b> server.h:48</div></div>
+<div class="ttc" id="astructserver__client__t_html_ac1d78d04464accf90c40d4327c21a119"><div class="ttname"><a href="structserver__client__t.html#ac1d78d04464accf90c40d4327c21a119">server_client_t::recv_length</a></div><div class="ttdeci">ssize_t recv_length</div><div class="ttdef"><b>Definition:</b> server.h:47</div></div>
+<div class="ttc" id="astructserver__t_html"><div class="ttname"><a href="structserver__t.html">server_t</a></div><div class="ttdoc">Serveur socket.</div><div class="ttdef"><b>Definition:</b> server.h:32</div></div>
+<div class="ttc" id="astructserver__t_html_a529cf0dee35461dcd663cde8b5d676d0"><div class="ttname"><a href="structserver__t.html#a529cf0dee35461dcd663cde8b5d676d0">server_t::socket_fd</a></div><div class="ttdeci">int socket_fd</div><div class="ttdef"><b>Definition:</b> server.h:35</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,148 @@
+\hypertarget{connection_2server_8h}{}\doxysection{Référence du fichier src/connection/server.h}
+\label{connection_2server_8h}\index{src/connection/server.h@{src/connection/server.h}}
+
+
+Implémentation des prototypes de \mbox{\hyperlink{connection_2server_8c}{connection/server.\+c}}.  
+
+
+{\ttfamily \#include \char`\"{}socket/server.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structserver__client__connection__t}{server\+\_\+client\+\_\+connection\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Représente une connexion au serveur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cd}{server\+\_\+client\+\_\+connection\+\_\+state\+\_\+e}} \{ \mbox{\hyperlink{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cdaf410b2afc00d25efce0b8981166bc72b}{SERVER\+\_\+\+CLIENT\+\_\+\+WAITING\+\_\+\+HANDSHAKE}}
+, \mbox{\hyperlink{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cdae25deb417e739fb1188573f13b997286}{SERVER\+\_\+\+CLIENT\+\_\+\+CONNECTED}}
+ \}
+\begin{DoxyCompactList}\small\item\em Représente l\textquotesingle{}état d\textquotesingle{}une connexion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{connection_2server_8h_ad592b3bc523be6dc9257e5441c381d3e}{accept\+Client\+Connections}} (\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$server)
+\begin{DoxyCompactList}\small\item\em Accept les nouvelles connexion de client. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{connection_2server_8h_a6a647b23b1b3410dcba1a6271e3f8f9e}{next\+Client\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}itérer sur les connexions ouvertes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{connection_2server_8h_ac12cd916a09a69510fb2688caf974ea2}{wait\+Client\+Handshake}} ()
+\begin{DoxyCompactList}\small\item\em Attend la poignée de main du client. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{connection_2server_8h_a6ff5417f900e8fa5e14d180006a5ee86}\label{connection_2server_8h_a6ff5417f900e8fa5e14d180006a5ee86}} 
+void \mbox{\hyperlink{connection_2server_8h_a6ff5417f900e8fa5e14d180006a5ee86}{close\+Client\+Connections}} ()
+\begin{DoxyCompactList}\small\item\em Ferme toutes les connexions aux clients. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{connection_2server_8h_add6c6fbe8d797ac0aca22a4ba036b038}\label{connection_2server_8h_add6c6fbe8d797ac0aca22a4ba036b038}} 
+int \mbox{\hyperlink{connection_2server_8h_add6c6fbe8d797ac0aca22a4ba036b038}{deleted\+\_\+socket\+\_\+fd\+\_\+count}}
+\begin{DoxyCompactList}\small\item\em Nombre d\textquotesingle{}id socket client supprimé \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{connection_2server_8h_ad7aca607c352e64a6f7f67099351ec8d}\label{connection_2server_8h_ad7aca607c352e64a6f7f67099351ec8d}} 
+int $\ast$ \mbox{\hyperlink{connection_2server_8h_ad7aca607c352e64a6f7f67099351ec8d}{deleted\+\_\+socket\+\_\+fds}}
+\begin{DoxyCompactList}\small\item\em Id des sockets clients supprimé \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$ \mbox{\hyperlink{connection_2server_8h_a297c23f4f449cf533cd0e72bb4a5ef27}{server\+\_\+client}}
+\begin{DoxyCompactList}\small\item\em Client serveur socket courant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{connection_2server_8h_a0310b6cb636995d99c457980a9ccb8fa}\label{connection_2server_8h_a0310b6cb636995d99c457980a9ccb8fa}} 
+\mbox{\hyperlink{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cd}{server\+\_\+client\+\_\+connection\+\_\+state\+\_\+e}} \mbox{\hyperlink{connection_2server_8h_a0310b6cb636995d99c457980a9ccb8fa}{server\+\_\+client\+\_\+connection\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em Représente l\textquotesingle{}état courant de la connexion coursante. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des prototypes de \mbox{\hyperlink{connection_2server_8c}{connection/server.\+c}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+05/02/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cd}\label{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cd}} 
+\index{server.h@{server.h}!server\_client\_connection\_state\_e@{server\_client\_connection\_state\_e}}
+\index{server\_client\_connection\_state\_e@{server\_client\_connection\_state\_e}!server.h@{server.h}}
+\doxysubsubsection{\texorpdfstring{server\_client\_connection\_state\_e}{server\_client\_connection\_state\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cd}{server\+\_\+client\+\_\+connection\+\_\+state\+\_\+e}}}
+
+
+
+Représente l\textquotesingle{}état d\textquotesingle{}une connexion. 
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SERVER\_CLIENT\_WAITING\_HANDSHAKE@{SERVER\_CLIENT\_WAITING\_HANDSHAKE}!server.h@{server.h}}\index{server.h@{server.h}!SERVER\_CLIENT\_WAITING\_HANDSHAKE@{SERVER\_CLIENT\_WAITING\_HANDSHAKE}}}\mbox{\Hypertarget{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cdaf410b2afc00d25efce0b8981166bc72b}\label{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cdaf410b2afc00d25efce0b8981166bc72b}} 
+SERVER\+\_\+\+CLIENT\+\_\+\+WAITING\+\_\+\+HANDSHAKE&attend la poignée de main du client \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SERVER\_CLIENT\_CONNECTED@{SERVER\_CLIENT\_CONNECTED}!server.h@{server.h}}\index{server.h@{server.h}!SERVER\_CLIENT\_CONNECTED@{SERVER\_CLIENT\_CONNECTED}}}\mbox{\Hypertarget{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cdae25deb417e739fb1188573f13b997286}\label{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cdae25deb417e739fb1188573f13b997286}} 
+SERVER\+\_\+\+CLIENT\+\_\+\+CONNECTED&connexion au client établie \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{connection_2server_8h_ad592b3bc523be6dc9257e5441c381d3e}\label{connection_2server_8h_ad592b3bc523be6dc9257e5441c381d3e}} 
+\index{server.h@{server.h}!acceptClientConnections@{acceptClientConnections}}
+\index{acceptClientConnections@{acceptClientConnections}!server.h@{server.h}}
+\doxysubsubsection{\texorpdfstring{acceptClientConnections()}{acceptClientConnections()}}
+{\footnotesize\ttfamily void accept\+Client\+Connections (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structserver__t}{server\+\_\+t}} $\ast$}]{server }\end{DoxyParamCaption})}
+
+
+
+Accept les nouvelles connexion de client. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em server} & serveur à utiliser \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{connection_2server_8h_a6a647b23b1b3410dcba1a6271e3f8f9e}\label{connection_2server_8h_a6a647b23b1b3410dcba1a6271e3f8f9e}} 
+\index{server.h@{server.h}!nextClientConnection@{nextClientConnection}}
+\index{nextClientConnection@{nextClientConnection}!server.h@{server.h}}
+\doxysubsubsection{\texorpdfstring{nextClientConnection()}{nextClientConnection()}}
+{\footnotesize\ttfamily int next\+Client\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}itérer sur les connexions ouvertes. 
+
+Supprime aussi toute connexion fermé, et met leur id de socket dans le tableau de client supprimé
+
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{1}} si l\textquotesingle{}on peut encore itérer, {\bfseries{0}} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{connection_2server_8h_ac12cd916a09a69510fb2688caf974ea2}\label{connection_2server_8h_ac12cd916a09a69510fb2688caf974ea2}} 
+\index{server.h@{server.h}!waitClientHandshake@{waitClientHandshake}}
+\index{waitClientHandshake@{waitClientHandshake}!server.h@{server.h}}
+\doxysubsubsection{\texorpdfstring{waitClientHandshake()}{waitClientHandshake()}}
+{\footnotesize\ttfamily int wait\+Client\+Handshake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Attend la poignée de main du client. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em server} & serveur à utiliser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} tant que la poignée de main n\textquotesingle{}est pas effectuée, {\bfseries{1}} si la poignée de main est réussie 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentation des variables}
+\mbox{\Hypertarget{connection_2server_8h_a297c23f4f449cf533cd0e72bb4a5ef27}\label{connection_2server_8h_a297c23f4f449cf533cd0e72bb4a5ef27}} 
+\index{server.h@{server.h}!server\_client@{server\_client}}
+\index{server\_client@{server\_client}!server.h@{server.h}}
+\doxysubsubsection{\texorpdfstring{server\_client}{server\_client}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}}$\ast$ server\+\_\+client\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Client serveur socket courant. 
+
+Connexion courante itérer par \mbox{\hyperlink{connection_2server_8h_a6a647b23b1b3410dcba1a6271e3f8f9e}{next\+Client\+Connection()}} 

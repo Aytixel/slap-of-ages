@@ -4,9 +4,9 @@
 #include <SDL2/SDL_main.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-#include "timer.h"
+#include "timer/timer.h"
 #include "test_animation.h"
-#include "window.h"
+#include "window/window.h"
 
 int initFrames(SDL_Rect *tab, int nb_frames, SDL_Surface *src, int line, int nb_lines)
 {
@@ -32,7 +32,6 @@ anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, SDL_
 
   for (int i = 0; i < state_count; i++)
   {
-
     new->state_frame_count[i] = state_frame_count[i];
   }
 
@@ -45,9 +44,8 @@ anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, SDL_
 
   for (int i = 0; i < state_count; i++)
   {
-
-    new->anims[i] = malloc(sizeof(SDL_Rect) * max_frames);
-    initFrames(new->anims[i], max_frames, dim, i, state_count);
+    new->anims[i] = malloc(sizeof(SDL_Rect) * state_frame_count[i]);
+    initFrames(new->anims[i], state_frame_count[i], dim, i, state_count);
   }
 
   return new;
@@ -71,27 +69,21 @@ int destroyAnim(anim_t **anim)
 
 void updateAnim(anim_t *anim, portal_e current_state, window_t *window)
 {
-
-  anim->current_frame++;
-
-  if (current_state != ANIMATION_CURRENT)
+  if (current_state != ANIMATION_CURRENT || current_state != ANIMATION_DELETE)
   {
     anim->current_state = (int)current_state;
-  }
 
-  if (current_state == ANIMATION_DELETE)
-  {
-    destroyAnim(&anim);
-    SDL_RenderClear(window->renderer);
     return;
   }
 
-  if (anim->current_frame > anim->state_frame_count[anim->current_state])
+  SDL_RenderCopy(window->renderer, anim->sprite, &anim->anims[anim->current_state][anim->current_frame], anim->size);
+
+  anim->current_frame++;
+
+  if (anim->current_frame >= anim->state_frame_count[anim->current_state])
   {
     anim->current_frame = 0;
   }
-
-  SDL_RenderCopy(window->renderer, anim->sprite, &anim->anims[anim->current_state][anim->current_frame], anim->size);
 }
 
 int main(int argc, char *argv[])
@@ -99,7 +91,7 @@ int main(int argc, char *argv[])
 
   window_t *window = createWindow("Test Animations", 640, 480);
 
-  SDL_Surface *dim = IMG_Load("asset/GreenPortal.png");
+  SDL_Surface *dim = IMG_Load("asset/sprite/portal/GreenPortal.png");
 
   SDL_Rect portal_size = {0, 0, 150, 150};
   int states[] = {8, 8, 6};
@@ -112,7 +104,9 @@ int main(int argc, char *argv[])
       dim,
       &portal_size);
 
-  dim = IMG_Load("asset/PurplePortal.png");
+  SDL_FreeSurface(dim);
+
+  dim = IMG_Load("asset/sprite/portal/PurplePortal.png");
   anim_t *purple_portal = createAnim(
       8,
       states,
@@ -121,18 +115,19 @@ int main(int argc, char *argv[])
       dim,
       &portal_size);
 
+  SDL_FreeSurface(dim);
+
   frame_timer_t *main_timer = createTimer(1000 / 10);
 
-  while (1)
+  int running = 1;
+  while (running)
   {
     SDL_Event e;
 
-    if (SDL_PollEvent(&e))
+    while (SDL_PollEvent(&e))
     {
       if (e.type == SDL_QUIT)
-      {
-        break;
-      }
+        running = 0;
     }
 
     // Début boucle animations
@@ -170,7 +165,10 @@ int main(int argc, char *argv[])
     }
   }
 
+  destroyAnim(&green_portal);
+  destroyAnim(&purple_portal);
   destroyWindow(&window);
+  deleteTimer(&main_timer);
   TTF_Quit();
   SDL_Quit();
 

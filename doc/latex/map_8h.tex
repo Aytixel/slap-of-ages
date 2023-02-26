@@ -1,0 +1,100 @@
+\hypertarget{map_8h}{}\doxysection{Référence du fichier src/map/map.h}
+\label{map_8h}\index{src/map/map.h@{src/map/map.h}}
+
+
+Implémentation des prototypes de \mbox{\hyperlink{map_8c}{map/map.\+c}}.  
+
+
+{\ttfamily \#include \char`\"{}window/window.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmap__sprite__rects__t}{map\+\_\+sprite\+\_\+rects\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure contenant les positions et tailles des sprites de la carte. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structmap__t}{map\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure contenant les données de la carte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structmap__t}{map\+\_\+t}} $\ast$ \mbox{\hyperlink{map_8h_a2e6fd897a022760ae741f8cbee914c67}{create\+Map}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, int map\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Créer la carte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{map_8h_a43766d573b802ca7fc39d7c2e1ad4755}{render\+Map}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structmap__t}{map\+\_\+t}} $\ast$map)
+\begin{DoxyCompactList}\small\item\em Fait le rendu de la carte sur la fenêtre. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{map_8h_a491a54a2da7e8f1630551bf0912650f3}{delete\+Map}} (\mbox{\hyperlink{structmap__t}{map\+\_\+t}} $\ast$$\ast$map)
+\begin{DoxyCompactList}\small\item\em Détruit la carte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des prototypes de \mbox{\hyperlink{map_8c}{map/map.\+c}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+16/02/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{map_8h_a2e6fd897a022760ae741f8cbee914c67}\label{map_8h_a2e6fd897a022760ae741f8cbee914c67}} 
+\index{map.h@{map.h}!createMap@{createMap}}
+\index{createMap@{createMap}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{createMap()}{createMap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmap__t}{map\+\_\+t}}$\ast$ create\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{int}]{map\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Créer la carte. 
+
+Initialise aussi les données des sprites nécessaires à l\textquotesingle{}affichage de la carte
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em size} & taille de la carte en nombre de cases \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur un {\bfseries{carte}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map_8h_a491a54a2da7e8f1630551bf0912650f3}\label{map_8h_a491a54a2da7e8f1630551bf0912650f3}} 
+\index{map.h@{map.h}!deleteMap@{deleteMap}}
+\index{deleteMap@{deleteMap}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{deleteMap()}{deleteMap()}}
+{\footnotesize\ttfamily int delete\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmap__t}{map\+\_\+t}} $\ast$$\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Détruit la carte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & une référence d\textquotesingle{}un pointeur sur la carte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map_8h_a43766d573b802ca7fc39d7c2e1ad4755}\label{map_8h_a43766d573b802ca7fc39d7c2e1ad4755}} 
+\index{map.h@{map.h}!renderMap@{renderMap}}
+\index{renderMap@{renderMap}!map.h@{map.h}}
+\doxysubsubsection{\texorpdfstring{renderMap()}{renderMap()}}
+{\footnotesize\ttfamily void render\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structmap__t}{map\+\_\+t}} $\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Fait le rendu de la carte sur la fenêtre. 
+
+Fait le rendu du sol en premier, avant de faire celui des arbres
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em map} & un pointeur sur la carte \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages: Référence du fichier src/map/map.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_391513bbec656ad0f0b1433a02685683.html">map</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier map.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Permet de gérer l'affichage de la carte.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="map_8h_source.html">map.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8fa35e95d202f9abb7f84c5b13e37d41"><td class="memItemLeft" align="right" valign="top"><a id="a8fa35e95d202f9abb7f84c5b13e37d41"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_TILE_SIZE</b>&#160;&#160;&#160;16</td></tr>
+<tr class="separator:a8fa35e95d202f9abb7f84c5b13e37d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a2e6fd897a022760ae741f8cbee914c67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmap__t.html">map_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a2e6fd897a022760ae741f8cbee914c67">createMap</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, int map_size)</td></tr>
+<tr class="memdesc:a2e6fd897a022760ae741f8cbee914c67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer la carte.  <a href="map_8c.html#a2e6fd897a022760ae741f8cbee914c67">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2e6fd897a022760ae741f8cbee914c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43766d573b802ca7fc39d7c2e1ad4755"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a43766d573b802ca7fc39d7c2e1ad4755">renderMap</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="structmap__t.html">map_t</a> *map)</td></tr>
+<tr class="memdesc:a43766d573b802ca7fc39d7c2e1ad4755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait le rendu de la carte sur la fenêtre.  <a href="map_8c.html#a43766d573b802ca7fc39d7c2e1ad4755">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a43766d573b802ca7fc39d7c2e1ad4755"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a491a54a2da7e8f1630551bf0912650f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a491a54a2da7e8f1630551bf0912650f3">deleteMap</a> (<a class="el" href="structmap__t.html">map_t</a> **map)</td></tr>
+<tr class="memdesc:a491a54a2da7e8f1630551bf0912650f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la carte.  <a href="map_8c.html#a491a54a2da7e8f1630551bf0912650f3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a491a54a2da7e8f1630551bf0912650f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Permet de gérer l'affichage de la carte. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Lucas Dureau </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>16/02/2023 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a2e6fd897a022760ae741f8cbee914c67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e6fd897a022760ae741f8cbee914c67">&#9670;&nbsp;</a></span>createMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmap__t.html">map_t</a>* createMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer la carte. </p>
+<p>Initialise aussi les données des sprites nécessaires à l'affichage de la carte</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">size</td><td>taille de la carte en nombre de cases </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>carte</b> </dd></dl>
+
+</div>
+</div>
+<a id="a491a54a2da7e8f1630551bf0912650f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a491a54a2da7e8f1630551bf0912650f3">&#9670;&nbsp;</a></span>deleteMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int deleteMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmap__t.html">map_t</a> **&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit la carte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>une référence d'un pointeur sur la carte </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="a43766d573b802ca7fc39d7c2e1ad4755"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43766d573b802ca7fc39d7c2e1ad4755">&#9670;&nbsp;</a></span>renderMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void renderMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmap__t.html">map_t</a> *&#160;</td>
+          <td class="paramname"><em>map</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fait le rendu de la carte sur la fenêtre. </p>
+<p>Fait le rendu du sol en premier, avant de faire celui des arbres</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">map</td><td>un pointeur sur la carte </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

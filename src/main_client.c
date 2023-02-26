@@ -2,9 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 #include <signal.h>
-#include "window.h"
-#include "timer.h"
-#include "client_connection.h"
+#include "window/window.h"
+#include "timer/timer.h"
+#include "connection/client.h"
+#include "map/map.h"
+
+#define MAP_SIZE 32
 
 int running = 1;
 
@@ -13,13 +16,22 @@ void signalHandler(int s)
     running = 0;
 }
 
-void windowEventHandler(SDL_Event *event)
+void windowEventHandler(SDL_Event *event, window_t *window)
 {
     // gestion des évènements de la fenêtre
     switch (event->type)
     {
     case SDL_QUIT:
         running = 0;
+        break;
+    case SDL_WINDOWEVENT:
+        switch (event->window.event)
+        {
+        case SDL_WINDOWEVENT_RESIZED:
+            window->width = event->window.data1;
+            window->height = event->window.data2;
+            break;
+        }
         break;
     }
 }
@@ -37,9 +49,14 @@ int main(int argc, char *argv[])
     if (window == NULL)
         return 1;
 
+    map_t *map = createMap(window, MAP_SIZE);
+
+    if (map == NULL)
+        return 1;
+
     initSocket();
 
-    frame_timer_t *main_timer = createTimer(1000 / 60);
+    frame_timer_t *main_timer = createTimer(1000 / 30);
 
     char hostname[256] = {0};
     uint16_t port = 0;
@@ -51,12 +68,10 @@ int main(int argc, char *argv[])
         int time_left = timeLeft(main_timer);
 
         if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
-            windowEventHandler(&event);
+            windowEventHandler(&event, window);
 
         if (checkTime(main_timer))
         {
-            SDL_RenderClear(window->renderer);
-
             // gestion de quelle chose faire en fonction de l'état de la connexion
             switch (client_connection_state)
             {
@@ -94,6 +109,10 @@ int main(int argc, char *argv[])
                 break;
             }
 
+            SDL_RenderClear(window->renderer);
+
+            renderMap(window, map);
+
             SDL_RenderPresent(window->renderer);
         }
     }
@@ -101,6 +120,7 @@ int main(int argc, char *argv[])
     closeClientConnection();
     deleteTimer(&main_timer);
     endSocket();
+    deleteMap(&map);
     destroyWindow(&window);
 
     return 0;
