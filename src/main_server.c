@@ -4,6 +4,10 @@
 #include <string.h>
 #include "timer/timer.h"
 #include "connection/server.h"
+#include "utils/getopt.h"
+
+#define DEFAULT_HOSTNAME "localhost"
+#define DEFAULT_PORT 4539
 
 int running = 1;
 
@@ -12,42 +16,54 @@ void signalHandler(int s)
     running = 0;
 }
 
-int get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port)
+void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port)
 {
-    for (int i = 1; i < argc; i++)
+    struct option longopts[] = {
+        {"hostname", required_argument, NULL, (int)'h'},
+        {"port", required_argument, NULL, (int)'p'},
+        {0, 0, 0, 0}};
+    int opt;
+
+    *hostname = NULL;
+    *port = 0;
+
+    while (
+        (opt = getopt_long(argc, argv, "h:p:", longopts, NULL)) != -1 ||
+        (opt = getopt(argc, argv, "h:p:")) != -1)
     {
-        if (*hostname == NULL && (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--hostname") == 0) && ++i < argc)
+        switch (opt)
         {
-            *hostname = malloc(sizeof(char) * (strlen(argv[i]) + 1));
-            strcpy(*hostname, argv[i]);
+        case 'h':
+            ssize_t hostname_size = sizeof(char) * (strlen(optarg) + 1);
+
+            *hostname = (*hostname == NULL)
+                            ? malloc(hostname_size)
+                            : realloc(*hostname, hostname_size);
+
+            strcpy(*hostname, optarg);
+            break;
+        case 'p':
+            *port = atoi(optarg);
+            break;
         }
-        else if (*port == 0 && (strcmp(argv[i], "-p") == 0 || strcmp(argv[i], "--port") == 0) && ++i < argc)
-            *port = atoi(argv[i]);
     }
+
+    if (!*port)
+        *port = DEFAULT_PORT;
 
     if (*hostname == NULL)
-        return -1;
-    if (*port == 0)
     {
-        free(*hostname);
-
-        return -1;
+        *hostname = malloc(strlen(DEFAULT_HOSTNAME));
+        strcpy(*hostname, DEFAULT_HOSTNAME);
     }
-
-    return 0;
 }
 
 int main(int argc, char *argv[])
 {
-    char *hostname = NULL;
-    uint16_t port = 0;
+    char *hostname;
+    uint16_t port;
 
-    if (get_connection_info(argc, argv, &hostname, &port) == -1)
-    {
-        printf("(Erreur): Nom d'hôte ou port non spécifié\n");
-
-        return 1;
-    }
+    get_connection_info(argc, argv, &hostname, &port);
 
     printf("Ecoute sur %s:%d\n", hostname, port);
 
