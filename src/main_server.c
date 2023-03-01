@@ -6,7 +6,7 @@
 #include "connection/server.h"
 #include "utils/getopt.h"
 
-#define DEFAULT_HOSTNAME "localhost"
+#define DEFAULT_HOSTNAME "0.0.0.0"
 #define DEFAULT_PORT 4539
 
 int running = 1;
@@ -53,7 +53,7 @@ void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port
 
     if (*hostname == NULL)
     {
-        *hostname = malloc(strlen(DEFAULT_HOSTNAME));
+        *hostname = malloc(strlen(DEFAULT_HOSTNAME) + 1);
         strcpy(*hostname, DEFAULT_HOSTNAME);
     }
 }
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
                 {
                 case SERVER_CLIENT_WAITING_HANDSHAKE:
                     if (waitClientHandshake(server))
-                        printf("Nouveau client connecté avec succès : %d\n", server_client->socket_fd);
+                        printf("%d : Nouveau client connecté avec succès\n", server_client->socket_fd);
                     break;
                 case SERVER_CLIENT_CONNECTED:; // Pour éviter l'erreur de compilation avec les anciennes versions de gcc
                     packet_t *packet = recvFromServerClient(server_client);
@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
 
             for (int i = 0; i < deleted_socket_fd_count; i++)
             {
-                printf("(Erreur): Déconnexion du client : %d\n", deleted_socket_fds[i]);
+                printf("%d : (Erreur): Déconnexion du client\n", deleted_socket_fds[i]);
             }
 
             sleepMs(timeLeft(main_timer));
