@@ -36,6 +36,13 @@ void windowEventHandler(SDL_Event *event, window_t *window)
     }
 }
 
+void handle_packet(packet_t *packet)
+{
+    switch (packet->id)
+    {
+    }
+}
+
 int main(int argc, char *argv[])
 {
     srand(time(NULL));
@@ -60,6 +67,7 @@ int main(int argc, char *argv[])
 
     char hostname[256] = {0};
     uint16_t port = 0;
+    char pseudo[64] = {0};
 
     // boucle principale
     while (running)
@@ -80,7 +88,15 @@ int main(int argc, char *argv[])
                 scanf("%s", hostname);
                 printf("Port du serveur : ");
                 scanf("%hd", &port);
+                printf("Pseudo : ");
+                scanf("%s", pseudo);
+
                 initClientConnection(hostname, port);
+
+                packet_t *set_pseudo_packet = createSetPseudoPacket(pseudo);
+
+                sendToServer(client, set_pseudo_packet);
+                deletePacket(&set_pseudo_packet);
                 break;
             case CLIENT_WAITING_HANDSHAKE:
                 switch (waitServerHandshake())
@@ -103,9 +119,11 @@ int main(int argc, char *argv[])
 
                 packet_t *packet = recvFromServer(client);
 
-                // code
-
-                deletePacket(&packet);
+                if (packet != NULL)
+                {
+                    handle_packet(packet);
+                    deletePacket(&packet);
+                }
                 break;
             }
 

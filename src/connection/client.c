@@ -9,7 +9,6 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "packet_id.h"
 #include "client.h"
 
 int handshake_data = 0;
@@ -34,16 +33,16 @@ extern int initClientConnection(char *hostname, uint16_t port)
         if (client == NULL)
             return -1;
 
-        handshake_data = rand();
+        packet_t *handshake_packet = createHandshakePacket(handshake_data = rand());
 
-        packet_t handshake_packet = {HANDSHAKE_PACKET_ID, &handshake_data, sizeof(handshake_data)};
-
-        if (sendToServer(client, &handshake_packet) == -1)
+        if (sendToServer(client, handshake_packet) == -1)
         {
             deleteClient(&client);
 
             return -1;
         }
+
+        deletePacket(&handshake_packet);
 
         client_connection_state = CLIENT_WAITING_HANDSHAKE;
     }
@@ -68,13 +67,20 @@ extern int waitServerHandshake()
     if (packet == NULL)
         return 0; // tant que la poignée de main n'est pas effectuée
 
-    if (packet->id == HANDSHAKE_PACKET_ID && sizeof(handshake_data) == packet->data_length && memcmp(&handshake_data, packet->data, sizeof(handshake_data)) == 0)
+    if (packet->id == HANDSHAKE_PACKET_ID)
     {
-        deletePacket(&packet);
+        int handshake_received_data;
 
-        client_connection_state = CLIENT_CONNECTED;
+        readHandshakePacket(packet, &handshake_received_data);
 
-        return 1; // si la poignée de main est réussie
+        if (handshake_received_data == handshake_data)
+        {
+            deletePacket(&packet);
+
+            client_connection_state = CLIENT_CONNECTED;
+
+            return 1; // si la poignée de main est réussie
+        }
     }
 
     deletePacket(&packet);

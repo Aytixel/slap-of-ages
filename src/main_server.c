@@ -58,6 +58,21 @@ void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port
     }
 }
 
+void handle_packet(packet_t *packet)
+{
+    switch (packet->id)
+    {
+    case SET_PSEUDO_PACKET_ID:
+        char *pseudo;
+
+        readSetPseudoPacket(packet, &pseudo);
+        printf("%d : Pseudo définie : %s\n", server_client->socket_fd, pseudo);
+        free(pseudo);
+
+        break;
+    }
+}
+
 int main(int argc, char *argv[])
 {
     char *hostname;
@@ -103,9 +118,11 @@ int main(int argc, char *argv[])
                 case SERVER_CLIENT_CONNECTED:; // Pour éviter l'erreur de compilation avec les anciennes versions de gcc
                     packet_t *packet = recvFromServerClient(server_client);
 
-                    // code
-
-                    deletePacket(&packet);
+                    if (packet != NULL)
+                    {
+                        handle_packet(packet);
+                        deletePacket(&packet);
+                    }
                     break;
                 }
             }

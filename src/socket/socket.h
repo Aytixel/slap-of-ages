@@ -23,16 +23,7 @@ typedef struct SOCKADDR_IN sockaddr_in;
 
 #endif
 
-/**
- * @brief Paquet réseaux pour les sockets
- *
- */
-typedef struct
-{
-    uint8_t id;         /**< id du packet (de 0 a 255)*/
-    void *data;         /**< buffer de données*/
-    size_t data_length; /**< taille du buffer de données*/
-} packet_t;
+#include "packet/packet.h"
 
 extern int initSocket();
 
