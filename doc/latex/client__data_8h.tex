@@ -1,0 +1,69 @@
+\hypertarget{client__data_8h}{}\doxysection{Référence du fichier src/server/client\+\_\+data.h}
+\label{client__data_8h}\index{src/server/client\_data.h@{src/server/client\_data.h}}
+
+
+Implémente les fonctions associées la structure de données pour les clients connectés au serveur.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structclient__data__t}{client\+\_\+data\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure de données associée à un client du serveur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structclient__data__t}{client\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{client__data_8h_a5c6494284ad06058564d710bb51d7610}{create\+Client\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Créer les données d\textquotesingle{}un client. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{client__data_8h_aa038121e7f4b45436f33b28c6b1f5a25}{delete\+Client\+Data}} (\mbox{\hyperlink{structclient__data__t}{client\+\_\+data\+\_\+t}} $\ast$$\ast$client\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Détruit les données d\textquotesingle{}un client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémente les fonctions associées la structure de données pour les clients connectés au serveur. 
+
+Implémentation des prototypes de server/client\+\_\+data.\+c.
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+02/03/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{client__data_8h_a5c6494284ad06058564d710bb51d7610}\label{client__data_8h_a5c6494284ad06058564d710bb51d7610}} 
+\index{client\_data.h@{client\_data.h}!createClientData@{createClientData}}
+\index{createClientData@{createClientData}!client\_data.h@{client\_data.h}}
+\doxysubsubsection{\texorpdfstring{createClientData()}{createClientData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structclient__data__t}{client\+\_\+data\+\_\+t}}$\ast$ create\+Client\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Créer les données d\textquotesingle{}un client. 
+
+\begin{DoxyReturn}{Renvoie}
+un pointer sur les {\bfseries{données client}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{client__data_8h_aa038121e7f4b45436f33b28c6b1f5a25}\label{client__data_8h_aa038121e7f4b45436f33b28c6b1f5a25}} 
+\index{client\_data.h@{client\_data.h}!deleteClientData@{deleteClientData}}
+\index{deleteClientData@{deleteClientData}!client\_data.h@{client\_data.h}}
+\doxysubsubsection{\texorpdfstring{deleteClientData()}{deleteClientData()}}
+{\footnotesize\ttfamily int delete\+Client\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__data__t}{client\+\_\+data\+\_\+t}} $\ast$$\ast$}]{client\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Détruit les données d\textquotesingle{}un client. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em server} & une référence d\textquotesingle{}un pointeur sur les données client \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}

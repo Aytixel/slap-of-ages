@@ -4,6 +4,7 @@
 #include <string.h>
 #include "timer/timer.h"
 #include "connection/server.h"
+#include "server/client_data.h"
 #include "utils/getopt.h"
 
 #define DEFAULT_HOSTNAME "0.0.0.0"
@@ -63,11 +64,8 @@ void handle_packet(packet_t *packet)
     switch (packet->id)
     {
     case SET_PSEUDO_PACKET_ID:
-        char *pseudo;
-
-        readSetPseudoPacket(packet, &pseudo);
-        printf("%d : Pseudo définie : %s\n", server_client->socket_fd, pseudo);
-        free(pseudo);
+        readSetPseudoPacket(packet, &((client_data_t *)*server_client_data)->pseudo);
+        printf("%d : Pseudo définie : %s\n", server_client->socket_fd, ((client_data_t *)*server_client_data)->pseudo);
 
         break;
     }
@@ -90,6 +88,8 @@ int main(int argc, char *argv[])
 
     server_t *server = createServer(hostname, port);
 
+    delete_server_client_data = (void *)deleteClientData;
+
     if (server == NULL)
     {
         endSocket();
@@ -109,11 +109,15 @@ int main(int argc, char *argv[])
 
             while (nextClientConnection())
             {
-                switch (server_client_connection_state)
+                switch (server_client_state)
                 {
                 case SERVER_CLIENT_WAITING_HANDSHAKE:
                     if (waitClientHandshake(server))
+                    {
+                        *server_client_data = createClientData();
+
                         printf("%d : Nouveau client connecté avec succès\n", server_client->socket_fd);
+                    }
                     break;
                 case SERVER_CLIENT_CONNECTED:; // Pour éviter l'erreur de compilation avec les anciennes versions de gcc
                     packet_t *packet = recvFromServerClient(server_client);

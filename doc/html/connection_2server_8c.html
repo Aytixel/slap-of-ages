@@ -108,19 +108,26 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>next_server_client_ind
 <tr class="separator:a01e5d2051b41b690c41bd8e4ccbd4c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add6c6fbe8d797ac0aca22a4ba036b038"><td class="memItemLeft" align="right" valign="top"><a id="add6c6fbe8d797ac0aca22a4ba036b038"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connection_2server_8c.html#add6c6fbe8d797ac0aca22a4ba036b038">deleted_socket_fd_count</a> = 0</td></tr>
-<tr class="memdesc:add6c6fbe8d797ac0aca22a4ba036b038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre d'id socket client supprimé <br /></td></tr>
+<tr class="memdesc:add6c6fbe8d797ac0aca22a4ba036b038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre d'id socket client supprimés. <br /></td></tr>
 <tr class="separator:add6c6fbe8d797ac0aca22a4ba036b038"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7aca607c352e64a6f7f67099351ec8d"><td class="memItemLeft" align="right" valign="top"><a id="ad7aca607c352e64a6f7f67099351ec8d"></a>
 int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connection_2server_8c.html#ad7aca607c352e64a6f7f67099351ec8d">deleted_socket_fds</a> = NULL</td></tr>
-<tr class="memdesc:ad7aca607c352e64a6f7f67099351ec8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id des sockets clients supprimé <br /></td></tr>
+<tr class="memdesc:ad7aca607c352e64a6f7f67099351ec8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id des sockets clients supprimés. <br /></td></tr>
 <tr class="separator:ad7aca607c352e64a6f7f67099351ec8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4f105c6dd86b580779aea8bb9877527"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connection_2server_8c.html#ad4f105c6dd86b580779aea8bb9877527">delete_server_client_data</a> )(void **) = NULL</td></tr>
+<tr class="memdesc:ad4f105c6dd86b580779aea8bb9877527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointeur vers la fonction de destruction des données associées à une connexion.  <a href="connection_2server_8c.html#ad4f105c6dd86b580779aea8bb9877527">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad4f105c6dd86b580779aea8bb9877527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a297c23f4f449cf533cd0e72bb4a5ef27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connection_2server_8c.html#a297c23f4f449cf533cd0e72bb4a5ef27">server_client</a> = NULL</td></tr>
 <tr class="memdesc:a297c23f4f449cf533cd0e72bb4a5ef27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client serveur socket courant.  <a href="connection_2server_8c.html#a297c23f4f449cf533cd0e72bb4a5ef27">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a297c23f4f449cf533cd0e72bb4a5ef27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0310b6cb636995d99c457980a9ccb8fa"><td class="memItemLeft" align="right" valign="top"><a id="a0310b6cb636995d99c457980a9ccb8fa"></a>
-<a class="el" href="connection_2server_8h.html#a4f72aa08096f869ed5f76e97c4b896cd">server_client_connection_state_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connection_2server_8c.html#a0310b6cb636995d99c457980a9ccb8fa">server_client_connection_state</a> = <a class="el" href="connection_2server_8h.html#a4f72aa08096f869ed5f76e97c4b896cdaf410b2afc00d25efce0b8981166bc72b">SERVER_CLIENT_WAITING_HANDSHAKE</a></td></tr>
-<tr class="memdesc:a0310b6cb636995d99c457980a9ccb8fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente l'état courant de la connexion coursante. <br /></td></tr>
-<tr class="separator:a0310b6cb636995d99c457980a9ccb8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba60bec4830e755ed0c32410aaff812"><td class="memItemLeft" align="right" valign="top"><a id="adba60bec4830e755ed0c32410aaff812"></a>
+void **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connection_2server_8c.html#adba60bec4830e755ed0c32410aaff812">server_client_data</a> = NULL</td></tr>
+<tr class="memdesc:adba60bec4830e755ed0c32410aaff812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contient les données associées à la connexion courante. <br /></td></tr>
+<tr class="separator:adba60bec4830e755ed0c32410aaff812"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef5ef07f63732ea403edd20c06417e9c"><td class="memItemLeft" align="right" valign="top"><a id="aef5ef07f63732ea403edd20c06417e9c"></a>
+<a class="el" href="connection_2server_8h.html#a4f72aa08096f869ed5f76e97c4b896cd">server_client_connection_state_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connection_2server_8c.html#aef5ef07f63732ea403edd20c06417e9c">server_client_state</a> = <a class="el" href="connection_2server_8h.html#a4f72aa08096f869ed5f76e97c4b896cdaf410b2afc00d25efce0b8981166bc72b">SERVER_CLIENT_WAITING_HANDSHAKE</a></td></tr>
+<tr class="memdesc:aef5ef07f63732ea403edd20c06417e9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente l'état de la connexion courante. <br /></td></tr>
+<tr class="separator:aef5ef07f63732ea403edd20c06417e9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Permet de gérer la connexion des clients au serveur. </p>
@@ -202,6 +209,27 @@ int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="con
 </div>
 </div>
 <h2 class="groupheader">Documentation des variables</h2>
+<a id="ad4f105c6dd86b580779aea8bb9877527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4f105c6dd86b580779aea8bb9877527">&#9670;&nbsp;</a></span>delete_server_client_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int(* delete_server_client_data) (void **) </td>
+          <td>(</td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> = NULL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointeur vers la fonction de destruction des données associées à une connexion. </p>
+<p>Doit impérativement être définie si des données sont stockées dans la structure d'une connexion, avec l'aide du pointeur server_client_data </p>
+
+</div>
+</div>
 <a id="a297c23f4f449cf533cd0e72bb4a5ef27"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a297c23f4f449cf533cd0e72bb4a5ef27">&#9670;&nbsp;</a></span>server_client</h2>
 

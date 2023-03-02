@@ -35,15 +35,20 @@ void \mbox{\hyperlink{connection_2server_8h_a6ff5417f900e8fa5e14d180006a5ee86}{c
 \item 
 \mbox{\Hypertarget{connection_2server_8h_add6c6fbe8d797ac0aca22a4ba036b038}\label{connection_2server_8h_add6c6fbe8d797ac0aca22a4ba036b038}} 
 int \mbox{\hyperlink{connection_2server_8h_add6c6fbe8d797ac0aca22a4ba036b038}{deleted\+\_\+socket\+\_\+fd\+\_\+count}}
-\begin{DoxyCompactList}\small\item\em Nombre d\textquotesingle{}id socket client supprimé \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Nombre d\textquotesingle{}id socket client supprimés. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{connection_2server_8h_ad7aca607c352e64a6f7f67099351ec8d}\label{connection_2server_8h_ad7aca607c352e64a6f7f67099351ec8d}} 
 int $\ast$ \mbox{\hyperlink{connection_2server_8h_ad7aca607c352e64a6f7f67099351ec8d}{deleted\+\_\+socket\+\_\+fds}}
-\begin{DoxyCompactList}\small\item\em Id des sockets clients supprimé \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Id des sockets clients supprimés. \end{DoxyCompactList}\item 
+int($\ast$ \mbox{\hyperlink{connection_2server_8h_ad4f105c6dd86b580779aea8bb9877527}{delete\+\_\+server\+\_\+client\+\_\+data}} )(void $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Pointeur vers la fonction de destruction des données associées à une connexion. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$ \mbox{\hyperlink{connection_2server_8h_a297c23f4f449cf533cd0e72bb4a5ef27}{server\+\_\+client}}
 \begin{DoxyCompactList}\small\item\em Client serveur socket courant. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{connection_2server_8h_a0310b6cb636995d99c457980a9ccb8fa}\label{connection_2server_8h_a0310b6cb636995d99c457980a9ccb8fa}} 
-\mbox{\hyperlink{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cd}{server\+\_\+client\+\_\+connection\+\_\+state\+\_\+e}} \mbox{\hyperlink{connection_2server_8h_a0310b6cb636995d99c457980a9ccb8fa}{server\+\_\+client\+\_\+connection\+\_\+state}}
-\begin{DoxyCompactList}\small\item\em Représente l\textquotesingle{}état courant de la connexion coursante. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{connection_2server_8h_adba60bec4830e755ed0c32410aaff812}\label{connection_2server_8h_adba60bec4830e755ed0c32410aaff812}} 
+void $\ast$$\ast$ \mbox{\hyperlink{connection_2server_8h_adba60bec4830e755ed0c32410aaff812}{server\+\_\+client\+\_\+data}}
+\begin{DoxyCompactList}\small\item\em Contient les données associées à la connexion courante. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{connection_2server_8h_aef5ef07f63732ea403edd20c06417e9c}\label{connection_2server_8h_aef5ef07f63732ea403edd20c06417e9c}} 
+\mbox{\hyperlink{connection_2server_8h_a4f72aa08096f869ed5f76e97c4b896cd}{server\+\_\+client\+\_\+connection\+\_\+state\+\_\+e}} \mbox{\hyperlink{connection_2server_8h_aef5ef07f63732ea403edd20c06417e9c}{server\+\_\+client\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em Représente l\textquotesingle{}état de la connexion courante. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -135,7 +140,17 @@ Attend la poignée de main du client.
 
 
 \doxysubsection{Documentation des variables}
-\mbox{\Hypertarget{connection_2server_8h_a297c23f4f449cf533cd0e72bb4a5ef27}\label{connection_2server_8h_a297c23f4f449cf533cd0e72bb4a5ef27}} 
+\mbox{\Hypertarget{connection_2server_8h_ad4f105c6dd86b580779aea8bb9877527}\label{connection_2server_8h_ad4f105c6dd86b580779aea8bb9877527}} 
+\index{server.h@{server.h}!delete\_server\_client\_data@{delete\_server\_client\_data}}
+\index{delete\_server\_client\_data@{delete\_server\_client\_data}!server.h@{server.h}}
+\doxysubsubsection{\texorpdfstring{delete\_server\_client\_data}{delete\_server\_client\_data}}
+{\footnotesize\ttfamily int($\ast$ delete\+\_\+server\+\_\+client\+\_\+data) (void $\ast$$\ast$) (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Pointeur vers la fonction de destruction des données associées à une connexion. 
+
+Doit impérativement être définie si des données sont stockées dans la structure d\textquotesingle{}une connexion, avec l\textquotesingle{}aide du pointeur server\+\_\+client\+\_\+data \mbox{\Hypertarget{connection_2server_8h_a297c23f4f449cf533cd0e72bb4a5ef27}\label{connection_2server_8h_a297c23f4f449cf533cd0e72bb4a5ef27}} 
 \index{server.h@{server.h}!server\_client@{server\_client}}
 \index{server\_client@{server\_client}!server.h@{server.h}}
 \doxysubsubsection{\texorpdfstring{server\_client}{server\_client}}
