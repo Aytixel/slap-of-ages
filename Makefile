@@ -1,5 +1,5 @@
 TARGET=main_client main_server
-TEST_TARGET=test_timer test_socket test_window test_animation test_menu
+TEST_TARGET=test_timer test_socket test_window test_animation test_menu recupererDonnee stockerDonnee
 
 CPU_COUNT=$(grep -c processor /proc/cpuinfo)
 
