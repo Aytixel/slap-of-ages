@@ -1,23 +1,27 @@
+/**
+ * @file test_menu.h
+ * @author Arthur Dureau
+ * @brief Implémentation des prototypes de tests/test_menu.c
+ * @version 1.0
+ * @date 03/03/2023
+ * 
+ * 
+ */
+
 #ifndef __TEST_MENU_H
 #define __TEST_MENU_H
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include "window/window.h"
 
-typedef struct {
-    SDL_Rect rect;
-    SDL_Texture* texture;
-    SDL_Surface* surface;  // nouvelle variable
-    char* text;
-} Button;
+extern void handleEvent(SDL_Event *event, window_t *window);
 
-typedef struct {
-    SDL_Surface* surface;
-    SDL_Texture* texture;
-    SDL_Rect rect;
-} Textbox;
+extern int initialisationSDL();
 
-extern void createButton(SDL_Renderer *renderer, TTF_Font *font, const char* buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, Button *button);
+extern void renderDrawColor(SDL_Renderer *renderer);
+
+extern SDL_Point getMousePosition();
 
 extern int menu();
 
