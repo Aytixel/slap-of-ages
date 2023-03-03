@@ -34,7 +34,7 @@ void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port
     {
         switch (opt)
         {
-        case 'h':
+        case 'h':;
             ssize_t hostname_size = sizeof(char) * (strlen(optarg) + 1);
 
             *hostname = (*hostname == NULL)

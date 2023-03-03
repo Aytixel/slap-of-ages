@@ -5,86 +5,8 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include "timer/timer.h"
-#include "test_animation.h"
+#include "window/animation.h"
 #include "window/window.h"
-
-int initFrames(SDL_Rect *tab, int nb_frames, SDL_Surface *src, int line, int nb_lines)
-{
-
-  for (int i = 0; i < nb_frames; i++)
-  {
-
-    tab[i].x = (src->w / nb_frames) * i;
-    tab[i].y = (src->h / nb_lines) * (line - 1);
-
-    tab[i].w = src->w / nb_frames;
-    tab[i].h = src->h / nb_lines;
-  }
-  return 0;
-}
-
-anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, SDL_Texture *sprite, SDL_Surface *dim, SDL_Rect *size)
-{
-
-  anim_t *new = malloc(sizeof(anim_t));
-
-  new->state_frame_count = malloc(sizeof(int) * state_count);
-
-  for (int i = 0; i < state_count; i++)
-  {
-    new->state_frame_count[i] = state_frame_count[i];
-  }
-
-  new->state_count = state_count;
-  new->current_frame = 0;
-  new->sprite = sprite;
-  new->size = size;
-
-  new->anims = malloc(sizeof(SDL_Rect *) * state_count);
-
-  for (int i = 0; i < state_count; i++)
-  {
-    new->anims[i] = malloc(sizeof(SDL_Rect) * state_frame_count[i]);
-    initFrames(new->anims[i], state_frame_count[i], dim, i, state_count);
-  }
-
-  return new;
-}
-
-int destroyAnim(anim_t **anim)
-{
-  free((*anim)->state_frame_count);
-
-  for (int i = 0; i < (*anim)->state_count; i++)
-  {
-    free((*anim)->anims[i]);
-  }
-
-  free((*anim)->anims);
-  free(*anim);
-  anim = NULL;
-
-  return 0;
-}
-
-void updateAnim(anim_t *anim, portal_e current_state, window_t *window)
-{
-  if (current_state != ANIMATION_CURRENT || current_state != ANIMATION_DELETE)
-  {
-    anim->current_state = (int)current_state;
-
-    return;
-  }
-
-  SDL_RenderCopy(window->renderer, anim->sprite, &anim->anims[anim->current_state][anim->current_frame], anim->size);
-
-  anim->current_frame++;
-
-  if (anim->current_frame >= anim->state_frame_count[anim->current_state])
-  {
-    anim->current_frame = 0;
-  }
-}
 
 int main(int argc, char *argv[])
 {
