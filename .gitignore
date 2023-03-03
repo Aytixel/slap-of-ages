@@ -1,8 +1,11 @@
+.DS_Store
 .vscode/*
 bin/*
 obj/*
 lib/linux/*
 include/linux/*
+lib/mac/*
+include/mac/*
 SDL*/
 
 !.gitkeep
