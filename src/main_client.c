@@ -91,12 +91,13 @@ int main(int argc, char *argv[])
                 printf("Pseudo : ");
                 scanf("%s", pseudo);
 
-                initClientConnection(hostname, port);
+                if (!initClientConnection(hostname, port))
+                {
+                    packet_t *set_pseudo_packet = createSetPseudoPacket(pseudo);
 
-                packet_t *set_pseudo_packet = createSetPseudoPacket(pseudo);
-
-                sendToServer(client, set_pseudo_packet);
-                deletePacket(&set_pseudo_packet);
+                    sendToServer(client, set_pseudo_packet);
+                    deletePacket(&set_pseudo_packet);
+                }
                 break;
             case CLIENT_WAITING_HANDSHAKE:
                 switch (waitServerHandshake())
