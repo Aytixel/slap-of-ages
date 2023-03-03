@@ -87,7 +87,7 @@ typedef struct anim_elem_s
 {
 
     anim_t *anim;
-    anim_elem_s *next;
+    struct anim_elem_s *next;
 
 } anim_elem_t;
 
