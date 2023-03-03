@@ -7,7 +7,7 @@
  *
  */
 
-#include <stdio.h>
+#include <stdlib.h>
 #include "map.h"
 
 #define MAP_TILE_SIZE 16
