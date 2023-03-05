@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['recv_5flength_74',['recv_length',['../structclient__t.html#a570e2ac54279c17f79dbba934a640831',1,'client_t::recv_length()'],['../structserver__client__t.html#ac1d78d04464accf90c40d4327c21a119',1,'server_client_t::recv_length()']]],
-  ['recvfromserver_75',['recvFromServer',['../socket_2client_8c.html#a8810d7842db652c20ad3c6f8329de8e0',1,'recvFromServer(client_t *client):&#160;client.c'],['../socket_2client_8h.html#a8810d7842db652c20ad3c6f8329de8e0',1,'recvFromServer(client_t *client):&#160;client.c']]],
-  ['recvfromserverclient_76',['recvFromServerClient',['../socket_2server_8c.html#a9d43d2b6f23fa8f52382a3cdb4d595dd',1,'recvFromServerClient(server_client_t *client):&#160;server.c'],['../socket_2server_8h.html#a9d43d2b6f23fa8f52382a3cdb4d595dd',1,'recvFromServerClient(server_client_t *client):&#160;server.c']]],
-  ['renderer_77',['renderer',['../structwindow__t.html#a79ad8be3dbb4a46cbf4554b64f64d70c',1,'window_t']]],
-  ['rendermap_78',['renderMap',['../map_8c.html#a43766d573b802ca7fc39d7c2e1ad4755',1,'renderMap(window_t *window, map_t *map):&#160;map.c'],['../map_8h.html#a43766d573b802ca7fc39d7c2e1ad4755',1,'renderMap(window_t *window, map_t *map):&#160;map.c']]]
+  ['packet_2ec_76',['packet.c',['../packet_8c.html',1,'']]],
+  ['packet_2eh_77',['packet.h',['../packet_8h.html',1,'']]],
+  ['packet_5fbuffer_78',['packet_buffer',['../structclient__t.html#a86845384b7035f326951f6af8e2b829c',1,'client_t::packet_buffer()'],['../structserver__client__t.html#a84c1d44e081636e53c69b37e119add16',1,'server_client_t::packet_buffer()']]],
+  ['packet_5fid_2eh_79',['packet_id.h',['../packet__id_8h.html',1,'']]],
+  ['packet_5fid_5fe_80',['packet_id_e',['../packet__id_8h.html#a0fc5416dae21974a42a4729378dd2eef',1,'packet_id.h']]],
+  ['packet_5ft_81',['packet_t',['../structpacket__t.html',1,'']]],
+  ['positionfromcenter_82',['positionFromCenter',['../window_8c.html#ad3c4f018bc737c5c0b0436fe379817ba',1,'positionFromCenter(window_t *window, int width, int height, int x, int y, transform_origin_e origin):&#160;window.c'],['../window_8h.html#ad3c4f018bc737c5c0b0436fe379817ba',1,'positionFromCenter(window_t *window, int width, int height, int x, int y, transform_origin_e origin):&#160;window.c']]],
+  ['positiontocenter_83',['positionToCenter',['../window_8c.html#a1de1e31a95e63b3a09ad7c3f4a7637c6',1,'positionToCenter(window_t *window, int width, int height):&#160;window.c'],['../window_8h.html#a1de1e31a95e63b3a09ad7c3f4a7637c6',1,'positionToCenter(window_t *window, int width, int height):&#160;window.c']]]
 ];

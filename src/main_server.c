@@ -4,6 +4,11 @@
 #include <string.h>
 #include "timer/timer.h"
 #include "connection/server.h"
+#include "server/client_data.h"
+#include "utils/getopt.h"
+
+#define DEFAULT_HOSTNAME "0.0.0.0"
+#define DEFAULT_PORT 4539
 
 int running = 1;
 
@@ -12,42 +17,66 @@ void signalHandler(int s)
     running = 0;
 }
 
-int get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port)
+void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port)
 {
-    for (int i = 1; i < argc; i++)
+    struct option longopts[] = {
+        {"hostname", required_argument, NULL, (int)'h'},
+        {"port", required_argument, NULL, (int)'p'},
+        {0, 0, 0, 0}};
+    int opt;
+
+    *hostname = NULL;
+    *port = 0;
+
+    while (
+        (opt = getopt_long(argc, argv, "h:p:", longopts, NULL)) != -1 ||
+        (opt = getopt(argc, argv, "h:p:")) != -1)
     {
-        if (*hostname == NULL && (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--hostname") == 0) && ++i < argc)
+        switch (opt)
         {
-            *hostname = malloc(sizeof(char) * (strlen(argv[i]) + 1));
-            strcpy(*hostname, argv[i]);
+        case 'h':;
+            ssize_t hostname_size = sizeof(char) * (strlen(optarg) + 1);
+
+            *hostname = (*hostname == NULL)
+                            ? malloc(hostname_size)
+                            : realloc(*hostname, hostname_size);
+
+            strcpy(*hostname, optarg);
+            break;
+        case 'p':
+            *port = atoi(optarg);
+            break;
         }
-        else if (*port == 0 && (strcmp(argv[i], "-p") == 0 || strcmp(argv[i], "--port") == 0) && ++i < argc)
-            *port = atoi(argv[i]);
     }
+
+    if (!*port)
+        *port = DEFAULT_PORT;
 
     if (*hostname == NULL)
-        return -1;
-    if (*port == 0)
     {
-        free(*hostname);
-
-        return -1;
+        *hostname = malloc(strlen(DEFAULT_HOSTNAME) + 1);
+        strcpy(*hostname, DEFAULT_HOSTNAME);
     }
+}
 
-    return 0;
+void handle_packet(packet_t *packet)
+{
+    switch (packet->id)
+    {
+    case SET_PSEUDO_PACKET_ID:
+        readSetPseudoPacket(packet, &((client_data_t *)*server_client_data)->pseudo);
+        printf("%d : Pseudo définie : %s\n", server_client->socket_fd, ((client_data_t *)*server_client_data)->pseudo);
+
+        break;
+    }
 }
 
 int main(int argc, char *argv[])
 {
-    char *hostname = NULL;
-    uint16_t port = 0;
+    char *hostname;
+    uint16_t port;
 
-    if (get_connection_info(argc, argv, &hostname, &port) == -1)
-    {
-        printf("(Erreur): Nom d'hôte ou port non spécifié\n");
-
-        return 1;
-    }
+    get_connection_info(argc, argv, &hostname, &port);
 
     printf("Ecoute sur %s:%d\n", hostname, port);
 
@@ -58,6 +87,8 @@ int main(int argc, char *argv[])
     initSocket();
 
     server_t *server = createServer(hostname, port);
+
+    delete_server_client_data = (void *)deleteClientData;
 
     if (server == NULL)
     {
@@ -78,25 +109,31 @@ int main(int argc, char *argv[])
 
             while (nextClientConnection())
             {
-                switch (server_client_connection_state)
+                switch (server_client_state)
                 {
                 case SERVER_CLIENT_WAITING_HANDSHAKE:
                     if (waitClientHandshake(server))
-                        printf("Nouveau client connecté avec succès : %d\n", server_client->socket_fd);
+                    {
+                        *server_client_data = createClientData();
+
+                        printf("%d : Nouveau client connecté avec succès\n", server_client->socket_fd);
+                    }
                     break;
                 case SERVER_CLIENT_CONNECTED:; // Pour éviter l'erreur de compilation avec les anciennes versions de gcc
                     packet_t *packet = recvFromServerClient(server_client);
 
-                    // code
-
-                    deletePacket(&packet);
+                    if (packet != NULL)
+                    {
+                        handle_packet(packet);
+                        deletePacket(&packet);
+                    }
                     break;
                 }
             }
 
             for (int i = 0; i < deleted_socket_fd_count; i++)
             {
-                printf("(Erreur): Déconnexion du client : %d\n", deleted_socket_fds[i]);
+                printf("%d : (Erreur): Déconnexion du client\n", deleted_socket_fds[i]);
             }
 
             sleepMs(timeLeft(main_timer));

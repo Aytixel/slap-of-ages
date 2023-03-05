@@ -1,0 +1,108 @@
+\hypertarget{packet_8c}{}\doxysection{Référence du fichier src/packet/packet.c}
+\label{packet_8c}\index{src/packet/packet.c@{src/packet/packet.c}}
+
+
+Implémente toute les fonctions pour créer, et lire les différents paquets.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}packet.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_a93f8a54557335bcbf428a2950d362ab2}{create\+Handshake\+Packet}} (int data)
+\begin{DoxyCompactList}\small\item\em Créer un paquet de poignée de main. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{packet_8c_ae81a3bfde9a24192f8c6dcfd69dc51da}{read\+Handshake\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, int $\ast$data)
+\begin{DoxyCompactList}\small\item\em Lie un paquet de poignée de main. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_acfe526c88e56449d83149c9a613d3d82}{create\+Set\+Pseudo\+Packet}} (char $\ast$pseudo)
+\begin{DoxyCompactList}\small\item\em Créer un paquet définissant le pseudo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{packet_8c_a122133c809cbe724167772655612afdc}{read\+Set\+Pseudo\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, char $\ast$$\ast$pseudo)
+\begin{DoxyCompactList}\small\item\em Lie un paquet définissant le pseudo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémente toute les fonctions pour créer, et lire les différents paquets. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+05/02/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{packet_8c_a93f8a54557335bcbf428a2950d362ab2}\label{packet_8c_a93f8a54557335bcbf428a2950d362ab2}} 
+\index{packet.c@{packet.c}!createHandshakePacket@{createHandshakePacket}}
+\index{createHandshakePacket@{createHandshakePacket}!packet.c@{packet.c}}
+\doxysubsubsection{\texorpdfstring{createHandshakePacket()}{createHandshakePacket()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ create\+Handshake\+Packet (\begin{DoxyParamCaption}\item[{int}]{data }\end{DoxyParamCaption})}
+
+
+
+Créer un paquet de poignée de main. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em handshake\+\_\+data} & données de la poignée de main \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur un {\bfseries{paquet}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{packet_8c_acfe526c88e56449d83149c9a613d3d82}\label{packet_8c_acfe526c88e56449d83149c9a613d3d82}} 
+\index{packet.c@{packet.c}!createSetPseudoPacket@{createSetPseudoPacket}}
+\index{createSetPseudoPacket@{createSetPseudoPacket}!packet.c@{packet.c}}
+\doxysubsubsection{\texorpdfstring{createSetPseudoPacket()}{createSetPseudoPacket()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ create\+Set\+Pseudo\+Packet (\begin{DoxyParamCaption}\item[{char $\ast$}]{pseudo }\end{DoxyParamCaption})}
+
+
+
+Créer un paquet définissant le pseudo. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pseudo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur un {\bfseries{paquet}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{packet_8c_ae81a3bfde9a24192f8c6dcfd69dc51da}\label{packet_8c_ae81a3bfde9a24192f8c6dcfd69dc51da}} 
+\index{packet.c@{packet.c}!readHandshakePacket@{readHandshakePacket}}
+\index{readHandshakePacket@{readHandshakePacket}!packet.c@{packet.c}}
+\doxysubsubsection{\texorpdfstring{readHandshakePacket()}{readHandshakePacket()}}
+{\footnotesize\ttfamily void read\+Handshake\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet,  }\item[{int $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Lie un paquet de poignée de main. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em packet} & paquet à lire \\
+\hline
+{\em data} & un pointeur sur les données de la poignée de main \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{packet_8c_a122133c809cbe724167772655612afdc}\label{packet_8c_a122133c809cbe724167772655612afdc}} 
+\index{packet.c@{packet.c}!readSetPseudoPacket@{readSetPseudoPacket}}
+\index{readSetPseudoPacket@{readSetPseudoPacket}!packet.c@{packet.c}}
+\doxysubsubsection{\texorpdfstring{readSetPseudoPacket()}{readSetPseudoPacket()}}
+{\footnotesize\ttfamily void read\+Set\+Pseudo\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet,  }\item[{char $\ast$$\ast$}]{pseudo }\end{DoxyParamCaption})}
+
+
+
+Lie un paquet définissant le pseudo. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em packet} & paquet à lire \\
+\hline
+{\em pseudo} & un pointeur sur le pseudo \\
+\hline
+\end{DoxyParams}

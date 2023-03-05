@@ -1,7 +1,5 @@
 TARGET=main_client main_server
-TEST_TARGET=test_timer test_socket test_window test_animation test_menu
-
-CPU_COUNT=$(grep -c processor /proc/cpuinfo)
+TEST_TARGET=test_timer test_socket test_window test_animation test_menu recupererDonnee stockerDonnee
 
 ifeq ($(OS), Windows_NT)
 
@@ -21,9 +19,18 @@ CP=copy
 
 else
 
+CPU_COUNT=$(grep -c processor /proc/cpuinfo)
+
+ifeq ($(shell uname -s), Linux)
 LIB_DIR=lib/linux
 INC_DIR=include/linux
 LIB_TARGET=libSDL2-2.0.so.0 libSDL2_ttf-2.0.so.0 libSDL2_image-2.0.so.0
+else
+LIB_DIR=lib/mac
+INC_DIR=include/mac
+LIB_TARGET=libSDL2.dylib libSDL2_ttf.dylib libSDL2_image.dylib
+endif
+
 LIB_TARGET_DIR=$(LIB_DIR)
 
 LFLAGS=-Wall -L $(LIB_DIR) -Wl,-rpath $(LIB_DIR) -Wl,-rpath ./  -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
@@ -86,8 +93,10 @@ $(TEST_OBJECTS): $(OBJ_DIR)/%.o : $(TEST_DIR)/%.c
 copy_lib: $(LIB_TARGET)
 
 $(LIB_TARGET):
+ifeq ($(shell uname -s), Linux)
 	@$(CP) $(subst /,$(PATH_SEP),$(LIB_TARGET_DIR)/$@ $(BIN_DIR)/$@)
 	@echo "Library $(LIB_TARGET_DIR)/$@ -> $(BIN_DIR)/$@ copied correctly!"
+endif
 
 .PHONY: clean
 clean:
@@ -132,5 +141,14 @@ ifneq ($(OS), Windows_NT)
 
 	@cp -r SDL_lib/lib/* $(LIB_DIR)
 	@cp -r SDL_lib/include/* $(INC_DIR)
+
+ifeq ($(shell uname -s), Darwin)
+	@install_name_tool -id $(shell pwd)/$(LIB_DIR)/libSDL2.dylib $(LIB_DIR)/libSDL2.dylib
+	@install_name_tool -id $(shell pwd)/$(LIB_DIR)/libSDL2_image.dylib $(LIB_DIR)/libSDL2_image.dylib
+	@install_name_tool -id $(shell pwd)/$(LIB_DIR)/libSDL2_ttf.dylib $(LIB_DIR)/libSDL2_ttf.dylib
+	@install_name_tool -change $(shell pwd)/SDL_lib/lib/libSDL2-2.0.0.dylib $(shell pwd)/$(LIB_DIR)/libSDL2.dylib $(LIB_DIR)/libSDL2_image.dylib 
+	@install_name_tool -change $(shell pwd)/SDL_lib/lib/libSDL2-2.0.0.dylib $(shell pwd)/$(LIB_DIR)/libSDL2.dylib $(LIB_DIR)/libSDL2_ttf.dylib 
+endif
+
 	@rm -rf SDL_lib
 endif
