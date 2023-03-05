@@ -6,8 +6,9 @@
 #include "timer/timer.h"
 #include "connection/client.h"
 #include "map/map.h"
+#include "map/building.h"
 
-#define MAP_SIZE 32
+#define MAP_SIZE 31
 
 int running = 1;
 
@@ -59,6 +60,11 @@ int main(int argc, char *argv[])
     map_t *map = createMap(window, MAP_SIZE);
 
     if (map == NULL)
+        return 1;
+
+    building_t *building = createBuilding(window, map);
+
+    if (building == NULL)
         return 1;
 
     initSocket();
@@ -131,6 +137,17 @@ int main(int argc, char *argv[])
             SDL_RenderClear(window->renderer);
 
             renderMap(window, map);
+            renderBuilding(window, building, 0, 0, HOUSE_1_BUILDING);
+            renderBuilding(window, building, 1, 0, HOUSE_2_BUILDING);
+            renderBuilding(window, building, 2, 0, HOUSE_3_BUILDING);
+            renderBuilding(window, building, 3, 0, CORNER_WALL_BUILDING);
+            renderBuilding(window, building, 4, 0, MINE_BUILDING);
+            renderBuilding(window, building, 0, 1, MILL_BUILDING);
+            renderBuilding(window, building, 1, 1, VERTICAL_WALL_BUILDING);
+            renderBuilding(window, building, 2, 1, SPACE_FILLER_WALL_BUILDING);
+            renderBuilding(window, building, 3, 1, HORIZONTAL_WALL_BUILDING);
+            renderBuilding(window, building, 3, 2, WELL_BUILDING);
+            renderBuilding(window, building, 4, 2, FIELD_BUILDING);
 
             SDL_RenderPresent(window->renderer);
         }
@@ -139,6 +156,7 @@ int main(int argc, char *argv[])
     closeClientConnection();
     deleteTimer(&main_timer);
     endSocket();
+    deleteBuilding(&building);
     deleteMap(&map);
     destroyWindow(&window);
 
