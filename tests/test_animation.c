@@ -1,67 +1,78 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_main.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
 #include "timer/timer.h"
 #include "window/animation.h"
+#include "window/animation_states.h"
 #include "window/window.h"
+
+int running = 1;
+
+void windowEventHandler(SDL_Event *event, window_t *window)
+{
+  // gestion des évènements de la fenêtre
+  switch (event->type)
+  {
+  case SDL_QUIT:
+    running = 0;
+    break;
+  case SDL_WINDOWEVENT:
+    switch (event->window.event)
+    {
+    case SDL_WINDOWEVENT_RESIZED:
+      window->width = event->window.data1;
+      window->height = event->window.data2;
+      break;
+    }
+    break;
+  }
+}
 
 int main(int argc, char *argv[])
 {
 
   window_t *window = createWindow("Test Animations", 640, 480);
 
-  SDL_Surface *dim = IMG_Load("asset/sprite/portal/GreenPortal.png");
-
-  SDL_Rect portal_size = {0, 0, 150, 150};
+  SDL_Rect portal_size = {100, 100, 150, 150};
+  SDL_Rect book_size = {100, 100, 300, 300};
   int states[] = {8, 8, 6};
-
-  anim_t *portal = NULL;
+  int book_states[] = {7};
 
   anim_t *green_portal = createAnim(
       8,
       states,
       3,
-      SDL_CreateTextureFromSurface(window->renderer, dim),
-      dim,
+      loadSprite(window, "asset/sprite/portal/GreenPortal.png"),
       &portal_size);
 
-  SDL_FreeSurface(dim);
-
-  /*
-  dim = IMG_Load("asset/sprite/portal/PurplePortal.png");
-  anim_t *purple_portal = createAnim(
-      8,
-      states,
-      3,
-      SDL_CreateTextureFromSurface(window->renderer, dim),
-      dim,
-      &portal_size);
-
-  SDL_FreeSurface(dim);
-  */
+  anim_t *book = createAnim(
+      7,
+      book_states,
+      1,
+      loadSprite(window, "asset/sprite/menu/RADL_Book.png"),
+      &book_size);
 
   frame_timer_t *main_timer = createTimer(1000 / 10);
 
-  int running = 1;
   while (running)
   {
-    SDL_Event e;
+    SDL_Event event;
+    int time_left = timeLeft(main_timer);
 
-    while (SDL_PollEvent(&e))
+    /*if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
+      windowEventHandler(&event, window);*/
+
+    while (SDL_PollEvent(&event))
     {
-      if (e.type == SDL_QUIT)
+      if (event.type == SDL_QUIT)
         running = 0;
 
-      if (e.type == SDL_MOUSEBUTTONDOWN)
+      if (event.type == SDL_MOUSEBUTTONDOWN)
       {
 
-        if (e.button.clicks == 1 && (e.button.button == SDL_BUTTON_LEFT))
+        if (event.button.clicks == 1 && (event.button.button == SDL_BUTTON_LEFT))
         {
-          green_portal->size->x = e.button.x - (green_portal->size->w / 2);
-          green_portal->size->y = e.button.y - (green_portal->size->h / 2);
+          book->size->x = event.button.x - (book->size->w / 2);
+          book->size->y = event.button.y - (book->size->h / 2);
         }
       }
     }
@@ -69,14 +80,17 @@ int main(int argc, char *argv[])
     if (checkTime(main_timer))
     {
       SDL_RenderClear(window->renderer);
+
+      updateAnim(book, 0, window);
+
       SDL_RenderPresent(window->renderer);
     }
   }
 
-  destroyWindow(&window);
   deleteTimer(&main_timer);
-  TTF_Quit();
-  SDL_Quit();
+  destroyAnim(&green_portal);
+  destroyAnim(&book);
+  destroyWindow(&window);
 
   return 0;
 }

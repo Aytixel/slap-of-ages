@@ -12,32 +12,6 @@
  */
 
 /**
- * @brief   Enumération des états d'une animation
- * @details Les états sont les suivants :
- *         - ANIMATION_IDLE : l'animation est en pause
- *        - ANIMATION_SPAWN : l'animation apparait
- *       - ANIMATION_DESPAWN : l'animation disparait
- *     - ANIMATION_DELETE : l'animation est supprimée
- *   - ANIMATION_CURRENT : l'animation est en cours d'affichage
- * @param ANIMATION_IDLE
- * @param ANIMATION_SPAWN
- * @param ANIMATION_DESPAWN
- * @param ANIMATION_DELETE
- * @param ANIMATION_CURRENT
- * @return enum
- */
-
-typedef enum
-{
-    ANIMATION_IDLE,
-    ANIMATION_SPAWN,
-    ANIMATION_DESPAWN,
-    ANIMATION_DELETE,
-    ANIMATION_CURRENT
-
-} portal_e;
-
-/**
  * @brief   Structure d'une animation
  * @details La structure d'une animation est composée des éléments suivants :
  *         - state_frame_count : tableau des images par état
@@ -66,7 +40,7 @@ typedef struct
     SDL_Rect **anims;
     SDL_Rect *size;
 
-    SDL_Texture *sprite;
+    sprite_t *sprite;
 
     int current_state;
     int current_frame;
@@ -74,4 +48,8 @@ typedef struct
 
 /*Fonctions externes*/
 
-extern anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, SDL_Texture *sprite, SDL_Surface *dim, SDL_Rect *size);
+extern anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, sprite_t *sprite, SDL_Rect *size);
+
+extern int destroyAnim(anim_t **anim);
+
+extern void updateAnim(anim_t *anim, int new_state, window_t *window);
