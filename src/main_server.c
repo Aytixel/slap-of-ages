@@ -28,9 +28,7 @@ void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port
     *hostname = NULL;
     *port = 0;
 
-    while (
-        (opt = getopt_long(argc, argv, "h:p:", longopts, NULL)) != -1 ||
-        (opt = getopt(argc, argv, "h:p:")) != -1)
+    while ((opt = getopt_long(argc, argv, "h:p:", longopts, NULL)) != -1)
     {
         switch (opt)
         {
