@@ -68,15 +68,14 @@ void createButton(SDL_Renderer *renderer, TTF_Font *font, const char* buttonText
  * @return void
  */
 
-void createTextbox(SDL_Renderer* renderer, TTF_Font* font, SDL_Color color, int x, int y, int w, int h, SDL_Rect* rect) {
-    SDL_Surface* surface = NULL;
-    SDL_Texture* texture = NULL;
-    surface = TTF_RenderText_Solid(font, " ", color);
-    texture = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_FreeSurface(surface);
-    rect->x = x;
-    rect->y = y;
-    rect->w = w;
-    rect->h = h;
-    SDL_SetTextInputRect(rect);
+void createTextbox(SDL_Renderer* renderer, TTF_Font* font, SDL_Color color, int x, int y, int w, int h, Textbox_t* textbox) {
+    textbox->surface = TTF_RenderText_Solid(font, " ", color);
+    textbox->texture = SDL_CreateTextureFromSurface(renderer, textbox->surface);
+    SDL_FreeSurface(textbox->surface);
+    textbox->rect.x = x;
+    textbox->rect.y = y;
+    textbox->rect.w = w;
+    textbox->rect.h = h;
+    SDL_SetTextInputRect(&(textbox->rect));
 }
+

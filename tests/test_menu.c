@@ -92,20 +92,23 @@ void renderDrawColor(SDL_Renderer *renderer)
  * @return int 
  */
 
-int checkTTFLib(SDL_Window *window, SDL_Renderer *renderer)
+int checkTTFLib(window_t *window)
 {
   // Check de la librairie
   if (TTF_Init() == -1)
   {
     fprintf(stderr, "Erreur lors de l'initialisation de la SDL_ttf : %s", TTF_GetError());
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(window->renderer);
+    destroyWindow(&window);
     SDL_Quit();
     return 1;
   }
 
   return 0;
 }
+
+
+
 
 /**
  * @brief Fonction de chargement de la police
@@ -115,7 +118,7 @@ int checkTTFLib(SDL_Window *window, SDL_Renderer *renderer)
  * @return TTF_Font* 
  */
 
-TTF_Font *loadFont(SDL_Window *window, SDL_Renderer *renderer)
+TTF_Font *loadFont(window_t *window, SDL_Renderer *renderer)
 {
   // Chargement de la police
   TTF_Font *font = TTF_OpenFont("asset/font/8-BIT-WONDER.ttf", 24);
@@ -123,13 +126,14 @@ TTF_Font *loadFont(SDL_Window *window, SDL_Renderer *renderer)
   {
     fprintf(stderr, "Erreur lors du chargement de la police : %s", TTF_GetError());
     SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
+    destroyWindow(&window);
     SDL_Quit();
     return NULL;
   }
 
   return font;
 }
+
 
 /**
  * @brief Fonction de chargement de la police pour la textbox
@@ -139,7 +143,7 @@ TTF_Font *loadFont(SDL_Window *window, SDL_Renderer *renderer)
  * @return TTF_Font* 
  */
 
-TTF_Font *loadFontTextBox(SDL_Window *window, SDL_Renderer *renderer)
+TTF_Font *loadFontTextBox(window_t *window, SDL_Renderer *renderer)
 {
   // Chargement de la police
   TTF_Font *fontTextBox = TTF_OpenFont("asset/font/arial.ttf", 24);
@@ -147,7 +151,7 @@ TTF_Font *loadFontTextBox(SDL_Window *window, SDL_Renderer *renderer)
   {
     fprintf(stderr, "Erreur lors du chargement de la police : %s", TTF_GetError());
     SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
+    destroyWindow(&window);
     SDL_Quit();
     return NULL;
   }
@@ -211,7 +215,7 @@ int menu()
 
   renderDrawColor(window->renderer);
 
-  checkTTFLib(window, window->renderer);
+  checkTTFLib(window);
 
   TTF_Font *font = loadFont(window, window->renderer);
   TTF_Font *fontTextBox = loadFontTextBox(window, window->renderer);
@@ -244,19 +248,13 @@ int menu()
 
   // Création de l'Image du Menu Principal
 
-  SDL_Surface *imagep = IMG_Load("asset/sprite/menu/RADL_Book4.png");
+  SDL_Surface *imagep = IMG_Load("asset/pack/PixelBooksVers1.0/RADL_Book4.png");
   if (!imagep)
   {
     printf("Erreur de chargement de l'image : %s", SDL_GetError());
     return -1;
   }
   SDL_Texture *texturep = SDL_CreateTextureFromSurface(window->renderer, imagep);
-  SDL_Rect ImageRect;
-
-  ImageRect.h = imagep->h;
-  ImageRect.w = imagep->w;
-  ImageRect.x = window->width / 2;
-  ImageRect.x = window->height / 2;
 
   // Bouton "NEWHOST"
   createButton(window->renderer, font, "HOST", color, 0.21f, 0.40f, 0.1f, 0.04f, &buttonHost, window->width, window->height);
@@ -541,7 +539,7 @@ int menu()
 
   TTF_CloseFont(font);
   SDL_DestroyRenderer(window->renderer);
-  SDL_DestroyWindow(window);
+  destroyWindow(&window);
   TTF_Quit();
   SDL_Quit();
 
