@@ -265,12 +265,14 @@ int menu()
   // Bouton "NEWQUITTER"
   createButton(window->renderer, font, "QUITTER", color, 0.21f, 0.55f, 0.15f, 0.04f, &buttonQuitter, window->width, window->height);
 
+  Textbox_t textboxIp, textboxPort, textboxPseudo;
+
   SDL_Rect TextInputRectIp;
-  createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &TextInputRectIp);
+  createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &textboxIp);
   SDL_Rect TextInputRectPort;
-  createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.2, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &TextInputRectPort);
+  createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.2, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &textboxPort);
   SDL_Rect TextInputRectPseudo;
-  createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.4, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &TextInputRectPseudo);
+  createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.4, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &textboxPseudo);
 
   frame_timer_t *multi_timer = createTimer(1000 / 60);
 
@@ -301,9 +303,9 @@ int menu()
         createButton(window->renderer, font, "JOIN", color, 0.21f, 0.475f, 0.1f, 0.04f, &buttonJoin, window->width, window->height);
         createButton(window->renderer, font, "QUITTER", color, 0.21f, 0.55f, 0.15f, 0.04f, &buttonQuitter, window->width, window->height);
 
-        createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &TextInputRectIp);
-        createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.2, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &TextInputRectPort);
-        createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.4, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &TextInputRectPseudo);
+        createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &textboxIp);
+        createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.2, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &textboxPort);
+        createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.4, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &textboxPseudo);
 
         height = window->height;
         width = window->width;
