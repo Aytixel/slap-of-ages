@@ -24,7 +24,7 @@ extern building_renderer_t *createBuildingRenderer(window_t *window, map_rendere
     building_renderer_t *building_renderer = malloc(sizeof(building_renderer_t));
 
     building_renderer->map_renderer = map_renderer;
-    building_renderer->sprite = loadSprite(window, "asset/sprite/building_renderer/MasterSimple.png");
+    building_renderer->sprite = loadSprite(window, "asset/sprite/building/MasterSimple.png");
 
     if (building_renderer->sprite == NULL)
     {
