@@ -18,9 +18,6 @@ int main(int argc, char *argv[])
   SDL_Rect portal_size = {0, 0, 150, 150};
   int states[] = {8, 8, 6};
 
-
-  anim_list_t *list = createAnimList();
-  
   anim_t *portal = NULL;
 
   anim_t *green_portal = createAnim(
@@ -33,6 +30,7 @@ int main(int argc, char *argv[])
 
   SDL_FreeSurface(dim);
 
+  /*
   dim = IMG_Load("asset/sprite/portal/PurplePortal.png");
   anim_t *purple_portal = createAnim(
       8,
@@ -43,6 +41,7 @@ int main(int argc, char *argv[])
       &portal_size);
 
   SDL_FreeSurface(dim);
+  */
 
   frame_timer_t *main_timer = createTimer(1000 / 10);
 
@@ -57,52 +56,23 @@ int main(int argc, char *argv[])
         running = 0;
 
       if (e.type == SDL_MOUSEBUTTONDOWN)
+      {
+
+        if (e.button.clicks == 1 && (e.button.button == SDL_BUTTON_LEFT))
         {
-
-          if (e.button.clicks == 1 && (e.button.button == SDL_BUTTON_LEFT || e.button.button == SDL_BUTTON_RIGHT))
-          {
-            if (e.button.button == SDL_BUTTON_LEFT)
-            {
-              green_portal->size->x = e.button.x - (green_portal->size->w / 2);
-              green_portal->size->y = e.button.y - (green_portal->size->h / 2);
-
-              portal = createAnim(
-                                  8,
-                                  states,
-                                  3,
-                                  SDL_CreateTextureFromSurface(window->renderer, dim),
-                                  dim,
-                                  &portal_size);
-
-              updateStateAnim(portal, ANIMATION_IDLE);
-              addAnimList(list, portal);
-              portal = NULL;
-              printf("Click gauche\nNombre d'éléments dans la liste: %d", countAnimList(list));
-            }
-
-            else
-            {
-              /*
-              purple_portal->size->x = e.button.x - (purple_portal->size->w / 2);
-              purple_portal->size->y = e.button.y - (purple_portal->size->h / 2);
-              updateStateAnim(purple_portal, ANIMATION_IDLE);*/
-              removeAnimList(list, green_portal);
-              printf("Click droit\nNombre d'éléments dans la liste: %d", countAnimList(list));
-            }
-          }
+          green_portal->size->x = e.button.x - (green_portal->size->w / 2);
+          green_portal->size->y = e.button.y - (green_portal->size->h / 2);
         }
+      }
     }
-
 
     if (checkTime(main_timer))
     {
       SDL_RenderClear(window->renderer);
-      updateAnimList(list , window);
       SDL_RenderPresent(window->renderer);
     }
   }
 
-  destroyAnimList(&list);
   destroyWindow(&window);
   deleteTimer(&main_timer);
   TTF_Quit();

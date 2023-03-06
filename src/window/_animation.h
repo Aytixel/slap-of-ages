@@ -72,6 +72,68 @@ typedef struct
     int current_frame;
 } anim_t;
 
-/*Fonctions externes*/
+/**
+ * @brief   Structure d'un élément d'une liste d'animation
+ * @details La structure d'un élément d'une liste d'animation est composée des éléments suivants :
+ *         - anim : animation
+ *         - next : élément suivant
+ * @param anim
+ * @param next
+ * @return struct
+ */
 
-extern anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, SDL_Texture *sprite, SDL_Surface *dim, SDL_Rect *size);
+typedef struct anim_elem_s
+{
+
+    anim_t *anim;
+    struct anim_elem_s *next;
+
+} anim_elem_t;
+
+/**
+ * @brief   Structure d'une liste d'animation
+ * @details La structure d'une liste d'animation est composée des éléments suivants :
+ *         - flag : élément de début de liste
+ *         - current : élément courant
+ * @param flag
+ * @param current
+ * @return struct
+ */
+
+typedef struct
+{
+
+    anim_elem_t *flag;
+    anim_elem_t *current;
+
+} anim_list_t;
+
+
+/*Déclaration Fonctions externes*/
+
+extern
+anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, SDL_Texture *sprite, SDL_Surface *dim, SDL_Rect *size);
+
+extern
+anim_list_t *createAnimList();
+
+extern
+void addAnimList(anim_list_t *list, anim_t *anim);
+
+extern
+void removeAnimList(anim_list_t *list, anim_t *anim);
+
+extern
+void updateAnimList(anim_list_t *list, window_t *window);
+
+extern
+int destroyAnimList(anim_list_t **list);
+
+extern
+void updateStateAnim(anim_t *anim, int new_state);
+
+extern
+int countAnimList(anim_list_t *list);
+
+extern
+int isAnimListExist(anim_list_t *list);
