@@ -5,8 +5,8 @@
 #include "window/window.h"
 #include "timer/timer.h"
 #include "connection/client.h"
-#include "map/map.h"
-#include "map/building.h"
+#include "map/map_renderer.h"
+#include "map/building_renderer.h"
 
 #define MAP_SIZE 31
 
@@ -57,14 +57,14 @@ int main(int argc, char *argv[])
     if (window == NULL)
         return 1;
 
-    map_t *map = createMap(window, MAP_SIZE);
+    map_renderer_t *map_renderer = createMapRenderer(window, MAP_SIZE);
 
-    if (map == NULL)
+    if (map_renderer == NULL)
         return 1;
 
-    building_t *building = createBuilding(window, map);
+    building_renderer_t *building_renderer = createBuildingRenderer(window, map_renderer);
 
-    if (building == NULL)
+    if (building_renderer == NULL)
         return 1;
 
     initSocket();
@@ -136,18 +136,18 @@ int main(int argc, char *argv[])
 
             SDL_RenderClear(window->renderer);
 
-            renderMap(window, map);
-            renderBuilding(window, building, 0, 0, HOUSE_1_BUILDING);
-            renderBuilding(window, building, 1, 0, HOUSE_2_BUILDING);
-            renderBuilding(window, building, 2, 0, HOUSE_3_BUILDING);
-            renderBuilding(window, building, 3, 0, CORNER_WALL_BUILDING);
-            renderBuilding(window, building, 4, 0, MINE_BUILDING);
-            renderBuilding(window, building, 0, 1, MILL_BUILDING);
-            renderBuilding(window, building, 1, 1, VERTICAL_WALL_BUILDING);
-            renderBuilding(window, building, 2, 1, SPACE_FILLER_WALL_BUILDING);
-            renderBuilding(window, building, 3, 1, HORIZONTAL_WALL_BUILDING);
-            renderBuilding(window, building, 3, 2, WELL_BUILDING);
-            renderBuilding(window, building, 4, 2, FIELD_BUILDING);
+            renderMap(window, map_renderer);
+            renderBuilding(window, building_renderer, 0, 0, HOUSE_1_BUILDING);
+            renderBuilding(window, building_renderer, 1, 0, HOUSE_2_BUILDING);
+            renderBuilding(window, building_renderer, 2, 0, HOUSE_3_BUILDING);
+            renderBuilding(window, building_renderer, 3, 0, CORNER_WALL_BUILDING);
+            renderBuilding(window, building_renderer, 4, 0, MINE_BUILDING);
+            renderBuilding(window, building_renderer, 0, 1, MILL_BUILDING);
+            renderBuilding(window, building_renderer, 1, 1, VERTICAL_WALL_BUILDING);
+            renderBuilding(window, building_renderer, 2, 1, SPACE_FILLER_WALL_BUILDING);
+            renderBuilding(window, building_renderer, 3, 1, HORIZONTAL_WALL_BUILDING);
+            renderBuilding(window, building_renderer, 3, 2, WELL_BUILDING);
+            renderBuilding(window, building_renderer, 4, 2, FIELD_BUILDING);
 
             SDL_RenderPresent(window->renderer);
         }
@@ -156,8 +156,8 @@ int main(int argc, char *argv[])
     closeClientConnection();
     deleteTimer(&main_timer);
     endSocket();
-    deleteBuilding(&building);
-    deleteMap(&map);
+    deleteBuildingRenderer(&building_renderer);
+    deleteMapRenderer(&map_renderer);
     destroyWindow(&window);
 
     return 0;

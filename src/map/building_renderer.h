@@ -1,7 +1,7 @@
 /**
- * @file building.h
+ * @file building_renderer.h
  * @author Lucas Dureau
- * @brief Implémentation des prototypes de map/building.c
+ * @brief Implémentation des prototypes de map_renderer/building_renderer.c
  * @version 0.1
  * @date 03/03/2023
  *
@@ -11,7 +11,7 @@
 #define __BUILDING_H
 
 #include "window/window.h"
-#include "map.h"
+#include "map_renderer.h"
 
 /**
  * @brief Enumération des différents types de bâtiments
@@ -57,18 +57,18 @@ typedef struct
  */
 typedef struct
 {
-    map_t *map;                                /**< pointeur sur la carte*/
+    map_renderer_t *map_renderer;              /**< pointeur sur la carte*/
     sprite_t *sprite;                          /**< grille de sprite contenant les sprites */
     building_sprite_rects_t sprite_tile_rects; /**< positions et tailles des sprites des bâtiments en nombre de cases*/
     building_sprite_rects_t sprite_rects;      /**< positions et tailles des sprites des bâtiments en nombre de pixels*/
-} building_t;
+} building_renderer_t;
 
-extern building_t *createBuilding(window_t *window, map_t *map);
+extern building_renderer_t *createBuildingRenderer(window_t *window, map_renderer_t *map_renderer);
 
-extern int canPlaceBuilding(building_t *building, int x, int y, building_type_e building_type);
+extern int canRenderBuilding(building_renderer_t *building, int x, int y, building_type_e building_type);
 
-extern int renderBuilding(window_t *window, building_t *building, int x, int y, building_type_e building_type);
+extern int renderBuilding(window_t *window, building_renderer_t *building, int x, int y, building_type_e building_type);
 
-extern int deleteBuilding(building_t **building);
+extern int deleteBuildingRenderer(building_renderer_t **building);
 
 #endif

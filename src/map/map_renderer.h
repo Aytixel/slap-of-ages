@@ -1,7 +1,7 @@
 /**
- * @file map.h
+ * @file map_renderer.h
  * @author Lucas Dureau
- * @brief Implémentation des prototypes de map/map.c
+ * @brief Implémentation des prototypes de map/map_renderer.c
  * @version 0.1
  * @date 16/02/2023
  *
@@ -49,12 +49,12 @@ typedef struct
     sprite_t *tree_sprite;                /**< grille de sprite contenant les sprites des arbres */
     map_sprite_rects_t sprite_tile_rects; /**< positions et tailles des sprites de la carte en nombre de cases*/
     map_sprite_rects_t sprite_rects;      /**< positions et tailles des sprites de la carte en nombre de pixels*/
-} map_t;
+} map_renderer_t;
 
-extern map_t *createMap(window_t *window, int map_size);
+extern map_renderer_t *createMapRenderer(window_t *window, int map_size);
 
-extern void renderMap(window_t *window, map_t *map);
+extern void renderMap(window_t *window, map_renderer_t *map);
 
-extern int deleteMap(map_t **map);
+extern int deleteMapRenderer(map_renderer_t **map);
 
 #endif
