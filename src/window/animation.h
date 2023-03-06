@@ -1,6 +1,5 @@
 #include <SDL2/SDL_image.h>
-
-// commentaires doxygen
+#include "window.h"
 
 /**
  * @file animation.h
@@ -108,3 +107,33 @@ typedef struct
     anim_elem_t *current;
 
 } anim_list_t;
+
+
+/*Déclaration Fonctions externes*/
+
+extern
+anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, SDL_Texture *sprite, SDL_Surface *dim, SDL_Rect *size);
+
+extern
+anim_list_t *createAnimList();
+
+extern
+void addAnimList(anim_list_t *list, anim_t *anim);
+
+extern
+void removeAnimList(anim_list_t *list, anim_t *anim);
+
+extern
+void updateAnimList(anim_list_t *list, window_t *window);
+
+extern
+int destroyAnimList(anim_list_t **list);
+
+extern
+void updateStateAnim(anim_t *anim, int new_state);
+
+extern
+int countAnimList(anim_list_t *list);
+
+extern
+int isAnimListExist(anim_list_t *list);

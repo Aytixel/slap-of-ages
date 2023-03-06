@@ -56,6 +56,7 @@ int initFrames(SDL_Rect *tab, int nb_frames, SDL_Surface *src, int line, int nb_
  * @return anim_t*
  */
 
+extern
 anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, SDL_Texture *sprite, SDL_Surface *dim, SDL_Rect *size)
 {
 
@@ -115,8 +116,15 @@ int destroyAnim(anim_t **anim)
  * @param window
  */
 
-void updateAnim(anim_t *anim, portal_e new_state, window_t *window)
+void updateAnim(anim_t *anim, int new_state, window_t *window)
 {
+    if (new_state == ANIMATION_DELETE)
+    {
+
+        destroyAnim(&anim);
+        return;
+    }
+    
     if (anim->current_state != new_state)
     {
         anim->current_state = new_state;
@@ -126,12 +134,11 @@ void updateAnim(anim_t *anim, portal_e new_state, window_t *window)
     SDL_RenderCopy(window->renderer, anim->sprite, &anim->anims[anim->current_state][anim->current_frame], anim->size);
 
     anim->current_frame++;
-
-    if (new_state == ANIMATION_DELETE)
+    if(anim->current_frame >= anim->state_frame_count[anim->current_state])
     {
-
-        destroyAnim(&anim);
+        anim->current_frame = 0;
     }
+
 }
 
 /**
@@ -140,6 +147,7 @@ void updateAnim(anim_t *anim, portal_e new_state, window_t *window)
  * @return anim_list_t*
  */
 
+extern
 anim_list_t *createAnimList()
 {
 
@@ -160,6 +168,7 @@ anim_list_t *createAnimList()
  * @param anim
  */
 
+extern
 void addAnimList(anim_list_t *list, anim_t *anim)
 {
 
@@ -171,6 +180,31 @@ void addAnimList(anim_list_t *list, anim_t *anim)
     list->current = new;
 }
 
+
+/**
+ * @brief   Vérifie si l'animation est dans la liste
+ *
+ * @param list
+ * @param anim
+ * @return int
+ */
+
+int isAnimInList(anim_list_t *list, anim_t *anim)
+{
+
+    anim_elem_t *current = list->flag->next;
+
+    while (current != list->flag)
+    {
+        if (current->anim == anim)
+        {
+            return 1;
+        }
+        current = current->next;
+    }
+    return 0;
+}
+
 /**
  * @brief   Supprime une animation de la liste
  *
@@ -178,17 +212,22 @@ void addAnimList(anim_list_t *list, anim_t *anim)
  * @param anim
  */
 
+extern
 void removeAnimList(anim_list_t *list, anim_t *anim)
 {
 
     anim_elem_t *current = list->flag->next;
     anim_elem_t *previous = list->flag;
 
+    if(!isAnimInList(list, anim))
+        return;
+
     while (current != list->flag)
     {
         if (current->anim == anim)
         {
             previous->next = current->next;
+            destroyAnim(&current->anim);
             free(current);
             break;
         }
@@ -204,6 +243,7 @@ void removeAnimList(anim_list_t *list, anim_t *anim)
  * @param window
  */
 
+extern
 void updateAnimList(anim_list_t *list, window_t *window)
 {
 
@@ -214,4 +254,85 @@ void updateAnimList(anim_list_t *list, window_t *window)
         updateAnim(current->anim, current->anim->current_state, window);
         current = current->next;
     }
+}
+
+/**
+ * @brief   Détruit la liste d'animation
+ *
+ * @param list
+ * @return int
+ */
+
+extern
+int destroyAnimList(anim_list_t **list)
+{
+
+    anim_elem_t *current = (*list)->flag->next;
+    anim_elem_t *previous = (*list)->flag;
+
+    while (current != (*list)->flag)
+    {
+        previous = current;
+        current = current->next;
+        destroyAnim(&previous->anim);
+        free(previous);
+    }
+
+    free((*list)->flag);
+    free(*list);
+    list = NULL;
+
+    return 0;
+}
+
+/**
+ * @brief   Met à jour l'état d'une animation
+ *
+ * @param anim
+ * @param new_state
+ */
+
+extern
+void updateStateAnim(anim_t *anim, int new_state)
+{
+    anim->current_state = new_state;
+    anim->current_frame = 0;
+}
+
+
+/**
+ * @brief   Compte le nombre d'éléments dans la liste
+ *
+ * @param list
+ * @return int
+ */
+
+extern
+int countAnimList(anim_list_t *list)
+{
+    int count = 0;
+    anim_elem_t *current = list->flag->next;
+
+    while (current != list->flag)
+    {
+        count++;
+        current = current->next;
+    }
+
+    return count;
+}
+
+/**
+ * @brief   Vérifie si la liste existe
+ *
+ * @param list
+ * @return int
+ */
+
+extern
+int isAnimListExist(anim_list_t *list)
+{
+    if (list == NULL)
+        return 0;
+    return 1;
 }
