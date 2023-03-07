@@ -35,9 +35,10 @@ typedef struct {
     SDL_Surface* surface; 
     SDL_Texture* texture;
     SDL_Rect rect;
+    char* text;
 } Textbox_t;
 
-extern void createButton(SDL_Renderer *renderer, TTF_Font *font, const char* buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, int width, int height);
+extern void createButton(SDL_Renderer *renderer, TTF_Font *font, const char* buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, int windowWidth, int windowHeight);
 
 extern void createTextbox(SDL_Renderer* renderer, TTF_Font* font, SDL_Color color, int x, int y, int w, int h, Textbox_t* textbox);
 

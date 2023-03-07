@@ -225,9 +225,13 @@ int menu()
 
   // Création des boutons
   SDL_Color color = {52, 36, 20, 0}; // Rouge
+  SDL_Color color2 = {255, 255, 255, 0}; // Blanc
   button_t buttonHost;
   button_t buttonJoin;
   button_t buttonQuitter;
+  button_t buttonPseudo;
+  button_t buttonPort;
+  button_t buttonIp;
 
   // Variables pour le texte adresse ip
   char inputTextIp[1024] = {0};
@@ -256,22 +260,28 @@ int menu()
   }
   SDL_Texture *texturep = SDL_CreateTextureFromSurface(window->renderer, imagep);
 
-  // Bouton "NEWHOST"
+  // Bouton "HOST"
   createButton(window->renderer, font, "HOST", color, 0.21f, 0.40f, 0.1f, 0.04f, &buttonHost, window->width, window->height);
 
-  // Bouton "NEWJOIN"
+  // Bouton "JOIN"
   createButton(window->renderer, font, "JOIN", color, 0.21f, 0.475f, 0.1f, 0.04f, &buttonJoin, window->width, window->height);
 
-  // Bouton "NEWQUITTER"
+  // Bouton "QUITTER"
   createButton(window->renderer, font, "QUITTER", color, 0.21f, 0.55f, 0.15f, 0.04f, &buttonQuitter, window->width, window->height);
+
+  // Bouton "PSEUDO"
+  createButton(window->renderer, font, "Pseudo", color2,  0.60f, 0.515f, 0.06f, 0.04f, &buttonPseudo, window->width, window->height);
+
+  // Bouton "PORT"
+  createButton(window->renderer, font, "Port", color2, 0.60f, 0.435f, 0.06f, 0.04f, &buttonPort, window->width, window->height);
+
+  // Bouton "IP"
+  createButton(window->renderer, font, "Ip", color2, 0.60f, 0.35f, 0.06f, 0.04f, &buttonIp, window->width, window->height);
 
   Textbox_t textboxIp, textboxPort, textboxPseudo;
 
-  SDL_Rect TextInputRectIp;
   createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &textboxIp);
-  SDL_Rect TextInputRectPort;
   createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.2, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &textboxPort);
-  SDL_Rect TextInputRectPseudo;
   createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.4, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &textboxPseudo);
 
   frame_timer_t *multi_timer = createTimer(1000 / 60);
@@ -298,10 +308,20 @@ int menu()
         SDL_FreeSurface(buttonJoin.surface);
         SDL_DestroyTexture(buttonQuitter.texture);
         SDL_FreeSurface(buttonQuitter.surface);
+        SDL_DestroyTexture(buttonIp.texture);
+        SDL_FreeSurface(buttonIp.surface);
+        SDL_DestroyTexture(buttonPort.texture);
+        SDL_FreeSurface(buttonPort.surface);
+        SDL_DestroyTexture(buttonPseudo.texture);
+        SDL_FreeSurface(buttonPseudo.surface);
 
         createButton(window->renderer, font, "HOST", color, 0.21f, 0.40f, 0.1f, 0.04f, &buttonHost, window->width, window->height);
         createButton(window->renderer, font, "JOIN", color, 0.21f, 0.475f, 0.1f, 0.04f, &buttonJoin, window->width, window->height);
-        createButton(window->renderer, font, "QUITTER", color, 0.21f, 0.55f, 0.15f, 0.04f, &buttonQuitter, window->width, window->height);
+        createButton(window->renderer, font, "QUITTER", color,  0.21f, 0.55f, 0.15f, 0.04f, &buttonQuitter, window->width, window->height);
+
+        //createButton(window->renderer, font, "PSEUDO", color, 0.90f, 0.90f, 0.15f, 0.04f, &buttonPseudo, window->width, window->height);
+        //createButton(window->renderer, font, "PORT", color, 0.60f, 0.65f, 0.15f, 0.04f, &buttonPort, window->width, window->height);
+        //createButton(window->renderer, font, "IP", color, 0.60f, 0.65f, 0.15f, 0.04f, &buttonIp, window->width, window->height);
 
         createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &textboxIp);
         createTextbox(window->renderer, font, color, buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.2, buttonJoin.rect.w * 2.5, buttonJoin.rect.h, &textboxPort);
@@ -320,6 +340,13 @@ int menu()
       buttonQuitter.surface = TTF_RenderText_Solid(font, "QUITTER", color);
       buttonQuitter.texture = SDL_CreateTextureFromSurface(window->renderer, buttonQuitter.surface);
 
+      buttonIp.surface = TTF_RenderText_Solid(font, "Ip", color2);
+      buttonIp.texture = SDL_CreateTextureFromSurface(window->renderer, buttonIp.surface);
+      buttonPort.surface = TTF_RenderText_Solid(font, "Port", color2);
+      buttonPort.texture = SDL_CreateTextureFromSurface(window->renderer, buttonPort.surface);
+      buttonPseudo.surface = TTF_RenderText_Solid(font, "Pseudo", color2);
+      buttonPseudo.texture = SDL_CreateTextureFromSurface(window->renderer, buttonPseudo.surface);
+
       // Si l'utilisateur clique sur le bouton "QUITTER"
       if (event.type == SDL_MOUSEBUTTONDOWN &&
           event.button.button == SDL_BUTTON_LEFT &&
@@ -332,8 +359,12 @@ int menu()
         SDL_FreeSurface(buttonHost.surface);
         SDL_DestroyTexture(buttonJoin.texture);
         SDL_FreeSurface(buttonJoin.surface);
-        SDL_DestroyTexture(buttonQuitter.texture);
-        SDL_FreeSurface(buttonQuitter.surface);
+        SDL_DestroyTexture(buttonIp.texture);
+        SDL_FreeSurface(buttonPort.surface);
+        SDL_DestroyTexture(buttonPseudo.texture);
+        SDL_FreeSurface(buttonIp.surface);
+        SDL_DestroyTexture(buttonPort.texture);
+        SDL_FreeSurface(buttonPseudo.surface);
 
         // Quitter le programme
         exit(0);
@@ -342,28 +373,28 @@ int menu()
       // Si l'utilisateur clique dans l'un des rectangles de texte
       if (event.type == SDL_MOUSEBUTTONDOWN &&
           event.button.button == SDL_BUTTON_LEFT &&
-          event.button.x >= TextInputRectIp.x &&
-          event.button.x <= TextInputRectIp.x + TextInputRectIp.w &&
-          event.button.y >= TextInputRectIp.y &&
-          event.button.y <= TextInputRectIp.y + TextInputRectIp.h && inoption == 0)
+          event.button.x >= textboxIp.rect.x &&
+          event.button.x <= textboxIp.rect.x + textboxIp.rect.w &&
+          event.button.y >= textboxIp.rect.y &&
+          event.button.y <= textboxIp.rect.y + textboxIp.rect.h && inoption == 0)
       {
         box = 1;
       }
       else if (event.type == SDL_MOUSEBUTTONDOWN &&
                event.button.button == SDL_BUTTON_LEFT &&
-               event.button.x >= TextInputRectPort.x &&
-               event.button.x <= TextInputRectPort.x + TextInputRectPort.w &&
-               event.button.y >= TextInputRectPort.y &&
-               event.button.y <= TextInputRectPort.y + TextInputRectPort.h && inoption == 0)
+               event.button.x >= textboxPort.rect.x &&
+               event.button.x <= textboxPort.rect.x + textboxPort.rect.w &&
+               event.button.y >= textboxPort.rect.y &&
+               event.button.y <= textboxPort.rect.y + textboxPort.rect.h && inoption == 0)
       {
         box = 2;
       }
       else if (event.type == SDL_MOUSEBUTTONDOWN &&
                event.button.button == SDL_BUTTON_LEFT &&
-               event.button.x >= TextInputRectPseudo.x &&
-               event.button.x <= TextInputRectPseudo.x + TextInputRectPseudo.w &&
-               event.button.y >= TextInputRectPseudo.y &&
-               event.button.y <= TextInputRectPseudo.y + TextInputRectPseudo.h && inoption == 0)
+               event.button.x >= textboxPseudo.rect.x &&
+               event.button.x <= textboxPseudo.rect.x + textboxPseudo.rect.w &&
+               event.button.y >= textboxPseudo.rect.y &&
+               event.button.y <= textboxPseudo.rect.y + textboxPseudo.rect.h && inoption == 0)
       {
         box = 3;
       }
@@ -490,18 +521,21 @@ int menu()
       SDL_RenderCopy(window->renderer, buttonHost.texture, NULL, &buttonHost.rect);
       SDL_RenderCopy(window->renderer, buttonJoin.texture, NULL, &buttonJoin.rect);
       SDL_RenderCopy(window->renderer, buttonQuitter.texture, NULL, &buttonQuitter.rect);
+      SDL_RenderCopy(window->renderer, buttonIp.texture, NULL, &buttonIp.rect);
+      SDL_RenderCopy(window->renderer, buttonPort.texture, NULL, &buttonPort.rect);
+      SDL_RenderCopy(window->renderer, buttonPseudo.texture, NULL, &buttonPseudo.rect);
 
       //---------//
 
       // Dessiner le rectangle de saisie de texte pour l'IP
       SDL_SetRenderDrawColor(window->renderer, 192, 148, 115, 0);
-      SDL_RenderFillRect(window->renderer, &TextInputRectIp);
+      SDL_RenderFillRect(window->renderer, &textboxIp.rect);
       // Dessiner le rectangle de saisie de texte pour le port
       SDL_SetRenderDrawColor(window->renderer, 192, 148, 115, 0);
-      SDL_RenderFillRect(window->renderer, &TextInputRectPort);
+      SDL_RenderFillRect(window->renderer, &textboxPort.rect);
       // Dessiner le rectangle de saisie de texte pour le pseudo
       SDL_SetRenderDrawColor(window->renderer, 192, 148, 115, 0);
-      SDL_RenderFillRect(window->renderer, &TextInputRectPseudo);
+      SDL_RenderFillRect(window->renderer, &textboxPseudo.rect);
 
       // Dessiner le texte des text box
       SDL_Rect textRectIp = {buttonHost.rect.x * 2.8, buttonHost.rect.y, (widthIp / 2), (buttonJoin.rect.h)};

@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
@@ -34,7 +35,7 @@
  * @return void
  */
 
-void createButton(SDL_Renderer *renderer, TTF_Font *font, const char* buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, int width, int height) {
+void createButton(SDL_Renderer *renderer, TTF_Font *font, const char* buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, int windowWidth, int windowHeight) {
     // Création de la surface du bouton
     button->surface = TTF_RenderText_Solid(font, buttonText, color);
 
@@ -42,16 +43,19 @@ void createButton(SDL_Renderer *renderer, TTF_Font *font, const char* buttonText
     button->texture = SDL_CreateTextureFromSurface(renderer, button->surface);
 
     // Calcul des dimensions du bouton en pixels
-    button->rect.w = (int)(width * buttonWidthRatio);
-    button->rect.h = (int)(height * buttonHeightRatio);
+    button->rect.w = (int)(windowWidth * buttonWidthRatio);
+    button->rect.h = (int)(windowHeight * buttonHeightRatio);
 
     // Calcul de la position du bouton en pixels
-    button->rect.x = (int)(width * buttonXRatio);
-    button->rect.y = (int)(height * buttonYRatio);
+    button->rect.x = (int)(windowWidth * buttonXRatio);
+    button->rect.y = (int)(windowHeight * buttonYRatio);
 
     // Initialisation du texte du bouton
-    button->text = strdup(buttonText);  // duplique la chaîne de caractères pour éviter toute modification ultérieure
+    button->text = strdup(buttonText);
 }
+
+
+
 
 /**
  * @brief Fonction de création des textes box (texte de saisie)
@@ -78,4 +82,3 @@ void createTextbox(SDL_Renderer* renderer, TTF_Font* font, SDL_Color color, int 
     textbox->rect.h = h;
     SDL_SetTextInputRect(&(textbox->rect));
 }
-
