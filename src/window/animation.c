@@ -21,15 +21,14 @@
 /**
  * @brief   Initialise les images d'une animation
  *
- * @param tab
- * @param nb_frames
- * @param src
- * @param line
- * @param nb_lines
- * @return int
+ * @param tab : tableau contenant les positions et tailles des différentes images de l'animation dans la source
+ * @param nb_frames : nombre d'images de l'animation
+ * @param src : image source de l'animation
+ * @param line : ligne contenant les différentes étapes d'une animation dans l'image source
+ * @param nb_lines : nombre de lignes dans l'image source
  */
 
-int initFrames(SDL_Rect *tab, int max_frames, int nb_frames, SDL_Surface *src, int line, int nb_lines)
+void initFrames(SDL_Rect *tab, int max_frames, int nb_frames, SDL_Surface *src, int line, int nb_lines)
 {
 
     for (int i = 0; i < nb_frames; i++)
@@ -41,20 +40,16 @@ int initFrames(SDL_Rect *tab, int max_frames, int nb_frames, SDL_Surface *src, i
         tab[i].w = src->w / max_frames;
         tab[i].h = src->h / nb_lines;
     }
-    return 0;
 }
 
 /**
- * @brief   Crée une animation
+ * @brief   Crée une animation à partir de la taille d'une tuile, du nombre d'images par état, de l'image source et du nombre d'images par seconde
  *
- *
- *
- * @param max_frames
- * @param state_frame_count
- * @param state_count
- * @param sprite
- * @param size
- * @return anim_t*
+ * @param tile_size : taille d'une tuile
+ * @param state_frame_count : tableau contenant le nombre d'images par état
+ * @param sprite : image source de l'animation
+ * @param frame_rate : nombre d'images par seconde
+ * @return un objet de type anim_t*
  */
 
 extern anim_t *createAnim(int tile_size, int *state_frame_count, sprite_t *sprite, int frame_rate)
@@ -107,8 +102,8 @@ extern anim_t *createAnim(int tile_size, int *state_frame_count, sprite_t *sprit
 /**
  * @brief   Détruit une animation
  *
- * @param anim
- * @return int
+ * @param anim : animation à détruire
+ * @return un int valant -1 si l'animation n'existe pas, 0 sinon
  */
 
 extern int destroyAnim(anim_t **anim)
@@ -134,14 +129,15 @@ extern int destroyAnim(anim_t **anim)
 }
 
 /**
- * @brief   Met à jour l'animation
+ * @brief   Met à jour l'animation en modifiant l'état et la position de l'animation
  *
- * @param anim
- * @param new_state
- * @param tile_size
- * @param window
+ * @param anim : animation à mettre à jour
+ * @param new_state : nouvel état de l'animation
+ * @param tile_size : taille d'une tuile
+ * @param position : position de l'animation
+ * @param window : la fenêtre où l'animation est affichée
  *
- * @return un int valant 1 si l'animation est terminée, -1 si anim est null, 0 sinon
+ * @return un int valant 1 si l'animation est terminée, -1 si l'animation n'existe pas, 0 sinon
  */
 
 extern int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window)

@@ -13,22 +13,17 @@
 
 /**
  * @brief   Structure d'une animation
- * @details La structure d'une animation est composée des éléments suivants :
- *         - state_frame_count : tableau des images par état
- *         - state_count : nombre d'états
- *         - anims : tableau des animations
- *         - size : taille de l'animation
- *         - sprite : image source de l'animation
- *         - current_state : état courant
- *         - current_frame : image courante
- * @param state_frame_count
- * @param state_count
- * @param anims
- * @param size
- * @param sprite
- * @param current_state
- * @param current_frame
- * @return struct
+ *
+ * @param state_frame_count : tableau contenant le nombre d'images par état
+ * @param state_count : nombre d'états
+ * @param state_frames : tableau contenant les images par état
+ * @param frame_tile_width : largeur d'une image
+ * @param frame_tile_height : hauteur d'une image
+ * @param timer : timer permettant de jouer une animation à une vitesse définie
+ * @param sprite : image source de l'animation
+ * @param current_state : état courant
+ * @param current_frame : image courante
+ * @return structure de type anim_t
  */
 
 typedef struct

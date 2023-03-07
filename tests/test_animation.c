@@ -28,13 +28,13 @@ int main(int argc, char *argv[])
   anim_t *rat = createAnim(
       TILE_SIZE,
       rat_states,
-      loadSprite(window, "asset/pack/characters/ratfolk_axe.png"),
+      loadSprite(window, "asset/sprite/characters/ratfolk_axe.png"),
       13);
 
   anim_t *goblin = createAnim(
       TILE_SIZE,
       goblin_states,
-      loadSprite(window, "asset/pack/characters/giant_goblin.png"),
+      loadSprite(window, "asset/sprite/characters/giant_goblin.png"),
       5);
 
   frame_timer_t *main_timer = createTimer(1000 / 60);
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 
       updateAnim(goblin, 1, 100, &goblin_position, window);
       updateAnim(rat, 2, 100, &rat_position, window);
-      updateAnim(green_portal, PORTAL_DESPAWN, 50, &portal_position, window);
+      updateAnim(green_portal, PORTAL_DESPAWN_ANIM, 50, &portal_position, window);
 
       SDL_RenderPresent(window->renderer);
     }
