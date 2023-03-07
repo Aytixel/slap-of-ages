@@ -118,7 +118,7 @@ extern int destroyAnim(anim_t **anim)
 
     free((*anim)->anims);
     free(*anim);
-    anim = NULL;
+    *anim = NULL;
 
     return 0;
 }
@@ -137,6 +137,10 @@ extern int destroyAnim(anim_t **anim)
 
 extern int updateAnim(anim_t *anim, int new_state, int tile_size, window_t *window)
 {
+    if(anim == NULL)
+        return -1;
+
+    
     if (anim->current_state != new_state)
     {
         anim->current_state = new_state;

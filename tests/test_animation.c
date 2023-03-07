@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
       switch (event.type)
       {
       case SDL_QUIT:
+
         running = 0;
         break;
       case SDL_MOUSEBUTTONDOWN:
@@ -59,6 +60,11 @@ int main(int argc, char *argv[])
         {
           rat->size->x = event.button.x - (rat->size->w / 2);
           rat->size->y = event.button.y - (rat->size->h / 2);
+        }
+        else{
+          destroyAnim(&green_portal);
+          destroyAnim(&rat);
+          destroyAnim(&goblin);
         }
         break;
       case SDL_WINDOWEVENT:
@@ -80,7 +86,6 @@ int main(int argc, char *argv[])
       updateAnim(goblin, 1, 100, window);
       updateAnim(rat, 2, 100, window);
       updateAnim(green_portal, PORTAL_IDLE, 50, window);
-      printf("frame: %d\nnb_frames: %d\nx: %d\ny: %d\nw: %d\nh: %d\n", rat->current_frame, rat->state_frame_count[0], rat->size->x, rat->size->y, rat->anims[rat->current_state][rat->current_frame].w, rat->anims[rat->current_state][rat->current_frame].h);
 
       SDL_RenderPresent(window->renderer);
     }
