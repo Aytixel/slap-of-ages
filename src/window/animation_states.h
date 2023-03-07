@@ -22,7 +22,7 @@ typedef enum
  * @brief   Enumération des états d'une animation de livre
  * @details Les états sont les suivants :
  *          - BOOK_OPEN : le livre s'ouvre
- *          - BOOK_CLOSE : le livr se ferme
+ *          - BOOK_CLOSE : le livre se ferme
  * @param BOOK_OPEN
  * @param BOOK_CLOSE
  * @return enum

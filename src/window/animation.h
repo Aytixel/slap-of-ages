@@ -40,6 +40,9 @@ typedef struct
     SDL_Rect **anims;
     SDL_Rect *size;
 
+    int frame_tile_width;
+    int frame_tile_height;
+
     sprite_t *sprite;
 
     int current_state;
@@ -48,8 +51,8 @@ typedef struct
 
 /*Fonctions externes*/
 
-extern anim_t *createAnim(int max_frames, int *state_frame_count, int state_count, sprite_t *sprite, SDL_Rect *size);
+extern anim_t *createAnim(int tile_size, int *state_frame_count, int state_count, sprite_t *sprite, SDL_Rect *size);
 
 extern int destroyAnim(anim_t **anim);
 
-extern void updateAnim(anim_t *anim, int new_state, window_t *window);
+extern int updateAnim(anim_t *anim, int new_state, int tile_size, window_t *window);

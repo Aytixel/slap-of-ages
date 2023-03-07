@@ -5,28 +5,39 @@
 #include "window/animation_states.h"
 #include "window/window.h"
 
+#define TILE_SIZE 16
+
 int main(int argc, char *argv[])
 {
   window_t *window = createWindow("Test Animations", 640, 480);
 
-  SDL_Rect portal_size = {100, 100, 150, 150};
-  SDL_Rect rat_size = {0, 0, 200, 200};
+  SDL_Rect portal_size = {10, 10, 0, 0};
+  SDL_Rect rat_size = {100, 300, 0, 0};
+  SDL_Rect goblin_size = {300, 200, 0, 0};
   int states[] = {8, 8, 6};
   int rat_states[] = {4, 8, 12, 4, 5};
+  int goblin_states[] = {2, 8, 7, 4, 6};
 
   anim_t *green_portal = createAnim(
-      8,
+      TILE_SIZE,
       states,
       3,
       loadSprite(window, "asset/sprite/portal/GreenPortal.png"),
       &portal_size);
 
   anim_t *rat = createAnim(
-      12,
+      TILE_SIZE,
       rat_states,
       5,
       loadSprite(window, "asset/pack/characters/ratfolk_axe.png"),
       &rat_size);
+
+  anim_t *goblin = createAnim(
+      TILE_SIZE,
+      goblin_states,
+      5,
+      loadSprite(window, "asset/pack/characters/giant_goblin.png"),
+      &goblin_size);
 
   frame_timer_t *main_timer = createTimer(1000 / 10);
 
@@ -66,7 +77,9 @@ int main(int argc, char *argv[])
     {
       SDL_RenderClear(window->renderer);
 
-      updateAnim(rat, 2, window);
+      updateAnim(goblin, 1, 100, window);
+      updateAnim(rat, 2, 100, window);
+      updateAnim(green_portal, PORTAL_IDLE, 50, window);
       printf("frame: %d\nnb_frames: %d\nx: %d\ny: %d\nw: %d\nh: %d\n", rat->current_frame, rat->state_frame_count[0], rat->size->x, rat->size->y, rat->anims[rat->current_state][rat->current_frame].w, rat->anims[rat->current_state][rat->current_frame].h);
 
       SDL_RenderPresent(window->renderer);
@@ -76,6 +89,7 @@ int main(int argc, char *argv[])
   deleteTimer(&main_timer);
   destroyAnim(&green_portal);
   destroyAnim(&rat);
+  destroyAnim(&goblin);
   destroyWindow(&window);
 
   return 0;
