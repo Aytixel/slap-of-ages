@@ -10,9 +10,9 @@ int main(int argc, char *argv[])
   window_t *window = createWindow("Test Animations", 640, 480);
 
   SDL_Rect portal_size = {100, 100, 150, 150};
-  SDL_Rect book_size = {100, 100, 300, 300};
+  SDL_Rect rat_size = {0, 0, 200, 200};
   int states[] = {8, 8, 6};
-  int book_states[] = {4, 4, 1};
+  int rat_states[] = {4, 8, 12, 4, 5};
 
   anim_t *green_portal = createAnim(
       8,
@@ -21,12 +21,12 @@ int main(int argc, char *argv[])
       loadSprite(window, "asset/sprite/portal/GreenPortal.png"),
       &portal_size);
 
-  anim_t *book = createAnim(
-      4,
-      book_states,
-      3,
-      loadSprite(window, "asset/sprite/menu/book.png"),
-      &book_size);
+  anim_t *rat = createAnim(
+      12,
+      rat_states,
+      5,
+      loadSprite(window, "asset/pack/characters/ratfolk_axe.png"),
+      &rat_size);
 
   frame_timer_t *main_timer = createTimer(1000 / 10);
 
@@ -46,8 +46,8 @@ int main(int argc, char *argv[])
       case SDL_MOUSEBUTTONDOWN:
         if (event.button.clicks == 1 && (event.button.button == SDL_BUTTON_LEFT))
         {
-          book->size->x = event.button.x - (book->size->w / 2);
-          book->size->y = event.button.y - (book->size->h / 2);
+          rat->size->x = event.button.x - (rat->size->w / 2);
+          rat->size->y = event.button.y - (rat->size->h / 2);
         }
         break;
       case SDL_WINDOWEVENT:
@@ -66,7 +66,8 @@ int main(int argc, char *argv[])
     {
       SDL_RenderClear(window->renderer);
 
-      updateAnim(book, 0, window);
+      updateAnim(rat, 2, window);
+      printf("frame: %d\nnb_frames: %d\nx: %d\ny: %d\nw: %d\nh: %d\n", rat->current_frame, rat->state_frame_count[0], rat->size->x, rat->size->y, rat->anims[rat->current_state][rat->current_frame].w, rat->anims[rat->current_state][rat->current_frame].h);
 
       SDL_RenderPresent(window->renderer);
     }
@@ -74,7 +75,7 @@ int main(int argc, char *argv[])
 
   deleteTimer(&main_timer);
   destroyAnim(&green_portal);
-  destroyAnim(&book);
+  destroyAnim(&rat);
   destroyWindow(&window);
 
   return 0;
