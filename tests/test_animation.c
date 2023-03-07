@@ -11,35 +11,33 @@ int main(int argc, char *argv[])
 {
   window_t *window = createWindow("Test Animations", 640, 480);
 
-  SDL_Rect portal_size = {10, 10, 0, 0};
-  SDL_Rect rat_size = {100, 300, 0, 0};
-  SDL_Rect goblin_size = {300, 200, 0, 0};
-  int states[] = {8, 8, 6};
-  int rat_states[] = {4, 8, 12, 4, 5};
-  int goblin_states[] = {2, 8, 7, 4, 6};
+  SDL_Point portal_position = {10, 10};
+  SDL_Point rat_position = {100, 300};
+  SDL_Point goblin_position = {300, 200};
+
+  int portal_states[] = {8, 8, 6, -1};
+  int rat_states[] = {4, 8, 12, 4, 5, -1};
+  int goblin_states[] = {2, 8, 7, 4, 6, -1};
 
   anim_t *green_portal = createAnim(
       TILE_SIZE,
-      states,
-      3,
+      portal_states,
       loadSprite(window, "asset/sprite/portal/GreenPortal.png"),
-      &portal_size);
+      10);
 
   anim_t *rat = createAnim(
       TILE_SIZE,
       rat_states,
-      5,
       loadSprite(window, "asset/pack/characters/ratfolk_axe.png"),
-      &rat_size);
+      13);
 
   anim_t *goblin = createAnim(
       TILE_SIZE,
       goblin_states,
-      5,
       loadSprite(window, "asset/pack/characters/giant_goblin.png"),
-      &goblin_size);
+      5);
 
-  frame_timer_t *main_timer = createTimer(1000 / 10);
+  frame_timer_t *main_timer = createTimer(1000 / 60);
 
   int running = 1;
   while (running)
@@ -58,10 +56,12 @@ int main(int argc, char *argv[])
       case SDL_MOUSEBUTTONDOWN:
         if (event.button.clicks == 1 && (event.button.button == SDL_BUTTON_LEFT))
         {
-          rat->size->x = event.button.x - (rat->size->w / 2);
-          rat->size->y = event.button.y - (rat->size->h / 2);
+
+          rat_position.x = event.button.x;
+          rat_position.y = event.button.y;
         }
-        else{
+        else
+        {
           destroyAnim(&green_portal);
           destroyAnim(&rat);
           destroyAnim(&goblin);
@@ -83,9 +83,9 @@ int main(int argc, char *argv[])
     {
       SDL_RenderClear(window->renderer);
 
-      updateAnim(goblin, 1, 100, window);
-      updateAnim(rat, 2, 100, window);
-      updateAnim(green_portal, PORTAL_IDLE, 50, window);
+      updateAnim(goblin, 1, 100, &goblin_position, window);
+      updateAnim(rat, 2, 100, &rat_position, window);
+      updateAnim(green_portal, PORTAL_DESPAWN, 50, &portal_position, window);
 
       SDL_RenderPresent(window->renderer);
     }
