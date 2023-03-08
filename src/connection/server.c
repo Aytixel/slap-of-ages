@@ -32,12 +32,7 @@ extern void acceptClientConnections(server_t *server)
 
     while ((client = acceptServerClient(server)) != NULL)
     {
-        int server_client_connections_size = sizeof(server_client_connection_t) * ++server_client_count;
-
-        if (server_client_connections == NULL)
-            server_client_connections = malloc(server_client_connections_size);
-        else
-            server_client_connections = realloc(server_client_connections, server_client_connections_size);
+        server_client_connections = realloc(server_client_connections, sizeof(server_client_connection_t) * ++server_client_count);
 
         server_client_connection_t connection;
 
@@ -83,13 +78,7 @@ extern int nextClientConnection()
     while (next_server_client_index + i < server_client_count && isClientDown(server_client_connections[next_server_client_index + i].client))
     {
         // ajoute le client qui va être supprimé au tableau de client supprimé
-        deleted_socket_fd_count++;
-
-        if (deleted_socket_fds == NULL)
-            deleted_socket_fds = malloc(sizeof(server_client_connection_t) * deleted_socket_fd_count);
-        else
-            deleted_socket_fds = realloc(deleted_socket_fds, sizeof(server_client_connection_t) * deleted_socket_fd_count);
-
+        deleted_socket_fds = realloc(deleted_socket_fds, sizeof(server_client_connection_t) * ++deleted_socket_fd_count);
         deleted_socket_fds[deleted_socket_fd_count - 1] = server_client_connections[next_server_client_index + i].client->socket_fd;
 
         deleteServerClient(&server_client_connections[next_server_client_index + i].client);
