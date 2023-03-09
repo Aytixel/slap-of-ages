@@ -43,7 +43,7 @@ extern void createButton(TTF_Font *font, const char* buttonText, SDL_Color color
 
 extern void createTextbox(TTF_Font* font, SDL_Color color, SDL_Rect rect, Textbox_t* textbox, window_t *window);
 
-extern int isMouseClickInRect(SDL_Event event, SDL_Rect rect) ;
+extern int isMouseClickInRect(SDL_Event event, SDL_Rect rect, int button, int type) ;
 
 extern SDL_Point getMousePosition();
 

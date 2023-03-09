@@ -305,19 +305,25 @@ int menu()
         SDL_DestroyTexture(buttonPseudo.texture);
         SDL_FreeSurface(buttonPseudo.surface);
 
-        
+        SDL_Rect RectIp = {buttonHost.rect.x * 2.8, buttonHost.rect.y, buttonIp.rect.w * 4.5, buttonPort.rect.h};
+        SDL_Rect RectPort = {buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.2, buttonIp.rect.w * 4.5, buttonPort.rect.h};
+        SDL_Rect RectPseudo = {buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.4, buttonIp.rect.w * 4.5, buttonPort.rect.h};
 
         createButton(font, "HOST", color, 0.21f, 0.40f, 0.1f, 0.04f, &buttonHost, window);
         createButton(font, "JOIN", color, 0.21f, 0.475f, 0.1f, 0.04f, &buttonJoin, window);
         createButton(font, "QUITTER", color,  0.21f, 0.55f, 0.15f, 0.04f, &buttonQuitter, window);
 
+        createButton(font, "Pseudo", color2,  0.60f, 0.515f, 0.06f, 0.04f, &buttonPseudo, window);
+        createButton(font, "Port", color2, 0.60f, 0.435f, 0.06f, 0.04f, &buttonPort, window);
+        createButton(font, "Ip", color2, 0.60f, 0.35f, 0.06f, 0.04f, &buttonIp, window);
+
         //createButton(font, "PSEUDO", color, 0.90f, 0.90f, 0.15f, 0.04f, &buttonPseudo, window);
         //createButton(font, "PORT", color, 0.60f, 0.65f, 0.15f, 0.04f, &buttonPort, window);
         //createButton(font, "IP", color, 0.60f, 0.65f, 0.15f, 0.04f, &buttonIp, window);
 
-        createTextbox(font, color, textboxIp.rect, &textboxIp, window);
-        createTextbox(font, color, textboxPort.rect, &textboxPort, window);
-        createTextbox(font, color, textboxPseudo.rect, &textboxPseudo, window);
+        createTextbox(font, color, RectIp, &textboxIp, window);
+        createTextbox(font, color, RectPort, &textboxPort, window);
+        createTextbox(font, color, RectPseudo, &textboxPseudo, window);
 
         height = window->height;
         width = window->width;
@@ -528,12 +534,6 @@ int menu()
       // Dessiner le rectangle de saisie de texte pour le pseudo
       SDL_SetRenderDrawColor(window->renderer, 192, 148, 115, 0);
       SDL_RenderFillRect(window->renderer, &RectPseudo);
-
-
-      if (isMouseClickInRect(event, textboxIp.rect)) {
-        printf("Clic dans le rectangle !\n");
-      }
-
 
       // Dessiner le texte des text box
       SDL_Rect textRectIp = {buttonHost.rect.x * 2.8, buttonHost.rect.y, (widthIp / 2), (buttonJoin.rect.h)};

@@ -81,21 +81,30 @@ void createTextbox(TTF_Font* font, SDL_Color color, SDL_Rect rect, Textbox_t* te
 }
 
 /**
- * @brief Fonction de détection du clic de la souris dans un rectangle
+ * @brief Fonction de détection de clic dans une zone
+ * 
+ * @example isMouseClickInRect(event, button.rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN)
+ * @example isMouseClickInRect(event, button.rect, SDL_BUTTON_RIGHT, SDL_MOUSEBUTTONUP)
  * 
  * @param event 
  * @param rect 
+ * @param button 
+ * @param type 
  * @return int 
  */
 
-int isMouseClickInRect(SDL_Event event, SDL_Rect rect) {
-  if (event.type == SDL_MOUSEBUTTONDOWN &&
-      event.button.x >= rect.x && event.button.x <= rect.x + rect.w &&
-      event.button.y >= rect.y && event.button.y <= rect.y + rect.h) {
-    return 1;
+int isMouseClickInRect(SDL_Event event, SDL_Rect rect, int button, int type) {
+
+  if (type == event.type && event.button.button == button){
+    if (event.button.x >= rect.x && event.button.x <= rect.x + rect.w && event.button.y >= rect.y && event.button.y <= rect.y + rect.h){
+      return 1;
+    }
   }
   return 0;
+ 
 }
+
+
 
 /**
  * @brief Fonction de récupération de la position de la souris
