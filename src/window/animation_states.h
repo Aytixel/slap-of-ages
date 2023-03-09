@@ -67,7 +67,7 @@ typedef enum
  * @param GIANT_GOBLIN_IDLE_ANIM : le géant goblin est immobile
  * @param GIANT_GOBLIN_MOVE_ANIM : le géant goblin se déplace
  * @param GIANT_GOBLIN_ATTACK_ANIM : le géant goblin attaque
- * @param GIANT_GOBLIN_MOVE2_ANIM : le géant goblin se déplace
+ * @param GIANT_GOBLIN_IDLE2_ANIM : le géant goblin est immobile (animation différente)
  * @param GIANT_GOBLIN_DEATH_ANIM : le géant goblin meurt
  * @return un type énuméré de type goblin_giant_anim_state_e
  */
@@ -77,7 +77,7 @@ typedef enum
     GOBLIN_GIANT_IDLE_ANIM,
     GOBLIN_GIANT_MOVE_ANIM,
     GOBLIN_GIANT_ATTACK_ANIM,
-    GOBLIN_GIANT_MOVE2_ANIM,
+    GOBLIN_GIANT_IDLE2_ANIM,
     GOBLIN_GIANT_DEATH_ANIM,
 
 } goblin_giant_anim_state_e;
@@ -88,7 +88,7 @@ typedef enum
  * @param RAT_IDLE_ANIM : le rat est immobile
  * @param RAT_MOVE_ANIM : le rat se déplace
  * @param RAT_ATTACK_ANIM : le rat attaque
- * @param RAT_MOVE2_ANIM : le rat se déplace
+ * @param RAT_IDLE2_ANIM : le rat est immobile (animation différente)
  * @param RAT_DEATH_ANIM : le rat meurt
  * @return un type énuméré de type rat_anim_state_e
  */
@@ -98,7 +98,7 @@ typedef enum
     RAT_IDLE_ANIM,
     RAT_MOVE_ANIM,
     RAT_ATTACK_ANIM,
-    RAT_MOVE2_ANIM,
+    RAT_IDLE2_ANIM,
     RAT_DEATH_ANIM,
 
 } rat_anim_state_e;

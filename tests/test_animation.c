@@ -83,8 +83,8 @@ int main(int argc, char *argv[])
     {
       SDL_RenderClear(window->renderer);
 
-      updateAnim(goblin, 1, 100, &goblin_position, window);
-      updateAnim(rat, 2, 100, &rat_position, window);
+      updateAnim(goblin, GOBLIN_GIANT_ATTACK_ANIM, 100, &goblin_position, window);
+      updateAnim(rat, RAT_IDLE_ANIM, 100, &rat_position, window);
       updateAnim(green_portal, PORTAL_DESPAWN_ANIM, 50, &portal_position, window);
 
       SDL_RenderPresent(window->renderer);
