@@ -35,20 +35,20 @@
  * @return void
  */
 
-void createButton(SDL_Renderer *renderer, TTF_Font *font, const char* buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, int windowWidth, int windowHeight) {
+void createButton(TTF_Font *font, const char* buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, window_t *window) {
     // Création de la surface du bouton
     button->surface = TTF_RenderText_Solid(font, buttonText, color);
 
     // Création de la texture du bouton à partir de la surface
-    button->texture = SDL_CreateTextureFromSurface(renderer, button->surface);
+    button->texture = SDL_CreateTextureFromSurface(window->renderer, button->surface);
 
     // Calcul des dimensions du bouton en pixels
-    button->rect.w = (int)(windowWidth * buttonWidthRatio);
-    button->rect.h = (int)(windowHeight * buttonHeightRatio);
+    button->rect.w = (int)(window->width * buttonWidthRatio);
+    button->rect.h = (int)(window->height * buttonHeightRatio);
 
     // Calcul de la position du bouton en pixels
-    button->rect.x = (int)(windowWidth * buttonXRatio);
-    button->rect.y = (int)(windowHeight * buttonYRatio);
+    button->rect.x = (int)(window->width * buttonXRatio);
+    button->rect.y = (int)(window->height * buttonYRatio);
 
     // Initialisation du texte du bouton
     button->text = strdup(buttonText);
@@ -72,14 +72,11 @@ void createButton(SDL_Renderer *renderer, TTF_Font *font, const char* buttonText
  * @return void
  */
 
-void createTextbox(SDL_Renderer* renderer, TTF_Font* font, SDL_Color color, int x, int y, int w, int h, Textbox_t* textbox) {
+void createTextbox(TTF_Font* font, SDL_Color color, SDL_Rect rect, Textbox_t* textbox, window_t *window) {
     textbox->surface = TTF_RenderText_Solid(font, " ", color);
-    textbox->texture = SDL_CreateTextureFromSurface(renderer, textbox->surface);
+    textbox->texture = SDL_CreateTextureFromSurface(window->renderer, textbox->surface);
     SDL_FreeSurface(textbox->surface);
-    textbox->rect.x = x;
-    textbox->rect.y = y;
-    textbox->rect.w = w;
-    textbox->rect.h = h;
+    memcpy(&(textbox->rect), &rect, sizeof(SDL_Rect));
     SDL_SetTextInputRect(&(textbox->rect));
 }
 
