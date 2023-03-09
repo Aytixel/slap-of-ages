@@ -25,6 +25,42 @@ void windowEventHandler(SDL_Event *event, window_t *window)
     case SDL_QUIT:
         running = 0;
         break;
+    case SDL_KEYDOWN:
+        if (event->key.state == SDL_PRESSED)
+        {
+            packet_t *packet = NULL;
+
+            switch (event->key.keysym.sym)
+            {
+            case SDLK_a:
+                // temporaire
+                packet = createSetMapPacket();
+
+                sendToServer(client, packet);
+                deletePacket(&packet);
+
+                packet = createIsPlayerReadyPacket(1);
+
+                sendToServer(client, packet);
+                deletePacket(&packet);
+                break;
+            case SDLK_z:
+                // temporaire
+                packet = createIsPlayerReadyPacket(0);
+
+                sendToServer(client, packet);
+                deletePacket(&packet);
+                break;
+            case SDLK_e:
+                // temporaire
+                packet = createGameFinishedPacket(79.4, 248934);
+
+                sendToServer(client, packet);
+                deletePacket(&packet);
+                break;
+            }
+        }
+        break;
     case SDL_WINDOWEVENT:
         switch (event->window.event)
         {

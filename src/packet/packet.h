@@ -40,7 +40,9 @@ extern packet_t *createIsPlayerReadyPacket(int is_player_ready);
 
 extern void readIsPlayerReadyPacket(packet_t *packet, int *is_player_ready);
 
-extern packet_t *createGameFinishedPacket();
+extern packet_t *createGameFinishedPacket(float destruction_percentage, long time_left);
+
+extern void readGameFinishedPacket(packet_t *packet, float *destruction_percentage, long *time_left);
 
 extern packet_t *createHasPlayerWonPacket(int has_player_won);
 

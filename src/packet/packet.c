@@ -134,23 +134,41 @@ extern packet_t *createIsPlayerReadyPacket(int is_player_ready)
  */
 extern void readIsPlayerReadyPacket(packet_t *packet, int *is_player_ready)
 {
-    memcpy(&is_player_ready, packet->data, sizeof(int));
+    memcpy(is_player_ready, packet->data, sizeof(int));
 }
 
 /**
  * @brief Créer un paquet définissant le fait qu'un joueur à terminé
  *
+ * @param destruction_percentage pourcentage de destruction
+ * @param time_left temps restant
  * @return un pointer sur un **paquet**
  */
-extern packet_t *createGameFinishedPacket()
+extern packet_t *createGameFinishedPacket(float destruction_percentage, long time_left)
 {
     packet_t *packet = malloc(sizeof(packet_t));
 
     packet->id = GAME_FINISHED_PACKET_ID;
-    packet->data_length = 0;
-    packet->data = NULL;
+    packet->data_length = sizeof(float) + sizeof(long);
+    packet->data = malloc(packet->data_length);
+
+    memcpy(packet->data, &destruction_percentage, sizeof(float));
+    memcpy(packet->data + sizeof(float), &time_left, sizeof(long));
 
     return packet;
+}
+
+/**
+ * @brief Lie un paquet définissant le fait qu'un joueur à terminé
+ *
+ * @param packet paquet à lire
+ * @param destruction_percentage pourcentage de destruction
+ * @param time_left
+ */
+extern void readGameFinishedPacket(packet_t *packet, float *destruction_percentage, long *time_left)
+{
+    memcpy(destruction_percentage, packet->data, sizeof(float));
+    memcpy(time_left, packet->data + sizeof(float), sizeof(long));
 }
 
 /**
@@ -180,5 +198,5 @@ extern packet_t *createHasPlayerWonPacket(int has_player_won)
  */
 extern void readHasPlayerWonPacket(packet_t *packet, int *has_player_won)
 {
-    memcpy(&has_player_won, packet->data, sizeof(int));
+    memcpy(has_player_won, packet->data, sizeof(int));
 }

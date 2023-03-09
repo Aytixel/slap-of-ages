@@ -59,11 +59,27 @@ void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port
 
 void handle_packet(packet_t *packet)
 {
+    client_data_t *client_data = *server_client_data;
+
     switch (packet->id)
     {
     case SET_PSEUDO_PACKET_ID:
-        readSetPseudoPacket(packet, &((client_data_t *)*server_client_data)->pseudo);
-        printf("%d : Pseudo définie : %s\n", server_client->socket_fd, ((client_data_t *)*server_client_data)->pseudo);
+        readSetPseudoPacket(packet, &client_data->pseudo);
+        printf("%d : Pseudo définie : %s\n", server_client->socket_fd, client_data->pseudo);
+        break;
+    case SET_MAP_PACKET_ID:
+        printf("%d : %s a envoyer les données la de carte\n", server_client->socket_fd, client_data->pseudo);
+        break;
+    case IS_PLAYER_READY_PACKET_ID:
+        readIsPlayerReadyPacket(packet, &client_data->is_player_ready);
+        printf("%d : %s %sest prêt à jouer\n", server_client->socket_fd, client_data->pseudo, client_data->is_player_ready ? "" : "n'");
+        break;
+    case GAME_FINISHED_PACKET_ID:
+        // temporaire
+        float destruction_percentage;
+        long time_left;
+        readGameFinishedPacket(packet, &destruction_percentage, &time_left);
+        printf("%d : %s %f %ld\n", server_client->socket_fd, client_data->pseudo, destruction_percentage, time_left);
 
         break;
     }
