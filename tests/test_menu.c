@@ -160,20 +160,6 @@ TTF_Font *loadFontTextBox(window_t *window, SDL_Renderer *renderer)
 }
 
 /**
- * @brief Fonction de récupération de la position de la souris
- * 
- * @return SDL_Point 
- */
-
-SDL_Point getMousePosition()
-{
-  int mouseX, mouseY;
-  SDL_GetMouseState(&mouseX, &mouseY);
-  // printf("Mouse position : (%d, %d)\n", mouseX, mouseY);
-  return (SDL_Point){mouseX, mouseY};
-}
-
-/**
  * @brief Set the Text Input Rect object
  * 
  * @param rect 
@@ -536,6 +522,12 @@ int menu()
       // Dessiner le rectangle de saisie de texte pour le pseudo
       SDL_SetRenderDrawColor(window->renderer, 192, 148, 115, 0);
       SDL_RenderFillRect(window->renderer, &textboxPseudo.rect);
+
+
+      if (isMouseClickInRect(event, textboxIp.rect)) {
+        printf("Clic dans le rectangle !\n");
+      }
+
 
       // Dessiner le texte des text box
       SDL_Rect textRectIp = {buttonHost.rect.x * 2.8, buttonHost.rect.y, (widthIp / 2), (buttonJoin.rect.h)};

@@ -82,3 +82,34 @@ void createTextbox(SDL_Renderer* renderer, TTF_Font* font, SDL_Color color, int 
     textbox->rect.h = h;
     SDL_SetTextInputRect(&(textbox->rect));
 }
+
+/**
+ * @brief Fonction de détection du clic de la souris dans un rectangle
+ * 
+ * @param event 
+ * @param rect 
+ * @return int 
+ */
+
+int isMouseClickInRect(SDL_Event event, SDL_Rect rect) {
+  if (event.type == SDL_MOUSEBUTTONDOWN &&
+      event.button.x >= rect.x && event.button.x <= rect.x + rect.w &&
+      event.button.y >= rect.y && event.button.y <= rect.y + rect.h) {
+    return 1;
+  }
+  return 0;
+}
+
+/**
+ * @brief Fonction de récupération de la position de la souris
+ * 
+ * @return SDL_Point 
+ */
+
+SDL_Point getMousePosition()
+{
+  int mouseX, mouseY;
+  SDL_GetMouseState(&mouseX, &mouseY);
+  // printf("Mouse position : (%d, %d)\n", mouseX, mouseY);
+  return (SDL_Point){mouseX, mouseY};
+}
