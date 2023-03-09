@@ -173,17 +173,6 @@ int main(int argc, char *argv[])
             SDL_RenderClear(window->renderer);
 
             renderMap(window, map_renderer);
-            renderBuilding(window, building_renderer, 0, 0, HOUSE_1_BUILDING);
-            renderBuilding(window, building_renderer, 1, 0, HOUSE_2_BUILDING);
-            renderBuilding(window, building_renderer, 2, 0, HOUSE_3_BUILDING);
-            renderBuilding(window, building_renderer, 3, 0, CORNER_WALL_BUILDING);
-            renderBuilding(window, building_renderer, 4, 0, MINE_BUILDING);
-            renderBuilding(window, building_renderer, 0, 1, MILL_BUILDING);
-            renderBuilding(window, building_renderer, 1, 1, VERTICAL_WALL_BUILDING);
-            renderBuilding(window, building_renderer, 2, 1, SPACE_FILLER_WALL_BUILDING);
-            renderBuilding(window, building_renderer, 3, 1, HORIZONTAL_WALL_BUILDING);
-            renderBuilding(window, building_renderer, 3, 2, WELL_BUILDING);
-            renderBuilding(window, building_renderer, 4, 2, FIELD_BUILDING);
 
             SDL_RenderPresent(window->renderer);
         }

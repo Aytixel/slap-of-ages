@@ -62,17 +62,16 @@ extern building_renderer_t *createBuildingRenderer(window_t *window, map_rendere
  * @brief Détermine si on peut placer / afficher un certain type de bâtiment à tel endroit
  *
  * @param building_renderer un pointeur sur la structure qui gère l'affichage des bâtiments
- * @param x position en x en nombre de case
- * @param y position en y en nombre de case
+ * @param position position du bâtiment en nombre de case
  * @param building_type type de batiment à placer / afficher
  * @return **1** si on peut le placer, **0** sinon
  */
-extern int canRenderBuilding(building_renderer_t *building_renderer, int x, int y, building_type_e building_type)
+extern int canRenderBuilding(building_renderer_t *building_renderer, SDL_Point *position, building_type_e building_type)
 {
-    return x >= 0 &&
-           y >= 0 &&
-           x + ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type].w <= building_renderer->map_renderer->size &&
-           y + ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type].h <= building_renderer->map_renderer->size;
+    return position->x >= 0 &&
+           position->y >= 0 &&
+           position->x + ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type].w <= building_renderer->map_renderer->size &&
+           position->y + ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type].h <= building_renderer->map_renderer->size;
 }
 
 /**
@@ -80,31 +79,30 @@ extern int canRenderBuilding(building_renderer_t *building_renderer, int x, int 
  *
  * @param window un pointeur sur une fenêtre
  * @param building_renderer un pointeur sur la structure qui gère l'affichage des bâtiments
- * @param x position en x en nombre de case
- * @param y position en y en nombre de case
+ * @param position position du bâtiment en nombre de case
  * @param building_type type de batiment à afficher
  * @return **1** si on peut le placer, **0** sinon
  */
-extern int renderBuilding(window_t *window, building_renderer_t *building_renderer, int x, int y, building_type_e building_type)
+extern int renderBuilding(window_t *window, building_renderer_t *building_renderer, SDL_Point *position, building_type_e building_type, SDL_Rect *destination_rect)
 {
-    if (!canRenderBuilding(building_renderer, x, y, building_type))
+    if (!canRenderBuilding(building_renderer, position, building_type))
         return 0;
 
     int offset = building_renderer->map_renderer->tile_size * building_renderer->map_renderer->size / 2;
     SDL_Rect tile_rect = ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type];
-    SDL_Rect destination_rect = positionFromCenter(
+    *destination_rect = positionFromCenter(
         window,
         building_renderer->map_renderer->tile_size * tile_rect.w,
         building_renderer->map_renderer->tile_size * tile_rect.h,
-        building_renderer->map_renderer->tile_size * x - offset,
-        building_renderer->map_renderer->tile_size * y - offset,
+        building_renderer->map_renderer->tile_size * position->x - offset,
+        building_renderer->map_renderer->tile_size * position->y - offset,
         TRANSFORM_ORIGIN_TOP_LEFT);
 
     SDL_RenderCopy(
         window->renderer,
         building_renderer->sprite->texture,
         ((SDL_Rect *)&building_renderer->sprite_rects) + building_type,
-        &destination_rect);
+        destination_rect);
 
     return 1;
 }

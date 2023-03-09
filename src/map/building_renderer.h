@@ -65,9 +65,9 @@ typedef struct
 
 extern building_renderer_t *createBuildingRenderer(window_t *window, map_renderer_t *map_renderer);
 
-extern int canRenderBuilding(building_renderer_t *building, int x, int y, building_type_e building_type);
+extern int canRenderBuilding(building_renderer_t *building, SDL_Point *position, building_type_e building_type);
 
-extern int renderBuilding(window_t *window, building_renderer_t *building, int x, int y, building_type_e building_type);
+extern int renderBuilding(window_t *window, building_renderer_t *building, SDL_Point *position, building_type_e building_type, SDL_Rect *destination_rect);
 
 extern int deleteBuildingRenderer(building_renderer_t **building);
 
