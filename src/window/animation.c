@@ -28,17 +28,17 @@
  * @param nb_lines : nombre de lignes dans l'image source
  */
 
-void initFrames(SDL_Rect *tab, int max_frames, int nb_frames, SDL_Surface *src, int line, int nb_lines)
+void initFrames(SDL_Rect *tab, int max_frames, int nb_frames, sprite_t *sprite, int line, int nb_lines)
 {
 
     for (int i = 0; i < nb_frames; i++)
     {
 
-        tab[i].x = (src->w / max_frames) * i;
-        tab[i].y = (src->h / nb_lines) * line;
+        tab[i].x = (sprite->width / max_frames) * i;
+        tab[i].y = (sprite->height / nb_lines) * line;
 
-        tab[i].w = src->w / max_frames;
-        tab[i].h = src->h / nb_lines;
+        tab[i].w = sprite->width / max_frames;
+        tab[i].h = sprite->height / nb_lines;
     }
 }
 
@@ -90,7 +90,7 @@ extern anim_t *createAnim(int tile_size, int *state_frame_count, sprite_t *sprit
     for (int i = 0; i < state_count; i++)
     {
         anim->state_frames[i] = malloc(sizeof(SDL_Rect) * state_frame_count[i]);
-        initFrames(anim->state_frames[i], max_frames, state_frame_count[i], sprite->surface, i, state_count);
+        initFrames(anim->state_frames[i], max_frames, state_frame_count[i], sprite, i, state_count);
     }
 
     anim->frame_tile_width = anim->state_frames[0][0].w / tile_size;

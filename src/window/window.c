@@ -113,8 +113,9 @@ extern int destroyWindow(window_t **window)
 extern sprite_t *loadSprite(window_t *window, char *path)
 {
     sprite_t *sprite = malloc(sizeof(sprite_t));
+    SDL_Surface *surface = NULL;
 
-    if ((sprite->surface = IMG_Load(path)) == NULL)
+    if ((surface = IMG_Load(path)) == NULL)
     {
         fprintf(stderr, "(Erreur): Impossible de charger le sprite \"%s\" : %s\n", path, SDL_GetError());
 
@@ -123,15 +124,20 @@ extern sprite_t *loadSprite(window_t *window, char *path)
         return NULL;
     }
 
-    if ((sprite->texture = SDL_CreateTextureFromSurface(window->renderer, sprite->surface)) == NULL)
+    sprite->width = surface->w;
+    sprite->height = surface->h;
+
+    if ((sprite->texture = SDL_CreateTextureFromSurface(window->renderer, surface)) == NULL)
     {
         fprintf(stderr, "(Erreur): Création de la texture pour le sprite \"%s\" impossible : %s\n", path, SDL_GetError());
 
-        SDL_FreeSurface(sprite->surface);
+        SDL_FreeSurface(surface);
         free(sprite);
 
         return NULL;
     }
+
+    SDL_FreeSurface(surface);
 
     return sprite;
 }
@@ -148,8 +154,9 @@ extern sprite_t *loadSprite(window_t *window, char *path)
 extern sprite_t *createTextSprite(window_t *window, TTF_Font *font, char *text, SDL_Color color)
 {
     sprite_t *sprite = malloc(sizeof(sprite_t));
+    SDL_Surface *surface = NULL;
 
-    if ((sprite->surface = TTF_RenderText_Solid(font, text, color)) == NULL)
+    if ((surface = TTF_RenderText_Solid(font, text, color)) == NULL)
     {
         fprintf(stderr, "(Erreur): Impossible de créer le sprite du texte \"%s\" : %s\n", text, TTF_GetError());
 
@@ -158,15 +165,20 @@ extern sprite_t *createTextSprite(window_t *window, TTF_Font *font, char *text, 
         return NULL;
     }
 
-    if ((sprite->texture = SDL_CreateTextureFromSurface(window->renderer, sprite->surface)) == NULL)
+    sprite->width = surface->w;
+    sprite->height = surface->h;
+
+    if ((sprite->texture = SDL_CreateTextureFromSurface(window->renderer, surface)) == NULL)
     {
         fprintf(stderr, "(Erreur): Création de la texture pour le sprite du texte \"%s\" impossible : %s\n", text, SDL_GetError());
 
-        SDL_FreeSurface(sprite->surface);
+        SDL_FreeSurface(surface);
         free(sprite);
 
         return NULL;
     }
+
+    SDL_FreeSurface(surface);
 
     return sprite;
 }
@@ -183,7 +195,6 @@ extern int destroySprite(sprite_t **sprite)
         return -1;
 
     SDL_DestroyTexture((*sprite)->texture);
-    SDL_FreeSurface((*sprite)->surface);
     free(*sprite);
     *sprite = NULL;
 
@@ -240,21 +251,6 @@ extern SDL_Rect positionFromCenter(window_t *window, int width, int height, int 
 }
 
 /**
- * @brief Calcule une position par rapport au centre de l'écran à partir d'une **surface**
- *
- * @param window un pointeur sur une fenêtre
- * @param surface un pointeur sur une surface
- * @param x décalage en x depuis le centre
- * @param y décalage en y depuis le centre
- * @param origin point d'origine sur lequel est centrée l'élément
- * @return une **position** sur la fenêtre
- */
-extern SDL_Rect surfaceFromCenter(window_t *window, SDL_Surface *surface, int x, int y, transform_origin_e origin)
-{
-    return positionFromCenter(window, surface->w, surface->h, x, y, origin);
-}
-
-/**
  * @brief Calcule la position au centre de l'écran
  *
  * @param window un pointeur sur une fenêtre
@@ -265,16 +261,4 @@ extern SDL_Rect surfaceFromCenter(window_t *window, SDL_Surface *surface, int x,
 extern SDL_Rect positionToCenter(window_t *window, int width, int height)
 {
     return positionFromCenter(window, width, height, 0, 0, TRANSFORM_ORIGIN_CENTER);
-}
-
-/**
- * @brief Calcule la position au centre de l'écran à partir d'une **surface**
- *
- * @param window un pointeur sur une fenêtre
- * @param surface un pointeur sur une surface
- * @return une **position** sur la fenêtre
- */
-extern SDL_Rect surfaceToCenter(window_t *window, SDL_Surface *surface)
-{
-    return positionToCenter(window, surface->w, surface->h);
 }
