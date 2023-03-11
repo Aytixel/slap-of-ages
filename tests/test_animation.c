@@ -1,98 +1,101 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_main.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
 #include "timer/timer.h"
 #include "window/animation.h"
+#include "window/animation_states.h"
 #include "window/window.h"
+
+#define TILE_SIZE 16
 
 int main(int argc, char *argv[])
 {
-
   window_t *window = createWindow("Test Animations", 640, 480);
 
-  SDL_Surface *dim = IMG_Load("asset/sprite/portal/GreenPortal.png");
+  SDL_Point portal_position = {10, 10};
+  SDL_Point rat_position = {100, 300};
+  SDL_Point goblin_position = {300, 200};
 
-  SDL_Rect portal_size = {0, 0, 150, 150};
-  int states[] = {8, 8, 6};
+  int portal_states[] = {8, 8, 6, -1};
+  int rat_states[] = {4, 8, 12, 4, 5, -1};
+  int goblin_states[] = {2, 8, 7, 4, 6, -1};
 
   anim_t *green_portal = createAnim(
-      8,
-      states,
-      3,
-      SDL_CreateTextureFromSurface(window->renderer, dim),
-      dim,
-      &portal_size);
+      TILE_SIZE,
+      portal_states,
+      loadSprite(window, "asset/sprite/portal/GreenPortal.png"),
+      10);
 
-  SDL_FreeSurface(dim);
+  anim_t *rat = createAnim(
+      TILE_SIZE,
+      rat_states,
+      loadSprite(window, "asset/sprite/characters/ratfolk_axe.png"),
+      13);
 
-  dim = IMG_Load("asset/sprite/portal/PurplePortal.png");
-  anim_t *purple_portal = createAnim(
-      8,
-      states,
-      3,
-      SDL_CreateTextureFromSurface(window->renderer, dim),
-      dim,
-      &portal_size);
+  anim_t *goblin = createAnim(
+      TILE_SIZE,
+      goblin_states,
+      loadSprite(window, "asset/sprite/characters/giant_goblin.png"),
+      5);
 
-  SDL_FreeSurface(dim);
-
-  frame_timer_t *main_timer = createTimer(1000 / 10);
+  frame_timer_t *main_timer = createTimer(1000 / 60);
 
   int running = 1;
   while (running)
   {
-    SDL_Event e;
+    SDL_Event event;
+    int time_left = timeLeft(main_timer);
 
-    while (SDL_PollEvent(&e))
+    if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
     {
-      if (e.type == SDL_QUIT)
-        running = 0;
-    }
+      switch (event.type)
+      {
+      case SDL_QUIT:
 
-    // Début boucle animations
+        running = 0;
+        break;
+      case SDL_MOUSEBUTTONDOWN:
+        if (event.button.clicks == 1 && (event.button.button == SDL_BUTTON_LEFT))
+        {
+
+          rat_position.x = event.button.x;
+          rat_position.y = event.button.y;
+        }
+        else
+        {
+          destroyAnim(&green_portal);
+          destroyAnim(&rat);
+          destroyAnim(&goblin);
+        }
+        break;
+      case SDL_WINDOWEVENT:
+        switch (event.window.event)
+        {
+        case SDL_WINDOWEVENT_RESIZED:
+          window->width = event.window.data1;
+          window->height = event.window.data2;
+          break;
+        }
+        break;
+      }
+    }
 
     if (checkTime(main_timer))
     {
       SDL_RenderClear(window->renderer);
 
-      if (SDL_PollEvent(&e))
-      {
-        if (e.type == SDL_MOUSEBUTTONDOWN)
-        {
+      updateAnim(goblin, GOBLIN_GIANT_ATTACK_ANIM, 100, &goblin_position, window);
+      updateAnim(rat, RAT_IDLE_ANIM, 100, &rat_position, window);
+      updateAnim(green_portal, PORTAL_DESPAWN_ANIM, 50, &portal_position, window);
 
-          if (e.button.clicks == 1 && (e.button.button == SDL_BUTTON_LEFT || e.button.button == SDL_BUTTON_RIGHT))
-          {
-            if (e.button.button == SDL_BUTTON_LEFT)
-            {
-              green_portal->size->x = e.button.x - (green_portal->size->w / 2);
-              green_portal->size->y = e.button.y - (green_portal->size->h / 2);
-              updateAnim(green_portal, ANIMATION_IDLE, window);
-            }
-
-            else
-            {
-              purple_portal->size->x = e.button.x - (purple_portal->size->w / 2);
-              purple_portal->size->y = e.button.y - (purple_portal->size->h / 2);
-              updateAnim(purple_portal, ANIMATION_SPAWN, window);
-            }
-          }
-        }
-      }
-      updateAnim(green_portal, ANIMATION_CURRENT, window);
-      updateAnim(purple_portal, ANIMATION_CURRENT, window);
       SDL_RenderPresent(window->renderer);
     }
   }
 
-  destroyAnim(&green_portal);
-  destroyAnim(&purple_portal);
-  destroyWindow(&window);
   deleteTimer(&main_timer);
-  TTF_Quit();
-  SDL_Quit();
+  destroyAnim(&green_portal);
+  destroyAnim(&rat);
+  destroyAnim(&goblin);
+  destroyWindow(&window);
 
   return 0;
 }

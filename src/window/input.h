@@ -13,6 +13,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include "window.h"
 
 /**
  * @brief Structure contenant les données d'un bouton
@@ -35,10 +36,15 @@ typedef struct {
     SDL_Surface* surface; 
     SDL_Texture* texture;
     SDL_Rect rect;
+    char* text;
 } Textbox_t;
 
-extern void createButton(SDL_Renderer *renderer, TTF_Font *font, const char* buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, int width, int height);
+extern void createButton(TTF_Font *font, const char* buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, window_t *window);
 
-extern void createTextbox(SDL_Renderer* renderer, TTF_Font* font, SDL_Color color, int x, int y, int w, int h, SDL_Rect* rect);
+extern void createTextbox(TTF_Font* font, SDL_Color color, SDL_Rect rect, Textbox_t* textbox, window_t *window);
+
+extern int isMouseClickInRect(SDL_Event event, SDL_Rect rect, int button, int type) ;
+
+extern SDL_Point getMousePosition();
 
 #endif

@@ -5,9 +5,10 @@
 #include "window/window.h"
 #include "timer/timer.h"
 #include "connection/client.h"
-#include "map/map.h"
+#include "map/map_renderer.h"
+#include "map/building_renderer.h"
 
-#define MAP_SIZE 32
+#define MAP_SIZE 31
 
 int running = 1;
 
@@ -23,6 +24,42 @@ void windowEventHandler(SDL_Event *event, window_t *window)
     {
     case SDL_QUIT:
         running = 0;
+        break;
+    case SDL_KEYDOWN:
+        if (event->key.state == SDL_PRESSED)
+        {
+            packet_t *packet = NULL;
+
+            switch (event->key.keysym.sym)
+            {
+            case SDLK_a:
+                // temporaire
+                packet = createSetMapPacket();
+
+                sendToServer(client, packet);
+                deletePacket(&packet);
+
+                packet = createIsPlayerReadyPacket(1);
+
+                sendToServer(client, packet);
+                deletePacket(&packet);
+                break;
+            case SDLK_z:
+                // temporaire
+                packet = createIsPlayerReadyPacket(0);
+
+                sendToServer(client, packet);
+                deletePacket(&packet);
+                break;
+            case SDLK_e:
+                // temporaire
+                packet = createGameFinishedPacket(79.4, 248934);
+
+                sendToServer(client, packet);
+                deletePacket(&packet);
+                break;
+            }
+        }
         break;
     case SDL_WINDOWEVENT:
         switch (event->window.event)
@@ -56,9 +93,14 @@ int main(int argc, char *argv[])
     if (window == NULL)
         return 1;
 
-    map_t *map = createMap(window, MAP_SIZE);
+    map_renderer_t *map_renderer = createMapRenderer(window, MAP_SIZE);
 
-    if (map == NULL)
+    if (map_renderer == NULL)
+        return 1;
+
+    building_renderer_t *building_renderer = createBuildingRenderer(window, map_renderer);
+
+    if (building_renderer == NULL)
         return 1;
 
     initSocket();
@@ -130,7 +172,7 @@ int main(int argc, char *argv[])
 
             SDL_RenderClear(window->renderer);
 
-            renderMap(window, map);
+            renderMap(window, map_renderer);
 
             SDL_RenderPresent(window->renderer);
         }
@@ -139,7 +181,8 @@ int main(int argc, char *argv[])
     closeClientConnection();
     deleteTimer(&main_timer);
     endSocket();
-    deleteMap(&map);
+    deleteBuildingRenderer(&building_renderer);
+    deleteMapRenderer(&map_renderer);
     destroyWindow(&window);
 
     return 0;

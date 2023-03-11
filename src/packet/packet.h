@@ -32,4 +32,20 @@ extern packet_t *createSetPseudoPacket(char *pseudo);
 
 extern void readSetPseudoPacket(packet_t *packet, char **pseudo);
 
+extern packet_t *createSetMapPacket();
+
+extern void readSetMapPacket(packet_t *packet);
+
+extern packet_t *createIsPlayerReadyPacket(int is_player_ready);
+
+extern void readIsPlayerReadyPacket(packet_t *packet, int *is_player_ready);
+
+extern packet_t *createGameFinishedPacket(float destruction_percentage, long time_left);
+
+extern void readGameFinishedPacket(packet_t *packet, float *destruction_percentage, long *time_left);
+
+extern packet_t *createHasPlayerWonPacket(int has_player_won);
+
+extern void readHasPlayerWonPacket(packet_t *packet, int *has_player_won);
+
 #endif

@@ -1,69 +1,41 @@
+#include "building_renderer.h"
+
 /**
  * @file building.h
- * @author Lucas Dureau
- * @brief Implémentation des prototypes de map/building.c
+ * @author Hôa Le Luet
+ * @brief
  * @version 0.1
- * @date 03/03/2023
+ * @date 2023-03-09
  *
  */
-
-#ifndef __BUILDING_H
-#define __BUILDING_H
-
-#include "window/window.h"
-#include "map.h"
 
 /**
- * @brief Enumération des différents types de bâtiments
+ * @brief Structure contenant les données des bâtiments
  *
+ * @param type type du bâtiment
+ * @param sprite position et taille du sprite du bâtiment
+ * @param rect position et taille du bâtiment en pixel
+ * @param position position du bâtiment en cases
+ * @param hp points de vie du bâtiment
+ * @param max_hp points de vie maximum du bâtiment
  */
-typedef enum
-{
-    HOUSE_1_BUILDING,
-    HOUSE_2_BUILDING,
-    HOUSE_3_BUILDING,
-    MILL_BUILDING,
-    MINE_BUILDING,
-    WELL_BUILDING,
-    CORNER_WALL_BUILDING,
-    VERTICAL_WALL_BUILDING,
-    HORIZONTAL_WALL_BUILDING,
-} building_type_e;
 
-/**
- * @brief Structure contenant les positions et tailles des sprites des bâtiments
- *
- */
 typedef struct
 {
-    SDL_Rect house_1;         /**< maison 1*/
-    SDL_Rect house_2;         /**< maison 2*/
-    SDL_Rect house_3;         /**< maison 3*/
-    SDL_Rect mill;            /**< moulin*/
-    SDL_Rect mine;            /**< mine*/
-    SDL_Rect field;           /**< champs*/
-    SDL_Rect well;            /**< puit*/
-    SDL_Rect corner_wall;     /**< coint de mur*/
-    SDL_Rect vertical_wall;   /**< mur verticale*/
-    SDL_Rect horizontal_wall; /**< mur horizontale*/
-} building_sprite_rects_t;
+    building_type_e type;
+    building_renderer_t *building_renderer;
+    SDL_Rect rect;
+    SDL_Point *position;
 
-/**
- * @brief Structure contenant les données pour afficher les bâtiments
- *
- */
-typedef struct
-{
-    map_t *map;                                /**< pointeur sur la carte*/
-    sprite_t *sprite;                          /**< grille de sprite contenant les sprites */
-    building_sprite_rects_t sprite_tile_rects; /**< positions et tailles des sprites des bâtiments en nombre de cases*/
-    building_sprite_rects_t sprite_rects;      /**< positions et tailles des sprites des bâtiments en nombre de pixels*/
+    int hp;
+    int max_hp;
+
 } building_t;
 
-extern building_t *createBuilding(window_t *window, map_t *map);
+/*Fonctions externes*/
 
-extern void renderBuilding(window_t *window, building_t *building, int x, int y, building_type_e building_type);
+extern building_t *createBuilding(building_type_e type, SDL_Point *position, window_t *window, map_renderer_t *map_renderer);
 
-extern int deleteBuilding(building_t **building);
+extern void destroyBuilding(building_t **building);
 
-#endif
+extern void buildingTakesDamages(building_t *building, int damages);

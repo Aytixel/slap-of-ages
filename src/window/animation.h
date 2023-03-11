@@ -1,6 +1,5 @@
 #include <SDL2/SDL_image.h>
-
-// commentaires doxygen
+#include "window.h"
 
 /**
  * @file animation.h
@@ -13,49 +12,18 @@
  */
 
 /**
- * @brief   Enumération des états d'une animation
- * @details Les états sont les suivants :
- *         - ANIMATION_IDLE : l'animation est en pause
- *        - ANIMATION_SPAWN : l'animation apparait
- *       - ANIMATION_DESPAWN : l'animation disparait
- *     - ANIMATION_DELETE : l'animation est supprimée
- *   - ANIMATION_CURRENT : l'animation est en cours d'affichage
- * @param ANIMATION_IDLE
- * @param ANIMATION_SPAWN
- * @param ANIMATION_DESPAWN
- * @param ANIMATION_DELETE
- * @param ANIMATION_CURRENT
- * @return enum
- */
-
-typedef enum
-{
-    ANIMATION_IDLE,
-    ANIMATION_SPAWN,
-    ANIMATION_DESPAWN,
-    ANIMATION_DELETE,
-    ANIMATION_CURRENT
-
-} portal_e;
-
-/**
  * @brief   Structure d'une animation
- * @details La structure d'une animation est composée des éléments suivants :
- *         - state_frame_count : tableau des images par état
- *         - state_count : nombre d'états
- *         - anims : tableau des animations
- *         - size : taille de l'animation
- *         - sprite : image source de l'animation
- *         - current_state : état courant
- *         - current_frame : image courante
- * @param state_frame_count
- * @param state_count
- * @param anims
- * @param size
- * @param sprite
- * @param current_state
- * @param current_frame
- * @return struct
+ *
+ * @param state_frame_count : tableau contenant le nombre d'images par état
+ * @param state_count : nombre d'états
+ * @param state_frames : tableau contenant les images par état
+ * @param frame_tile_width : largeur d'une image
+ * @param frame_tile_height : hauteur d'une image
+ * @param timer : timer permettant de jouer une animation à une vitesse définie
+ * @param sprite : image source de l'animation
+ * @param current_state : état courant
+ * @param current_frame : image courante
+ * @return structure de type anim_t
  */
 
 typedef struct
@@ -64,47 +32,23 @@ typedef struct
     int *state_frame_count;
     int state_count;
 
-    SDL_Rect **anims;
-    SDL_Rect *size;
+    SDL_Rect **state_frames;
 
-    SDL_Texture *sprite;
+    int frame_tile_width;
+    int frame_tile_height;
+
+    frame_timer_t *timer;
+
+    sprite_t *sprite;
 
     int current_state;
     int current_frame;
 } anim_t;
 
-/**
- * @brief   Structure d'un élément d'une liste d'animation
- * @details La structure d'un élément d'une liste d'animation est composée des éléments suivants :
- *         - anim : animation
- *         - next : élément suivant
- * @param anim
- * @param next
- * @return struct
- */
+/*Fonctions externes*/
 
-typedef struct anim_elem_s
-{
+extern anim_t *createAnim(int tile_size, int *state_frame_count, sprite_t *sprite, int frame_rate);
 
-    anim_t *anim;
-    struct anim_elem_s *next;
+extern int destroyAnim(anim_t **anim);
 
-} anim_elem_t;
-
-/**
- * @brief   Structure d'une liste d'animation
- * @details La structure d'une liste d'animation est composée des éléments suivants :
- *         - flag : élément de début de liste
- *         - current : élément courant
- * @param flag
- * @param current
- * @return struct
- */
-
-typedef struct
-{
-
-    anim_elem_t *flag;
-    anim_elem_t *current;
-
-} anim_list_t;
+extern int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window);

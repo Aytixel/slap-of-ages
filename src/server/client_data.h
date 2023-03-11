@@ -16,7 +16,9 @@
  */
 typedef struct
 {
-    char *pseudo;
+    char *pseudo;        /**< pseudo du joueur*/
+    int is_player_ready; /**< le joueur est-il prêt ?*/
+    int is_in_game;      /**< le joueur est-il en jeu ?*/
 } client_data_t;
 
 extern client_data_t *createClientData();

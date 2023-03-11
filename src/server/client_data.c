@@ -20,6 +20,8 @@ extern client_data_t *createClientData()
     client_data_t *client_data = malloc(sizeof(client_data_t));
 
     client_data->pseudo = NULL;
+    client_data->is_player_ready = 0;
+    client_data->is_in_game = 0;
 
     return client_data;
 }

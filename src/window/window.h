@@ -37,7 +37,8 @@ typedef enum
 typedef struct
 {
     SDL_Texture *texture; /**< texture du sprite*/
-    SDL_Surface *surface; /**< surface du sprite*/
+    int width;            /**< largeur de la texture*/
+    int height;           /**< longueur de la texture*/
 } sprite_t;
 
 /**
@@ -66,10 +67,6 @@ extern int destroySprite(sprite_t **sprite);
 
 extern SDL_Rect positionFromCenter(window_t *window, int width, int height, int x, int y, transform_origin_e origin);
 
-extern SDL_Rect surfaceFromCenter(window_t *window, SDL_Surface *surface, int x, int y, transform_origin_e origin);
-
 extern SDL_Rect positionToCenter(window_t *window, int width, int height);
-
-extern SDL_Rect surfaceToCenter(window_t *window, SDL_Surface *surface);
 
 #endif
