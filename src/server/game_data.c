@@ -11,6 +11,86 @@
 #include "game_data.h"
 
 /**
+ * @brief Créer un tableau avec les données de partie
+ *
+ * @return un pointer sur le **tableau des données de partie**
+ */
+extern game_data_array_t *createGameDataArray()
+{
+    game_data_array_t *game_data_array = malloc(sizeof(game_data_array_t));
+
+    game_data_array->game_data = NULL;
+    game_data_array->count = 0;
+
+    return game_data_array;
+}
+
+/**
+ * @brief Ajoute une nouvelle partie au tableau
+ *
+ * @param game_data_array une référence d'un pointeur sur un tableau avec les données de partie
+ */
+extern void addGameDataToArray(game_data_array_t *game_data_array)
+{
+    game_data_array->game_data = realloc(game_data_array->game_data, sizeof(void *) * ++game_data_array->count);
+    game_data_array->game_data[game_data_array->count - 1] = createGameData();
+}
+
+/**
+ * @brief Enlève les données d'une partie du tableau
+ *
+ * @param game_data_array une référence d'un pointeur sur un tableau avec les données de partie
+ * @param index dans le tableau
+ * @return **1** si la partie a pu être enlevé, **0** sinon
+ */
+extern int removeGameDataFromArray(game_data_array_t *game_data_array, int index)
+{
+    if (index < 0 || index >= game_data_array->count)
+        return 0;
+
+    deleteGameData(game_data_array->game_data + index);
+
+    game_data_array->count--;
+
+    if (game_data_array->count > 0)
+    {
+        memmove(game_data_array->game_data + index, game_data_array->game_data + index + 1, sizeof(void *) * (game_data_array->count - index));
+
+        game_data_array->game_data = realloc(game_data_array->game_data, sizeof(void *) * game_data_array->count);
+    }
+    else
+    {
+        free(game_data_array->game_data);
+        game_data_array->game_data = NULL;
+    }
+
+    return 1;
+}
+
+/**
+ * @brief Détruit un tableau avec les données de partie
+ *
+ * @param game_data_array une référence d'un pointeur sur un tableau avec les données de partie
+ * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
+ */
+extern int deleteGameDataArray(game_data_array_t **game_data_array)
+{
+    if (game_data_array == NULL || *game_data_array == NULL)
+        return -1;
+
+    for (int i = 0; i < (*game_data_array)->count; i++)
+    {
+        deleteGameData((*game_data_array)->game_data + i);
+    }
+
+    free((*game_data_array)->game_data);
+    free(*game_data_array);
+    *game_data_array = NULL;
+
+    return 0;
+}
+
+/**
  * @brief Créer les données d'un joueur pour la partie
  *
  * @param socket_fd id du socket client

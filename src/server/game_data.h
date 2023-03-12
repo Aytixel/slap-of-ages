@@ -10,10 +10,11 @@
 #ifndef __GAME_DATA_H
 #define __GAME_DATA_H
 
+#include <string.h>
 #include "packet/packet.h"
 
 /**
- * @brief Structure de données contetant les informations d'une partie pour un joueur
+ * @brief Structure de données contenant les informations d'une partie pour un joueur
  *
  */
 typedef struct
@@ -25,13 +26,31 @@ typedef struct
 } player_game_data_t;
 
 /**
- * @brief Structure de données contetant les informations d'une partie
+ * @brief Structure de données contenant les informations d'une partie
  *
  */
 typedef struct
 {
     player_game_data_t *player[2]; /**< joueurs*/
 } game_data_t;
+
+/**
+ * @brief Structure de données contenant un tableau des données de partie
+ *
+ */
+typedef struct
+{
+    game_data_t **game_data; /**< tableau des données de partie*/
+    int count;               /**< nombre de partie*/
+} game_data_array_t;
+
+extern game_data_array_t *createGameDataArray();
+
+extern void addGameDataToArray(game_data_array_t *game_data_array);
+
+extern int removeGameDataFromArray(game_data_array_t *game_data_array, int index);
+
+extern int deleteGameDataArray(game_data_array_t **game_data_array);
 
 extern game_data_t *createGameData();
 

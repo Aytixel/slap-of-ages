@@ -10,6 +10,14 @@ Implémente les fonctions permettant de gérer l\textquotesingle{}état d\textqu
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$ \mbox{\hyperlink{game__data_8c_a782d40128ddda0a4f73e314710976b9d}{create\+Game\+Data\+Array}} ()
+\begin{DoxyCompactList}\small\item\em Créer un tableau avec les données de partie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__data_8c_a9ae412027fbe4057db891998de569a8f}{add\+Game\+Data\+To\+Array}} (\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$game\+\_\+data\+\_\+array)
+\begin{DoxyCompactList}\small\item\em Ajoute une nouvelle partie au tableau. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game__data_8c_aba935118c655e1ad5efa7f90073e3f07}{remove\+Game\+Data\+From\+Array}} (\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$game\+\_\+data\+\_\+array, int index)
+\begin{DoxyCompactList}\small\item\em Enlève les données d\textquotesingle{}une partie du tableau. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game__data_8c_a51575e018d07edafe4b62db9e662d3ea}{delete\+Game\+Data\+Array}} (\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$$\ast$game\+\_\+data\+\_\+array)
+\begin{DoxyCompactList}\small\item\em Détruit un tableau avec les données de partie. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{game__data_8c_adaa5f1280dc03398a2b71952c895e65c}{create\+Game\+Data}} ()
 \begin{DoxyCompactList}\small\item\em Créer les données d\textquotesingle{}un partie. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game__data_8c_a3659b7d7fc489beda3277627df920520}{add\+Player\+To\+Game}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int socket\+\_\+fd)
@@ -43,6 +51,21 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{game__data_8c_a9ae412027fbe4057db891998de569a8f}\label{game__data_8c_a9ae412027fbe4057db891998de569a8f}} 
+\index{game\_data.c@{game\_data.c}!addGameDataToArray@{addGameDataToArray}}
+\index{addGameDataToArray@{addGameDataToArray}!game\_data.c@{game\_data.c}}
+\doxysubsubsection{\texorpdfstring{addGameDataToArray()}{addGameDataToArray()}}
+{\footnotesize\ttfamily void add\+Game\+Data\+To\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$}]{game\+\_\+data\+\_\+array }\end{DoxyParamCaption})}
+
+
+
+Ajoute une nouvelle partie au tableau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game\+\_\+data\+\_\+array} & une référence d\textquotesingle{}un pointeur sur un tableau avec les données de partie \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{game__data_8c_a3659b7d7fc489beda3277627df920520}\label{game__data_8c_a3659b7d7fc489beda3277627df920520}} 
 \index{game\_data.c@{game\_data.c}!addPlayerToGame@{addPlayerToGame}}
 \index{addPlayerToGame@{addPlayerToGame}!game\_data.c@{game\_data.c}}
@@ -76,6 +99,19 @@ Créer les données d\textquotesingle{}un partie.
 \begin{DoxyReturn}{Renvoie}
 un pointer sur les {\bfseries{données d\textquotesingle{}une partie}} 
 \end{DoxyReturn}
+\mbox{\Hypertarget{game__data_8c_a782d40128ddda0a4f73e314710976b9d}\label{game__data_8c_a782d40128ddda0a4f73e314710976b9d}} 
+\index{game\_data.c@{game\_data.c}!createGameDataArray@{createGameDataArray}}
+\index{createGameDataArray@{createGameDataArray}!game\_data.c@{game\_data.c}}
+\doxysubsubsection{\texorpdfstring{createGameDataArray()}{createGameDataArray()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}}$\ast$ create\+Game\+Data\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Créer un tableau avec les données de partie. 
+
+\begin{DoxyReturn}{Renvoie}
+un pointer sur le {\bfseries{tableau des données de partie}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{game__data_8c_a677f66d78d481ad231eb2eb203438315}\label{game__data_8c_a677f66d78d481ad231eb2eb203438315}} 
 \index{game\_data.c@{game\_data.c}!deleteGameData@{deleteGameData}}
 \index{deleteGameData@{deleteGameData}!game\_data.c@{game\_data.c}}
@@ -89,6 +125,24 @@ Détruit les données d\textquotesingle{}une partie.
 
 \begin{DoxyParams}{Paramètres}
 {\em game\+\_\+data} & une référence d\textquotesingle{}un pointeur sur les données d\textquotesingle{}une partie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game__data_8c_a51575e018d07edafe4b62db9e662d3ea}\label{game__data_8c_a51575e018d07edafe4b62db9e662d3ea}} 
+\index{game\_data.c@{game\_data.c}!deleteGameDataArray@{deleteGameDataArray}}
+\index{deleteGameDataArray@{deleteGameDataArray}!game\_data.c@{game\_data.c}}
+\doxysubsubsection{\texorpdfstring{deleteGameDataArray()}{deleteGameDataArray()}}
+{\footnotesize\ttfamily int delete\+Game\+Data\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$$\ast$}]{game\+\_\+data\+\_\+array }\end{DoxyParamCaption})}
+
+
+
+Détruit un tableau avec les données de partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game\+\_\+data\+\_\+array} & une référence d\textquotesingle{}un pointeur sur un tableau avec les données de partie \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -149,6 +203,26 @@ Récupère si la partie est commencé
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{1}} si la partie est commencé, {\bfseries{0}} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game__data_8c_aba935118c655e1ad5efa7f90073e3f07}\label{game__data_8c_aba935118c655e1ad5efa7f90073e3f07}} 
+\index{game\_data.c@{game\_data.c}!removeGameDataFromArray@{removeGameDataFromArray}}
+\index{removeGameDataFromArray@{removeGameDataFromArray}!game\_data.c@{game\_data.c}}
+\doxysubsubsection{\texorpdfstring{removeGameDataFromArray()}{removeGameDataFromArray()}}
+{\footnotesize\ttfamily int remove\+Game\+Data\+From\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$}]{game\+\_\+data\+\_\+array,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Enlève les données d\textquotesingle{}une partie du tableau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game\+\_\+data\+\_\+array} & une référence d\textquotesingle{}un pointeur sur un tableau avec les données de partie \\
+\hline
+{\em index} & dans le tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{1}} si la partie a pu être enlevé, {\bfseries{0}} sinon 
 \end{DoxyReturn}
 \mbox{\Hypertarget{game__data_8c_a04e4a8be1bf0d37f32b8cd99559918c1}\label{game__data_8c_a04e4a8be1bf0d37f32b8cd99559918c1}} 
 \index{game\_data.c@{game\_data.c}!removePlayerFromGame@{removePlayerFromGame}}
