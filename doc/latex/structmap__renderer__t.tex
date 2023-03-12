@@ -1,0 +1,73 @@
+\hypertarget{structmap__renderer__t}{}\doxysection{Référence de la structure map\+\_\+renderer\+\_\+t}
+\label{structmap__renderer__t}\index{map\_renderer\_t@{map\_renderer\_t}}
+
+
+Structure contenant les données de la carte.  
+
+
+
+
+{\ttfamily \#include $<$map\+\_\+renderer.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structmap__renderer__t_aca9cb9938b6a910235c5ac5f717adcd0}{size}}
+\item 
+int \mbox{\hyperlink{structmap__renderer__t_af1ac9bf9c90c324ff18a4d4a8bbb1d91}{tile\+\_\+size}}
+\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{structmap__renderer__t_a793930fec1df3e3c28e61085fabe121f}{ground\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{structmap__renderer__t_a9224257d4e18d212439bd27ade874067}{tree\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structmap__sprite__rects__t}{map\+\_\+sprite\+\_\+rects\+\_\+t}} \mbox{\hyperlink{structmap__renderer__t_a0c475362d9f2758a9189029fd86e6b8e}{sprite\+\_\+tile\+\_\+rects}}
+\item 
+\mbox{\hyperlink{structmap__sprite__rects__t}{map\+\_\+sprite\+\_\+rects\+\_\+t}} \mbox{\hyperlink{structmap__renderer__t_a446b0dacc8639448a1074c3707412af7}{sprite\+\_\+rects}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure contenant les données de la carte. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structmap__renderer__t_a793930fec1df3e3c28e61085fabe121f}\label{structmap__renderer__t_a793930fec1df3e3c28e61085fabe121f}} 
+\index{map\_renderer\_t@{map\_renderer\_t}!ground\_sprite@{ground\_sprite}}
+\index{ground\_sprite@{ground\_sprite}!map\_renderer\_t@{map\_renderer\_t}}
+\doxysubsubsection{\texorpdfstring{ground\_sprite}{ground\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ map\+\_\+renderer\+\_\+t\+::ground\+\_\+sprite}
+
+grille de sprite contenant les sprites du sol \mbox{\Hypertarget{structmap__renderer__t_aca9cb9938b6a910235c5ac5f717adcd0}\label{structmap__renderer__t_aca9cb9938b6a910235c5ac5f717adcd0}} 
+\index{map\_renderer\_t@{map\_renderer\_t}!size@{size}}
+\index{size@{size}!map\_renderer\_t@{map\_renderer\_t}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily int map\+\_\+renderer\+\_\+t\+::size}
+
+taille de la carte en nombre de cases \mbox{\Hypertarget{structmap__renderer__t_a446b0dacc8639448a1074c3707412af7}\label{structmap__renderer__t_a446b0dacc8639448a1074c3707412af7}} 
+\index{map\_renderer\_t@{map\_renderer\_t}!sprite\_rects@{sprite\_rects}}
+\index{sprite\_rects@{sprite\_rects}!map\_renderer\_t@{map\_renderer\_t}}
+\doxysubsubsection{\texorpdfstring{sprite\_rects}{sprite\_rects}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmap__sprite__rects__t}{map\+\_\+sprite\+\_\+rects\+\_\+t}} map\+\_\+renderer\+\_\+t\+::sprite\+\_\+rects}
+
+positions et tailles des sprites de la carte en nombre de pixels \mbox{\Hypertarget{structmap__renderer__t_a0c475362d9f2758a9189029fd86e6b8e}\label{structmap__renderer__t_a0c475362d9f2758a9189029fd86e6b8e}} 
+\index{map\_renderer\_t@{map\_renderer\_t}!sprite\_tile\_rects@{sprite\_tile\_rects}}
+\index{sprite\_tile\_rects@{sprite\_tile\_rects}!map\_renderer\_t@{map\_renderer\_t}}
+\doxysubsubsection{\texorpdfstring{sprite\_tile\_rects}{sprite\_tile\_rects}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmap__sprite__rects__t}{map\+\_\+sprite\+\_\+rects\+\_\+t}} map\+\_\+renderer\+\_\+t\+::sprite\+\_\+tile\+\_\+rects}
+
+positions et tailles des sprites de la carte en nombre de cases \mbox{\Hypertarget{structmap__renderer__t_af1ac9bf9c90c324ff18a4d4a8bbb1d91}\label{structmap__renderer__t_af1ac9bf9c90c324ff18a4d4a8bbb1d91}} 
+\index{map\_renderer\_t@{map\_renderer\_t}!tile\_size@{tile\_size}}
+\index{tile\_size@{tile\_size}!map\_renderer\_t@{map\_renderer\_t}}
+\doxysubsubsection{\texorpdfstring{tile\_size}{tile\_size}}
+{\footnotesize\ttfamily int map\+\_\+renderer\+\_\+t\+::tile\+\_\+size}
+
+taille d\textquotesingle{}une case en pixel \mbox{\Hypertarget{structmap__renderer__t_a9224257d4e18d212439bd27ade874067}\label{structmap__renderer__t_a9224257d4e18d212439bd27ade874067}} 
+\index{map\_renderer\_t@{map\_renderer\_t}!tree\_sprite@{tree\_sprite}}
+\index{tree\_sprite@{tree\_sprite}!map\_renderer\_t@{map\_renderer\_t}}
+\doxysubsubsection{\texorpdfstring{tree\_sprite}{tree\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ map\+\_\+renderer\+\_\+t\+::tree\+\_\+sprite}
+
+grille de sprite contenant les sprites des arbres 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/map/\mbox{\hyperlink{map__renderer_8h}{map\+\_\+renderer.\+h}}\end{DoxyCompactItemize}

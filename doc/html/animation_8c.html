@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages: Référence du fichier src/window/animation.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c7f79d9fead0a70cab4af348b59fbdf1.html">window</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier animation.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Gestion des animations.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_main.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="timer_8h_source.html">timer/timer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="animation_8h_source.html">animation.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="window_8h_source.html">window.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a675a5e745b3c49f6bba9dc3a80af4eb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#a675a5e745b3c49f6bba9dc3a80af4eb8">initFrames</a> (SDL_Rect *tab, int max_frames, int nb_frames, <a class="el" href="structsprite__t.html">sprite_t</a> *sprite, int line, int nb_lines)</td></tr>
+<tr class="memdesc:a675a5e745b3c49f6bba9dc3a80af4eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les images d'une animation.  <a href="animation_8c.html#a675a5e745b3c49f6bba9dc3a80af4eb8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a675a5e745b3c49f6bba9dc3a80af4eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34fc670dbf72971c172bbb3dfd7e9d00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structanim__t.html">anim_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#a34fc670dbf72971c172bbb3dfd7e9d00">createAnim</a> (int tile_size, int *state_frame_count, <a class="el" href="structsprite__t.html">sprite_t</a> *sprite, int frame_rate)</td></tr>
+<tr class="memdesc:a34fc670dbf72971c172bbb3dfd7e9d00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une animation à partir de la taille d'une tuile, du nombre d'images par état, de l'image source et du nombre d'images par seconde.  <a href="animation_8c.html#a34fc670dbf72971c172bbb3dfd7e9d00">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a34fc670dbf72971c172bbb3dfd7e9d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af448c425d4bef6da8fe9c6ed2dd98705"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#af448c425d4bef6da8fe9c6ed2dd98705">destroyAnim</a> (<a class="el" href="structanim__t.html">anim_t</a> **anim)</td></tr>
+<tr class="memdesc:af448c425d4bef6da8fe9c6ed2dd98705"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une animation.  <a href="animation_8c.html#af448c425d4bef6da8fe9c6ed2dd98705">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af448c425d4bef6da8fe9c6ed2dd98705"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63392350c695b02122edb70286d308f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#a63392350c695b02122edb70286d308f7">updateAnim</a> (<a class="el" href="structanim__t.html">anim_t</a> *anim, int new_state, int tile_size, SDL_Point *position, <a class="el" href="structwindow__t.html">window_t</a> *window)</td></tr>
+<tr class="memdesc:a63392350c695b02122edb70286d308f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour l'animation en modifiant l'état et la position de l'animation.  <a href="animation_8c.html#a63392350c695b02122edb70286d308f7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a63392350c695b02122edb70286d308f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Gestion des animations. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Hôa Le Luet </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>03/03/2023 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a34fc670dbf72971c172bbb3dfd7e9d00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34fc670dbf72971c172bbb3dfd7e9d00">&#9670;&nbsp;</a></span>createAnim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structanim__t.html">anim_t</a>* createAnim </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tile_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>state_frame_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structsprite__t.html">sprite_t</a> *&#160;</td>
+          <td class="paramname"><em>sprite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>frame_rate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée une animation à partir de la taille d'une tuile, du nombre d'images par état, de l'image source et du nombre d'images par seconde. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tile_size</td><td>: taille d'une tuile </td></tr>
+    <tr><td class="paramname">state_frame_count</td><td>: tableau contenant le nombre d'images par état </td></tr>
+    <tr><td class="paramname">sprite</td><td>: image source de l'animation </td></tr>
+    <tr><td class="paramname">frame_rate</td><td>: nombre d'images par seconde </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un objet de type anim_t* </dd></dl>
+
+</div>
+</div>
+<a id="af448c425d4bef6da8fe9c6ed2dd98705"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af448c425d4bef6da8fe9c6ed2dd98705">&#9670;&nbsp;</a></span>destroyAnim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int destroyAnim </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structanim__t.html">anim_t</a> **&#160;</td>
+          <td class="paramname"><em>anim</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit une animation. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anim</td><td>: animation à détruire </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un int valant -1 si l'animation n'existe pas, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a675a5e745b3c49f6bba9dc3a80af4eb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a675a5e745b3c49f6bba9dc3a80af4eb8">&#9670;&nbsp;</a></span>initFrames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initFrames </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Rect *&#160;</td>
+          <td class="paramname"><em>tab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_frames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_frames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structsprite__t.html">sprite_t</a> *&#160;</td>
+          <td class="paramname"><em>sprite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_lines</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise les images d'une animation. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tab</td><td>: tableau contenant les positions et tailles des différentes images de l'animation dans la source </td></tr>
+    <tr><td class="paramname">nb_frames</td><td>: nombre d'images de l'animation </td></tr>
+    <tr><td class="paramname">src</td><td>: image source de l'animation </td></tr>
+    <tr><td class="paramname">line</td><td>: ligne contenant les différentes étapes d'une animation dans l'image source </td></tr>
+    <tr><td class="paramname">nb_lines</td><td>: nombre de lignes dans l'image source </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a63392350c695b02122edb70286d308f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63392350c695b02122edb70286d308f7">&#9670;&nbsp;</a></span>updateAnim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int updateAnim </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structanim__t.html">anim_t</a> *&#160;</td>
+          <td class="paramname"><em>anim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>new_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tile_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Point *&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met à jour l'animation en modifiant l'état et la position de l'animation. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anim</td><td>: animation à mettre à jour </td></tr>
+    <tr><td class="paramname">new_state</td><td>: nouvel état de l'animation </td></tr>
+    <tr><td class="paramname">tile_size</td><td>: taille d'une tuile </td></tr>
+    <tr><td class="paramname">position</td><td>: position de l'animation </td></tr>
+    <tr><td class="paramname">window</td><td>: la fenêtre où l'animation est affichée</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un int valant 1 si l'animation est terminée, -1 si l'animation n'existe pas, 0 sinon </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

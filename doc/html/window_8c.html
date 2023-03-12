@@ -99,15 +99,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:ad3c4f018bc737c5c0b0436fe379817ba"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#ad3c4f018bc737c5c0b0436fe379817ba">positionFromCenter</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, int width, int height, int x, int y, <a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">transform_origin_e</a> origin)</td></tr>
 <tr class="memdesc:ad3c4f018bc737c5c0b0436fe379817ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule une position par rapport au centre de l'écran.  <a href="window_8c.html#ad3c4f018bc737c5c0b0436fe379817ba">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ad3c4f018bc737c5c0b0436fe379817ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac05108459018248d3a388c9ac0aac7c9"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#ac05108459018248d3a388c9ac0aac7c9">surfaceFromCenter</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, SDL_Surface *surface, int x, int y, <a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">transform_origin_e</a> origin)</td></tr>
-<tr class="memdesc:ac05108459018248d3a388c9ac0aac7c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule une position par rapport au centre de l'écran à partir d'une <b>surface</b>  <a href="window_8c.html#ac05108459018248d3a388c9ac0aac7c9">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ac05108459018248d3a388c9ac0aac7c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1de1e31a95e63b3a09ad7c3f4a7637c6"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#a1de1e31a95e63b3a09ad7c3f4a7637c6">positionToCenter</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, int width, int height)</td></tr>
 <tr class="memdesc:a1de1e31a95e63b3a09ad7c3f4a7637c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la position au centre de l'écran.  <a href="window_8c.html#a1de1e31a95e63b3a09ad7c3f4a7637c6">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a1de1e31a95e63b3a09ad7c3f4a7637c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ab22661089f642ec7edc5b018e878c5"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#a7ab22661089f642ec7edc5b018e878c5">surfaceToCenter</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, SDL_Surface *surface)</td></tr>
-<tr class="memdesc:a7ab22661089f642ec7edc5b018e878c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la position au centre de l'écran à partir d'une <b>surface</b>  <a href="window_8c.html#a7ab22661089f642ec7edc5b018e878c5">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a7ab22661089f642ec7edc5b018e878c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Permets de gérer la fenêtre. </p>
@@ -414,103 +408,6 @@ Fonctions</h2></td></tr>
     <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
     <tr><td class="paramname">width</td><td>largeur de l'élément à afficher </td></tr>
     <tr><td class="paramname">height</td><td>hauteur de l'élément à afficher </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>une <b>position</b> sur la fenêtre </dd></dl>
-
-</div>
-</div>
-<a id="ac05108459018248d3a388c9ac0aac7c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac05108459018248d3a388c9ac0aac7c9">&#9670;&nbsp;</a></span>surfaceFromCenter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">SDL_Rect surfaceFromCenter </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
-          <td class="paramname"><em>window</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SDL_Surface *&#160;</td>
-          <td class="paramname"><em>surface</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">transform_origin_e</a>&#160;</td>
-          <td class="paramname"><em>origin</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calcule une position par rapport au centre de l'écran à partir d'une <b>surface</b> </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
-    <tr><td class="paramname">surface</td><td>un pointeur sur une surface </td></tr>
-    <tr><td class="paramname">x</td><td>décalage en x depuis le centre </td></tr>
-    <tr><td class="paramname">y</td><td>décalage en y depuis le centre </td></tr>
-    <tr><td class="paramname">origin</td><td>point d'origine sur lequel est centrée l'élément </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>une <b>position</b> sur la fenêtre </dd></dl>
-
-</div>
-</div>
-<a id="a7ab22661089f642ec7edc5b018e878c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ab22661089f642ec7edc5b018e878c5">&#9670;&nbsp;</a></span>surfaceToCenter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">SDL_Rect surfaceToCenter </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
-          <td class="paramname"><em>window</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SDL_Surface *&#160;</td>
-          <td class="paramname"><em>surface</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calcule la position au centre de l'écran à partir d'une <b>surface</b> </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
-    <tr><td class="paramname">surface</td><td>un pointeur sur une surface </td></tr>
   </table>
   </dd>
 </dl>

@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['id_57',['id',['../structpacket__t.html#a71251cbc5bba8c3f0be835b1bd9fe107',1,'packet_t']]],
-  ['initclientconnection_58',['initClientConnection',['../connection_2client_8c.html#a51fbf21273be90a4799a30e527efe4d9',1,'initClientConnection(char *hostname, uint16_t port):&#160;client.c'],['../connection_2client_8h.html#a51fbf21273be90a4799a30e527efe4d9',1,'initClientConnection(char *hostname, uint16_t port):&#160;client.c']]],
-  ['initsocket_59',['initSocket',['../socket_8c.html#ae98edd9cbb3dd2b3808a598d54ed9607',1,'initSocket():&#160;socket.c'],['../socket_8h.html#ae98edd9cbb3dd2b3808a598d54ed9607',1,'initSocket():&#160;socket.c']]],
-  ['interval_60',['interval',['../structframe__timer__t.html#a110868dbf0c237ccb836277240ba8bcb',1,'frame_timer_t']]],
-  ['isclientdown_61',['isClientDown',['../socket_2server_8c.html#ae64319cb1d181c48adea7f3b1deb0cee',1,'isClientDown(server_client_t *client):&#160;server.c'],['../socket_2server_8h.html#ae64319cb1d181c48adea7f3b1deb0cee',1,'isClientDown(server_client_t *client):&#160;server.c']]],
-  ['isserverdown_62',['isServerDown',['../socket_2client_8c.html#a73fd66570eec05fd79dbe07030386687',1,'isServerDown(client_t *client):&#160;client.c'],['../socket_2client_8h.html#a73fd66570eec05fd79dbe07030386687',1,'isServerDown(client_t *client):&#160;client.c']]]
+  ['handshake_5fpacket_5fid_98',['HANDSHAKE_PACKET_ID',['../packet__id_8h.html#a0fc5416dae21974a42a4729378dd2eefaf49d35f92b4014cc402e853f913f286a',1,'packet_id.h']]],
+  ['has_5ffinished_99',['has_finished',['../structplayer__game__data__t.html#aaaa14494cb3e76de72682c953a3c925f',1,'player_game_data_t']]],
+  ['has_5fplayer_5fwon_5fpacket_5fid_100',['HAS_PLAYER_WON_PACKET_ID',['../packet__id_8h.html#a0fc5416dae21974a42a4729378dd2eefacda3a1c3c8a708f0326d87635e1f10b0',1,'packet_id.h']]],
+  ['height_101',['height',['../structsprite__t.html#a6718979180f6ac3ffdc44f41f8f75c00',1,'sprite_t::height()'],['../structwindow__t.html#a2e4e3c4402eb7b5f67e7574ec0e8c7bf',1,'window_t::height()']]],
+  ['horizontal_5fwall_102',['horizontal_wall',['../structbuilding__sprite__rects__t.html#a006c2e19befe5c96cd5f451877917569',1,'building_sprite_rects_t']]],
+  ['house_5f1_103',['house_1',['../structbuilding__sprite__rects__t.html#a573b39da692dde1a050bd5dab88171a9',1,'building_sprite_rects_t']]],
+  ['house_5f2_104',['house_2',['../structbuilding__sprite__rects__t.html#a636f5f45421d39f3eb208bd2ba27850a',1,'building_sprite_rects_t']]],
+  ['house_5f3_105',['house_3',['../structbuilding__sprite__rects__t.html#ac37803313823e55b563e62a3994884e9',1,'building_sprite_rects_t']]]
 ];

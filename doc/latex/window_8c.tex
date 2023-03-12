@@ -24,12 +24,8 @@ int \mbox{\hyperlink{window_8c_ac84ead18493a5445ba473190996fe36b}{destroy\+Sprit
 \begin{DoxyCompactList}\small\item\em Détruit un sprite. \end{DoxyCompactList}\item 
 SDL\+\_\+\+Rect \mbox{\hyperlink{window_8c_ad3c4f018bc737c5c0b0436fe379817ba}{position\+From\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, int width, int height, int x, int y, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}} origin)
 \begin{DoxyCompactList}\small\item\em Calcule une position par rapport au centre de l\textquotesingle{}écran. \end{DoxyCompactList}\item 
-SDL\+\_\+\+Rect \mbox{\hyperlink{window_8c_ac05108459018248d3a388c9ac0aac7c9}{surface\+From\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, SDL\+\_\+\+Surface $\ast$surface, int x, int y, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}} origin)
-\begin{DoxyCompactList}\small\item\em Calcule une position par rapport au centre de l\textquotesingle{}écran à partir d\textquotesingle{}une {\bfseries{surface}} \end{DoxyCompactList}\item 
 SDL\+\_\+\+Rect \mbox{\hyperlink{window_8c_a1de1e31a95e63b3a09ad7c3f4a7637c6}{position\+To\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, int width, int height)
-\begin{DoxyCompactList}\small\item\em Calcule la position au centre de l\textquotesingle{}écran. \end{DoxyCompactList}\item 
-SDL\+\_\+\+Rect \mbox{\hyperlink{window_8c_a7ab22661089f642ec7edc5b018e878c5}{surface\+To\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, SDL\+\_\+\+Surface $\ast$surface)
-\begin{DoxyCompactList}\small\item\em Calcule la position au centre de l\textquotesingle{}écran à partir d\textquotesingle{}une {\bfseries{surface}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calcule la position au centre de l\textquotesingle{}écran. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -203,52 +199,6 @@ Calcule la position au centre de l\textquotesingle{}écran.
 {\em width} & largeur de l\textquotesingle{}élément à afficher \\
 \hline
 {\em height} & hauteur de l\textquotesingle{}élément à afficher \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-une {\bfseries{position}} sur la fenêtre 
-\end{DoxyReturn}
-\mbox{\Hypertarget{window_8c_ac05108459018248d3a388c9ac0aac7c9}\label{window_8c_ac05108459018248d3a388c9ac0aac7c9}} 
-\index{window.c@{window.c}!surfaceFromCenter@{surfaceFromCenter}}
-\index{surfaceFromCenter@{surfaceFromCenter}!window.c@{window.c}}
-\doxysubsubsection{\texorpdfstring{surfaceFromCenter()}{surfaceFromCenter()}}
-{\footnotesize\ttfamily SDL\+\_\+\+Rect surface\+From\+Center (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}}}]{origin }\end{DoxyParamCaption})}
-
-
-
-Calcule une position par rapport au centre de l\textquotesingle{}écran à partir d\textquotesingle{}une {\bfseries{surface}} 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em window} & un pointeur sur une fenêtre \\
-\hline
-{\em surface} & un pointeur sur une surface \\
-\hline
-{\em x} & décalage en x depuis le centre \\
-\hline
-{\em y} & décalage en y depuis le centre \\
-\hline
-{\em origin} & point d\textquotesingle{}origine sur lequel est centrée l\textquotesingle{}élément \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-une {\bfseries{position}} sur la fenêtre 
-\end{DoxyReturn}
-\mbox{\Hypertarget{window_8c_a7ab22661089f642ec7edc5b018e878c5}\label{window_8c_a7ab22661089f642ec7edc5b018e878c5}} 
-\index{window.c@{window.c}!surfaceToCenter@{surfaceToCenter}}
-\index{surfaceToCenter@{surfaceToCenter}!window.c@{window.c}}
-\doxysubsubsection{\texorpdfstring{surfaceToCenter()}{surfaceToCenter()}}
-{\footnotesize\ttfamily SDL\+\_\+\+Rect surface\+To\+Center (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface }\end{DoxyParamCaption})}
-
-
-
-Calcule la position au centre de l\textquotesingle{}écran à partir d\textquotesingle{}une {\bfseries{surface}} 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em window} & un pointeur sur une fenêtre \\
-\hline
-{\em surface} & un pointeur sur une surface \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}

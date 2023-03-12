@@ -1,5 +1,5 @@
 /**
- * @file client_data.h
+ * @file client_data.c
  * @author Lucas Dureau
  * @brief Implémente les fonctions associées la structure de données pour les clients connectés au serveur
  * @version 0.1

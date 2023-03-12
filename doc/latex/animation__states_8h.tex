@@ -1,0 +1,181 @@
+\hypertarget{animation__states_8h}{}\doxysection{Référence du fichier src/window/animation\+\_\+states.h}
+\label{animation__states_8h}\index{src/window/animation\_states.h@{src/window/animation\_states.h}}
+
+
+fichier contenant les différents états des animations  
+
+
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{animation__states_8h_a257bedf8a7e4ce577ece7dfd866e64f9}{portal\+\_\+anim\+\_\+state\+\_\+e}} \{ {\bfseries PORTAL\+\_\+\+IDLE\+\_\+\+ANIM}
+, {\bfseries PORTAL\+\_\+\+SPAWN\+\_\+\+ANIM}
+, {\bfseries PORTAL\+\_\+\+DESPAWN\+\_\+\+ANIM}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumération des états d\textquotesingle{}une animation de portail. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{animation__states_8h_a7a370becafed996f28dcb795b7413f85}{book\+\_\+anim\+\_\+state\+\_\+e}} \{ {\bfseries BOOK\+\_\+\+OPEN\+\_\+\+ANIM}
+, {\bfseries BOOK\+\_\+\+CLOSE\+\_\+\+ANIM}
+, {\bfseries BOOK\+\_\+\+OPENED\+\_\+\+ANIM}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumération des états d\textquotesingle{}une animation de livre. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{animation__states_8h_ad72e1733c85e51d8496552ef1fd8db9f}{daemon\+\_\+anim\+\_\+state\+\_\+e}} \{ {\bfseries DAEMON\+\_\+\+IDLE\+\_\+\+ANIM}
+, {\bfseries DAEMON\+\_\+\+MOVE\+\_\+\+ANIM}
+, {\bfseries DAEMON\+\_\+\+ATTACK\+\_\+\+ANIM}
+, {\bfseries DAEMON\+\_\+\+DEATH\+\_\+\+ANIM}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumération des états d\textquotesingle{}une animation de démon. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{animation__states_8h_a38a90d8c73b957a920c83e507012d9a6}{goblin\+\_\+giant\+\_\+anim\+\_\+state\+\_\+e}} \{ \newline
+{\bfseries GOBLIN\+\_\+\+GIANT\+\_\+\+IDLE\+\_\+\+ANIM}
+, {\bfseries GOBLIN\+\_\+\+GIANT\+\_\+\+MOVE\+\_\+\+ANIM}
+, {\bfseries GOBLIN\+\_\+\+GIANT\+\_\+\+ATTACK\+\_\+\+ANIM}
+, {\bfseries GOBLIN\+\_\+\+GIANT\+\_\+\+IDLE2\+\_\+\+ANIM}
+, \newline
+{\bfseries GOBLIN\+\_\+\+GIANT\+\_\+\+DEATH\+\_\+\+ANIM}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumération des états d\textquotesingle{}une animation de Géant goblin. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{animation__states_8h_abfd2e149eccc32cc8228968b6dcd31a8}{rat\+\_\+anim\+\_\+state\+\_\+e}} \{ \newline
+{\bfseries RAT\+\_\+\+IDLE\+\_\+\+ANIM}
+, {\bfseries RAT\+\_\+\+MOVE\+\_\+\+ANIM}
+, {\bfseries RAT\+\_\+\+ATTACK\+\_\+\+ANIM}
+, {\bfseries RAT\+\_\+\+IDLE2\+\_\+\+ANIM}
+, \newline
+{\bfseries RAT\+\_\+\+DEATH\+\_\+\+ANIM}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumération des états d\textquotesingle{}une animation de Rat avec une hache. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+fichier contenant les différents états des animations 
+
+\begin{DoxyAuthor}{Auteur}
+Hôa Le Luet 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07/03/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{animation__states_8h_a7a370becafed996f28dcb795b7413f85}\label{animation__states_8h_a7a370becafed996f28dcb795b7413f85}} 
+\index{animation\_states.h@{animation\_states.h}!book\_anim\_state\_e@{book\_anim\_state\_e}}
+\index{book\_anim\_state\_e@{book\_anim\_state\_e}!animation\_states.h@{animation\_states.h}}
+\doxysubsubsection{\texorpdfstring{book\_anim\_state\_e}{book\_anim\_state\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{animation__states_8h_a7a370becafed996f28dcb795b7413f85}{book\+\_\+anim\+\_\+state\+\_\+e}}}
+
+
+
+Enumération des états d\textquotesingle{}une animation de livre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em BOOK\+\_\+\+OPEN\+\_\+\+ANIM} & \+: le livre s\textquotesingle{}ouvre \\
+\hline
+{\em BOOK\+\_\+\+CLOSE\+\_\+\+ANIM} & \+: le livre se ferme \\
+\hline
+{\em BOOK\+\_\+\+OPENED\+\_\+\+ANIM} & \+: le livre est ouvert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un type énuméré de type book\+\_\+anim\+\_\+state\+\_\+e 
+\end{DoxyReturn}
+\mbox{\Hypertarget{animation__states_8h_ad72e1733c85e51d8496552ef1fd8db9f}\label{animation__states_8h_ad72e1733c85e51d8496552ef1fd8db9f}} 
+\index{animation\_states.h@{animation\_states.h}!daemon\_anim\_state\_e@{daemon\_anim\_state\_e}}
+\index{daemon\_anim\_state\_e@{daemon\_anim\_state\_e}!animation\_states.h@{animation\_states.h}}
+\doxysubsubsection{\texorpdfstring{daemon\_anim\_state\_e}{daemon\_anim\_state\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{animation__states_8h_ad72e1733c85e51d8496552ef1fd8db9f}{daemon\+\_\+anim\+\_\+state\+\_\+e}}}
+
+
+
+Enumération des états d\textquotesingle{}une animation de démon. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em DAEMON\+\_\+\+IDLE\+\_\+\+ANIM} & \+: le démon est immobile \\
+\hline
+{\em DAEMON\+\_\+\+MOVE\+\_\+\+ANIM} & \+: le démon se déplace \\
+\hline
+{\em DAEMON\+\_\+\+ATTACK\+\_\+\+ANIM} & \+: le démon attaque \\
+\hline
+{\em DAEMON\+\_\+\+DEATH\+\_\+\+ANIM} & \+: le démon meurt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un type énuméré de type daemon\+\_\+anim\+\_\+state\+\_\+e 
+\end{DoxyReturn}
+\mbox{\Hypertarget{animation__states_8h_a38a90d8c73b957a920c83e507012d9a6}\label{animation__states_8h_a38a90d8c73b957a920c83e507012d9a6}} 
+\index{animation\_states.h@{animation\_states.h}!goblin\_giant\_anim\_state\_e@{goblin\_giant\_anim\_state\_e}}
+\index{goblin\_giant\_anim\_state\_e@{goblin\_giant\_anim\_state\_e}!animation\_states.h@{animation\_states.h}}
+\doxysubsubsection{\texorpdfstring{goblin\_giant\_anim\_state\_e}{goblin\_giant\_anim\_state\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{animation__states_8h_a38a90d8c73b957a920c83e507012d9a6}{goblin\+\_\+giant\+\_\+anim\+\_\+state\+\_\+e}}}
+
+
+
+Enumération des états d\textquotesingle{}une animation de Géant goblin. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em GIANT\+\_\+\+GOBLIN\+\_\+\+IDLE\+\_\+\+ANIM} & \+: le géant goblin est immobile \\
+\hline
+{\em GIANT\+\_\+\+GOBLIN\+\_\+\+MOVE\+\_\+\+ANIM} & \+: le géant goblin se déplace \\
+\hline
+{\em GIANT\+\_\+\+GOBLIN\+\_\+\+ATTACK\+\_\+\+ANIM} & \+: le géant goblin attaque \\
+\hline
+{\em GIANT\+\_\+\+GOBLIN\+\_\+\+IDLE2\+\_\+\+ANIM} & \+: le géant goblin est immobile (animation différente) \\
+\hline
+{\em GIANT\+\_\+\+GOBLIN\+\_\+\+DEATH\+\_\+\+ANIM} & \+: le géant goblin meurt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un type énuméré de type goblin\+\_\+giant\+\_\+anim\+\_\+state\+\_\+e 
+\end{DoxyReturn}
+\mbox{\Hypertarget{animation__states_8h_a257bedf8a7e4ce577ece7dfd866e64f9}\label{animation__states_8h_a257bedf8a7e4ce577ece7dfd866e64f9}} 
+\index{animation\_states.h@{animation\_states.h}!portal\_anim\_state\_e@{portal\_anim\_state\_e}}
+\index{portal\_anim\_state\_e@{portal\_anim\_state\_e}!animation\_states.h@{animation\_states.h}}
+\doxysubsubsection{\texorpdfstring{portal\_anim\_state\_e}{portal\_anim\_state\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{animation__states_8h_a257bedf8a7e4ce577ece7dfd866e64f9}{portal\+\_\+anim\+\_\+state\+\_\+e}}}
+
+
+
+Enumération des états d\textquotesingle{}une animation de portail. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em PORTAL\+\_\+\+IDLE} & \+: le portail est ouvert \\
+\hline
+{\em PORTAL\+\_\+\+SPAWN} & \+: le portail apparaît \\
+\hline
+{\em PORTAL\+\_\+\+DESPAWN} & \+: le portail disparait \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un type énuméré de type portal\+\_\+anim\+\_\+state\+\_\+e 
+\end{DoxyReturn}
+\mbox{\Hypertarget{animation__states_8h_abfd2e149eccc32cc8228968b6dcd31a8}\label{animation__states_8h_abfd2e149eccc32cc8228968b6dcd31a8}} 
+\index{animation\_states.h@{animation\_states.h}!rat\_anim\_state\_e@{rat\_anim\_state\_e}}
+\index{rat\_anim\_state\_e@{rat\_anim\_state\_e}!animation\_states.h@{animation\_states.h}}
+\doxysubsubsection{\texorpdfstring{rat\_anim\_state\_e}{rat\_anim\_state\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{animation__states_8h_abfd2e149eccc32cc8228968b6dcd31a8}{rat\+\_\+anim\+\_\+state\+\_\+e}}}
+
+
+
+Enumération des états d\textquotesingle{}une animation de Rat avec une hache. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em RAT\+\_\+\+IDLE\+\_\+\+ANIM} & \+: le rat est immobile \\
+\hline
+{\em RAT\+\_\+\+MOVE\+\_\+\+ANIM} & \+: le rat se déplace \\
+\hline
+{\em RAT\+\_\+\+ATTACK\+\_\+\+ANIM} & \+: le rat attaque \\
+\hline
+{\em RAT\+\_\+\+IDLE2\+\_\+\+ANIM} & \+: le rat est immobile (animation différente) \\
+\hline
+{\em RAT\+\_\+\+DEATH\+\_\+\+ANIM} & \+: le rat meurt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un type énuméré de type rat\+\_\+anim\+\_\+state\+\_\+e 
+\end{DoxyReturn}

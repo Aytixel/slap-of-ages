@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['texture_261',['texture',['../structsprite__t.html#ab2dd1ee545b01b43bff646fe10b29d5d',1,'sprite_t']]],
-  ['tile_5fsize_262',['tile_size',['../structmap__t.html#a1bad88dbaa3da938befba27dcff074c6',1,'map_t']]],
-  ['tree_5fsprite_263',['tree_sprite',['../structmap__t.html#ab7b8f2af47ac903886df1c03e102fc7a',1,'map_t']]]
+  ['texture_402',['texture',['../structsprite__t.html#ab2dd1ee545b01b43bff646fe10b29d5d',1,'sprite_t']]],
+  ['tile_5fsize_403',['tile_size',['../structmap__renderer__t.html#af1ac9bf9c90c324ff18a4d4a8bbb1d91',1,'map_renderer_t']]],
+  ['time_5fleft_404',['time_left',['../structplayer__game__data__t.html#a64b771e9837db32d0319bf6fdd28a679',1,'player_game_data_t']]],
+  ['tree_5fsprite_405',['tree_sprite',['../structmap__renderer__t.html#a9224257d4e18d212439bd27ade874067',1,'map_renderer_t']]]
 ];

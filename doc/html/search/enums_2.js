@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['server_5fclient_5fconnection_5fstate_5fe_268',['server_client_connection_state_e',['../connection_2server_8h.html#a4f72aa08096f869ed5f76e97c4b896cd',1,'server.h']]]
+  ['daemon_5fanim_5fstate_5fe_413',['daemon_anim_state_e',['../animation__states_8h.html#ad72e1733c85e51d8496552ef1fd8db9f',1,'animation_states.h']]]
 ];

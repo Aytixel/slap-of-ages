@@ -1,0 +1,129 @@
+\hypertarget{input_8h}{}\doxysection{Référence du fichier src/window/input.h}
+\label{input_8h}\index{src/window/input.h@{src/window/input.h}}
+
+
+Implémentation des prototypes de \mbox{\hyperlink{input_8c}{window/input.\+c}}.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}window.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbutton__t}{button\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure contenant les données d\textquotesingle{}un bouton. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structTextbox__t}{Textbox\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure contenant les données d\textquotesingle{}une textbox. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{input_8h_a0d976d005610f1e7e438dded0d99414a}{create\+Button}} (TTF\+\_\+\+Font $\ast$font, const char $\ast$button\+Text, SDL\+\_\+\+Color color, float button\+XRatio, float button\+YRatio, float button\+Width\+Ratio, float button\+Height\+Ratio, \mbox{\hyperlink{structbutton__t}{button\+\_\+t}} $\ast$button, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window)
+\begin{DoxyCompactList}\small\item\em Fonction de création des boutons. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{input_8h_aa822c0183171093a88f63484108ab22d}{create\+Textbox}} (TTF\+\_\+\+Font $\ast$font, SDL\+\_\+\+Color color, SDL\+\_\+\+Rect rect, \mbox{\hyperlink{structTextbox__t}{Textbox\+\_\+t}} $\ast$textbox, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window)
+\begin{DoxyCompactList}\small\item\em Fonction de création des textes box (texte de saisie) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{input_8h_a272d585313f8dc3dba68225db615e3c2}\label{input_8h_a272d585313f8dc3dba68225db615e3c2}} 
+int {\bfseries is\+Mouse\+Click\+In\+Rect} (SDL\+\_\+\+Event event, SDL\+\_\+\+Rect rect, int button, int type)
+\item 
+SDL\+\_\+\+Point \mbox{\hyperlink{input_8h_ae364f224b8606e9aac19dcdf5817205e}{get\+Mouse\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Fonction de récupération de la position de la souris. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des prototypes de \mbox{\hyperlink{input_8c}{window/input.\+c}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Arthur Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+03/03/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{input_8h_a0d976d005610f1e7e438dded0d99414a}\label{input_8h_a0d976d005610f1e7e438dded0d99414a}} 
+\index{input.h@{input.h}!createButton@{createButton}}
+\index{createButton@{createButton}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{createButton()}{createButton()}}
+{\footnotesize\ttfamily void create\+Button (\begin{DoxyParamCaption}\item[{TTF\+\_\+\+Font $\ast$}]{font,  }\item[{const char $\ast$}]{button\+Text,  }\item[{SDL\+\_\+\+Color}]{color,  }\item[{float}]{button\+XRatio,  }\item[{float}]{button\+YRatio,  }\item[{float}]{button\+Width\+Ratio,  }\item[{float}]{button\+Height\+Ratio,  }\item[{\mbox{\hyperlink{structbutton__t}{button\+\_\+t}} $\ast$}]{button,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window }\end{DoxyParamCaption})}
+
+
+
+Fonction de création des boutons. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & \\
+\hline
+{\em font} & \\
+\hline
+{\em button\+Text} & \\
+\hline
+{\em color} & \\
+\hline
+{\em button\+XRatio} & \\
+\hline
+{\em button\+YRatio} & \\
+\hline
+{\em button\+Width\+Ratio} & \\
+\hline
+{\em button\+Height\+Ratio} & \\
+\hline
+{\em button} & \\
+\hline
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{input_8h_aa822c0183171093a88f63484108ab22d}\label{input_8h_aa822c0183171093a88f63484108ab22d}} 
+\index{input.h@{input.h}!createTextbox@{createTextbox}}
+\index{createTextbox@{createTextbox}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{createTextbox()}{createTextbox()}}
+{\footnotesize\ttfamily void create\+Textbox (\begin{DoxyParamCaption}\item[{TTF\+\_\+\+Font $\ast$}]{font,  }\item[{SDL\+\_\+\+Color}]{color,  }\item[{SDL\+\_\+\+Rect}]{rect,  }\item[{\mbox{\hyperlink{structTextbox__t}{Textbox\+\_\+t}} $\ast$}]{textbox,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window }\end{DoxyParamCaption})}
+
+
+
+Fonction de création des textes box (texte de saisie) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & \\
+\hline
+{\em font} & \\
+\hline
+{\em color} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em w} & \\
+\hline
+{\em h} & \\
+\hline
+{\em rect} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{input_8h_ae364f224b8606e9aac19dcdf5817205e}\label{input_8h_ae364f224b8606e9aac19dcdf5817205e}} 
+\index{input.h@{input.h}!getMousePosition@{getMousePosition}}
+\index{getMousePosition@{getMousePosition}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{getMousePosition()}{getMousePosition()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Point get\+Mouse\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction de récupération de la position de la souris. 
+
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+Point 
+\end{DoxyReturn}

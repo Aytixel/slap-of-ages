@@ -1,5 +1,5 @@
 /**
- * @file game_data.h
+ * @file game_data.c
  * @author Lucas Dureau
  * @brief Implémente les fonctions permettant de gérer l'état d'une partie
  * @version 0.1

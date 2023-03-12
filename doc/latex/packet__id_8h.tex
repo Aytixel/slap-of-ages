@@ -8,8 +8,14 @@ Définition des identifiants de paquet résaux.
 \doxysubsection*{Énumérations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{packet__id_8h_a0fc5416dae21974a42a4729378dd2eef}{packet\+\_\+id\+\_\+e}} \{ \mbox{\hyperlink{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefaf49d35f92b4014cc402e853f913f286a}{HANDSHAKE\+\_\+\+PACKET\+\_\+\+ID}}
+enum \mbox{\hyperlink{packet__id_8h_a0fc5416dae21974a42a4729378dd2eef}{packet\+\_\+id\+\_\+e}} \{ \newline
+\mbox{\hyperlink{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefaf49d35f92b4014cc402e853f913f286a}{HANDSHAKE\+\_\+\+PACKET\+\_\+\+ID}}
 , \mbox{\hyperlink{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefac090198435f85d6a0b8e7c2523e4b59c}{SET\+\_\+\+PSEUDO\+\_\+\+PACKET\+\_\+\+ID}}
+, \mbox{\hyperlink{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefa23617cb891e07330e3473e5ed45ac6ab}{SET\+\_\+\+MAP\+\_\+\+PACKET\+\_\+\+ID}}
+, \mbox{\hyperlink{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefa6422f53603444615e598f329ddb1bccb}{IS\+\_\+\+PLAYER\+\_\+\+READY\+\_\+\+PACKET\+\_\+\+ID}}
+, \newline
+\mbox{\hyperlink{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefaa943cabbdd4bf4dd206ce469694d8b25}{GAME\+\_\+\+FINISHED\+\_\+\+PACKET\+\_\+\+ID}}
+, \mbox{\hyperlink{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefacda3a1c3c8a708f0326d87635e1f10b0}{HAS\+\_\+\+PLAYER\+\_\+\+WON\+\_\+\+PACKET\+\_\+\+ID}}
  \}
 \begin{DoxyCompactList}\small\item\em Enumération définissant tous les identifiants de paquet résaux. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -46,6 +52,22 @@ HANDSHAKE\+\_\+\+PACKET\+\_\+\+ID&poigné de main \\
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SET\_PSEUDO\_PACKET\_ID@{SET\_PSEUDO\_PACKET\_ID}!packet\_id.h@{packet\_id.h}}\index{packet\_id.h@{packet\_id.h}!SET\_PSEUDO\_PACKET\_ID@{SET\_PSEUDO\_PACKET\_ID}}}\mbox{\Hypertarget{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefac090198435f85d6a0b8e7c2523e4b59c}\label{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefac090198435f85d6a0b8e7c2523e4b59c}} 
 SET\+\_\+\+PSEUDO\+\_\+\+PACKET\+\_\+\+ID&envoie du pseudo \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SET\_MAP\_PACKET\_ID@{SET\_MAP\_PACKET\_ID}!packet\_id.h@{packet\_id.h}}\index{packet\_id.h@{packet\_id.h}!SET\_MAP\_PACKET\_ID@{SET\_MAP\_PACKET\_ID}}}\mbox{\Hypertarget{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefa23617cb891e07330e3473e5ed45ac6ab}\label{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefa23617cb891e07330e3473e5ed45ac6ab}} 
+SET\+\_\+\+MAP\+\_\+\+PACKET\+\_\+\+ID&envoie la carte \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IS\_PLAYER\_READY\_PACKET\_ID@{IS\_PLAYER\_READY\_PACKET\_ID}!packet\_id.h@{packet\_id.h}}\index{packet\_id.h@{packet\_id.h}!IS\_PLAYER\_READY\_PACKET\_ID@{IS\_PLAYER\_READY\_PACKET\_ID}}}\mbox{\Hypertarget{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefa6422f53603444615e598f329ddb1bccb}\label{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefa6422f53603444615e598f329ddb1bccb}} 
+IS\+\_\+\+PLAYER\+\_\+\+READY\+\_\+\+PACKET\+\_\+\+ID&définie si le joueur est prêt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GAME\_FINISHED\_PACKET\_ID@{GAME\_FINISHED\_PACKET\_ID}!packet\_id.h@{packet\_id.h}}\index{packet\_id.h@{packet\_id.h}!GAME\_FINISHED\_PACKET\_ID@{GAME\_FINISHED\_PACKET\_ID}}}\mbox{\Hypertarget{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefaa943cabbdd4bf4dd206ce469694d8b25}\label{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefaa943cabbdd4bf4dd206ce469694d8b25}} 
+GAME\+\_\+\+FINISHED\+\_\+\+PACKET\+\_\+\+ID&définie partie comme terminée \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAS\_PLAYER\_WON\_PACKET\_ID@{HAS\_PLAYER\_WON\_PACKET\_ID}!packet\_id.h@{packet\_id.h}}\index{packet\_id.h@{packet\_id.h}!HAS\_PLAYER\_WON\_PACKET\_ID@{HAS\_PLAYER\_WON\_PACKET\_ID}}}\mbox{\Hypertarget{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefacda3a1c3c8a708f0326d87635e1f10b0}\label{packet__id_8h_a0fc5416dae21974a42a4729378dd2eefacda3a1c3c8a708f0326d87635e1f10b0}} 
+HAS\+\_\+\+PLAYER\+\_\+\+WON\+\_\+\+PACKET\+\_\+\+ID&définie si le joueur à gagné \\
 \hline
 
 \end{DoxyEnumFields}

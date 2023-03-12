@@ -1,0 +1,100 @@
+\hypertarget{map__renderer_8c}{}\doxysection{Référence du fichier src/map/map\+\_\+renderer.c}
+\label{map__renderer_8c}\index{src/map/map\_renderer.c@{src/map/map\_renderer.c}}
+
+
+Permet de gérer l\textquotesingle{}affichage de la carte.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}map\+\_\+renderer.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{map__renderer_8c_a8fa35e95d202f9abb7f84c5b13e37d41}\label{map__renderer_8c_a8fa35e95d202f9abb7f84c5b13e37d41}} 
+\#define {\bfseries MAP\+\_\+\+TILE\+\_\+\+SIZE}~16
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$ \mbox{\hyperlink{map__renderer_8c_a4bb5cdb1ba72050c3a2d3e8769f98e19}{create\+Map\+Renderer}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, int map\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Créer la carte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{map__renderer_8c_aaa163cacd97f7a89d6e1cc62e768f666}{render\+Map}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$map\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em Fait le rendu de la carte sur la fenêtre. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{map__renderer_8c_a0080f8d2407fca5cc19293b4fe44191f}{delete\+Map\+Renderer}} (\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$$\ast$map\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em Détruit la carte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Permet de gérer l\textquotesingle{}affichage de la carte. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+16/02/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{map__renderer_8c_a4bb5cdb1ba72050c3a2d3e8769f98e19}\label{map__renderer_8c_a4bb5cdb1ba72050c3a2d3e8769f98e19}} 
+\index{map\_renderer.c@{map\_renderer.c}!createMapRenderer@{createMapRenderer}}
+\index{createMapRenderer@{createMapRenderer}!map\_renderer.c@{map\_renderer.c}}
+\doxysubsubsection{\texorpdfstring{createMapRenderer()}{createMapRenderer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}}$\ast$ create\+Map\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{int}]{map\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Créer la carte. 
+
+Initialise aussi les données des sprites nécessaires à l\textquotesingle{}affichage de la carte
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em size} & taille de la carte en nombre de cases \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur un {\bfseries{carte}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map__renderer_8c_a0080f8d2407fca5cc19293b4fe44191f}\label{map__renderer_8c_a0080f8d2407fca5cc19293b4fe44191f}} 
+\index{map\_renderer.c@{map\_renderer.c}!deleteMapRenderer@{deleteMapRenderer}}
+\index{deleteMapRenderer@{deleteMapRenderer}!map\_renderer.c@{map\_renderer.c}}
+\doxysubsubsection{\texorpdfstring{deleteMapRenderer()}{deleteMapRenderer()}}
+{\footnotesize\ttfamily int delete\+Map\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$$\ast$}]{map\+\_\+renderer }\end{DoxyParamCaption})}
+
+
+
+Détruit la carte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map\+\_\+renderer} & une référence d\textquotesingle{}un pointeur sur la carte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map__renderer_8c_aaa163cacd97f7a89d6e1cc62e768f666}\label{map__renderer_8c_aaa163cacd97f7a89d6e1cc62e768f666}} 
+\index{map\_renderer.c@{map\_renderer.c}!renderMap@{renderMap}}
+\index{renderMap@{renderMap}!map\_renderer.c@{map\_renderer.c}}
+\doxysubsubsection{\texorpdfstring{renderMap()}{renderMap()}}
+{\footnotesize\ttfamily void render\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$}]{map\+\_\+renderer }\end{DoxyParamCaption})}
+
+
+
+Fait le rendu de la carte sur la fenêtre. 
+
+Fait le rendu du sol en premier, avant de faire celui des arbres
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em map\+\_\+renderer} & un pointeur sur la carte \\
+\hline
+\end{DoxyParams}

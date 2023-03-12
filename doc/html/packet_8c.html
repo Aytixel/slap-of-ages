@@ -92,6 +92,30 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a122133c809cbe724167772655612afdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a122133c809cbe724167772655612afdc">readSetPseudoPacket</a> (<a class="el" href="structpacket__t.html">packet_t</a> *packet, char **pseudo)</td></tr>
 <tr class="memdesc:a122133c809cbe724167772655612afdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lie un paquet définissant le pseudo.  <a href="packet_8c.html#a122133c809cbe724167772655612afdc">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a122133c809cbe724167772655612afdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0acf6153b1204095dea477077a1bdc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#ae0acf6153b1204095dea477077a1bdc1">createSetMapPacket</a> ()</td></tr>
+<tr class="memdesc:ae0acf6153b1204095dea477077a1bdc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un paquet définissant la carte.  <a href="packet_8c.html#ae0acf6153b1204095dea477077a1bdc1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae0acf6153b1204095dea477077a1bdc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78edd7cbf720fd90e2b9ae393d83e9b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a78edd7cbf720fd90e2b9ae393d83e9b7">readSetMapPacket</a> (<a class="el" href="structpacket__t.html">packet_t</a> *packet)</td></tr>
+<tr class="memdesc:a78edd7cbf720fd90e2b9ae393d83e9b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lie un paquet définissant la carte.  <a href="packet_8c.html#a78edd7cbf720fd90e2b9ae393d83e9b7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a78edd7cbf720fd90e2b9ae393d83e9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0909f0a69bb4b40010fef318357fa9db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a0909f0a69bb4b40010fef318357fa9db">createIsPlayerReadyPacket</a> (int is_player_ready)</td></tr>
+<tr class="memdesc:a0909f0a69bb4b40010fef318357fa9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un paquet définissant si le joueur est prêt.  <a href="packet_8c.html#a0909f0a69bb4b40010fef318357fa9db">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0909f0a69bb4b40010fef318357fa9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa08e62c9ca737b8884f7ced46a0050bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#aa08e62c9ca737b8884f7ced46a0050bd">readIsPlayerReadyPacket</a> (<a class="el" href="structpacket__t.html">packet_t</a> *packet, int *is_player_ready)</td></tr>
+<tr class="memdesc:aa08e62c9ca737b8884f7ced46a0050bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lie un paquet définissant si le joueur est prêt.  <a href="packet_8c.html#aa08e62c9ca737b8884f7ced46a0050bd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa08e62c9ca737b8884f7ced46a0050bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eae042bf09db2efc6c862a5ebb61708"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a1eae042bf09db2efc6c862a5ebb61708">createGameFinishedPacket</a> (float destruction_percentage, long time_left)</td></tr>
+<tr class="memdesc:a1eae042bf09db2efc6c862a5ebb61708"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un paquet définissant le fait qu'un joueur à terminé  <a href="packet_8c.html#a1eae042bf09db2efc6c862a5ebb61708">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1eae042bf09db2efc6c862a5ebb61708"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05cbe61d2bb9bdbef7d0f3fe5c10ad08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a05cbe61d2bb9bdbef7d0f3fe5c10ad08">readGameFinishedPacket</a> (<a class="el" href="structpacket__t.html">packet_t</a> *packet, float *destruction_percentage, long *time_left)</td></tr>
+<tr class="memdesc:a05cbe61d2bb9bdbef7d0f3fe5c10ad08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lie un paquet définissant le fait qu'un joueur à terminé  <a href="packet_8c.html#a05cbe61d2bb9bdbef7d0f3fe5c10ad08">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a05cbe61d2bb9bdbef7d0f3fe5c10ad08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1af8e9984c275e58c407c25fdb5afa52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a1af8e9984c275e58c407c25fdb5afa52">createHasPlayerWonPacket</a> (int has_player_won)</td></tr>
+<tr class="memdesc:a1af8e9984c275e58c407c25fdb5afa52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un paquet définissant si le joueur à gagné  <a href="packet_8c.html#a1af8e9984c275e58c407c25fdb5afa52">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1af8e9984c275e58c407c25fdb5afa52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ca68fd8fda22d57db674d9b30b035ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a8ca68fd8fda22d57db674d9b30b035ef">readHasPlayerWonPacket</a> (<a class="el" href="structpacket__t.html">packet_t</a> *packet, int *has_player_won)</td></tr>
+<tr class="memdesc:a8ca68fd8fda22d57db674d9b30b035ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lie un paquet définissant si le joueur est prêt.  <a href="packet_8c.html#a8ca68fd8fda22d57db674d9b30b035ef">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8ca68fd8fda22d57db674d9b30b035ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Implémente toute les fonctions pour créer, et lire les différents paquets. </p>
@@ -99,6 +123,44 @@ Fonctions</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>05/02/2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a1eae042bf09db2efc6c862a5ebb61708"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eae042bf09db2efc6c862a5ebb61708">&#9670;&nbsp;</a></span>createGameFinishedPacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structpacket__t.html">packet_t</a>* createGameFinishedPacket </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>destruction_percentage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>time_left</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer un paquet définissant le fait qu'un joueur à terminé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">destruction_percentage</td><td>pourcentage de destruction </td></tr>
+    <tr><td class="paramname">time_left</td><td>temps restant avant la fin de partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>paquet</b> </dd></dl>
+
+</div>
+</div>
 <a id="a93f8a54557335bcbf428a2950d362ab2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93f8a54557335bcbf428a2950d362ab2">&#9670;&nbsp;</a></span>createHandshakePacket()</h2>
 
@@ -122,6 +184,80 @@ Fonctions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>paquet</b> </dd></dl>
+
+</div>
+</div>
+<a id="a1af8e9984c275e58c407c25fdb5afa52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1af8e9984c275e58c407c25fdb5afa52">&#9670;&nbsp;</a></span>createHasPlayerWonPacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structpacket__t.html">packet_t</a>* createHasPlayerWonPacket </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>has_player_won</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer un paquet définissant si le joueur à gagné </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">has_player_won</td><td>le joueur est-il gagant ? </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>paquet</b> </dd></dl>
+
+</div>
+</div>
+<a id="a0909f0a69bb4b40010fef318357fa9db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0909f0a69bb4b40010fef318357fa9db">&#9670;&nbsp;</a></span>createIsPlayerReadyPacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structpacket__t.html">packet_t</a>* createIsPlayerReadyPacket </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>is_player_ready</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer un paquet définissant si le joueur est prêt. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is_player_ready</td><td>le joueur est-il prêt ? </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>paquet</b> </dd></dl>
+
+</div>
+</div>
+<a id="ae0acf6153b1204095dea477077a1bdc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0acf6153b1204095dea477077a1bdc1">&#9670;&nbsp;</a></span>createSetMapPacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structpacket__t.html">packet_t</a>* createSetMapPacket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer un paquet définissant la carte. </p>
 <dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>paquet</b> </dd></dl>
 
 </div>
@@ -150,6 +286,50 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>paquet</b> </dd></dl>
+
+</div>
+</div>
+<a id="a05cbe61d2bb9bdbef7d0f3fe5c10ad08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05cbe61d2bb9bdbef7d0f3fe5c10ad08">&#9670;&nbsp;</a></span>readGameFinishedPacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void readGameFinishedPacket </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td>
+          <td class="paramname"><em>packet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>destruction_percentage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long *&#160;</td>
+          <td class="paramname"><em>time_left</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lie un paquet définissant le fait qu'un joueur à terminé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td>paquet à lire </td></tr>
+    <tr><td class="paramname">destruction_percentage</td><td>pourcentage de destruction </td></tr>
+    <tr><td class="paramname">time_left</td><td>temps restant avant la fin de partie </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -184,6 +364,106 @@ Fonctions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">packet</td><td>paquet à lire </td></tr>
     <tr><td class="paramname">data</td><td>un pointeur sur les données de la poignée de main </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8ca68fd8fda22d57db674d9b30b035ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ca68fd8fda22d57db674d9b30b035ef">&#9670;&nbsp;</a></span>readHasPlayerWonPacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void readHasPlayerWonPacket </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td>
+          <td class="paramname"><em>packet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>has_player_won</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lie un paquet définissant si le joueur est prêt. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td>paquet à lire </td></tr>
+    <tr><td class="paramname">has_player_won</td><td>le joueur est-il gagant ? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa08e62c9ca737b8884f7ced46a0050bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa08e62c9ca737b8884f7ced46a0050bd">&#9670;&nbsp;</a></span>readIsPlayerReadyPacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void readIsPlayerReadyPacket </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td>
+          <td class="paramname"><em>packet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>is_player_ready</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lie un paquet définissant si le joueur est prêt. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td>paquet à lire </td></tr>
+    <tr><td class="paramname">is_player_ready</td><td>le joueur est-il prêt ? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a78edd7cbf720fd90e2b9ae393d83e9b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78edd7cbf720fd90e2b9ae393d83e9b7">&#9670;&nbsp;</a></span>readSetMapPacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void readSetMapPacket </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td>
+          <td class="paramname"><em>packet</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lie un paquet définissant la carte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td>paquet à lire </td></tr>
   </table>
   </dd>
 </dl>
