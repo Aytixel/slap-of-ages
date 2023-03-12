@@ -54,7 +54,19 @@ void createButton(TTF_Font *font, const char* buttonText, SDL_Color color, float
     button->text = strdup(buttonText);
 }
 
+/**
+ * @brief Fonction de destruction des boutons
+ * 
+ * @param button 
+ * 
+ * @return void
+ */
 
+void destroyButton(button_t *button) {
+    SDL_DestroyTexture(button->texture);
+    SDL_FreeSurface(button->surface);
+    free(button->text);
+}
 
 
 /**
@@ -78,6 +90,49 @@ void createTextbox(TTF_Font* font, SDL_Color color, SDL_Rect rect, Textbox_t* te
     SDL_FreeSurface(textbox->surface);
     memcpy(&(textbox->rect), &rect, sizeof(SDL_Rect));
     SDL_SetTextInputRect(&(textbox->rect));
+}
+
+/**
+ * @brief Fonction de mise à jour des textes box (texte de saisie)
+ * 
+ * @param event 
+ * @param font 
+ * @param inputText 
+ * @param width 
+ * @param height 
+ * 
+ * @return void
+ */
+
+void updateTextboxText(SDL_Event event, TTF_Font* font, char* inputText, int* width, int* height) {
+    switch (event.type) {
+        case SDL_TEXTINPUT:
+            strcat(inputText, event.text.text);
+            break;
+        case SDL_KEYDOWN:
+            if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputText) > 0) {
+                inputText[strlen(inputText) - 1] = '\0';
+            }
+            break;
+        default:
+            break;
+    }
+    TTF_SizeUTF8(font, inputText, width, height);
+}
+
+
+/**
+ * @brief Fonction de destruction des textes box (texte de saisie)
+ * 
+ * @param textbox 
+ * 
+ * @return void
+ */
+
+void destroyTextbox(Textbox_t* textbox) {
+    SDL_DestroyTexture(textbox->texture);
+    SDL_FreeSurface(textbox->surface);
+    free(textbox->text);
 }
 
 /**

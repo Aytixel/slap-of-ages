@@ -292,18 +292,12 @@ int menu()
 
       if(height != window->height || width != window->width){
         
-        SDL_DestroyTexture(buttonHost.texture);
-        SDL_FreeSurface(buttonHost.surface);
-        SDL_DestroyTexture(buttonJoin.texture);
-        SDL_FreeSurface(buttonJoin.surface);
-        SDL_DestroyTexture(buttonQuitter.texture);
-        SDL_FreeSurface(buttonQuitter.surface);
-        SDL_DestroyTexture(buttonIp.texture);
-        SDL_FreeSurface(buttonIp.surface);
-        SDL_DestroyTexture(buttonPort.texture);
-        SDL_FreeSurface(buttonPort.surface);
-        SDL_DestroyTexture(buttonPseudo.texture);
-        SDL_FreeSurface(buttonPseudo.surface);
+        destroyButton(&buttonHost);
+        destroyButton(&buttonJoin);
+        destroyButton(&buttonQuitter);
+        destroyButton(&buttonIp);
+        destroyButton(&buttonPort);
+        destroyButton(&buttonPseudo);
 
         SDL_Rect RectIp = {buttonHost.rect.x * 2.8, buttonHost.rect.y, buttonIp.rect.w * 4.5, buttonPort.rect.h};
         SDL_Rect RectPort = {buttonHost.rect.x * 2.8, buttonHost.rect.y * 1.2, buttonIp.rect.w * 4.5, buttonPort.rect.h};
@@ -316,10 +310,6 @@ int menu()
         createButton(font, "Pseudo", color2,  0.60f, 0.515f, 0.06f, 0.04f, &buttonPseudo, window);
         createButton(font, "Port", color2, 0.60f, 0.435f, 0.06f, 0.04f, &buttonPort, window);
         createButton(font, "Ip", color2, 0.60f, 0.35f, 0.06f, 0.04f, &buttonIp, window);
-
-        //createButton(font, "PSEUDO", color, 0.90f, 0.90f, 0.15f, 0.04f, &buttonPseudo, window);
-        //createButton(font, "PORT", color, 0.60f, 0.65f, 0.15f, 0.04f, &buttonPort, window);
-        //createButton(font, "IP", color, 0.60f, 0.65f, 0.15f, 0.04f, &buttonIp, window);
 
         createTextbox(font, color, RectIp, &textboxIp, window);
         createTextbox(font, color, RectPort, &textboxPort, window);
@@ -346,12 +336,7 @@ int menu()
       buttonPseudo.texture = SDL_CreateTextureFromSurface(window->renderer, buttonPseudo.surface);
 
       // Si l'utilisateur clique sur le bouton "QUITTER"
-      if (event.type == SDL_MOUSEBUTTONDOWN &&
-          event.button.button == SDL_BUTTON_LEFT &&
-          event.button.x >= buttonQuitter.rect.x &&
-          event.button.x <= buttonQuitter.rect.x + buttonQuitter.rect.w &&
-          event.button.y >= buttonQuitter.rect.y &&
-          event.button.y <= buttonQuitter.rect.y + buttonQuitter.rect.h && inoption == 0)
+      if (isMouseClickInRect(event, buttonQuitter.rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
       {
         SDL_DestroyTexture(buttonHost.texture);
         SDL_FreeSurface(buttonHost.surface);
@@ -369,30 +354,15 @@ int menu()
       }
 
       // Si l'utilisateur clique dans l'un des rectangles de texte
-      if (event.type == SDL_MOUSEBUTTONDOWN &&
-          event.button.button == SDL_BUTTON_LEFT &&
-          event.button.x >= textboxIp.rect.x &&
-          event.button.x <= textboxIp.rect.x + textboxIp.rect.w &&
-          event.button.y >= textboxIp.rect.y &&
-          event.button.y <= textboxIp.rect.y + textboxIp.rect.h && inoption == 0)
+      if (isMouseClickInRect(event, textboxIp.rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN) && inoption == 0)
       {
         box = 1;
       }
-      else if (event.type == SDL_MOUSEBUTTONDOWN &&
-               event.button.button == SDL_BUTTON_LEFT &&
-               event.button.x >= textboxPort.rect.x &&
-               event.button.x <= textboxPort.rect.x + textboxPort.rect.w &&
-               event.button.y >= textboxPort.rect.y &&
-               event.button.y <= textboxPort.rect.y + textboxPort.rect.h && inoption == 0)
+      else if (isMouseClickInRect(event, textboxPort.rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN) && inoption == 0)
       {
         box = 2;
       }
-      else if (event.type == SDL_MOUSEBUTTONDOWN &&
-               event.button.button == SDL_BUTTON_LEFT &&
-               event.button.x >= textboxPseudo.rect.x &&
-               event.button.x <= textboxPseudo.rect.x + textboxPseudo.rect.w &&
-               event.button.y >= textboxPseudo.rect.y &&
-               event.button.y <= textboxPseudo.rect.y + textboxPseudo.rect.h && inoption == 0)
+      else if (isMouseClickInRect(event, textboxPseudo.rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN) && inoption == 0)
       {
         box = 3;
       }
@@ -402,62 +372,15 @@ int menu()
 
       if (box == 1)
       {
-
-        switch (event.type)
-        {
-        case SDL_QUIT:
-          return 0;
-        case SDL_TEXTINPUT:
-          strcat(inputTextIp, event.text.text);
-          break;
-        case SDL_KEYDOWN:
-          if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextIp) > 0)
-          {
-            inputTextIp[strlen(inputTextIp) - 1] = '\0';
-          }
-          break;
-        }
-        TTF_SizeUTF8(font, inputTextIp, &widthIp, &heightIp);
+        updateTextboxText(event, font, inputTextIp, &widthIp, &heightIp);
       }
       else if (box == 2)
       {
-
-        switch (event.type)
-        {
-        case SDL_QUIT:
-          return 0;
-        case SDL_TEXTINPUT:
-          strcat(inputTextPort, event.text.text);
-          // printf("Texte saisi : %s", inputTextPort);
-          break;
-        case SDL_KEYDOWN:
-          if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextPort) > 0)
-          {
-            inputTextPort[strlen(inputTextPort) - 1] = '\0';
-          }
-          break;
-        }
-        TTF_SizeUTF8(font, inputTextPort, &widthPort, &heightPort);
+        updateTextboxText(event, font, inputTextPort, &widthPort, &heightPort);
       }
       else if (box == 3)
       {
-
-        switch (event.type)
-        {
-        case SDL_QUIT:
-          return 0;
-        case SDL_TEXTINPUT:
-          strcat(inputTextPseudo, event.text.text);
-          // printf("Texte saisi : %s", inputTextPseudo);
-          break;
-        case SDL_KEYDOWN:
-          if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputTextPseudo) > 0)
-          {
-            inputTextPseudo[strlen(inputTextPseudo) - 1] = '\0';
-          }
-          break;
-        }
-        TTF_SizeUTF8(font, inputTextPseudo, &widthPseudo, &heightPseudo);
+        updateTextboxText(event, font, inputTextPseudo, &widthPseudo, &heightPseudo);
       }
       else
       {
@@ -525,6 +448,7 @@ int menu()
 
       //---------//
 
+      
       // Dessiner le rectangle de saisie de texte pour l'IP
       SDL_SetRenderDrawColor(window->renderer, 192, 148, 115, 0);
       SDL_RenderFillRect(window->renderer, &RectIp);
@@ -534,6 +458,7 @@ int menu()
       // Dessiner le rectangle de saisie de texte pour le pseudo
       SDL_SetRenderDrawColor(window->renderer, 192, 148, 115, 0);
       SDL_RenderFillRect(window->renderer, &RectPseudo);
+      
 
       // Dessiner le texte des text box
       SDL_Rect textRectIp = {buttonHost.rect.x * 2.8, buttonHost.rect.y, (widthIp / 2), (buttonJoin.rect.h)};
@@ -562,14 +487,20 @@ int menu()
   // Libération de la mémoire
   deleteTimer(&multi_timer);
 
-  SDL_DestroyTexture(buttonHost.texture);
-  SDL_FreeSurface(buttonHost.surface);
-  SDL_DestroyTexture(buttonJoin.texture);
-  SDL_FreeSurface(buttonJoin.surface);
-  SDL_DestroyTexture(buttonQuitter.texture);
-  SDL_FreeSurface(buttonQuitter.surface);
+  destroyButton(&buttonHost);
+  destroyButton(&buttonJoin);
+  destroyButton(&buttonQuitter);
+  destroyButton(&buttonIp);
+  destroyButton(&buttonPort);
+  destroyButton(&buttonPseudo);
+
+  destroyTextbox(&textboxIp);
+  destroyTextbox(&textboxPort);
+  destroyTextbox(&textboxPseudo);
+
   SDL_DestroyTexture(texturep);
   SDL_FreeSurface(imagep);
+
 
   TTF_CloseFont(font);
   SDL_DestroyRenderer(window->renderer);

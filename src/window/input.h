@@ -41,7 +41,13 @@ typedef struct {
 
 extern void createButton(TTF_Font *font, const char* buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, window_t *window);
 
+extern void destroyButton(button_t *button);
+
 extern void createTextbox(TTF_Font* font, SDL_Color color, SDL_Rect rect, Textbox_t* textbox, window_t *window);
+
+extern void updateTextboxText(SDL_Event event, TTF_Font* font, char* inputText, int* width, int* height);
+
+extern void destroyTextbox(Textbox_t* textbox);
 
 extern int isMouseClickInRect(SDL_Event event, SDL_Rect rect, int button, int type) ;
 
