@@ -5,6 +5,7 @@
 #include "timer/timer.h"
 #include "connection/server.h"
 #include "server/client_data.h"
+#include "server/game_state.h"
 #include "utils/getopt.h"
 
 #define DEFAULT_HOSTNAME "0.0.0.0"
@@ -72,7 +73,42 @@ void handle_packet(packet_t *packet, game_data_array_t *game_data_array)
         break;
     case IS_PLAYER_READY_PACKET_ID:
         readIsPlayerReadyPacket(packet, &client_data->is_player_ready);
-        printf("%d : %s %sest prêt à jouer\n", server_client->socket_fd, client_data->pseudo, client_data->is_player_ready ? "" : "n'");
+
+        if (client_data->is_player_ready)
+        {
+            int game_index = findGame(game_data_array);
+
+            if (game_index == -1)
+            {
+                addGameDataToArray(game_data_array);
+                game_index = game_data_array->count - 1;
+            }
+
+            addPlayerToGame(game_data_array->game_data[game_index], server_client->socket_fd);
+
+            printf("%d : %s est prêt à jouer\n", server_client->socket_fd, client_data->pseudo);
+
+            if (isGameStarted(game_data_array->game_data[game_index]))
+                printf("%d : Parti lancé\n", server_client->socket_fd);
+
+            // définir les joueurs comme en jeux avec is_in_game
+        }
+        else
+        {
+            for (int i = 0; i < game_data_array->count; i++)
+            {
+                if (removePlayerFromGame(game_data_array->game_data[i], server_client->socket_fd))
+                {
+                    if (isGameEmpty(game_data_array->game_data[i]))
+                        removeGameDataFromArray(game_data_array, i);
+
+                    printf("%d : %s n'est pas prêt à jouer\n", server_client->socket_fd, client_data->pseudo);
+                    break;
+                }
+            }
+
+            // définir les joueurs comme n'étant plus en jeux avec is_in_game
+        }
         break;
     case GAME_FINISHED_PACKET_ID:
         // temporaire
@@ -113,6 +149,7 @@ int main(int argc, char *argv[])
     }
 
     frame_timer_t *main_timer = createTimer(1000 / 60);
+    game_data_array_t *game_data_array = createGameDataArray();
 
     // boucle principale
     while (running)
@@ -138,7 +175,7 @@ int main(int argc, char *argv[])
 
                     if (packet != NULL)
                     {
-                        handle_packet(packet);
+                        handle_packet(packet, game_data_array);
                         deletePacket(&packet);
                     }
                     break;
@@ -154,6 +191,7 @@ int main(int argc, char *argv[])
         }
     }
 
+    deleteGameDataArray(&game_data_array);
     deleteTimer(&main_timer);
     closeClientConnections();
     deleteServer(&server);
