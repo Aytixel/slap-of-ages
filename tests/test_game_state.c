@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
-#include "server/game_data.h"
+#include "server/game_state.h"
 
 int main()
 {
@@ -79,21 +79,33 @@ int main()
 
     assert(!removeGameDataFromArray(game_data_array, 234));
     assert(!removeGameDataFromArray(game_data_array, -1));
-    printf("\n\tSuppression de partie quand le tableau est vide OK\n");
+    printf("\n\tImpossible de supprimer une partie quand le tableau est vide OK\n");
 
     addGameDataToArray(game_data_array);
 
     assert(removeGameDataFromArray(game_data_array, 0) == 1);
     printf("\n\tAjout et suppression d'une partie OK\n");
 
+    assert(findGame(game_data_array) == -1);
+    printf("\n\tAucune partie trouvé OK\n");
+
     addGameDataToArray(game_data_array);
     addGameDataToArray(game_data_array);
     addGameDataToArray(game_data_array);
 
+    assert(!findGame(game_data_array));
+    assert(addPlayerToGame(game_data_array->game_data[0], 2) == 1);
+    assert(!findGame(game_data_array));
+    printf("\n\t1er partie trouvé OK\n");
+
+    assert(addPlayerToGame(game_data_array->game_data[0], 1) == 1);
+    assert(findGame(game_data_array) == 1);
+    printf("\t2ème partie trouvé OK\n");
+
     assert(removeGameDataFromArray(game_data_array, 1) == 1);
     assert(removeGameDataFromArray(game_data_array, 1) == 1);
     assert(removeGameDataFromArray(game_data_array, 0) == 1);
-    printf("\tAjout et suppression de 3 parties OK\n");
+    printf("\n\tAjout et suppression de 3 parties OK\n");
 
     addGameDataToArray(game_data_array);
 

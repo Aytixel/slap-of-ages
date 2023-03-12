@@ -1,5 +1,5 @@
 /**
- * @file game_data.c
+ * @file game_state.c
  * @author Lucas Dureau
  * @brief Implémente les fonctions permettant de gérer l'état d'une partie
  * @version 0.1
@@ -8,7 +8,7 @@
  */
 
 #include <stdlib.h>
-#include "game_data.h"
+#include "game_state.h"
 
 /**
  * @brief Créer un tableau avec les données de partie
@@ -34,6 +34,26 @@ extern void addGameDataToArray(game_data_array_t *game_data_array)
 {
     game_data_array->game_data = realloc(game_data_array->game_data, sizeof(void *) * ++game_data_array->count);
     game_data_array->game_data[game_data_array->count - 1] = createGameData();
+}
+
+/**
+ * @brief Trouve une partie qui n'est pas commencé
+ *
+ * @param game_data_array une référence d'un pointeur sur un tableau avec les données de partie
+ * @return l'**index** de la partie trouvé, **-1** sinon
+ */
+extern int findGame(game_data_array_t *game_data_array)
+{
+    if (game_data_array->count == 0)
+        return -1;
+
+    for (int i = 0; i < game_data_array->count; i++)
+    {
+        if (!isGameStarted(game_data_array->game_data[i]))
+            return i;
+    }
+
+    return -1;
 }
 
 /**

@@ -1,7 +1,7 @@
 /**
- * @file game_data.h
+ * @file game_state.h
  * @author Lucas Dureau
- * @brief Implémentation des prototypes de server/game_data.c
+ * @brief Implémentation des prototypes de server/game_state.c
  * @version 0.1
  * @date 02/03/2023
  *
@@ -47,6 +47,8 @@ typedef struct
 extern game_data_array_t *createGameDataArray();
 
 extern void addGameDataToArray(game_data_array_t *game_data_array);
+
+extern int findGame(game_data_array_t *game_data_array);
 
 extern int removeGameDataFromArray(game_data_array_t *game_data_array, int index);
 
