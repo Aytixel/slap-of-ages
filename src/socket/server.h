@@ -32,7 +32,7 @@ typedef struct
 {
     unsigned int address_length; /**< longueur de l'adresse serveur*/
     struct sockaddr_in address;  /**< adresse du serveur*/
-    int socket_fd;               /**< descipteur du socket serveur*/
+    int socket_fd;               /**< descripteur du socket serveur*/
 } server_t;
 
 /**

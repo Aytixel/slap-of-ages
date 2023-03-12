@@ -1,5 +1,5 @@
 TARGET=main_client main_server
-TEST_TARGET=test_timer test_socket test_window test_animation test_menu recupererDonnee stockerDonnee test_building
+TEST_TARGET=test_timer test_socket test_window test_animation test_menu recupererDonnee stockerDonnee test_building test_game_data
 
 ifeq ($(OS), Windows_NT)
 

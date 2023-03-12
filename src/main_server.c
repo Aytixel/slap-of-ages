@@ -133,7 +133,7 @@ int main(int argc, char *argv[])
                         printf("%d : Nouveau client connecté avec succès\n", server_client->socket_fd);
                     }
                     break;
-                case SERVER_CLIENT_CONNECTED:; // Pour éviter l'erreur de compilation avec les anciennes versions de gcc
+                case SERVER_CLIENT_CONNECTED:;
                     packet_t *packet = recvFromServerClient(server_client);
 
                     if (packet != NULL)
