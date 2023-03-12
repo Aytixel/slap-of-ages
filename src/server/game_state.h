@@ -60,6 +60,8 @@ extern int addPlayerToGame(game_data_t *game_data, int socket_fd);
 
 extern int removePlayerFromGame(game_data_t *game_data, int socket_fd);
 
+extern int isGameEmpty(game_data_t *game_data);
+
 extern int isGameStarted(game_data_t *game_data);
 
 extern int isGameFinished(game_data_t *game_data);

@@ -103,6 +103,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a04e4a8be1bf0d37f32b8cd99559918c1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8c.html#a04e4a8be1bf0d37f32b8cd99559918c1">removePlayerFromGame</a> (<a class="el" href="structgame__data__t.html">game_data_t</a> *game_data, int socket_fd)</td></tr>
 <tr class="memdesc:a04e4a8be1bf0d37f32b8cd99559918c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève un joueur à la partie.  <a href="game__state_8c.html#a04e4a8be1bf0d37f32b8cd99559918c1">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a04e4a8be1bf0d37f32b8cd99559918c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12eb710b93b45b5fbdaf62e02cc32701"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8c.html#a12eb710b93b45b5fbdaf62e02cc32701">isGameEmpty</a> (<a class="el" href="structgame__data__t.html">game_data_t</a> *game_data)</td></tr>
+<tr class="memdesc:a12eb710b93b45b5fbdaf62e02cc32701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère si la partie est vide.  <a href="game__state_8c.html#a12eb710b93b45b5fbdaf62e02cc32701">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a12eb710b93b45b5fbdaf62e02cc32701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a200570e6593a56a3e8291f5b8096aa22"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8c.html#a200570e6593a56a3e8291f5b8096aa22">isGameStarted</a> (<a class="el" href="structgame__data__t.html">game_data_t</a> *game_data)</td></tr>
 <tr class="memdesc:a200570e6593a56a3e8291f5b8096aa22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère si la partie est commencé  <a href="game__state_8c.html#a200570e6593a56a3e8291f5b8096aa22">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a200570e6593a56a3e8291f5b8096aa22"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -345,6 +348,33 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si ce joueur est le joueur 1, <b>1</b> si il est le 2ème, <b>-1</b> si il n'en fait pas partie </dd></dl>
+
+</div>
+</div>
+<a id="a12eb710b93b45b5fbdaf62e02cc32701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12eb710b93b45b5fbdaf62e02cc32701">&#9670;&nbsp;</a></span>isGameEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isGameEmpty </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__data__t.html">game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère si la partie est vide. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données d'une partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si la partie est vide, <b>0</b> sinont </dd></dl>
 
 </div>
 </div>

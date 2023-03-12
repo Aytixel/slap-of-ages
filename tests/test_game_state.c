@@ -9,11 +9,13 @@ int main()
     game_data_t *game_data = createGameData();
 
     assert(game_data != NULL);
+    assert(isGameEmpty(game_data));
     assert(!isGameStarted(game_data));
     assert(!isGameFinished(game_data));
     printf("Création des données de partie OK\n");
 
     assert(addPlayerToGame(game_data, 0) == 1);
+    assert(!isGameEmpty(game_data));
     assert(!isGameStarted(game_data));
     assert(!isGameFinished(game_data));
     assert(game_data->player[0]->socket_fd == 0);

@@ -197,6 +197,17 @@ extern int removePlayerFromGame(game_data_t *game_data, int socket_fd)
 }
 
 /**
+ * @brief Récupère si la partie est vide
+ *
+ * @param game_data un pointeur sur les données d'une partie
+ * @return **1** si la partie est vide, **0** sinont
+ */
+extern int isGameEmpty(game_data_t *game_data)
+{
+    return game_data->player[0] == NULL && game_data->player[1] == NULL;
+}
+
+/**
  * @brief Récupère si la partie est commencé
  *
  * @param game_data un pointeur sur les données d'une partie
@@ -204,7 +215,7 @@ extern int removePlayerFromGame(game_data_t *game_data, int socket_fd)
  */
 extern int isGameStarted(game_data_t *game_data)
 {
-    return game_data != NULL && game_data->player[0] != NULL && game_data->player[1] != NULL;
+    return game_data->player[0] != NULL && game_data->player[1] != NULL;
 }
 
 /**

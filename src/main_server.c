@@ -57,7 +57,7 @@ void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port
     }
 }
 
-void handle_packet(packet_t *packet)
+void handle_packet(packet_t *packet, game_data_array_t *game_data_array)
 {
     client_data_t *client_data = *server_client_data;
 

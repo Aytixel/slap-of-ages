@@ -26,6 +26,8 @@ int \mbox{\hyperlink{game__state_8c_a3659b7d7fc489beda3277627df920520}{add\+Play
 \begin{DoxyCompactList}\small\item\em Ajoute un joueur à la partie. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game__state_8c_a04e4a8be1bf0d37f32b8cd99559918c1}{remove\+Player\+From\+Game}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int socket\+\_\+fd)
 \begin{DoxyCompactList}\small\item\em Enlève un joueur à la partie. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game__state_8c_a12eb710b93b45b5fbdaf62e02cc32701}{is\+Game\+Empty}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Récupère si la partie est vide. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game__state_8c_a200570e6593a56a3e8291f5b8096aa22}{is\+Game\+Started}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Récupère si la partie est commencé \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game__state_8c_ab89cd269f1a2f44ff79eb26f45edd4b3}{is\+Game\+Finished}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
@@ -187,6 +189,24 @@ Récupère si ce joueur est dans cette partie.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si ce joueur est le joueur 1, {\bfseries{1}} si il est le 2ème, {\bfseries{-\/1}} si il n\textquotesingle{}en fait pas partie 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game__state_8c_a12eb710b93b45b5fbdaf62e02cc32701}\label{game__state_8c_a12eb710b93b45b5fbdaf62e02cc32701}} 
+\index{game\_state.c@{game\_state.c}!isGameEmpty@{isGameEmpty}}
+\index{isGameEmpty@{isGameEmpty}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{isGameEmpty()}{isGameEmpty()}}
+{\footnotesize\ttfamily int is\+Game\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Récupère si la partie est vide. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game\+\_\+data} & un pointeur sur les données d\textquotesingle{}une partie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{1}} si la partie est vide, {\bfseries{0}} sinont 
 \end{DoxyReturn}
 \mbox{\Hypertarget{game__state_8c_ab89cd269f1a2f44ff79eb26f45edd4b3}\label{game__state_8c_ab89cd269f1a2f44ff79eb26f45edd4b3}} 
 \index{game\_state.c@{game\_state.c}!isGameFinished@{isGameFinished}}
