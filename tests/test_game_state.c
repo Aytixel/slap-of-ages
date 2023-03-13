@@ -14,14 +14,14 @@ int main()
     assert(!isGameFinished(game_data));
     printf("Création des données de partie OK\n");
 
-    assert(addPlayerToGame(game_data, 0) == 1);
+    assert(addPlayerToGame(game_data, 0, NULL) == 1);
     assert(!isGameEmpty(game_data));
     assert(!isGameStarted(game_data));
     assert(!isGameFinished(game_data));
     assert(game_data->player[0]->socket_fd == 0);
     printf("\n\tAjout d'un 1er joueur à la partie OK\n");
 
-    assert(addPlayerToGame(game_data, 1) == 1);
+    assert(addPlayerToGame(game_data, 1, NULL) == 1);
     assert(isGameStarted(game_data) == 1);
     assert(!isGameFinished(game_data));
     assert(game_data->player[1]->socket_fd == 1);
@@ -33,13 +33,13 @@ int main()
     assert(game_data->player[0] == NULL);
     printf("\nSuppression du 1er joueur à la partie OK\n");
 
-    assert(addPlayerToGame(game_data, 2) == 1);
+    assert(addPlayerToGame(game_data, 2, NULL) == 1);
     assert(isGameStarted(game_data) == 1);
     assert(!isGameFinished(game_data));
     assert(game_data->player[0]->socket_fd == 2);
     printf("\n\tAjout d'un 1er joueur à la partie OK\n");
 
-    assert(!addPlayerToGame(game_data, 3));
+    assert(!addPlayerToGame(game_data, 3, NULL));
     assert(isGameStarted(game_data) == 1);
     assert(!isGameFinished(game_data));
     printf("\tAjout d'un 3ème joueur à la partie impossible OK\n");
@@ -96,11 +96,11 @@ int main()
     addGameDataToArray(game_data_array);
 
     assert(!findGame(game_data_array));
-    assert(addPlayerToGame(game_data_array->game_data[0], 2) == 1);
+    assert(addPlayerToGame(game_data_array->game_data[0], 2, NULL) == 1);
     assert(!findGame(game_data_array));
     printf("\n\t1er partie trouvé OK\n");
 
-    assert(addPlayerToGame(game_data_array->game_data[0], 1) == 1);
+    assert(addPlayerToGame(game_data_array->game_data[0], 1, NULL) == 1);
     assert(findGame(game_data_array) == 1);
     printf("\t2ème partie trouvé OK\n");
 

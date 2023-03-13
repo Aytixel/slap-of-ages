@@ -22,6 +22,7 @@ extern client_data_t *createClientData()
     client_data->pseudo = NULL;
     client_data->is_player_ready = 0;
     client_data->is_in_game = 0;
+    client_data->game_data = NULL;
 
     return client_data;
 }
@@ -39,6 +40,14 @@ extern int deleteClientData(client_data_t **client_data)
 
     if ((*client_data)->pseudo != NULL)
         free((*client_data)->pseudo);
+
+    if ((*client_data)->game_data != NULL)
+    {
+        if ((*client_data)->game_data->player[0]->client_data == (*client_data))
+            deletePlayerGameData(&(*client_data)->game_data->player[0]);
+        else
+            deletePlayerGameData(&(*client_data)->game_data->player[1]);
+    }
 
     free(*client_data);
     *client_data = NULL;

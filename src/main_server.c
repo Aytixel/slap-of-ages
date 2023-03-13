@@ -84,7 +84,7 @@ void handle_packet(packet_t *packet, game_data_array_t *game_data_array)
                 game_index = game_data_array->count - 1;
             }
 
-            addPlayerToGame(game_data_array->game_data[game_index], server_client->socket_fd);
+            addPlayerToGame(game_data_array->game_data[game_index], server_client->socket_fd, client_data);
 
             printf("%d : %s est prêt à jouer\n", server_client->socket_fd, client_data->pseudo);
 

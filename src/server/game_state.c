@@ -116,7 +116,7 @@ extern int deleteGameDataArray(game_data_array_t **game_data_array)
  * @param socket_fd id du socket client
  * @return un pointer sur les **données d'un joueur pour la partie**
  */
-static player_game_data_t *createPlayerGameData(int socket_fd)
+extern player_game_data_t *createPlayerGameData(int socket_fd, client_data_t *client_data)
 {
     player_game_data_t *player_game_data = malloc(sizeof(player_game_data_t));
 
@@ -124,6 +124,7 @@ static player_game_data_t *createPlayerGameData(int socket_fd)
     player_game_data->destruction_percentage = -1;
     player_game_data->time_left = -1;
     player_game_data->has_finished = 0;
+    player_game_data->client_data = client_data;
 
     return player_game_data;
 }
@@ -134,10 +135,16 @@ static player_game_data_t *createPlayerGameData(int socket_fd)
  * @param player_game_data une référence d'un pointeur sur les données d'un joueur pour la partie
  * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
  */
-static int deletePlayerGameData(player_game_data_t **player_game_data)
+extern int deletePlayerGameData(player_game_data_t **player_game_data)
 {
     if (player_game_data == NULL || *player_game_data == NULL)
         return -1;
+
+    if ((*player_game_data)->client_data != NULL)
+    {
+        (*player_game_data)->client_data->is_in_game = 0;
+        (*player_game_data)->client_data->game_data = NULL;
+    }
 
     free(*player_game_data);
     *player_game_data = NULL;
@@ -167,12 +174,13 @@ extern game_data_t *createGameData()
  * @param socket_fd id du socket client
  * @return **1** si le joueur a pu être ajouté, **0** sinon
  */
-extern int addPlayerToGame(game_data_t *game_data, int socket_fd)
+extern int addPlayerToGame(game_data_t *game_data, int socket_fd, client_data_t *client_data)
 {
     if (isGameStarted(game_data))
         return 0;
 
-    game_data->player[game_data->player[0] != NULL] = createPlayerGameData(socket_fd);
+    game_data->player[game_data->player[0] != NULL] = createPlayerGameData(socket_fd, client_data);
+    client_data->game_data = game_data;
 
     return 1;
 }
