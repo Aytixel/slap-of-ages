@@ -77,6 +77,15 @@ void handle_packet(packet_t *packet)
 {
     switch (packet->id)
     {
+    case SET_PSEUDO_PACKET_ID:
+        char *pseudo;
+
+        readSetPseudoPacket(packet, &pseudo);
+        printf("Adversaire : %s\n", pseudo);
+        break;
+    case SET_MAP_PACKET_ID:
+        printf("Partie lancé\n");
+        break;
     }
 }
 

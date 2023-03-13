@@ -72,7 +72,16 @@ void handle_packet(packet_t *packet, game_data_array_t *game_data_array)
         printf("%d : %s a envoyer les données la de carte\n", server_client->socket_fd, client_data->pseudo);
         break;
     case IS_PLAYER_READY_PACKET_ID:
-        readIsPlayerReadyPacket(packet, &client_data->is_player_ready);
+        int is_player_ready;
+
+        readIsPlayerReadyPacket(packet, &is_player_ready);
+
+        if (client_data->is_player_ready != is_player_ready)
+            client_data->is_player_ready = is_player_ready;
+
+        // si le joueur est en partie impossible d'en rejoindre une
+        if (client_data->is_in_game)
+            break;
 
         if (client_data->is_player_ready)
         {
@@ -84,14 +93,41 @@ void handle_packet(packet_t *packet, game_data_array_t *game_data_array)
                 game_index = game_data_array->count - 1;
             }
 
-            addPlayerToGame(game_data_array->game_data[game_index], server_client->socket_fd, client_data);
+            // empêche un joueur de se connecter 2 fois dans la même partie, ou d'être dans 2 partie
+            if (gameHasPlayer(game_data_array->game_data[game_index], server_client->socket_fd) != -1)
+                break;
+
+            addPlayerToGame(game_data_array->game_data[game_index], server_client->socket_fd, client_data, server_client);
 
             printf("%d : %s est prêt à jouer\n", server_client->socket_fd, client_data->pseudo);
 
             if (isGameStarted(game_data_array->game_data[game_index]))
-                printf("%d : Parti lancé\n", server_client->socket_fd);
+            {
+                game_data_array->game_data[game_index]->player[0]->client_data->is_in_game = 1;
+                game_data_array->game_data[game_index]->player[1]->client_data->is_in_game = 1;
 
-            // définir les joueurs comme en jeux avec is_in_game
+                packet_t *packet = createSetPseudoPacket(game_data_array->game_data[game_index]->player[1]->client_data->pseudo);
+
+                sendToServerClient(game_data_array->game_data[game_index]->player[0]->server_client, packet);
+                deletePacket(&packet);
+
+                packet = createSetPseudoPacket(game_data_array->game_data[game_index]->player[0]->client_data->pseudo);
+
+                sendToServerClient(game_data_array->game_data[game_index]->player[1]->server_client, packet);
+                deletePacket(&packet);
+
+                packet = createSetMapPacket();
+
+                sendToServerClient(game_data_array->game_data[game_index]->player[0]->server_client, packet);
+                deletePacket(&packet);
+
+                packet = createSetMapPacket();
+
+                sendToServerClient(game_data_array->game_data[game_index]->player[1]->server_client, packet);
+                deletePacket(&packet);
+
+                printf("%d : Parti lancé entre %s, et %s\n", server_client->socket_fd, game_data_array->game_data[game_index]->player[0]->client_data->pseudo, game_data_array->game_data[game_index]->player[1]->client_data->pseudo);
+            }
         }
         else
         {
@@ -106,8 +142,6 @@ void handle_packet(packet_t *packet, game_data_array_t *game_data_array)
                     break;
                 }
             }
-
-            // définir les joueurs comme n'étant plus en jeux avec is_in_game
         }
         break;
     case GAME_FINISHED_PACKET_ID:
