@@ -1,0 +1,57 @@
+\hypertarget{structclient__data__s}{}\doxysection{Référence de la structure client\+\_\+data\+\_\+s}
+\label{structclient__data__s}\index{client\_data\_s@{client\_data\_s}}
+
+
+Structure de données associée à un client du serveur.  
+
+
+
+
+{\ttfamily \#include $<$client\+\_\+data.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{structclient__data__s_a3589546e6349a9ab8fcc5de95df5aac1}{pseudo}}
+\item 
+int \mbox{\hyperlink{structclient__data__s_a62edf41d1ab894b145589e7be784eb28}{is\+\_\+player\+\_\+ready}}
+\item 
+int \mbox{\hyperlink{structclient__data__s_ab30bf7c8279acceee043d525a10116e3}{is\+\_\+in\+\_\+game}}
+\item 
+\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{structclient__data__s_a88cb196877edf321016b81cf40c62860}{game\+\_\+data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure de données associée à un client du serveur. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structclient__data__s_a88cb196877edf321016b81cf40c62860}\label{structclient__data__s_a88cb196877edf321016b81cf40c62860}} 
+\index{client\_data\_s@{client\_data\_s}!game\_data@{game\_data}}
+\index{game\_data@{game\_data}!client\_data\_s@{client\_data\_s}}
+\doxysubsubsection{\texorpdfstring{game\_data}{game\_data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}}$\ast$ client\+\_\+data\+\_\+s\+::game\+\_\+data}
+
+un pointeur sur les données de partie \mbox{\Hypertarget{structclient__data__s_ab30bf7c8279acceee043d525a10116e3}\label{structclient__data__s_ab30bf7c8279acceee043d525a10116e3}} 
+\index{client\_data\_s@{client\_data\_s}!is\_in\_game@{is\_in\_game}}
+\index{is\_in\_game@{is\_in\_game}!client\_data\_s@{client\_data\_s}}
+\doxysubsubsection{\texorpdfstring{is\_in\_game}{is\_in\_game}}
+{\footnotesize\ttfamily int client\+\_\+data\+\_\+s\+::is\+\_\+in\+\_\+game}
+
+le joueur est-\/il en jeu ? \mbox{\Hypertarget{structclient__data__s_a62edf41d1ab894b145589e7be784eb28}\label{structclient__data__s_a62edf41d1ab894b145589e7be784eb28}} 
+\index{client\_data\_s@{client\_data\_s}!is\_player\_ready@{is\_player\_ready}}
+\index{is\_player\_ready@{is\_player\_ready}!client\_data\_s@{client\_data\_s}}
+\doxysubsubsection{\texorpdfstring{is\_player\_ready}{is\_player\_ready}}
+{\footnotesize\ttfamily int client\+\_\+data\+\_\+s\+::is\+\_\+player\+\_\+ready}
+
+le joueur est-\/il prêt ? \mbox{\Hypertarget{structclient__data__s_a3589546e6349a9ab8fcc5de95df5aac1}\label{structclient__data__s_a3589546e6349a9ab8fcc5de95df5aac1}} 
+\index{client\_data\_s@{client\_data\_s}!pseudo@{pseudo}}
+\index{pseudo@{pseudo}!client\_data\_s@{client\_data\_s}}
+\doxysubsubsection{\texorpdfstring{pseudo}{pseudo}}
+{\footnotesize\ttfamily char$\ast$ client\+\_\+data\+\_\+s\+::pseudo}
+
+pseudo du joueur 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/server/\mbox{\hyperlink{client__data_8h}{client\+\_\+data.\+h}}\end{DoxyCompactItemize}

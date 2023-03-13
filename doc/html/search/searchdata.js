@@ -5,8 +5,9 @@ var indexSectionsWithContent =
   2: "abcgimpstw",
   3: "abcdefgilnprstuw",
   4: "acdfghilmprstvw",
-  5: "bcdgprst",
-  6: "cghist"
+  5: "cg",
+  6: "bcdgprst",
+  7: "cghist"
 };
 
 var indexSectionNames =
@@ -16,8 +17,9 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "enums",
-  6: "enumvalues"
+  5: "typedefs",
+  6: "enums",
+  7: "enumvalues"
 };
 
 var indexSectionLabels =
@@ -27,7 +29,8 @@ var indexSectionLabels =
   2: "Fichiers",
   3: "Fonctions",
   4: "Variables",
-  5: "Énumérations",
-  6: "Valeurs énumérées"
+  5: "Définitions de type",
+  6: "Énumérations",
+  7: "Valeurs énumérées"
 };
 

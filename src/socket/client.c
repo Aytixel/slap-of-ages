@@ -29,13 +29,6 @@
 #include <string.h>
 #include "client.h"
 
-/**
- * @brief Créer un client
- *
- * @param hostname nom d'hôte du serveur
- * @param port port du serveur
- * @return un pointer sur un **client**
- */
 extern client_t *createClient(char *hostname, uint16_t port)
 {
     client_t *client = malloc(sizeof(client_t));
@@ -78,12 +71,6 @@ extern client_t *createClient(char *hostname, uint16_t port)
     return client;
 }
 
-/**
- * @brief Vérifie si la connexion au serveur est fermée
- *
- * @param client client à utiliser
- * @return **1 ou 0** en fonction se si la connexion est fermer ou non
- */
 extern int isServerDown(client_t *client)
 {
     if (client == NULL)
@@ -106,13 +93,6 @@ extern int isServerDown(client_t *client)
     return 0;
 }
 
-/**
- * @brief Envoie un paquet au server
- *
- * @param client client à utiliser
- * @param packet paquet à envoyer
- * @return **0** si tous se passe bien, **-1** si il y a un problème durant l'envoie
- */
 extern int sendToServer(client_t *client, packet_t *packet)
 {
     void *buffer = malloc(sizeof(packet->data_length) + sizeof(packet->id) + packet->data_length);
@@ -133,12 +113,6 @@ extern int sendToServer(client_t *client, packet_t *packet)
     return 0;
 }
 
-/**
- * @brief Essaye de recevoir un paquet du serveur
- *
- * @param client client à utiliser
- * @return un pointeur sur un **paquet**, et si la réception n'est pas terminé, ou rien n'a été envoyer renvoie **null**
- */
 extern packet_t *recvFromServer(client_t *client)
 {
     // création d'un nouveau paquet
@@ -188,12 +162,6 @@ extern packet_t *recvFromServer(client_t *client)
     return packet;
 }
 
-/**
- * @brief Détruit un client
- *
- * @param client une référence d'un pointeur sur un client
- * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
- */
 extern int deleteClient(client_t **client)
 {
     if (client == NULL || *client == NULL)

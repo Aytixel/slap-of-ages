@@ -34,8 +34,26 @@ typedef struct
 
 /*Fonctions externes*/
 
+/**
+ * @brief Créer la structure qui gère l'affichage des bâtiments
+ *
+ * @param window un pointeur sur une fenêtre
+ * @param map_renderer un pointeur sur la carte
+ * @return building_renderer_t*
+ */
 extern building_t *createBuilding(building_type_e type, SDL_Point *position, window_t *window, map_renderer_t *map_renderer);
 
+/**
+ * @brief Détruit la structure de bâtiment
+ *
+ * @param building un pointeur sur un pointeur sur un buiding_t
+ */
 extern void destroyBuilding(building_t **building);
 
+/**
+ * @brief Permet de gérer les dégâts subis par un bâtiment
+ *
+ * @param building un pointeur sur un bâtiment
+ * @param damages les dégâts subis par le bâtiment
+ */
 extern void buildingTakesDamages(building_t *building, int damages);

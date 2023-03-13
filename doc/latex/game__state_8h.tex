@@ -6,46 +6,64 @@ Implémentation des prototypes de \mbox{\hyperlink{game__state_8c}{server/game\+
 
 
 {\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}client\+\_\+data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}connection/server.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}packet/packet.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structplayer__game__data__t}{player\+\_\+game\+\_\+data\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Structure de données contenant les informations d\textquotesingle{}une partie pour un joueur. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}}
+struct \mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+s}}
 \begin{DoxyCompactList}\small\item\em Structure de données contenant les informations d\textquotesingle{}une partie. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}}
+struct \mbox{\hyperlink{structgame__data__array__s}{game\+\_\+data\+\_\+array\+\_\+s}}
 \begin{DoxyCompactList}\small\item\em Structure de données contenant un tableau des données de partie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{game__state_8h_a21bca4ad2bc83c2b3f0fe45dce419625}\label{game__state_8h_a21bca4ad2bc83c2b3f0fe45dce419625}} 
+typedef struct \mbox{\hyperlink{structclient__data__s}{client\+\_\+data\+\_\+s}} {\bfseries client\+\_\+data\+\_\+t}
+\item 
+\mbox{\Hypertarget{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}\label{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}} 
+typedef struct \mbox{\hyperlink{structgame__data__array__s}{game\+\_\+data\+\_\+array\+\_\+s}} \mbox{\hyperlink{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}{game\+\_\+data\+\_\+array\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure de données contenant un tableau des données de partie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{game__state_8h_ac66b2833e0ba8d5049e06cb6dca9c191}\label{game__state_8h_ac66b2833e0ba8d5049e06cb6dca9c191}} 
+typedef struct \mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+s}} \mbox{\hyperlink{game__state_8h_ac66b2833e0ba8d5049e06cb6dca9c191}{game\+\_\+data\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure de données contenant les informations d\textquotesingle{}une partie. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$ \mbox{\hyperlink{game__state_8h_a782d40128ddda0a4f73e314710976b9d}{create\+Game\+Data\+Array}} ()
+\mbox{\hyperlink{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$ \mbox{\hyperlink{game__state_8h_a782d40128ddda0a4f73e314710976b9d}{create\+Game\+Data\+Array}} ()
 \begin{DoxyCompactList}\small\item\em Créer un tableau avec les données de partie. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{game__state_8h_a9ae412027fbe4057db891998de569a8f}{add\+Game\+Data\+To\+Array}} (\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$game\+\_\+data\+\_\+array)
+void \mbox{\hyperlink{game__state_8h_a9ae412027fbe4057db891998de569a8f}{add\+Game\+Data\+To\+Array}} (\mbox{\hyperlink{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$game\+\_\+data\+\_\+array)
 \begin{DoxyCompactList}\small\item\em Ajoute une nouvelle partie au tableau. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__state_8h_a65514e26dc2fb32a78db0bebd138d319}{find\+Game}} (\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$game\+\_\+data\+\_\+array)
+int \mbox{\hyperlink{game__state_8h_a65514e26dc2fb32a78db0bebd138d319}{find\+Game}} (\mbox{\hyperlink{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$game\+\_\+data\+\_\+array)
 \begin{DoxyCompactList}\small\item\em Trouve une partie qui n\textquotesingle{}est pas commencé \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__state_8h_aba935118c655e1ad5efa7f90073e3f07}{remove\+Game\+Data\+From\+Array}} (\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$game\+\_\+data\+\_\+array, int index)
+int \mbox{\hyperlink{game__state_8h_aba935118c655e1ad5efa7f90073e3f07}{remove\+Game\+Data\+From\+Array}} (\mbox{\hyperlink{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$game\+\_\+data\+\_\+array, int index)
 \begin{DoxyCompactList}\small\item\em Enlève les données d\textquotesingle{}une partie du tableau. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__state_8h_a51575e018d07edafe4b62db9e662d3ea}{delete\+Game\+Data\+Array}} (\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$$\ast$game\+\_\+data\+\_\+array)
+int \mbox{\hyperlink{game__state_8h_a51575e018d07edafe4b62db9e662d3ea}{delete\+Game\+Data\+Array}} (\mbox{\hyperlink{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$$\ast$game\+\_\+data\+\_\+array)
 \begin{DoxyCompactList}\small\item\em Détruit un tableau avec les données de partie. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{game__state_8h_adaa5f1280dc03398a2b71952c895e65c}{create\+Game\+Data}} ()
+\mbox{\hyperlink{structplayer__game__data__t}{player\+\_\+game\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{game__state_8h_a73c7169bc62873cbae9e362f4b191322}{create\+Player\+Game\+Data}} (int socket\+\_\+fd, \mbox{\hyperlink{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}{client\+\_\+data\+\_\+t}} $\ast$client\+\_\+data, \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2server_8h_a297c23f4f449cf533cd0e72bb4a5ef27}{server\+\_\+client}})
+\begin{DoxyCompactList}\small\item\em Créer les données d\textquotesingle{}un joueur pour la partie. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game__state_8h_a7230c2394dbdcd2a4c103d141926ee62}{delete\+Player\+Game\+Data}} (\mbox{\hyperlink{structplayer__game__data__t}{player\+\_\+game\+\_\+data\+\_\+t}} $\ast$$\ast$player\+\_\+game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Détruit les données d\textquotesingle{}un joueur pour la partie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{game__state_8h_adaa5f1280dc03398a2b71952c895e65c}{create\+Game\+Data}} ()
 \begin{DoxyCompactList}\small\item\em Créer les données d\textquotesingle{}un partie. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__state_8h_a3659b7d7fc489beda3277627df920520}{add\+Player\+To\+Game}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int socket\+\_\+fd)
+int \mbox{\hyperlink{game__state_8h_a6238541296be4fe115106c8a368fe5cb}{add\+Player\+To\+Game}} (\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int socket\+\_\+fd, \mbox{\hyperlink{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}{client\+\_\+data\+\_\+t}} $\ast$client\+\_\+data, \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2server_8h_a297c23f4f449cf533cd0e72bb4a5ef27}{server\+\_\+client}})
 \begin{DoxyCompactList}\small\item\em Ajoute un joueur à la partie. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__state_8h_a04e4a8be1bf0d37f32b8cd99559918c1}{remove\+Player\+From\+Game}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int socket\+\_\+fd)
+int \mbox{\hyperlink{game__state_8h_a04e4a8be1bf0d37f32b8cd99559918c1}{remove\+Player\+From\+Game}} (\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int socket\+\_\+fd)
 \begin{DoxyCompactList}\small\item\em Enlève un joueur à la partie. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__state_8h_a12eb710b93b45b5fbdaf62e02cc32701}{is\+Game\+Empty}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+int \mbox{\hyperlink{game__state_8h_a12eb710b93b45b5fbdaf62e02cc32701}{is\+Game\+Empty}} (\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Récupère si la partie est vide. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__state_8h_a200570e6593a56a3e8291f5b8096aa22}{is\+Game\+Started}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+int \mbox{\hyperlink{game__state_8h_a200570e6593a56a3e8291f5b8096aa22}{is\+Game\+Started}} (\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Récupère si la partie est commencé \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__state_8h_ab89cd269f1a2f44ff79eb26f45edd4b3}{is\+Game\+Finished}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+int \mbox{\hyperlink{game__state_8h_ab89cd269f1a2f44ff79eb26f45edd4b3}{is\+Game\+Finished}} (\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Récupère si la partie est finie. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__state_8h_a2214b9232a7f6f6b0fa07794455a0750}{game\+Has\+Player}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int socket\+\_\+fd)
+int \mbox{\hyperlink{game__state_8h_a2214b9232a7f6f6b0fa07794455a0750}{game\+Has\+Player}} (\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int socket\+\_\+fd)
 \begin{DoxyCompactList}\small\item\em Récupère si ce joueur est dans cette partie. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__state_8h_a27253af0e1921a46a08d0e4a35a5ffc4}{set\+Player\+Finished}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int socket\+\_\+fd, \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet)
+int \mbox{\hyperlink{game__state_8h_a27253af0e1921a46a08d0e4a35a5ffc4}{set\+Player\+Finished}} (\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int socket\+\_\+fd, \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet)
 \begin{DoxyCompactList}\small\item\em Définit un joueur comme ayant fini. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__state_8h_a677f66d78d481ad231eb2eb203438315}{delete\+Game\+Data}} (\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$$\ast$game\+\_\+data)
+int \mbox{\hyperlink{game__state_8h_a677f66d78d481ad231eb2eb203438315}{delete\+Game\+Data}} (\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$$\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Détruit les données d\textquotesingle{}une partie. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -68,7 +86,7 @@ Lucas Dureau
 \index{game\_state.h@{game\_state.h}!addGameDataToArray@{addGameDataToArray}}
 \index{addGameDataToArray@{addGameDataToArray}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{addGameDataToArray()}{addGameDataToArray()}}
-{\footnotesize\ttfamily void add\+Game\+Data\+To\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$}]{game\+\_\+data\+\_\+array }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void add\+Game\+Data\+To\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$}]{game\+\_\+data\+\_\+array }\end{DoxyParamCaption})}
 
 
 
@@ -79,11 +97,11 @@ Ajoute une nouvelle partie au tableau.
 {\em game\+\_\+data\+\_\+array} & une référence d\textquotesingle{}un pointeur sur un tableau avec les données de partie \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{game__state_8h_a3659b7d7fc489beda3277627df920520}\label{game__state_8h_a3659b7d7fc489beda3277627df920520}} 
+\mbox{\Hypertarget{game__state_8h_a6238541296be4fe115106c8a368fe5cb}\label{game__state_8h_a6238541296be4fe115106c8a368fe5cb}} 
 \index{game\_state.h@{game\_state.h}!addPlayerToGame@{addPlayerToGame}}
 \index{addPlayerToGame@{addPlayerToGame}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{addPlayerToGame()}{addPlayerToGame()}}
-{\footnotesize\ttfamily int add\+Player\+To\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{int}]{socket\+\_\+fd }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int add\+Player\+To\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{int}]{socket\+\_\+fd,  }\item[{\mbox{\hyperlink{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}{client\+\_\+data\+\_\+t}} $\ast$}]{client\+\_\+data,  }\item[{\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$}]{server\+\_\+client }\end{DoxyParamCaption})}
 
 
 
@@ -103,7 +121,7 @@ Ajoute un joueur à la partie.
 \index{game\_state.h@{game\_state.h}!createGameData@{createGameData}}
 \index{createGameData@{createGameData}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{createGameData()}{createGameData()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}}$\ast$ create\+Game\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}}$\ast$ create\+Game\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -116,7 +134,7 @@ un pointer sur les {\bfseries{données d\textquotesingle{}une partie}}
 \index{game\_state.h@{game\_state.h}!createGameDataArray@{createGameDataArray}}
 \index{createGameDataArray@{createGameDataArray}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{createGameDataArray()}{createGameDataArray()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}}$\ast$ create\+Game\+Data\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}{game\+\_\+data\+\_\+array\+\_\+t}}$\ast$ create\+Game\+Data\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -125,11 +143,29 @@ Créer un tableau avec les données de partie.
 \begin{DoxyReturn}{Renvoie}
 un pointer sur le {\bfseries{tableau des données de partie}} 
 \end{DoxyReturn}
+\mbox{\Hypertarget{game__state_8h_a73c7169bc62873cbae9e362f4b191322}\label{game__state_8h_a73c7169bc62873cbae9e362f4b191322}} 
+\index{game\_state.h@{game\_state.h}!createPlayerGameData@{createPlayerGameData}}
+\index{createPlayerGameData@{createPlayerGameData}!game\_state.h@{game\_state.h}}
+\doxysubsubsection{\texorpdfstring{createPlayerGameData()}{createPlayerGameData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structplayer__game__data__t}{player\+\_\+game\+\_\+data\+\_\+t}}$\ast$ create\+Player\+Game\+Data (\begin{DoxyParamCaption}\item[{int}]{socket\+\_\+fd,  }\item[{\mbox{\hyperlink{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}{client\+\_\+data\+\_\+t}} $\ast$}]{client\+\_\+data,  }\item[{\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$}]{server\+\_\+client }\end{DoxyParamCaption})}
+
+
+
+Créer les données d\textquotesingle{}un joueur pour la partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em socket\+\_\+fd} & id du socket client \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur les {\bfseries{données d\textquotesingle{}un joueur pour la partie}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{game__state_8h_a677f66d78d481ad231eb2eb203438315}\label{game__state_8h_a677f66d78d481ad231eb2eb203438315}} 
 \index{game\_state.h@{game\_state.h}!deleteGameData@{deleteGameData}}
 \index{deleteGameData@{deleteGameData}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{deleteGameData()}{deleteGameData()}}
-{\footnotesize\ttfamily int delete\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$$\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int delete\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$$\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -147,7 +183,7 @@ Détruit les données d\textquotesingle{}une partie.
 \index{game\_state.h@{game\_state.h}!deleteGameDataArray@{deleteGameDataArray}}
 \index{deleteGameDataArray@{deleteGameDataArray}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{deleteGameDataArray()}{deleteGameDataArray()}}
-{\footnotesize\ttfamily int delete\+Game\+Data\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$$\ast$}]{game\+\_\+data\+\_\+array }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int delete\+Game\+Data\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$$\ast$}]{game\+\_\+data\+\_\+array }\end{DoxyParamCaption})}
 
 
 
@@ -161,11 +197,29 @@ Détruit un tableau avec les données de partie.
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
 \end{DoxyReturn}
+\mbox{\Hypertarget{game__state_8h_a7230c2394dbdcd2a4c103d141926ee62}\label{game__state_8h_a7230c2394dbdcd2a4c103d141926ee62}} 
+\index{game\_state.h@{game\_state.h}!deletePlayerGameData@{deletePlayerGameData}}
+\index{deletePlayerGameData@{deletePlayerGameData}!game\_state.h@{game\_state.h}}
+\doxysubsubsection{\texorpdfstring{deletePlayerGameData()}{deletePlayerGameData()}}
+{\footnotesize\ttfamily int delete\+Player\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__game__data__t}{player\+\_\+game\+\_\+data\+\_\+t}} $\ast$$\ast$}]{player\+\_\+game\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Détruit les données d\textquotesingle{}un joueur pour la partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player\+\_\+game\+\_\+data} & une référence d\textquotesingle{}un pointeur sur les données d\textquotesingle{}un joueur pour la partie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
 \mbox{\Hypertarget{game__state_8h_a65514e26dc2fb32a78db0bebd138d319}\label{game__state_8h_a65514e26dc2fb32a78db0bebd138d319}} 
 \index{game\_state.h@{game\_state.h}!findGame@{findGame}}
 \index{findGame@{findGame}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{findGame()}{findGame()}}
-{\footnotesize\ttfamily int find\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$}]{game\+\_\+data\+\_\+array }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int find\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$}]{game\+\_\+data\+\_\+array }\end{DoxyParamCaption})}
 
 
 
@@ -183,7 +237,7 @@ l\textquotesingle{}{\bfseries{index}} de la partie trouvé, {\bfseries{-\/1}} si
 \index{game\_state.h@{game\_state.h}!gameHasPlayer@{gameHasPlayer}}
 \index{gameHasPlayer@{gameHasPlayer}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{gameHasPlayer()}{gameHasPlayer()}}
-{\footnotesize\ttfamily int game\+Has\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{int}]{socket\+\_\+fd }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int game\+Has\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{int}]{socket\+\_\+fd }\end{DoxyParamCaption})}
 
 
 
@@ -203,7 +257,7 @@ Récupère si ce joueur est dans cette partie.
 \index{game\_state.h@{game\_state.h}!isGameEmpty@{isGameEmpty}}
 \index{isGameEmpty@{isGameEmpty}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{isGameEmpty()}{isGameEmpty()}}
-{\footnotesize\ttfamily int is\+Game\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int is\+Game\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -221,7 +275,7 @@ Récupère si la partie est vide.
 \index{game\_state.h@{game\_state.h}!isGameFinished@{isGameFinished}}
 \index{isGameFinished@{isGameFinished}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{isGameFinished()}{isGameFinished()}}
-{\footnotesize\ttfamily int is\+Game\+Finished (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int is\+Game\+Finished (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -239,7 +293,7 @@ Récupère si la partie est finie.
 \index{game\_state.h@{game\_state.h}!isGameStarted@{isGameStarted}}
 \index{isGameStarted@{isGameStarted}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{isGameStarted()}{isGameStarted()}}
-{\footnotesize\ttfamily int is\+Game\+Started (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int is\+Game\+Started (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -257,7 +311,7 @@ Récupère si la partie est commencé
 \index{game\_state.h@{game\_state.h}!removeGameDataFromArray@{removeGameDataFromArray}}
 \index{removeGameDataFromArray@{removeGameDataFromArray}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{removeGameDataFromArray()}{removeGameDataFromArray()}}
-{\footnotesize\ttfamily int remove\+Game\+Data\+From\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__array__t}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$}]{game\+\_\+data\+\_\+array,  }\item[{int}]{index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int remove\+Game\+Data\+From\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__state_8h_a4cb2fa3e9b54c85a214766bfade3438c}{game\+\_\+data\+\_\+array\+\_\+t}} $\ast$}]{game\+\_\+data\+\_\+array,  }\item[{int}]{index }\end{DoxyParamCaption})}
 
 
 
@@ -277,7 +331,7 @@ Enlève les données d\textquotesingle{}une partie du tableau.
 \index{game\_state.h@{game\_state.h}!removePlayerFromGame@{removePlayerFromGame}}
 \index{removePlayerFromGame@{removePlayerFromGame}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{removePlayerFromGame()}{removePlayerFromGame()}}
-{\footnotesize\ttfamily int remove\+Player\+From\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{int}]{socket\+\_\+fd }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int remove\+Player\+From\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{int}]{socket\+\_\+fd }\end{DoxyParamCaption})}
 
 
 
@@ -297,7 +351,7 @@ Enlève un joueur à la partie.
 \index{game\_state.h@{game\_state.h}!setPlayerFinished@{setPlayerFinished}}
 \index{setPlayerFinished@{setPlayerFinished}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{setPlayerFinished()}{setPlayerFinished()}}
-{\footnotesize\ttfamily int set\+Player\+Finished (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{int}]{socket\+\_\+fd,  }\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int set\+Player\+Finished (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{int}]{socket\+\_\+fd,  }\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet }\end{DoxyParamCaption})}
 
 
 

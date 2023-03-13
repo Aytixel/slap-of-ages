@@ -19,6 +19,10 @@ float \mbox{\hyperlink{structplayer__game__data__t_a96bddee7a4f437bad93c3c4a8593
 long \mbox{\hyperlink{structplayer__game__data__t_a64b771e9837db32d0319bf6fdd28a679}{time\+\_\+left}}
 \item 
 int \mbox{\hyperlink{structplayer__game__data__t_aaaa14494cb3e76de72682c953a3c925f}{has\+\_\+finished}}
+\item 
+\mbox{\hyperlink{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}{client\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{structplayer__game__data__t_a1bf848e5d7e829e0497b33583c28ac41}{client\+\_\+data}}
+\item 
+\mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}} $\ast$ \mbox{\hyperlink{structplayer__game__data__t_a6f5bab1a881b1d78fd5379aec369bc04}{server\+\_\+client}}
 \end{DoxyCompactItemize}
 
 
@@ -26,7 +30,13 @@ int \mbox{\hyperlink{structplayer__game__data__t_aaaa14494cb3e76de72682c953a3c92
 Structure de données contenant les informations d\textquotesingle{}une partie pour un joueur. 
 
 \doxysubsection{Documentation des données membres}
-\mbox{\Hypertarget{structplayer__game__data__t_a96bddee7a4f437bad93c3c4a8593617b}\label{structplayer__game__data__t_a96bddee7a4f437bad93c3c4a8593617b}} 
+\mbox{\Hypertarget{structplayer__game__data__t_a1bf848e5d7e829e0497b33583c28ac41}\label{structplayer__game__data__t_a1bf848e5d7e829e0497b33583c28ac41}} 
+\index{player\_game\_data\_t@{player\_game\_data\_t}!client\_data@{client\_data}}
+\index{client\_data@{client\_data}!player\_game\_data\_t@{player\_game\_data\_t}}
+\doxysubsubsection{\texorpdfstring{client\_data}{client\_data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}{client\+\_\+data\+\_\+t}}$\ast$ player\+\_\+game\+\_\+data\+\_\+t\+::client\+\_\+data}
+
+un pointeur sur les données client \mbox{\Hypertarget{structplayer__game__data__t_a96bddee7a4f437bad93c3c4a8593617b}\label{structplayer__game__data__t_a96bddee7a4f437bad93c3c4a8593617b}} 
 \index{player\_game\_data\_t@{player\_game\_data\_t}!destruction\_percentage@{destruction\_percentage}}
 \index{destruction\_percentage@{destruction\_percentage}!player\_game\_data\_t@{player\_game\_data\_t}}
 \doxysubsubsection{\texorpdfstring{destruction\_percentage}{destruction\_percentage}}
@@ -38,7 +48,13 @@ pourcentage de destruction \mbox{\Hypertarget{structplayer__game__data__t_aaaa14
 \doxysubsubsection{\texorpdfstring{has\_finished}{has\_finished}}
 {\footnotesize\ttfamily int player\+\_\+game\+\_\+data\+\_\+t\+::has\+\_\+finished}
 
-indique si le joueur a finie \mbox{\Hypertarget{structplayer__game__data__t_a4ff5d4e5345b9c99567d61b0196cbed0}\label{structplayer__game__data__t_a4ff5d4e5345b9c99567d61b0196cbed0}} 
+indique si le joueur a finie \mbox{\Hypertarget{structplayer__game__data__t_a6f5bab1a881b1d78fd5379aec369bc04}\label{structplayer__game__data__t_a6f5bab1a881b1d78fd5379aec369bc04}} 
+\index{player\_game\_data\_t@{player\_game\_data\_t}!server\_client@{server\_client}}
+\index{server\_client@{server\_client}!player\_game\_data\_t@{player\_game\_data\_t}}
+\doxysubsubsection{\texorpdfstring{server\_client}{server\_client}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structserver__client__t}{server\+\_\+client\+\_\+t}}$\ast$ player\+\_\+game\+\_\+data\+\_\+t\+::server\+\_\+client}
+
+un pointeur sur la connexion client \mbox{\Hypertarget{structplayer__game__data__t_a4ff5d4e5345b9c99567d61b0196cbed0}\label{structplayer__game__data__t_a4ff5d4e5345b9c99567d61b0196cbed0}} 
 \index{player\_game\_data\_t@{player\_game\_data\_t}!socket\_fd@{socket\_fd}}
 \index{socket\_fd@{socket\_fd}!player\_game\_data\_t@{player\_game\_data\_t}}
 \doxysubsubsection{\texorpdfstring{socket\_fd}{socket\_fd}}

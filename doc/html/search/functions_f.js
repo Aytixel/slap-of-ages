@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['waitclienthandshake_362',['waitClientHandshake',['../connection_2server_8c.html#ac12cd916a09a69510fb2688caf974ea2',1,'waitClientHandshake():&#160;server.c'],['../connection_2server_8h.html#ac12cd916a09a69510fb2688caf974ea2',1,'waitClientHandshake():&#160;server.c']]],
-  ['waitserverhandshake_363',['waitServerHandshake',['../connection_2client_8c.html#ac909041a5b1d4ae68f56d64fc93695d3',1,'waitServerHandshake():&#160;client.c'],['../connection_2client_8h.html#ac909041a5b1d4ae68f56d64fc93695d3',1,'waitServerHandshake():&#160;client.c']]]
+  ['waitclienthandshake_371',['waitClientHandshake',['../connection_2server_8c.html#ac12cd916a09a69510fb2688caf974ea2',1,'waitClientHandshake():&#160;server.c'],['../connection_2server_8h.html#ac12cd916a09a69510fb2688caf974ea2',1,'waitClientHandshake():&#160;server.c']]],
+  ['waitserverhandshake_372',['waitServerHandshake',['../connection_2client_8c.html#ac909041a5b1d4ae68f56d64fc93695d3',1,'waitServerHandshake():&#160;client.c'],['../connection_2client_8h.html#ac909041a5b1d4ae68f56d64fc93695d3',1,'waitServerHandshake():&#160;client.c']]]
 ];

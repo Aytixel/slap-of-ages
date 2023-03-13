@@ -34,11 +34,8 @@ enum \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8h_ae86a3185973be72e90ebb6ec30e5daa7}{create\+Window}} (char $\ast$title, int width, int height)
+void \mbox{\hyperlink{window_8h_ab1efa57caae2a77f346b314c3076d89f}{update\+Window\+Size}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, SDL\+\_\+\+Event $\ast$event)
 \begin{DoxyCompactList}\small\item\em Créer une fenêtre. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{window_8h_ab1efa57caae2a77f346b314c3076d89f}\label{window_8h_ab1efa57caae2a77f346b314c3076d89f}} 
-void {\bfseries update\+Window\+Size} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, SDL\+\_\+\+Event $\ast$event)
-\item 
 int \mbox{\hyperlink{window_8h_a2b6afcc06737563c2c82cb5b822bcb6e}{destroy\+Window}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$$\ast$window)
 \begin{DoxyCompactList}\small\item\em Détruit une fenêtre. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8h_a12caaf6efa15b7b7ef17f25474d3f4ce}{load\+Sprite}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, char $\ast$path)
@@ -142,37 +139,6 @@ Génère un sprite à partir d\textquotesingle{}un texte.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 un pointer sur un {\bfseries{sprite}} 
-\end{DoxyReturn}
-\mbox{\Hypertarget{window_8h_ae86a3185973be72e90ebb6ec30e5daa7}\label{window_8h_ae86a3185973be72e90ebb6ec30e5daa7}} 
-\index{window.h@{window.h}!createWindow@{createWindow}}
-\index{createWindow@{createWindow}!window.h@{window.h}}
-\doxysubsubsection{\texorpdfstring{createWindow()}{createWindow()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structwindow__t}{window\+\_\+t}}$\ast$ create\+Window (\begin{DoxyParamCaption}\item[{char $\ast$}]{title,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
-
-
-
-Créer une fenêtre. 
-
-Définis \+:
-\begin{DoxyItemize}
-\item la taille minimale de la fenêtre, comme étant la taille passé en paramètre.
-\item la couleur de nettoyage au noir.
-\item la fenêtre comme redimensionnable.
-\end{DoxyItemize}
-
-Puis nettoie la fenêtre.
-
-
-\begin{DoxyParams}{Paramètres}
-{\em title} & nom de la fenêtre \\
-\hline
-{\em width} & largeur de la fenêtre \\
-\hline
-{\em height} & longueur de la fenêtre \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-un pointer sur une {\bfseries{fenêtre}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{window_8h_ac84ead18493a5445ba473190996fe36b}\label{window_8h_ac84ead18493a5445ba473190996fe36b}} 
 \index{window.h@{window.h}!destroySprite@{destroySprite}}
@@ -279,4 +245,35 @@ Calcule la position au centre de l\textquotesingle{}écran.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 une {\bfseries{position}} sur la fenêtre 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8h_ab1efa57caae2a77f346b314c3076d89f}\label{window_8h_ab1efa57caae2a77f346b314c3076d89f}} 
+\index{window.h@{window.h}!updateWindowSize@{updateWindowSize}}
+\index{updateWindowSize@{updateWindowSize}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{updateWindowSize()}{updateWindowSize()}}
+{\footnotesize\ttfamily void update\+Window\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{SDL\+\_\+\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Créer une fenêtre. 
+
+Définis \+:
+\begin{DoxyItemize}
+\item la taille minimale de la fenêtre, comme étant la taille passé en paramètre.
+\item la couleur de nettoyage au noir.
+\item la fenêtre comme redimensionnable.
+\end{DoxyItemize}
+
+Puis nettoie la fenêtre.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em title} & nom de la fenêtre \\
+\hline
+{\em width} & largeur de la fenêtre \\
+\hline
+{\em height} & longueur de la fenêtre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur une {\bfseries{fenêtre}} 
 \end{DoxyReturn}

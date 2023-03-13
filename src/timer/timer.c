@@ -21,12 +21,6 @@
 #include <time.h>
 #include "timer.h"
 
-/**
- * @brief Créer un timer
- *
- * @param interval en milliseconde
- * @return un pointer sur un **timer**
- */
 extern frame_timer_t *createTimer(time_t interval)
 {
     frame_timer_t *timer = malloc(sizeof(frame_timer_t));
@@ -40,12 +34,6 @@ extern frame_timer_t *createTimer(time_t interval)
     return timer;
 }
 
-/**
- * @brief Donne le temps restant avant la fin de l'intervalle
- *
- * @param timer un pointeur sur un timer
- * @return un *long* représentant le temps avant la fin de l'intervalle **en milliseconde** (*0 si on lui passe un pointeur null en entrée*)
- */
 extern long timeLeft(frame_timer_t *timer)
 {
     if (timer == NULL)
@@ -60,12 +48,6 @@ extern long timeLeft(frame_timer_t *timer)
     return timer->interval - time_spend;
 }
 
-/**
- * @brief Vérifie si le code doit être éxécuter et reset le timer
- *
- * @param timer un pointeur sur un timer
- * @return **1 ou 0** en fonction de si on peut éxécuter le code ou non (*-1 si on lui passe un pointeur null en entrée*)
- */
 extern int checkTime(frame_timer_t *timer)
 {
     if (timer == NULL)
@@ -85,12 +67,6 @@ extern int checkTime(frame_timer_t *timer)
     return 0;
 }
 
-/**
- * @brief Détruit un timer
- *
- * @param timer une référence d'un pointeur sur un timer
- * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
- */
 extern int deleteTimer(frame_timer_t **timer)
 {
     if (timer == NULL || *timer == NULL)
@@ -102,11 +78,6 @@ extern int deleteTimer(frame_timer_t **timer)
     return 0;
 }
 
-/**
- * @brief Attend le nombre de milliseconde spécifié
- *
- * @param time temps en milliseconde
- */
 extern void sleepMs(time_t time)
 {
     if (time > 0)

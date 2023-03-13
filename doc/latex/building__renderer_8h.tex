@@ -39,11 +39,11 @@ enum \mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{b
 \item 
 \mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$ \mbox{\hyperlink{building__renderer_8h_aef13424a4fb7a65fc59e5fef8c784f56}{create\+Building\+Renderer}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$map\+\_\+renderer)
 \begin{DoxyCompactList}\small\item\em Créer la structure qui gère l\textquotesingle{}affichage des bâtiments. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{building__renderer_8h_adedda75cb05868e95b8e6d5aa780364c}{can\+Render\+Building}} (\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} building\+\_\+type)
+int \mbox{\hyperlink{building__renderer_8h_aec306394ce2908916070f9f371fcc826}{can\+Render\+Building}} (\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} building\+\_\+type)
 \begin{DoxyCompactList}\small\item\em Détermine si on peut placer / afficher un certain type de bâtiment à tel endroit. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{building__renderer_8h_a2b9e19f64369cbdb510e664dc4bc36dd}{render\+Building}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} building\+\_\+type, SDL\+\_\+\+Rect $\ast$destination\+\_\+rect)
+int \mbox{\hyperlink{building__renderer_8h_abff8bbb236b38f38cd61b84a32c44e31}{render\+Building}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} building\+\_\+type, SDL\+\_\+\+Rect $\ast$destination\+\_\+rect)
 \begin{DoxyCompactList}\small\item\em Fait le rendu de d\textquotesingle{}un batiment sur la carte. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{building__renderer_8h_ab1564cea53c4c6ced717e39389e729ee}{delete\+Building\+Renderer}} (\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$$\ast$building)
+int \mbox{\hyperlink{building__renderer_8h_a6319379ba18df93186567827d27364c0}{delete\+Building\+Renderer}} (\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$$\ast$building\+\_\+renderer)
 \begin{DoxyCompactList}\small\item\em Détruit la structure qui gère l\textquotesingle{}affichage des bâtiments. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -62,7 +62,7 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{building__renderer_8h_adedda75cb05868e95b8e6d5aa780364c}\label{building__renderer_8h_adedda75cb05868e95b8e6d5aa780364c}} 
+\mbox{\Hypertarget{building__renderer_8h_aec306394ce2908916070f9f371fcc826}\label{building__renderer_8h_aec306394ce2908916070f9f371fcc826}} 
 \index{building\_renderer.h@{building\_renderer.h}!canRenderBuilding@{canRenderBuilding}}
 \index{canRenderBuilding@{canRenderBuilding}!building\_renderer.h@{building\_renderer.h}}
 \doxysubsubsection{\texorpdfstring{canRenderBuilding()}{canRenderBuilding()}}
@@ -104,7 +104,7 @@ Créer la structure qui gère l\textquotesingle{}affichage des bâtiments.
 \begin{DoxyReturn}{Renvoie}
 building\+\_\+renderer\+\_\+t$\ast$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{building__renderer_8h_ab1564cea53c4c6ced717e39389e729ee}\label{building__renderer_8h_ab1564cea53c4c6ced717e39389e729ee}} 
+\mbox{\Hypertarget{building__renderer_8h_a6319379ba18df93186567827d27364c0}\label{building__renderer_8h_a6319379ba18df93186567827d27364c0}} 
 \index{building\_renderer.h@{building\_renderer.h}!deleteBuildingRenderer@{deleteBuildingRenderer}}
 \index{deleteBuildingRenderer@{deleteBuildingRenderer}!building\_renderer.h@{building\_renderer.h}}
 \doxysubsubsection{\texorpdfstring{deleteBuildingRenderer()}{deleteBuildingRenderer()}}
@@ -122,7 +122,7 @@ Détruit la structure qui gère l\textquotesingle{}affichage des bâtiments.
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
 \end{DoxyReturn}
-\mbox{\Hypertarget{building__renderer_8h_a2b9e19f64369cbdb510e664dc4bc36dd}\label{building__renderer_8h_a2b9e19f64369cbdb510e664dc4bc36dd}} 
+\mbox{\Hypertarget{building__renderer_8h_abff8bbb236b38f38cd61b84a32c44e31}\label{building__renderer_8h_abff8bbb236b38f38cd61b84a32c44e31}} 
 \index{building\_renderer.h@{building\_renderer.h}!renderBuilding@{renderBuilding}}
 \index{renderBuilding@{renderBuilding}!building\_renderer.h@{building\_renderer.h}}
 \doxysubsubsection{\texorpdfstring{renderBuilding()}{renderBuilding()}}

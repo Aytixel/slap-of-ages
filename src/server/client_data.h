@@ -26,8 +26,19 @@ typedef struct client_data_s
     game_data_t *game_data; /**< un pointeur sur les données de partie*/
 } client_data_t;
 
+/**
+ * @brief Créer les données d'un client
+ *
+ * @return un pointer sur les **données client**
+ */
 extern client_data_t *createClientData();
 
+/**
+ * @brief Détruit les données d'un client
+ *
+ * @param server une référence d'un pointeur sur les données client
+ * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
+ */
 extern int deleteClientData(client_data_t **client_data);
 
 #endif

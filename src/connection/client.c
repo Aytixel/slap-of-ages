@@ -15,15 +15,6 @@ int handshake_data = 0;
 client_t *client = NULL;
 client_connection_state_e client_connection_state = CLIENT_WAITING_INFO;
 
-/**
- * @brief Initialise la connexion au serveur avec les paramètres spécifiés
- *
- * Envoie aussi un packet pour la poignée de main avec le serveur
- *
- * @param hostname nom d'hôte du serveur
- * @param port port du serveur
- * @return **0** si tous se passe bien, **-1** si la connexion à échoué
- */
 extern int initClientConnection(char *hostname, uint16_t port)
 {
     if (client_connection_state == CLIENT_WAITING_INFO)
@@ -50,11 +41,6 @@ extern int initClientConnection(char *hostname, uint16_t port)
     return 0;
 }
 
-/**
- * @brief Attend la poignée de main du serveur
- *
- * @return **0** tant que la poignée de main n'est pas effectuée, **1** si la poignée de main est réussie, **-1** si la poignée de main échoue
- */
 extern int waitServerHandshake()
 {
     if (client_connection_state == CLIENT_WAITING_INFO)
@@ -91,10 +77,6 @@ extern int waitServerHandshake()
     return -1;
 }
 
-/**
- * @brief Ferme la connexion au serveur
- *
- */
 extern void closeClientConnection()
 {
     if (client_connection_state == CLIENT_WAITING_INFO)

@@ -77,8 +77,8 @@ $(function() {
 , <a class="el" href="game__state_8h.html#a9ae412027fbe4057db891998de569a8f">game_state.h</a>
 </li>
 <li>addPlayerToGame()
-: <a class="el" href="game__state_8c.html#a3659b7d7fc489beda3277627df920520">game_state.c</a>
-, <a class="el" href="game__state_8h.html#a3659b7d7fc489beda3277627df920520">game_state.h</a>
+: <a class="el" href="game__state_8c.html#a6238541296be4fe115106c8a368fe5cb">game_state.c</a>
+, <a class="el" href="game__state_8h.html#a6238541296be4fe115106c8a368fe5cb">game_state.h</a>
 </li>
 </ul>
 
@@ -93,7 +93,7 @@ $(function() {
 
 <h3><a id="index_c"></a>- c -</h3><ul>
 <li>canRenderBuilding()
-: <a class="el" href="building__renderer_8h.html#adedda75cb05868e95b8e6d5aa780364c">building_renderer.h</a>
+: <a class="el" href="building__renderer_8h.html#aec306394ce2908916070f9f371fcc826">building_renderer.h</a>
 , <a class="el" href="building__renderer_8c.html#aec306394ce2908916070f9f371fcc826">building_renderer.c</a>
 </li>
 <li>checkTime()
@@ -160,6 +160,10 @@ $(function() {
 : <a class="el" href="map__renderer_8c.html#a4bb5cdb1ba72050c3a2d3e8769f98e19">map_renderer.c</a>
 , <a class="el" href="map__renderer_8h.html#a4bb5cdb1ba72050c3a2d3e8769f98e19">map_renderer.h</a>
 </li>
+<li>createPlayerGameData()
+: <a class="el" href="game__state_8c.html#a73c7169bc62873cbae9e362f4b191322">game_state.c</a>
+, <a class="el" href="game__state_8h.html#a73c7169bc62873cbae9e362f4b191322">game_state.h</a>
+</li>
 <li>createServer()
 : <a class="el" href="socket_2server_8c.html#a641d3877e58ea8e6c9760312e23fa650">server.c</a>
 , <a class="el" href="socket_2server_8h.html#a641d3877e58ea8e6c9760312e23fa650">server.h</a>
@@ -184,16 +188,12 @@ $(function() {
 : <a class="el" href="timer_8c.html#a4571f6f39ab7b9ee851ea2cf1edeea60">timer.c</a>
 , <a class="el" href="timer_8h.html#a4571f6f39ab7b9ee851ea2cf1edeea60">timer.h</a>
 </li>
-<li>createWindow()
-: <a class="el" href="window_8c.html#ae86a3185973be72e90ebb6ec30e5daa7">window.c</a>
-, <a class="el" href="window_8h.html#ae86a3185973be72e90ebb6ec30e5daa7">window.h</a>
-</li>
 </ul>
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
 <li>deleteBuildingRenderer()
-: <a class="el" href="building__renderer_8h.html#ab1564cea53c4c6ced717e39389e729ee">building_renderer.h</a>
+: <a class="el" href="building__renderer_8h.html#a6319379ba18df93186567827d27364c0">building_renderer.h</a>
 , <a class="el" href="building__renderer_8c.html#a6319379ba18df93186567827d27364c0">building_renderer.c</a>
 </li>
 <li>deleteClient()
@@ -214,15 +214,19 @@ $(function() {
 </li>
 <li>deleteMapRenderer()
 : <a class="el" href="map__renderer_8c.html#a0080f8d2407fca5cc19293b4fe44191f">map_renderer.c</a>
-, <a class="el" href="map__renderer_8h.html#a04a8aa6bb79f43676ee8410b7b013cee">map_renderer.h</a>
+, <a class="el" href="map__renderer_8h.html#a0080f8d2407fca5cc19293b4fe44191f">map_renderer.h</a>
 </li>
 <li>deletePacket()
 : <a class="el" href="socket_8c.html#a28f1b203ad94365d7f6f23fb785d6d8e">socket.c</a>
 , <a class="el" href="socket_8h.html#a28f1b203ad94365d7f6f23fb785d6d8e">socket.h</a>
 </li>
+<li>deletePlayerGameData()
+: <a class="el" href="game__state_8c.html#a7230c2394dbdcd2a4c103d141926ee62">game_state.c</a>
+, <a class="el" href="game__state_8h.html#a7230c2394dbdcd2a4c103d141926ee62">game_state.h</a>
+</li>
 <li>deleteServer()
-: <a class="el" href="socket_2server_8c.html#a1778c7f9e97e6068abe92d0d47d33a7d">server.c</a>
-, <a class="el" href="socket_2server_8h.html#a1778c7f9e97e6068abe92d0d47d33a7d">server.h</a>
+: <a class="el" href="socket_2server_8h.html#a1778c7f9e97e6068abe92d0d47d33a7d">server.h</a>
+, <a class="el" href="socket_2server_8c.html#a1778c7f9e97e6068abe92d0d47d33a7d">server.c</a>
 </li>
 <li>deleteServerClient()
 : <a class="el" href="socket_2server_8c.html#aab1b91251a1b3c6b7efb503af44d6ba8">server.c</a>
@@ -237,8 +241,8 @@ $(function() {
 , <a class="el" href="animation_8h.html#af448c425d4bef6da8fe9c6ed2dd98705">animation.h</a>
 </li>
 <li>destroyBuilding()
-: <a class="el" href="building_8c.html#ade2ccc87dc1e502909b9cd2a51b1d0c4">building.c</a>
-, <a class="el" href="building_8h.html#ade2ccc87dc1e502909b9cd2a51b1d0c4">building.h</a>
+: <a class="el" href="building_8h.html#ade2ccc87dc1e502909b9cd2a51b1d0c4">building.h</a>
+, <a class="el" href="building_8c.html#ade2ccc87dc1e502909b9cd2a51b1d0c4">building.c</a>
 </li>
 <li>destroyButton()
 : <a class="el" href="input_8c.html#af89f66ab3d05dbf317fea058dd832b94">input.c</a>
@@ -393,11 +397,11 @@ $(function() {
 </li>
 <li>renderBuilding()
 : <a class="el" href="building__renderer_8c.html#abff8bbb236b38f38cd61b84a32c44e31">building_renderer.c</a>
-, <a class="el" href="building__renderer_8h.html#a2b9e19f64369cbdb510e664dc4bc36dd">building_renderer.h</a>
+, <a class="el" href="building__renderer_8h.html#abff8bbb236b38f38cd61b84a32c44e31">building_renderer.h</a>
 </li>
 <li>renderMap()
 : <a class="el" href="map__renderer_8c.html#aaa163cacd97f7a89d6e1cc62e768f666">map_renderer.c</a>
-, <a class="el" href="map__renderer_8h.html#a5ffa3903f5db69f67f6e30be3a5d2bde">map_renderer.h</a>
+, <a class="el" href="map__renderer_8h.html#aaa163cacd97f7a89d6e1cc62e768f666">map_renderer.h</a>
 </li>
 </ul>
 
@@ -442,6 +446,9 @@ $(function() {
 <li>updateTextboxText()
 : <a class="el" href="input_8c.html#aeca6d08c5d51c805ce4a80bebf737d86">input.c</a>
 , <a class="el" href="input_8h.html#aeca6d08c5d51c805ce4a80bebf737d86">input.h</a>
+</li>
+<li>updateWindowSize()
+: <a class="el" href="window_8h.html#ab1efa57caae2a77f346b314c3076d89f">window.h</a>
 </li>
 </ul>
 

@@ -99,6 +99,7 @@ var menudata={children:[
 {text:"u",url:"globals_func.html#index_u"},
 {text:"w",url:"globals_func.html#index_w"}]},
 {text:"Variables",url:"globals_vars.html"},
+{text:"Définitions de type",url:"globals_type.html"},
 {text:"Énumérations",url:"globals_enum.html"},
 {text:"Valeurs énumérées",url:"globals_eval.html"}]}]},
 {text:"Exemples",url:"examples.html"}]}
