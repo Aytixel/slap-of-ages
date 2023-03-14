@@ -16,6 +16,7 @@ int running = 1;
 int building_created = 0;
 int building_to_create = 0;
 int building_to_destroy = 0;
+int i = -1, j = 0;
 
 SDL_Point mouse_position;
 
@@ -47,6 +48,14 @@ void windowEventHandler(SDL_Event *event, window_t *window)
         case SDL_BUTTON_LEFT:
             mouse_position.x = event->button.x;
             mouse_position.y = event->button.y;
+            i++;
+            if (i > MAP_SIZE)
+            {
+                i = 0;
+                j++;
+            }
+            if (j > MAP_SIZE)
+                j = i = 0;
             if (!building_created)
                 building_to_create = 1;
             break;
@@ -65,6 +74,8 @@ int main(int argc, char *argv[])
     window_t *window = createWindow("Slap of Ages", 600, 600);
     map_renderer_t *map_renderer = createMapRenderer(window, MAP_SIZE);
     frame_timer_t *main_timer = createTimer(1000 / 30);
+
+    SDL_Point test_position = {i, j};
 
     building_t *building;
 
@@ -87,8 +98,10 @@ int main(int argc, char *argv[])
 
             if (building_to_create)
             {
+                test_position.x = i;
+                test_position.y = j;
                 printf("Building created\n");
-                building = createBuilding(HOUSE_1_BUILDING, &mouse_position, window, map_renderer);
+                building = createBuilding(HOUSE_1_BUILDING, &test_position, window, map_renderer);
 
                 building_created = 1;
                 building_to_create = 0;

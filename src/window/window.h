@@ -68,7 +68,8 @@ typedef struct
  * @param height longueur de la fenêtre
  * @return un pointer sur une **fenêtre**
  */
-extern void updateWindowSize(window_t *window, SDL_Event *event);
+
+extern window_t *createWindow(char *title, int width, int height);
 
 /**
  * @brief Détruit une fenêtre
