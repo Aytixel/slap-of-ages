@@ -119,6 +119,7 @@ extern game_data_t *createGameData();
  *
  * @param game_data un pointeur sur les données d'une partie
  * @param socket_fd id du socket client
+ * @param client_data un pointeur sur les données client
  * @return **1** si le joueur a pu être ajouté, **0** sinon
  */
 extern int addPlayerToGame(game_data_t *game_data, int socket_fd, client_data_t *client_data, server_client_t *server_client);
@@ -182,5 +183,14 @@ extern int setPlayerFinished(game_data_t *game_data, int socket_fd, packet_t *pa
  * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
  */
 extern int deleteGameData(game_data_t **game_data);
+
+/**
+ * @brief Définit un joueur comme étant prêt a jouer ou non
+ *
+ * @param game_data_array une référence d'un pointeur sur un tableau avec les données de partie
+ * @param client_data un pointeur sur les données client
+ * @param packet un pointeur le paquet contenant si le joeur est prêt
+ */
+extern void setPlayerIsReady(game_data_array_t *game_data_array, client_data_t *client_data, packet_t *packet);
 
 #endif
