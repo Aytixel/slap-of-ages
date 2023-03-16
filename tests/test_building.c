@@ -13,10 +13,8 @@
 #define MAP_SIZE 31
 
 int running = 1;
-int building_created = 0;
-int building_to_create = 0;
-int building_to_destroy = 0;
-int i = -1, j = 0;
+
+SDL_Point test_position = {0, 0};
 
 SDL_Point mouse_position;
 
@@ -28,45 +26,6 @@ void signalHandler(int s)
 void windowEventHandler(SDL_Event *event, window_t *window)
 {
     // gestion des évènements de la fenêtre
-    switch (event->type)
-    {
-    case SDL_QUIT:
-        running = 0;
-        break;
-    case SDL_WINDOWEVENT:
-        switch (event->window.event)
-        {
-        case SDL_WINDOWEVENT_RESIZED:
-            window->width = event->window.data1;
-            window->height = event->window.data2;
-            break;
-        }
-        break;
-    case SDL_MOUSEBUTTONDOWN:
-        switch (event->button.button)
-        {
-        case SDL_BUTTON_LEFT:
-            mouse_position.x = event->button.x;
-            mouse_position.y = event->button.y;
-            i++;
-            if (i > MAP_SIZE)
-            {
-                i = 0;
-                j++;
-            }
-            if (j > MAP_SIZE)
-                j = i = 0;
-            if (!building_created)
-                building_to_create = 1;
-            break;
-        case SDL_BUTTON_RIGHT:
-            if (building_created)
-                building_to_destroy = 1;
-            building_created = 0;
-            break;
-        }
-        break;
-    }
 }
 
 int main(int argc, char *argv[])
@@ -75,9 +34,9 @@ int main(int argc, char *argv[])
     map_renderer_t *map_renderer = createMapRenderer(window, MAP_SIZE);
     frame_timer_t *main_timer = createTimer(1000 / 30);
 
-    SDL_Point test_position = {i, j};
+    building_t *map_building[MAP_SIZE][MAP_SIZE] = {NULL};
 
-    building_t *building;
+    building_t *building = NULL;
 
     int time_left;
 
@@ -91,39 +50,73 @@ int main(int argc, char *argv[])
         time_left = timeLeft(main_timer);
 
         if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
-            windowEventHandler(&event, window);
+        {
+            switch (event.type)
+            {
+            case SDL_QUIT:
+                running = 0;
+                break;
+            case SDL_WINDOWEVENT:
+                switch (event.window.event)
+                {
+                case SDL_WINDOWEVENT_RESIZED:
+                    window->width = event.window.data1;
+                    window->height = event.window.data2;
+                    break;
+                }
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                switch (event.button.button)
+                {
+                case SDL_BUTTON_LEFT:
+                    mouse_position.x = event.button.x;
+                    mouse_position.y = event.button.y;
+
+                    test_position = getTileCoord(&mouse_position, window, map_renderer);
+
+                    if (test_position.x != -1 && test_position.y != -1 && map_building[test_position.x][test_position.y] == NULL)
+                    {
+
+                        map_building[test_position.x][test_position.y] = createBuilding(HOUSE_1_BUILDING, &test_position, window, map_renderer);
+
+                        printf("Building created\n");
+                    }
+
+                    break;
+                case SDL_BUTTON_RIGHT:
+                    mouse_position.x = event.button.x;
+                    mouse_position.y = event.button.y;
+
+                    test_position = getTileCoord(&mouse_position, window, map_renderer);
+
+                    if (test_position.x != -1 && test_position.y != -1 && map_building[test_position.x][test_position.y] != NULL)
+                    {
+                        printf("Building destroyed\n");
+                        destroyBuilding(&map_building[test_position.x][test_position.y]);
+                    }
+                    break;
+                }
+                break;
+            }
+        }
 
         if (checkTime(main_timer))
         {
 
-            if (building_to_create)
-            {
-                test_position.x = i;
-                test_position.y = j;
-                printf("Building created\n");
-                building = createBuilding(HOUSE_1_BUILDING, &test_position, window, map_renderer);
-
-                building_created = 1;
-                building_to_create = 0;
-
-                printf("Building hp: %d\n", building->max_hp);
-            }
-
             SDL_RenderClear(window->renderer);
             renderMap(window, map_renderer);
 
-            if (building_to_destroy)
+            for (int i = 0; i < MAP_SIZE; i++)
             {
-                printf("Building destroyed\n");
-                destroyBuilding(&building);
-                building_to_destroy = 0;
+                for (int j = 0; j < MAP_SIZE; j++)
+                {
+                    if (map_building[i][j] != NULL)
+                    {
+                        renderBuilding(window, map_building[i][j]->building_renderer, &(map_building[i][j]->position), map_building[i][j]->type, &map_building[i][j]->rect);
+                    }
+                }
             }
 
-            if (building_created)
-            {
-                printf("Building created\n");
-                printf("%d\n", renderBuilding(window, building->building_renderer, building->position, building->type, &building->rect));
-            }
             SDL_RenderPresent(window->renderer);
         }
     }

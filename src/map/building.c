@@ -6,6 +6,8 @@
 #include <SDL2/SDL_ttf.h>
 #include "timer/timer.h"
 #include "building.h"
+
+#define MAP_SIZE 32
 /**
  * @file building.c
  * @author Hôa Le Luet
@@ -27,7 +29,7 @@ extern building_t *createBuilding(building_type_e type, SDL_Point *position, win
     building->type = type;
     building->building_renderer = createBuildingRenderer(window, map_renderer);
     building->rect = rect;
-    building->position = position;
+    building->position = *position;
 
     switch (type)
     {
@@ -66,6 +68,7 @@ extern void destroyBuilding(building_t **building)
         return;
     deleteBuildingRenderer(&((*building)->building_renderer));
     free(*building);
+    *building = NULL;
 }
 
 extern void buildingTakesDamages(building_t *building, int damages)
@@ -76,4 +79,27 @@ extern void buildingTakesDamages(building_t *building, int damages)
     {
         destroyBuilding(&building);
     }
+}
+
+extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_renderer_t *map)
+{
+
+    SDL_Rect center_coord;
+    SDL_Point tile_coord;
+
+    int maxPixels = map->tile_size * map->size;
+
+    center_coord = positionToCenter(window, 0, 0);
+
+    tile_coord.x = (mouse_position->x - center_coord.x + maxPixels / 2) / map->tile_size;
+    tile_coord.y = (mouse_position->y - center_coord.y + maxPixels / 2) / map->tile_size;
+
+    if (tile_coord.x < 0 || tile_coord.y < 0 || tile_coord.x >= map->size || tile_coord.y >= map->size)
+    {
+        tile_coord.x = -1;
+        tile_coord.y = -1;
+        return tile_coord;
+    }
+
+    return tile_coord;
 }
