@@ -116,8 +116,8 @@ int main(int argc, char *argv[])
 
     frame_timer_t *main_timer = createTimer(1000 / 30);
 
-    char hostname[256] = {0};
-    uint16_t port = 0;
+    char hostname[] = "localhost";
+    uint16_t port = 4539;
     char pseudo[64] = {0};
 
     // boucle principale
@@ -135,10 +135,6 @@ int main(int argc, char *argv[])
             switch (client_connection_state)
             {
             case CLIENT_WAITING_INFO:
-                printf("Nom d'hôte du serveur : ");
-                scanf("%s", hostname);
-                printf("Port du serveur : ");
-                scanf("%hd", &port);
                 printf("Pseudo : ");
                 scanf("%s", pseudo);
 
