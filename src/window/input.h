@@ -107,6 +107,12 @@ extern void updateTextboxText(SDL_Event event, TTF_Font *font, char *inputText, 
  */
 extern void destroyTextbox(Textbox_t *textbox);
 
+extern void drawRect(SDL_Renderer* renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
+
+extern void drawClear(SDL_Renderer* renderer);
+
+extern void drawText(SDL_Renderer* renderer, TTF_Font* font, char* text, SDL_Rect rect, SDL_Color color);
+
 /**
  * @brief Fonction de détection de clic dans une zone
  *

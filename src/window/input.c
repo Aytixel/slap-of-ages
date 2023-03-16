@@ -79,6 +79,24 @@ void destroyTextbox(Textbox_t *textbox)
     free(textbox->text);
 }
 
+void drawRect(SDL_Renderer* renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
+    SDL_SetRenderDrawColor(renderer, r, g, b, a);
+    SDL_RenderFillRect(renderer, &rect);
+}
+
+void drawClear(SDL_Renderer* renderer) {
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Couleur noire
+    SDL_RenderClear(renderer);
+}
+
+void drawText(SDL_Renderer* renderer, TTF_Font* font, char* text, SDL_Rect rect, SDL_Color color) {
+    SDL_Surface* surface = TTF_RenderUTF8_Solid(font, text, color);
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &rect);
+    SDL_DestroyTexture(texture);
+    SDL_FreeSurface(surface);
+}
+
 int isMouseClickInRect(SDL_Event event, SDL_Rect rect, int button, int type)
 {
 
