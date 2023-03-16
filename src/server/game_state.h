@@ -25,7 +25,7 @@ typedef struct game_data_array_s game_data_array_t;
 typedef struct
 {
     int socket_fd;                  /**< descripteur du socket du joueur*/
-    float destruction_percentage;   /**< pourcentage de destruction*/
+    int destruction_percentage;     /**< pourcentage de destruction*/
     long time_left;                 /**< temps restant avant la fin de partie*/
     int has_finished;               /**< indique si le joueur a finie*/
     client_data_t *client_data;     /**< un pointeur sur les données client*/
@@ -177,6 +177,14 @@ extern int gameHasPlayer(game_data_t *game_data, int socket_fd);
 extern int setPlayerFinished(game_data_t *game_data, int socket_fd, packet_t *packet);
 
 /**
+ * @brief Récupère quel joueur à gagner
+ *
+ * @param game_data un pointeur sur les données d'une partie
+ * @return **0** si ce joueur est le joueur 1, **1** si il est le 2ème, **2** si ils sont ex-aequo, **-1** si la partie n'est pas fini
+ */
+extern int gameWinner(game_data_t *game_data);
+
+/**
  * @brief Détruit les données d'une partie
  *
  * @param game_data une référence d'un pointeur sur les données d'une partie
@@ -185,12 +193,22 @@ extern int setPlayerFinished(game_data_t *game_data, int socket_fd, packet_t *pa
 extern int deleteGameData(game_data_t **game_data);
 
 /**
- * @brief Définit un joueur comme étant prêt a jouer ou non
+ * @brief Définit un joueur comme ayant fini, dans le liste des parties
+ *
+ * @param game_data_array une référence d'un pointeur sur un tableau avec les données de partie
+ * @param socket_fd id du socket client
+ * @param packet un pointeur le paquet contenant les informations de fin de partie
+ * @return l'**index** de la partie finie, **-1** sinon
+ */
+extern int setPlayerFinishedInArray(game_data_array_t *game_data_array, int socket_fd, packet_t *packet);
+
+/**
+ * @brief Définit un joueur comme étant prêt à jouer, ou non, dans le liste des parties
  *
  * @param game_data_array une référence d'un pointeur sur un tableau avec les données de partie
  * @param client_data un pointeur sur les données client
  * @param packet un pointeur le paquet contenant si le joeur est prêt
  */
-extern void setPlayerIsReady(game_data_array_t *game_data_array, client_data_t *client_data, packet_t *packet);
+extern void setPlayerIsReadyInArray(game_data_array_t *game_data_array, client_data_t *client_data, packet_t *packet);
 
 #endif

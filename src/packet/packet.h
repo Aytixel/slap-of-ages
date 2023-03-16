@@ -93,7 +93,7 @@ extern void readIsPlayerReadyPacket(packet_t *packet, int *is_player_ready);
  * @param time_left temps restant avant la fin de partie
  * @return un pointer sur un **paquet**
  */
-extern packet_t *createGameFinishedPacket(float destruction_percentage, long time_left);
+extern packet_t *createGameFinishedPacket(int destruction_percentage, long time_left);
 
 /**
  * @brief Lie un paquet définissant le fait qu'un joueur à terminé
@@ -102,7 +102,7 @@ extern packet_t *createGameFinishedPacket(float destruction_percentage, long tim
  * @param destruction_percentage pourcentage de destruction
  * @param time_left temps restant avant la fin de partie
  */
-extern void readGameFinishedPacket(packet_t *packet, float *destruction_percentage, long *time_left);
+extern void readGameFinishedPacket(packet_t *packet, int *destruction_percentage, long *time_left);
 
 /**
  * @brief Créer un paquet définissant si le joueur à gagné

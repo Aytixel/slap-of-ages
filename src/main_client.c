@@ -53,7 +53,7 @@ void windowEventHandler(SDL_Event *event, window_t *window)
                 break;
             case SDLK_e:
                 // temporaire
-                packet = createGameFinishedPacket(79.4, 248934);
+                packet = createGameFinishedPacket(79, 248934);
 
                 sendToServer(client, packet);
                 deletePacket(&packet);
@@ -85,6 +85,12 @@ void handle_packet(packet_t *packet)
         break;
     case SET_MAP_PACKET_ID:
         printf("Partie lancé\n");
+        break;
+    case HAS_PLAYER_WON_PACKET_ID:
+        int has_won;
+
+        readHasPlayerWonPacket(packet, &has_won);
+        printf("Gagné: %d\n", has_won);
         break;
     }
 }

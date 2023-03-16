@@ -72,15 +72,41 @@ void handle_packet(packet_t *packet, game_data_array_t *game_data_array)
         printf("%d : %s a envoyer les données la de carte\n", server_client->socket_fd, client_data->pseudo);
         break;
     case IS_PLAYER_READY_PACKET_ID:
-        setPlayerIsReady(game_data_array, client_data, packet);
+        setPlayerIsReadyInArray(game_data_array, client_data, packet);
         break;
     case GAME_FINISHED_PACKET_ID:
-        // temporaire
-        float destruction_percentage;
-        long time_left;
-        readGameFinishedPacket(packet, &destruction_percentage, &time_left);
-        printf("%d : %s %f %ld\n", server_client->socket_fd, client_data->pseudo, destruction_percentage, time_left);
+        int game_index = setPlayerFinishedInArray(game_data_array, server_client->socket_fd, packet);
 
+        if (game_index > -1)
+        {
+            packet_t *packet_1 = NULL;
+            packet_t *packet_2 = NULL;
+
+            switch (gameWinner(game_data_array->game_data[game_index]))
+            {
+            case 0:
+                packet_1 = createHasPlayerWonPacket(1);
+                packet_2 = createHasPlayerWonPacket(0);
+                break;
+            case 1:
+                packet_1 = createHasPlayerWonPacket(0);
+                packet_2 = createHasPlayerWonPacket(1);
+                break;
+            case 2:
+            default:
+                packet_1 = createHasPlayerWonPacket(2);
+                packet_2 = createHasPlayerWonPacket(2);
+                break;
+            }
+
+            sendToServerClient(game_data_array->game_data[game_index]->player[0]->server_client, packet_1);
+            sendToServerClient(game_data_array->game_data[game_index]->player[1]->server_client, packet_2);
+
+            deletePacket(&packet_1);
+            deletePacket(&packet_2);
+
+            removeGameDataFromArray(game_data_array, game_index);
+        }
         break;
     }
 }
