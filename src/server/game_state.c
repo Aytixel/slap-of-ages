@@ -11,227 +11,227 @@
 #include <stdio.h>
 #include "game_state.h"
 
-extern game_data_array_t *createGameDataArray()
+extern server_game_state_array_t *createGameStateArray()
 {
-    game_data_array_t *game_data_array = malloc(sizeof(game_data_array_t));
+    server_game_state_array_t *game_state_array = malloc(sizeof(server_game_state_array_t));
 
-    game_data_array->game_data = NULL;
-    game_data_array->count = 0;
+    game_state_array->game_state = NULL;
+    game_state_array->count = 0;
 
-    return game_data_array;
+    return game_state_array;
 }
 
-extern void addGameDataToArray(game_data_array_t *game_data_array)
+extern void addGameStateToArray(server_game_state_array_t *game_state_array)
 {
-    game_data_array->game_data = realloc(game_data_array->game_data, sizeof(void *) * ++game_data_array->count);
-    game_data_array->game_data[game_data_array->count - 1] = createGameData();
-    game_data_array->game_data[game_data_array->count - 1]->array = game_data_array;
+    game_state_array->game_state = realloc(game_state_array->game_state, sizeof(void *) * ++game_state_array->count);
+    game_state_array->game_state[game_state_array->count - 1] = createGameState();
+    game_state_array->game_state[game_state_array->count - 1]->array = game_state_array;
 }
 
-extern int findGame(game_data_array_t *game_data_array)
+extern int findGame(server_game_state_array_t *game_state_array)
 {
-    if (game_data_array->count == 0)
+    if (game_state_array->count == 0)
         return -1;
 
-    for (int i = 0; i < game_data_array->count; i++)
+    for (int i = 0; i < game_state_array->count; i++)
     {
-        if (!isGameStarted(game_data_array->game_data[i]))
+        if (!isGameStarted(game_state_array->game_state[i]))
             return i;
     }
 
     return -1;
 }
 
-extern int removeGameDataFromArray(game_data_array_t *game_data_array, int index)
+extern int removeGameStateFromArray(server_game_state_array_t *game_state_array, int index)
 {
-    if (index < 0 || index >= game_data_array->count)
+    if (index < 0 || index >= game_state_array->count)
         return 0;
 
-    deleteGameData(game_data_array->game_data + index);
+    deleteGameState(game_state_array->game_state + index);
 
-    game_data_array->count--;
+    game_state_array->count--;
 
-    if (game_data_array->count > 0)
+    if (game_state_array->count > 0)
     {
-        memmove(game_data_array->game_data + index, game_data_array->game_data + index + 1, sizeof(void *) * (game_data_array->count - index));
+        memmove(game_state_array->game_state + index, game_state_array->game_state + index + 1, sizeof(void *) * (game_state_array->count - index));
 
-        game_data_array->game_data = realloc(game_data_array->game_data, sizeof(void *) * game_data_array->count);
+        game_state_array->game_state = realloc(game_state_array->game_state, sizeof(void *) * game_state_array->count);
     }
     else
     {
-        free(game_data_array->game_data);
-        game_data_array->game_data = NULL;
+        free(game_state_array->game_state);
+        game_state_array->game_state = NULL;
     }
 
     return 1;
 }
 
-extern int deleteGameDataArray(game_data_array_t **game_data_array)
+extern int deleteGameStateArray(server_game_state_array_t **game_state_array)
 {
-    if (game_data_array == NULL || *game_data_array == NULL)
+    if (game_state_array == NULL || *game_state_array == NULL)
         return -1;
 
-    for (int i = 0; i < (*game_data_array)->count; i++)
+    for (int i = 0; i < (*game_state_array)->count; i++)
     {
-        deleteGameData((*game_data_array)->game_data + i);
+        deleteGameState((*game_state_array)->game_state + i);
     }
 
-    free((*game_data_array)->game_data);
-    free(*game_data_array);
-    *game_data_array = NULL;
+    free((*game_state_array)->game_state);
+    free(*game_state_array);
+    *game_state_array = NULL;
 
     return 0;
 }
 
-extern player_game_data_t *createPlayerGameData(int socket_fd, client_data_t *client_data, server_client_t *server_client)
+extern player_game_state_t *createPlayerState(int socket_fd, server_client_data_t *client_data, server_client_t *server_client)
 {
-    player_game_data_t *player_game_data = malloc(sizeof(player_game_data_t));
+    player_game_state_t *player_game_state = malloc(sizeof(player_game_state_t));
 
-    player_game_data->socket_fd = socket_fd;
-    player_game_data->destruction_percentage = -1;
-    player_game_data->time_left = -1;
-    player_game_data->has_finished = 0;
-    player_game_data->client_data = client_data;
-    player_game_data->server_client = server_client;
+    player_game_state->socket_fd = socket_fd;
+    player_game_state->destruction_percentage = -1;
+    player_game_state->time_left = -1;
+    player_game_state->has_finished = 0;
+    player_game_state->client_data = client_data;
+    player_game_state->server_client = server_client;
 
-    return player_game_data;
+    return player_game_state;
 }
 
-extern int deletePlayerGameData(player_game_data_t **player_game_data)
+extern int deletePlayerState(player_game_state_t **player_game_state)
 {
-    if (player_game_data == NULL || *player_game_data == NULL)
+    if (player_game_state == NULL || *player_game_state == NULL)
         return -1;
 
-    if ((*player_game_data)->client_data != NULL)
+    if ((*player_game_state)->client_data != NULL)
     {
-        (*player_game_data)->client_data->is_in_game = 0;
-        (*player_game_data)->client_data->game_data = NULL;
+        (*player_game_state)->client_data->is_in_game = 0;
+        (*player_game_state)->client_data->game_state = NULL;
     }
 
-    free(*player_game_data);
-    *player_game_data = NULL;
+    free(*player_game_state);
+    *player_game_state = NULL;
 
     return 0;
 }
 
-extern game_data_t *createGameData()
+extern server_game_state_t *createGameState()
 {
-    game_data_t *game_data = malloc(sizeof(game_data_t));
+    server_game_state_t *game_state = malloc(sizeof(server_game_state_t));
 
-    game_data->player[0] = NULL;
-    game_data->player[1] = NULL;
-    game_data->array = NULL;
+    game_state->player[0] = NULL;
+    game_state->player[1] = NULL;
+    game_state->array = NULL;
 
-    return game_data;
+    return game_state;
 }
 
-extern int addPlayerToGame(game_data_t *game_data, int socket_fd, client_data_t *client_data, server_client_t *server_client)
+extern int addPlayerToGame(server_game_state_t *game_state, int socket_fd, server_client_data_t *client_data, server_client_t *server_client)
 {
-    if (isGameStarted(game_data))
+    if (isGameStarted(game_state))
         return 0;
 
-    game_data->player[game_data->player[0] != NULL] = createPlayerGameData(socket_fd, client_data, server_client);
+    game_state->player[game_state->player[0] != NULL] = createPlayerState(socket_fd, client_data, server_client);
 
     if (client_data != NULL)
-        client_data->game_data = game_data;
+        client_data->game_state = game_state;
 
     return 1;
 }
 
-extern int removePlayerFromGame(game_data_t *game_data, int socket_fd)
+extern int removePlayerFromGame(server_game_state_t *game_state, int socket_fd)
 {
-    int player = gameHasPlayer(game_data, socket_fd);
+    int player = gameHasPlayer(game_state, socket_fd);
 
     if (player == -1)
         return 0;
 
-    deletePlayerGameData(&game_data->player[player]);
+    deletePlayerState(&game_state->player[player]);
 
     return 1;
 }
 
-extern int isGameEmpty(game_data_t *game_data)
+extern int isGameEmpty(server_game_state_t *game_state)
 {
-    return game_data->player[0] == NULL && game_data->player[1] == NULL;
+    return game_state->player[0] == NULL && game_state->player[1] == NULL;
 }
 
-extern int isGameStarted(game_data_t *game_data)
+extern int isGameStarted(server_game_state_t *game_state)
 {
-    return game_data->player[0] != NULL && game_data->player[1] != NULL;
+    return game_state->player[0] != NULL && game_state->player[1] != NULL;
 }
 
-extern int isGameFinished(game_data_t *game_data)
+extern int isGameFinished(server_game_state_t *game_state)
 {
-    return isGameStarted(game_data) && game_data->player[0]->has_finished && game_data->player[1]->has_finished;
+    return isGameStarted(game_state) && game_state->player[0]->has_finished && game_state->player[1]->has_finished;
 }
 
-extern int gameHasPlayer(game_data_t *game_data, int socket_fd)
+extern int gameHasPlayer(server_game_state_t *game_state, int socket_fd)
 {
-    if (game_data->player[0] != NULL && game_data->player[0]->socket_fd == socket_fd)
+    if (game_state->player[0] != NULL && game_state->player[0]->socket_fd == socket_fd)
         return 0;
-    if (game_data->player[1] != NULL && game_data->player[1]->socket_fd == socket_fd)
+    if (game_state->player[1] != NULL && game_state->player[1]->socket_fd == socket_fd)
         return 1;
 
     return -1;
 }
 
-extern int setPlayerFinished(game_data_t *game_data, int socket_fd, packet_t *packet)
+extern int setPlayerFinished(server_game_state_t *game_state, int socket_fd, packet_t *packet)
 {
-    int player = gameHasPlayer(game_data, socket_fd);
+    int player = gameHasPlayer(game_state, socket_fd);
 
     if (player == -1)
         return -1;
 
-    game_data->player[player]->has_finished = 1;
-    readGameFinishedPacket(packet, &game_data->player[player]->destruction_percentage, &game_data->player[player]->time_left);
-    printf("%d : %s à finie %% de destruction : %d, temps restant en ms avant la fin normale de partie : %ld\n", server_client->socket_fd, game_data->player[player]->client_data->pseudo, game_data->player[player]->destruction_percentage, game_data->player[player]->time_left);
+    game_state->player[player]->has_finished = 1;
+    readGameFinishedPacket(packet, &game_state->player[player]->destruction_percentage, &game_state->player[player]->time_left);
+    printf("%d : %s à finie %% de destruction : %d, temps restant en ms avant la fin normale de partie : %ld\n", server_client->socket_fd, game_state->player[player]->client_data->pseudo, game_state->player[player]->destruction_percentage, game_state->player[player]->time_left);
 
     return 0;
 }
 
-extern int gameWinner(game_data_t *game_data)
+extern int gameWinner(server_game_state_t *game_state)
 {
-    if (!isGameFinished(game_data))
+    if (!isGameFinished(game_state))
         return -1;
 
     // le joueur avec le plus de desctruction gagne
-    if (game_data->player[0]->destruction_percentage != game_data->player[1]->destruction_percentage)
-        return game_data->player[0]->destruction_percentage < game_data->player[1]->destruction_percentage;
+    if (game_state->player[0]->destruction_percentage != game_state->player[1]->destruction_percentage)
+        return game_state->player[0]->destruction_percentage < game_state->player[1]->destruction_percentage;
 
     // le joueur avec qui fini le plus vite gagne
-    if (game_data->player[0]->time_left != game_data->player[1]->time_left)
-        return game_data->player[0]->time_left > game_data->player[1]->time_left;
+    if (game_state->player[0]->time_left != game_state->player[1]->time_left)
+        return game_state->player[0]->time_left > game_state->player[1]->time_left;
 
     // égalité
     return 2;
 }
 
-extern int deleteGameData(game_data_t **game_data)
+extern int deleteGameState(server_game_state_t **game_state)
 {
-    if (game_data == NULL || *game_data == NULL)
+    if (game_state == NULL || *game_state == NULL)
         return -1;
 
-    deletePlayerGameData(&(*game_data)->player[0]);
-    deletePlayerGameData(&(*game_data)->player[1]);
+    deletePlayerState(&(*game_state)->player[0]);
+    deletePlayerState(&(*game_state)->player[1]);
 
-    free(*game_data);
-    *game_data = NULL;
+    free(*game_state);
+    *game_state = NULL;
 
     return 0;
 }
 
-extern int setPlayerFinishedInArray(game_data_array_t *game_data_array, int socket_fd, packet_t *packet)
+extern int setPlayerFinishedInArray(server_game_state_array_t *game_state_array, int socket_fd, packet_t *packet)
 {
-    for (int i = 0; i < game_data_array->count; i++)
+    for (int i = 0; i < game_state_array->count; i++)
     {
-        if (!setPlayerFinished(game_data_array->game_data[i], socket_fd, packet))
+        if (!setPlayerFinished(game_state_array->game_state[i], socket_fd, packet))
         {
-            if (isGameFinished(game_data_array->game_data[i]))
+            if (isGameFinished(game_state_array->game_state[i]))
             {
-                game_data_array->game_data[i]->player[0]->client_data->is_in_game = 0;
-                game_data_array->game_data[i]->player[1]->client_data->is_in_game = 0;
-                game_data_array->game_data[i]->player[0]->client_data->is_player_ready = 0;
-                game_data_array->game_data[i]->player[1]->client_data->is_player_ready = 0;
+                game_state_array->game_state[i]->player[0]->client_data->is_in_game = 0;
+                game_state_array->game_state[i]->player[1]->client_data->is_in_game = 0;
+                game_state_array->game_state[i]->player[0]->client_data->is_player_ready = 0;
+                game_state_array->game_state[i]->player[1]->client_data->is_player_ready = 0;
 
                 return i;
             }
@@ -243,7 +243,7 @@ extern int setPlayerFinishedInArray(game_data_array_t *game_data_array, int sock
     return -1;
 }
 
-extern void setPlayerIsReadyInArray(game_data_array_t *game_data_array, client_data_t *client_data, packet_t *packet)
+extern void setPlayerIsReadyInArray(server_game_state_array_t *game_state_array, server_client_data_t *client_data, packet_t *packet)
 {
     int is_player_ready;
 
@@ -259,58 +259,58 @@ extern void setPlayerIsReadyInArray(game_data_array_t *game_data_array, client_d
     if (client_data->is_player_ready)
     {
 
-        int game_index = findGame(game_data_array);
+        int game_index = findGame(game_state_array);
 
         if (game_index == -1)
         {
-            addGameDataToArray(game_data_array);
-            game_index = game_data_array->count - 1;
+            addGameStateToArray(game_state_array);
+            game_index = game_state_array->count - 1;
         }
 
         // empêche un joueur de se connecter 2 fois dans la même partie, ou d'être dans 2 partie
-        if (gameHasPlayer(game_data_array->game_data[game_index], server_client->socket_fd) != -1)
+        if (gameHasPlayer(game_state_array->game_state[game_index], server_client->socket_fd) != -1)
             return;
 
-        addPlayerToGame(game_data_array->game_data[game_index], server_client->socket_fd, client_data, server_client);
+        addPlayerToGame(game_state_array->game_state[game_index], server_client->socket_fd, client_data, server_client);
 
         printf("%d : %s est prêt à jouer\n", server_client->socket_fd, client_data->pseudo);
 
-        if (isGameStarted(game_data_array->game_data[game_index]))
+        if (isGameStarted(game_state_array->game_state[game_index]))
         {
-            game_data_array->game_data[game_index]->player[0]->client_data->is_in_game = 1;
-            game_data_array->game_data[game_index]->player[1]->client_data->is_in_game = 1;
+            game_state_array->game_state[game_index]->player[0]->client_data->is_in_game = 1;
+            game_state_array->game_state[game_index]->player[1]->client_data->is_in_game = 1;
 
-            packet_t *packet = createSetPseudoPacket(game_data_array->game_data[game_index]->player[1]->client_data->pseudo);
+            packet_t *packet = createSetPseudoPacket(game_state_array->game_state[game_index]->player[1]->client_data->pseudo);
 
-            sendToServerClient(game_data_array->game_data[game_index]->player[0]->server_client, packet);
+            sendToServerClient(game_state_array->game_state[game_index]->player[0]->server_client, packet);
             deletePacket(&packet);
 
-            packet = createSetPseudoPacket(game_data_array->game_data[game_index]->player[0]->client_data->pseudo);
+            packet = createSetPseudoPacket(game_state_array->game_state[game_index]->player[0]->client_data->pseudo);
 
-            sendToServerClient(game_data_array->game_data[game_index]->player[1]->server_client, packet);
-            deletePacket(&packet);
-
-            packet = createSetMapPacket();
-
-            sendToServerClient(game_data_array->game_data[game_index]->player[0]->server_client, packet);
+            sendToServerClient(game_state_array->game_state[game_index]->player[1]->server_client, packet);
             deletePacket(&packet);
 
             packet = createSetMapPacket();
 
-            sendToServerClient(game_data_array->game_data[game_index]->player[1]->server_client, packet);
+            sendToServerClient(game_state_array->game_state[game_index]->player[0]->server_client, packet);
             deletePacket(&packet);
 
-            printf("%d : Parti lancé entre %s, et %s\n", server_client->socket_fd, game_data_array->game_data[game_index]->player[0]->client_data->pseudo, game_data_array->game_data[game_index]->player[1]->client_data->pseudo);
+            packet = createSetMapPacket();
+
+            sendToServerClient(game_state_array->game_state[game_index]->player[1]->server_client, packet);
+            deletePacket(&packet);
+
+            printf("%d : Parti lancé entre %s, et %s\n", server_client->socket_fd, game_state_array->game_state[game_index]->player[0]->client_data->pseudo, game_state_array->game_state[game_index]->player[1]->client_data->pseudo);
         }
     }
     else
     {
-        for (int i = 0; i < game_data_array->count; i++)
+        for (int i = 0; i < game_state_array->count; i++)
         {
-            if (removePlayerFromGame(game_data_array->game_data[i], server_client->socket_fd))
+            if (removePlayerFromGame(game_state_array->game_state[i], server_client->socket_fd))
             {
-                if (isGameEmpty(game_data_array->game_data[i]))
-                    removeGameDataFromArray(game_data_array, i);
+                if (isGameEmpty(game_state_array->game_state[i]))
+                    removeGameStateFromArray(game_state_array, i);
 
                 printf("%d : %s n'est pas prêt à jouer\n", server_client->socket_fd, client_data->pseudo);
                 break;

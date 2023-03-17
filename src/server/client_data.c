@@ -10,19 +10,19 @@
 #include <stdlib.h>
 #include "client_data.h"
 
-extern client_data_t *createClientData()
+extern server_client_data_t *createServerClientData()
 {
-    client_data_t *client_data = malloc(sizeof(client_data_t));
+    server_client_data_t *client_data = malloc(sizeof(server_client_data_t));
 
     client_data->pseudo = NULL;
     client_data->is_player_ready = 0;
     client_data->is_in_game = 0;
-    client_data->game_data = NULL;
+    client_data->game_state = NULL;
 
     return client_data;
 }
 
-extern int deleteClientData(client_data_t **client_data)
+extern int deleteServerClientData(server_client_data_t **client_data)
 {
     if (client_data == NULL || *client_data == NULL)
         return -1;
@@ -31,25 +31,25 @@ extern int deleteClientData(client_data_t **client_data)
         free((*client_data)->pseudo);
 
     // si le joueur était en partie
-    if ((*client_data)->game_data != NULL)
+    if ((*client_data)->game_state != NULL)
     {
-        if (isGameStarted((*client_data)->game_data)) // si la partie à commencé on la supprime
+        if (isGameStarted((*client_data)->game_state)) // si la partie à commencé on la supprime
         {
-            for (int i = 0; i < (*client_data)->game_data->array->count; i++)
+            for (int i = 0; i < (*client_data)->game_state->array->count; i++)
             {
-                if ((*client_data)->game_data == (*client_data)->game_data->array->game_data[i])
+                if ((*client_data)->game_state == (*client_data)->game_state->array->game_state[i])
                 {
-                    removeGameDataFromArray((*client_data)->game_data->array, i);
+                    removeGameStateFromArray((*client_data)->game_state->array, i);
                     break;
                 }
             }
         }
         else // sinon on supprime juste les donnéees du joueur si la partie n'a pas commencé
         {
-            if ((*client_data)->game_data->player[0]->client_data == (*client_data))
-                deletePlayerGameData(&(*client_data)->game_data->player[0]);
+            if ((*client_data)->game_state->player[0]->client_data == (*client_data))
+                deletePlayerState(&(*client_data)->game_state->player[0]);
             else
-                deletePlayerGameData(&(*client_data)->game_data->player[1]);
+                deletePlayerState(&(*client_data)->game_state->player[1]);
         }
     }
 

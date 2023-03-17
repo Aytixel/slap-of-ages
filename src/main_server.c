@@ -58,9 +58,9 @@ void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port
     }
 }
 
-void handle_packet(packet_t *packet, game_data_array_t *game_data_array)
+void handle_packet(packet_t *packet, server_game_state_array_t *game_state_array)
 {
-    client_data_t *client_data = *server_client_data;
+    server_client_data_t *client_data = *server_client_data;
 
     switch (packet->id)
     {
@@ -72,17 +72,17 @@ void handle_packet(packet_t *packet, game_data_array_t *game_data_array)
         printf("%d : %s a envoyer les données la de carte\n", server_client->socket_fd, client_data->pseudo);
         break;
     case IS_PLAYER_READY_PACKET_ID:
-        setPlayerIsReadyInArray(game_data_array, client_data, packet);
+        setPlayerIsReadyInArray(game_state_array, client_data, packet);
         break;
     case GAME_FINISHED_PACKET_ID:
-        int game_index = setPlayerFinishedInArray(game_data_array, server_client->socket_fd, packet);
+        int game_index = setPlayerFinishedInArray(game_state_array, server_client->socket_fd, packet);
 
         if (game_index > -1)
         {
             packet_t *packet_1 = NULL;
             packet_t *packet_2 = NULL;
 
-            switch (gameWinner(game_data_array->game_data[game_index]))
+            switch (gameWinner(game_state_array->game_state[game_index]))
             {
             case 0:
                 packet_1 = createHasPlayerWonPacket(1);
@@ -99,13 +99,13 @@ void handle_packet(packet_t *packet, game_data_array_t *game_data_array)
                 break;
             }
 
-            sendToServerClient(game_data_array->game_data[game_index]->player[0]->server_client, packet_1);
-            sendToServerClient(game_data_array->game_data[game_index]->player[1]->server_client, packet_2);
+            sendToServerClient(game_state_array->game_state[game_index]->player[0]->server_client, packet_1);
+            sendToServerClient(game_state_array->game_state[game_index]->player[1]->server_client, packet_2);
 
             deletePacket(&packet_1);
             deletePacket(&packet_2);
 
-            removeGameDataFromArray(game_data_array, game_index);
+            removeGameStateFromArray(game_state_array, game_index);
         }
         break;
     }
@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
 
     server_t *server = createServer(hostname, port);
 
-    delete_server_client_data = (void *)deleteClientData;
+    delete_server_client_data = (void *)deleteServerClientData;
 
     if (server == NULL)
     {
@@ -139,7 +139,7 @@ int main(int argc, char *argv[])
     }
 
     frame_timer_t *main_timer = createTimer(1000 / 60);
-    game_data_array_t *game_data_array = createGameDataArray();
+    server_game_state_array_t *game_state_array = createGameStateArray();
 
     // boucle principale
     while (running)
@@ -155,7 +155,7 @@ int main(int argc, char *argv[])
                 case SERVER_CLIENT_WAITING_HANDSHAKE:
                     if (waitClientHandshake(server))
                     {
-                        *server_client_data = createClientData();
+                        *server_client_data = createServerClientData();
 
                         printf("%d : Nouveau client connecté avec succès\n", server_client->socket_fd);
                     }
@@ -165,7 +165,7 @@ int main(int argc, char *argv[])
 
                     if (packet != NULL)
                     {
-                        handle_packet(packet, game_data_array);
+                        handle_packet(packet, game_state_array);
                         deletePacket(&packet);
                     }
                     break;
@@ -181,7 +181,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    deleteGameDataArray(&game_data_array);
+    deleteGameStateArray(&game_state_array);
     deleteTimer(&main_timer);
     closeClientConnections();
     deleteServer(&server);
