@@ -1,4 +1,8 @@
+#ifndef __BUILDING_H
+#define __BUILDING_H
+
 #include "building_renderer.h"
+#include "map/map_renderer.h"
 
 /**
  * @file building.h
@@ -68,3 +72,5 @@ extern void buildingTakesDamages(building_t *building, int damages);
  */
 
 extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_renderer_t *map);
+
+#endif

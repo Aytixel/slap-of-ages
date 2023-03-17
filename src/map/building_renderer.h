@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef __BUILDING_H
-#define __BUILDING_H
+#ifndef __BUILDING_RENDERER_H
+#define __BUILDING_RENDERER_H
 
 #include "window/window.h"
 #include "map_renderer.h"
