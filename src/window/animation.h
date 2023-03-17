@@ -1,3 +1,6 @@
+#ifndef __ANIMATION_H
+#define __ANIMATION_H
+
 #include <SDL2/SDL_image.h>
 #include "window.h"
 
@@ -78,3 +81,5 @@ extern int destroyAnim(anim_t **anim);
  * @return un int valant 1 si l'animation est terminée, -1 si l'animation n'existe pas, 0 sinon
  */
 extern int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window);
+
+#endif

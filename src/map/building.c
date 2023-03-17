@@ -1,13 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_main.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
-#include "timer/timer.h"
-#include "building.h"
-
-#define MAP_SIZE 32
 /**
  * @file building.c
  * @author Hôa Le Luet
@@ -16,6 +6,14 @@
  * @date 09/03/2023
  */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_main.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include "timer/timer.h"
+#include "building.h"
 #include "building_renderer.h"
 #include "window/window.h"
 #include "window/input.h"
@@ -102,4 +100,47 @@ extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_r
     }
 
     return tile_coord;
+}
+
+extern void clearMatrix(building_t ***building_matrix, int map_size)
+{
+    for (int i = 0; i < map_size; i++)
+    {
+        for (int j = 0; j < map_size; j++)
+        {
+            if (building_matrix[i][j] != NULL)
+            {
+                destroyBuilding(&(building_matrix[i][j]));
+            }
+        }
+    }
+}
+
+extern void addBuildingInMatrix(building_t ***building_matrix, building_t *building)
+{
+    building_matrix[building->position.x][building->position.y] = building;
+}
+
+extern void removeBuildingFromMatrix(building_t ***building_matrix, building_t *building)
+{
+    destroyBuilding(&(building_matrix[building->position.x][building->position.y]));
+}
+
+extern void updateBuildingCoord(building_t *building, SDL_Point *position)
+{
+    building->position = *position;
+}
+
+extern int canPlaceBuilding(building_t *building, SDL_Point *position, building_t ***building_matrix)
+{
+    if (canRenderBuilding(building->building_renderer, position, building->type))
+    {
+        SDL_Rect rect = {0, 0, 0, 0};
+
+        if (building_matrix[position->x][position->y] == NULL)
+        {
+            return 1;
+        }
+    }
+    return 0;
 }

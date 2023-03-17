@@ -10,7 +10,7 @@
 #include "map/building_renderer.h"
 #include "map/building.h"
 
-#define MAP_SIZE 31
+#define MAP_SIZE 20
 
 int running = 1;
 

@@ -1,9 +1,3 @@
-#ifndef __BUILDING_H
-#define __BUILDING_H
-
-#include "building_renderer.h"
-#include "map/map_renderer.h"
-
 /**
  * @file building.h
  * @author Hôa Le Luet
@@ -12,6 +6,12 @@
  * @date 2023-03-09
  *
  */
+
+#ifndef __BUILDING_H
+#define __BUILDING_H
+
+#include "building_renderer.h"
+#include "map/map_renderer.h"
 
 /**
  * @brief Structure contenant les données des bâtiments
@@ -72,5 +72,42 @@ extern void buildingTakesDamages(building_t *building, int damages);
  */
 
 extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_renderer_t *map);
+
+/**
+ * @brief Permet de détruire tout les bâtiments sur la carte
+ *
+ * @param building_matrix Matrice contenant la totalité des bâtiments placés sur la carte
+ * @param map_size Taille de la carte en nombre de cases
+ */
+
+extern void clearMatrix(building_t ***building_matrix, int map_size);
+
+/**
+ * @brief Permet d'ajouter un bâtiment sur la carte
+ *
+ *
+ * @param building_matrix Matrice contenant la totalité des bâtiments placés sur la carte
+ * @param building Le bâtiment à ajouter à la carte
+ */
+
+extern void addBuildingInMatrix(building_t ***building_matrix, building_t *building);
+
+/**
+ * @brief Permet de supprimer un bâtiment de la carte
+ *
+ * @param building_matrix Matrice contenant la totalité des bâtiments placés sur la carte
+ * @param building Le bâtiment à supprimer de la carte
+ */
+
+extern void removeBuildingFromMatrix(building_t ***building_matrix, building_t *building);
+
+/**
+ * @brief Permet de mettre à jour la position d'un bâtiment
+ *
+ * @param building Le bâtiment à mettre à jour
+ * @param position La nouvelle position du bâtiment
+ */
+
+extern void updateBuildingCoord(building_t *building, SDL_Point *position);
 
 #endif
