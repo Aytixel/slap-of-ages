@@ -39,6 +39,15 @@ extern int deleteServerClientData(server_client_data_t **client_data)
             {
                 if ((*client_data)->game_state == (*client_data)->game_state->array->game_state[i])
                 {
+                    // on envoie un paquet à l'autre joueur pour dire qu'il a gagné par défaut
+                    packet_t *packet = createHasPlayerWonPacket(1);
+
+                    if ((*client_data)->game_state->player[0]->client_data == (*client_data))
+                        sendToServerClient((*client_data)->game_state->player[1]->server_client, packet);
+                    else
+                        sendToServerClient((*client_data)->game_state->player[0]->server_client, packet);
+
+                    deletePacket(&packet);
                     removeGameStateFromArray((*client_data)->game_state->array, i);
                     break;
                 }
