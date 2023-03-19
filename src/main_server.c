@@ -72,7 +72,7 @@ void handle_packet(packet_t *packet, server_game_state_array_t *game_state_array
         printf("%d : %s a envoyer les données la de carte\n", server_client->socket_fd, client_data->pseudo);
         break;
     case IS_PLAYER_READY_PACKET_ID:
-        setPlayerIsReadyInArray(game_state_array, client_data, packet);
+        setPlayerIsReadyInArray(game_state_array, client_data, server_client, packet);
         break;
     case GAME_FINISHED_PACKET_ID:
         setPlayerFinishedInArray(game_state_array, server_client->socket_fd, packet);

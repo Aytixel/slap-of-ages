@@ -208,6 +208,6 @@ extern void setPlayerFinishedInArray(server_game_state_array_t *game_state_array
  * @param client_data un pointeur sur les données client
  * @param packet un pointeur le paquet contenant si le joeur est prêt
  */
-extern void setPlayerIsReadyInArray(server_game_state_array_t *game_state_array, server_client_data_t *client_data, packet_t *packet);
+extern void setPlayerIsReadyInArray(server_game_state_array_t *game_state_array, server_client_data_t *client_data, server_client_t *server_client, packet_t *packet);
 
 #endif

@@ -184,7 +184,9 @@ extern int setPlayerFinished(server_game_state_t *game_state, int socket_fd, pac
 
     game_state->player[player]->has_finished = 1;
     readGameFinishedPacket(packet, &game_state->player[player]->destruction_percentage, &game_state->player[player]->time_left);
-    printf("%d : %s à finie, pourcentage de destruction : %d, temps restant en ms avant la fin normale de partie : %ld\n", server_client->socket_fd, game_state->player[player]->client_data->pseudo, game_state->player[player]->destruction_percentage, game_state->player[player]->time_left);
+
+    if (game_state->player[player]->client_data != NULL)
+        printf("%d : %s à finie, pourcentage de destruction : %d, temps restant en ms avant la fin normale de partie : %ld\n", game_state->player[player]->server_client->socket_fd, game_state->player[player]->client_data->pseudo, game_state->player[player]->destruction_percentage, game_state->player[player]->time_left);
 
     return 0;
 }
@@ -262,7 +264,7 @@ extern void setPlayerFinishedInArray(server_game_state_array_t *game_state_array
     }
 }
 
-extern void setPlayerIsReadyInArray(server_game_state_array_t *game_state_array, server_client_data_t *client_data, packet_t *packet)
+extern void setPlayerIsReadyInArray(server_game_state_array_t *game_state_array, server_client_data_t *client_data, server_client_t *server_client, packet_t *packet)
 {
     int is_player_ready;
 

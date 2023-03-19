@@ -52,6 +52,7 @@ int main()
 
     char data[12] = {0};
     packet_t packet = {0, &data, 0};
+    char pseudo[] = "test";
 
     assert(!setPlayerFinished(game_state, 1, &packet));
     assert(game_state->player[1]->has_finished == 1);
