@@ -1,0 +1,127 @@
+\hypertarget{building__renderer_8c}{}\doxysection{Référence du fichier src/map/building\+\_\+renderer.c}
+\label{building__renderer_8c}\index{src/map/building\_renderer.c@{src/map/building\_renderer.c}}
+
+
+Permet de gérer l\textquotesingle{}affichage des bâtiments.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}building\+\_\+renderer.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{building__renderer_8c_a09ddf5ed98997206716cdd14d4b985e3}\label{building__renderer_8c_a09ddf5ed98997206716cdd14d4b985e3}} 
+\#define {\bfseries BUILDING\+\_\+\+TILE\+\_\+\+SIZE}~16
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$ \mbox{\hyperlink{building__renderer_8c_aef13424a4fb7a65fc59e5fef8c784f56}{create\+Building\+Renderer}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$map\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em Créer la structure qui gère l\textquotesingle{}affichage des bâtiments. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{building__renderer_8c_aec306394ce2908916070f9f371fcc826}{can\+Render\+Building}} (\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} building\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Détermine si on peut placer / afficher un certain type de bâtiment à tel endroit. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{building__renderer_8c_abff8bbb236b38f38cd61b84a32c44e31}{render\+Building}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} building\+\_\+type, SDL\+\_\+\+Rect $\ast$destination\+\_\+rect)
+\begin{DoxyCompactList}\small\item\em Fait le rendu de d\textquotesingle{}un batiment sur la carte. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{building__renderer_8c_a6319379ba18df93186567827d27364c0}{delete\+Building\+Renderer}} (\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$$\ast$building\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em Détruit la structure qui gère l\textquotesingle{}affichage des bâtiments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Permet de gérer l\textquotesingle{}affichage des bâtiments. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+03/03/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{building__renderer_8c_aec306394ce2908916070f9f371fcc826}\label{building__renderer_8c_aec306394ce2908916070f9f371fcc826}} 
+\index{building\_renderer.c@{building\_renderer.c}!canRenderBuilding@{canRenderBuilding}}
+\index{canRenderBuilding@{canRenderBuilding}!building\_renderer.c@{building\_renderer.c}}
+\doxysubsubsection{\texorpdfstring{canRenderBuilding()}{canRenderBuilding()}}
+{\footnotesize\ttfamily int can\+Render\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$}]{building\+\_\+renderer,  }\item[{SDL\+\_\+\+Point $\ast$}]{position,  }\item[{\mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}}}]{building\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Détermine si on peut placer / afficher un certain type de bâtiment à tel endroit. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em building\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des bâtiments \\
+\hline
+{\em position} & position du bâtiment en nombre de case \\
+\hline
+{\em building\+\_\+type} & type de batiment à placer / afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{1}} si on peut le placer, {\bfseries{0}} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{building__renderer_8c_aef13424a4fb7a65fc59e5fef8c784f56}\label{building__renderer_8c_aef13424a4fb7a65fc59e5fef8c784f56}} 
+\index{building\_renderer.c@{building\_renderer.c}!createBuildingRenderer@{createBuildingRenderer}}
+\index{createBuildingRenderer@{createBuildingRenderer}!building\_renderer.c@{building\_renderer.c}}
+\doxysubsubsection{\texorpdfstring{createBuildingRenderer()}{createBuildingRenderer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}}$\ast$ create\+Building\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$}]{map\+\_\+renderer }\end{DoxyParamCaption})}
+
+
+
+Créer la structure qui gère l\textquotesingle{}affichage des bâtiments. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em map\+\_\+renderer} & un pointeur sur la carte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+building\+\_\+renderer\+\_\+t$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{building__renderer_8c_a6319379ba18df93186567827d27364c0}\label{building__renderer_8c_a6319379ba18df93186567827d27364c0}} 
+\index{building\_renderer.c@{building\_renderer.c}!deleteBuildingRenderer@{deleteBuildingRenderer}}
+\index{deleteBuildingRenderer@{deleteBuildingRenderer}!building\_renderer.c@{building\_renderer.c}}
+\doxysubsubsection{\texorpdfstring{deleteBuildingRenderer()}{deleteBuildingRenderer()}}
+{\footnotesize\ttfamily int delete\+Building\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$$\ast$}]{building\+\_\+renderer }\end{DoxyParamCaption})}
+
+
+
+Détruit la structure qui gère l\textquotesingle{}affichage des bâtiments. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em building\+\_\+renderer} & une référence d\textquotesingle{}un pointeur sur la structure qui gère l\textquotesingle{}affichage des bâtiments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{building__renderer_8c_abff8bbb236b38f38cd61b84a32c44e31}\label{building__renderer_8c_abff8bbb236b38f38cd61b84a32c44e31}} 
+\index{building\_renderer.c@{building\_renderer.c}!renderBuilding@{renderBuilding}}
+\index{renderBuilding@{renderBuilding}!building\_renderer.c@{building\_renderer.c}}
+\doxysubsubsection{\texorpdfstring{renderBuilding()}{renderBuilding()}}
+{\footnotesize\ttfamily int render\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$}]{building\+\_\+renderer,  }\item[{SDL\+\_\+\+Point $\ast$}]{position,  }\item[{\mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}}}]{building\+\_\+type,  }\item[{SDL\+\_\+\+Rect $\ast$}]{destination\+\_\+rect }\end{DoxyParamCaption})}
+
+
+
+Fait le rendu de d\textquotesingle{}un batiment sur la carte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em building\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des bâtiments \\
+\hline
+{\em position} & position du bâtiment en nombre de case \\
+\hline
+{\em building\+\_\+type} & type de batiment à afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{1}} si on peut le placer, {\bfseries{0}} sinon 
+\end{DoxyReturn}

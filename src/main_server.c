@@ -5,6 +5,7 @@
 #include "timer/timer.h"
 #include "connection/server.h"
 #include "server/client_data.h"
+#include "server/game_state.h"
 #include "utils/getopt.h"
 
 #define DEFAULT_HOSTNAME "0.0.0.0"
@@ -57,9 +58,9 @@ void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port
     }
 }
 
-void handle_packet(packet_t *packet)
+void handle_packet(packet_t *packet, server_game_state_array_t *game_state_array)
 {
-    client_data_t *client_data = *server_client_data;
+    server_client_data_t *client_data = *server_client_data;
 
     switch (packet->id)
     {
@@ -71,16 +72,10 @@ void handle_packet(packet_t *packet)
         printf("%d : %s a envoyer les données la de carte\n", server_client->socket_fd, client_data->pseudo);
         break;
     case IS_PLAYER_READY_PACKET_ID:
-        readIsPlayerReadyPacket(packet, &client_data->is_player_ready);
-        printf("%d : %s %sest prêt à jouer\n", server_client->socket_fd, client_data->pseudo, client_data->is_player_ready ? "" : "n'");
+        setPlayerIsReadyInArray(game_state_array, client_data, server_client, packet);
         break;
     case GAME_FINISHED_PACKET_ID:
-        // temporaire
-        float destruction_percentage;
-        long time_left;
-        readGameFinishedPacket(packet, &destruction_percentage, &time_left);
-        printf("%d : %s %f %ld\n", server_client->socket_fd, client_data->pseudo, destruction_percentage, time_left);
-
+        setPlayerFinishedInArray(game_state_array, server_client->socket_fd, packet);
         break;
     }
 }
@@ -102,7 +97,7 @@ int main(int argc, char *argv[])
 
     server_t *server = createServer(hostname, port);
 
-    delete_server_client_data = (void *)deleteClientData;
+    delete_server_client_data = (void *)deleteServerClientData;
 
     if (server == NULL)
     {
@@ -113,6 +108,7 @@ int main(int argc, char *argv[])
     }
 
     frame_timer_t *main_timer = createTimer(1000 / 60);
+    server_game_state_array_t *game_state_array = createGameStateArray();
 
     // boucle principale
     while (running)
@@ -128,17 +124,17 @@ int main(int argc, char *argv[])
                 case SERVER_CLIENT_WAITING_HANDSHAKE:
                     if (waitClientHandshake(server))
                     {
-                        *server_client_data = createClientData();
+                        *server_client_data = createServerClientData();
 
                         printf("%d : Nouveau client connecté avec succès\n", server_client->socket_fd);
                     }
                     break;
-                case SERVER_CLIENT_CONNECTED:; // Pour éviter l'erreur de compilation avec les anciennes versions de gcc
+                case SERVER_CLIENT_CONNECTED:;
                     packet_t *packet = recvFromServerClient(server_client);
 
                     if (packet != NULL)
                     {
-                        handle_packet(packet);
+                        handle_packet(packet, game_state_array);
                         deletePacket(&packet);
                     }
                     break;
@@ -154,6 +150,7 @@ int main(int argc, char *argv[])
         }
     }
 
+    deleteGameStateArray(&game_state_array);
     deleteTimer(&main_timer);
     closeClientConnections();
     deleteServer(&server);

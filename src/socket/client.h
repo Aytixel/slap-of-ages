@@ -31,14 +31,46 @@ typedef struct
     packet_t *packet_buffer;     /**< buffer de paquet*/
 } client_t;
 
+/**
+ * @brief Créer un client
+ *
+ * @param hostname nom d'hôte du serveur
+ * @param port port du serveur
+ * @return un pointer sur un **client**
+ */
 extern client_t *createClient(char *hostname, uint16_t port);
 
+/**
+ * @brief Vérifie si la connexion au serveur est fermée
+ *
+ * @param client client à utiliser
+ * @return **1 ou 0** en fonction se si la connexion est fermer ou non
+ */
 extern int isServerDown(client_t *client);
 
+/**
+ * @brief Envoie un paquet au server
+ *
+ * @param client client à utiliser
+ * @param packet paquet à envoyer
+ * @return **0** si tous se passe bien, **-1** si il y a un problème durant l'envoie
+ */
 extern int sendToServer(client_t *client, packet_t *packet);
 
+/**
+ * @brief Essaye de recevoir un paquet du serveur
+ *
+ * @param client client à utiliser
+ * @return un pointeur sur un **paquet**, et si la réception n'est pas terminé, ou rien n'a été envoyer renvoie **null**
+ */
 extern packet_t *recvFromServer(client_t *client);
 
+/**
+ * @brief Détruit un client
+ *
+ * @param client une référence d'un pointeur sur un client
+ * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
+ */
 extern int deleteClient(client_t **client);
 
 #endif

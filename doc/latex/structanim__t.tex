@@ -1,0 +1,75 @@
+\hypertarget{structanim__t}{}\doxysection{Référence de la structure anim\+\_\+t}
+\label{structanim__t}\index{anim\_t@{anim\_t}}
+
+
+Structure d\textquotesingle{}une animation.  
+
+
+
+
+{\ttfamily \#include $<$animation.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structanim__t_a5ccc4d48a397395a4da8e1941a09d131}\label{structanim__t_a5ccc4d48a397395a4da8e1941a09d131}} 
+int $\ast$ {\bfseries state\+\_\+frame\+\_\+count}
+\item 
+\mbox{\Hypertarget{structanim__t_ab895615be8fc28931be67bdb72fca5fa}\label{structanim__t_ab895615be8fc28931be67bdb72fca5fa}} 
+int {\bfseries state\+\_\+count}
+\item 
+\mbox{\Hypertarget{structanim__t_a686b6b6728dfec6e53cb47f8136fefcc}\label{structanim__t_a686b6b6728dfec6e53cb47f8136fefcc}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries state\+\_\+frames}
+\item 
+\mbox{\Hypertarget{structanim__t_aff4efd5c629268b71eb24a9cd557b6cb}\label{structanim__t_aff4efd5c629268b71eb24a9cd557b6cb}} 
+int {\bfseries frame\+\_\+tile\+\_\+width}
+\item 
+\mbox{\Hypertarget{structanim__t_aaf02bcc13f9c3a71e0c193e5ed6f3b8e}\label{structanim__t_aaf02bcc13f9c3a71e0c193e5ed6f3b8e}} 
+int {\bfseries frame\+\_\+tile\+\_\+height}
+\item 
+\mbox{\Hypertarget{structanim__t_a2fb8ed7ac3b5f3f69d73dfe23c67ca39}\label{structanim__t_a2fb8ed7ac3b5f3f69d73dfe23c67ca39}} 
+\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$ {\bfseries timer}
+\item 
+\mbox{\Hypertarget{structanim__t_a6b67b083de0d58d72a69c540adaff3f8}\label{structanim__t_a6b67b083de0d58d72a69c540adaff3f8}} 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ {\bfseries sprite}
+\item 
+\mbox{\Hypertarget{structanim__t_ad67f347002585f815346dc88e31eece0}\label{structanim__t_ad67f347002585f815346dc88e31eece0}} 
+int {\bfseries current\+\_\+state}
+\item 
+\mbox{\Hypertarget{structanim__t_a6382c403b21267799ba732adba7f812e}\label{structanim__t_a6382c403b21267799ba732adba7f812e}} 
+int {\bfseries current\+\_\+frame}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure d\textquotesingle{}une animation. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em state\+\_\+frame\+\_\+count} & \+: tableau contenant le nombre d\textquotesingle{}images par état \\
+\hline
+{\em state\+\_\+count} & \+: nombre d\textquotesingle{}états \\
+\hline
+{\em state\+\_\+frames} & \+: tableau contenant les images par état \\
+\hline
+{\em frame\+\_\+tile\+\_\+width} & \+: largeur d\textquotesingle{}une image \\
+\hline
+{\em frame\+\_\+tile\+\_\+height} & \+: hauteur d\textquotesingle{}une image \\
+\hline
+{\em timer} & \+: timer permettant de jouer une animation à une vitesse définie \\
+\hline
+{\em sprite} & \+: image source de l\textquotesingle{}animation \\
+\hline
+{\em current\+\_\+state} & \+: état courant \\
+\hline
+{\em current\+\_\+frame} & \+: image courante \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+structure de type \mbox{\hyperlink{structanim__t}{anim\+\_\+t}} 
+\end{DoxyReturn}
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/window/\mbox{\hyperlink{animation_8h}{animation.\+h}}\end{DoxyCompactItemize}

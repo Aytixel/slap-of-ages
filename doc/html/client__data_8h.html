@@ -67,35 +67,46 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier client_data.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implémente les fonctions associées la structure de données pour les clients connectés au serveur.  
+<p>Implémentation des prototypes de <a class="el" href="client__data_8c.html" title="Implémente les fonctions associées la structure de données pour les clients connectés au serveur.">server/client_data.c</a>.  
 <a href="#details">Plus de détails...</a></p>
-
+<div class="textblock"><code>#include &quot;<a class="el" href="game__state_8h_source.html">game_state.h</a>&quot;</code><br />
+</div>
 <p><a href="client__data_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__data__t.html">client_data_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données associée à un client du serveur.  <a href="structclient__data__t.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__data__s.html">client_data_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données associée à un client du serveur.  <a href="structclient__data__s.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:ac66b2833e0ba8d5049e06cb6dca9c191"><td class="memItemLeft" align="right" valign="top"><a id="ac66b2833e0ba8d5049e06cb6dca9c191"></a>
+typedef struct <a class="el" href="structgame__data__s.html">game_data_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>game_data_t</b></td></tr>
+<tr class="separator:ac66b2833e0ba8d5049e06cb6dca9c191"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21bca4ad2bc83c2b3f0fe45dce419625"><td class="memItemLeft" align="right" valign="top"><a id="a21bca4ad2bc83c2b3f0fe45dce419625"></a>
+typedef struct <a class="el" href="structclient__data__s.html">client_data_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__data_8h.html#a21bca4ad2bc83c2b3f0fe45dce419625">client_data_t</a></td></tr>
+<tr class="memdesc:a21bca4ad2bc83c2b3f0fe45dce419625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données associée à un client du serveur. <br /></td></tr>
+<tr class="separator:a21bca4ad2bc83c2b3f0fe45dce419625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a5c6494284ad06058564d710bb51d7610"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structclient__data__t.html">client_data_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__data_8h.html#a5c6494284ad06058564d710bb51d7610">createClientData</a> ()</td></tr>
+<tr class="memitem:a5c6494284ad06058564d710bb51d7610"><td class="memItemLeft" align="right" valign="top"><a class="el" href="client__data_8h.html#a21bca4ad2bc83c2b3f0fe45dce419625">client_data_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__data_8h.html#a5c6494284ad06058564d710bb51d7610">createClientData</a> ()</td></tr>
 <tr class="memdesc:a5c6494284ad06058564d710bb51d7610"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer les données d'un client.  <a href="client__data_8h.html#a5c6494284ad06058564d710bb51d7610">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a5c6494284ad06058564d710bb51d7610"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa038121e7f4b45436f33b28c6b1f5a25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__data_8h.html#aa038121e7f4b45436f33b28c6b1f5a25">deleteClientData</a> (<a class="el" href="structclient__data__t.html">client_data_t</a> **client_data)</td></tr>
+<tr class="memitem:aa038121e7f4b45436f33b28c6b1f5a25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client__data_8h.html#aa038121e7f4b45436f33b28c6b1f5a25">deleteClientData</a> (<a class="el" href="client__data_8h.html#a21bca4ad2bc83c2b3f0fe45dce419625">client_data_t</a> **client_data)</td></tr>
 <tr class="memdesc:aa038121e7f4b45436f33b28c6b1f5a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit les données d'un client.  <a href="client__data_8h.html#aa038121e7f4b45436f33b28c6b1f5a25">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aa038121e7f4b45436f33b28c6b1f5a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Implémente les fonctions associées la structure de données pour les clients connectés au serveur. </p>
-<p>Implémentation des prototypes de server/client_data.c.</p>
+<div class="textblock"><p>Implémentation des prototypes de <a class="el" href="client__data_8c.html" title="Implémente les fonctions associées la structure de données pour les clients connectés au serveur.">server/client_data.c</a>. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Lucas Dureau </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>02/03/2023 </dd></dl>
@@ -107,7 +118,7 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structclient__data__t.html">client_data_t</a>* createClientData </td>
+          <td class="memname"><a class="el" href="client__data_8h.html#a21bca4ad2bc83c2b3f0fe45dce419625">client_data_t</a>* createClientData </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -129,7 +140,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">int deleteClientData </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structclient__data__t.html">client_data_t</a> **&#160;</td>
+          <td class="paramtype"><a class="el" href="client__data_8h.html#a21bca4ad2bc83c2b3f0fe45dce419625">client_data_t</a> **&#160;</td>
           <td class="paramname"><em>client_data</em></td><td>)</td>
           <td></td>
         </tr>

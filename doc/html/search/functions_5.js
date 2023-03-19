@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loadsprite_199',['loadSprite',['../window_8c.html#a12caaf6efa15b7b7ef17f25474d3f4ce',1,'loadSprite(window_t *window, char *path):&#160;window.c'],['../window_8h.html#a12caaf6efa15b7b7ef17f25474d3f4ce',1,'loadSprite(window_t *window, char *path):&#160;window.c']]]
+  ['findgame_335',['findGame',['../game__state_8c.html#a65514e26dc2fb32a78db0bebd138d319',1,'findGame(game_data_array_t *game_data_array):&#160;game_state.c'],['../game__state_8h.html#a65514e26dc2fb32a78db0bebd138d319',1,'findGame(game_data_array_t *game_data_array):&#160;game_state.c']]]
 ];

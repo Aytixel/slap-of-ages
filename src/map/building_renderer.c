@@ -12,13 +12,6 @@
 
 #define BUILDING_TILE_SIZE 16
 
-/**
- * @brief Créer la structure qui gère l'affichage des bâtiments
- *
- * @param window un pointeur sur une fenêtre
- * @param map_renderer un pointeur sur la carte
- * @return building_renderer_t*
- */
 extern building_renderer_t *createBuildingRenderer(window_t *window, map_renderer_t *map_renderer)
 {
     building_renderer_t *building_renderer = malloc(sizeof(building_renderer_t));
@@ -58,14 +51,6 @@ extern building_renderer_t *createBuildingRenderer(window_t *window, map_rendere
     return building_renderer;
 }
 
-/**
- * @brief Détermine si on peut placer / afficher un certain type de bâtiment à tel endroit
- *
- * @param building_renderer un pointeur sur la structure qui gère l'affichage des bâtiments
- * @param position position du bâtiment en nombre de case
- * @param building_type type de batiment à placer / afficher
- * @return **1** si on peut le placer, **0** sinon
- */
 extern int canRenderBuilding(building_renderer_t *building_renderer, SDL_Point *position, building_type_e building_type)
 {
     return position->x >= 0 &&
@@ -74,15 +59,6 @@ extern int canRenderBuilding(building_renderer_t *building_renderer, SDL_Point *
            position->y + ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type].h <= building_renderer->map_renderer->size;
 }
 
-/**
- * @brief Fait le rendu de d'un batiment sur la carte
- *
- * @param window un pointeur sur une fenêtre
- * @param building_renderer un pointeur sur la structure qui gère l'affichage des bâtiments
- * @param position position du bâtiment en nombre de case
- * @param building_type type de batiment à afficher
- * @return **1** si on peut le placer, **0** sinon
- */
 extern int renderBuilding(window_t *window, building_renderer_t *building_renderer, SDL_Point *position, building_type_e building_type, SDL_Rect *destination_rect)
 {
     if (!canRenderBuilding(building_renderer, position, building_type))
@@ -107,12 +83,6 @@ extern int renderBuilding(window_t *window, building_renderer_t *building_render
     return 1;
 }
 
-/**
- * @brief Détruit la structure qui gère l'affichage des bâtiments
- *
- * @param building_renderer une référence d'un pointeur sur la structure qui gère l'affichage des bâtiments
- * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
- */
 extern int deleteBuildingRenderer(building_renderer_t **building_renderer)
 {
     if (building_renderer == NULL || *building_renderer == NULL)

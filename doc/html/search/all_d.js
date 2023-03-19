@@ -1,10 +1,15 @@
 var searchData=
 [
-  ['readhandshakepacket_84',['readHandshakePacket',['../packet_8c.html#ae81a3bfde9a24192f8c6dcfd69dc51da',1,'readHandshakePacket(packet_t *packet, int *data):&#160;packet.c'],['../packet_8h.html#ae81a3bfde9a24192f8c6dcfd69dc51da',1,'readHandshakePacket(packet_t *packet, int *data):&#160;packet.c']]],
-  ['readsetpseudopacket_85',['readSetPseudoPacket',['../packet_8c.html#a122133c809cbe724167772655612afdc',1,'readSetPseudoPacket(packet_t *packet, char **pseudo):&#160;packet.c'],['../packet_8h.html#a122133c809cbe724167772655612afdc',1,'readSetPseudoPacket(packet_t *packet, char **pseudo):&#160;packet.c']]],
-  ['recv_5flength_86',['recv_length',['../structclient__t.html#a570e2ac54279c17f79dbba934a640831',1,'client_t::recv_length()'],['../structserver__client__t.html#ac1d78d04464accf90c40d4327c21a119',1,'server_client_t::recv_length()']]],
-  ['recvfromserver_87',['recvFromServer',['../socket_2client_8c.html#a8810d7842db652c20ad3c6f8329de8e0',1,'recvFromServer(client_t *client):&#160;client.c'],['../socket_2client_8h.html#a8810d7842db652c20ad3c6f8329de8e0',1,'recvFromServer(client_t *client):&#160;client.c']]],
-  ['recvfromserverclient_88',['recvFromServerClient',['../socket_2server_8c.html#a9d43d2b6f23fa8f52382a3cdb4d595dd',1,'recvFromServerClient(server_client_t *client):&#160;server.c'],['../socket_2server_8h.html#a9d43d2b6f23fa8f52382a3cdb4d595dd',1,'recvFromServerClient(server_client_t *client):&#160;server.c']]],
-  ['renderer_89',['renderer',['../structwindow__t.html#a79ad8be3dbb4a46cbf4554b64f64d70c',1,'window_t']]],
-  ['rendermap_90',['renderMap',['../map_8c.html#a43766d573b802ca7fc39d7c2e1ad4755',1,'renderMap(window_t *window, map_t *map):&#160;map.c'],['../map_8h.html#a43766d573b802ca7fc39d7c2e1ad4755',1,'renderMap(window_t *window, map_t *map):&#160;map.c']]]
+  ['packet_2ec_152',['packet.c',['../packet_8c.html',1,'']]],
+  ['packet_2eh_153',['packet.h',['../packet_8h.html',1,'']]],
+  ['packet_5fbuffer_154',['packet_buffer',['../structclient__t.html#a86845384b7035f326951f6af8e2b829c',1,'client_t::packet_buffer()'],['../structserver__client__t.html#a84c1d44e081636e53c69b37e119add16',1,'server_client_t::packet_buffer()']]],
+  ['packet_5fid_2eh_155',['packet_id.h',['../packet__id_8h.html',1,'']]],
+  ['packet_5fid_5fe_156',['packet_id_e',['../packet__id_8h.html#a0fc5416dae21974a42a4729378dd2eef',1,'packet_id.h']]],
+  ['packet_5ft_157',['packet_t',['../structpacket__t.html',1,'']]],
+  ['player_158',['player',['../structgame__data__s.html#aade130f227cf692aa22871e55cd2691a',1,'game_data_s']]],
+  ['player_5fgame_5fdata_5ft_159',['player_game_data_t',['../structplayer__game__data__t.html',1,'']]],
+  ['portal_5fanim_5fstate_5fe_160',['portal_anim_state_e',['../animation__states_8h.html#a257bedf8a7e4ce577ece7dfd866e64f9',1,'animation_states.h']]],
+  ['positionfromcenter_161',['positionFromCenter',['../window_8c.html#ad3c4f018bc737c5c0b0436fe379817ba',1,'positionFromCenter(window_t *window, int width, int height, int x, int y, transform_origin_e origin):&#160;window.c'],['../window_8h.html#ad3c4f018bc737c5c0b0436fe379817ba',1,'positionFromCenter(window_t *window, int width, int height, int x, int y, transform_origin_e origin):&#160;window.c']]],
+  ['positiontocenter_162',['positionToCenter',['../window_8c.html#a1de1e31a95e63b3a09ad7c3f4a7637c6',1,'positionToCenter(window_t *window, int width, int height):&#160;window.c'],['../window_8h.html#a1de1e31a95e63b3a09ad7c3f4a7637c6',1,'positionToCenter(window_t *window, int width, int height):&#160;window.c']]],
+  ['pseudo_163',['pseudo',['../structclient__data__s.html#a3589546e6349a9ab8fcc5de95df5aac1',1,'client_data_s']]]
 ];

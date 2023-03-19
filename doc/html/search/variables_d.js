@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['width_264',['width',['../structwindow__t.html#ade23597c3ed81f62276a0ade09f936be',1,'window_t']]],
-  ['window_265',['window',['../structwindow__t.html#a29435f6d7667ff1ee309674d98962040',1,'window_t']]]
+  ['vertical_5fwall_441',['vertical_wall',['../structbuilding__sprite__rects__t.html#ad872bbeb557f28946895bda4ea1638e5',1,'building_sprite_rects_t']]]
 ];

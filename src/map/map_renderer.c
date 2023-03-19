@@ -12,15 +12,6 @@
 
 #define MAP_TILE_SIZE 16
 
-/**
- * @brief Créer la carte
- *
- * Initialise aussi les données des sprites nécessaires à l'affichage de la carte
- *
- * @param window un pointeur sur une fenêtre
- * @param size taille de la carte en nombre de cases
- * @return un pointer sur un **carte**
- */
 extern map_renderer_t *createMapRenderer(window_t *window, int map_size)
 {
     map_renderer_t *map_renderer = malloc(sizeof(map_renderer_t));
@@ -137,14 +128,6 @@ static int randomizeTreePlacement(int x, int y)
     return (x * y * 3 + x - y) % 9 == 0;
 }
 
-/**
- * @brief Fait le rendu de la carte sur la fenêtre
- *
- * Fait le rendu du sol en premier, avant de faire celui des arbres
- *
- * @param window un pointeur sur une fenêtre
- * @param map_renderer un pointeur sur la carte
- */
 extern void renderMap(window_t *window, map_renderer_t *map_renderer)
 {
     // ajuste la taille des cases pour que la carte remplisse toute la hauteur de la fenêtre
@@ -246,12 +229,6 @@ extern void renderMap(window_t *window, map_renderer_t *map_renderer)
     }
 }
 
-/**
- * @brief Détruit la carte
- *
- * @param map_renderer une référence d'un pointeur sur la carte
- * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
- */
 extern int deleteMapRenderer(map_renderer_t **map_renderer)
 {
     if (map_renderer == NULL || *map_renderer == NULL)

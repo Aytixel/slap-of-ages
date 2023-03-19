@@ -21,11 +21,6 @@ server_client_t *server_client = NULL;
 void **server_client_data = NULL;
 server_client_connection_state_e server_client_state = SERVER_CLIENT_WAITING_HANDSHAKE;
 
-/**
- * @brief Accept les nouvelles connexion de client
- *
- * @param server serveur à utiliser
- */
 extern void acceptClientConnections(server_t *server)
 {
     server_client_t *client = NULL;
@@ -44,13 +39,6 @@ extern void acceptClientConnections(server_t *server)
     }
 }
 
-/**
- * @brief Permet d'itérer sur les connexions ouvertes
- *
- * Supprime aussi toute connexion fermé, et met leur id de socket dans le tableau de client supprimé
- *
- * @return **1** si l'on peut encore itérer, **0** sinon
- */
 extern int nextClientConnection()
 {
     // reset le tableau de client supprimé quand on commence à itérer
@@ -131,12 +119,6 @@ extern int nextClientConnection()
     return 1;
 }
 
-/**
- * @brief Attend la poignée de main du client
- *
- * @param server serveur à utiliser
- * @return **0** tant que la poignée de main n'est pas effectuée, **1** si la poignée de main est réussie
- */
 extern int waitClientHandshake()
 {
     if (server_client_state == SERVER_CLIENT_CONNECTED)
@@ -162,10 +144,6 @@ extern int waitClientHandshake()
     return correct_packet;
 }
 
-/**
- * @brief Ferme toutes les connexions aux clients
- *
- */
 extern void closeClientConnections()
 {
     for (int i = 0; i < server_client_count; i++)

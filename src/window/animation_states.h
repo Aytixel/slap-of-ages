@@ -8,6 +8,9 @@
  *
  */
 
+#ifndef __ANIMATION_STATES_H
+#define __ANIMATION_STATES_H
+
 /**
  * @brief   Enumération des états d'une animation de portail
  *
@@ -102,3 +105,5 @@ typedef enum
     RAT_DEATH_ANIM,
 
 } rat_anim_state_e;
+
+#endif

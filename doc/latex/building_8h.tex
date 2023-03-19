@@ -1,0 +1,84 @@
+\hypertarget{building_8h}{}\doxysection{Référence du fichier src/map/building.h}
+\label{building_8h}\index{src/map/building.h@{src/map/building.h}}
+{\ttfamily \#include \char`\"{}building\+\_\+renderer.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbuilding__t}{building\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure contenant les données des bâtiments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structbuilding__t}{building\+\_\+t}} $\ast$ \mbox{\hyperlink{building_8h_aa408e06a29542b8f6bf79d1082aec83e}{create\+Building}} (\mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} type, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$map\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em Créer la structure qui gère l\textquotesingle{}affichage des bâtiments. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{building_8h_ade2ccc87dc1e502909b9cd2a51b1d0c4}{destroy\+Building}} (\mbox{\hyperlink{structbuilding__t}{building\+\_\+t}} $\ast$$\ast$building)
+\begin{DoxyCompactList}\small\item\em Détruit la structure de bâtiment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{building_8h_a6ef6bd41f53393e95d4d2b6c6b2671be}{building\+Takes\+Damages}} (\mbox{\hyperlink{structbuilding__t}{building\+\_\+t}} $\ast$building, int damages)
+\begin{DoxyCompactList}\small\item\em Permet de gérer les dégâts subis par un bâtiment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\begin{DoxyAuthor}{Auteur}
+Hôa Le Luet 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/03-\/09 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{building_8h_a6ef6bd41f53393e95d4d2b6c6b2671be}\label{building_8h_a6ef6bd41f53393e95d4d2b6c6b2671be}} 
+\index{building.h@{building.h}!buildingTakesDamages@{buildingTakesDamages}}
+\index{buildingTakesDamages@{buildingTakesDamages}!building.h@{building.h}}
+\doxysubsubsection{\texorpdfstring{buildingTakesDamages()}{buildingTakesDamages()}}
+{\footnotesize\ttfamily void building\+Takes\+Damages (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__t}{building\+\_\+t}} $\ast$}]{building,  }\item[{int}]{damages }\end{DoxyParamCaption})}
+
+
+
+Permet de gérer les dégâts subis par un bâtiment. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em building} & un pointeur sur un bâtiment \\
+\hline
+{\em damages} & les dégâts subis par le bâtiment \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{building_8h_aa408e06a29542b8f6bf79d1082aec83e}\label{building_8h_aa408e06a29542b8f6bf79d1082aec83e}} 
+\index{building.h@{building.h}!createBuilding@{createBuilding}}
+\index{createBuilding@{createBuilding}!building.h@{building.h}}
+\doxysubsubsection{\texorpdfstring{createBuilding()}{createBuilding()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structbuilding__t}{building\+\_\+t}}$\ast$ create\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}}}]{type,  }\item[{SDL\+\_\+\+Point $\ast$}]{position,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$}]{map\+\_\+renderer }\end{DoxyParamCaption})}
+
+
+
+Créer la structure qui gère l\textquotesingle{}affichage des bâtiments. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em map\+\_\+renderer} & un pointeur sur la carte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+building\+\_\+renderer\+\_\+t$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{building_8h_ade2ccc87dc1e502909b9cd2a51b1d0c4}\label{building_8h_ade2ccc87dc1e502909b9cd2a51b1d0c4}} 
+\index{building.h@{building.h}!destroyBuilding@{destroyBuilding}}
+\index{destroyBuilding@{destroyBuilding}!building.h@{building.h}}
+\doxysubsubsection{\texorpdfstring{destroyBuilding()}{destroyBuilding()}}
+{\footnotesize\ttfamily void destroy\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__t}{building\+\_\+t}} $\ast$$\ast$}]{building }\end{DoxyParamCaption})}
+
+
+
+Détruit la structure de bâtiment. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em building} & un pointeur sur un pointeur sur un buiding\+\_\+t \\
+\hline
+\end{DoxyParams}

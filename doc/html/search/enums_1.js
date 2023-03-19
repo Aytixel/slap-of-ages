@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['packet_5fid_5fe_267',['packet_id_e',['../packet__id_8h.html#a0fc5416dae21974a42a4729378dd2eef',1,'packet_id.h']]]
+  ['client_5fconnection_5fstate_5fe_450',['client_connection_state_e',['../connection_2client_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109',1,'client.h']]]
 ];

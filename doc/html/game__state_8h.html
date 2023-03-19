@@ -1,0 +1,682 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages: Référence du fichier src/server/game_state.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_075bb3ff235063c77951cd176d15a741.html">server</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier game_state.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implémentation des prototypes de <a class="el" href="game__state_8c.html" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie.">server/game_state.c</a>.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="client__data_8h_source.html">client_data.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="connection_2server_8h_source.html">connection/server.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="packet_8h_source.html">packet/packet.h</a>&quot;</code><br />
+</div>
+<p><a href="game__state_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__game__data__t.html">player_game_data_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données contenant les informations d'une partie pour un joueur.  <a href="structplayer__game__data__t.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgame__data__s.html">game_data_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données contenant les informations d'une partie.  <a href="structgame__data__s.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgame__data__array__s.html">game_data_array_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données contenant un tableau des données de partie.  <a href="structgame__data__array__s.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a21bca4ad2bc83c2b3f0fe45dce419625"><td class="memItemLeft" align="right" valign="top"><a id="a21bca4ad2bc83c2b3f0fe45dce419625"></a>
+typedef struct <a class="el" href="structclient__data__s.html">client_data_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>client_data_t</b></td></tr>
+<tr class="separator:a21bca4ad2bc83c2b3f0fe45dce419625"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cb2fa3e9b54c85a214766bfade3438c"><td class="memItemLeft" align="right" valign="top"><a id="a4cb2fa3e9b54c85a214766bfade3438c"></a>
+typedef struct <a class="el" href="structgame__data__array__s.html">game_data_array_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a4cb2fa3e9b54c85a214766bfade3438c">game_data_array_t</a></td></tr>
+<tr class="memdesc:a4cb2fa3e9b54c85a214766bfade3438c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données contenant un tableau des données de partie. <br /></td></tr>
+<tr class="separator:a4cb2fa3e9b54c85a214766bfade3438c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac66b2833e0ba8d5049e06cb6dca9c191"><td class="memItemLeft" align="right" valign="top"><a id="ac66b2833e0ba8d5049e06cb6dca9c191"></a>
+typedef struct <a class="el" href="structgame__data__s.html">game_data_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#ac66b2833e0ba8d5049e06cb6dca9c191">game_data_t</a></td></tr>
+<tr class="memdesc:ac66b2833e0ba8d5049e06cb6dca9c191"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données contenant les informations d'une partie. <br /></td></tr>
+<tr class="separator:ac66b2833e0ba8d5049e06cb6dca9c191"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a782d40128ddda0a4f73e314710976b9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="game__state_8h.html#a4cb2fa3e9b54c85a214766bfade3438c">game_data_array_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a782d40128ddda0a4f73e314710976b9d">createGameDataArray</a> ()</td></tr>
+<tr class="memdesc:a782d40128ddda0a4f73e314710976b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un tableau avec les données de partie.  <a href="game__state_8h.html#a782d40128ddda0a4f73e314710976b9d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a782d40128ddda0a4f73e314710976b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ae412027fbe4057db891998de569a8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a9ae412027fbe4057db891998de569a8f">addGameDataToArray</a> (<a class="el" href="game__state_8h.html#a4cb2fa3e9b54c85a214766bfade3438c">game_data_array_t</a> *game_data_array)</td></tr>
+<tr class="memdesc:a9ae412027fbe4057db891998de569a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une nouvelle partie au tableau.  <a href="game__state_8h.html#a9ae412027fbe4057db891998de569a8f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9ae412027fbe4057db891998de569a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65514e26dc2fb32a78db0bebd138d319"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a65514e26dc2fb32a78db0bebd138d319">findGame</a> (<a class="el" href="game__state_8h.html#a4cb2fa3e9b54c85a214766bfade3438c">game_data_array_t</a> *game_data_array)</td></tr>
+<tr class="memdesc:a65514e26dc2fb32a78db0bebd138d319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trouve une partie qui n'est pas commencé  <a href="game__state_8h.html#a65514e26dc2fb32a78db0bebd138d319">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a65514e26dc2fb32a78db0bebd138d319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba935118c655e1ad5efa7f90073e3f07"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#aba935118c655e1ad5efa7f90073e3f07">removeGameDataFromArray</a> (<a class="el" href="game__state_8h.html#a4cb2fa3e9b54c85a214766bfade3438c">game_data_array_t</a> *game_data_array, int index)</td></tr>
+<tr class="memdesc:aba935118c655e1ad5efa7f90073e3f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève les données d'une partie du tableau.  <a href="game__state_8h.html#aba935118c655e1ad5efa7f90073e3f07">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aba935118c655e1ad5efa7f90073e3f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51575e018d07edafe4b62db9e662d3ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a51575e018d07edafe4b62db9e662d3ea">deleteGameDataArray</a> (<a class="el" href="game__state_8h.html#a4cb2fa3e9b54c85a214766bfade3438c">game_data_array_t</a> **game_data_array)</td></tr>
+<tr class="memdesc:a51575e018d07edafe4b62db9e662d3ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un tableau avec les données de partie.  <a href="game__state_8h.html#a51575e018d07edafe4b62db9e662d3ea">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a51575e018d07edafe4b62db9e662d3ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73c7169bc62873cbae9e362f4b191322"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structplayer__game__data__t.html">player_game_data_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a73c7169bc62873cbae9e362f4b191322">createPlayerGameData</a> (int socket_fd, <a class="el" href="client__data_8h.html#a21bca4ad2bc83c2b3f0fe45dce419625">client_data_t</a> *client_data, <a class="el" href="structserver__client__t.html">server_client_t</a> *<a class="el" href="connection_2server_8h.html#a297c23f4f449cf533cd0e72bb4a5ef27">server_client</a>)</td></tr>
+<tr class="memdesc:a73c7169bc62873cbae9e362f4b191322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer les données d'un joueur pour la partie.  <a href="game__state_8h.html#a73c7169bc62873cbae9e362f4b191322">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a73c7169bc62873cbae9e362f4b191322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7230c2394dbdcd2a4c103d141926ee62"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a7230c2394dbdcd2a4c103d141926ee62">deletePlayerGameData</a> (<a class="el" href="structplayer__game__data__t.html">player_game_data_t</a> **player_game_data)</td></tr>
+<tr class="memdesc:a7230c2394dbdcd2a4c103d141926ee62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit les données d'un joueur pour la partie.  <a href="game__state_8h.html#a7230c2394dbdcd2a4c103d141926ee62">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7230c2394dbdcd2a4c103d141926ee62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaa5f1280dc03398a2b71952c895e65c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgame__data__s.html">game_data_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#adaa5f1280dc03398a2b71952c895e65c">createGameData</a> ()</td></tr>
+<tr class="memdesc:adaa5f1280dc03398a2b71952c895e65c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer les données d'un partie.  <a href="game__state_8h.html#adaa5f1280dc03398a2b71952c895e65c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adaa5f1280dc03398a2b71952c895e65c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6238541296be4fe115106c8a368fe5cb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a6238541296be4fe115106c8a368fe5cb">addPlayerToGame</a> (<a class="el" href="structgame__data__s.html">game_data_t</a> *game_data, int socket_fd, <a class="el" href="client__data_8h.html#a21bca4ad2bc83c2b3f0fe45dce419625">client_data_t</a> *client_data, <a class="el" href="structserver__client__t.html">server_client_t</a> *<a class="el" href="connection_2server_8h.html#a297c23f4f449cf533cd0e72bb4a5ef27">server_client</a>)</td></tr>
+<tr class="memdesc:a6238541296be4fe115106c8a368fe5cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un joueur à la partie.  <a href="game__state_8h.html#a6238541296be4fe115106c8a368fe5cb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6238541296be4fe115106c8a368fe5cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04e4a8be1bf0d37f32b8cd99559918c1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a04e4a8be1bf0d37f32b8cd99559918c1">removePlayerFromGame</a> (<a class="el" href="structgame__data__s.html">game_data_t</a> *game_data, int socket_fd)</td></tr>
+<tr class="memdesc:a04e4a8be1bf0d37f32b8cd99559918c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève un joueur à la partie.  <a href="game__state_8h.html#a04e4a8be1bf0d37f32b8cd99559918c1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a04e4a8be1bf0d37f32b8cd99559918c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12eb710b93b45b5fbdaf62e02cc32701"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a12eb710b93b45b5fbdaf62e02cc32701">isGameEmpty</a> (<a class="el" href="structgame__data__s.html">game_data_t</a> *game_data)</td></tr>
+<tr class="memdesc:a12eb710b93b45b5fbdaf62e02cc32701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère si la partie est vide.  <a href="game__state_8h.html#a12eb710b93b45b5fbdaf62e02cc32701">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a12eb710b93b45b5fbdaf62e02cc32701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a200570e6593a56a3e8291f5b8096aa22"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a200570e6593a56a3e8291f5b8096aa22">isGameStarted</a> (<a class="el" href="structgame__data__s.html">game_data_t</a> *game_data)</td></tr>
+<tr class="memdesc:a200570e6593a56a3e8291f5b8096aa22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère si la partie est commencé  <a href="game__state_8h.html#a200570e6593a56a3e8291f5b8096aa22">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a200570e6593a56a3e8291f5b8096aa22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab89cd269f1a2f44ff79eb26f45edd4b3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#ab89cd269f1a2f44ff79eb26f45edd4b3">isGameFinished</a> (<a class="el" href="structgame__data__s.html">game_data_t</a> *game_data)</td></tr>
+<tr class="memdesc:ab89cd269f1a2f44ff79eb26f45edd4b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère si la partie est finie.  <a href="game__state_8h.html#ab89cd269f1a2f44ff79eb26f45edd4b3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab89cd269f1a2f44ff79eb26f45edd4b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2214b9232a7f6f6b0fa07794455a0750"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a2214b9232a7f6f6b0fa07794455a0750">gameHasPlayer</a> (<a class="el" href="structgame__data__s.html">game_data_t</a> *game_data, int socket_fd)</td></tr>
+<tr class="memdesc:a2214b9232a7f6f6b0fa07794455a0750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère si ce joueur est dans cette partie.  <a href="game__state_8h.html#a2214b9232a7f6f6b0fa07794455a0750">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2214b9232a7f6f6b0fa07794455a0750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27253af0e1921a46a08d0e4a35a5ffc4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a27253af0e1921a46a08d0e4a35a5ffc4">setPlayerFinished</a> (<a class="el" href="structgame__data__s.html">game_data_t</a> *game_data, int socket_fd, <a class="el" href="structpacket__t.html">packet_t</a> *packet)</td></tr>
+<tr class="memdesc:a27253af0e1921a46a08d0e4a35a5ffc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définit un joueur comme ayant fini.  <a href="game__state_8h.html#a27253af0e1921a46a08d0e4a35a5ffc4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a27253af0e1921a46a08d0e4a35a5ffc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a677f66d78d481ad231eb2eb203438315"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__state_8h.html#a677f66d78d481ad231eb2eb203438315">deleteGameData</a> (<a class="el" href="structgame__data__s.html">game_data_t</a> **game_data)</td></tr>
+<tr class="memdesc:a677f66d78d481ad231eb2eb203438315"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit les données d'une partie.  <a href="game__state_8h.html#a677f66d78d481ad231eb2eb203438315">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a677f66d78d481ad231eb2eb203438315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Implémentation des prototypes de <a class="el" href="game__state_8c.html" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie.">server/game_state.c</a>. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Lucas Dureau </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>02/03/2023 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a9ae412027fbe4057db891998de569a8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ae412027fbe4057db891998de569a8f">&#9670;&nbsp;</a></span>addGameDataToArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addGameDataToArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="game__state_8h.html#a4cb2fa3e9b54c85a214766bfade3438c">game_data_array_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data_array</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute une nouvelle partie au tableau. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data_array</td><td>une référence d'un pointeur sur un tableau avec les données de partie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6238541296be4fe115106c8a368fe5cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6238541296be4fe115106c8a368fe5cb">&#9670;&nbsp;</a></span>addPlayerToGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int addPlayerToGame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__data__s.html">game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="client__data_8h.html#a21bca4ad2bc83c2b3f0fe45dce419625">client_data_t</a> *&#160;</td>
+          <td class="paramname"><em>client_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td>
+          <td class="paramname"><em>server_client</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute un joueur à la partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données d'une partie </td></tr>
+    <tr><td class="paramname">socket_fd</td><td>id du socket client </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si le joueur a pu être ajouté, <b>0</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="adaa5f1280dc03398a2b71952c895e65c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaa5f1280dc03398a2b71952c895e65c">&#9670;&nbsp;</a></span>createGameData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgame__data__s.html">game_data_t</a>* createGameData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer les données d'un partie. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur les <b>données d'une partie</b> </dd></dl>
+
+</div>
+</div>
+<a id="a782d40128ddda0a4f73e314710976b9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a782d40128ddda0a4f73e314710976b9d">&#9670;&nbsp;</a></span>createGameDataArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="game__state_8h.html#a4cb2fa3e9b54c85a214766bfade3438c">game_data_array_t</a>* createGameDataArray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer un tableau avec les données de partie. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur le <b>tableau des données de partie</b> </dd></dl>
+
+</div>
+</div>
+<a id="a73c7169bc62873cbae9e362f4b191322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73c7169bc62873cbae9e362f4b191322">&#9670;&nbsp;</a></span>createPlayerGameData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structplayer__game__data__t.html">player_game_data_t</a>* createPlayerGameData </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="client__data_8h.html#a21bca4ad2bc83c2b3f0fe45dce419625">client_data_t</a> *&#160;</td>
+          <td class="paramname"><em>client_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td>
+          <td class="paramname"><em>server_client</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer les données d'un joueur pour la partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket_fd</td><td>id du socket client </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur les <b>données d'un joueur pour la partie</b> </dd></dl>
+
+</div>
+</div>
+<a id="a677f66d78d481ad231eb2eb203438315"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a677f66d78d481ad231eb2eb203438315">&#9670;&nbsp;</a></span>deleteGameData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int deleteGameData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__data__s.html">game_data_t</a> **&#160;</td>
+          <td class="paramname"><em>game_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit les données d'une partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>une référence d'un pointeur sur les données d'une partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="a51575e018d07edafe4b62db9e662d3ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51575e018d07edafe4b62db9e662d3ea">&#9670;&nbsp;</a></span>deleteGameDataArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int deleteGameDataArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="game__state_8h.html#a4cb2fa3e9b54c85a214766bfade3438c">game_data_array_t</a> **&#160;</td>
+          <td class="paramname"><em>game_data_array</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit un tableau avec les données de partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data_array</td><td>une référence d'un pointeur sur un tableau avec les données de partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="a7230c2394dbdcd2a4c103d141926ee62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7230c2394dbdcd2a4c103d141926ee62">&#9670;&nbsp;</a></span>deletePlayerGameData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int deletePlayerGameData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structplayer__game__data__t.html">player_game_data_t</a> **&#160;</td>
+          <td class="paramname"><em>player_game_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit les données d'un joueur pour la partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player_game_data</td><td>une référence d'un pointeur sur les données d'un joueur pour la partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="a65514e26dc2fb32a78db0bebd138d319"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65514e26dc2fb32a78db0bebd138d319">&#9670;&nbsp;</a></span>findGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int findGame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="game__state_8h.html#a4cb2fa3e9b54c85a214766bfade3438c">game_data_array_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data_array</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Trouve une partie qui n'est pas commencé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data_array</td><td>une référence d'un pointeur sur un tableau avec les données de partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>l'<b>index</b> de la partie trouvé, <b>-1</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="a2214b9232a7f6f6b0fa07794455a0750"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2214b9232a7f6f6b0fa07794455a0750">&#9670;&nbsp;</a></span>gameHasPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gameHasPlayer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__data__s.html">game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket_fd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère si ce joueur est dans cette partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données d'une partie </td></tr>
+    <tr><td class="paramname">socket_fd</td><td>id du socket client </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si ce joueur est le joueur 1, <b>1</b> si il est le 2ème, <b>-1</b> si il n'en fait pas partie </dd></dl>
+
+</div>
+</div>
+<a id="a12eb710b93b45b5fbdaf62e02cc32701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12eb710b93b45b5fbdaf62e02cc32701">&#9670;&nbsp;</a></span>isGameEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isGameEmpty </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__data__s.html">game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère si la partie est vide. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données d'une partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si la partie est vide, <b>0</b> sinont </dd></dl>
+
+</div>
+</div>
+<a id="ab89cd269f1a2f44ff79eb26f45edd4b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab89cd269f1a2f44ff79eb26f45edd4b3">&#9670;&nbsp;</a></span>isGameFinished()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isGameFinished </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__data__s.html">game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère si la partie est finie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données d'une partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si la partie est finie, <b>0</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="a200570e6593a56a3e8291f5b8096aa22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a200570e6593a56a3e8291f5b8096aa22">&#9670;&nbsp;</a></span>isGameStarted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isGameStarted </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__data__s.html">game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère si la partie est commencé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données d'une partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si la partie est commencé, <b>0</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="aba935118c655e1ad5efa7f90073e3f07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba935118c655e1ad5efa7f90073e3f07">&#9670;&nbsp;</a></span>removeGameDataFromArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int removeGameDataFromArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="game__state_8h.html#a4cb2fa3e9b54c85a214766bfade3438c">game_data_array_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data_array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enlève les données d'une partie du tableau. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data_array</td><td>une référence d'un pointeur sur un tableau avec les données de partie </td></tr>
+    <tr><td class="paramname">index</td><td>dans le tableau </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si la partie a pu être enlevé, <b>0</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="a04e4a8be1bf0d37f32b8cd99559918c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04e4a8be1bf0d37f32b8cd99559918c1">&#9670;&nbsp;</a></span>removePlayerFromGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int removePlayerFromGame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__data__s.html">game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket_fd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enlève un joueur à la partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données d'une partie </td></tr>
+    <tr><td class="paramname">socket_fd</td><td>id du socket client </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si le joueur a pu être enlevé, <b>0</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="a27253af0e1921a46a08d0e4a35a5ffc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27253af0e1921a46a08d0e4a35a5ffc4">&#9670;&nbsp;</a></span>setPlayerFinished()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int setPlayerFinished </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__data__s.html">game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td>
+          <td class="paramname"><em>packet</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définit un joueur comme ayant fini. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données d'une partie </td></tr>
+    <tr><td class="paramname">socket_fd</td><td>id du socket client </td></tr>
+    <tr><td class="paramname">packet</td><td>un pointeur le paquet contenant les informations de fin de partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si le joueur est dans cette partie, <b>-1</b> sinon </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

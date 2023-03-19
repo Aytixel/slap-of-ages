@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages:  Fichier source de src/window/animation_states.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c7f79d9fead0a70cab4af348b59fbdf1.html">window</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">animation_states.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="animation__states_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="animation__states_8h.html#a257bedf8a7e4ce577ece7dfd866e64f9">   20</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    PORTAL_IDLE_ANIM,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    PORTAL_SPAWN_ANIM,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    PORTAL_DESPAWN_ANIM,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;} <a class="code" href="animation__states_8h.html#a257bedf8a7e4ce577ece7dfd866e64f9">portal_anim_state_e</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="animation__states_8h.html#a7a370becafed996f28dcb795b7413f85">   37</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    BOOK_OPEN_ANIM,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    BOOK_CLOSE_ANIM,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    BOOK_OPENED_ANIM,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <a class="code" href="animation__states_8h.html#a7a370becafed996f28dcb795b7413f85">book_anim_state_e</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="animation__states_8h.html#ad72e1733c85e51d8496552ef1fd8db9f">   55</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    DAEMON_IDLE_ANIM,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    DAEMON_MOVE_ANIM,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    DAEMON_ATTACK_ANIM,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    DAEMON_DEATH_ANIM,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <a class="code" href="animation__states_8h.html#ad72e1733c85e51d8496552ef1fd8db9f">daemon_anim_state_e</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="animation__states_8h.html#a38a90d8c73b957a920c83e507012d9a6">   75</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    GOBLIN_GIANT_IDLE_ANIM,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    GOBLIN_GIANT_MOVE_ANIM,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    GOBLIN_GIANT_ATTACK_ANIM,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    GOBLIN_GIANT_IDLE2_ANIM,</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    GOBLIN_GIANT_DEATH_ANIM,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <a class="code" href="animation__states_8h.html#a38a90d8c73b957a920c83e507012d9a6">goblin_giant_anim_state_e</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="animation__states_8h.html#abfd2e149eccc32cc8228968b6dcd31a8">   96</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    RAT_IDLE_ANIM,</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    RAT_MOVE_ANIM,</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    RAT_ATTACK_ANIM,</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    RAT_IDLE2_ANIM,</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    RAT_DEATH_ANIM,</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;} <a class="code" href="animation__states_8h.html#abfd2e149eccc32cc8228968b6dcd31a8">rat_anim_state_e</a>;</div>
+<div class="ttc" id="aanimation__states_8h_html_a257bedf8a7e4ce577ece7dfd866e64f9"><div class="ttname"><a href="animation__states_8h.html#a257bedf8a7e4ce577ece7dfd866e64f9">portal_anim_state_e</a></div><div class="ttdeci">portal_anim_state_e</div><div class="ttdoc">Enumération des états d'une animation de portail.</div><div class="ttdef"><b>Definition:</b> animation_states.h:21</div></div>
+<div class="ttc" id="aanimation__states_8h_html_a38a90d8c73b957a920c83e507012d9a6"><div class="ttname"><a href="animation__states_8h.html#a38a90d8c73b957a920c83e507012d9a6">goblin_giant_anim_state_e</a></div><div class="ttdeci">goblin_giant_anim_state_e</div><div class="ttdoc">Enumération des états d'une animation de Géant goblin.</div><div class="ttdef"><b>Definition:</b> animation_states.h:76</div></div>
+<div class="ttc" id="aanimation__states_8h_html_a7a370becafed996f28dcb795b7413f85"><div class="ttname"><a href="animation__states_8h.html#a7a370becafed996f28dcb795b7413f85">book_anim_state_e</a></div><div class="ttdeci">book_anim_state_e</div><div class="ttdoc">Enumération des états d'une animation de livre.</div><div class="ttdef"><b>Definition:</b> animation_states.h:38</div></div>
+<div class="ttc" id="aanimation__states_8h_html_abfd2e149eccc32cc8228968b6dcd31a8"><div class="ttname"><a href="animation__states_8h.html#abfd2e149eccc32cc8228968b6dcd31a8">rat_anim_state_e</a></div><div class="ttdeci">rat_anim_state_e</div><div class="ttdoc">Enumération des états d'une animation de Rat avec une hache.</div><div class="ttdef"><b>Definition:</b> animation_states.h:97</div></div>
+<div class="ttc" id="aanimation__states_8h_html_ad72e1733c85e51d8496552ef1fd8db9f"><div class="ttname"><a href="animation__states_8h.html#ad72e1733c85e51d8496552ef1fd8db9f">daemon_anim_state_e</a></div><div class="ttdeci">daemon_anim_state_e</div><div class="ttdoc">Enumération des états d'une animation de démon.</div><div class="ttdef"><b>Definition:</b> animation_states.h:56</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
