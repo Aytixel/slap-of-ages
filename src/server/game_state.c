@@ -184,7 +184,7 @@ extern int setPlayerFinished(server_game_state_t *game_state, int socket_fd, pac
 
     game_state->player[player]->has_finished = 1;
     readGameFinishedPacket(packet, &game_state->player[player]->destruction_percentage, &game_state->player[player]->time_left);
-    printf("%d : %s à finie %% de destruction : %d, temps restant en ms avant la fin normale de partie : %ld\n", server_client->socket_fd, game_state->player[player]->client_data->pseudo, game_state->player[player]->destruction_percentage, game_state->player[player]->time_left);
+    printf("%d : %s à finie, pourcentage de destruction : %d, temps restant en ms avant la fin normale de partie : %ld\n", server_client->socket_fd, game_state->player[player]->client_data->pseudo, game_state->player[player]->destruction_percentage, game_state->player[player]->time_left);
 
     return 0;
 }
@@ -220,7 +220,7 @@ extern int deleteGameState(server_game_state_t **game_state)
     return 0;
 }
 
-extern int setPlayerFinishedInArray(server_game_state_array_t *game_state_array, int socket_fd, packet_t *packet)
+extern void setPlayerFinishedInArray(server_game_state_array_t *game_state_array, int socket_fd, packet_t *packet)
 {
     for (int i = 0; i < game_state_array->count; i++)
     {
@@ -228,19 +228,38 @@ extern int setPlayerFinishedInArray(server_game_state_array_t *game_state_array,
         {
             if (isGameFinished(game_state_array->game_state[i]))
             {
-                game_state_array->game_state[i]->player[0]->client_data->is_in_game = 0;
-                game_state_array->game_state[i]->player[1]->client_data->is_in_game = 0;
-                game_state_array->game_state[i]->player[0]->client_data->is_player_ready = 0;
-                game_state_array->game_state[i]->player[1]->client_data->is_player_ready = 0;
+                packet_t *packet_1 = NULL;
+                packet_t *packet_2 = NULL;
 
-                return i;
+                switch (gameWinner(game_state_array->game_state[i]))
+                {
+                case 0:
+                    packet_1 = createHasPlayerWonPacket(1);
+                    packet_2 = createHasPlayerWonPacket(0);
+                    break;
+                case 1:
+                    packet_1 = createHasPlayerWonPacket(0);
+                    packet_2 = createHasPlayerWonPacket(1);
+                    break;
+                case 2:
+                default:
+                    packet_1 = createHasPlayerWonPacket(2);
+                    packet_2 = createHasPlayerWonPacket(2);
+                    break;
+                }
+
+                sendToServerClient(game_state_array->game_state[i]->player[0]->server_client, packet_1);
+                sendToServerClient(game_state_array->game_state[i]->player[1]->server_client, packet_2);
+
+                deletePacket(&packet_1);
+                deletePacket(&packet_2);
+
+                printf("%d : Parti finie entre %s, et %s\n", socket_fd, game_state_array->game_state[i]->player[0]->client_data->pseudo, game_state_array->game_state[i]->player[1]->client_data->pseudo);
+
+                removeGameStateFromArray(game_state_array, i);
             }
-
-            return -1;
         }
     }
-
-    return -1;
 }
 
 extern void setPlayerIsReadyInArray(server_game_state_array_t *game_state_array, server_client_data_t *client_data, packet_t *packet)

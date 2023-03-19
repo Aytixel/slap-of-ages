@@ -75,38 +75,7 @@ void handle_packet(packet_t *packet, server_game_state_array_t *game_state_array
         setPlayerIsReadyInArray(game_state_array, client_data, packet);
         break;
     case GAME_FINISHED_PACKET_ID:
-        int game_index = setPlayerFinishedInArray(game_state_array, server_client->socket_fd, packet);
-
-        if (game_index > -1)
-        {
-            packet_t *packet_1 = NULL;
-            packet_t *packet_2 = NULL;
-
-            switch (gameWinner(game_state_array->game_state[game_index]))
-            {
-            case 0:
-                packet_1 = createHasPlayerWonPacket(1);
-                packet_2 = createHasPlayerWonPacket(0);
-                break;
-            case 1:
-                packet_1 = createHasPlayerWonPacket(0);
-                packet_2 = createHasPlayerWonPacket(1);
-                break;
-            case 2:
-            default:
-                packet_1 = createHasPlayerWonPacket(2);
-                packet_2 = createHasPlayerWonPacket(2);
-                break;
-            }
-
-            sendToServerClient(game_state_array->game_state[game_index]->player[0]->server_client, packet_1);
-            sendToServerClient(game_state_array->game_state[game_index]->player[1]->server_client, packet_2);
-
-            deletePacket(&packet_1);
-            deletePacket(&packet_2);
-
-            removeGameStateFromArray(game_state_array, game_index);
-        }
+        setPlayerFinishedInArray(game_state_array, server_client->socket_fd, packet);
         break;
     }
 }

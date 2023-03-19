@@ -198,9 +198,8 @@ extern int deleteGameState(server_game_state_t **game_state);
  * @param game_state_array une référence d'un pointeur sur un tableau avec les données de partie
  * @param socket_fd id du socket client
  * @param packet un pointeur le paquet contenant les informations de fin de partie
- * @return l'**index** de la partie finie, **-1** sinon
  */
-extern int setPlayerFinishedInArray(server_game_state_array_t *game_state_array, int socket_fd, packet_t *packet);
+extern void setPlayerFinishedInArray(server_game_state_array_t *game_state_array, int socket_fd, packet_t *packet);
 
 /**
  * @brief Définit un joueur comme étant prêt à jouer, ou non, dans le liste des parties

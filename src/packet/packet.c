@@ -51,7 +51,7 @@ extern void readSetPseudoPacket(packet_t *packet, char **pseudo)
 
     memcpy(&pseudo_length, packet->data, sizeof(int));
 
-    *pseudo = malloc(pseudo_length);
+    *pseudo = realloc(*pseudo, pseudo_length);
 
     memcpy(*pseudo, packet->data + sizeof(int), pseudo_length);
 }

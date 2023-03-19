@@ -7,6 +7,8 @@
 #include "connection/client.h"
 #include "map/map_renderer.h"
 #include "map/building_renderer.h"
+#include "client/game_data.h"
+#include "client/game_state.h"
 
 #define MAP_SIZE 31
 
@@ -17,7 +19,7 @@ void signalHandler(int s)
     running = 0;
 }
 
-void windowEventHandler(SDL_Event *event, window_t *window)
+void windowEventHandler(SDL_Event *event, window_t *window, client_game_data_t *game_data)
 {
     // gestion des évènements de la fenêtre
     switch (event->type)
@@ -28,35 +30,15 @@ void windowEventHandler(SDL_Event *event, window_t *window)
     case SDL_KEYDOWN:
         if (event->key.state == SDL_PRESSED)
         {
-            packet_t *packet = NULL;
-
             switch (event->key.keysym.sym)
             {
             case SDLK_a:
                 // temporaire
-                packet = createSetMapPacket();
-
-                sendToServer(client, packet);
-                deletePacket(&packet);
-
-                packet = createIsPlayerReadyPacket(1);
-
-                sendToServer(client, packet);
-                deletePacket(&packet);
+                toggleMatchmaking(client, game_data);
                 break;
             case SDLK_z:
                 // temporaire
-                packet = createIsPlayerReadyPacket(0);
-
-                sendToServer(client, packet);
-                deletePacket(&packet);
-                break;
-            case SDLK_e:
-                // temporaire
-                packet = createGameFinishedPacket(79, 248934);
-
-                sendToServer(client, packet);
-                deletePacket(&packet);
+                endGame(client, game_data);
                 break;
             }
         }
@@ -73,20 +55,22 @@ void windowEventHandler(SDL_Event *event, window_t *window)
     }
 }
 
-void handle_packet(packet_t *packet)
+void handle_packet(packet_t *packet, client_game_data_t *game_data)
 {
     switch (packet->id)
     {
     case SET_PSEUDO_PACKET_ID:
-        char *pseudo;
-
-        readSetPseudoPacket(packet, &pseudo);
-        printf("Adversaire : %s\n", pseudo);
+        readSetPseudoPacket(packet, &game_data->opponent_pseudo);
+        printf("Adversaire : %s\n", game_data->opponent_pseudo);
         break;
     case SET_MAP_PACKET_ID:
+        game_data->state = COMBAT_GAME_STATE;
+
         printf("Partie lancé\n");
         break;
     case HAS_PLAYER_WON_PACKET_ID:
+        game_data->state = PREPARATION_GAME_STATE;
+
         int has_won;
 
         readHasPlayerWonPacket(packet, &has_won);
@@ -121,10 +105,7 @@ int main(int argc, char *argv[])
     initSocket();
 
     frame_timer_t *main_timer = createTimer(1000 / 30);
-
-    char hostname[] = "localhost";
-    uint16_t port = 4539;
-    char pseudo[64] = {0};
+    client_game_data_t *game_data = createGameData();
 
     // boucle principale
     while (running)
@@ -133,7 +114,7 @@ int main(int argc, char *argv[])
         int time_left = timeLeft(main_timer);
 
         if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
-            windowEventHandler(&event, window);
+            windowEventHandler(&event, window, game_data);
 
         if (checkTime(main_timer))
         {
@@ -142,11 +123,11 @@ int main(int argc, char *argv[])
             {
             case CLIENT_WAITING_INFO:
                 printf("Pseudo : ");
-                scanf("%s", pseudo);
+                scanf("%s", game_data->pseudo);
 
-                if (!initClientConnection(hostname, port))
+                if (!initClientConnection(game_data->hostname, game_data->port))
                 {
-                    packet_t *set_pseudo_packet = createSetPseudoPacket(pseudo);
+                    packet_t *set_pseudo_packet = createSetPseudoPacket(game_data->pseudo);
 
                     sendToServer(client, set_pseudo_packet);
                     deletePacket(&set_pseudo_packet);
@@ -159,6 +140,8 @@ int main(int argc, char *argv[])
                     printf("(Erreur): Connexion impossible réessayer\n");
                     break;
                 case 1:
+                    game_data->state = PREPARATION_GAME_STATE;
+
                     printf("Connexion établie avec succès\n");
                     break;
                 }
@@ -175,7 +158,7 @@ int main(int argc, char *argv[])
 
                 if (packet != NULL)
                 {
-                    handle_packet(packet);
+                    handle_packet(packet, game_data);
                     deletePacket(&packet);
                 }
                 break;
@@ -190,6 +173,7 @@ int main(int argc, char *argv[])
     }
 
     closeClientConnection();
+    deleteGameData(&game_data);
     deleteTimer(&main_timer);
     endSocket();
     deleteBuildingRenderer(&building_renderer);
