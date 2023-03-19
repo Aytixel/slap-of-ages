@@ -74,7 +74,11 @@ void handle_packet(packet_t *packet, client_game_data_t *game_data)
         int has_won;
 
         readHasPlayerWonPacket(packet, &has_won);
-        printf("Gagné: %d\n", has_won);
+
+        if (has_won == 1 || has_won == 2)
+            game_data->victory_count++;
+
+        printf("Gagné : %d, Nombre de victoire : %d\n", has_won, game_data->victory_count);
         break;
     }
 }
