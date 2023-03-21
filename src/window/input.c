@@ -17,8 +17,10 @@
 #include "input.h"
 #include "window.h"
 
-void createButton(TTF_Font *font, const char *buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, window_t *window)
+button_t *createButton(TTF_Font *font, const char *buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, window_t *window)
 {
+    button_t *button = malloc(sizeof(button_t));
+
     // Création de la surface du bouton
     button->surface = TTF_RenderText_Solid(font, buttonText, color);
 
@@ -35,24 +37,33 @@ void createButton(TTF_Font *font, const char *buttonText, SDL_Color color, float
 
     // Initialisation du texte du bouton
     button->text = strdup(buttonText);
+
+    return button;
 }
 
-void destroyButton(button_t *button)
+void destroyButton(button_t **button)
 {
-    SDL_DestroyTexture(button->texture);
-    SDL_FreeSurface(button->surface);
-    free(button->text);
+    SDL_DestroyTexture((*button)->texture);
+    SDL_FreeSurface((*button)->surface);
+    free((*button)->text);
+    free(*button);
+
+    *button = NULL;
 }
 
-void createTextbox(TTF_Font *font, SDL_Color color, SDL_Rect rect, Textbox_t *textbox, window_t *window)
+textbox_t *createTextbox(TTF_Font *font, SDL_Color color, SDL_Rect rect, window_t *window)
 {
-    textbox->surface = TTF_RenderText_Solid(font, " ", color);
+    textbox_t *textbox = malloc(sizeof(textbox_t));
+
+    textbox->surface = TTF_RenderText_Solid(font, "", color);
     textbox->texture = SDL_CreateTextureFromSurface(window->renderer, textbox->surface);
-    SDL_FreeSurface(textbox->surface);
     memcpy(&(textbox->rect), &rect, sizeof(SDL_Rect));
     SDL_SetTextInputRect(&(textbox->rect));
-}
+    textbox->text = malloc(1024);
+    textbox->text[0] = 0;
 
+    return textbox;
+}
 
 void updateTextboxText(SDL_Event event, TTF_Font *font, char *inputText, int *width, int *height)
 {
@@ -73,26 +84,32 @@ void updateTextboxText(SDL_Event event, TTF_Font *font, char *inputText, int *wi
     TTF_SizeUTF8(font, inputText, width, height);
 }
 
-void destroyTextbox(Textbox_t *textbox)
+void destroyTextbox(textbox_t **textbox)
 {
-    SDL_DestroyTexture(textbox->texture);
-    SDL_FreeSurface(textbox->surface);
-    free(textbox->text);
+    SDL_DestroyTexture((*textbox)->texture);
+    SDL_FreeSurface((*textbox)->surface);
+    free((*textbox)->text);
+    free(*textbox);
+
+    *textbox = NULL;
 }
 
-void drawRect(SDL_Renderer* renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
+void drawRect(SDL_Renderer *renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+{
     SDL_SetRenderDrawColor(renderer, r, g, b, a);
     SDL_RenderFillRect(renderer, &rect);
 }
 
-void drawClear(SDL_Renderer* renderer) {
+void drawClear(SDL_Renderer *renderer)
+{
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Couleur noire
     SDL_RenderClear(renderer);
 }
 
-void drawText(SDL_Renderer* renderer, TTF_Font* font, char* text, SDL_Rect rect, SDL_Color color) {
-    SDL_Surface* surface = TTF_RenderUTF8_Solid(font, text, color);
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+void drawText(SDL_Renderer *renderer, TTF_Font *font, char *text, SDL_Rect rect, SDL_Color color)
+{
+    SDL_Surface *surface = TTF_RenderUTF8_Solid(font, text, color);
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_RenderCopy(renderer, texture, NULL, &rect);
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(surface);

@@ -22,9 +22,9 @@
 
 typedef struct
 {
-    SDL_Rect rect;
-    SDL_Texture *texture;
     SDL_Surface *surface;
+    SDL_Texture *texture;
+    SDL_Rect rect;
     char *text;
 } button_t;
 
@@ -39,7 +39,7 @@ typedef struct
     SDL_Texture *texture;
     SDL_Rect rect;
     char *text;
-} Textbox_t;
+} textbox_t;
 
 /**
  * @brief Fonction de création des boutons
@@ -58,7 +58,7 @@ typedef struct
  *
  * @return void
  */
-extern void createButton(TTF_Font *font, const char *buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, window_t *window);
+extern button_t *createButton(TTF_Font *font, const char *buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, window_t *window);
 
 /**
  * @brief Fonction de destruction des boutons
@@ -67,7 +67,7 @@ extern void createButton(TTF_Font *font, const char *buttonText, SDL_Color color
  *
  * @return void
  */
-extern void destroyButton(button_t *button);
+extern void destroyButton(button_t **button);
 
 /**
  * @brief Fonction de création des textes box (texte de saisie)
@@ -83,7 +83,7 @@ extern void destroyButton(button_t *button);
  *
  * @return void
  */
-extern void createTextbox(TTF_Font *font, SDL_Color color, SDL_Rect rect, Textbox_t *textbox, window_t *window);
+extern textbox_t *createTextbox(TTF_Font *font, SDL_Color color, SDL_Rect rect, window_t *window);
 
 /**
  * @brief Fonction de mise à jour des textes box (texte de saisie)
@@ -105,13 +105,13 @@ extern void updateTextboxText(SDL_Event event, TTF_Font *font, char *inputText, 
  *
  * @return void
  */
-extern void destroyTextbox(Textbox_t *textbox);
+extern void destroyTextbox(textbox_t **textbox);
 
-extern void drawRect(SDL_Renderer* renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
+extern void drawRect(SDL_Renderer *renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 
-extern void drawClear(SDL_Renderer* renderer);
+extern void drawClear(SDL_Renderer *renderer);
 
-extern void drawText(SDL_Renderer* renderer, TTF_Font* font, char* text, SDL_Rect rect, SDL_Color color);
+extern void drawText(SDL_Renderer *renderer, TTF_Font *font, char *text, SDL_Rect rect, SDL_Color color);
 
 /**
  * @brief Fonction de détection de clic dans une zone
