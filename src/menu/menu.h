@@ -15,14 +15,7 @@
 #include <SDL2/SDL_ttf.h>
 #include "window/window.h"
 #include "window/input.h"
-
-// Structure pour stocker l'ip et le port et le pseudo
-typedef struct
-{
-    char ip[1024];
-    int port;
-    char pseudo[64];
-} connection_t;
+#include "client/game_data.h"
 
 // Structure pour stocker information du menu_test
 typedef struct
@@ -57,14 +50,14 @@ typedef struct
     int heightPseudo;
 } menu_t;
 
-extern menu_t *createMenu(window_t *window);
+extern menu_t *createMenu(window_t *window, client_game_data_t *game_data);
 
 /**
  * @brief Fonction de création du menu multijoueur
  *
  * @return int
  */
-extern int menuEventHandler(connection_t *connection, SDL_Event *event, menu_t *menu);
+extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, menu_t *menu);
 
 extern int menuRenderer(window_t *window, menu_t *menu);
 

@@ -20,7 +20,7 @@
 #include "window/input.h"
 #include "window/window.h"
 
-extern menu_t *createMenu(window_t *window)
+extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
 {
   menu_t *menu = malloc(sizeof(menu_t));
 
@@ -76,10 +76,25 @@ extern menu_t *createMenu(window_t *window)
   menu->port_input_text[0] = 0;
   menu->pseudo_input_text[0] = 0;
 
+  menu->widthIp = 0;
+  menu->widthPort = 0;
+  menu->widthPseudo = 0;
+  menu->heightIp = 0;
+  menu->heightPort = 0;
+  menu->heightPseudo = 0;
+
+  char port_input_text[6];
+
+  SDL_itoa(game_data->port, port_input_text, 10);
+
+  strcpy(menu->hostname_input_text, game_data->hostname);
+  strcpy(menu->port_input_text, port_input_text);
+  strcpy(menu->pseudo_input_text, game_data->pseudo);
+
   return menu;
 }
 
-extern int menuEventHandler(connection_t *connection, SDL_Event *event, menu_t *menu)
+extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, menu_t *menu)
 {
   static int selected_textbox = 0;
 
@@ -88,9 +103,9 @@ extern int menuEventHandler(connection_t *connection, SDL_Event *event, menu_t *
 
   if (isMouseClickInRect(*event, menu->join_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
   {
-    strcpy(connection->pseudo, menu->pseudo_input_text);
-    strcpy(connection->ip, menu->hostname_input_text);
-    connection->port = atoi(menu->port_input_text);
+    strcpy(game_data->pseudo, menu->pseudo_input_text);
+    strcpy(game_data->hostname, menu->hostname_input_text);
+    game_data->port = atoi(menu->port_input_text);
 
     return 1;
   }

@@ -112,13 +112,7 @@ int main(int argc, char *argv[])
     frame_timer_t *main_timer = createTimer(1000 / 30);
     client_game_data_t *game_data = createGameData();
 
-    connection_t connection;
-
-    connection.port = 4539;
-    strcpy(connection.pseudo, "localhost");
-    strcpy(connection.ip, "");
-
-    menu_t *menu = createMenu(window);
+    menu_t *menu = createMenu(window, game_data);
 
     if (menu == NULL)
         return 1;
@@ -133,15 +127,15 @@ int main(int argc, char *argv[])
         {
             windowEventHandler(&event, window, game_data);
 
-            switch (menuEventHandler(&connection, &event, menu))
+            switch (menuEventHandler(game_data, &event, menu))
             {
             case 2:
                 running = 0;
                 break;
             case 1:
-                if (!initClientConnection(connection.ip, connection.port))
+                if (!initClientConnection(game_data->hostname, game_data->port))
                 {
-                    packet_t *set_pseudo_packet = createSetPseudoPacket(connection.pseudo);
+                    packet_t *set_pseudo_packet = createSetPseudoPacket(game_data->pseudo);
 
                     sendToServer(client, set_pseudo_packet);
                     deletePacket(&set_pseudo_packet);
