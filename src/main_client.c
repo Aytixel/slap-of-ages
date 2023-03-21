@@ -7,6 +7,7 @@
 #include "connection/client.h"
 #include "map/map_renderer.h"
 #include "map/building_renderer.h"
+#include "menu/menu.h"
 #include "client/game_data.h"
 #include "client/game_state.h"
 
@@ -85,6 +86,14 @@ void handle_packet(packet_t *packet, client_game_data_t *game_data)
 
 int main(int argc, char *argv[])
 {
+    connection_t connection;
+    menu_t menu;
+    int menuinfo;
+
+    connection.ip = "localhost";
+    connection.port = 4539;
+    connection.pseudo = NULL;
+
     srand(time(NULL));
 
     signal(SIGINT, signalHandler);
@@ -117,8 +126,11 @@ int main(int argc, char *argv[])
         SDL_Event event;
         int time_left = timeLeft(main_timer);
 
-        if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
+        if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0)){
             windowEventHandler(&event, window, game_data);
+            menuinfo = menu_event(&connection, &event, &menu);
+        }
+
 
         if (checkTime(main_timer))
         {
@@ -126,9 +138,7 @@ int main(int argc, char *argv[])
             switch (client_connection_state)
             {
             case CLIENT_WAITING_INFO:
-                printf("Pseudo : ");
-                scanf("%s", game_data->pseudo);
-
+                /*
                 if (!initClientConnection(game_data->hostname, game_data->port))
                 {
                     packet_t *set_pseudo_packet = createSetPseudoPacket(game_data->pseudo);
@@ -136,6 +146,7 @@ int main(int argc, char *argv[])
                     sendToServer(client, set_pseudo_packet);
                     deletePacket(&set_pseudo_packet);
                 }
+                */
                 break;
             case CLIENT_WAITING_HANDSHAKE:
                 switch (waitServerHandshake())
@@ -170,7 +181,33 @@ int main(int argc, char *argv[])
 
             SDL_RenderClear(window->renderer);
 
-            renderMap(window, map_renderer);
+            if(client_connection_state != CLIENT_CONNECTED)
+            {
+
+                
+                menu_renderer(window, &menu);
+
+                printf("ip : %s\n", connection.ip);
+                printf("port : %d\n", connection.port);
+                printf("pseudo : %s\n", connection.pseudo);
+                
+                if( menuinfo == 2){
+                    running = 0;
+                }else if(menuinfo == 1){
+                    if (!initClientConnection(connection.ip, connection.port))
+                {
+                    packet_t *set_pseudo_packet = createSetPseudoPacket(connection.pseudo);
+
+                    sendToServer(client, set_pseudo_packet);
+                    deletePacket(&set_pseudo_packet);
+                }
+                }
+
+                
+
+            }else{
+                renderMap(window, map_renderer);
+            }
 
             SDL_RenderPresent(window->renderer);
         }

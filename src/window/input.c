@@ -53,6 +53,7 @@ void createTextbox(TTF_Font *font, SDL_Color color, SDL_Rect rect, Textbox_t *te
     SDL_SetTextInputRect(&(textbox->rect));
 }
 
+
 void updateTextboxText(SDL_Event event, TTF_Font *font, char *inputText, int *width, int *height)
 {
     switch (event.type)
