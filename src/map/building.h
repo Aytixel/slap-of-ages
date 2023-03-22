@@ -48,6 +48,14 @@ typedef struct
 extern building_t *createBuilding(building_type_e type, SDL_Point *position, window_t *window, map_renderer_t *map_renderer);
 
 /**
+ * @brief Créer la matrice de bâtiment
+ *
+ * @param map_size taille de la carte
+ * @return retourne un pointeur sur la matrice
+ */
+extern building_t ***createBuildingMatrix(int map_size);
+
+/**
  * @brief Détruit la structure de bâtiment
  *
  * @param building un pointeur sur un pointeur sur un buiding_t
@@ -83,6 +91,14 @@ extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_r
 extern void clearMatrix(building_t ***building_matrix, int map_size);
 
 /**
+ * @brief Détruit la matrice de bâtiments
+ *
+ * @param building_matrix
+ * @param map_size
+ */
+extern void destroyBuildingMatrix(building_t ****building_matrix, int map_size);
+
+/**
  * @brief Permet d'ajouter un bâtiment sur la carte
  *
  *
@@ -109,5 +125,26 @@ extern void removeBuildingFromMatrix(building_t ***building_matrix, building_t *
  */
 
 extern void updateBuildingCoord(building_t *building, SDL_Point *position);
+
+/**
+ * @brief Permet de vérifier si un bâtiment peut être placé à une position donnée
+ *
+ * @param building Le bâtiment qui doit être placé
+ * @param position La position à vérifier
+ * @param building_matrix Matrice contenant la totalité des bâtiments placés sur la carte
+ * @return retourne 1 si le bâtiment peut être placé, 0 sinon
+ */
+
+extern int canPlaceBuilding(building_t *building, SDL_Point *position, building_t ***building_matrix);
+
+/**
+ * @brief Récupère le bâtiment à une position donnée
+ *
+ * @param building_matrix matrice contenant les bâtiments
+ * @param position position du bätiment à retourner
+ * @return building_t* si le bâtiment existe, NULL sinon
+ */
+
+extern building_t *getBuilding(building_t ***building_matrix, SDL_Point *position);
 
 #endif
