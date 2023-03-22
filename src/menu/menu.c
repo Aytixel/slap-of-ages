@@ -184,6 +184,18 @@ extern int menuRenderer(window_t *window, menu_t *menu)
   menu->pseudo_button->surface = TTF_RenderText_Solid(menu->text_font, "Pseudo", menu->light_text_color);
   menu->pseudo_button->texture = SDL_CreateTextureFromSurface(window->renderer, menu->pseudo_button->surface);
 
+
+  destroyButton(&menu->join_button);
+  destroyButton(&menu->quit_button);
+  destroyButton(&menu->pseudo_button);
+  destroyButton(&menu->port_button);
+  destroyButton(&menu->hostname_button);
+
+  destroyTextbox(&menu->hostname_textbox);
+  destroyTextbox(&menu->port_textbox);
+  destroyTextbox(&menu->pseudo_textbox);
+  
+
   menu->join_button = createButton(menu->text_font, "JOIN", menu->join_button_color, 0.21f, 0.475f, 0.1f, 0.04f, window);
   menu->quit_button = createButton(menu->text_font, "QUITTER", menu->quit_button_color, 0.21f, 0.55f, 0.15f, 0.04f, window);
   menu->pseudo_button = createButton(menu->text_font, "Pseudo", menu->light_text_color, 0.60f, 0.515f, 0.06f, 0.04f, window);
