@@ -126,19 +126,27 @@ int main(int argc, char *argv[])
         {
             windowEventHandler(&event, window, game_data);
 
-            switch (menuEventHandler(game_data, &event, menu))
+            switch (client_connection_state)
             {
-            case 2:
-                running = 0;
-                break;
-            case 1:
-                if (!initClientConnection(game_data->hostname, game_data->port))
+            case CLIENT_WAITING_INFO:
+            case CLIENT_WAITING_HANDSHAKE:
+                switch (menuEventHandler(game_data, &event, menu))
                 {
-                    packet_t *set_pseudo_packet = createSetPseudoPacket(game_data->pseudo);
+                case 2:
+                    running = 0;
+                    break;
+                case 1:
+                    if (!initClientConnection(game_data->hostname, game_data->port))
+                    {
+                        packet_t *set_pseudo_packet = createSetPseudoPacket(game_data->pseudo);
 
-                    sendToServer(client, set_pseudo_packet);
-                    deletePacket(&set_pseudo_packet);
+                        sendToServer(client, set_pseudo_packet);
+                        deletePacket(&set_pseudo_packet);
+                    }
+                    break;
                 }
+                break;
+            case CLIENT_CONNECTED:
                 break;
             }
         }
