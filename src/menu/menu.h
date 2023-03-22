@@ -20,25 +20,24 @@
 // Structure pour stocker information du menu_test
 typedef struct
 {
+    int initial_height;
     TTF_Font *text_font;
     TTF_Font *textbox_font;
     SDL_Color light_text_color;
     SDL_Color dark_text_color;
     SDL_Color selected_button_color;
-    SDL_Color join_button_color;
-    SDL_Color quit_button_color;
     sprite_t *background_sprite;
     button_t *join_button;
     button_t *quit_button;
-    button_t *pseudo_button;
-    button_t *port_button;
-    button_t *hostname_button;
+    sprite_t *hostname_label;
+    sprite_t *port_label;
+    sprite_t *pseudo_label;
     textbox_t *hostname_textbox;
     textbox_t *port_textbox;
     textbox_t *pseudo_textbox;
-    SDL_Rect RectIp;
-    SDL_Rect RectPort;
-    SDL_Rect RectPseudo;
+    SDL_Rect hostname_rect;
+    SDL_Rect port_rect;
+    SDL_Rect pseudo_rect;
     char hostname_input_text[1024];
     char port_input_text[6];
     char pseudo_input_text[64];

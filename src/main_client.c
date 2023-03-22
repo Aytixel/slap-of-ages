@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
     signal(SIGABRT, signalHandler);
     signal(SIGTERM, signalHandler);
 
-    window_t *window = createWindow("Slap of Ages", 600, 600);
+    window_t *window = createWindow("Slap of Ages", 700, 600);
 
     if (window == NULL)
         return 1;

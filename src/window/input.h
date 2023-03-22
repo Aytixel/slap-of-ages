@@ -22,9 +22,12 @@
 
 typedef struct
 {
-    SDL_Surface *surface;
-    SDL_Texture *texture;
+    sprite_t *sprite;
     SDL_Rect rect;
+    int is_selected;
+    TTF_Font *font;
+    SDL_Color color;
+    SDL_Color selected_color;
     char *text;
 } button_t;
 
@@ -58,7 +61,9 @@ typedef struct
  *
  * @return void
  */
-extern button_t *createButton(TTF_Font *font, const char *buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, window_t *window);
+extern button_t *createButton(window_t *window, TTF_Font *font, char *text, SDL_Color color, SDL_Color selected_color);
+
+extern void renderButton(window_t *window, button_t *button);
 
 /**
  * @brief Fonction de destruction des boutons

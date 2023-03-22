@@ -43,6 +43,8 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
     return NULL;
   }
 
+  menu->initial_height = window->height;
+
   SDL_Color light_text_color = {255, 255, 255, 0};
   menu->light_text_color = light_text_color;
 
@@ -52,25 +54,23 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
   SDL_Color selected_button_color = {52, 36, 155, 0};
   menu->selected_button_color = selected_button_color;
 
-  menu->join_button_color = dark_text_color;
-  menu->quit_button_color = dark_text_color;
-
   menu->background_sprite = loadSprite(window, "asset/pack/PixelBooksVers1.0/RADL_Book4.png");
 
-  menu->join_button = createButton(menu->text_font, "JOIN", menu->join_button_color, 0.21f, 0.475f, 0.1f, 0.04f, window);
-  menu->quit_button = createButton(menu->text_font, "QUITTER", menu->quit_button_color, 0.21f, 0.55f, 0.15f, 0.04f, window);
-  menu->pseudo_button = createButton(menu->text_font, "Pseudo", menu->light_text_color, 0.60f, 0.515f, 0.06f, 0.04f, window);
-  menu->port_button = createButton(menu->text_font, "Port", menu->light_text_color, 0.60f, 0.435f, 0.06f, 0.04f, window);
-  menu->hostname_button = createButton(menu->text_font, "Ip", menu->light_text_color, 0.60f, 0.35f, 0.06f, 0.04f, window);
+  menu->join_button = createButton(window, menu->text_font, "JOIN", menu->dark_text_color, menu->selected_button_color);
+  menu->quit_button = createButton(window, menu->text_font, "QUITTER", menu->dark_text_color, menu->selected_button_color);
+
+  menu->hostname_label = createTextSprite(window, menu->text_font, "Ip", menu->light_text_color);
+  menu->port_label = createTextSprite(window, menu->text_font, "Port", menu->light_text_color);
+  menu->pseudo_label = createTextSprite(window, menu->text_font, "Pseudo", menu->light_text_color);
 
   // temporaire
-  SDL_Rect hostname_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y / 1.2, menu->hostname_button->rect.w * 4.5, menu->port_button->rect.h};
-  SDL_Rect port_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y , menu->hostname_button->rect.w * 4.5, menu->port_button->rect.h};
-  SDL_Rect pseudo_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y * 1.2, menu->hostname_button->rect.w * 4.5, menu->port_button->rect.h};
+  SDL_Rect hostname_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y / 1.2, 0, 0};
+  SDL_Rect port_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y, 0, 0};
+  SDL_Rect pseudo_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y * 1.2, 0, 0};
 
-  menu->hostname_textbox = createTextbox(menu->text_font, menu->join_button_color, hostname_rect, window);
-  menu->port_textbox = createTextbox(menu->text_font, menu->join_button_color, port_rect, window);
-  menu->pseudo_textbox = createTextbox(menu->text_font, menu->join_button_color, pseudo_rect, window);
+  menu->hostname_textbox = createTextbox(menu->text_font, menu->dark_text_color, hostname_rect, window);
+  menu->port_textbox = createTextbox(menu->text_font, menu->dark_text_color, port_rect, window);
+  menu->pseudo_textbox = createTextbox(menu->text_font, menu->dark_text_color, pseudo_rect, window);
 
   menu->hostname_input_text[0] = 0;
   menu->port_input_text[0] = 0;
@@ -138,83 +138,50 @@ extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, men
 
   SDL_Point mousePoint = getMousePosition();
 
-  if (SDL_PointInRect(&mousePoint, &menu->join_button->rect))
-    menu->join_button_color = menu->selected_button_color;
-  else
-    menu->join_button_color = menu->dark_text_color;
-
-  if (SDL_PointInRect(&mousePoint, &menu->quit_button->rect))
-    menu->quit_button_color = menu->selected_button_color;
-  else
-    menu->quit_button_color = menu->dark_text_color;
+  menu->join_button->is_selected = SDL_PointInRect(&mousePoint, &menu->join_button->rect);
+  menu->quit_button->is_selected = SDL_PointInRect(&mousePoint, &menu->quit_button->rect);
 
   return 0;
 }
 
 extern int menuRenderer(window_t *window, menu_t *menu)
 {
+  float scale_factor = (float)window->height / (float)menu->initial_height;
+
   SDL_SetRenderDrawColor(window->renderer, 100, 10, 0, 255);
 
-  SDL_Rect hostname_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y / 1.2 , menu->hostname_button->rect.w * 4.5, menu->port_button->rect.h};
-  SDL_Rect port_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y , menu->hostname_button->rect.w * 4.5, menu->port_button->rect.h};
-  SDL_Rect pseudo_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y * 1.2, menu->hostname_button->rect.w * 4.5, menu->port_button->rect.h};
-
-  SDL_DestroyTexture(menu->join_button->texture);
-  SDL_FreeSurface(menu->join_button->surface);
-  menu->join_button->surface = TTF_RenderText_Solid(menu->text_font, "JOIN", menu->join_button_color);
-  menu->join_button->texture = SDL_CreateTextureFromSurface(window->renderer, menu->join_button->surface);
-
-  SDL_DestroyTexture(menu->quit_button->texture);
-  SDL_FreeSurface(menu->quit_button->surface);
-  menu->quit_button->surface = TTF_RenderText_Solid(menu->text_font, "QUITTER", menu->quit_button_color);
-  menu->quit_button->texture = SDL_CreateTextureFromSurface(window->renderer, menu->quit_button->surface);
-
-  SDL_DestroyTexture(menu->hostname_button->texture);
-  SDL_FreeSurface(menu->hostname_button->surface);
-  menu->hostname_button->surface = TTF_RenderText_Solid(menu->text_font, "Ip", menu->light_text_color);
-  menu->hostname_button->texture = SDL_CreateTextureFromSurface(window->renderer, menu->hostname_button->surface);
-
-  SDL_DestroyTexture(menu->port_button->texture);
-  SDL_FreeSurface(menu->port_button->surface);
-  menu->port_button->surface = TTF_RenderText_Solid(menu->text_font, "Port", menu->light_text_color);
-  menu->port_button->texture = SDL_CreateTextureFromSurface(window->renderer, menu->port_button->surface);
-
-  SDL_DestroyTexture(menu->pseudo_button->texture);
-  SDL_FreeSurface(menu->pseudo_button->surface);
-  menu->pseudo_button->surface = TTF_RenderText_Solid(menu->text_font, "Pseudo", menu->light_text_color);
-  menu->pseudo_button->texture = SDL_CreateTextureFromSurface(window->renderer, menu->pseudo_button->surface);
-
-
-  destroyButton(&menu->join_button);
-  destroyButton(&menu->quit_button);
-  destroyButton(&menu->pseudo_button);
-  destroyButton(&menu->port_button);
-  destroyButton(&menu->hostname_button);
+  SDL_Rect hostname_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y / 1.2, 0, 0};
+  SDL_Rect port_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y, 0, 0};
+  SDL_Rect pseudo_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y * 1.2, 0, 0};
 
   destroyTextbox(&menu->hostname_textbox);
   destroyTextbox(&menu->port_textbox);
   destroyTextbox(&menu->pseudo_textbox);
-  
 
-  menu->join_button = createButton(menu->text_font, "JOIN", menu->join_button_color, 0.21f, 0.475f, 0.1f, 0.04f, window);
-  menu->quit_button = createButton(menu->text_font, "QUITTER", menu->quit_button_color, 0.21f, 0.55f, 0.15f, 0.04f, window);
-  menu->pseudo_button = createButton(menu->text_font, "Pseudo", menu->light_text_color, 0.60f, 0.515f, 0.06f, 0.04f, window);
-  menu->port_button = createButton(menu->text_font, "Port", menu->light_text_color, 0.60f, 0.435f, 0.06f, 0.04f, window);
-  menu->hostname_button = createButton(menu->text_font, "Ip", menu->light_text_color, 0.60f, 0.35f, 0.06f, 0.04f, window);
-
-  menu->hostname_textbox = createTextbox(menu->text_font, menu->join_button_color, hostname_rect, window);
-  menu->port_textbox = createTextbox(menu->text_font, menu->join_button_color, port_rect, window);
-  menu->pseudo_textbox = createTextbox(menu->text_font, menu->join_button_color, pseudo_rect, window);
+  menu->hostname_textbox = createTextbox(menu->text_font, menu->dark_text_color, hostname_rect, window);
+  menu->port_textbox = createTextbox(menu->text_font, menu->dark_text_color, port_rect, window);
+  menu->pseudo_textbox = createTextbox(menu->text_font, menu->dark_text_color, pseudo_rect, window);
 
   // Affichage de l'image de fond
-  SDL_RenderCopy(window->renderer, menu->background_sprite->texture, NULL, NULL);
+  SDL_Rect background_rect = positionToCenter(window, menu->background_sprite->width * scale_factor * 4, menu->background_sprite->height * scale_factor * 4);
+
+  SDL_RenderCopy(window->renderer, menu->background_sprite->texture, NULL, &background_rect);
 
   // Affichage des boutons
-  SDL_RenderCopy(window->renderer, menu->join_button->texture, NULL, &menu->join_button->rect);
-  SDL_RenderCopy(window->renderer, menu->quit_button->texture, NULL, &menu->quit_button->rect);
-  SDL_RenderCopy(window->renderer, menu->hostname_button->texture, NULL, &menu->hostname_button->rect);
-  SDL_RenderCopy(window->renderer, menu->port_button->texture, NULL, &menu->port_button->rect);
-  SDL_RenderCopy(window->renderer, menu->pseudo_button->texture, NULL, &menu->pseudo_button->rect);
+  menu->join_button->rect = positionFromCenter(window, menu->join_button->sprite->width * scale_factor, menu->join_button->sprite->height * scale_factor, -220 * scale_factor, -25 * scale_factor, TRANSFORM_ORIGIN_LEFT);
+  menu->quit_button->rect = positionFromCenter(window, menu->quit_button->sprite->width * scale_factor, menu->quit_button->sprite->height * scale_factor, -220 * scale_factor, 25 * scale_factor, TRANSFORM_ORIGIN_LEFT);
+
+  renderButton(window, menu->join_button);
+  renderButton(window, menu->quit_button);
+
+  // Affichage text des textbox
+  SDL_Rect hostname_label_rect = positionFromCenter(window, menu->hostname_label->width * scale_factor, menu->hostname_label->height * scale_factor, 50 * scale_factor, -125 * scale_factor, TRANSFORM_ORIGIN_LEFT);
+  SDL_Rect port_label_rect = positionFromCenter(window, menu->port_label->width * scale_factor, menu->port_label->height * scale_factor, 50 * scale_factor, -50 * scale_factor, TRANSFORM_ORIGIN_LEFT);
+  SDL_Rect pseudo_label_rect = positionFromCenter(window, menu->pseudo_label->width * scale_factor, menu->pseudo_label->height * scale_factor, 50 * scale_factor, 25 * scale_factor, TRANSFORM_ORIGIN_LEFT);
+
+  SDL_RenderCopy(window->renderer, menu->hostname_label->texture, NULL, &hostname_label_rect);
+  SDL_RenderCopy(window->renderer, menu->port_label->texture, NULL, &port_label_rect);
+  SDL_RenderCopy(window->renderer, menu->pseudo_label->texture, NULL, &pseudo_label_rect);
 
   //---------//
 
@@ -247,9 +214,10 @@ extern int deleteMenu(menu_t **menu)
 
   destroyButton(&(*menu)->join_button);
   destroyButton(&(*menu)->quit_button);
-  destroyButton(&(*menu)->pseudo_button);
-  destroyButton(&(*menu)->port_button);
-  destroyButton(&(*menu)->hostname_button);
+
+  destroySprite(&(*menu)->hostname_label);
+  destroySprite(&(*menu)->port_label);
+  destroySprite(&(*menu)->pseudo_label);
 
   destroyTextbox(&(*menu)->pseudo_textbox);
   destroyTextbox(&(*menu)->port_textbox);
