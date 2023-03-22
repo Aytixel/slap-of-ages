@@ -141,7 +141,7 @@ int main(int argc, char *argv[])
                 }
             }
 
-            checkGameTimeout(game_state_array);
+            checkServerGameTimeout(game_state_array);
 
             for (int i = 0; i < deleted_socket_fd_count; i++)
             {

@@ -201,9 +201,13 @@ extern int gameWinner(server_game_state_t *game_state)
     if (game_state->player[0]->destruction_percentage != game_state->player[1]->destruction_percentage)
         return game_state->player[0]->destruction_percentage < game_state->player[1]->destruction_percentage;
 
+    // les deux joeurs n'ont pas puent finir la partie
+    if (game_state->player[0]->time_left <= 0 && game_state->player[1]->time_left <= 0)
+        return 2;
+
     // le joueur avec qui fini le plus vite gagne
     if (game_state->player[0]->time_left != game_state->player[1]->time_left)
-        return game_state->player[0]->time_left > game_state->player[1]->time_left;
+        return game_state->player[0]->time_left < game_state->player[1]->time_left;
 
     // égalité
     return 2;
@@ -216,9 +220,7 @@ extern int deleteGameState(server_game_state_t **game_state)
 
     deletePlayerState(&(*game_state)->player[0]);
     deletePlayerState(&(*game_state)->player[1]);
-
-    if ((*game_state)->timer != NULL)
-        deleteTimer(&(*game_state)->timer);
+    deleteTimer(&(*game_state)->timer);
 
     free(*game_state);
     *game_state = NULL;
@@ -268,7 +270,7 @@ extern void setPlayerFinishedInArray(server_game_state_array_t *game_state_array
     }
 }
 
-extern void checkGameTimeout(server_game_state_array_t *game_state_array)
+extern void checkServerGameTimeout(server_game_state_array_t *game_state_array)
 {
     for (int i = 0; i < game_state_array->count; i++)
     {

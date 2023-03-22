@@ -65,8 +65,7 @@ void handle_packet(packet_t *packet, client_game_data_t *game_data)
         printf("Adversaire : %s\n", game_data->opponent_pseudo);
         break;
     case SET_MAP_PACKET_ID:
-        game_data->state = COMBAT_GAME_STATE;
-
+        startGame(client, game_data);
         printf("Partie lancé\n");
         break;
     case HAS_PLAYER_WON_PACKET_ID:

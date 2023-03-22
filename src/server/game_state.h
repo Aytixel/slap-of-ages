@@ -209,7 +209,7 @@ extern void setPlayerFinishedInArray(server_game_state_array_t *game_state_array
  *
  * @param game_state_array une référence d'un pointeur sur un tableau avec les données de partie
  */
-extern void checkGameTimeout(server_game_state_array_t *game_state_array);
+extern void checkServerGameTimeout(server_game_state_array_t *game_state_array);
 
 /**
  * @brief Définit un joueur comme étant prêt à jouer, ou non, dans le liste des parties

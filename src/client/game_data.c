@@ -20,6 +20,7 @@ extern client_game_data_t *createGameData()
     game_data->gold_count = 0;
     game_data->victory_count = 0;
     game_data->opponent_pseudo = NULL;
+    game_data->timer = NULL;
 
     strcpy(game_data->hostname, "localhost");
     strcpy(game_data->pseudo, "");
@@ -34,6 +35,8 @@ extern int deleteGameData(client_game_data_t **game_data)
 
     if ((*game_data)->opponent_pseudo != NULL)
         free((*game_data)->opponent_pseudo);
+
+    deleteTimer(&(*game_data)->timer);
 
     free(*game_data);
     *game_data = NULL;

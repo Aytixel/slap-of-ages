@@ -11,10 +11,11 @@
 #define __CLIENT_GAME_DATA_H
 
 #include <stdint.h>
+#include "timer/timer.h"
 #include "game_state_enum.h"
 
 /**
- * @brief
+ * @brief Structure de données contenant les données du jeux
  *
  */
 typedef struct client_game_data_s
@@ -26,6 +27,7 @@ typedef struct client_game_data_s
     char *opponent_pseudo;     /**< pseudo du joueur adverse*/
     int gold_count;            /**< nombre d'or maximum*/
     int victory_count;         /**< nombre de victoire*/
+    frame_timer_t *timer;      /**< chronomètre de fin de partie*/
 } client_game_data_t;
 
 /**
