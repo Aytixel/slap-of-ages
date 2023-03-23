@@ -71,8 +71,6 @@ extern textbox_t *createTextbox(window_t *window, TTF_Font *font, char *text, SD
     textbox->text = malloc(character_limit);
     strcpy(textbox->text, text);
 
-    // SDL_SetTextInputRect(&(textbox->rect));
-
     return textbox;
 }
 
