@@ -82,7 +82,7 @@ extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, men
   if (isMouseClickInRect(*event, menu->quit_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
     return 2;
 
-  if (isMouseClickInRect(*event, menu->join_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
+  if (isMouseClickInRect(*event, menu->join_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN) && strlen(menu->pseudo_textbox->text) >= 3)
   {
     strcpy(game_data->hostname, menu->hostname_textbox->text);
     game_data->port = atoi(menu->port_textbox->text);
@@ -101,14 +101,17 @@ extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, men
   switch (selected_textbox)
   {
   case 1:
+    SDL_SetTextInputRect(&(menu->hostname_textbox->rect));
     SDL_StartTextInput();
     updateTextbox(event, menu->hostname_textbox);
     break;
+    SDL_SetTextInputRect(&(menu->port_textbox->rect));
   case 2:
     SDL_StartTextInput();
     updateTextbox(event, menu->port_textbox);
     break;
   case 3:
+    SDL_SetTextInputRect(&(menu->pseudo_textbox->rect));
     SDL_StartTextInput();
     updateTextbox(event, menu->pseudo_textbox);
     break;
