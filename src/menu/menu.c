@@ -71,6 +71,9 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
   menu->hostname_textbox = createTextbox(window, menu->textbox_font, game_data->hostname, dark_text_color, 1024);
   menu->port_textbox = createTextbox(window, menu->textbox_font, port_textbox_default_text, dark_text_color, 7);
   menu->pseudo_textbox = createTextbox(window, menu->textbox_font, game_data->pseudo, dark_text_color, 64);
+  menu->hostname_textbox->max_width = 440;
+  menu->port_textbox->max_width = 440;
+  menu->pseudo_textbox->max_width = 440;
 
   return menu;
 }
@@ -159,10 +162,6 @@ extern int menuRenderer(window_t *window, menu_t *menu)
   menu->hostname_textbox->rect = positionFromCenter(window, menu->hostname_textbox->text_rect.w * scale_factor * textbox_font_scale_factor, menu->hostname_textbox->text_rect.h * scale_factor * textbox_font_scale_factor, 50 * scale_factor, -90 * scale_factor, TRANSFORM_ORIGIN_LEFT);
   menu->port_textbox->rect = positionFromCenter(window, menu->port_textbox->text_rect.w * scale_factor * textbox_font_scale_factor, menu->port_textbox->text_rect.h * scale_factor * textbox_font_scale_factor, 50 * scale_factor, -15 * scale_factor, TRANSFORM_ORIGIN_LEFT);
   menu->pseudo_textbox->rect = positionFromCenter(window, menu->pseudo_textbox->text_rect.w * scale_factor * textbox_font_scale_factor, menu->pseudo_textbox->text_rect.h * scale_factor * textbox_font_scale_factor, 50 * scale_factor, 60 * scale_factor, TRANSFORM_ORIGIN_LEFT);
-
-  menu->hostname_textbox->max_width = 217 * scale_factor / textbox_font_scale_factor;
-  menu->port_textbox->max_width = 217 * scale_factor / textbox_font_scale_factor;
-  menu->pseudo_textbox->max_width = 217 * scale_factor / textbox_font_scale_factor;
 
   menu->hostname_rect = menu->hostname_textbox->rect;
   menu->hostname_rect.x -= 5;

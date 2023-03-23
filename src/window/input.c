@@ -78,6 +78,8 @@ extern void renderTextbox(window_t *window, textbox_t *textbox)
 {
     destroySprite(&textbox->sprite);
 
+    TTF_MeasureUTF8(textbox->font, textbox->text, textbox->max_width, &textbox->text_rect.w, &textbox->character_diplay_count);
+
     if (textbox->text[0] != 0)
     {
         char *temp_text = malloc(textbox->character_diplay_count + 2);
