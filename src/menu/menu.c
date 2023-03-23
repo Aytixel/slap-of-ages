@@ -33,7 +33,7 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
     return NULL;
   }
 
-  menu->textbox_font = loadFont("asset/font/arial.ttf", 24);
+  menu->textbox_font = loadFont("asset/font/arial.ttf", 50);
 
   if (menu->textbox_font == NULL)
   {
@@ -45,51 +45,32 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
 
   menu->initial_height = window->height;
 
+  SDL_Rect rect = {0, 0, 0, 0};
+
+  menu->hostname_rect = rect;
+  menu->port_rect = rect;
+  menu->pseudo_rect = rect;
+
   SDL_Color light_text_color = {255, 255, 255, 0};
-  menu->light_text_color = light_text_color;
-
   SDL_Color dark_text_color = {52, 36, 20, 0};
-  menu->dark_text_color = dark_text_color;
-
   SDL_Color selected_button_color = {52, 36, 155, 0};
-  menu->selected_button_color = selected_button_color;
 
   menu->background_sprite = loadSprite(window, "asset/pack/PixelBooksVers1.0/RADL_Book4.png");
 
-  menu->join_button = createButton(window, menu->text_font, "JOIN", menu->dark_text_color, menu->selected_button_color);
-  menu->quit_button = createButton(window, menu->text_font, "QUITTER", menu->dark_text_color, menu->selected_button_color);
+  menu->join_button = createButton(window, menu->text_font, "JOIN", dark_text_color, selected_button_color);
+  menu->quit_button = createButton(window, menu->text_font, "QUITTER", dark_text_color, selected_button_color);
 
-  menu->hostname_label = createTextSprite(window, menu->text_font, "Ip", menu->light_text_color);
-  menu->port_label = createTextSprite(window, menu->text_font, "Port", menu->light_text_color);
-  menu->pseudo_label = createTextSprite(window, menu->text_font, "Pseudo", menu->light_text_color);
+  menu->hostname_label = createTextSprite(window, menu->text_font, "Ip", light_text_color);
+  menu->port_label = createTextSprite(window, menu->text_font, "Port", light_text_color);
+  menu->pseudo_label = createTextSprite(window, menu->text_font, "Pseudo", light_text_color);
 
-  // temporaire
-  SDL_Rect hostname_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y / 1.2, 0, 0};
-  SDL_Rect port_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y, 0, 0};
-  SDL_Rect pseudo_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y * 1.2, 0, 0};
+  char port_textbox_default_text[6];
 
-  menu->hostname_textbox = createTextbox(menu->text_font, menu->dark_text_color, hostname_rect, window);
-  menu->port_textbox = createTextbox(menu->text_font, menu->dark_text_color, port_rect, window);
-  menu->pseudo_textbox = createTextbox(menu->text_font, menu->dark_text_color, pseudo_rect, window);
+  SDL_itoa(game_data->port, port_textbox_default_text, 10);
 
-  menu->hostname_input_text[0] = 0;
-  menu->port_input_text[0] = 0;
-  menu->pseudo_input_text[0] = 0;
-
-  menu->widthIp = 0;
-  menu->widthPort = 0;
-  menu->widthPseudo = 0;
-  menu->heightIp = 0;
-  menu->heightPort = 0;
-  menu->heightPseudo = 0;
-
-  char port_input_text[6];
-
-  SDL_itoa(game_data->port, port_input_text, 10);
-
-  strcpy(menu->hostname_input_text, game_data->hostname);
-  strcpy(menu->port_input_text, port_input_text);
-  strcpy(menu->pseudo_input_text, game_data->pseudo);
+  menu->hostname_textbox = createTextbox(window, menu->textbox_font, game_data->hostname, dark_text_color, 1024);
+  menu->port_textbox = createTextbox(window, menu->textbox_font, port_textbox_default_text, dark_text_color, 7);
+  menu->pseudo_textbox = createTextbox(window, menu->textbox_font, game_data->pseudo, dark_text_color, 64);
 
   return menu;
 }
@@ -103,33 +84,33 @@ extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, men
 
   if (isMouseClickInRect(*event, menu->join_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
   {
-    strcpy(game_data->pseudo, menu->pseudo_input_text);
-    strcpy(game_data->hostname, menu->hostname_input_text);
-    game_data->port = atoi(menu->port_input_text);
+    strcpy(game_data->hostname, menu->hostname_textbox->text);
+    game_data->port = atoi(menu->port_textbox->text);
+    strcpy(game_data->pseudo, menu->pseudo_textbox->text);
 
     return 1;
   }
 
-  if (isMouseClickInRect(*event, menu->hostname_textbox->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
+  if (isMouseClickInRect(*event, menu->hostname_rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
     selected_textbox = 1;
-  else if (isMouseClickInRect(*event, menu->port_textbox->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
+  else if (isMouseClickInRect(*event, menu->port_rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
     selected_textbox = 2;
-  else if (isMouseClickInRect(*event, menu->pseudo_textbox->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
+  else if (isMouseClickInRect(*event, menu->pseudo_rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
     selected_textbox = 3;
 
   switch (selected_textbox)
   {
   case 1:
     SDL_StartTextInput();
-    updateTextboxText(*event, menu->text_font, menu->hostname_input_text, &menu->widthIp, &menu->heightIp);
+    updateTextbox(event, menu->hostname_textbox);
     break;
   case 2:
     SDL_StartTextInput();
-    updateTextboxText(*event, menu->text_font, menu->port_input_text, &menu->widthPort, &menu->heightPort);
+    updateTextbox(event, menu->port_textbox);
     break;
   case 3:
     SDL_StartTextInput();
-    updateTextboxText(*event, menu->text_font, menu->pseudo_input_text, &menu->widthPseudo, &menu->heightPseudo);
+    updateTextbox(event, menu->pseudo_textbox);
     break;
   default:
     SDL_StopTextInput();
@@ -148,20 +129,6 @@ extern int menuRenderer(window_t *window, menu_t *menu)
 {
   float scale_factor = (float)window->height / (float)menu->initial_height;
 
-  SDL_SetRenderDrawColor(window->renderer, 100, 10, 0, 255);
-
-  SDL_Rect hostname_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y / 1.2, 0, 0};
-  SDL_Rect port_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y, 0, 0};
-  SDL_Rect pseudo_rect = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y * 1.2, 0, 0};
-
-  destroyTextbox(&menu->hostname_textbox);
-  destroyTextbox(&menu->port_textbox);
-  destroyTextbox(&menu->pseudo_textbox);
-
-  menu->hostname_textbox = createTextbox(menu->text_font, menu->dark_text_color, hostname_rect, window);
-  menu->port_textbox = createTextbox(menu->text_font, menu->dark_text_color, port_rect, window);
-  menu->pseudo_textbox = createTextbox(menu->text_font, menu->dark_text_color, pseudo_rect, window);
-
   // Affichage de l'image de fond
   SDL_Rect background_rect = positionToCenter(window, menu->background_sprite->width * scale_factor * 4, menu->background_sprite->height * scale_factor * 4);
 
@@ -174,7 +141,7 @@ extern int menuRenderer(window_t *window, menu_t *menu)
   renderButton(window, menu->join_button);
   renderButton(window, menu->quit_button);
 
-  // Affichage text des textbox
+  // Affichage des étiquettes des zones de saisie de texte
   SDL_Rect hostname_label_rect = positionFromCenter(window, menu->hostname_label->width * scale_factor, menu->hostname_label->height * scale_factor, 50 * scale_factor, -125 * scale_factor, TRANSFORM_ORIGIN_LEFT);
   SDL_Rect port_label_rect = positionFromCenter(window, menu->port_label->width * scale_factor, menu->port_label->height * scale_factor, 50 * scale_factor, -50 * scale_factor, TRANSFORM_ORIGIN_LEFT);
   SDL_Rect pseudo_label_rect = positionFromCenter(window, menu->pseudo_label->width * scale_factor, menu->pseudo_label->height * scale_factor, 50 * scale_factor, 25 * scale_factor, TRANSFORM_ORIGIN_LEFT);
@@ -183,21 +150,42 @@ extern int menuRenderer(window_t *window, menu_t *menu)
   SDL_RenderCopy(window->renderer, menu->port_label->texture, NULL, &port_label_rect);
   SDL_RenderCopy(window->renderer, menu->pseudo_label->texture, NULL, &pseudo_label_rect);
 
-  //---------//
+  // Affichage des zones de saisie de texte
+  float textbox_font_scale_factor = 0.5;
 
-  // Dessiner le rectangle de saisie de texte
-  drawRect(window->renderer, hostname_rect, 192, 148, 115, 0);
-  drawRect(window->renderer, port_rect, 192, 148, 115, 0);
-  drawRect(window->renderer, pseudo_rect, 192, 148, 115, 0);
+  menu->hostname_textbox->rect = positionFromCenter(window, menu->hostname_textbox->text_rect.w * scale_factor * textbox_font_scale_factor, menu->hostname_textbox->text_rect.h * scale_factor * textbox_font_scale_factor, 50 * scale_factor, -90 * scale_factor, TRANSFORM_ORIGIN_LEFT);
+  menu->port_textbox->rect = positionFromCenter(window, menu->port_textbox->text_rect.w * scale_factor * textbox_font_scale_factor, menu->port_textbox->text_rect.h * scale_factor * textbox_font_scale_factor, 50 * scale_factor, -15 * scale_factor, TRANSFORM_ORIGIN_LEFT);
+  menu->pseudo_textbox->rect = positionFromCenter(window, menu->pseudo_textbox->text_rect.w * scale_factor * textbox_font_scale_factor, menu->pseudo_textbox->text_rect.h * scale_factor * textbox_font_scale_factor, 50 * scale_factor, 60 * scale_factor, TRANSFORM_ORIGIN_LEFT);
 
-  SDL_Rect textRectIp = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y / 1.2, (menu->widthIp / 2), (menu->join_button->rect.h)};
-  drawText(window->renderer, menu->textbox_font, menu->hostname_input_text, textRectIp, menu->light_text_color);
+  menu->hostname_textbox->max_width = 217 * scale_factor / textbox_font_scale_factor;
+  menu->port_textbox->max_width = 217 * scale_factor / textbox_font_scale_factor;
+  menu->pseudo_textbox->max_width = 217 * scale_factor / textbox_font_scale_factor;
 
-  SDL_Rect textRectPort = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y, (menu->widthPort / 2), (menu->join_button->rect.h)};
-  drawText(window->renderer, menu->textbox_font, menu->port_input_text, textRectPort, menu->light_text_color);
+  menu->hostname_rect = menu->hostname_textbox->rect;
+  menu->hostname_rect.x -= 5;
+  menu->hostname_rect.y -= 5;
+  menu->hostname_rect.w = 227 * scale_factor;
+  menu->hostname_rect.h += 10;
 
-  SDL_Rect textRectPseudo = {menu->join_button->rect.x * 2.8, menu->join_button->rect.y * 1.2, (menu->widthPseudo / 2), (menu->join_button->rect.h)};
-  drawText(window->renderer, menu->textbox_font, menu->pseudo_input_text, textRectPseudo, menu->light_text_color);
+  menu->port_rect = menu->port_textbox->rect;
+  menu->port_rect.x -= 5;
+  menu->port_rect.y -= 5;
+  menu->port_rect.w = 227 * scale_factor;
+  menu->port_rect.h += 10;
+
+  menu->pseudo_rect = menu->pseudo_textbox->rect;
+  menu->pseudo_rect.x -= 5;
+  menu->pseudo_rect.y -= 5;
+  menu->pseudo_rect.w = 227 * scale_factor;
+  menu->pseudo_rect.h += 10;
+
+  drawRect(window->renderer, menu->hostname_rect, 192, 148, 115, 0);
+  drawRect(window->renderer, menu->port_rect, 192, 148, 115, 0);
+  drawRect(window->renderer, menu->pseudo_rect, 192, 148, 115, 0);
+
+  renderTextbox(window, menu->hostname_textbox);
+  renderTextbox(window, menu->port_textbox);
+  renderTextbox(window, menu->pseudo_textbox);
 
   return 0;
 }

@@ -38,26 +38,19 @@ typedef struct
 
 typedef struct
 {
-    SDL_Surface *surface;
-    SDL_Texture *texture;
+    sprite_t *sprite;
     SDL_Rect rect;
+    SDL_Rect text_rect;
+    int max_width;
+    int character_limit;
+    int character_diplay_count;
+    TTF_Font *font;
+    SDL_Color color;
     char *text;
 } textbox_t;
 
 /**
  * @brief Fonction de création des boutons
- *
- * @param renderer
- * @param font
- * @param buttonText
- * @param color
- * @param buttonXRatio
- * @param buttonYRatio
- * @param buttonWidthRatio
- * @param buttonHeightRatio
- * @param button
- * @param width
- * @param height
  *
  * @return void
  */
@@ -77,31 +70,18 @@ extern void destroyButton(button_t **button);
 /**
  * @brief Fonction de création des textes box (texte de saisie)
  *
- * @param renderer
- * @param font
- * @param color
- * @param x
- * @param y
- * @param w
- * @param h
- * @param rect
- *
  * @return void
  */
-extern textbox_t *createTextbox(TTF_Font *font, SDL_Color color, SDL_Rect rect, window_t *window);
+textbox_t *createTextbox(window_t *window, TTF_Font *font, char *text, SDL_Color color, int character_limit);
+
+extern void renderTextbox(window_t *window, textbox_t *textbox);
 
 /**
  * @brief Fonction de mise à jour des textes box (texte de saisie)
  *
- * @param event
- * @param font
- * @param inputText
- * @param width
- * @param height
- *
  * @return void
  */
-extern void updateTextboxText(SDL_Event event, TTF_Font *font, char *inputText, int *width, int *height);
+extern void updateTextbox(SDL_Event *event, textbox_t *textbox);
 
 /**
  * @brief Fonction de destruction des textes box (texte de saisie)
@@ -113,10 +93,6 @@ extern void updateTextboxText(SDL_Event event, TTF_Font *font, char *inputText, 
 extern void destroyTextbox(textbox_t **textbox);
 
 extern void drawRect(SDL_Renderer *renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
-
-extern void drawClear(SDL_Renderer *renderer);
-
-extern void drawText(SDL_Renderer *renderer, TTF_Font *font, char *text, SDL_Rect rect, SDL_Color color);
 
 /**
  * @brief Fonction de détection de clic dans une zone

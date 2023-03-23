@@ -23,9 +23,6 @@ typedef struct
     int initial_height;
     TTF_Font *text_font;
     TTF_Font *textbox_font;
-    SDL_Color light_text_color;
-    SDL_Color dark_text_color;
-    SDL_Color selected_button_color;
     sprite_t *background_sprite;
     button_t *join_button;
     button_t *quit_button;
@@ -38,15 +35,6 @@ typedef struct
     SDL_Rect hostname_rect;
     SDL_Rect port_rect;
     SDL_Rect pseudo_rect;
-    char hostname_input_text[1024];
-    char port_input_text[6];
-    char pseudo_input_text[64];
-    int widthIp;
-    int widthPort;
-    int widthPseudo;
-    int heightIp;
-    int heightPort;
-    int heightPseudo;
 } menu_t;
 
 extern menu_t *createMenu(window_t *window, client_game_data_t *game_data);
