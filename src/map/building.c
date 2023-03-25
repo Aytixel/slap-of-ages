@@ -59,6 +59,26 @@ extern building_t *createBuilding(building_type_e type, SDL_Point *position, win
     return building;
 }
 
+extern building_t ***createBuildingMatrix(int map_size)
+{
+    building_t ***building_matrix = malloc(sizeof(building_t **) * map_size);
+
+    for (int i = 0; i < map_size; i++)
+    {
+        building_matrix[i] = malloc(sizeof(building_t *) * map_size);
+    }
+
+    for (int i = 0; i < map_size; i++)
+    {
+        for (int j = 0; j < map_size; j++)
+        {
+            building_matrix[i][j] = NULL;
+        }
+    }
+
+    return building_matrix;
+}
+
 extern void destroyBuilding(building_t **building)
 {
 
@@ -116,14 +136,63 @@ extern void clearMatrix(building_t ***building_matrix, int map_size)
     }
 }
 
+extern void destroyBuildingMatrix(building_t ****building_matrix, int map_size)
+{
+    clearMatrix(*building_matrix, map_size);
+
+    for (int i = 0; i < map_size; i++)
+    {
+        free((*building_matrix)[i]);
+    }
+
+    free(*building_matrix);
+    *building_matrix = NULL;
+}
+
 extern void addBuildingInMatrix(building_t ***building_matrix, building_t *building)
 {
-    building_matrix[building->position.x][building->position.y] = building;
+
+    switch (building->type)
+    {
+    case MILL_BUILDING:
+    case VERTICAL_WALL_BUILDING:
+        building_matrix[building->position.x][building->position.y] = building;
+        building_matrix[building->position.x][building->position.y + 1] = building;
+        break;
+
+    case HORIZONTAL_WALL_BUILDING:
+        building_matrix[building->position.x][building->position.y] = building;
+        building_matrix[building->position.x + 1][building->position.y] = building;
+        break;
+
+    default:
+        building_matrix[building->position.x][building->position.y] = building;
+        break;
+    }
 }
 
 extern void removeBuildingFromMatrix(building_t ***building_matrix, building_t *building)
 {
-    destroyBuilding(&(building_matrix[building->position.x][building->position.y]));
+    if (building == NULL)
+        return;
+
+    switch (building->type)
+    {
+    case MILL_BUILDING:
+    case VERTICAL_WALL_BUILDING:
+        building_matrix[building->position.x][building->position.y + 1] = NULL;
+        destroyBuilding(&(building_matrix[building->position.x][building->position.y]));
+        break;
+
+    case HORIZONTAL_WALL_BUILDING:
+        building_matrix[building->position.x + 1][building->position.y] = NULL;
+        destroyBuilding(&(building_matrix[building->position.x][building->position.y]));
+        break;
+
+    default:
+        destroyBuilding(&(building_matrix[building->position.x][building->position.y]));
+        break;
+    }
 }
 
 extern void updateBuildingCoord(building_t *building, SDL_Point *position)
@@ -133,14 +202,42 @@ extern void updateBuildingCoord(building_t *building, SDL_Point *position)
 
 extern int canPlaceBuilding(building_t *building, SDL_Point *position, building_t ***building_matrix)
 {
+
     if (canRenderBuilding(building->building_renderer, position, building->type))
     {
         SDL_Rect rect = {0, 0, 0, 0};
 
+        printf("can render building\n");
+
         if (building_matrix[position->x][position->y] == NULL)
         {
-            return 1;
+            switch (building->type)
+            {
+            case MILL_BUILDING:
+            case VERTICAL_WALL_BUILDING:
+                if (building_matrix[position->x][position->y + 1] == NULL)
+                {
+                    return 1;
+                }
+                break;
+
+            case HORIZONTAL_WALL_BUILDING:
+                if (building_matrix[position->x + 1][position->y] == NULL)
+                {
+                    return 1;
+                }
+                break;
+
+            default:
+                return 1;
+                break;
+            }
         }
     }
     return 0;
+}
+
+extern building_t *getBuilding(building_t ***building_matrix, SDL_Point *position)
+{
+    return building_matrix[position->x][position->y];
 }

@@ -141,6 +141,8 @@ int main(int argc, char *argv[])
                 }
             }
 
+            checkServerGameTimeout(game_state_array);
+
             for (int i = 0; i < deleted_socket_fd_count; i++)
             {
                 printf("%d : (Erreur): Déconnexion du client\n", deleted_socket_fds[i]);

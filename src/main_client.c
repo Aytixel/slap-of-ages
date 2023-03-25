@@ -7,6 +7,7 @@
 #include "connection/client.h"
 #include "map/map_renderer.h"
 #include "map/building_renderer.h"
+#include "menu/menu.h"
 #include "client/game_data.h"
 #include "client/game_state.h"
 
@@ -64,8 +65,7 @@ void handle_packet(packet_t *packet, client_game_data_t *game_data)
         printf("Adversaire : %s\n", game_data->opponent_pseudo);
         break;
     case SET_MAP_PACKET_ID:
-        game_data->state = COMBAT_GAME_STATE;
-
+        startGame(client, game_data);
         printf("Partie lancé\n");
         break;
     case HAS_PLAYER_WON_PACKET_ID:
@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
     signal(SIGABRT, signalHandler);
     signal(SIGTERM, signalHandler);
 
-    window_t *window = createWindow("Slap of Ages", 600, 600);
+    window_t *window = createWindow("Slap of Ages", 700, 600);
 
     if (window == NULL)
         return 1;
@@ -111,6 +111,11 @@ int main(int argc, char *argv[])
     frame_timer_t *main_timer = createTimer(1000 / 30);
     client_game_data_t *game_data = createGameData();
 
+    menu_t *menu = createMenu(window, game_data);
+
+    if (menu == NULL)
+        return 1;
+
     // boucle principale
     while (running)
     {
@@ -118,7 +123,33 @@ int main(int argc, char *argv[])
         int time_left = timeLeft(main_timer);
 
         if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
+        {
             windowEventHandler(&event, window, game_data);
+
+            switch (client_connection_state)
+            {
+            case CLIENT_WAITING_INFO:
+            case CLIENT_WAITING_HANDSHAKE:
+                switch (menuEventHandler(game_data, &event, menu))
+                {
+                case 2:
+                    running = 0;
+                    break;
+                case 1:
+                    if (!initClientConnection(game_data->hostname, game_data->port))
+                    {
+                        packet_t *set_pseudo_packet = createSetPseudoPacket(game_data->pseudo);
+
+                        sendToServer(client, set_pseudo_packet);
+                        deletePacket(&set_pseudo_packet);
+                    }
+                    break;
+                }
+                break;
+            case CLIENT_CONNECTED:
+                break;
+            }
+        }
 
         if (checkTime(main_timer))
         {
@@ -126,16 +157,6 @@ int main(int argc, char *argv[])
             switch (client_connection_state)
             {
             case CLIENT_WAITING_INFO:
-                printf("Pseudo : ");
-                scanf("%s", game_data->pseudo);
-
-                if (!initClientConnection(game_data->hostname, game_data->port))
-                {
-                    packet_t *set_pseudo_packet = createSetPseudoPacket(game_data->pseudo);
-
-                    sendToServer(client, set_pseudo_packet);
-                    deletePacket(&set_pseudo_packet);
-                }
                 break;
             case CLIENT_WAITING_HANDSHAKE:
                 switch (waitServerHandshake())
@@ -170,13 +191,23 @@ int main(int argc, char *argv[])
 
             SDL_RenderClear(window->renderer);
 
-            renderMap(window, map_renderer);
+            // gestion de l'affichage
+            switch (client_connection_state)
+            {
+            case CLIENT_CONNECTED:
+                renderMap(window, map_renderer);
+                break;
+            default:
+                menuRenderer(window, menu);
+                break;
+            }
 
             SDL_RenderPresent(window->renderer);
         }
     }
 
     closeClientConnection();
+    deleteMenu(&menu);
     deleteGameData(&game_data);
     deleteTimer(&main_timer);
     endSocket();

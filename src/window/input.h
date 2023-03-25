@@ -22,9 +22,12 @@
 
 typedef struct
 {
+    sprite_t *sprite;
     SDL_Rect rect;
-    SDL_Texture *texture;
-    SDL_Surface *surface;
+    int is_selected;
+    TTF_Font *font;
+    SDL_Color color;
+    SDL_Color selected_color;
     char *text;
 } button_t;
 
@@ -35,30 +38,25 @@ typedef struct
 
 typedef struct
 {
-    SDL_Surface *surface;
-    SDL_Texture *texture;
+    sprite_t *sprite;
     SDL_Rect rect;
+    SDL_Rect text_rect;
+    int max_width;
+    int character_limit;
+    int character_diplay_count;
+    TTF_Font *font;
+    SDL_Color color;
     char *text;
-} Textbox_t;
+} textbox_t;
 
 /**
  * @brief Fonction de création des boutons
  *
- * @param renderer
- * @param font
- * @param buttonText
- * @param color
- * @param buttonXRatio
- * @param buttonYRatio
- * @param buttonWidthRatio
- * @param buttonHeightRatio
- * @param button
- * @param width
- * @param height
- *
  * @return void
  */
-extern void createButton(TTF_Font *font, const char *buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, window_t *window);
+extern button_t *createButton(window_t *window, TTF_Font *font, char *text, SDL_Color color, SDL_Color selected_color);
+
+extern void renderButton(window_t *window, button_t *button);
 
 /**
  * @brief Fonction de destruction des boutons
@@ -67,36 +65,23 @@ extern void createButton(TTF_Font *font, const char *buttonText, SDL_Color color
  *
  * @return void
  */
-extern void destroyButton(button_t *button);
+extern void destroyButton(button_t **button);
 
 /**
  * @brief Fonction de création des textes box (texte de saisie)
  *
- * @param renderer
- * @param font
- * @param color
- * @param x
- * @param y
- * @param w
- * @param h
- * @param rect
- *
  * @return void
  */
-extern void createTextbox(TTF_Font *font, SDL_Color color, SDL_Rect rect, Textbox_t *textbox, window_t *window);
+textbox_t *createTextbox(window_t *window, TTF_Font *font, char *text, SDL_Color color, int character_limit);
+
+extern void renderTextbox(window_t *window, textbox_t *textbox);
 
 /**
  * @brief Fonction de mise à jour des textes box (texte de saisie)
  *
- * @param event
- * @param font
- * @param inputText
- * @param width
- * @param height
- *
  * @return void
  */
-extern void updateTextboxText(SDL_Event event, TTF_Font *font, char *inputText, int *width, int *height);
+extern void updateTextbox(SDL_Event *event, textbox_t *textbox);
 
 /**
  * @brief Fonction de destruction des textes box (texte de saisie)
@@ -105,13 +90,9 @@ extern void updateTextboxText(SDL_Event event, TTF_Font *font, char *inputText, 
  *
  * @return void
  */
-extern void destroyTextbox(Textbox_t *textbox);
+extern void destroyTextbox(textbox_t **textbox);
 
-extern void drawRect(SDL_Renderer* renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
-
-extern void drawClear(SDL_Renderer* renderer);
-
-extern void drawText(SDL_Renderer* renderer, TTF_Font* font, char* text, SDL_Rect rect, SDL_Color color);
+extern void drawRect(SDL_Renderer *renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 
 /**
  * @brief Fonction de détection de clic dans une zone

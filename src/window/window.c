@@ -82,6 +82,20 @@ extern int destroyWindow(window_t **window)
     return 0;
 }
 
+extern TTF_Font *loadFont(char *path, int pt_size)
+{
+    TTF_Font *font = TTF_OpenFont(path, pt_size);
+
+    if (font == NULL)
+    {
+        fprintf(stderr, "(Erreur): Impossible de charger la police \"%s\" : %s\n", path, TTF_GetError());
+
+        return NULL;
+    }
+
+    return font;
+}
+
 extern sprite_t *loadSprite(window_t *window, char *path)
 {
     sprite_t *sprite = malloc(sizeof(sprite_t));

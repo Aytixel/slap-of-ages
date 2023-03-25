@@ -17,6 +17,7 @@ typedef struct server_game_state_array_s server_game_state_array_t;
 #include "client_data.h"
 #include "connection/server.h"
 #include "packet/packet.h"
+#include "timer/timer.h"
 
 /**
  * @brief Structure de données contenant les informations d'une partie pour un joueur
@@ -40,6 +41,7 @@ typedef struct server_game_state_s
 {
     player_game_state_t *player[2];   /**< joueurs*/
     server_game_state_array_t *array; /**< pointeur sur la structure parente*/
+    frame_timer_t *timer;             /**< chronomètre de fin de partie*/
 } server_game_state_t;
 
 /**
@@ -120,6 +122,7 @@ extern server_game_state_t *createGameState();
  * @param game_state un pointeur sur les données d'une partie
  * @param socket_fd id du socket client
  * @param client_data un pointeur sur les données client
+ * @param server_client un pointeur sur client serveur
  * @return **1** si le joueur a pu être ajouté, **0** sinon
  */
 extern int addPlayerToGame(server_game_state_t *game_state, int socket_fd, server_client_data_t *client_data, server_client_t *server_client);
@@ -202,10 +205,18 @@ extern int deleteGameState(server_game_state_t **game_state);
 extern void setPlayerFinishedInArray(server_game_state_array_t *game_state_array, int socket_fd, packet_t *packet);
 
 /**
+ * @brief Vérifie si une partie à dépassé le temps limite, et la supprime
+ *
+ * @param game_state_array une référence d'un pointeur sur un tableau avec les données de partie
+ */
+extern void checkServerGameTimeout(server_game_state_array_t *game_state_array);
+
+/**
  * @brief Définit un joueur comme étant prêt à jouer, ou non, dans le liste des parties
  *
  * @param game_state_array une référence d'un pointeur sur un tableau avec les données de partie
  * @param client_data un pointeur sur les données client
+ * @param server_client un pointeur sur client serveur
  * @param packet un pointeur le paquet contenant si le joeur est prêt
  */
 extern void setPlayerIsReadyInArray(server_game_state_array_t *game_state_array, server_client_data_t *client_data, server_client_t *server_client, packet_t *packet);

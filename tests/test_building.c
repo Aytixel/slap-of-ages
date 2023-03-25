@@ -34,9 +34,7 @@ int main(int argc, char *argv[])
     map_renderer_t *map_renderer = createMapRenderer(window, MAP_SIZE);
     frame_timer_t *main_timer = createTimer(1000 / 30);
 
-    building_t *map_building[MAP_SIZE][MAP_SIZE] = {NULL};
-
-    building_t *building = NULL;
+    building_t ***map_building = createBuildingMatrix(MAP_SIZE);
 
     int time_left;
 
@@ -74,12 +72,19 @@ int main(int argc, char *argv[])
 
                     test_position = getTileCoord(&mouse_position, window, map_renderer);
 
-                    if (test_position.x != -1 && test_position.y != -1 && map_building[test_position.x][test_position.y] == NULL)
+                    building_t *new = createBuilding(MILL_BUILDING, &test_position, window, map_renderer);
+
+                    if (canPlaceBuilding(new, &test_position, map_building))
                     {
 
-                        map_building[test_position.x][test_position.y] = createBuilding(HOUSE_1_BUILDING, &test_position, window, map_renderer);
+                        addBuildingInMatrix(map_building, new);
 
                         printf("Building created\n");
+                    }
+                    else
+                    {
+                        printf("Building not created\n");
+                        destroyBuilding(&new);
                     }
 
                     break;
@@ -88,11 +93,10 @@ int main(int argc, char *argv[])
                     mouse_position.y = event.button.y;
 
                     test_position = getTileCoord(&mouse_position, window, map_renderer);
-
                     if (test_position.x != -1 && test_position.y != -1 && map_building[test_position.x][test_position.y] != NULL)
                     {
+                        removeBuildingFromMatrix(map_building, map_building[test_position.x][test_position.y]);
                         printf("Building destroyed\n");
-                        destroyBuilding(&map_building[test_position.x][test_position.y]);
                     }
                     break;
                 }
@@ -122,8 +126,8 @@ int main(int argc, char *argv[])
     }
 
     deleteTimer(&main_timer);
+    destroyBuildingMatrix(&map_building, MAP_SIZE);
     deleteMapRenderer(&map_renderer);
-    destroyBuilding(&building);
     destroyWindow(&window);
 
     return 0;

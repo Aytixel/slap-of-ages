@@ -121,6 +121,7 @@ extern server_game_state_t *createGameState()
     game_state->player[0] = NULL;
     game_state->player[1] = NULL;
     game_state->array = NULL;
+    game_state->timer = NULL;
 
     return game_state;
 }
@@ -200,9 +201,13 @@ extern int gameWinner(server_game_state_t *game_state)
     if (game_state->player[0]->destruction_percentage != game_state->player[1]->destruction_percentage)
         return game_state->player[0]->destruction_percentage < game_state->player[1]->destruction_percentage;
 
+    // les deux joeurs n'ont pas puent finir la partie
+    if (game_state->player[0]->time_left <= 0 && game_state->player[1]->time_left <= 0)
+        return 2;
+
     // le joueur avec qui fini le plus vite gagne
     if (game_state->player[0]->time_left != game_state->player[1]->time_left)
-        return game_state->player[0]->time_left > game_state->player[1]->time_left;
+        return game_state->player[0]->time_left < game_state->player[1]->time_left;
 
     // égalité
     return 2;
@@ -215,6 +220,7 @@ extern int deleteGameState(server_game_state_t **game_state)
 
     deletePlayerState(&(*game_state)->player[0]);
     deletePlayerState(&(*game_state)->player[1]);
+    deleteTimer(&(*game_state)->timer);
 
     free(*game_state);
     *game_state = NULL;
@@ -264,6 +270,44 @@ extern void setPlayerFinishedInArray(server_game_state_array_t *game_state_array
     }
 }
 
+extern void checkServerGameTimeout(server_game_state_array_t *game_state_array)
+{
+    for (int i = 0; i < game_state_array->count; i++)
+    {
+        if (isGameStarted(game_state_array->game_state[i]) && timeLeft(game_state_array->game_state[i]->timer) <= 0)
+        {
+            packet_t *packet_1 = NULL;
+            packet_t *packet_2 = NULL;
+
+            if (game_state_array->game_state[i]->player[0]->has_finished && !game_state_array->game_state[i]->player[1]->has_finished)
+            {
+                packet_1 = createHasPlayerWonPacket(1);
+                packet_2 = createHasPlayerWonPacket(0);
+            }
+            else if (!game_state_array->game_state[i]->player[0]->has_finished && game_state_array->game_state[i]->player[1]->has_finished)
+            {
+                packet_1 = createHasPlayerWonPacket(0);
+                packet_2 = createHasPlayerWonPacket(1);
+            }
+            else
+            {
+                packet_1 = createHasPlayerWonPacket(2);
+                packet_2 = createHasPlayerWonPacket(2);
+            }
+
+            sendToServerClient(game_state_array->game_state[i]->player[0]->server_client, packet_1);
+            sendToServerClient(game_state_array->game_state[i]->player[1]->server_client, packet_2);
+
+            deletePacket(&packet_1);
+            deletePacket(&packet_2);
+
+            printf("  : Parti finie entre %s, et %s\n", game_state_array->game_state[i]->player[0]->client_data->pseudo, game_state_array->game_state[i]->player[1]->client_data->pseudo);
+
+            removeGameStateFromArray(game_state_array, i--);
+        }
+    }
+}
+
 extern void setPlayerIsReadyInArray(server_game_state_array_t *game_state_array, server_client_data_t *client_data, server_client_t *server_client, packet_t *packet)
 {
     int is_player_ready;
@@ -300,6 +344,7 @@ extern void setPlayerIsReadyInArray(server_game_state_array_t *game_state_array,
         {
             game_state_array->game_state[game_index]->player[0]->client_data->is_in_game = 1;
             game_state_array->game_state[game_index]->player[1]->client_data->is_in_game = 1;
+            game_state_array->game_state[game_index]->timer = createTimer(1000. * 60. * 3.6); // initialisation du chronomètre, avec un délaie supplémentaire pour les temps de latence
 
             packet_t *packet = createSetPseudoPacket(game_state_array->game_state[game_index]->player[1]->client_data->pseudo);
 

@@ -80,6 +80,15 @@ extern window_t *createWindow(char *title, int width, int height);
 extern int destroyWindow(window_t **window);
 
 /**
+ * @brief Charge une police depuis un fichier
+ *
+ * @param path chemin vers le fichier de la police
+ * @param pt_size taille de la police
+ * @return un pointer sur une **TTF_Font**
+ */
+extern TTF_Font *loadFont(char *path, int pt_size);
+
+/**
  * @brief Charge un sprite depuis une image
  *
  * @param window un pointeur sur une fenêtre

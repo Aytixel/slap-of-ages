@@ -17,87 +17,127 @@
 #include "input.h"
 #include "window.h"
 
-void createButton(TTF_Font *font, const char *buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, window_t *window)
+extern button_t *createButton(window_t *window, TTF_Font *font, char *text, SDL_Color color, SDL_Color selected_color)
 {
-    // Création de la surface du bouton
-    button->surface = TTF_RenderText_Solid(font, buttonText, color);
+    button_t *button = malloc(sizeof(button_t));
 
-    // Création de la texture du bouton à partir de la surface
-    button->texture = SDL_CreateTextureFromSurface(window->renderer, button->surface);
+    button->sprite = createTextSprite(window, font, text, color);
+    button->font = font;
+    button->color = color;
+    button->is_selected = 0;
+    button->selected_color = selected_color;
+    button->rect.w = button->sprite->width;
+    button->rect.h = button->sprite->height;
+    button->rect.x = 0;
+    button->rect.y = 0;
+    button->text = strdup(text);
 
-    // Calcul des dimensions du bouton en pixels
-    button->rect.w = (int)(window->width * buttonWidthRatio);
-    button->rect.h = (int)(window->height * buttonHeightRatio);
-
-    // Calcul de la position du bouton en pixels
-    button->rect.x = (int)(window->width * buttonXRatio);
-    button->rect.y = (int)(window->height * buttonYRatio);
-
-    // Initialisation du texte du bouton
-    button->text = strdup(buttonText);
+    return button;
 }
 
-void destroyButton(button_t *button)
+extern void renderButton(window_t *window, button_t *button)
 {
-    SDL_DestroyTexture(button->texture);
-    SDL_FreeSurface(button->surface);
-    free(button->text);
+    destroySprite(&button->sprite);
+    button->sprite = createTextSprite(window, button->font, button->text, button->is_selected ? button->selected_color : button->color);
+
+    SDL_RenderCopy(window->renderer, button->sprite->texture, NULL, &button->rect);
 }
 
-void createTextbox(TTF_Font *font, SDL_Color color, SDL_Rect rect, Textbox_t *textbox, window_t *window)
+extern void destroyButton(button_t **button)
 {
-    textbox->surface = TTF_RenderText_Solid(font, " ", color);
-    textbox->texture = SDL_CreateTextureFromSurface(window->renderer, textbox->surface);
-    SDL_FreeSurface(textbox->surface);
-    memcpy(&(textbox->rect), &rect, sizeof(SDL_Rect));
-    SDL_SetTextInputRect(&(textbox->rect));
+    destroySprite(&(*button)->sprite);
+    free((*button)->text);
+    free(*button);
+
+    *button = NULL;
 }
 
-void updateTextboxText(SDL_Event event, TTF_Font *font, char *inputText, int *width, int *height)
+extern textbox_t *createTextbox(window_t *window, TTF_Font *font, char *text, SDL_Color color, int character_limit)
 {
-    switch (event.type)
+    textbox_t *textbox = malloc(sizeof(textbox_t));
+
+    textbox->sprite = text[0] != 0 ? createTextSprite(window, font, text, color) : NULL;
+    textbox->font = font;
+    textbox->color = color;
+    textbox->character_limit = character_limit;
+    textbox->character_diplay_count = strlen(text);
+    TTF_SizeUTF8(font, text, &textbox->rect.w, &textbox->rect.h);
+    textbox->rect.x = 0;
+    textbox->rect.y = 0;
+    TTF_SizeUTF8(font, text, &textbox->text_rect.w, &textbox->text_rect.h);
+    textbox->text_rect.x = 0;
+    textbox->text_rect.y = 0;
+    textbox->max_width = textbox->rect.w;
+    textbox->text = malloc(character_limit);
+    strcpy(textbox->text, text);
+
+    return textbox;
+}
+
+extern void renderTextbox(window_t *window, textbox_t *textbox)
+{
+    destroySprite(&textbox->sprite);
+
+    TTF_MeasureUTF8(textbox->font, textbox->text, textbox->max_width, &textbox->text_rect.w, &textbox->character_diplay_count);
+
+    if (textbox->text[0] != 0)
+    {
+        char *temp_text = malloc(textbox->character_diplay_count + 2);
+        int offset = strlen(textbox->text) - textbox->character_diplay_count - 1;
+
+        if (offset < 0)
+            offset = 0;
+
+        strcpy(temp_text, textbox->text + offset);
+
+        textbox->sprite = createTextSprite(window, textbox->font, temp_text, textbox->color);
+
+        free(temp_text);
+    }
+    else
+        textbox->sprite = NULL;
+
+    if (textbox->sprite != NULL)
+        SDL_RenderCopy(window->renderer, textbox->sprite->texture, NULL, &textbox->rect);
+}
+
+extern void updateTextbox(SDL_Event *event, textbox_t *textbox)
+{
+    int length = strlen(textbox->text);
+
+    switch (event->type)
     {
     case SDL_TEXTINPUT:
-        strcat(inputText, event.text.text);
+        if (length < textbox->character_limit - 1)
+            strcat(textbox->text, event->text.text);
         break;
     case SDL_KEYDOWN:
-        if (event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputText) > 0)
-        {
-            inputText[strlen(inputText) - 1] = '\0';
-        }
+        if (event->key.keysym.sym == SDLK_BACKSPACE && length > 0)
+            textbox->text[length - 1] = '\0';
         break;
     default:
         break;
     }
-    TTF_SizeUTF8(font, inputText, width, height);
+
+    TTF_MeasureUTF8(textbox->font, textbox->text, textbox->max_width, &textbox->text_rect.w, &textbox->character_diplay_count);
 }
 
-void destroyTextbox(Textbox_t *textbox)
+extern void destroyTextbox(textbox_t **textbox)
 {
-    SDL_DestroyTexture(textbox->texture);
-    SDL_FreeSurface(textbox->surface);
-    free(textbox->text);
+    destroySprite(&(*textbox)->sprite);
+    free((*textbox)->text);
+    free(*textbox);
+
+    *textbox = NULL;
 }
 
-void drawRect(SDL_Renderer* renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
+extern void drawRect(SDL_Renderer *renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+{
     SDL_SetRenderDrawColor(renderer, r, g, b, a);
     SDL_RenderFillRect(renderer, &rect);
 }
 
-void drawClear(SDL_Renderer* renderer) {
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Couleur noire
-    SDL_RenderClear(renderer);
-}
-
-void drawText(SDL_Renderer* renderer, TTF_Font* font, char* text, SDL_Rect rect, SDL_Color color) {
-    SDL_Surface* surface = TTF_RenderUTF8_Solid(font, text, color);
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_RenderCopy(renderer, texture, NULL, &rect);
-    SDL_DestroyTexture(texture);
-    SDL_FreeSurface(surface);
-}
-
-int isMouseClickInRect(SDL_Event event, SDL_Rect rect, int button, int type)
+extern int isMouseClickInRect(SDL_Event event, SDL_Rect rect, int button, int type)
 {
 
     if (type == event.type && event.button.button == button)
@@ -110,10 +150,9 @@ int isMouseClickInRect(SDL_Event event, SDL_Rect rect, int button, int type)
     return 0;
 }
 
-SDL_Point getMousePosition()
+extern SDL_Point getMousePosition()
 {
     int mouseX, mouseY;
     SDL_GetMouseState(&mouseX, &mouseY);
-    // printf("Mouse position : (%d, %d)\n", mouseX, mouseY);
     return (SDL_Point){mouseX, mouseY};
 }
