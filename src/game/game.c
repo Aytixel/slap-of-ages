@@ -17,10 +17,39 @@ node_list_t *create_node_list()
     return list;
 }
 
+void clear_node_list(node_list_t *list)
+{
+    do
+    {
+        if (list->nodes[--list->size] != NULL)
+            free(list->nodes[list->size]);
+    } while (list->size);
+}
+
 void free_node_list(node_list_t *list)
 {
     free(list->nodes);
     free(list);
+}
+
+void remove_parent_from_list(node_list_t *list, node_t *node)
+{
+    node_t *last_node = NULL;
+
+    while (node != NULL)
+    {
+        last_node = node;
+        node = node->parent;
+
+        for (int i = 0; i < list->size; i++)
+        {
+            if (list->nodes[i] == last_node)
+            {
+                remove_node(list, i);
+                break;
+            }
+        }
+    }
 }
 
 void add_node(node_list_t *list, node_t *node)
@@ -52,6 +81,18 @@ node_t *create_node(int x, int y, node_t *parent)
     return new_node;
 }
 
+void free_node_path(node_t *node)
+{
+    node_t *last_node = NULL;
+
+    while (node != NULL)
+    {
+        last_node = node;
+        node = node->parent;
+        free(last_node);
+    }
+}
+
 int heuristic(node_t *a, node_t *b)
 {
     return abs(a->x - b->x) + abs(a->y - b->y);
@@ -69,7 +110,9 @@ node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int mat[][MAT_S
 
     // Liste des nodes à explorer
     node_list_t *open_list = create_node_list();
+    node_list_t *all_list = create_node_list();
     add_node(open_list, start_node);
+    add_node(all_list, start_node);
 
     // Liste des nodes déjà explorés
     int closed_list[MAT_SIZE][MAT_SIZE] = {0};
@@ -97,6 +140,9 @@ node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int mat[][MAT_S
         // Si on a atteint le node final, on retourne le node courant
         if (current_node->x == goal_node->x && current_node->y == goal_node->y)
         {
+            remove_parent_from_list(all_list, current_node);
+            clear_node_list(all_list);
+            free_node_list(all_list);
             free_node_list(open_list);
             free(goal_node);
             return current_node;
@@ -132,7 +178,6 @@ node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int mat[][MAT_S
                 if (open_list->nodes[j]->x == new_x && open_list->nodes[j]->y == new_y && open_list->nodes[j]->g_cost <= neighbor->g_cost)
                 {
                     in_open_list = true;
-                    free(neighbor);
                     break;
                 }
             }
@@ -141,10 +186,15 @@ node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int mat[][MAT_S
             if (!in_open_list)
             {
                 add_node(open_list, neighbor);
+                add_node(all_list, neighbor);
             }
+            else
+                free(neighbor);
         }
     }
 
+    clear_node_list(all_list);
+    free_node_list(all_list);
     free_node_list(open_list);
     free(goal_node);
     return NULL;
@@ -161,7 +211,9 @@ node_t *a_star_no_wall(int start_x, int start_y, int goal_x, int goal_y, int mat
     node_t *goal_node = create_node(goal_x, goal_y, NULL);
 
     node_list_t *open_list = create_node_list();
+    node_list_t *all_list = create_node_list();
     add_node(open_list, start_node);
+    add_node(all_list, start_node);
 
     int closed_list[MAT_SIZE][MAT_SIZE] = {0};
 
@@ -184,6 +236,9 @@ node_t *a_star_no_wall(int start_x, int start_y, int goal_x, int goal_y, int mat
 
         if (current_node->x == goal_node->x && current_node->y == goal_node->y)
         {
+            remove_parent_from_list(all_list, current_node);
+            clear_node_list(all_list);
+            free_node_list(all_list);
             free_node_list(open_list);
             free(goal_node);
             return current_node;
@@ -213,7 +268,6 @@ node_t *a_star_no_wall(int start_x, int start_y, int goal_x, int goal_y, int mat
                 if (open_list->nodes[j]->x == new_x && open_list->nodes[j]->y == new_y && open_list->nodes[j]->g_cost <= neighbor->g_cost)
                 {
                     in_open_list = true;
-                    free(neighbor);
                     break;
                 }
             }
@@ -221,10 +275,15 @@ node_t *a_star_no_wall(int start_x, int start_y, int goal_x, int goal_y, int mat
             if (!in_open_list)
             {
                 add_node(open_list, neighbor);
+                add_node(all_list, neighbor);
             }
+            else
+                free(neighbor);
         }
     }
 
+    clear_node_list(all_list);
+    free_node_list(all_list);
     free_node_list(open_list);
     free(goal_node);
     return NULL;

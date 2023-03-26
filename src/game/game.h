@@ -21,14 +21,14 @@
 #define GOAL 2
 
 /**
- * @brief Structure de node
+ * @brief Structure de noeud
  *
  * @param x Coordonnée x du node
- * @param y Coordonnée y du node
- * @param g_cost Coût du node
- * @param h_cost Coût heuristique du node
- * @param f_cost Coût total du node
- * @param parent Pointeur vers le node parent
+ * @param y Coordonnée y du noeud
+ * @param g_cost Coût du noeud
+ * @param h_cost Coût heuristique du noeud
+ * @param f_cost Coût total du noeud
+ * @param parent Pointeur vers le noeud parent
  */
 typedef struct node_s
 {
@@ -41,9 +41,9 @@ typedef struct node_s
 } node_t;
 
 /**
- * @brief Structure de liste de node
+ * @brief Structure de liste de noeud
  *
- * @param nodes Tableau de pointeur vers les nodes
+ * @param nodes Tableau de pointeur vers les noeuds
  * @param size Taille de la liste
  * @param capacity Capacité de la liste
  */
@@ -55,21 +55,36 @@ typedef struct
 } node_list_t;
 
 /**
- * @brief Creation d'une liste de node
+ * @brief Creation d'une liste de noeud
  *
  * @return node_list*
  */
 extern node_list_t *create_node_list();
 
 /**
- * @brief Libération de la mémoire d'une liste de node
+ * @brief Vide une liste de ses noeuds
+ *
+ * @param list
+ */
+extern void clear_node_list(node_list_t *list);
+
+/**
+ * @brief Libération de la mémoire d'une liste de noeud
  *
  * @param list
  */
 extern void free_node_list(node_list_t *list);
 
 /**
- * @brief Ajout d'un node à la liste
+ * @brief Suppression de la liste d'un noeud et de ses parents
+ *
+ * @param list
+ * @param node
+ */
+void remove_parent_from_list(node_list_t *list, node_t *node);
+
+/**
+ * @brief Ajout d'un noeud à la liste
  *
  * @param list
  * @param node
@@ -77,7 +92,7 @@ extern void free_node_list(node_list_t *list);
 extern void add_node(node_list_t *list, node_t *node);
 
 /**
- * @brief Suppression d'un node
+ * @brief Suppression d'un noeud
  *
  * @param list
  * @param index
@@ -86,7 +101,7 @@ extern void add_node(node_list_t *list, node_t *node);
 extern node_t *remove_node(node_list_t *list, int index);
 
 /**
- * @brief Creation d'un node
+ * @brief Creation d'une noeud
  *
  * @param x
  * @param y
@@ -94,6 +109,13 @@ extern node_t *remove_node(node_list_t *list, int index);
  * @return node*
  */
 extern node_t *create_node(int x, int y, node_t *parent);
+
+/**
+ * @brief Libération de la mémoire d'une node et de ses parent
+ *
+ * @param node
+ */
+extern void free_node_path(node_t *node);
 
 /**
  * @brief Heuristique de Manhattan pour l'algorithme A*

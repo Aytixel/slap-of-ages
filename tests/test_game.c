@@ -38,6 +38,8 @@ int main()
 
         printf("Affichage du chemin trouvé dans la matrice( 5 = chemin utilisé ):\n");
         display_mat(mat);
+
+        free_node_path(path);
     }
     else
     {
@@ -74,6 +76,8 @@ int main()
 
         printf("Affichage du chemin trouvé dans la matrice( 5 = chemin utilisé ):\n");
         display_mat(mat);
+
+        free_node_path(path_no_wall);
     }
     else
     {
