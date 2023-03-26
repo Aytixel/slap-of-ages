@@ -15,7 +15,8 @@ extern server_game_state_array_t *createGameStateArray()
 {
     server_game_state_array_t *game_state_array = malloc(sizeof(server_game_state_array_t));
 
-    game_state_array->game_state = NULL;
+    game_state_array->capacity = 1;
+    game_state_array->game_state = malloc(sizeof(void *) * game_state_array->capacity);
     game_state_array->count = 0;
 
     return game_state_array;
@@ -23,9 +24,15 @@ extern server_game_state_array_t *createGameStateArray()
 
 extern void addGameStateToArray(server_game_state_array_t *game_state_array)
 {
-    game_state_array->game_state = realloc(game_state_array->game_state, sizeof(void *) * ++game_state_array->count);
-    game_state_array->game_state[game_state_array->count - 1] = createGameState();
-    game_state_array->game_state[game_state_array->count - 1]->array = game_state_array;
+    if (game_state_array->capacity == game_state_array->count)
+    {
+        game_state_array->capacity *= 2;
+        game_state_array->game_state = realloc(game_state_array->game_state, sizeof(void *) * game_state_array->capacity);
+    }
+
+    game_state_array->game_state[game_state_array->count] = createGameState();
+    game_state_array->game_state[game_state_array->count]->array = game_state_array;
+    game_state_array->count++;
 }
 
 extern int findGame(server_game_state_array_t *game_state_array)
@@ -49,19 +56,7 @@ extern int removeGameStateFromArray(server_game_state_array_t *game_state_array,
 
     deleteGameState(game_state_array->game_state + index);
 
-    game_state_array->count--;
-
-    if (game_state_array->count > 0)
-    {
-        memmove(game_state_array->game_state + index, game_state_array->game_state + index + 1, sizeof(void *) * (game_state_array->count - index));
-
-        game_state_array->game_state = realloc(game_state_array->game_state, sizeof(void *) * game_state_array->count);
-    }
-    else
-    {
-        free(game_state_array->game_state);
-        game_state_array->game_state = NULL;
-    }
+    game_state_array->game_state[index] = game_state_array->game_state[--game_state_array->count];
 
     return 1;
 }

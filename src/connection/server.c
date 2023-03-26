@@ -12,6 +12,7 @@
 #include "server.h"
 
 int server_client_count = 0;
+int server_client_capacity = 1;
 int next_server_client_index = 0;
 server_client_connection_t *server_client_connections = NULL;
 int deleted_socket_fd_count = 0;
@@ -27,7 +28,14 @@ extern void acceptClientConnections(server_t *server)
 
     while ((client = acceptServerClient(server)) != NULL)
     {
-        server_client_connections = realloc(server_client_connections, sizeof(server_client_connection_t) * ++server_client_count);
+        if (server_client_connections == NULL)
+            server_client_connections = malloc(sizeof(server_client_connection_t) * server_client_capacity);
+
+        if (server_client_capacity == server_client_count)
+        {
+            server_client_capacity *= 2;
+            server_client_connections = realloc(server_client_connections, sizeof(server_client_connection_t) * server_client_capacity);
+        }
 
         server_client_connection_t connection;
 
@@ -35,7 +43,7 @@ extern void acceptClientConnections(server_t *server)
         connection.data = NULL;
         connection.state = SERVER_CLIENT_WAITING_HANDSHAKE;
 
-        server_client_connections[server_client_count - 1] = connection;
+        server_client_connections[server_client_count++] = connection;
     }
 }
 
@@ -82,28 +90,13 @@ extern int nextClientConnection()
     {
         server_client_count -= i;
 
-        if (server_client_count) // supprime du tableau les connexions supprimé
+        // supprime du tableau les connexions supprimé
+        memmove(server_client_connections + next_server_client_index, server_client_connections + next_server_client_index + i, sizeof(server_client_connection_t) * (server_client_count - next_server_client_index));
+
+        // dans le cas ou l'on arrive à la fin du tableau après réallocation
+        if (next_server_client_index >= server_client_count)
         {
-            memmove(server_client_connections + next_server_client_index, server_client_connections + next_server_client_index + i, sizeof(server_client_connection_t) * (server_client_count - next_server_client_index));
-
-            server_client_connections = realloc(server_client_connections, sizeof(server_client_connection_t) * server_client_count);
-
-            // dans le cas ou l'on arrive à la fin du tableau après réallocation
-            if (next_server_client_index >= server_client_count)
-            {
-                next_server_client_index = 0;
-                server_client = NULL;
-                server_client_data = NULL;
-                server_client_state = SERVER_CLIENT_WAITING_HANDSHAKE;
-
-                return 0;
-            }
-        }
-        else // si il n'y a plus de connexion ouverte désalloue le tableau de connexion
-        {
-            free(server_client_connections);
             next_server_client_index = 0;
-            server_client_connections = NULL;
             server_client = NULL;
             server_client_data = NULL;
             server_client_state = SERVER_CLIENT_WAITING_HANDSHAKE;
