@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 #include "game.h"
 
 #define MAT_SIZE 10
@@ -93,9 +94,9 @@ void free_node_path(node_t *node)
     }
 }
 
-int heuristic(node_t *a, node_t *b)
+float heuristic(node_t *a, node_t *b)
 {
-    return abs(a->x - b->x) + abs(a->y - b->y);
+    return sqrtf(powf(a->x - b->x, 2) + powf(a->y - b->y, 2));
 }
 
 bool is_valid(int x, int y, int mat[][MAT_SIZE])

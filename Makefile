@@ -8,7 +8,7 @@ INC_DIR=include/windows
 LIB_TARGET=SDL2.dll SDL2_ttf.dll SDL2_image.dll
 LIB_TARGET_DIR=dll
 
-LFLAGS=-Wall -L$(LIB_DIR) -lmingw32 -lws2_32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+LFLAGS=-Wall -L$(LIB_DIR) -lm -lmingw32 -lws2_32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
 
 EXE_EXT=.exe
 PATH_SEP=\\
@@ -35,7 +35,7 @@ endif
 
 LIB_TARGET_DIR=$(LIB_DIR)
 
-LFLAGS=-Wall -L $(LIB_DIR) -Wl,-rpath $(LIB_DIR) -Wl,-rpath ./  -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+LFLAGS=-Wall -L $(LIB_DIR) -Wl,-rpath $(LIB_DIR) -Wl,-rpath ./ -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
 
 EXE_EXT=
 PATH_SEP=/

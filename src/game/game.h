@@ -34,9 +34,9 @@ typedef struct node_s
 {
     int x;
     int y;
-    int g_cost;
-    int h_cost;
-    int f_cost;
+    float g_cost;
+    float h_cost;
+    float f_cost;
     struct node_s *parent;
 } node_t;
 
@@ -118,13 +118,13 @@ extern node_t *create_node(int x, int y, node_t *parent);
 extern void free_node_path(node_t *node);
 
 /**
- * @brief Heuristique de Manhattan pour l'algorithme A*
+ * @brief Heuristique pour l'algorithme A*
  *
  * @param a
  * @param b
- * @return int
+ * @return float
  */
-extern int heuristic(node_t *a, node_t *b);
+extern float heuristic(node_t *a, node_t *b);
 
 /**
  * @brief Vérification de la validité d'un node
