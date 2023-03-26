@@ -27,7 +27,6 @@
 typedef struct
 {
     building_type_e type;
-    building_renderer_t *building_renderer;
     SDL_Rect rect;
     SDL_Point position;
 
@@ -135,7 +134,7 @@ extern void updateBuildingCoord(building_t *building, SDL_Point *position);
  * @return retourne 1 si le bâtiment peut être placé, 0 sinon
  */
 
-extern int canPlaceBuilding(building_t *building, SDL_Point *position, building_t ***building_matrix);
+extern int canPlaceBuilding(building_renderer_t *building_renderer, building_t *building, SDL_Point *position, building_t ***building_matrix);
 
 /**
  * @brief Récupère le bâtiment à une position donnée

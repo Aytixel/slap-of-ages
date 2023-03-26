@@ -25,7 +25,6 @@ extern building_t *createBuilding(building_type_e type, SDL_Point *position, win
     SDL_Rect rect = {0, 0, 0, 0};
 
     building->type = type;
-    building->building_renderer = createBuildingRenderer(window, map_renderer);
     building->rect = rect;
     building->position = *position;
 
@@ -84,7 +83,6 @@ extern void destroyBuilding(building_t **building)
 
     if (*building == NULL || building == NULL)
         return;
-    deleteBuildingRenderer(&((*building)->building_renderer));
     free(*building);
     *building = NULL;
 }
@@ -130,7 +128,7 @@ extern void clearMatrix(building_t ***building_matrix, int map_size)
         {
             if (building_matrix[i][j] != NULL)
             {
-                destroyBuilding(&(building_matrix[i][j]));
+                removeBuildingFromMatrix(building_matrix, building_matrix[i][j]);
             }
         }
     }
@@ -200,10 +198,10 @@ extern void updateBuildingCoord(building_t *building, SDL_Point *position)
     building->position = *position;
 }
 
-extern int canPlaceBuilding(building_t *building, SDL_Point *position, building_t ***building_matrix)
+extern int canPlaceBuilding(building_renderer_t *building_renderer, building_t *building, SDL_Point *position, building_t ***building_matrix)
 {
 
-    if (canRenderBuilding(building->building_renderer, position, building->type))
+    if (canRenderBuilding(building_renderer, position, building->type))
     {
         SDL_Rect rect = {0, 0, 0, 0};
 

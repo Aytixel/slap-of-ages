@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 {
     window_t *window = createWindow("Slap of Ages", 600, 600);
     map_renderer_t *map_renderer = createMapRenderer(window, MAP_SIZE);
+    building_renderer_t *building_renderer = createBuildingRenderer(window, map_renderer);
     frame_timer_t *main_timer = createTimer(1000 / 30);
 
     building_t ***map_building = createBuildingMatrix(MAP_SIZE);
@@ -74,7 +75,7 @@ int main(int argc, char *argv[])
 
                     building_t *new = createBuilding(MILL_BUILDING, &test_position, window, map_renderer);
 
-                    if (canPlaceBuilding(new, &test_position, map_building))
+                    if (canPlaceBuilding(building_renderer, new, &test_position, map_building))
                     {
 
                         addBuildingInMatrix(map_building, new);
@@ -116,7 +117,7 @@ int main(int argc, char *argv[])
                 {
                     if (map_building[i][j] != NULL)
                     {
-                        renderBuilding(window, map_building[i][j]->building_renderer, &(map_building[i][j]->position), map_building[i][j]->type, &map_building[i][j]->rect);
+                        renderBuilding(window, building_renderer, &(map_building[i][j]->position), map_building[i][j]->type, &map_building[i][j]->rect);
                     }
                 }
             }
@@ -127,6 +128,7 @@ int main(int argc, char *argv[])
 
     deleteTimer(&main_timer);
     destroyBuildingMatrix(&map_building, MAP_SIZE);
+    deleteBuildingRenderer(&building_renderer);
     deleteMapRenderer(&map_renderer);
     destroyWindow(&window);
 
