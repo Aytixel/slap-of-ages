@@ -25,7 +25,8 @@ typedef struct client_game_data_s
     uint16_t port;             /**< port du serveur*/
     char pseudo[64];           /**< pseudo du joueur*/
     char *opponent_pseudo;     /**< pseudo du joueur adverse*/
-    int gold_count;            /**< nombre d'or maximum*/
+    int gold_count;            /**< nombre d'or en la possession du joueur*/
+    int gold_cost;             /**< nombre d'or que coûte le village*/
     int win_count;             /**< nombre de victoire*/
     frame_timer_t *timer;      /**< chronomètre de fin de partie*/
 } client_game_data_t;

@@ -263,6 +263,7 @@ extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data
             {
                 addBuildingInMatrix(map_building, new);
                 game_data->gold_count -= new->gold_cost;
+                game_data->gold_cost += new->gold_cost;
             }
             else
                 destroyBuilding(&new);
@@ -270,6 +271,7 @@ extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data
         else if (tile_position.x != -1 && tile_position.y != -1 && map_building[tile_position.x][tile_position.y] != NULL)
         {
             game_data->gold_count += map_building[tile_position.x][tile_position.y]->gold_cost;
+            game_data->gold_cost -= map_building[tile_position.x][tile_position.y]->gold_cost;
             destroyBuilding(&new);
             removeBuildingFromMatrix(map_building, map_building[tile_position.x][tile_position.y]);
         }
