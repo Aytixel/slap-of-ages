@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 
                     test_position = getTileCoord(&mouse_position, window, map_renderer);
 
-                    building_t *new = createBuilding(MILL_BUILDING, &test_position, window, map_renderer);
+                    building_t *new = createBuilding(MILL_BUILDING, &test_position, window);
 
                     if (canPlaceBuilding(building_renderer, new, &test_position, map_building))
                     {
