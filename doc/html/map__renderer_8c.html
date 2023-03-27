@@ -95,6 +95,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a0080f8d2407fca5cc19293b4fe44191f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__renderer_8c.html#a0080f8d2407fca5cc19293b4fe44191f">deleteMapRenderer</a> (<a class="el" href="structmap__renderer__t.html">map_renderer_t</a> **map_renderer)</td></tr>
 <tr class="memdesc:a0080f8d2407fca5cc19293b4fe44191f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la carte.  <a href="map__renderer_8c.html#a0080f8d2407fca5cc19293b4fe44191f">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0080f8d2407fca5cc19293b4fe44191f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12d3608151a440b85c524b3bd72c1868"><td class="memItemLeft" align="right" valign="top">SDL_Point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__renderer_8c.html#a12d3608151a440b85c524b3bd72c1868">getTileCoord</a> (SDL_Point *mouse_position, <a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="structmap__renderer__t.html">map_renderer_t</a> *map_renderer)</td></tr>
+<tr class="memdesc:a12d3608151a440b85c524b3bd72c1868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de gérer la position du batiment selon le placement de la souris.  <a href="map__renderer_8c.html#a12d3608151a440b85c524b3bd72c1868">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a12d3608151a440b85c524b3bd72c1868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Permet de gérer l'affichage de la carte. </p>
@@ -165,6 +168,51 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="a12d3608151a440b85c524b3bd72c1868"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12d3608151a440b85c524b3bd72c1868">&#9670;&nbsp;</a></span>getTileCoord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Point getTileCoord </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Point *&#160;</td>
+          <td class="paramname"><em>mouse_position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmap__renderer__t.html">map_renderer_t</a> *&#160;</td>
+          <td class="paramname"><em>map_renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de gérer la position du batiment selon le placement de la souris. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mouse_position</td><td>la position de la souris </td></tr>
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">map_renderer</td><td>un pointeur sur la structure de rendu de la carte </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SDL_Point contenant les coordonnées du bâtiment en cases, si le clique de la souris est en dehors de la carte, la valeur retournée est {-1, -1}. </dd></dl>
 
 </div>
 </div>

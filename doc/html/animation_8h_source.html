@@ -69,39 +69,44 @@ $(function() {
 <div class="title">animation.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="animation_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="window_8h.html">window.h</a>&quot;</span></div>
+<a href="animation_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __ANIMATION_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __ANIMATION_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structanim__t.html">   29</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> *state_frame_count;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> state_count;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    SDL_Rect **state_frames;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="window_8h.html">window.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structanim__t.html">   32</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> *state_frame_count;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> state_count;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> frame_tile_width;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">int</span> frame_tile_height;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="structframe__timer__t.html">frame_timer_t</a> *timer;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    SDL_Rect **state_frames;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> frame_tile_width;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> frame_tile_height;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="structsprite__t.html">sprite_t</a> *sprite;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="structframe__timer__t.html">frame_timer_t</a> *timer;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> current_state;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> current_frame;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <a class="code" href="structanim__t.html">anim_t</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">/*Fonctions externes*/</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">extern</span> <a class="code" href="structanim__t.html">anim_t</a> *<a class="code" href="animation_8h.html#a34fc670dbf72971c172bbb3dfd7e9d00">createAnim</a>(<span class="keywordtype">int</span> tile_size, <span class="keywordtype">int</span> *state_frame_count, <a class="code" href="structsprite__t.html">sprite_t</a> *sprite, <span class="keywordtype">int</span> frame_rate);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="animation_8h.html#af448c425d4bef6da8fe9c6ed2dd98705">destroyAnim</a>(<a class="code" href="structanim__t.html">anim_t</a> **anim);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="animation_8h.html#a63392350c695b02122edb70286d308f7">updateAnim</a>(<a class="code" href="structanim__t.html">anim_t</a> *anim, <span class="keywordtype">int</span> new_state, <span class="keywordtype">int</span> tile_size, SDL_Point *position, <a class="code" href="structwindow__t.html">window_t</a> *window);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="structsprite__t.html">sprite_t</a> *sprite;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> current_state;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> current_frame;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    SDL_Rect frame_rect;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <a class="code" href="structanim__t.html">anim_t</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/*Fonctions externes*/</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">extern</span> <a class="code" href="structanim__t.html">anim_t</a> *<a class="code" href="animation_8h.html#a34fc670dbf72971c172bbb3dfd7e9d00">createAnim</a>(<span class="keywordtype">int</span> tile_size, <span class="keywordtype">int</span> *state_frame_count, <a class="code" href="structsprite__t.html">sprite_t</a> *sprite, <span class="keywordtype">int</span> frame_rate);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="animation_8h.html#af448c425d4bef6da8fe9c6ed2dd98705">destroyAnim</a>(<a class="code" href="structanim__t.html">anim_t</a> **anim);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="animation_8h.html#a63392350c695b02122edb70286d308f7">updateAnim</a>(<a class="code" href="structanim__t.html">anim_t</a> *anim, <span class="keywordtype">int</span> new_state, <span class="keywordtype">int</span> tile_size, SDL_Point *position, <a class="code" href="structwindow__t.html">window_t</a> *window);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aanimation_8h_html_a34fc670dbf72971c172bbb3dfd7e9d00"><div class="ttname"><a href="animation_8h.html#a34fc670dbf72971c172bbb3dfd7e9d00">createAnim</a></div><div class="ttdeci">anim_t * createAnim(int tile_size, int *state_frame_count, sprite_t *sprite, int frame_rate)</div><div class="ttdoc">Crée une animation à partir de la taille d'une tuile, du nombre d'images par état,...</div><div class="ttdef"><b>Definition:</b> animation.c:45</div></div>
-<div class="ttc" id="aanimation_8h_html_a63392350c695b02122edb70286d308f7"><div class="ttname"><a href="animation_8h.html#a63392350c695b02122edb70286d308f7">updateAnim</a></div><div class="ttdeci">int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window)</div><div class="ttdoc">Met à jour l'animation en modifiant l'état et la position de l'animation.</div><div class="ttdef"><b>Definition:</b> animation.c:114</div></div>
-<div class="ttc" id="aanimation_8h_html_af448c425d4bef6da8fe9c6ed2dd98705"><div class="ttname"><a href="animation_8h.html#af448c425d4bef6da8fe9c6ed2dd98705">destroyAnim</a></div><div class="ttdeci">int destroyAnim(anim_t **anim)</div><div class="ttdoc">Détruit une animation.</div><div class="ttdef"><b>Definition:</b> animation.c:92</div></div>
-<div class="ttc" id="astructanim__t_html"><div class="ttname"><a href="structanim__t.html">anim_t</a></div><div class="ttdoc">Structure d'une animation.</div><div class="ttdef"><b>Definition:</b> animation.h:30</div></div>
+<div class="ttc" id="aanimation_8h_html_a63392350c695b02122edb70286d308f7"><div class="ttname"><a href="animation_8h.html#a63392350c695b02122edb70286d308f7">updateAnim</a></div><div class="ttdeci">int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window)</div><div class="ttdoc">Met à jour l'animation en modifiant l'état et la position de l'animation.</div><div class="ttdef"><b>Definition:</b> animation.c:118</div></div>
+<div class="ttc" id="aanimation_8h_html_af448c425d4bef6da8fe9c6ed2dd98705"><div class="ttname"><a href="animation_8h.html#af448c425d4bef6da8fe9c6ed2dd98705">destroyAnim</a></div><div class="ttdeci">int destroyAnim(anim_t **anim)</div><div class="ttdoc">Détruit une animation.</div><div class="ttdef"><b>Definition:</b> animation.c:96</div></div>
+<div class="ttc" id="astructanim__t_html"><div class="ttname"><a href="structanim__t.html">anim_t</a></div><div class="ttdoc">Structure d'une animation.</div><div class="ttdef"><b>Definition:</b> animation.h:33</div></div>
 <div class="ttc" id="astructframe__timer__t_html"><div class="ttname"><a href="structframe__timer__t.html">frame_timer_t</a></div><div class="ttdoc">Timer permettant l'éxécution de code à intervalle régulier.</div><div class="ttdef"><b>Definition:</b> timer.h:20</div></div>
 <div class="ttc" id="astructsprite__t_html"><div class="ttname"><a href="structsprite__t.html">sprite_t</a></div><div class="ttdoc">Structure contenant les données d'un sprite.</div><div class="ttdef"><b>Definition:</b> window.h:38</div></div>
 <div class="ttc" id="astructwindow__t_html"><div class="ttname"><a href="structwindow__t.html">window_t</a></div><div class="ttdoc">Structure contenant toutes les données de la fenêtre.</div><div class="ttdef"><b>Definition:</b> window.h:49</div></div>

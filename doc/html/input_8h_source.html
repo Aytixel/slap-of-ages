@@ -79,43 +79,58 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structbutton__t.html">   23</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    SDL_Rect rect;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    SDL_Texture *texture;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    SDL_Surface *surface;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">char</span> *text;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <a class="code" href="structbutton__t.html">button_t</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structTextbox__t.html">   36</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    SDL_Surface *surface;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    SDL_Texture *texture;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    SDL_Rect rect;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">char</span> *text;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;} <a class="code" href="structTextbox__t.html">Textbox_t</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="input_8h.html#a0d976d005610f1e7e438dded0d99414a">createButton</a>(TTF_Font *font, <span class="keyword">const</span> <span class="keywordtype">char</span> *buttonText, SDL_Color color, <span class="keywordtype">float</span> buttonXRatio, <span class="keywordtype">float</span> buttonYRatio, <span class="keywordtype">float</span> buttonWidthRatio, <span class="keywordtype">float</span> buttonHeightRatio, <a class="code" href="structbutton__t.html">button_t</a> *button, <a class="code" href="structwindow__t.html">window_t</a> *window);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="input_8h.html#af89f66ab3d05dbf317fea058dd832b94">destroyButton</a>(<a class="code" href="structbutton__t.html">button_t</a> *button);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="input_8h.html#aa822c0183171093a88f63484108ab22d">createTextbox</a>(TTF_Font *font, SDL_Color color, SDL_Rect rect, <a class="code" href="structTextbox__t.html">Textbox_t</a> *textbox, <a class="code" href="structwindow__t.html">window_t</a> *window);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="input_8h.html#aeca6d08c5d51c805ce4a80bebf737d86">updateTextboxText</a>(SDL_Event event, TTF_Font *font, <span class="keywordtype">char</span> *inputText, <span class="keywordtype">int</span> *width, <span class="keywordtype">int</span> *height);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="input_8h.html#ae3a0b91845cc76df7ff14633f17ee08e">destroyTextbox</a>(<a class="code" href="structTextbox__t.html">Textbox_t</a> *textbox);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> isMouseClickInRect(SDL_Event event, SDL_Rect rect, <span class="keywordtype">int</span> button, <span class="keywordtype">int</span> type);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">extern</span> SDL_Point <a class="code" href="input_8h.html#ae364f224b8606e9aac19dcdf5817205e">getMousePosition</a>();</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ainput_8h_html_a0d976d005610f1e7e438dded0d99414a"><div class="ttname"><a href="input_8h.html#a0d976d005610f1e7e438dded0d99414a">createButton</a></div><div class="ttdeci">void createButton(TTF_Font *font, const char *buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, button_t *button, window_t *window)</div><div class="ttdoc">Fonction de création des boutons.</div><div class="ttdef"><b>Definition:</b> input.c:20</div></div>
-<div class="ttc" id="ainput_8h_html_aa822c0183171093a88f63484108ab22d"><div class="ttname"><a href="input_8h.html#aa822c0183171093a88f63484108ab22d">createTextbox</a></div><div class="ttdeci">void createTextbox(TTF_Font *font, SDL_Color color, SDL_Rect rect, Textbox_t *textbox, window_t *window)</div><div class="ttdoc">Fonction de création des textes box (texte de saisie)</div><div class="ttdef"><b>Definition:</b> input.c:47</div></div>
-<div class="ttc" id="ainput_8h_html_ae364f224b8606e9aac19dcdf5817205e"><div class="ttname"><a href="input_8h.html#ae364f224b8606e9aac19dcdf5817205e">getMousePosition</a></div><div class="ttdeci">SDL_Point getMousePosition()</div><div class="ttdoc">Fonction de récupération de la position de la souris.</div><div class="ttdef"><b>Definition:</b> input.c:95</div></div>
-<div class="ttc" id="ainput_8h_html_ae3a0b91845cc76df7ff14633f17ee08e"><div class="ttname"><a href="input_8h.html#ae3a0b91845cc76df7ff14633f17ee08e">destroyTextbox</a></div><div class="ttdeci">void destroyTextbox(Textbox_t *textbox)</div><div class="ttdoc">Fonction de destruction des textes box (texte de saisie)</div><div class="ttdef"><b>Definition:</b> input.c:75</div></div>
-<div class="ttc" id="ainput_8h_html_aeca6d08c5d51c805ce4a80bebf737d86"><div class="ttname"><a href="input_8h.html#aeca6d08c5d51c805ce4a80bebf737d86">updateTextboxText</a></div><div class="ttdeci">void updateTextboxText(SDL_Event event, TTF_Font *font, char *inputText, int *width, int *height)</div><div class="ttdoc">Fonction de mise à jour des textes box (texte de saisie)</div><div class="ttdef"><b>Definition:</b> input.c:56</div></div>
-<div class="ttc" id="ainput_8h_html_af89f66ab3d05dbf317fea058dd832b94"><div class="ttname"><a href="input_8h.html#af89f66ab3d05dbf317fea058dd832b94">destroyButton</a></div><div class="ttdeci">void destroyButton(button_t *button)</div><div class="ttdoc">Fonction de destruction des boutons.</div><div class="ttdef"><b>Definition:</b> input.c:40</div></div>
-<div class="ttc" id="astructTextbox__t_html"><div class="ttname"><a href="structTextbox__t.html">Textbox_t</a></div><div class="ttdoc">Structure contenant les données d'une textbox.</div><div class="ttdef"><b>Definition:</b> input.h:37</div></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="structsprite__t.html">sprite_t</a> *sprite;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    SDL_Rect rect;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> is_selected;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    TTF_Font *font;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    SDL_Color color;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    SDL_Color selected_color;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">char</span> *text;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <a class="code" href="structbutton__t.html">button_t</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structtextbox__t.html">   39</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="structsprite__t.html">sprite_t</a> *sprite;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    SDL_Rect rect;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    SDL_Rect text_rect;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> max_width;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> character_limit;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> character_diplay_count;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    TTF_Font *font;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    SDL_Color color;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">char</span> *text;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <a class="code" href="structtextbox__t.html">textbox_t</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">extern</span> <a class="code" href="structbutton__t.html">button_t</a> *<a class="code" href="input_8h.html#a7467b8ce731e7502a4be1b6f3a84dced">createButton</a>(<a class="code" href="structwindow__t.html">window_t</a> *window, TTF_Font *font, <span class="keywordtype">char</span> *text, SDL_Color color, SDL_Color selected_color);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> renderButton(<a class="code" href="structwindow__t.html">window_t</a> *window, <a class="code" href="structbutton__t.html">button_t</a> *button);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="input_8h.html#aec1545dbdfac3ff07962b872d2676f57">destroyButton</a>(<a class="code" href="structbutton__t.html">button_t</a> **button);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<a class="code" href="structtextbox__t.html">textbox_t</a> *<a class="code" href="input_8h.html#aca78e922d914fce518f1f82112c38bfd">createTextbox</a>(<a class="code" href="structwindow__t.html">window_t</a> *window, TTF_Font *font, <span class="keywordtype">char</span> *text, SDL_Color color, <span class="keywordtype">int</span> character_limit);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> renderTextbox(<a class="code" href="structwindow__t.html">window_t</a> *window, <a class="code" href="structtextbox__t.html">textbox_t</a> *textbox);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="input_8h.html#a605bab3d77ec1b0d265f04495e7bcdc9">updateTextbox</a>(SDL_Event *event, <a class="code" href="structtextbox__t.html">textbox_t</a> *textbox);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="input_8h.html#a81020d9cac36be61007bec033fd64ce8">destroyTextbox</a>(<a class="code" href="structtextbox__t.html">textbox_t</a> **textbox);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> drawRect(SDL_Renderer *renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> isMouseClickInRect(SDL_Event event, SDL_Rect rect, <span class="keywordtype">int</span> button, <span class="keywordtype">int</span> type);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">extern</span> SDL_Point <a class="code" href="input_8h.html#ae364f224b8606e9aac19dcdf5817205e">getMousePosition</a>();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ainput_8h_html_a605bab3d77ec1b0d265f04495e7bcdc9"><div class="ttname"><a href="input_8h.html#a605bab3d77ec1b0d265f04495e7bcdc9">updateTextbox</a></div><div class="ttdeci">void updateTextbox(SDL_Event *event, textbox_t *textbox)</div><div class="ttdoc">Fonction de mise à jour des textes box (texte de saisie)</div><div class="ttdef"><b>Definition:</b> input.c:104</div></div>
+<div class="ttc" id="ainput_8h_html_a7467b8ce731e7502a4be1b6f3a84dced"><div class="ttname"><a href="input_8h.html#a7467b8ce731e7502a4be1b6f3a84dced">createButton</a></div><div class="ttdeci">button_t * createButton(window_t *window, TTF_Font *font, char *text, SDL_Color color, SDL_Color selected_color)</div><div class="ttdoc">Fonction de création des boutons.</div><div class="ttdef"><b>Definition:</b> input.c:20</div></div>
+<div class="ttc" id="ainput_8h_html_a81020d9cac36be61007bec033fd64ce8"><div class="ttname"><a href="input_8h.html#a81020d9cac36be61007bec033fd64ce8">destroyTextbox</a></div><div class="ttdeci">void destroyTextbox(textbox_t **textbox)</div><div class="ttdoc">Fonction de destruction des textes box (texte de saisie)</div><div class="ttdef"><b>Definition:</b> input.c:125</div></div>
+<div class="ttc" id="ainput_8h_html_aca78e922d914fce518f1f82112c38bfd"><div class="ttname"><a href="input_8h.html#aca78e922d914fce518f1f82112c38bfd">createTextbox</a></div><div class="ttdeci">textbox_t * createTextbox(window_t *window, TTF_Font *font, char *text, SDL_Color color, int character_limit)</div><div class="ttdoc">Fonction de création des textes box (texte de saisie)</div><div class="ttdef"><b>Definition:</b> input.c:55</div></div>
+<div class="ttc" id="ainput_8h_html_ae364f224b8606e9aac19dcdf5817205e"><div class="ttname"><a href="input_8h.html#ae364f224b8606e9aac19dcdf5817205e">getMousePosition</a></div><div class="ttdeci">SDL_Point getMousePosition()</div><div class="ttdoc">Fonction de récupération de la position de la souris.</div><div class="ttdef"><b>Definition:</b> input.c:153</div></div>
+<div class="ttc" id="ainput_8h_html_aec1545dbdfac3ff07962b872d2676f57"><div class="ttname"><a href="input_8h.html#aec1545dbdfac3ff07962b872d2676f57">destroyButton</a></div><div class="ttdeci">void destroyButton(button_t **button)</div><div class="ttdoc">Fonction de destruction des boutons.</div><div class="ttdef"><b>Definition:</b> input.c:46</div></div>
 <div class="ttc" id="astructbutton__t_html"><div class="ttname"><a href="structbutton__t.html">button_t</a></div><div class="ttdoc">Structure contenant les données d'un bouton.</div><div class="ttdef"><b>Definition:</b> input.h:24</div></div>
+<div class="ttc" id="astructsprite__t_html"><div class="ttname"><a href="structsprite__t.html">sprite_t</a></div><div class="ttdoc">Structure contenant les données d'un sprite.</div><div class="ttdef"><b>Definition:</b> window.h:38</div></div>
+<div class="ttc" id="astructtextbox__t_html"><div class="ttname"><a href="structtextbox__t.html">textbox_t</a></div><div class="ttdoc">Structure contenant les données d'une textbox.</div><div class="ttdef"><b>Definition:</b> input.h:40</div></div>
 <div class="ttc" id="astructwindow__t_html"><div class="ttname"><a href="structwindow__t.html">window_t</a></div><div class="ttdoc">Structure contenant toutes les données de la fenêtre.</div><div class="ttdef"><b>Definition:</b> window.h:49</div></div>
 <div class="ttc" id="awindow_8h_html"><div class="ttname"><a href="window_8h.html">window.h</a></div><div class="ttdoc">Implémentation des prototypes de window/window.c.</div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['client_5fdata_5ft_445',['client_data_t',['../client__data_8h.html#a21bca4ad2bc83c2b3f0fe45dce419625',1,'client_data.h']]]
+  ['client_5fgame_5fdata_5ft_579',['client_game_data_t',['../game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae',1,'game_data.h']]]
 ];

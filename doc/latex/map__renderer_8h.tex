@@ -21,7 +21,9 @@ struct \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}}
 void \mbox{\hyperlink{map__renderer_8h_aaa163cacd97f7a89d6e1cc62e768f666}{render\+Map}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$map\+\_\+renderer)
 \begin{DoxyCompactList}\small\item\em Fait le rendu de la carte sur la fenêtre. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{map__renderer_8h_a0080f8d2407fca5cc19293b4fe44191f}{delete\+Map\+Renderer}} (\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$$\ast$map\+\_\+renderer)
-\begin{DoxyCompactList}\small\item\em Détruit la carte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Détruit la carte. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Point \mbox{\hyperlink{map__renderer_8h_a12d3608151a440b85c524b3bd72c1868}{get\+Tile\+Coord}} (SDL\+\_\+\+Point $\ast$mouse\+\_\+position, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$map\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em Permet de gérer la position du batiment selon le placement de la souris. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -78,6 +80,28 @@ Détruit la carte.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map__renderer_8h_a12d3608151a440b85c524b3bd72c1868}\label{map__renderer_8h_a12d3608151a440b85c524b3bd72c1868}} 
+\index{map\_renderer.h@{map\_renderer.h}!getTileCoord@{getTileCoord}}
+\index{getTileCoord@{getTileCoord}!map\_renderer.h@{map\_renderer.h}}
+\doxysubsubsection{\texorpdfstring{getTileCoord()}{getTileCoord()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Point get\+Tile\+Coord (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Point $\ast$}]{mouse\+\_\+position,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$}]{map\+\_\+renderer }\end{DoxyParamCaption})}
+
+
+
+Permet de gérer la position du batiment selon le placement de la souris. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mouse\+\_\+position} & la position de la souris \\
+\hline
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em map\+\_\+renderer} & un pointeur sur la structure de rendu de la carte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+Point contenant les coordonnées du bâtiment en cases, si le clique de la souris est en dehors de la carte, la valeur retournée est \{-\/1, -\/1\}. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{map__renderer_8h_aaa163cacd97f7a89d6e1cc62e768f666}\label{map__renderer_8h_aaa163cacd97f7a89d6e1cc62e768f666}} 
 \index{map\_renderer.h@{map\_renderer.h}!renderMap@{renderMap}}

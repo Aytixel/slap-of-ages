@@ -81,12 +81,18 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ae86a3185973be72e90ebb6ec30e5daa7"><td class="memItemLeft" align="right" valign="top"><a id="ae86a3185973be72e90ebb6ec30e5daa7"></a>
-<a class="el" href="structwindow__t.html">window_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createWindow</b> (char *title, int width, int height)</td></tr>
+<tr class="memitem:ae86a3185973be72e90ebb6ec30e5daa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#ae86a3185973be72e90ebb6ec30e5daa7">createWindow</a> (char *title, int width, int height)</td></tr>
+<tr class="memdesc:ae86a3185973be72e90ebb6ec30e5daa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer une fenêtre.  <a href="window_8c.html#ae86a3185973be72e90ebb6ec30e5daa7">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ae86a3185973be72e90ebb6ec30e5daa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1efa57caae2a77f346b314c3076d89f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#ab1efa57caae2a77f346b314c3076d89f">updateWindowSize</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, SDL_Event *event)</td></tr>
+<tr class="memdesc:ab1efa57caae2a77f346b314c3076d89f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jours la taille de la fenêtre.  <a href="window_8c.html#ab1efa57caae2a77f346b314c3076d89f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab1efa57caae2a77f346b314c3076d89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b6afcc06737563c2c82cb5b822bcb6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#a2b6afcc06737563c2c82cb5b822bcb6e">destroyWindow</a> (<a class="el" href="structwindow__t.html">window_t</a> **window)</td></tr>
 <tr class="memdesc:a2b6afcc06737563c2c82cb5b822bcb6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une fenêtre.  <a href="window_8c.html#a2b6afcc06737563c2c82cb5b822bcb6e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a2b6afcc06737563c2c82cb5b822bcb6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aa4702721f7b4b6a599a14fdd0a426c"><td class="memItemLeft" align="right" valign="top">TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#a1aa4702721f7b4b6a599a14fdd0a426c">loadFont</a> (char *path, int pt_size)</td></tr>
+<tr class="memdesc:a1aa4702721f7b4b6a599a14fdd0a426c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une police depuis un fichier.  <a href="window_8c.html#a1aa4702721f7b4b6a599a14fdd0a426c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1aa4702721f7b4b6a599a14fdd0a426c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12caaf6efa15b7b7ef17f25474d3f4ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsprite__t.html">sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#a12caaf6efa15b7b7ef17f25474d3f4ce">loadSprite</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, char *path)</td></tr>
 <tr class="memdesc:a12caaf6efa15b7b7ef17f25474d3f4ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge un sprite depuis une image.  <a href="window_8c.html#a12caaf6efa15b7b7ef17f25474d3f4ce">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a12caaf6efa15b7b7ef17f25474d3f4ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,6 +167,57 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae86a3185973be72e90ebb6ec30e5daa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae86a3185973be72e90ebb6ec30e5daa7">&#9670;&nbsp;</a></span>createWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structwindow__t.html">window_t</a>* createWindow </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer une fenêtre. </p>
+<p>Définis :</p><ul>
+<li>la taille minimale de la fenêtre, comme étant la taille passé en paramètre.</li>
+<li>la couleur de nettoyage au noir.</li>
+<li>la fenêtre comme redimensionnable.</li>
+</ul>
+<p>Puis nettoie la fenêtre.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>nom de la fenêtre </td></tr>
+    <tr><td class="paramname">width</td><td>largeur de la fenêtre </td></tr>
+    <tr><td class="paramname">height</td><td>longueur de la fenêtre </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur une <b>fenêtre</b> </dd></dl>
+
+</div>
+</div>
 <a id="ac84ead18493a5445ba473190996fe36b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac84ead18493a5445ba473190996fe36b">&#9670;&nbsp;</a></span>destroySprite()</h2>
 
@@ -212,6 +269,44 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="a1aa4702721f7b4b6a599a14fdd0a426c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aa4702721f7b4b6a599a14fdd0a426c">&#9670;&nbsp;</a></span>loadFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TTF_Font* loadFont </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pt_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge une police depuis un fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>chemin vers le fichier de la police </td></tr>
+    <tr><td class="paramname">pt_size</td><td>taille de la police </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur une <b>TTF_Font</b> </dd></dl>
 
 </div>
 </div>
@@ -361,6 +456,43 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>une <b>position</b> sur la fenêtre </dd></dl>
+
+</div>
+</div>
+<a id="ab1efa57caae2a77f346b314c3076d89f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1efa57caae2a77f346b314c3076d89f">&#9670;&nbsp;</a></span>updateWindowSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateWindowSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Event *&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met à jours la taille de la fenêtre. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">event</td><td>un pointeur sur event </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

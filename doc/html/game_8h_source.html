@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages:  Fichier source de src/game/game.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1699be727a800b1d059c6f7f2b91d2ee.html">game</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">game.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="game_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef __GAME_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define __GAME_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define MAT_SIZE 10</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define OBSTACLE -1</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define START 1</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define GOAL 2</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structnode__s.html">   33</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structnode__s.html">node_s</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> x;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> y;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">float</span> g_cost;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">float</span> h_cost;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">float</span> f_cost;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">struct </span><a class="code" href="structnode__s.html">node_s</a> *parent;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">   41</a></span>&#160;} <a class="code" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structnode__list__t.html">   50</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="structnode__s.html">node_t</a> **nodes;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> size;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">int</span> capacity;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <a class="code" href="structnode__list__t.html">node_list_t</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">extern</span> <a class="code" href="structnode__list__t.html">node_list_t</a> *<a class="code" href="game_8h.html#aa58163b9adcf970353e3f50fc1032730">create_node_list</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="game_8h.html#a73f344593f712bab4a9f61339b966d62">clear_node_list</a>(<a class="code" href="structnode__list__t.html">node_list_t</a> *list);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="game_8h.html#ab562c582d4e018758f92c4fdc1a1d00c">free_node_list</a>(<a class="code" href="structnode__list__t.html">node_list_t</a> *list);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordtype">void</span> <a class="code" href="game_8h.html#a193e1b2f426ee4d1166c1c4664c3f188">remove_parent_from_list</a>(<a class="code" href="structnode__list__t.html">node_list_t</a> *list, <a class="code" href="structnode__s.html">node_t</a> *node);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="game_8h.html#a4200a0320d316103883ba535bf913391">add_node</a>(<a class="code" href="structnode__list__t.html">node_list_t</a> *list, <a class="code" href="structnode__s.html">node_t</a> *node);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">extern</span> <a class="code" href="structnode__s.html">node_t</a> *<a class="code" href="game_8h.html#af8d7cfbdfc4aedca5ea7ddce9ddf77a0">remove_node</a>(<a class="code" href="structnode__list__t.html">node_list_t</a> *list, <span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">extern</span> <a class="code" href="structnode__s.html">node_t</a> *<a class="code" href="game_8h.html#ac9ac1b9007615aae0d0dfcf0caaf02c6">create_node</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <a class="code" href="structnode__s.html">node_t</a> *parent);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="game_8h.html#ad22ba344bea1322fd21925363d83870d">free_node_path</a>(<a class="code" href="structnode__s.html">node_t</a> *node);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code" href="game_8h.html#a73a16060935346f073c8ce1985bc9bf4">heuristic</a>(<a class="code" href="structnode__s.html">node_t</a> *a, <a class="code" href="structnode__s.html">node_t</a> *b);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="game_8h.html#ab419ef631d5a8323174167b72c0260b2">is_valid</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> mat[][MAT_SIZE]);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keyword">extern</span> <a class="code" href="structnode__s.html">node_t</a> *<a class="code" href="game_8h.html#a11874d10f06aa7942b99c4db8933b8fd">a_star</a>(<span class="keywordtype">int</span> start_x, <span class="keywordtype">int</span> start_y, <span class="keywordtype">int</span> goal_x, <span class="keywordtype">int</span> goal_y, <span class="keywordtype">int</span> mat[][MAT_SIZE]);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="game_8h.html#aafba709b1d1a27f99deb5420de591d27">is_valid_no_wall</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<a class="code" href="structnode__s.html">node_t</a> *<a class="code" href="game_8h.html#a0787ec947ff5836ddea49d7a29275312">a_star_no_wall</a>(<span class="keywordtype">int</span> start_x, <span class="keywordtype">int</span> start_y, <span class="keywordtype">int</span> goal_x, <span class="keywordtype">int</span> goal_y, <span class="keywordtype">int</span> mat[][MAT_SIZE]);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="game_8h.html#a129ee813ae2288ad62db99cb38adc5ed">display_path</a>(<a class="code" href="structnode__s.html">node_t</a> *node);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="game_8h.html#afd90dab401f544770dcbc293d334acd9">fill_path_in_mat</a>(<a class="code" href="structnode__s.html">node_t</a> *node, <span class="keywordtype">int</span> mat[][MAT_SIZE]);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="game_8h.html#a2c6df364a065a386c261993805def8eb">display_mat</a>(<span class="keywordtype">int</span> mat[][MAT_SIZE]);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="agame_8h_html_a0787ec947ff5836ddea49d7a29275312"><div class="ttname"><a href="game_8h.html#a0787ec947ff5836ddea49d7a29275312">a_star_no_wall</a></div><div class="ttdeci">node_t * a_star_no_wall(int start_x, int start_y, int goal_x, int goal_y, int mat[][MAT_SIZE])</div><div class="ttdoc">Algorithme de pathfinding A* sans les murs.</div><div class="ttdef"><b>Definition:</b> game.c:219</div></div>
+<div class="ttc" id="agame_8h_html_a11874d10f06aa7942b99c4db8933b8fd"><div class="ttname"><a href="game_8h.html#a11874d10f06aa7942b99c4db8933b8fd">a_star</a></div><div class="ttdeci">node_t * a_star(int start_x, int start_y, int goal_x, int goal_y, int mat[][MAT_SIZE])</div><div class="ttdoc">Algorithme de pathfinding A*.</div><div class="ttdef"><b>Definition:</b> game.c:117</div></div>
+<div class="ttc" id="agame_8h_html_a129ee813ae2288ad62db99cb38adc5ed"><div class="ttname"><a href="game_8h.html#a129ee813ae2288ad62db99cb38adc5ed">display_path</a></div><div class="ttdeci">void display_path(node_t *node)</div><div class="ttdoc">Affichage du chemin.</div><div class="ttdef"><b>Definition:</b> game.c:304</div></div>
+<div class="ttc" id="agame_8h_html_a193e1b2f426ee4d1166c1c4664c3f188"><div class="ttname"><a href="game_8h.html#a193e1b2f426ee4d1166c1c4664c3f188">remove_parent_from_list</a></div><div class="ttdeci">void remove_parent_from_list(node_list_t *list, node_t *node)</div><div class="ttdoc">Suppression de la liste d'un noeud et de ses parents.</div><div class="ttdef"><b>Definition:</b> game.c:46</div></div>
+<div class="ttc" id="agame_8h_html_a2c6df364a065a386c261993805def8eb"><div class="ttname"><a href="game_8h.html#a2c6df364a065a386c261993805def8eb">display_mat</a></div><div class="ttdeci">void display_mat(int mat[][MAT_SIZE])</div><div class="ttdoc">Affichage de la matrice.</div><div class="ttdef"><b>Definition:</b> game.c:328</div></div>
+<div class="ttc" id="agame_8h_html_a33b99e5345d46cf63926673aa2b9ff83"><div class="ttname"><a href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a></div><div class="ttdeci">struct node_s node_t</div><div class="ttdoc">Structure de noeud.</div></div>
+<div class="ttc" id="agame_8h_html_a4200a0320d316103883ba535bf913391"><div class="ttname"><a href="game_8h.html#a4200a0320d316103883ba535bf913391">add_node</a></div><div class="ttdeci">void add_node(node_list_t *list, node_t *node)</div><div class="ttdoc">Ajout d'un noeud à la liste.</div><div class="ttdef"><b>Definition:</b> game.c:66</div></div>
+<div class="ttc" id="agame_8h_html_a73a16060935346f073c8ce1985bc9bf4"><div class="ttname"><a href="game_8h.html#a73a16060935346f073c8ce1985bc9bf4">heuristic</a></div><div class="ttdeci">float heuristic(node_t *a, node_t *b)</div><div class="ttdoc">Heuristique pour l'algorithme A*.</div><div class="ttdef"><b>Definition:</b> game.c:107</div></div>
+<div class="ttc" id="agame_8h_html_a73f344593f712bab4a9f61339b966d62"><div class="ttname"><a href="game_8h.html#a73f344593f712bab4a9f61339b966d62">clear_node_list</a></div><div class="ttdeci">void clear_node_list(node_list_t *list)</div><div class="ttdoc">Vide une liste de ses noeuds.</div><div class="ttdef"><b>Definition:</b> game.c:31</div></div>
+<div class="ttc" id="agame_8h_html_aa58163b9adcf970353e3f50fc1032730"><div class="ttname"><a href="game_8h.html#aa58163b9adcf970353e3f50fc1032730">create_node_list</a></div><div class="ttdeci">node_list_t * create_node_list()</div><div class="ttdoc">Creation d'une liste de noeud.</div><div class="ttdef"><b>Definition:</b> game.c:22</div></div>
+<div class="ttc" id="agame_8h_html_aafba709b1d1a27f99deb5420de591d27"><div class="ttname"><a href="game_8h.html#aafba709b1d1a27f99deb5420de591d27">is_valid_no_wall</a></div><div class="ttdeci">bool is_valid_no_wall(int x, int y)</div><div class="ttdoc">Vérification de la validité d'un node sans les murs.</div><div class="ttdef"><b>Definition:</b> game.c:214</div></div>
+<div class="ttc" id="agame_8h_html_ab419ef631d5a8323174167b72c0260b2"><div class="ttname"><a href="game_8h.html#ab419ef631d5a8323174167b72c0260b2">is_valid</a></div><div class="ttdeci">bool is_valid(int x, int y, int mat[][MAT_SIZE])</div><div class="ttdoc">Vérification de la validité d'un node.</div><div class="ttdef"><b>Definition:</b> game.c:112</div></div>
+<div class="ttc" id="agame_8h_html_ab562c582d4e018758f92c4fdc1a1d00c"><div class="ttname"><a href="game_8h.html#ab562c582d4e018758f92c4fdc1a1d00c">free_node_list</a></div><div class="ttdeci">void free_node_list(node_list_t *list)</div><div class="ttdoc">Libération de la mémoire d'une liste de noeud.</div><div class="ttdef"><b>Definition:</b> game.c:40</div></div>
+<div class="ttc" id="agame_8h_html_ac9ac1b9007615aae0d0dfcf0caaf02c6"><div class="ttname"><a href="game_8h.html#ac9ac1b9007615aae0d0dfcf0caaf02c6">create_node</a></div><div class="ttdeci">node_t * create_node(int x, int y, node_t *parent)</div><div class="ttdoc">Creation d'une noeud.</div><div class="ttdef"><b>Definition:</b> game.c:83</div></div>
+<div class="ttc" id="agame_8h_html_ad22ba344bea1322fd21925363d83870d"><div class="ttname"><a href="game_8h.html#ad22ba344bea1322fd21925363d83870d">free_node_path</a></div><div class="ttdeci">void free_node_path(node_t *node)</div><div class="ttdoc">Libération de la mémoire d'une node et de ses parent.</div><div class="ttdef"><b>Definition:</b> game.c:95</div></div>
+<div class="ttc" id="agame_8h_html_af8d7cfbdfc4aedca5ea7ddce9ddf77a0"><div class="ttname"><a href="game_8h.html#af8d7cfbdfc4aedca5ea7ddce9ddf77a0">remove_node</a></div><div class="ttdeci">node_t * remove_node(node_list_t *list, int index)</div><div class="ttdoc">Suppression d'un noeud.</div><div class="ttdef"><b>Definition:</b> game.c:76</div></div>
+<div class="ttc" id="agame_8h_html_afd90dab401f544770dcbc293d334acd9"><div class="ttname"><a href="game_8h.html#afd90dab401f544770dcbc293d334acd9">fill_path_in_mat</a></div><div class="ttdeci">void fill_path_in_mat(node_t *node, int mat[][MAT_SIZE])</div><div class="ttdoc">Remplissage de la matrice avec le chemin.</div><div class="ttdef"><b>Definition:</b> game.c:318</div></div>
+<div class="ttc" id="astructnode__list__t_html"><div class="ttname"><a href="structnode__list__t.html">node_list_t</a></div><div class="ttdoc">Structure de liste de noeud.</div><div class="ttdef"><b>Definition:</b> game.h:51</div></div>
+<div class="ttc" id="astructnode__s_html"><div class="ttname"><a href="structnode__s.html">node_s</a></div><div class="ttdoc">Structure de noeud.</div><div class="ttdef"><b>Definition:</b> game.h:34</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

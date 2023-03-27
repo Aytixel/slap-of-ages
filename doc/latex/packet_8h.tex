@@ -31,9 +31,9 @@ void \mbox{\hyperlink{packet_8h_a78edd7cbf720fd90e2b9ae393d83e9b7}{read\+Set\+Ma
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant si le joueur est prêt. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{packet_8h_aa08e62c9ca737b8884f7ced46a0050bd}{read\+Is\+Player\+Ready\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, int $\ast$is\+\_\+player\+\_\+ready)
 \begin{DoxyCompactList}\small\item\em Lie un paquet définissant si le joueur est prêt. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8h_a1eae042bf09db2efc6c862a5ebb61708}{create\+Game\+Finished\+Packet}} (float destruction\+\_\+percentage, long time\+\_\+left)
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8h_a1e339e97e9c797a72ec63cd4f932ed35}{create\+Game\+Finished\+Packet}} (int destruction\+\_\+percentage, long time\+\_\+left)
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant le fait qu\textquotesingle{}un joueur à terminé \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{packet_8h_a05cbe61d2bb9bdbef7d0f3fe5c10ad08}{read\+Game\+Finished\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, float $\ast$destruction\+\_\+percentage, long $\ast$time\+\_\+left)
+void \mbox{\hyperlink{packet_8h_a9c951cb8069f3c2a9eadda4387ff2026}{read\+Game\+Finished\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, int $\ast$destruction\+\_\+percentage, long $\ast$time\+\_\+left)
 \begin{DoxyCompactList}\small\item\em Lie un paquet définissant le fait qu\textquotesingle{}un joueur à terminé \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8h_a1af8e9984c275e58c407c25fdb5afa52}{create\+Has\+Player\+Won\+Packet}} (int has\+\_\+player\+\_\+won)
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant si le joueur à gagné \end{DoxyCompactList}\item 
@@ -56,11 +56,11 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{packet_8h_a1eae042bf09db2efc6c862a5ebb61708}\label{packet_8h_a1eae042bf09db2efc6c862a5ebb61708}} 
+\mbox{\Hypertarget{packet_8h_a1e339e97e9c797a72ec63cd4f932ed35}\label{packet_8h_a1e339e97e9c797a72ec63cd4f932ed35}} 
 \index{packet.h@{packet.h}!createGameFinishedPacket@{createGameFinishedPacket}}
 \index{createGameFinishedPacket@{createGameFinishedPacket}!packet.h@{packet.h}}
 \doxysubsubsection{\texorpdfstring{createGameFinishedPacket()}{createGameFinishedPacket()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ create\+Game\+Finished\+Packet (\begin{DoxyParamCaption}\item[{float}]{destruction\+\_\+percentage,  }\item[{long}]{time\+\_\+left }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ create\+Game\+Finished\+Packet (\begin{DoxyParamCaption}\item[{int}]{destruction\+\_\+percentage,  }\item[{long}]{time\+\_\+left }\end{DoxyParamCaption})}
 
 
 
@@ -161,11 +161,11 @@ Créer un paquet définissant le pseudo.
 \begin{DoxyReturn}{Renvoie}
 un pointer sur un {\bfseries{paquet}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{packet_8h_a05cbe61d2bb9bdbef7d0f3fe5c10ad08}\label{packet_8h_a05cbe61d2bb9bdbef7d0f3fe5c10ad08}} 
+\mbox{\Hypertarget{packet_8h_a9c951cb8069f3c2a9eadda4387ff2026}\label{packet_8h_a9c951cb8069f3c2a9eadda4387ff2026}} 
 \index{packet.h@{packet.h}!readGameFinishedPacket@{readGameFinishedPacket}}
 \index{readGameFinishedPacket@{readGameFinishedPacket}!packet.h@{packet.h}}
 \doxysubsubsection{\texorpdfstring{readGameFinishedPacket()}{readGameFinishedPacket()}}
-{\footnotesize\ttfamily void read\+Game\+Finished\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet,  }\item[{float $\ast$}]{destruction\+\_\+percentage,  }\item[{long $\ast$}]{time\+\_\+left }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void read\+Game\+Finished\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet,  }\item[{int $\ast$}]{destruction\+\_\+percentage,  }\item[{long $\ast$}]{time\+\_\+left }\end{DoxyParamCaption})}
 
 
 

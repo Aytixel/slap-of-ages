@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages:  Fichier source de src/client/game_data.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6908ff505388a07996d238c763adbdab.html">client</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">game_data.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="game__data_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef __CLIENT_GAME_DATA_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define __CLIENT_GAME_DATA_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="timer_8h.html">timer/timer.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;game_state_enum.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structclient__game__data__s.html">   21</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structclient__game__data__s.html">client_game_data_s</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structclient__game__data__s.html#acd0137d5a8ba5830e00cd5ffff76cc8c">   23</a></span>&#160;    client_game_state_e <a class="code" href="structclient__game__data__s.html#acd0137d5a8ba5830e00cd5ffff76cc8c">state</a>; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structclient__game__data__s.html#a9f3c8bbd1f3f0c66eded78b6fbb12929">   24</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="structclient__game__data__s.html#a9f3c8bbd1f3f0c66eded78b6fbb12929">hostname</a>[1024];       </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structclient__game__data__s.html#aa24e6a9eb5976f5b290e2e08e6a18c58">   25</a></span>&#160;    uint16_t <a class="code" href="structclient__game__data__s.html#aa24e6a9eb5976f5b290e2e08e6a18c58">port</a>;             </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structclient__game__data__s.html#a779d64ed08c3f51b66602b65a2e7916f">   26</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="structclient__game__data__s.html#a779d64ed08c3f51b66602b65a2e7916f">pseudo</a>[64];           </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structclient__game__data__s.html#a9a1b0847c4fd2986e183bc1e7618d4d7">   27</a></span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="structclient__game__data__s.html#a9a1b0847c4fd2986e183bc1e7618d4d7">opponent_pseudo</a>;     </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structclient__game__data__s.html#a45790e3280969168ff9dc8ef8273c3fd">   28</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structclient__game__data__s.html#a45790e3280969168ff9dc8ef8273c3fd">gold_count</a>;            </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structclient__game__data__s.html#a499e2d491796d1ba806d50b6288b45b5">   29</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structclient__game__data__s.html#a499e2d491796d1ba806d50b6288b45b5">win_count</a>;             </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structclient__game__data__s.html#abeffe4849ee2b5bb3f8057b592475d99">   30</a></span>&#160;    <a class="code" href="structframe__timer__t.html">frame_timer_t</a> *<a class="code" href="structclient__game__data__s.html#abeffe4849ee2b5bb3f8057b592475d99">timer</a>;      </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">   31</a></span>&#160;} <a class="code" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">extern</span> <a class="code" href="structclient__game__data__s.html">client_game_data_t</a> *<a class="code" href="game__data_8h.html#a9671fe3875530be690bc1d098fa694e0">createGameData</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="game__data_8h.html#ac524888f11aad6e7479f72c7fdeef8b0">deleteGameData</a>(<a class="code" href="structclient__game__data__s.html">client_game_data_t</a> **game_data);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="agame__data_8h_html_a4fd536f2307112372f84ce77d4dd58ae"><div class="ttname"><a href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a></div><div class="ttdeci">struct client_game_data_s client_game_data_t</div><div class="ttdoc">Structure de données contenant les données du jeux.</div></div>
+<div class="ttc" id="agame__data_8h_html_a9671fe3875530be690bc1d098fa694e0"><div class="ttname"><a href="game__data_8h.html#a9671fe3875530be690bc1d098fa694e0">createGameData</a></div><div class="ttdeci">client_game_data_t * createGameData()</div><div class="ttdoc">Créer les données du jeux.</div><div class="ttdef"><b>Definition:</b> game_data.c:14</div></div>
+<div class="ttc" id="agame__data_8h_html_ac524888f11aad6e7479f72c7fdeef8b0"><div class="ttname"><a href="game__data_8h.html#ac524888f11aad6e7479f72c7fdeef8b0">deleteGameData</a></div><div class="ttdeci">int deleteGameData(client_game_data_t **game_data)</div><div class="ttdoc">Détruit les données du jeux.</div><div class="ttdef"><b>Definition:</b> game_data.c:31</div></div>
+<div class="ttc" id="astructclient__game__data__s_html"><div class="ttname"><a href="structclient__game__data__s.html">client_game_data_s</a></div><div class="ttdoc">Structure de données contenant les données du jeux.</div><div class="ttdef"><b>Definition:</b> game_data.h:22</div></div>
+<div class="ttc" id="astructclient__game__data__s_html_a45790e3280969168ff9dc8ef8273c3fd"><div class="ttname"><a href="structclient__game__data__s.html#a45790e3280969168ff9dc8ef8273c3fd">client_game_data_s::gold_count</a></div><div class="ttdeci">int gold_count</div><div class="ttdef"><b>Definition:</b> game_data.h:28</div></div>
+<div class="ttc" id="astructclient__game__data__s_html_a499e2d491796d1ba806d50b6288b45b5"><div class="ttname"><a href="structclient__game__data__s.html#a499e2d491796d1ba806d50b6288b45b5">client_game_data_s::win_count</a></div><div class="ttdeci">int win_count</div><div class="ttdef"><b>Definition:</b> game_data.h:29</div></div>
+<div class="ttc" id="astructclient__game__data__s_html_a779d64ed08c3f51b66602b65a2e7916f"><div class="ttname"><a href="structclient__game__data__s.html#a779d64ed08c3f51b66602b65a2e7916f">client_game_data_s::pseudo</a></div><div class="ttdeci">char pseudo[64]</div><div class="ttdef"><b>Definition:</b> game_data.h:26</div></div>
+<div class="ttc" id="astructclient__game__data__s_html_a9a1b0847c4fd2986e183bc1e7618d4d7"><div class="ttname"><a href="structclient__game__data__s.html#a9a1b0847c4fd2986e183bc1e7618d4d7">client_game_data_s::opponent_pseudo</a></div><div class="ttdeci">char * opponent_pseudo</div><div class="ttdef"><b>Definition:</b> game_data.h:27</div></div>
+<div class="ttc" id="astructclient__game__data__s_html_a9f3c8bbd1f3f0c66eded78b6fbb12929"><div class="ttname"><a href="structclient__game__data__s.html#a9f3c8bbd1f3f0c66eded78b6fbb12929">client_game_data_s::hostname</a></div><div class="ttdeci">char hostname[1024]</div><div class="ttdef"><b>Definition:</b> game_data.h:24</div></div>
+<div class="ttc" id="astructclient__game__data__s_html_aa24e6a9eb5976f5b290e2e08e6a18c58"><div class="ttname"><a href="structclient__game__data__s.html#aa24e6a9eb5976f5b290e2e08e6a18c58">client_game_data_s::port</a></div><div class="ttdeci">uint16_t port</div><div class="ttdef"><b>Definition:</b> game_data.h:25</div></div>
+<div class="ttc" id="astructclient__game__data__s_html_abeffe4849ee2b5bb3f8057b592475d99"><div class="ttname"><a href="structclient__game__data__s.html#abeffe4849ee2b5bb3f8057b592475d99">client_game_data_s::timer</a></div><div class="ttdeci">frame_timer_t * timer</div><div class="ttdef"><b>Definition:</b> game_data.h:30</div></div>
+<div class="ttc" id="astructclient__game__data__s_html_acd0137d5a8ba5830e00cd5ffff76cc8c"><div class="ttname"><a href="structclient__game__data__s.html#acd0137d5a8ba5830e00cd5ffff76cc8c">client_game_data_s::state</a></div><div class="ttdeci">client_game_state_e state</div><div class="ttdef"><b>Definition:</b> game_data.h:23</div></div>
+<div class="ttc" id="astructframe__timer__t_html"><div class="ttname"><a href="structframe__timer__t.html">frame_timer_t</a></div><div class="ttdoc">Timer permettant l'éxécution de code à intervalle régulier.</div><div class="ttdef"><b>Definition:</b> timer.h:20</div></div>
+<div class="ttc" id="atimer_8h_html"><div class="ttname"><a href="timer_8h.html">timer.h</a></div><div class="ttdoc">Implémentation des prototypes de timer/timer.c.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

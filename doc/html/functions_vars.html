@@ -75,23 +75,26 @@ $(function() {
 , <a class="el" href="structserver__t.html#a3b1e18c61476fbdc4fc77906d16d03c8">server_t</a>
 </li>
 <li>array
-: <a class="el" href="structgame__data__s.html#a385ec2f7dddbacae0ef978eae6c16915">game_data_s</a>
+: <a class="el" href="structserver__game__state__s.html#ae775da3b0f8a30c9f307a1175d4cbec4">server_game_state_s</a>
 </li>
 </ul>
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
+<li>capacity
+: <a class="el" href="structserver__game__state__array__s.html#a4bad095c55c0092beeb586b22797f395">server_game_state_array_s</a>
+</li>
 <li>client
 : <a class="el" href="structserver__client__connection__t.html#ade3e7b2f8e407748d0c350ed0dad7d58">server_client_connection_t</a>
 </li>
 <li>client_data
-: <a class="el" href="structplayer__game__data__t.html#a1bf848e5d7e829e0497b33583c28ac41">player_game_data_t</a>
+: <a class="el" href="structplayer__game__state__t.html#aea40b94327611248991f0972c2d5cc77">player_game_state_t</a>
 </li>
 <li>corner_wall
 : <a class="el" href="structbuilding__sprite__rects__t.html#a53619129e0c3378e5f233a6b429d560c">building_sprite_rects_t</a>
 </li>
 <li>count
-: <a class="el" href="structgame__data__array__s.html#a47a7889b4bbb1d0b59a6ed5056614292">game_data_array_s</a>
+: <a class="el" href="structserver__game__state__array__s.html#a58e63760e69f28995cec9e51e3c25224">server_game_state_array_s</a>
 </li>
 </ul>
 
@@ -108,7 +111,7 @@ $(function() {
 : <a class="el" href="structpacket__t.html#a0f48965d2d9996e55eef2910737a8f6b">packet_t</a>
 </li>
 <li>destruction_percentage
-: <a class="el" href="structplayer__game__data__t.html#a96bddee7a4f437bad93c3c4a8593617b">player_game_data_t</a>
+: <a class="el" href="structplayer__game__state__t.html#a78772d2b54814b9e20497dca115775e2">player_game_state_t</a>
 </li>
 <li>dirt
 : <a class="el" href="structmap__sprite__rects__t.html#a2c89cb939dc937ebaa4b7922aa7e1abe">map_sprite_rects_t</a>
@@ -151,9 +154,12 @@ $(function() {
 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
-<li>game_data
-: <a class="el" href="structclient__data__s.html#a88cb196877edf321016b81cf40c62860">client_data_s</a>
-, <a class="el" href="structgame__data__array__s.html#a9502d6804a3dd075acbe71bc20a909d9">game_data_array_s</a>
+<li>game_state
+: <a class="el" href="structserver__client__data__s.html#a9341e312c63869dd3fb2a5a442898c57">server_client_data_s</a>
+, <a class="el" href="structserver__game__state__array__s.html#af52b8bf0f8d56e6f64c790674e2ef346">server_game_state_array_s</a>
+</li>
+<li>gold_count
+: <a class="el" href="structclient__game__data__s.html#a45790e3280969168ff9dc8ef8273c3fd">client_game_data_s</a>
 </li>
 <li>ground_sprite
 : <a class="el" href="structmap__renderer__t.html#a793930fec1df3e3c28e61085fabe121f">map_renderer_t</a>
@@ -163,14 +169,20 @@ $(function() {
 
 <h3><a id="index_h"></a>- h -</h3><ul>
 <li>has_finished
-: <a class="el" href="structplayer__game__data__t.html#aaaa14494cb3e76de72682c953a3c925f">player_game_data_t</a>
+: <a class="el" href="structplayer__game__state__t.html#ac0aec1bc43cbb28c4dc7c9f1d67503ab">player_game_state_t</a>
 </li>
 <li>height
 : <a class="el" href="structsprite__t.html#a6718979180f6ac3ffdc44f41f8f75c00">sprite_t</a>
 , <a class="el" href="structwindow__t.html#a2e4e3c4402eb7b5f67e7574ec0e8c7bf">window_t</a>
 </li>
+<li>height_scale_factor
+: <a class="el" href="structwindow__t.html#ac12111118cdd3429d412966f16ed6ba8">window_t</a>
+</li>
 <li>horizontal_wall
 : <a class="el" href="structbuilding__sprite__rects__t.html#a006c2e19befe5c96cd5f451877917569">building_sprite_rects_t</a>
+</li>
+<li>hostname
+: <a class="el" href="structclient__game__data__s.html#a9f3c8bbd1f3f0c66eded78b6fbb12929">client_game_data_s</a>
 </li>
 <li>house_1
 : <a class="el" href="structbuilding__sprite__rects__t.html#a573b39da692dde1a050bd5dab88171a9">building_sprite_rects_t</a>
@@ -192,10 +204,10 @@ $(function() {
 : <a class="el" href="structframe__timer__t.html#a110868dbf0c237ccb836277240ba8bcb">frame_timer_t</a>
 </li>
 <li>is_in_game
-: <a class="el" href="structclient__data__s.html#ab30bf7c8279acceee043d525a10116e3">client_data_s</a>
+: <a class="el" href="structserver__client__data__s.html#af5127f01c37fdb4bf7d74896a990462e">server_client_data_s</a>
 </li>
 <li>is_player_ready
-: <a class="el" href="structclient__data__s.html#a62edf41d1ab894b145589e7be784eb28">client_data_s</a>
+: <a class="el" href="structserver__client__data__s.html#a72145ab26888507a2b90d0588b203702">server_client_data_s</a>
 </li>
 </ul>
 
@@ -235,16 +247,36 @@ $(function() {
 </ul>
 
 
+<h3><a id="index_o"></a>- o -</h3><ul>
+<li>offset_from_center
+: <a class="el" href="structmap__renderer__t.html#a35308b6a65cf850931b7029165f7b52a">map_renderer_t</a>
+</li>
+<li>opponent_pseudo
+: <a class="el" href="structclient__game__data__s.html#a9a1b0847c4fd2986e183bc1e7618d4d7">client_game_data_s</a>
+</li>
+<li>original_height
+: <a class="el" href="structwindow__t.html#af419e71ace36f95a7b05ccbb1260e86f">window_t</a>
+</li>
+<li>original_width
+: <a class="el" href="structwindow__t.html#a9574ec92b7f64f8b5e44fd7056880e0e">window_t</a>
+</li>
+</ul>
+
+
 <h3><a id="index_p"></a>- p -</h3><ul>
 <li>packet_buffer
 : <a class="el" href="structclient__t.html#a86845384b7035f326951f6af8e2b829c">client_t</a>
 , <a class="el" href="structserver__client__t.html#a84c1d44e081636e53c69b37e119add16">server_client_t</a>
 </li>
 <li>player
-: <a class="el" href="structgame__data__s.html#aade130f227cf692aa22871e55cd2691a">game_data_s</a>
+: <a class="el" href="structserver__game__state__s.html#aa7bfee31a3f1f81cf9cdaf0fd93ea94f">server_game_state_s</a>
+</li>
+<li>port
+: <a class="el" href="structclient__game__data__s.html#aa24e6a9eb5976f5b290e2e08e6a18c58">client_game_data_s</a>
 </li>
 <li>pseudo
-: <a class="el" href="structclient__data__s.html#a3589546e6349a9ab8fcc5de95df5aac1">client_data_s</a>
+: <a class="el" href="structclient__game__data__s.html#a779d64ed08c3f51b66602b65a2e7916f">client_game_data_s</a>
+, <a class="el" href="structserver__client__data__s.html#ae12668052dac414bb1d8eb79442275a9">server_client_data_s</a>
 </li>
 </ul>
 
@@ -262,7 +294,7 @@ $(function() {
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>server_client
-: <a class="el" href="structplayer__game__data__t.html#a6f5bab1a881b1d78fd5379aec369bc04">player_game_data_t</a>
+: <a class="el" href="structplayer__game__state__t.html#a513575add1f79fd1c11f928d7c6563a8">player_game_state_t</a>
 </li>
 <li>size
 : <a class="el" href="structmap__renderer__t.html#aca9cb9938b6a910235c5ac5f717adcd0">map_renderer_t</a>
@@ -275,7 +307,7 @@ $(function() {
 </li>
 <li>socket_fd
 : <a class="el" href="structclient__t.html#af63afab19e60f07b5bc64f329183671e">client_t</a>
-, <a class="el" href="structplayer__game__data__t.html#a4ff5d4e5345b9c99567d61b0196cbed0">player_game_data_t</a>
+, <a class="el" href="structplayer__game__state__t.html#a85203594f12b21f82e98f7b02a87275d">player_game_state_t</a>
 , <a class="el" href="structserver__client__t.html#a07429603d359b82e66bd078c3a638b4c">server_client_t</a>
 , <a class="el" href="structserver__t.html#a529cf0dee35461dcd663cde8b5d676d0">server_t</a>
 </li>
@@ -294,12 +326,16 @@ $(function() {
 , <a class="el" href="structmap__renderer__t.html#a0c475362d9f2758a9189029fd86e6b8e">map_renderer_t</a>
 </li>
 <li>state
-: <a class="el" href="structserver__client__connection__t.html#a49b9cd456ab67d09f6983242a37edef4">server_client_connection_t</a>
+: <a class="el" href="structclient__game__data__s.html#acd0137d5a8ba5830e00cd5ffff76cc8c">client_game_data_s</a>
+, <a class="el" href="structserver__client__connection__t.html#a49b9cd456ab67d09f6983242a37edef4">server_client_connection_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
+<li>text_font
+: <a class="el" href="structhud__t.html#a14d9364a5de72cba2903661664b34ad1">hud_t</a>
+</li>
 <li>texture
 : <a class="el" href="structsprite__t.html#ab2dd1ee545b01b43bff646fe10b29d5d">sprite_t</a>
 </li>
@@ -307,7 +343,11 @@ $(function() {
 : <a class="el" href="structmap__renderer__t.html#af1ac9bf9c90c324ff18a4d4a8bbb1d91">map_renderer_t</a>
 </li>
 <li>time_left
-: <a class="el" href="structplayer__game__data__t.html#a64b771e9837db32d0319bf6fdd28a679">player_game_data_t</a>
+: <a class="el" href="structplayer__game__state__t.html#aad9acac851ad13cdeaf030753efc2aa3">player_game_state_t</a>
+</li>
+<li>timer
+: <a class="el" href="structclient__game__data__s.html#abeffe4849ee2b5bb3f8057b592475d99">client_game_data_s</a>
+, <a class="el" href="structserver__game__state__s.html#a86ef7ed18d0f9cae5e2f754667a15843">server_game_state_s</a>
 </li>
 <li>tree_sprite
 : <a class="el" href="structmap__renderer__t.html#a9224257d4e18d212439bd27ade874067">map_renderer_t</a>
@@ -329,6 +369,12 @@ $(function() {
 <li>width
 : <a class="el" href="structsprite__t.html#a608b74d1243cdac2e2cbcc0d40ade78e">sprite_t</a>
 , <a class="el" href="structwindow__t.html#ade23597c3ed81f62276a0ade09f936be">window_t</a>
+</li>
+<li>width_scale_factor
+: <a class="el" href="structwindow__t.html#ad7005a52d95af554f57b8a3147df7183">window_t</a>
+</li>
+<li>win_count
+: <a class="el" href="structclient__game__data__s.html#a499e2d491796d1ba806d50b6288b45b5">client_game_data_s</a>
 </li>
 <li>window
 : <a class="el" href="structwindow__t.html#a29435f6d7667ff1ee309674d98962040">window_t</a>

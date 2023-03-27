@@ -1,0 +1,89 @@
+\hypertarget{hud_8h}{}\doxysection{Référence du fichier src/game/hud.h}
+\label{hud_8h}\index{src/game/hud.h@{src/game/hud.h}}
+
+
+Implémentation des prototypes de \mbox{\hyperlink{hud_8c}{game/hud.\+c}}.  
+
+
+{\ttfamily \#include \char`\"{}window/window.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}client/game\+\_\+data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}map/map\+\_\+renderer.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structhud__t}{hud\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure de données contenant les données de l\textquotesingle{}interface en jeux. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$ \mbox{\hyperlink{hud_8h_a60ceb01db8cbe5ab2f25217bf595fe1a}{create\+Hud}} ()
+\begin{DoxyCompactList}\small\item\em Créer les données de l\textquotesingle{}interface en jeux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hud_8h_aee20ca23a7a18af2557382a19988f746}{render\+Hud}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$hud, \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$map\+\_\+renderer, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\item 
+int \mbox{\hyperlink{hud_8h_ac6e778c19899aee355f34b285ac65244}{delete\+Hud}} (\mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$$\ast$hud)
+\begin{DoxyCompactList}\small\item\em Détruit les données de l\textquotesingle{}interface en jeux. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des prototypes de \mbox{\hyperlink{hud_8c}{game/hud.\+c}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+27/03/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{hud_8h_a60ceb01db8cbe5ab2f25217bf595fe1a}\label{hud_8h_a60ceb01db8cbe5ab2f25217bf595fe1a}} 
+\index{hud.h@{hud.h}!createHud@{createHud}}
+\index{createHud@{createHud}!hud.h@{hud.h}}
+\doxysubsubsection{\texorpdfstring{createHud()}{createHud()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structhud__t}{hud\+\_\+t}}$\ast$ create\+Hud (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Créer les données de l\textquotesingle{}interface en jeux. 
+
+\begin{DoxyReturn}{Renvoie}
+un pointer sur les {\bfseries{données de l\textquotesingle{}interface en jeux}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hud_8h_ac6e778c19899aee355f34b285ac65244}\label{hud_8h_ac6e778c19899aee355f34b285ac65244}} 
+\index{hud.h@{hud.h}!deleteHud@{deleteHud}}
+\index{deleteHud@{deleteHud}!hud.h@{hud.h}}
+\doxysubsubsection{\texorpdfstring{deleteHud()}{deleteHud()}}
+{\footnotesize\ttfamily int delete\+Hud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$$\ast$}]{hud }\end{DoxyParamCaption})}
+
+
+
+Détruit les données de l\textquotesingle{}interface en jeux. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em hud} & une référence d\textquotesingle{}un pointeur sur les données de l\textquotesingle{}interface en jeux \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hud_8h_aee20ca23a7a18af2557382a19988f746}\label{hud_8h_aee20ca23a7a18af2557382a19988f746}} 
+\index{hud.h@{hud.h}!renderHud@{renderHud}}
+\index{renderHud@{renderHud}!hud.h@{hud.h}}
+\doxysubsubsection{\texorpdfstring{renderHud()}{renderHud()}}
+{\footnotesize\ttfamily void render\+Hud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$}]{hud,  }\item[{\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$}]{map\+\_\+renderer,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em hud} & un pointeur sur l\textquotesingle{}interface en jeux \\
+\hline
+{\em map\+\_\+renderer} & un pointeur sur la carte \\
+\hline
+{\em game\+\_\+data} & un pointeur sur les données du jeux \\
+\hline
+\end{DoxyParams}

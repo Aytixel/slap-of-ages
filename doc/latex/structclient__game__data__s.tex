@@ -1,0 +1,89 @@
+\hypertarget{structclient__game__data__s}{}\doxysection{Référence de la structure client\+\_\+game\+\_\+data\+\_\+s}
+\label{structclient__game__data__s}\index{client\_game\_data\_s@{client\_game\_data\_s}}
+
+
+Structure de données contenant les données du jeux.  
+
+
+
+
+{\ttfamily \#include $<$game\+\_\+data.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+client\+\_\+game\+\_\+state\+\_\+e \mbox{\hyperlink{structclient__game__data__s_acd0137d5a8ba5830e00cd5ffff76cc8c}{state}}
+\item 
+char \mbox{\hyperlink{structclient__game__data__s_a9f3c8bbd1f3f0c66eded78b6fbb12929}{hostname}} \mbox{[}1024\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structclient__game__data__s_aa24e6a9eb5976f5b290e2e08e6a18c58}{port}}
+\item 
+char \mbox{\hyperlink{structclient__game__data__s_a779d64ed08c3f51b66602b65a2e7916f}{pseudo}} \mbox{[}64\mbox{]}
+\item 
+char $\ast$ \mbox{\hyperlink{structclient__game__data__s_a9a1b0847c4fd2986e183bc1e7618d4d7}{opponent\+\_\+pseudo}}
+\item 
+int \mbox{\hyperlink{structclient__game__data__s_a45790e3280969168ff9dc8ef8273c3fd}{gold\+\_\+count}}
+\item 
+int \mbox{\hyperlink{structclient__game__data__s_a499e2d491796d1ba806d50b6288b45b5}{win\+\_\+count}}
+\item 
+\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$ \mbox{\hyperlink{structclient__game__data__s_abeffe4849ee2b5bb3f8057b592475d99}{timer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure de données contenant les données du jeux. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structclient__game__data__s_a45790e3280969168ff9dc8ef8273c3fd}\label{structclient__game__data__s_a45790e3280969168ff9dc8ef8273c3fd}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!gold\_count@{gold\_count}}
+\index{gold\_count@{gold\_count}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{gold\_count}{gold\_count}}
+{\footnotesize\ttfamily int client\+\_\+game\+\_\+data\+\_\+s\+::gold\+\_\+count}
+
+nombre d\textquotesingle{}or maximum \mbox{\Hypertarget{structclient__game__data__s_a9f3c8bbd1f3f0c66eded78b6fbb12929}\label{structclient__game__data__s_a9f3c8bbd1f3f0c66eded78b6fbb12929}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!hostname@{hostname}}
+\index{hostname@{hostname}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{hostname}{hostname}}
+{\footnotesize\ttfamily char client\+\_\+game\+\_\+data\+\_\+s\+::hostname\mbox{[}1024\mbox{]}}
+
+addresse du serveur \mbox{\Hypertarget{structclient__game__data__s_a9a1b0847c4fd2986e183bc1e7618d4d7}\label{structclient__game__data__s_a9a1b0847c4fd2986e183bc1e7618d4d7}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!opponent\_pseudo@{opponent\_pseudo}}
+\index{opponent\_pseudo@{opponent\_pseudo}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{opponent\_pseudo}{opponent\_pseudo}}
+{\footnotesize\ttfamily char$\ast$ client\+\_\+game\+\_\+data\+\_\+s\+::opponent\+\_\+pseudo}
+
+pseudo du joueur adverse \mbox{\Hypertarget{structclient__game__data__s_aa24e6a9eb5976f5b290e2e08e6a18c58}\label{structclient__game__data__s_aa24e6a9eb5976f5b290e2e08e6a18c58}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!port@{port}}
+\index{port@{port}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily uint16\+\_\+t client\+\_\+game\+\_\+data\+\_\+s\+::port}
+
+port du serveur \mbox{\Hypertarget{structclient__game__data__s_a779d64ed08c3f51b66602b65a2e7916f}\label{structclient__game__data__s_a779d64ed08c3f51b66602b65a2e7916f}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!pseudo@{pseudo}}
+\index{pseudo@{pseudo}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{pseudo}{pseudo}}
+{\footnotesize\ttfamily char client\+\_\+game\+\_\+data\+\_\+s\+::pseudo\mbox{[}64\mbox{]}}
+
+pseudo du joueur \mbox{\Hypertarget{structclient__game__data__s_acd0137d5a8ba5830e00cd5ffff76cc8c}\label{structclient__game__data__s_acd0137d5a8ba5830e00cd5ffff76cc8c}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!state@{state}}
+\index{state@{state}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily client\+\_\+game\+\_\+state\+\_\+e client\+\_\+game\+\_\+data\+\_\+s\+::state}
+
+états du jeux \mbox{\Hypertarget{structclient__game__data__s_abeffe4849ee2b5bb3f8057b592475d99}\label{structclient__game__data__s_abeffe4849ee2b5bb3f8057b592475d99}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!timer@{timer}}
+\index{timer@{timer}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}}$\ast$ client\+\_\+game\+\_\+data\+\_\+s\+::timer}
+
+chronomètre de fin de partie \mbox{\Hypertarget{structclient__game__data__s_a499e2d491796d1ba806d50b6288b45b5}\label{structclient__game__data__s_a499e2d491796d1ba806d50b6288b45b5}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!win\_count@{win\_count}}
+\index{win\_count@{win\_count}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{win\_count}{win\_count}}
+{\footnotesize\ttfamily int client\+\_\+game\+\_\+data\+\_\+s\+::win\+\_\+count}
+
+nombre de victoire 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/client/\mbox{\hyperlink{game__data_8h}{game\+\_\+data.\+h}}\end{DoxyCompactItemize}
