@@ -12,6 +12,7 @@
 
 #include "building_renderer.h"
 #include "map/map_renderer.h"
+#include "client/game_data.h"
 
 /**
  * @brief Structure contenant les données des bâtiments
@@ -22,6 +23,7 @@
  * @param position position du bâtiment en cases
  * @param hp points de vie du bâtiment
  * @param max_hp points de vie maximum du bâtiment
+ * @param gold_cost coût du bâtiment en or
  */
 
 typedef struct
@@ -32,7 +34,7 @@ typedef struct
 
     int hp;
     int max_hp;
-
+    int gold_cost;
 } building_t;
 
 /*Fonctions externes*/
@@ -53,6 +55,16 @@ extern building_t *createBuilding(building_type_e type, SDL_Point *position, win
  * @return retourne un pointeur sur la matrice
  */
 extern building_t ***createBuildingMatrix(int map_size);
+
+/**
+ * @brief Affiche la matrice de bâtiment
+ *
+ * @param window un pointeur sur une fenêtre
+ * @param map_building matrice contenant la totalité des bâtiments placés sur la carte
+ * @param building_renderer
+ * @param map_size taille de la carte
+ */
+extern void renderBuildingMatrix(window_t *window, building_t ***map_building, building_renderer_t *building_renderer, int map_size);
 
 /**
  * @brief Détruit la structure de bâtiment
@@ -77,7 +89,6 @@ extern void buildingTakesDamages(building_t *building, int damages);
  * @param map un pointeur sur la structure de rendu de la carte
  * @return SDL_Point contenant les coordonnées du bâtiment en cases, si le clique de la souris est en dehors de la carte, la valeur retournée est {-1, -1}.
  */
-
 extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_renderer_t *map);
 
 /**
@@ -86,7 +97,6 @@ extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_r
  * @param building_matrix Matrice contenant la totalité des bâtiments placés sur la carte
  * @param map_size Taille de la carte en nombre de cases
  */
-
 extern void clearMatrix(building_t ***building_matrix, int map_size);
 
 /**
@@ -104,7 +114,6 @@ extern void destroyBuildingMatrix(building_t ****building_matrix, int map_size);
  * @param building_matrix Matrice contenant la totalité des bâtiments placés sur la carte
  * @param building Le bâtiment à ajouter à la carte
  */
-
 extern void addBuildingInMatrix(building_t ***building_matrix, building_t *building);
 
 /**
@@ -113,7 +122,6 @@ extern void addBuildingInMatrix(building_t ***building_matrix, building_t *build
  * @param building_matrix Matrice contenant la totalité des bâtiments placés sur la carte
  * @param building Le bâtiment à supprimer de la carte
  */
-
 extern void removeBuildingFromMatrix(building_t ***building_matrix, building_t *building);
 
 /**
@@ -122,7 +130,6 @@ extern void removeBuildingFromMatrix(building_t ***building_matrix, building_t *
  * @param building Le bâtiment à mettre à jour
  * @param position La nouvelle position du bâtiment
  */
-
 extern void updateBuildingCoord(building_t *building, SDL_Point *position);
 
 /**
@@ -133,7 +140,6 @@ extern void updateBuildingCoord(building_t *building, SDL_Point *position);
  * @param building_matrix Matrice contenant la totalité des bâtiments placés sur la carte
  * @return retourne 1 si le bâtiment peut être placé, 0 sinon
  */
-
 extern int canPlaceBuilding(building_renderer_t *building_renderer, building_t *building, SDL_Point *position, building_t ***building_matrix);
 
 /**
@@ -143,7 +149,17 @@ extern int canPlaceBuilding(building_renderer_t *building_renderer, building_t *
  * @param position position du bätiment à retourner
  * @return building_t* si le bâtiment existe, NULL sinon
  */
-
 extern building_t *getBuilding(building_t ***building_matrix, SDL_Point *position);
+
+/**
+ * @brief Fonction d'écoute des événements du système de placement de bâtiment
+ *
+ * @param event
+ * @param game_data
+ * @param map_building matrice contenant les bâtiments
+ * @param building_renderer
+ * @param window un pointeur sur une fenêtre
+ */
+extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data, building_t ***map_building, building_renderer_t *building_renderer, window_t *window);
 
 #endif

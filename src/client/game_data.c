@@ -17,7 +17,7 @@ extern client_game_data_t *createGameData()
 
     game_data->port = 4539;
     game_data->state = CONNECTION_GAME_STATE;
-    game_data->gold_count = 0;
+    game_data->gold_count = 1000;
     game_data->victory_count = 0;
     game_data->opponent_pseudo = NULL;
     game_data->timer = NULL;

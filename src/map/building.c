@@ -47,13 +47,37 @@ extern building_t *createBuilding(building_type_e type, SDL_Point *position, win
     case VERTICAL_WALL_BUILDING:
     case HORIZONTAL_WALL_BUILDING:
         building->max_hp = 300;
-
     default:
         building->max_hp = 0;
         break;
     }
 
     building->hp = building->max_hp;
+
+    switch (type)
+    {
+    case HOUSE_1_BUILDING:
+    case HOUSE_2_BUILDING:
+    case HOUSE_3_BUILDING:
+        building->gold_cost = 30;
+        break;
+    case WELL_BUILDING:
+        building->gold_cost = 20;
+        break;
+    case MILL_BUILDING:
+    case MINE_BUILDING:
+        building->gold_cost = 100;
+        break;
+    case CORNER_WALL_BUILDING:
+    case VERTICAL_WALL_BUILDING:
+    case HORIZONTAL_WALL_BUILDING:
+    case FIELD_BUILDING:
+        building->gold_cost = 10;
+        break;
+    default:
+        building->gold_cost = 5;
+        break;
+    }
 
     return building;
 }
@@ -76,6 +100,18 @@ extern building_t ***createBuildingMatrix(int map_size)
     }
 
     return building_matrix;
+}
+
+extern void renderBuildingMatrix(window_t *window, building_t ***map_building, building_renderer_t *building_renderer, int map_size)
+{
+    for (int i = 0; i < map_size; i++)
+    {
+        for (int j = 0; j < map_size; j++)
+        {
+            if (map_building[i][j] != NULL)
+                renderBuilding(window, building_renderer, &(map_building[i][j]->position), map_building[i][j]->type, &map_building[i][j]->rect);
+        }
+    }
 }
 
 extern void destroyBuilding(building_t **building)
@@ -203,10 +239,6 @@ extern int canPlaceBuilding(building_renderer_t *building_renderer, building_t *
 
     if (canRenderBuilding(building_renderer, position, building->type))
     {
-        SDL_Rect rect = {0, 0, 0, 0};
-
-        printf("can render building\n");
-
         if (building_matrix[position->x][position->y] == NULL)
         {
             switch (building->type)
@@ -238,4 +270,29 @@ extern int canPlaceBuilding(building_renderer_t *building_renderer, building_t *
 extern building_t *getBuilding(building_t ***building_matrix, SDL_Point *position)
 {
     return building_matrix[position->x][position->y];
+}
+
+extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data, building_t ***map_building, building_renderer_t *building_renderer, window_t *window)
+{
+    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT)
+    {
+        SDL_Point mouse_position = {event->button.x, event->button.y};
+        SDL_Point tile_position = getTileCoord(&mouse_position, window, building_renderer->map_renderer);
+        building_t *new = createBuilding(MILL_BUILDING, &tile_position, window, building_renderer->map_renderer);
+
+        if (canPlaceBuilding(building_renderer, new, &tile_position, map_building))
+        {
+            if (game_data->gold_count - new->gold_cost >= 0)
+            {
+                addBuildingInMatrix(map_building, new);
+                game_data->gold_count -= new->gold_cost;
+            }
+        }
+        else if (tile_position.x != -1 && tile_position.y != -1 && map_building[tile_position.x][tile_position.y] != NULL)
+        {
+            game_data->gold_count += map_building[tile_position.x][tile_position.y]->gold_cost;
+            destroyBuilding(&new);
+            removeBuildingFromMatrix(map_building, map_building[tile_position.x][tile_position.y]);
+        }
+    }
 }

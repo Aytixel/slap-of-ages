@@ -37,17 +37,40 @@ typedef struct
     SDL_Rect pseudo_rect;
 } menu_t;
 
+/**
+ * @brief Fonction de création du menu
+ *
+ * @param window
+ * @param game_data
+ * @return menu_t*
+ */
 extern menu_t *createMenu(window_t *window, client_game_data_t *game_data);
 
 /**
- * @brief Fonction de création du menu multijoueur
+ * @brief Fonction d'écoute des événements du menu
  *
+ * @param game_data
+ * @param event
+ * @param menu
  * @return int
  */
 extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, menu_t *menu);
 
+/**
+ * @brief Fonction d'affichage du menu
+ *
+ * @param window
+ * @param menu
+ * @return int
+ */
 extern int menuRenderer(window_t *window, menu_t *menu);
 
+/**
+ * @brief Fonction de destruction du menu
+ *
+ * @param menu
+ * @return int
+ */
 extern int deleteMenu(menu_t **menu);
 
 #endif

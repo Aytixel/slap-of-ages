@@ -7,6 +7,7 @@
 #include "connection/client.h"
 #include "map/map_renderer.h"
 #include "map/building_renderer.h"
+#include "map/building.h"
 #include "menu/menu.h"
 #include "client/game_data.h"
 #include "client/game_state.h"
@@ -108,6 +109,7 @@ int main(int argc, char *argv[])
 
     initSocket();
 
+    building_t ***map_building = createBuildingMatrix(MAP_SIZE);
     frame_timer_t *main_timer = createTimer(1000 / 30);
     client_game_data_t *game_data = createGameData();
 
@@ -147,6 +149,14 @@ int main(int argc, char *argv[])
                 }
                 break;
             case CLIENT_CONNECTED:
+                switch (game_data->state)
+                {
+                case PREPARATION_GAME_STATE:
+                    buildingEventHandler(&event, game_data, map_building, building_renderer, window);
+                    break;
+                default:
+                    break;
+                }
                 break;
             }
         }
@@ -196,6 +206,7 @@ int main(int argc, char *argv[])
             {
             case CLIENT_CONNECTED:
                 renderMap(window, map_renderer);
+                renderBuildingMatrix(window, map_building, building_renderer, MAP_SIZE);
                 break;
             default:
                 menuRenderer(window, menu);
@@ -210,6 +221,7 @@ int main(int argc, char *argv[])
     deleteMenu(&menu);
     deleteGameData(&game_data);
     deleteTimer(&main_timer);
+    destroyBuildingMatrix(&map_building, MAP_SIZE);
     endSocket();
     deleteBuildingRenderer(&building_renderer);
     deleteMapRenderer(&map_renderer);
