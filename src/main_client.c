@@ -138,6 +138,9 @@ int main(int argc, char *argv[])
                     running = 0;
                     break;
                 case 1:
+                    char title[79] = "Slap of Ages : ";
+                    SDL_SetWindowTitle(window->window, strcat(title, game_data->pseudo));
+
                     if (!initClientConnection(game_data->hostname, game_data->port))
                     {
                         packet_t *set_pseudo_packet = createSetPseudoPacket(game_data->pseudo);
