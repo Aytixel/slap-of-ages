@@ -47,10 +47,14 @@ typedef struct
  */
 typedef struct
 {
-    SDL_Window *window;     /**< fenêtre SDL2*/
-    SDL_Renderer *renderer; /**< moteur de rendue de la fenêtre*/
-    int width;              /**< largeur de la fenêtre*/
-    int height;             /**< longueur de la fenêtre*/
+    SDL_Window *window;        /**< fenêtre SDL2*/
+    SDL_Renderer *renderer;    /**< moteur de rendue de la fenêtre*/
+    int original_width;        /**< largeur originale de la fenêtre*/
+    int original_height;       /**< longueur originale de la fenêtre*/
+    int width;                 /**< largeur de la fenêtre*/
+    int height;                /**< longueur de la fenêtre*/
+    float width_scale_factor;  /**< coefficient de largeur*/
+    float height_scale_factor; /**< coefficient de longueur*/
 } window_t;
 
 /**
@@ -70,6 +74,14 @@ typedef struct
  */
 
 extern window_t *createWindow(char *title, int width, int height);
+
+/**
+ * @brief Met à jours la taille de la fenêtre
+ *
+ * @param window un pointeur sur une fenêtre
+ * @param event un pointeur sur event
+ */
+extern void updateWindowSize(window_t *window, SDL_Event *event);
 
 /**
  * @brief Détruit une fenêtre

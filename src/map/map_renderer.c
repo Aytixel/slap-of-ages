@@ -64,6 +64,8 @@ extern map_renderer_t *createMapRenderer(window_t *window, int map_size)
         ((int *)&map_renderer->sprite_rects)[i] = ((int *)&map_renderer->sprite_tile_rects)[i] * MAP_TILE_SIZE;
     }
 
+    map_renderer->offset_from_center = map_renderer->tile_size * map_renderer->size / 2;
+
     return map_renderer;
 }
 
@@ -130,10 +132,12 @@ static int randomizeTreePlacement(int x, int y)
 
 extern void renderMap(window_t *window, map_renderer_t *map_renderer)
 {
+    map_renderer->offset_from_center = map_renderer->tile_size * map_renderer->size / 2;
+
     // ajuste la taille des cases pour que la carte remplisse toute la hauteur de la fenêtre
     map_renderer->tile_size = window->height / (map_renderer->size + 12);
 
-    int offset = map_renderer->tile_size * ((float)map_renderer->size / 2 - 1);
+    int offset = map_renderer->offset_from_center - map_renderer->tile_size;
 
     // calcul le nombre de cases pour remplir la moitié de la fenêtre
     int halft_width_tile_count = window->width / 2 / map_renderer->tile_size - map_renderer->size / 2 + 1;
@@ -240,4 +244,27 @@ extern int deleteMapRenderer(map_renderer_t **map_renderer)
     *map_renderer = NULL;
 
     return 0;
+}
+
+extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_renderer_t *map_renderer)
+{
+
+    SDL_Rect center_coord;
+    SDL_Point tile_coord;
+
+    int maxPixels = map_renderer->tile_size * map_renderer->size;
+
+    center_coord = positionToCenter(window, 0, 0);
+
+    tile_coord.x = (mouse_position->x - center_coord.x + maxPixels / 2) / map_renderer->tile_size;
+    tile_coord.y = (mouse_position->y - center_coord.y + maxPixels / 2) / map_renderer->tile_size;
+
+    if (tile_coord.x < 0 || tile_coord.y < 0 || tile_coord.x >= map_renderer->size || tile_coord.y >= map_renderer->size)
+    {
+        tile_coord.x = -1;
+        tile_coord.y = -1;
+        return tile_coord;
+    }
+
+    return tile_coord;
 }

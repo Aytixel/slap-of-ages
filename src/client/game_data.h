@@ -26,7 +26,7 @@ typedef struct client_game_data_s
     char pseudo[64];           /**< pseudo du joueur*/
     char *opponent_pseudo;     /**< pseudo du joueur adverse*/
     int gold_count;            /**< nombre d'or maximum*/
-    int victory_count;         /**< nombre de victoire*/
+    int win_count;             /**< nombre de victoire*/
     frame_timer_t *timer;      /**< chronomètre de fin de partie*/
 } client_game_data_t;
 

@@ -43,10 +43,9 @@ typedef struct
  * @brief Créer la structure qui gère l'affichage des bâtiments
  *
  * @param window un pointeur sur une fenêtre
- * @param map_renderer un pointeur sur la carte
  * @return building_renderer_t*
  */
-extern building_t *createBuilding(building_type_e type, SDL_Point *position, window_t *window, map_renderer_t *map_renderer);
+extern building_t *createBuilding(building_type_e type, SDL_Point *position, window_t *window);
 
 /**
  * @brief Créer la matrice de bâtiment
@@ -80,16 +79,6 @@ extern void destroyBuilding(building_t **building);
  * @param damages les dégâts subis par le bâtiment
  */
 extern void buildingTakesDamages(building_t *building, int damages);
-
-/**
- * @brief Permet de gérer la position du batiment selon le placement de la souris
- *
- * @param mouse_position la position de la souris
- * @param window un pointeur sur une fenêtre
- * @param map un pointeur sur la structure de rendu de la carte
- * @return SDL_Point contenant les coordonnées du bâtiment en cases, si le clique de la souris est en dehors de la carte, la valeur retournée est {-1, -1}.
- */
-extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_renderer_t *map);
 
 /**
  * @brief Permet de détruire tout les bâtiments sur la carte

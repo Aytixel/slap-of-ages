@@ -1,3 +1,13 @@
+/**
+ * @file game.c
+ * @author Arthur Dureau
+ * @brief Fonction divers pour le jeu
+ * @version 1.0
+ * @date 19/03/2023
+ *
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>

@@ -20,7 +20,6 @@
 // Structure pour stocker information du menu_test
 typedef struct
 {
-    int initial_height;
     TTF_Font *text_font;
     TTF_Font *textbox_font;
     sprite_t *background_sprite;

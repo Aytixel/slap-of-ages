@@ -64,14 +64,13 @@ extern int renderBuilding(window_t *window, building_renderer_t *building_render
     if (!canRenderBuilding(building_renderer, position, building_type))
         return 0;
 
-    int offset = building_renderer->map_renderer->tile_size * building_renderer->map_renderer->size / 2;
     SDL_Rect tile_rect = ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type];
     *destination_rect = positionFromCenter(
         window,
         building_renderer->map_renderer->tile_size * tile_rect.w,
         building_renderer->map_renderer->tile_size * tile_rect.h,
-        building_renderer->map_renderer->tile_size * position->x - offset,
-        building_renderer->map_renderer->tile_size * position->y - offset,
+        building_renderer->map_renderer->tile_size * position->x - building_renderer->map_renderer->offset_from_center,
+        building_renderer->map_renderer->tile_size * position->y - building_renderer->map_renderer->offset_from_center,
         TRANSFORM_ORIGIN_TOP_LEFT);
 
     SDL_RenderCopy(

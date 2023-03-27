@@ -18,7 +18,7 @@
 #include "window/window.h"
 #include "window/input.h"
 
-extern building_t *createBuilding(building_type_e type, SDL_Point *position, window_t *window, map_renderer_t *map_renderer)
+extern building_t *createBuilding(building_type_e type, SDL_Point *position, window_t *window)
 {
     building_t *building = malloc(sizeof(building_t));
 
@@ -131,29 +131,6 @@ extern void buildingTakesDamages(building_t *building, int damages)
     {
         destroyBuilding(&building);
     }
-}
-
-extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_renderer_t *map)
-{
-
-    SDL_Rect center_coord;
-    SDL_Point tile_coord;
-
-    int maxPixels = map->tile_size * map->size;
-
-    center_coord = positionToCenter(window, 0, 0);
-
-    tile_coord.x = (mouse_position->x - center_coord.x + maxPixels / 2) / map->tile_size;
-    tile_coord.y = (mouse_position->y - center_coord.y + maxPixels / 2) / map->tile_size;
-
-    if (tile_coord.x < 0 || tile_coord.y < 0 || tile_coord.x >= map->size || tile_coord.y >= map->size)
-    {
-        tile_coord.x = -1;
-        tile_coord.y = -1;
-        return tile_coord;
-    }
-
-    return tile_coord;
 }
 
 extern void clearMatrix(building_t ***building_matrix, int map_size)
@@ -278,7 +255,7 @@ extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data
     {
         SDL_Point mouse_position = {event->button.x, event->button.y};
         SDL_Point tile_position = getTileCoord(&mouse_position, window, building_renderer->map_renderer);
-        building_t *new = createBuilding(MILL_BUILDING, &tile_position, window, building_renderer->map_renderer);
+        building_t *new = createBuilding(MILL_BUILDING, &tile_position, window);
 
         if (canPlaceBuilding(building_renderer, new, &tile_position, map_building))
         {
@@ -287,6 +264,8 @@ extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data
                 addBuildingInMatrix(map_building, new);
                 game_data->gold_count -= new->gold_cost;
             }
+            else
+                destroyBuilding(&new);
         }
         else if (tile_position.x != -1 && tile_position.y != -1 && map_building[tile_position.x][tile_position.y] != NULL)
         {

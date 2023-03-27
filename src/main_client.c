@@ -11,6 +11,7 @@
 #include "menu/menu.h"
 #include "client/game_data.h"
 #include "client/game_state.h"
+#include "game/hud.h"
 
 #define MAP_SIZE 31
 
@@ -45,16 +46,9 @@ void windowEventHandler(SDL_Event *event, window_t *window, client_game_data_t *
             }
         }
         break;
-    case SDL_WINDOWEVENT:
-        switch (event->window.event)
-        {
-        case SDL_WINDOWEVENT_RESIZED:
-            window->width = event->window.data1;
-            window->height = event->window.data2;
-            break;
-        }
-        break;
     }
+
+    updateWindowSize(window, event);
 }
 
 void handle_packet(packet_t *packet, client_game_data_t *game_data)
@@ -75,11 +69,12 @@ void handle_packet(packet_t *packet, client_game_data_t *game_data)
         int has_won;
 
         readHasPlayerWonPacket(packet, &has_won);
+        deleteTimer(&game_data->timer);
 
         if (has_won == 1 || has_won == 2)
-            game_data->victory_count++;
+            game_data->win_count++;
 
-        printf("Gagné : %d, Nombre de victoire : %d\n", has_won, game_data->victory_count);
+        printf("Gagné : %d, Nombre de victoire : %d\n", has_won, game_data->win_count);
         break;
     }
 }
@@ -109,11 +104,11 @@ int main(int argc, char *argv[])
 
     initSocket();
 
-    building_t ***map_building = createBuildingMatrix(MAP_SIZE);
     frame_timer_t *main_timer = createTimer(1000 / 30);
+    building_t ***map_building = createBuildingMatrix(MAP_SIZE);
     client_game_data_t *game_data = createGameData();
-
     menu_t *menu = createMenu(window, game_data);
+    hud_t *hud = createHud();
 
     if (menu == NULL)
         return 1;
@@ -210,6 +205,7 @@ int main(int argc, char *argv[])
             case CLIENT_CONNECTED:
                 renderMap(window, map_renderer);
                 renderBuildingMatrix(window, map_building, building_renderer, MAP_SIZE);
+                renderHud(window, hud, map_renderer, game_data);
                 break;
             default:
                 menuRenderer(window, menu);
@@ -221,10 +217,11 @@ int main(int argc, char *argv[])
     }
 
     closeClientConnection();
+    deleteHud(&hud);
     deleteMenu(&menu);
     deleteGameData(&game_data);
-    deleteTimer(&main_timer);
     destroyBuildingMatrix(&map_building, MAP_SIZE);
+    deleteTimer(&main_timer);
     endSocket();
     deleteBuildingRenderer(&building_renderer);
     deleteMapRenderer(&map_renderer);

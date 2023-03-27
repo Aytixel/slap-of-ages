@@ -43,8 +43,6 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
     return NULL;
   }
 
-  menu->initial_height = window->height;
-
   SDL_Rect rect = {0, 0, 0, 0};
 
   menu->hostname_rect = rect;
@@ -133,7 +131,7 @@ extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, men
 
 extern int menuRenderer(window_t *window, menu_t *menu)
 {
-  float scale_factor = (float)window->height / (float)menu->initial_height;
+  float scale_factor = window->height_scale_factor;
 
   // Affichage de l'image de fond
   SDL_Rect background_rect = positionToCenter(window, menu->background_sprite->width * scale_factor * 4, menu->background_sprite->height * scale_factor * 4);
