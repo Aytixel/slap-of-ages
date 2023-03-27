@@ -15,6 +15,8 @@
 #include <SDL2/SDL_ttf.h>
 #include "window/window.h"
 #include "window/input.h"
+#include "window/animation.h"
+#include "window/animation_states.h"
 #include "client/game_data.h"
 
 // Structure pour stocker information du menu_test
@@ -22,7 +24,8 @@ typedef struct
 {
     TTF_Font *text_font;
     TTF_Font *textbox_font;
-    sprite_t *background_sprite;
+    anim_t *book_animation;
+    book_anim_state_e book_animation_state;
     button_t *join_button;
     button_t *quit_button;
     sprite_t *hostname_label;

@@ -31,7 +31,6 @@
 
 typedef struct
 {
-
     int *state_frame_count;
     int state_count;
 
@@ -46,6 +45,7 @@ typedef struct
 
     int current_state;
     int current_frame;
+    SDL_Rect frame_rect;
 } anim_t;
 
 /*Fonctions externes*/

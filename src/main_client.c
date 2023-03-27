@@ -208,7 +208,7 @@ int main(int argc, char *argv[])
                 renderHud(window, hud, map_renderer, game_data);
                 break;
             default:
-                menuRenderer(window, menu);
+                running = menuRenderer(window, menu);
                 break;
             }
 

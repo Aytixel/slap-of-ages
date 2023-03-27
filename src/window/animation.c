@@ -72,6 +72,10 @@ extern anim_t *createAnim(int tile_size, int *state_frame_count, sprite_t *sprit
     anim->current_frame = 0;
     anim->current_state = 0;
     anim->sprite = sprite;
+    anim->frame_rect.x = 0;
+    anim->frame_rect.y = 0;
+    anim->frame_rect.w = 0;
+    anim->frame_rect.h = 0;
 
     anim->timer = createTimer(1000 / frame_rate);
 
@@ -122,9 +126,11 @@ extern int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *pos
         anim->current_frame = 0;
     }
 
-    SDL_Rect rect = {position->x, position->y, anim->frame_tile_width * tile_size, anim->frame_tile_height * tile_size};
+    SDL_Rect frame_rect = {position->x, position->y, anim->frame_tile_width * tile_size, anim->frame_tile_height * tile_size};
 
-    SDL_RenderCopy(window->renderer, anim->sprite->texture, &anim->state_frames[anim->current_state][anim->current_frame], &rect);
+    anim->frame_rect = frame_rect;
+
+    SDL_RenderCopy(window->renderer, anim->sprite->texture, &anim->state_frames[anim->current_state][anim->current_frame], &anim->frame_rect);
 
     if (checkTime(anim->timer))
     {
