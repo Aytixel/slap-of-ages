@@ -52,10 +52,21 @@ typedef struct
 /**
  * @brief Fonction de création des boutons
  *
- * @return void
+ * @param window
+ * @param font
+ * @param text
+ * @param color
+ * @param selected_color
+ * @return button_t*
  */
 extern button_t *createButton(window_t *window, TTF_Font *font, char *text, SDL_Color color, SDL_Color selected_color);
 
+/**
+ * @brief Fonction d'affichage d'un bouton
+ *
+ * @param window
+ * @param button
+ */
 extern void renderButton(window_t *window, button_t *button);
 
 /**
@@ -70,16 +81,28 @@ extern void destroyButton(button_t **button);
 /**
  * @brief Fonction de création des textes box (texte de saisie)
  *
- * @return void
+ * @param window
+ * @param font
+ * @param text
+ * @param color
+ * @param character_limit
+ * @return textbox_t*
  */
 textbox_t *createTextbox(window_t *window, TTF_Font *font, char *text, SDL_Color color, int character_limit);
 
+/**
+ * @brief Fonction d'affichage d'une boite de texte
+ *
+ * @param window
+ * @param textbox
+ */
 extern void renderTextbox(window_t *window, textbox_t *textbox);
 
 /**
  * @brief Fonction de mise à jour des textes box (texte de saisie)
  *
- * @return void
+ * @param event
+ * @param textbox
  */
 extern void updateTextbox(SDL_Event *event, textbox_t *textbox);
 
@@ -92,6 +115,16 @@ extern void updateTextbox(SDL_Event *event, textbox_t *textbox);
  */
 extern void destroyTextbox(textbox_t **textbox);
 
+/**
+ * @brief Fonction d'affichage d'un rectangle
+ *
+ * @param renderer
+ * @param rect
+ * @param r
+ * @param g
+ * @param b
+ * @param a
+ */
 extern void drawRect(SDL_Renderer *renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 
 /**

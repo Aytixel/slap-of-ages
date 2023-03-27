@@ -42,35 +42,35 @@ typedef struct
 /**
  * @brief Fonction de création du menu
  *
- * @param window
- * @param game_data
- * @return menu_t*
+ * @param window un pointeur sur une fenêtre
+ * @param game_data un pointeur sur les données du jeux
+ * @return un pointeur sur un menu
  */
 extern menu_t *createMenu(window_t *window, client_game_data_t *game_data);
 
 /**
  * @brief Fonction d'écoute des événements du menu
  *
- * @param game_data
- * @param event
- * @param menu
- * @return int
+ * @param game_data un pointeur sur les données du jeux
+ * @param event un pointeur sur les événements
+ * @param menu un pointeur sur un menu
+ * @return 1 si le bouton join est cliquer, 0 sinon
  */
 extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, menu_t *menu);
 
 /**
  * @brief Fonction d'affichage du menu
  *
- * @param window
- * @param menu
- * @return int
+ * @param window un pointeur sur une fenêtre
+ * @param menu un pointeur sur un menu
+ * @return 1 si le programme peut continuer, 0 sinon
  */
 extern int menuRenderer(window_t *window, menu_t *menu);
 
 /**
  * @brief Fonction de destruction du menu
  *
- * @param menu
+ * @param menu une référence sur un pointeur sur un menu
  * @return int
  */
 extern int deleteMenu(menu_t **menu);

@@ -51,14 +51,13 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
 
   SDL_Color light_text_color = {255, 255, 255, 0};
   SDL_Color dark_text_color = {52, 36, 20, 0};
-  SDL_Color selected_button_color = {52, 36, 155, 0};
 
   int book_states[] = {4, 4, 1, -1};
   menu->book_animation = createAnim(16, book_states, loadSprite(window, "asset/sprite/menu/book.png"), 8);
   menu->book_animation_state = BOOK_OPEN_ANIM;
 
-  menu->join_button = createButton(window, menu->text_font, "JOIN", dark_text_color, selected_button_color);
-  menu->quit_button = createButton(window, menu->text_font, "QUITTER", dark_text_color, selected_button_color);
+  menu->join_button = createButton(window, menu->text_font, "JOIN", dark_text_color, light_text_color);
+  menu->quit_button = createButton(window, menu->text_font, "QUITTER", dark_text_color, light_text_color);
 
   menu->hostname_label = createTextSprite(window, menu->text_font, "Ip", light_text_color);
   menu->port_label = createTextSprite(window, menu->text_font, "Port", light_text_color);
@@ -82,7 +81,7 @@ extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, men
 {
   static int selected_textbox = 0;
 
-  if (isMouseClickInRect(*event, menu->quit_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
+  if (event->type == SDL_QUIT || isMouseClickInRect(*event, menu->quit_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
     menu->book_animation_state = BOOK_CLOSE_ANIM;
 
   if (isMouseClickInRect(*event, menu->join_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN) && strlen(menu->pseudo_textbox->text) >= 3)
@@ -123,10 +122,10 @@ extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, men
     break;
   }
 
-  SDL_Point mousePoint = getMousePosition();
+  SDL_Point mouse_point = getMousePosition();
 
-  menu->join_button->is_selected = SDL_PointInRect(&mousePoint, &menu->join_button->rect);
-  menu->quit_button->is_selected = SDL_PointInRect(&mousePoint, &menu->quit_button->rect);
+  menu->join_button->is_selected = SDL_PointInRect(&mouse_point, &menu->join_button->rect);
+  menu->quit_button->is_selected = SDL_PointInRect(&mouse_point, &menu->quit_button->rect);
 
   return 0;
 }

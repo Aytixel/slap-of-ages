@@ -13,7 +13,7 @@
 #include "client/game_state.h"
 #include "game/hud.h"
 
-#define MAP_SIZE 31
+#define MAP_SIZE 24
 
 int running = 1;
 
@@ -22,23 +22,29 @@ void signalHandler(int s)
     running = 0;
 }
 
-void windowEventHandler(SDL_Event *event, window_t *window, client_game_data_t *game_data)
+void windowEventHandler(
+    SDL_Event *event,
+    window_t *window,
+    client_game_data_t *game_data,
+    building_renderer_t *building_renderer,
+    building_t ***map_building,
+    menu_t *menu,
+    hud_t *hud)
 {
     // gestion des évènements de la fenêtre
+    updateWindowSize(window, event);
+
     switch (event->type)
     {
     case SDL_QUIT:
-        running = 0;
+        if (client_connection_state == CLIENT_CONNECTED)
+            running = 0;
         break;
     case SDL_KEYDOWN:
         if (event->key.state == SDL_PRESSED)
         {
             switch (event->key.keysym.sym)
             {
-            case SDLK_a:
-                // temporaire
-                toggleMatchmaking(client, game_data);
-                break;
             case SDLK_z:
                 // temporaire
                 endGame(client, game_data);
@@ -48,16 +54,52 @@ void windowEventHandler(SDL_Event *event, window_t *window, client_game_data_t *
         break;
     }
 
-    updateWindowSize(window, event);
+    switch (client_connection_state)
+    {
+    case CLIENT_WAITING_INFO:
+    case CLIENT_WAITING_HANDSHAKE:
+        if (menuEventHandler(game_data, event, menu))
+        {
+            char title[90] = "";
+            sprintf(title, "Slap of Ages : %s", game_data->pseudo);
+            SDL_SetWindowTitle(window->window, title);
+
+            if (!initClientConnection(game_data->hostname, game_data->port))
+            {
+                packet_t *set_pseudo_packet = createSetPseudoPacket(game_data->pseudo);
+
+                sendToServer(client, set_pseudo_packet);
+                deletePacket(&set_pseudo_packet);
+            }
+        }
+        break;
+    case CLIENT_CONNECTED:
+        hudEventHandler(event, hud, client, game_data);
+
+        switch (game_data->state)
+        {
+        case PREPARATION_GAME_STATE:
+            buildingEventHandler(event, game_data, map_building, building_renderer, window);
+            break;
+        default:
+            break;
+        }
+        break;
+    }
 }
 
-void handle_packet(packet_t *packet, client_game_data_t *game_data)
+void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_data)
 {
+    char title[150] = "";
+
     switch (packet->id)
     {
     case SET_PSEUDO_PACKET_ID:
         readSetPseudoPacket(packet, &game_data->opponent_pseudo);
         printf("Adversaire : %s\n", game_data->opponent_pseudo);
+
+        sprintf(title, "Slap of Ages : %s vs %s", game_data->pseudo, game_data->opponent_pseudo);
+        SDL_SetWindowTitle(window->window, title);
         break;
     case SET_MAP_PACKET_ID:
         startGame(client, game_data);
@@ -75,6 +117,9 @@ void handle_packet(packet_t *packet, client_game_data_t *game_data)
             game_data->win_count++;
 
         printf("Gagné : %d, Nombre de victoire : %d\n", has_won, game_data->win_count);
+
+        sprintf(title, "Slap of Ages : %s", game_data->pseudo);
+        SDL_SetWindowTitle(window->window, title);
         break;
     }
 }
@@ -108,7 +153,7 @@ int main(int argc, char *argv[])
     building_t ***map_building = createBuildingMatrix(MAP_SIZE);
     client_game_data_t *game_data = createGameData();
     menu_t *menu = createMenu(window, game_data);
-    hud_t *hud = createHud();
+    hud_t *hud = createHud(window);
 
     if (menu == NULL)
         return 1;
@@ -120,44 +165,7 @@ int main(int argc, char *argv[])
         int time_left = timeLeft(main_timer);
 
         if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
-        {
-            windowEventHandler(&event, window, game_data);
-
-            switch (client_connection_state)
-            {
-            case CLIENT_WAITING_INFO:
-            case CLIENT_WAITING_HANDSHAKE:
-                switch (menuEventHandler(game_data, &event, menu))
-                {
-                case 2:
-                    running = 0;
-                    break;
-                case 1:
-                    char title[79] = "Slap of Ages : ";
-                    SDL_SetWindowTitle(window->window, strcat(title, game_data->pseudo));
-
-                    if (!initClientConnection(game_data->hostname, game_data->port))
-                    {
-                        packet_t *set_pseudo_packet = createSetPseudoPacket(game_data->pseudo);
-
-                        sendToServer(client, set_pseudo_packet);
-                        deletePacket(&set_pseudo_packet);
-                    }
-                    break;
-                }
-                break;
-            case CLIENT_CONNECTED:
-                switch (game_data->state)
-                {
-                case PREPARATION_GAME_STATE:
-                    buildingEventHandler(&event, game_data, map_building, building_renderer, window);
-                    break;
-                default:
-                    break;
-                }
-                break;
-            }
-        }
+            windowEventHandler(&event, window, game_data, building_renderer, map_building, menu, hud);
 
         if (checkTime(main_timer))
         {
@@ -191,7 +199,7 @@ int main(int argc, char *argv[])
 
                 if (packet != NULL)
                 {
-                    handle_packet(packet, game_data);
+                    handle_packet(packet, window, game_data);
                     deletePacket(&packet);
                 }
                 break;
