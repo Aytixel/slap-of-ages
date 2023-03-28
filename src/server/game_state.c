@@ -351,15 +351,8 @@ extern void setPlayerIsReadyInArray(server_game_state_array_t *game_state_array,
             sendToServerClient(game_state_array->game_state[game_index]->player[1]->server_client, packet);
             deletePacket(&packet);
 
-            packet = createSetMapPacket();
-
-            sendToServerClient(game_state_array->game_state[game_index]->player[0]->server_client, packet);
-            deletePacket(&packet);
-
-            packet = createSetMapPacket();
-
-            sendToServerClient(game_state_array->game_state[game_index]->player[1]->server_client, packet);
-            deletePacket(&packet);
+            sendToServerClient(game_state_array->game_state[game_index]->player[0]->server_client, game_state_array->game_state[game_index]->player[1]->client_data->map_packet);
+            sendToServerClient(game_state_array->game_state[game_index]->player[1]->server_client, game_state_array->game_state[game_index]->player[0]->client_data->map_packet);
 
             printf("%d : Parti lancé entre %s, et %s\n", server_client->socket_fd, game_state_array->game_state[game_index]->player[0]->client_data->pseudo, game_state_array->game_state[game_index]->player[1]->client_data->pseudo);
         }

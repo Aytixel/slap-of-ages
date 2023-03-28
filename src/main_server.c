@@ -58,7 +58,7 @@ void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port
     }
 }
 
-void handle_packet(packet_t *packet, server_game_state_array_t *game_state_array)
+int handle_packet(packet_t *packet, server_game_state_array_t *game_state_array)
 {
     server_client_data_t *client_data = *server_client_data;
 
@@ -69,8 +69,10 @@ void handle_packet(packet_t *packet, server_game_state_array_t *game_state_array
         printf("%d : Pseudo définie : %s\n", server_client->socket_fd, client_data->pseudo);
         break;
     case SET_MAP_PACKET_ID:
+        deletePacket(&client_data->map_packet);
+        client_data->map_packet = packet;
         printf("%d : %s a envoyer les données la de carte\n", server_client->socket_fd, client_data->pseudo);
-        break;
+        return 0;
     case IS_PLAYER_READY_PACKET_ID:
         setPlayerIsReadyInArray(game_state_array, client_data, server_client, packet);
         break;
@@ -78,6 +80,8 @@ void handle_packet(packet_t *packet, server_game_state_array_t *game_state_array
         setPlayerFinishedInArray(game_state_array, server_client->socket_fd, packet);
         break;
     }
+
+    return 1;
 }
 
 int main(int argc, char *argv[])
@@ -132,11 +136,8 @@ int main(int argc, char *argv[])
                 case SERVER_CLIENT_CONNECTED:;
                     packet_t *packet = recvFromServerClient(server_client);
 
-                    if (packet != NULL)
-                    {
-                        handle_packet(packet, game_state_array);
+                    if (packet != NULL && handle_packet(packet, game_state_array))
                         deletePacket(&packet);
-                    }
                     break;
                 }
             }

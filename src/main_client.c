@@ -74,7 +74,7 @@ void windowEventHandler(
         }
         break;
     case CLIENT_CONNECTED:
-        hudEventHandler(event, hud, client, game_data);
+        hudEventHandler(event, hud, client, map_building, game_data, MAP_SIZE);
 
         switch (game_data->state)
         {
@@ -88,7 +88,7 @@ void windowEventHandler(
     }
 }
 
-void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_data)
+void handle_packet(packet_t *packet, window_t *window, building_t ***map_building, client_game_data_t *game_data)
 {
     char title[150] = "";
 
@@ -102,6 +102,7 @@ void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_
         SDL_SetWindowTitle(window->window, title);
         break;
     case SET_MAP_PACKET_ID:
+        readSetMapPacket(packet, window, map_building, game_data, MAP_SIZE);
         startGame(client, game_data);
         printf("Partie lancé\n");
         break;
@@ -201,7 +202,7 @@ int main(int argc, char *argv[])
 
                 if (packet != NULL)
                 {
-                    handle_packet(packet, window, game_data);
+                    handle_packet(packet, window, map_building, game_data);
                     deletePacket(&packet);
                 }
                 break;

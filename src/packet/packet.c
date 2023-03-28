@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "packet.h"
+#include "client/map_data_serialization.h"
 
 extern packet_t *createHandshakePacket(int data)
 {
@@ -56,21 +57,19 @@ extern void readSetPseudoPacket(packet_t *packet, char **pseudo)
     memcpy(*pseudo, packet->data + sizeof(int), pseudo_length);
 }
 
-extern packet_t *createSetMapPacket()
+extern packet_t *createSetMapPacket(building_t ***map_building, client_game_data_t *game_data, int map_size)
 {
     packet_t *packet = malloc(sizeof(packet_t));
 
-    // temporaire
     packet->id = SET_MAP_PACKET_ID;
-    packet->data_length = 0;
-    packet->data = NULL;
+    packet->data_length = serialize_map(&packet->data, map_building, game_data, map_size);
 
     return packet;
 }
 
-extern void readSetMapPacket(packet_t *packet)
+extern void readSetMapPacket(packet_t *packet, window_t *window, building_t ***map_building, client_game_data_t *game_data, int map_size)
 {
-    // temporaire
+    deserialize_map(packet->data, packet->data_length, window, map_building, game_data, map_size);
 }
 
 extern packet_t *createIsPlayerReadyPacket(int is_player_ready)

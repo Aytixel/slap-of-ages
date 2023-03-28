@@ -24,7 +24,7 @@ extern int serialize_map(void **data, building_t ***map_building, client_game_da
     {
         for (int j = 0; j < map_size; j++)
         {
-            type = map_building[i][j] == NULL ? -1 : map_building[i][j]->type;
+            type = map_building[i][j] != NULL && map_building[i][j]->position.x == i && map_building[i][j]->position.y == j ? map_building[i][j]->type : -1;
 
             memcpy(*data + data_size, &type, sizeof(char));
             data_size += sizeof(char);
@@ -51,8 +51,6 @@ extern int deserialize_map(void *data, int data_length, window_t *window, buildi
     {
         for (int j = 0; j < map_size; j++)
         {
-            type = map_building[i][j]->type;
-
             memcpy(&type, data + data_size, sizeof(char));
             data_size += sizeof(char);
 
