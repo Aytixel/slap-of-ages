@@ -195,6 +195,8 @@ int main(int argc, char *argv[])
                     break;
                 }
 
+                checkClientGameTimeout(client, game_data);
+
                 packet_t *packet = recvFromServer(client);
 
                 if (packet != NULL)
