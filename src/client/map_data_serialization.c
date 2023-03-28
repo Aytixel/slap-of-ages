@@ -24,7 +24,7 @@ extern int serialize_map(void **data, building_t ***map_building, client_game_da
     {
         for (int j = 0; j < map_size; j++)
         {
-            type = map_building[i][j]->type;
+            type = map_building[i][j] == NULL ? -1 : map_building[i][j]->type;
 
             memcpy(*data + data_size, &type, sizeof(char));
             data_size += sizeof(char);
@@ -56,9 +56,12 @@ extern int deserialize_map(void *data, int data_length, window_t *window, buildi
             memcpy(&type, data + data_size, sizeof(char));
             data_size += sizeof(char);
 
-            SDL_Point tile_position = {i, j};
+            if (type > -1)
+            {
+                SDL_Point tile_position = {i, j};
 
-            addBuildingInMatrix(map_building, createBuilding(type, &tile_position, window));
+                addBuildingInMatrix(map_building, createBuilding(type, &tile_position, window));
+            }
         }
     }
 

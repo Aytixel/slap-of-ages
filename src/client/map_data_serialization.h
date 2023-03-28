@@ -20,7 +20,7 @@
  * @param map_building matrice contenant la totalité des bâtiments placés sur la carte
  * @param game_data un pointeur sur les données du jeux
  * @param map_size taille de la carte
- * @return **taille des données** si tous se passe bien, **-1** sinon
+ * @return **taille des données**
  */
 extern int serialize_map(void **data, building_t ***map_building, client_game_data_t *game_data, int map_size);
 
