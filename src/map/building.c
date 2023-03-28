@@ -123,13 +123,13 @@ extern void destroyBuilding(building_t **building)
     *building = NULL;
 }
 
-extern void buildingTakesDamages(building_t *building, int damages)
+extern void buildingTakesDamages(building_t ***matrix, building_t *building, int damages)
 {
     building->hp -= damages;
 
     if (building->hp <= 0)
     {
-        destroyBuilding(&building);
+        removeBuildingFromMatrix(matrix, building);
     }
 }
 

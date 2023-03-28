@@ -75,10 +75,11 @@ extern void destroyBuilding(building_t **building);
 /**
  * @brief Permet de gérer les dégâts subis par un bâtiment
  *
+ * @param matrix matrice contenant la totalité des bâtiments placés sur la carte
  * @param building un pointeur sur un bâtiment
  * @param damages les dégâts subis par le bâtiment
  */
-extern void buildingTakesDamages(building_t *building, int damages);
+extern void buildingTakesDamages(building_t ***matrix, building_t *building, int damages);
 
 /**
  * @brief Permet de détruire tout les bâtiments sur la carte
