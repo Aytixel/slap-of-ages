@@ -8,4 +8,6 @@ lib/mac/*
 include/mac/*
 SDL*/
 
+*.soa
+
 !.gitkeep
