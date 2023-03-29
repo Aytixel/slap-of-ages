@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['game_5fstate_521',['game_state',['../structserver__client__data__s.html#a9341e312c63869dd3fb2a5a442898c57',1,'server_client_data_s::game_state()'],['../structserver__game__state__array__s.html#af52b8bf0f8d56e6f64c790674e2ef346',1,'server_game_state_array_s::game_state()']]],
-  ['gold_5fcount_522',['gold_count',['../structclient__game__data__s.html#a45790e3280969168ff9dc8ef8273c3fd',1,'client_game_data_s']]],
-  ['ground_5fsprite_523',['ground_sprite',['../structmap__renderer__t.html#a793930fec1df3e3c28e61085fabe121f',1,'map_renderer_t']]]
+  ['f_5fcost_623',['f_cost',['../structnode__s.html#a444b91ef74e3caf2b66b6cddff0cc09d',1,'node_s']]],
+  ['field_624',['field',['../structbuilding__sprite__rects__t.html#a707a8f6449f6cef81e72ae837e0dfeed',1,'building_sprite_rects_t']]],
+  ['fight_5fbutton_625',['fight_button',['../structhud__t.html#a39f3279f140dffe41f9cbaa1e91f4122',1,'hud_t']]],
+  ['frame_5fper_5fsecond_626',['frame_per_second',['../structframe__timer__t.html#aee7c54f6889abd981bc7fabd87dcf36c',1,'frame_timer_t']]],
+  ['frame_5frect_627',['frame_rect',['../structanim__t.html#a34fc7666dcf044d42fb1fe9f3b5b3585',1,'anim_t']]],
+  ['frame_5ftile_5fheight_628',['frame_tile_height',['../structanim__t.html#aaf02bcc13f9c3a71e0c193e5ed6f3b8e',1,'anim_t']]],
+  ['frame_5ftile_5fwidth_629',['frame_tile_width',['../structanim__t.html#aff4efd5c629268b71eb24a9cd557b6cb',1,'anim_t']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['client_5fconnected_594',['CLIENT_CONNECTED',['../connection_2client_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109a0a688bcbb16a63434cfec434f3c04b84',1,'client.h']]],
-  ['client_5fwaiting_5fhandshake_595',['CLIENT_WAITING_HANDSHAKE',['../connection_2client_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109a9e4012e1c852a4746f71569e3c3ef5b2',1,'client.h']]],
-  ['client_5fwaiting_5finfo_596',['CLIENT_WAITING_INFO',['../connection_2client_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109ac3cbef5e484efeed88a0b2313b0ba4f4',1,'client.h']]]
+  ['book_5fclose_5fanim_737',['BOOK_CLOSE_ANIM',['../animation__states_8h.html#a7a370becafed996f28dcb795b7413f85aa70f3870f0f632ecc8479dc4f11d9c4f',1,'animation_states.h']]],
+  ['book_5fopen_5fanim_738',['BOOK_OPEN_ANIM',['../animation__states_8h.html#a7a370becafed996f28dcb795b7413f85a8a1f29fa6cc2bb39d90e6974e6c2a82a',1,'animation_states.h']]],
+  ['book_5fopened_5fanim_739',['BOOK_OPENED_ANIM',['../animation__states_8h.html#a7a370becafed996f28dcb795b7413f85a061644471bca1aa47af2c3edb958b4b0',1,'animation_states.h']]]
 ];

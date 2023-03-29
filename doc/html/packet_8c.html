@@ -77,6 +77,7 @@ $(function() {
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="packet_8h_source.html">packet.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="map__data__serialization_8h_source.html">client/map_data_serialization.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
@@ -92,12 +93,12 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a122133c809cbe724167772655612afdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a122133c809cbe724167772655612afdc">readSetPseudoPacket</a> (<a class="el" href="structpacket__t.html">packet_t</a> *packet, char **pseudo)</td></tr>
 <tr class="memdesc:a122133c809cbe724167772655612afdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lie un paquet définissant le pseudo.  <a href="packet_8c.html#a122133c809cbe724167772655612afdc">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a122133c809cbe724167772655612afdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0acf6153b1204095dea477077a1bdc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#ae0acf6153b1204095dea477077a1bdc1">createSetMapPacket</a> ()</td></tr>
-<tr class="memdesc:ae0acf6153b1204095dea477077a1bdc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un paquet définissant la carte.  <a href="packet_8c.html#ae0acf6153b1204095dea477077a1bdc1">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ae0acf6153b1204095dea477077a1bdc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78edd7cbf720fd90e2b9ae393d83e9b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a78edd7cbf720fd90e2b9ae393d83e9b7">readSetMapPacket</a> (<a class="el" href="structpacket__t.html">packet_t</a> *packet)</td></tr>
-<tr class="memdesc:a78edd7cbf720fd90e2b9ae393d83e9b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lie un paquet définissant la carte.  <a href="packet_8c.html#a78edd7cbf720fd90e2b9ae393d83e9b7">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a78edd7cbf720fd90e2b9ae393d83e9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e6584958e184eba23ecdf2883bb0549"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a7e6584958e184eba23ecdf2883bb0549">createSetMapPacket</a> (<a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *game_data, int map_size)</td></tr>
+<tr class="memdesc:a7e6584958e184eba23ecdf2883bb0549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un paquet définissant la carte.  <a href="packet_8c.html#a7e6584958e184eba23ecdf2883bb0549">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7e6584958e184eba23ecdf2883bb0549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1607c2aa4f00a32919d64eede4d3624"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#af1607c2aa4f00a32919d64eede4d3624">readSetMapPacket</a> (<a class="el" href="structpacket__t.html">packet_t</a> *packet, <a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *game_data, int map_size)</td></tr>
+<tr class="memdesc:af1607c2aa4f00a32919d64eede4d3624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lie un paquet définissant la carte.  <a href="packet_8c.html#af1607c2aa4f00a32919d64eede4d3624">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af1607c2aa4f00a32919d64eede4d3624"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0909f0a69bb4b40010fef318357fa9db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packet_8c.html#a0909f0a69bb4b40010fef318357fa9db">createIsPlayerReadyPacket</a> (int is_player_ready)</td></tr>
 <tr class="memdesc:a0909f0a69bb4b40010fef318357fa9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un paquet définissant si le joueur est prêt.  <a href="packet_8c.html#a0909f0a69bb4b40010fef318357fa9db">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0909f0a69bb4b40010fef318357fa9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -242,8 +243,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae0acf6153b1204095dea477077a1bdc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0acf6153b1204095dea477077a1bdc1">&#9670;&nbsp;</a></span>createSetMapPacket()</h2>
+<a id="a7e6584958e184eba23ecdf2883bb0549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e6584958e184eba23ecdf2883bb0549">&#9670;&nbsp;</a></span>createSetMapPacket()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -251,13 +252,31 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="structpacket__t.html">packet_t</a>* createSetMapPacket </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Créer un paquet définissant la carte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données du jeux </td></tr>
+    <tr><td class="paramname">map_size</td><td>taille de la carte </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>paquet</b> </dd></dl>
 
 </div>
@@ -444,8 +463,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a78edd7cbf720fd90e2b9ae393d83e9b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78edd7cbf720fd90e2b9ae393d83e9b7">&#9670;&nbsp;</a></span>readSetMapPacket()</h2>
+<a id="af1607c2aa4f00a32919d64eede4d3624"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1607c2aa4f00a32919d64eede4d3624">&#9670;&nbsp;</a></span>readSetMapPacket()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -454,8 +473,30 @@ Fonctions</h2></td></tr>
           <td class="memname">void readSetMapPacket </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td>
-          <td class="paramname"><em>packet</em></td><td>)</td>
+          <td class="paramname"><em>packet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -464,6 +505,9 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">packet</td><td>paquet à lire </td></tr>
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données du jeux </td></tr>
+    <tr><td class="paramname">map_size</td><td>taille de la carte </td></tr>
   </table>
   </dd>
 </dl>

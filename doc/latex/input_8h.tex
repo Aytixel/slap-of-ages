@@ -20,26 +20,22 @@ struct \mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}}
 \item 
 \mbox{\hyperlink{structbutton__t}{button\+\_\+t}} $\ast$ \mbox{\hyperlink{input_8h_a7467b8ce731e7502a4be1b6f3a84dced}{create\+Button}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, TTF\+\_\+\+Font $\ast$font, char $\ast$text, SDL\+\_\+\+Color color, SDL\+\_\+\+Color selected\+\_\+color)
 \begin{DoxyCompactList}\small\item\em Fonction de création des boutons. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{input_8h_a3aaa18d50e0c9f6008f184f3dee2fab1}\label{input_8h_a3aaa18d50e0c9f6008f184f3dee2fab1}} 
-void {\bfseries render\+Button} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structbutton__t}{button\+\_\+t}} $\ast$button)
-\item 
+void \mbox{\hyperlink{input_8h_a3aaa18d50e0c9f6008f184f3dee2fab1}{render\+Button}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structbutton__t}{button\+\_\+t}} $\ast$button)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}affichage d\textquotesingle{}un bouton. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{input_8h_aec1545dbdfac3ff07962b872d2676f57}{destroy\+Button}} (\mbox{\hyperlink{structbutton__t}{button\+\_\+t}} $\ast$$\ast$button)
 \begin{DoxyCompactList}\small\item\em Fonction de destruction des boutons. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}} $\ast$ \mbox{\hyperlink{input_8h_aca78e922d914fce518f1f82112c38bfd}{create\+Textbox}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, TTF\+\_\+\+Font $\ast$font, char $\ast$text, SDL\+\_\+\+Color color, int character\+\_\+limit)
 \begin{DoxyCompactList}\small\item\em Fonction de création des textes box (texte de saisie) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{input_8h_a10883f008e16c3ccd7350cf655ea8172}\label{input_8h_a10883f008e16c3ccd7350cf655ea8172}} 
-void {\bfseries render\+Textbox} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}} $\ast$textbox)
-\item 
+void \mbox{\hyperlink{input_8h_a10883f008e16c3ccd7350cf655ea8172}{render\+Textbox}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}} $\ast$textbox)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}affichage d\textquotesingle{}une boite de texte. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{input_8h_a605bab3d77ec1b0d265f04495e7bcdc9}{update\+Textbox}} (SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}} $\ast$textbox)
 \begin{DoxyCompactList}\small\item\em Fonction de mise à jour des textes box (texte de saisie) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{input_8h_a81020d9cac36be61007bec033fd64ce8}{destroy\+Textbox}} (\mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}} $\ast$$\ast$textbox)
 \begin{DoxyCompactList}\small\item\em Fonction de destruction des textes box (texte de saisie) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{input_8h_a8fbd406adaa193e0c4f25f145b569717}\label{input_8h_a8fbd406adaa193e0c4f25f145b569717}} 
-void {\bfseries draw\+Rect} (SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
-\item 
-\mbox{\Hypertarget{input_8h_a272d585313f8dc3dba68225db615e3c2}\label{input_8h_a272d585313f8dc3dba68225db615e3c2}} 
-int {\bfseries is\+Mouse\+Click\+In\+Rect} (SDL\+\_\+\+Event event, SDL\+\_\+\+Rect rect, int button, int type)
-\item 
+void \mbox{\hyperlink{input_8h_a8fbd406adaa193e0c4f25f145b569717}{draw\+Rect}} (SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}affichage d\textquotesingle{}un rectangle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{input_8h_a272d585313f8dc3dba68225db615e3c2}{is\+Mouse\+Click\+In\+Rect}} (SDL\+\_\+\+Event event, SDL\+\_\+\+Rect rect, int button, int type)
+\begin{DoxyCompactList}\small\item\em Fonction de détection de clic dans une zone. \end{DoxyCompactList}\item 
 SDL\+\_\+\+Point \mbox{\hyperlink{input_8h_ae364f224b8606e9aac19dcdf5817205e}{get\+Mouse\+Position}} ()
 \begin{DoxyCompactList}\small\item\em Fonction de récupération de la position de la souris. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -69,8 +65,21 @@ Arthur Dureau
 
 Fonction de création des boutons. 
 
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em font} & police d\textquotesingle{}écriture \\
+\hline
+{\em text} & \\
+\hline
+{\em color} & couleur du texte \\
+\hline
+{\em selected\+\_\+color} & couleur du text séléctionner \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-void 
+un pointeur sur un bouton 
 \end{DoxyReturn}
 \mbox{\Hypertarget{input_8h_aca78e922d914fce518f1f82112c38bfd}\label{input_8h_aca78e922d914fce518f1f82112c38bfd}} 
 \index{input.h@{input.h}!createTextbox@{createTextbox}}
@@ -82,8 +91,21 @@ void
 
 Fonction de création des textes box (texte de saisie) 
 
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em font} & police d\textquotesingle{}écriture \\
+\hline
+{\em text} & \\
+\hline
+{\em color} & couleur du texte \\
+\hline
+{\em character\+\_\+limit} & nombre maximum de caractère \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-void 
+un pointeur sur une boite de texte 
 \end{DoxyReturn}
 \mbox{\Hypertarget{input_8h_aec1545dbdfac3ff07962b872d2676f57}\label{input_8h_aec1545dbdfac3ff07962b872d2676f57}} 
 \index{input.h@{input.h}!destroyButton@{destroyButton}}
@@ -97,12 +119,9 @@ Fonction de destruction des boutons.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em button} & \\
+{\em button} & une référence sur un pointeur sur un bouton \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-void 
-\end{DoxyReturn}
 \mbox{\Hypertarget{input_8h_a81020d9cac36be61007bec033fd64ce8}\label{input_8h_a81020d9cac36be61007bec033fd64ce8}} 
 \index{input.h@{input.h}!destroyTextbox@{destroyTextbox}}
 \index{destroyTextbox@{destroyTextbox}!input.h@{input.h}}
@@ -115,12 +134,34 @@ Fonction de destruction des textes box (texte de saisie)
 
 
 \begin{DoxyParams}{Paramètres}
-{\em textbox} & \\
+{\em textbox} & une référence sur un pointeur sur une boite de texte \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-void 
-\end{DoxyReturn}
+\mbox{\Hypertarget{input_8h_a8fbd406adaa193e0c4f25f145b569717}\label{input_8h_a8fbd406adaa193e0c4f25f145b569717}} 
+\index{input.h@{input.h}!drawRect@{drawRect}}
+\index{drawRect@{drawRect}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{drawRect()}{drawRect()}}
+{\footnotesize\ttfamily void draw\+Rect (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{SDL\+\_\+\+Rect}]{rect,  }\item[{Uint8}]{r,  }\item[{Uint8}]{g,  }\item[{Uint8}]{b,  }\item[{Uint8}]{a }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}affichage d\textquotesingle{}un rectangle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & moteur de rendue de la fenêtre \\
+\hline
+{\em rect} & rectangle de dessin \\
+\hline
+{\em r} & rouge \\
+\hline
+{\em g} & vert \\
+\hline
+{\em b} & bleu \\
+\hline
+{\em a} & transparence \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{input_8h_ae364f224b8606e9aac19dcdf5817205e}\label{input_8h_ae364f224b8606e9aac19dcdf5817205e}} 
 \index{input.h@{input.h}!getMousePosition@{getMousePosition}}
 \index{getMousePosition@{getMousePosition}!input.h@{input.h}}
@@ -134,6 +175,64 @@ Fonction de récupération de la position de la souris.
 \begin{DoxyReturn}{Renvoie}
 SDL\+\_\+\+Point 
 \end{DoxyReturn}
+\mbox{\Hypertarget{input_8h_a272d585313f8dc3dba68225db615e3c2}\label{input_8h_a272d585313f8dc3dba68225db615e3c2}} 
+\index{input.h@{input.h}!isMouseClickInRect@{isMouseClickInRect}}
+\index{isMouseClickInRect@{isMouseClickInRect}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{isMouseClickInRect()}{isMouseClickInRect()}}
+{\footnotesize\ttfamily int is\+Mouse\+Click\+In\+Rect (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event}]{event,  }\item[{SDL\+\_\+\+Rect}]{rect,  }\item[{int}]{button,  }\item[{int}]{type }\end{DoxyParamCaption})}
+
+
+
+Fonction de détection de clic dans une zone. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & événements \\
+\hline
+{\em rect} & rectangle de détection \\
+\hline
+{\em button} & quel bouton est détecter \\
+\hline
+{\em type} & quel état du bouton est détecter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{input_8h_a3aaa18d50e0c9f6008f184f3dee2fab1}\label{input_8h_a3aaa18d50e0c9f6008f184f3dee2fab1}} 
+\index{input.h@{input.h}!renderButton@{renderButton}}
+\index{renderButton@{renderButton}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{renderButton()}{renderButton()}}
+{\footnotesize\ttfamily void render\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structbutton__t}{button\+\_\+t}} $\ast$}]{button }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}affichage d\textquotesingle{}un bouton. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em button} & un pointeur sur un bouton \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{input_8h_a10883f008e16c3ccd7350cf655ea8172}\label{input_8h_a10883f008e16c3ccd7350cf655ea8172}} 
+\index{input.h@{input.h}!renderTextbox@{renderTextbox}}
+\index{renderTextbox@{renderTextbox}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{renderTextbox()}{renderTextbox()}}
+{\footnotesize\ttfamily void render\+Textbox (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}} $\ast$}]{textbox }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}affichage d\textquotesingle{}une boite de texte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em textbox} & un pointeur sur une boite de texte \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{input_8h_a605bab3d77ec1b0d265f04495e7bcdc9}\label{input_8h_a605bab3d77ec1b0d265f04495e7bcdc9}} 
 \index{input.h@{input.h}!updateTextbox@{updateTextbox}}
 \index{updateTextbox@{updateTextbox}!input.h@{input.h}}
@@ -144,6 +243,10 @@ SDL\+\_\+\+Point
 
 Fonction de mise à jour des textes box (texte de saisie) 
 
-\begin{DoxyReturn}{Renvoie}
-void 
-\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & un pointeur sur les événements \\
+\hline
+{\em textbox} & un pointeur sur une boite de texte \\
+\hline
+\end{DoxyParams}

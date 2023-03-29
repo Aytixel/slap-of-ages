@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['packet_5fbuffer_549',['packet_buffer',['../structclient__t.html#a86845384b7035f326951f6af8e2b829c',1,'client_t::packet_buffer()'],['../structserver__client__t.html#a84c1d44e081636e53c69b37e119add16',1,'server_client_t::packet_buffer()']]],
-  ['player_550',['player',['../structserver__game__state__s.html#aa7bfee31a3f1f81cf9cdaf0fd93ea94f',1,'server_game_state_s']]],
-  ['port_551',['port',['../structclient__game__data__s.html#aa24e6a9eb5976f5b290e2e08e6a18c58',1,'client_game_data_s']]],
-  ['pseudo_552',['pseudo',['../structclient__game__data__s.html#a779d64ed08c3f51b66602b65a2e7916f',1,'client_game_data_s::pseudo()'],['../structserver__client__data__s.html#ae12668052dac414bb1d8eb79442275a9',1,'server_client_data_s::pseudo()']]]
+  ['map_5fbuilding_657',['map_building',['../structclient__game__data__s.html#ab634d4a9e0de62041d4e21bf102344f7',1,'client_game_data_s']]],
+  ['map_5fpacket_658',['map_packet',['../structserver__client__data__s.html#ae864d4ab09e226e3109cb6a068895b0e',1,'server_client_data_s']]],
+  ['map_5frenderer_659',['map_renderer',['../structbuilding__renderer__t.html#ac9da42d88552d60f6978b4d6b44f7602',1,'building_renderer_t']]],
+  ['max_5fhp_660',['max_hp',['../structbuilding__s.html#a8201ad06a59a68f7fe3d4ee6d75caa8e',1,'building_s']]],
+  ['medium_5fdead_5ftree_661',['medium_dead_tree',['../structmap__sprite__rects__t.html#a98ce481e223e18aa7bcb435faaa7ca70',1,'map_sprite_rects_t']]],
+  ['medium_5ftree_662',['medium_tree',['../structmap__sprite__rects__t.html#ad364265f7dd2009f0f9ebaeeab3f96a9',1,'map_sprite_rects_t']]],
+  ['mill_663',['mill',['../structbuilding__sprite__rects__t.html#a58890a906efb01a281bc41f9d93b85bb',1,'building_sprite_rects_t']]],
+  ['mine_664',['mine',['../structbuilding__sprite__rects__t.html#a6ccc5e29080cfdbbe69fe091a8726ff8',1,'building_sprite_rects_t']]]
 ];

@@ -13,8 +13,8 @@ Fonction divers pour le jeu.
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{game_8c_a8dff1b535f7da033f229b1218a810df9}\label{game_8c_a8dff1b535f7da033f229b1218a810df9}} 
-\#define {\bfseries MAT\+\_\+\+SIZE}~10
+\mbox{\Hypertarget{game_8c_a0a82fd70402bbdc2259248e735fecbca}\label{game_8c_a0a82fd70402bbdc2259248e735fecbca}} 
+\#define {\bfseries MAP\+\_\+\+SIZE}~10
 \item 
 \mbox{\Hypertarget{game_8c_af2ea9daadfc38f4b5b104224552aabcb}\label{game_8c_af2ea9daadfc38f4b5b104224552aabcb}} 
 \#define {\bfseries OBSTACLE}~-\/1
@@ -28,7 +28,7 @@ Fonction divers pour le jeu.
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8c_aa58163b9adcf970353e3f50fc1032730}{create\+\_\+node\+\_\+list}} ()
+\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8c_af98300ca4b6d7dacd52cb2e4633e90e5}{create\+\_\+node\+\_\+list}} (int map\+\_\+size)
 \begin{DoxyCompactList}\small\item\em Creation d\textquotesingle{}une liste de noeud. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{game_8c_a73f344593f712bab4a9f61339b966d62}{clear\+\_\+node\+\_\+list}} (\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$list)
 \begin{DoxyCompactList}\small\item\em Vide une liste de ses noeuds. \end{DoxyCompactList}\item 
@@ -46,19 +46,17 @@ void \mbox{\hyperlink{game_8c_ad22ba344bea1322fd21925363d83870d}{free\+\_\+node\
 \begin{DoxyCompactList}\small\item\em Libération de la mémoire d\textquotesingle{}une node et de ses parent. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{game_8c_a73a16060935346f073c8ce1985bc9bf4}{heuristic}} (\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$a, \mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$b)
 \begin{DoxyCompactList}\small\item\em Heuristique pour l\textquotesingle{}algorithme A$\ast$. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{game_8c_ab419ef631d5a8323174167b72c0260b2}{is\+\_\+valid}} (int x, int y, int mat\mbox{[}$\,$\mbox{]}\mbox{[}MAT\+\_\+\+SIZE\mbox{]})
+bool \mbox{\hyperlink{game_8c_a84b84fe79c200b08baf4cebb54bf9b3d}{is\+\_\+valid}} (int x, int y, int map\+\_\+size, int mat\mbox{[}$\,$\mbox{]}\mbox{[}map\+\_\+size\mbox{]})
 \begin{DoxyCompactList}\small\item\em Vérification de la validité d\textquotesingle{}un node. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8c_a11874d10f06aa7942b99c4db8933b8fd}{a\+\_\+star}} (int start\+\_\+x, int start\+\_\+y, int goal\+\_\+x, int goal\+\_\+y, int mat\mbox{[}$\,$\mbox{]}\mbox{[}MAT\+\_\+\+SIZE\mbox{]})
-\begin{DoxyCompactList}\small\item\em Algorithme de pathfinding A$\ast$. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{game_8c_aafba709b1d1a27f99deb5420de591d27}{is\+\_\+valid\+\_\+no\+\_\+wall}} (int x, int y)
+bool \mbox{\hyperlink{game_8c_aeff8e9c6ffda78af65a61aa7abb092c6}{is\+\_\+valid\+\_\+no\+\_\+wall}} (int x, int y, int map\+\_\+size)
 \begin{DoxyCompactList}\small\item\em Vérification de la validité d\textquotesingle{}un node sans les murs. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8c_a0787ec947ff5836ddea49d7a29275312}{a\+\_\+star\+\_\+no\+\_\+wall}} (int start\+\_\+x, int start\+\_\+y, int goal\+\_\+x, int goal\+\_\+y, int mat\mbox{[}$\,$\mbox{]}\mbox{[}MAT\+\_\+\+SIZE\mbox{]})
-\begin{DoxyCompactList}\small\item\em Algorithme de pathfinding A$\ast$ sans les murs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8c_ac43cb1764b99eba0dc2b8e3e11434fe1}{a\+\_\+star}} (int start\+\_\+x, int start\+\_\+y, int goal\+\_\+x, int goal\+\_\+y, int map\+\_\+size, int mat\mbox{[}$\,$\mbox{]}\mbox{[}map\+\_\+size\mbox{]}, int wall)
+\begin{DoxyCompactList}\small\item\em Algorithme de pathfinding A$\ast$. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{game_8c_a129ee813ae2288ad62db99cb38adc5ed}{display\+\_\+path}} (\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$node)
 \begin{DoxyCompactList}\small\item\em Affichage du chemin. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{game_8c_afd90dab401f544770dcbc293d334acd9}{fill\+\_\+path\+\_\+in\+\_\+mat}} (\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$node, int mat\mbox{[}$\,$\mbox{]}\mbox{[}MAT\+\_\+\+SIZE\mbox{]})
+void \mbox{\hyperlink{game_8c_a9f2fe317eff31780d07b66434d9932b4}{fill\+\_\+path\+\_\+in\+\_\+mat}} (\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$node, int map\+\_\+size, int mat\mbox{[}$\,$\mbox{]}\mbox{[}map\+\_\+size\mbox{]})
 \begin{DoxyCompactList}\small\item\em Remplissage de la matrice avec le chemin. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{game_8c_a2c6df364a065a386c261993805def8eb}{display\+\_\+mat}} (int mat\mbox{[}$\,$\mbox{]}\mbox{[}MAT\+\_\+\+SIZE\mbox{]})
+void \mbox{\hyperlink{game_8c_a6e1178fc1142f386ce6a1e25395d063a}{display\+\_\+mat}} (int map\+\_\+size, int mat\mbox{[}$\,$\mbox{]}\mbox{[}map\+\_\+size\mbox{]})
 \begin{DoxyCompactList}\small\item\em Affichage de la matrice. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -77,11 +75,11 @@ Arthur Dureau
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{game_8c_a11874d10f06aa7942b99c4db8933b8fd}\label{game_8c_a11874d10f06aa7942b99c4db8933b8fd}} 
+\mbox{\Hypertarget{game_8c_ac43cb1764b99eba0dc2b8e3e11434fe1}\label{game_8c_ac43cb1764b99eba0dc2b8e3e11434fe1}} 
 \index{game.c@{game.c}!a\_star@{a\_star}}
 \index{a\_star@{a\_star}!game.c@{game.c}}
 \doxysubsubsection{\texorpdfstring{a\_star()}{a\_star()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}}$\ast$ a\+\_\+star (\begin{DoxyParamCaption}\item[{int}]{start\+\_\+x,  }\item[{int}]{start\+\_\+y,  }\item[{int}]{goal\+\_\+x,  }\item[{int}]{goal\+\_\+y,  }\item[{int}]{mat\mbox{[}$\,$\mbox{]}\mbox{[}\+MAT\+\_\+\+SIZE\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}}$\ast$ a\+\_\+star (\begin{DoxyParamCaption}\item[{int}]{start\+\_\+x,  }\item[{int}]{start\+\_\+y,  }\item[{int}]{goal\+\_\+x,  }\item[{int}]{goal\+\_\+y,  }\item[{int}]{map\+\_\+size,  }\item[{int}]{mat\mbox{[}$\,$\mbox{]}\mbox{[}map\+\_\+size\mbox{]},  }\item[{int}]{wall }\end{DoxyParamCaption})}
 
 
 
@@ -99,31 +97,7 @@ Algorithme de pathfinding A$\ast$.
 \hline
 {\em mat} & \\
 \hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-node$\ast$ 
-\end{DoxyReturn}
-\mbox{\Hypertarget{game_8c_a0787ec947ff5836ddea49d7a29275312}\label{game_8c_a0787ec947ff5836ddea49d7a29275312}} 
-\index{game.c@{game.c}!a\_star\_no\_wall@{a\_star\_no\_wall}}
-\index{a\_star\_no\_wall@{a\_star\_no\_wall}!game.c@{game.c}}
-\doxysubsubsection{\texorpdfstring{a\_star\_no\_wall()}{a\_star\_no\_wall()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}}$\ast$ a\+\_\+star\+\_\+no\+\_\+wall (\begin{DoxyParamCaption}\item[{int}]{start\+\_\+x,  }\item[{int}]{start\+\_\+y,  }\item[{int}]{goal\+\_\+x,  }\item[{int}]{goal\+\_\+y,  }\item[{int}]{mat\mbox{[}$\,$\mbox{]}\mbox{[}\+MAT\+\_\+\+SIZE\mbox{]} }\end{DoxyParamCaption})}
-
-
-
-Algorithme de pathfinding A$\ast$ sans les murs. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em start\+\_\+x} & \\
-\hline
-{\em start\+\_\+y} & \\
-\hline
-{\em goal\+\_\+x} & \\
-\hline
-{\em goal\+\_\+y} & \\
-\hline
-{\em mat} & \\
+{\em wall} & \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -183,11 +157,11 @@ Creation d\textquotesingle{}une noeud.
 \begin{DoxyReturn}{Renvoie}
 node$\ast$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{game_8c_aa58163b9adcf970353e3f50fc1032730}\label{game_8c_aa58163b9adcf970353e3f50fc1032730}} 
+\mbox{\Hypertarget{game_8c_af98300ca4b6d7dacd52cb2e4633e90e5}\label{game_8c_af98300ca4b6d7dacd52cb2e4633e90e5}} 
 \index{game.c@{game.c}!create\_node\_list@{create\_node\_list}}
 \index{create\_node\_list@{create\_node\_list}!game.c@{game.c}}
 \doxysubsubsection{\texorpdfstring{create\_node\_list()}{create\_node\_list()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}}$\ast$ create\+\_\+node\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}}$\ast$ create\+\_\+node\+\_\+list (\begin{DoxyParamCaption}\item[{int}]{map\+\_\+size }\end{DoxyParamCaption})}
 
 
 
@@ -196,11 +170,11 @@ Creation d\textquotesingle{}une liste de noeud.
 \begin{DoxyReturn}{Renvoie}
 node\+\_\+list$\ast$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{game_8c_a2c6df364a065a386c261993805def8eb}\label{game_8c_a2c6df364a065a386c261993805def8eb}} 
+\mbox{\Hypertarget{game_8c_a6e1178fc1142f386ce6a1e25395d063a}\label{game_8c_a6e1178fc1142f386ce6a1e25395d063a}} 
 \index{game.c@{game.c}!display\_mat@{display\_mat}}
 \index{display\_mat@{display\_mat}!game.c@{game.c}}
 \doxysubsubsection{\texorpdfstring{display\_mat()}{display\_mat()}}
-{\footnotesize\ttfamily void display\+\_\+mat (\begin{DoxyParamCaption}\item[{int}]{mat\mbox{[}$\,$\mbox{]}\mbox{[}\+MAT\+\_\+\+SIZE\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void display\+\_\+mat (\begin{DoxyParamCaption}\item[{int}]{map\+\_\+size,  }\item[{int}]{mat\mbox{[}$\,$\mbox{]}\mbox{[}map\+\_\+size\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -208,6 +182,8 @@ Affichage de la matrice.
 
 
 \begin{DoxyParams}{Paramètres}
+{\em map\+\_\+size} & \\
+\hline
 {\em mat} & \\
 \hline
 \end{DoxyParams}
@@ -226,11 +202,11 @@ Affichage du chemin.
 {\em node} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{game_8c_afd90dab401f544770dcbc293d334acd9}\label{game_8c_afd90dab401f544770dcbc293d334acd9}} 
+\mbox{\Hypertarget{game_8c_a9f2fe317eff31780d07b66434d9932b4}\label{game_8c_a9f2fe317eff31780d07b66434d9932b4}} 
 \index{game.c@{game.c}!fill\_path\_in\_mat@{fill\_path\_in\_mat}}
 \index{fill\_path\_in\_mat@{fill\_path\_in\_mat}!game.c@{game.c}}
 \doxysubsubsection{\texorpdfstring{fill\_path\_in\_mat()}{fill\_path\_in\_mat()}}
-{\footnotesize\ttfamily void fill\+\_\+path\+\_\+in\+\_\+mat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$}]{node,  }\item[{int}]{mat\mbox{[}$\,$\mbox{]}\mbox{[}\+MAT\+\_\+\+SIZE\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void fill\+\_\+path\+\_\+in\+\_\+mat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$}]{node,  }\item[{int}]{map\+\_\+size,  }\item[{int}]{mat\mbox{[}$\,$\mbox{]}\mbox{[}map\+\_\+size\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -239,6 +215,8 @@ Remplissage de la matrice avec le chemin.
 
 \begin{DoxyParams}{Paramètres}
 {\em node} & \\
+\hline
+{\em map\+\_\+size} & \\
 \hline
 {\em mat} & \\
 \hline
@@ -293,11 +271,11 @@ Heuristique pour l\textquotesingle{}algorithme A$\ast$.
 \begin{DoxyReturn}{Renvoie}
 float 
 \end{DoxyReturn}
-\mbox{\Hypertarget{game_8c_ab419ef631d5a8323174167b72c0260b2}\label{game_8c_ab419ef631d5a8323174167b72c0260b2}} 
+\mbox{\Hypertarget{game_8c_a84b84fe79c200b08baf4cebb54bf9b3d}\label{game_8c_a84b84fe79c200b08baf4cebb54bf9b3d}} 
 \index{game.c@{game.c}!is\_valid@{is\_valid}}
 \index{is\_valid@{is\_valid}!game.c@{game.c}}
 \doxysubsubsection{\texorpdfstring{is\_valid()}{is\_valid()}}
-{\footnotesize\ttfamily bool is\+\_\+valid (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{mat\mbox{[}$\,$\mbox{]}\mbox{[}\+MAT\+\_\+\+SIZE\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool is\+\_\+valid (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{map\+\_\+size,  }\item[{int}]{mat\mbox{[}$\,$\mbox{]}\mbox{[}map\+\_\+size\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -309,6 +287,8 @@ Vérification de la validité d\textquotesingle{}un node.
 \hline
 {\em y} & \\
 \hline
+{\em map\+\_\+size} & \\
+\hline
 {\em mat} & \\
 \hline
 \end{DoxyParams}
@@ -317,11 +297,11 @@ true
 
 false 
 \end{DoxyReturn}
-\mbox{\Hypertarget{game_8c_aafba709b1d1a27f99deb5420de591d27}\label{game_8c_aafba709b1d1a27f99deb5420de591d27}} 
+\mbox{\Hypertarget{game_8c_aeff8e9c6ffda78af65a61aa7abb092c6}\label{game_8c_aeff8e9c6ffda78af65a61aa7abb092c6}} 
 \index{game.c@{game.c}!is\_valid\_no\_wall@{is\_valid\_no\_wall}}
 \index{is\_valid\_no\_wall@{is\_valid\_no\_wall}!game.c@{game.c}}
 \doxysubsubsection{\texorpdfstring{is\_valid\_no\_wall()}{is\_valid\_no\_wall()}}
-{\footnotesize\ttfamily bool is\+\_\+valid\+\_\+no\+\_\+wall (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool is\+\_\+valid\+\_\+no\+\_\+wall (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{map\+\_\+size }\end{DoxyParamCaption})}
 
 
 
@@ -332,6 +312,8 @@ Vérification de la validité d\textquotesingle{}un node sans les murs.
 {\em x} & \\
 \hline
 {\em y} & \\
+\hline
+{\em map\+\_\+size} & \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}

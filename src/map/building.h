@@ -19,27 +19,17 @@ typedef struct client_game_data_s client_game_data_t;
 /**
  * @brief Structure contenant les données des bâtiments
  *
- * @param type type du bâtiment
- * @param sprite position et taille du sprite du bâtiment
- * @param rect position et taille du bâtiment en pixel
- * @param position position du bâtiment en cases
- * @param hp points de vie du bâtiment
- * @param max_hp points de vie maximum du bâtiment
- * @param gold_cost coût du bâtiment en or
  */
-
 typedef struct building_s
 {
-    building_type_e type;
-    SDL_Rect rect;
-    SDL_Point position;
+    building_type_e type; /**< type du bâtiment*/
+    SDL_Rect rect;        /**< position et taille du bâtiment en pixel*/
+    SDL_Point position;   /**< position du bâtiment en cases*/
 
-    int hp;
-    int max_hp;
-    int gold_cost;
+    int hp;        /**< points de vie du bâtiment*/
+    int max_hp;    /**< points de vie maximum du bâtiment*/
+    int gold_cost; /**< coût du bâtiment en or*/
 } building_t;
-
-/*Fonctions externes*/
 
 /**
  * @brief Créer la structure qui gère l'affichage des bâtiments

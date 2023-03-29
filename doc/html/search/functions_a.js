@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['nextclientconnection_458',['nextClientConnection',['../connection_2server_8c.html#a6a647b23b1b3410dcba1a6271e3f8f9e',1,'nextClientConnection():&#160;server.c'],['../connection_2server_8h.html#a6a647b23b1b3410dcba1a6271e3f8f9e',1,'nextClientConnection():&#160;server.c']]]
+  ['menueventhandler_552',['menuEventHandler',['../menu_8c.html#a164df07b83240357d29ac317a542c9b6',1,'menuEventHandler(client_game_data_t *game_data, SDL_Event *event, menu_t *menu):&#160;menu.c'],['../menu_8h.html#a164df07b83240357d29ac317a542c9b6',1,'menuEventHandler(client_game_data_t *game_data, SDL_Event *event, menu_t *menu):&#160;menu.c']]],
+  ['menurenderer_553',['menuRenderer',['../menu_8c.html#adf97f9d40d3e741e9124a901a4dd049b',1,'menuRenderer(window_t *window, menu_t *menu):&#160;menu.c'],['../menu_8h.html#adf97f9d40d3e741e9124a901a4dd049b',1,'menuRenderer(window_t *window, menu_t *menu):&#160;menu.c']]]
 ];

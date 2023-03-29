@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['large_5fdead_5ftree_536',['large_dead_tree',['../structmap__sprite__rects__t.html#a692c7337e2aea2c048558a2628622700',1,'map_sprite_rects_t']]],
-  ['large_5ftree_537',['large_tree',['../structmap__sprite__rects__t.html#a40351252781c4803e2ad925a4e354909',1,'map_sprite_rects_t']]],
-  ['last_5ftime_538',['last_time',['../structframe__timer__t.html#ad64a8fea40dd1135f43470c802204d06',1,'frame_timer_t']]],
-  ['light_5fgrass_539',['light_grass',['../structmap__sprite__rects__t.html#a53b8e6f17fe1ab2c70a2f0fc0341695f',1,'map_sprite_rects_t']]]
+  ['id_648',['id',['../structpacket__t.html#a71251cbc5bba8c3f0be835b1bd9fe107',1,'packet_t']]],
+  ['interval_649',['interval',['../structframe__timer__t.html#a110868dbf0c237ccb836277240ba8bcb',1,'frame_timer_t']]],
+  ['is_5fin_5fgame_650',['is_in_game',['../structserver__client__data__s.html#af5127f01c37fdb4bf7d74896a990462e',1,'server_client_data_s']]],
+  ['is_5fplayer_5fready_651',['is_player_ready',['../structserver__client__data__s.html#a72145ab26888507a2b90d0588b203702',1,'server_client_data_s']]]
 ];

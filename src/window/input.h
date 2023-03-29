@@ -52,91 +52,84 @@ typedef struct
 /**
  * @brief Fonction de création des boutons
  *
- * @param window
- * @param font
+ * @param window un pointeur sur une fenêtre
+ * @param font police d'écriture
  * @param text
- * @param color
- * @param selected_color
- * @return button_t*
+ * @param color couleur du texte
+ * @param selected_color couleur du text séléctionner
+ * @return un pointeur sur un bouton
  */
 extern button_t *createButton(window_t *window, TTF_Font *font, char *text, SDL_Color color, SDL_Color selected_color);
 
 /**
  * @brief Fonction d'affichage d'un bouton
  *
- * @param window
- * @param button
+ * @param window un pointeur sur une fenêtre
+ * @param button un pointeur sur un bouton
  */
 extern void renderButton(window_t *window, button_t *button);
 
 /**
  * @brief Fonction de destruction des boutons
  *
- * @param button
- *
- * @return void
+ * @param button une référence sur un pointeur sur un bouton
  */
 extern void destroyButton(button_t **button);
 
 /**
  * @brief Fonction de création des textes box (texte de saisie)
  *
- * @param window
- * @param font
+ * @param window un pointeur sur une fenêtre
+ * @param font police d'écriture
  * @param text
- * @param color
- * @param character_limit
- * @return textbox_t*
+ * @param color couleur du texte
+ * @param character_limit nombre maximum de caractère
+ * @return un pointeur sur une boite de texte
  */
 textbox_t *createTextbox(window_t *window, TTF_Font *font, char *text, SDL_Color color, int character_limit);
 
 /**
  * @brief Fonction d'affichage d'une boite de texte
  *
- * @param window
- * @param textbox
+ * @param window un pointeur sur une fenêtre
+ * @param textbox un pointeur sur une boite de texte
  */
 extern void renderTextbox(window_t *window, textbox_t *textbox);
 
 /**
  * @brief Fonction de mise à jour des textes box (texte de saisie)
  *
- * @param event
- * @param textbox
+ * @param event un pointeur sur les événements
+ * @param textbox un pointeur sur une boite de texte
  */
 extern void updateTextbox(SDL_Event *event, textbox_t *textbox);
 
 /**
  * @brief Fonction de destruction des textes box (texte de saisie)
  *
- * @param textbox
- *
- * @return void
+ * @param textbox une référence sur un pointeur sur une boite de texte
  */
 extern void destroyTextbox(textbox_t **textbox);
 
 /**
  * @brief Fonction d'affichage d'un rectangle
  *
- * @param renderer
- * @param rect
- * @param r
- * @param g
- * @param b
- * @param a
+ * @param renderer moteur de rendue de la fenêtre
+ * @param rect rectangle de dessin
+ * @param r rouge
+ * @param g vert
+ * @param b bleu
+ * @param a transparence
  */
 extern void drawRect(SDL_Renderer *renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 
 /**
  * @brief Fonction de détection de clic dans une zone
  *
- * @example isMouseClickInRect(event, button.rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN)
- * @example isMouseClickInRect(event, button.rect, SDL_BUTTON_RIGHT, SDL_MOUSEBUTTONUP)
- *
- * @param event
- * @param rect
- * @param button
- * @param type
+ * @param event événements
+ * @param rect rectangle de détection
+ * @param button quel bouton est détecter
+ * @param type quel état du bouton est détecter
  * @return int
  */
 extern int isMouseClickInRect(SDL_Event event, SDL_Rect rect, int button, int type);

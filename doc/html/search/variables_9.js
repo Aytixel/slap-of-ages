@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['offset_5ffrom_5fcenter_545',['offset_from_center',['../structmap__renderer__t.html#a35308b6a65cf850931b7029165f7b52a',1,'map_renderer_t']]],
-  ['opponent_5fpseudo_546',['opponent_pseudo',['../structclient__game__data__s.html#a9a1b0847c4fd2986e183bc1e7618d4d7',1,'client_game_data_s']]],
-  ['original_5fheight_547',['original_height',['../structwindow__t.html#af419e71ace36f95a7b05ccbb1260e86f',1,'window_t']]],
-  ['original_5fwidth_548',['original_width',['../structwindow__t.html#a9574ec92b7f64f8b5e44fd7056880e0e',1,'window_t']]]
+  ['large_5fdead_5ftree_653',['large_dead_tree',['../structmap__sprite__rects__t.html#a692c7337e2aea2c048558a2628622700',1,'map_sprite_rects_t']]],
+  ['large_5ftree_654',['large_tree',['../structmap__sprite__rects__t.html#a40351252781c4803e2ad925a4e354909',1,'map_sprite_rects_t']]],
+  ['last_5ftime_655',['last_time',['../structframe__timer__t.html#ad64a8fea40dd1135f43470c802204d06',1,'frame_timer_t']]],
+  ['light_5fgrass_656',['light_grass',['../structmap__sprite__rects__t.html#a53b8e6f17fe1ab2c70a2f0fc0341695f',1,'map_sprite_rects_t']]]
 ];

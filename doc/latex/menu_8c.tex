@@ -1,0 +1,126 @@
+\hypertarget{menu_8c}{}\doxysection{Référence du fichier src/menu/menu.c}
+\label{menu_8c}\index{src/menu/menu.c@{src/menu/menu.c}}
+
+
+Fichier de création du menu multijoueur.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}timer/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}menu/menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}window/input.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}window/window.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$ \mbox{\hyperlink{menu_8c_ad1ace9949b3984eb46ae5d833d4ef84a}{create\+Menu}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Fonction de création du menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8c_a164df07b83240357d29ac317a542c9b6}{menu\+Event\+Handler}} (\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$menu)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}écoute des événements du menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8c_adf97f9d40d3e741e9124a901a4dd049b}{menu\+Renderer}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$menu)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}affichage du menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8c_afbad575b626f543582434ac6a39c28b3}{delete\+Menu}} (\mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$$\ast$menu)
+\begin{DoxyCompactList}\small\item\em Fonction de destruction du menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier de création du menu multijoueur. 
+
+\begin{DoxyAuthor}{Auteur}
+Arthur Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+03/03/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{menu_8c_ad1ace9949b3984eb46ae5d833d4ef84a}\label{menu_8c_ad1ace9949b3984eb46ae5d833d4ef84a}} 
+\index{menu.c@{menu.c}!createMenu@{createMenu}}
+\index{createMenu@{createMenu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{createMenu()}{createMenu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmenu__t}{menu\+\_\+t}}$\ast$ create\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Fonction de création du menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em game\+\_\+data} & un pointeur sur les données du jeux \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointeur sur un menu 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8c_afbad575b626f543582434ac6a39c28b3}\label{menu_8c_afbad575b626f543582434ac6a39c28b3}} 
+\index{menu.c@{menu.c}!deleteMenu@{deleteMenu}}
+\index{deleteMenu@{deleteMenu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{deleteMenu()}{deleteMenu()}}
+{\footnotesize\ttfamily int delete\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$$\ast$}]{menu }\end{DoxyParamCaption})}
+
+
+
+Fonction de destruction du menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em menu} & une référence sur un pointeur sur un menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8c_a164df07b83240357d29ac317a542c9b6}\label{menu_8c_a164df07b83240357d29ac317a542c9b6}} 
+\index{menu.c@{menu.c}!menuEventHandler@{menuEventHandler}}
+\index{menuEventHandler@{menuEventHandler}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{menuEventHandler()}{menuEventHandler()}}
+{\footnotesize\ttfamily int menu\+Event\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{SDL\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$}]{menu }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}écoute des événements du menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game\+\_\+data} & un pointeur sur les données du jeux \\
+\hline
+{\em event} & un pointeur sur les événements \\
+\hline
+{\em menu} & un pointeur sur un menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si le bouton join est cliquer, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8c_adf97f9d40d3e741e9124a901a4dd049b}\label{menu_8c_adf97f9d40d3e741e9124a901a4dd049b}} 
+\index{menu.c@{menu.c}!menuRenderer@{menuRenderer}}
+\index{menuRenderer@{menuRenderer}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{menuRenderer()}{menuRenderer()}}
+{\footnotesize\ttfamily int menu\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$}]{menu }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}affichage du menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em menu} & un pointeur sur un menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si le programme peut continuer, 0 sinon 
+\end{DoxyReturn}

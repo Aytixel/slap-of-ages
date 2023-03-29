@@ -1,19 +1,12 @@
 var searchData=
 [
-  ['dark_5fgrass_503',['dark_grass',['../structmap__sprite__rects__t.html#a1a44528adc0a9ecfebcbde62d4b8c3f5',1,'map_sprite_rects_t']]],
-  ['data_504',['data',['../structserver__client__connection__t.html#af9512d4118fed5eb0e087f0eed9b8134',1,'server_client_connection_t::data()'],['../structpacket__t.html#a7ffaf98d63ade660840115d443db70d3',1,'packet_t::data()']]],
-  ['data_5flength_505',['data_length',['../structpacket__t.html#a0f48965d2d9996e55eef2910737a8f6b',1,'packet_t']]],
-  ['delete_5fserver_5fclient_5fdata_506',['delete_server_client_data',['../connection_2server_8h.html#ad4f105c6dd86b580779aea8bb9877527',1,'delete_server_client_data():&#160;server.c'],['../connection_2server_8c.html#ad4f105c6dd86b580779aea8bb9877527',1,'delete_server_client_data():&#160;server.c']]],
-  ['deleted_5fsocket_5ffd_5fcount_507',['deleted_socket_fd_count',['../connection_2server_8h.html#add6c6fbe8d797ac0aca22a4ba036b038',1,'deleted_socket_fd_count():&#160;server.c'],['../connection_2server_8c.html#add6c6fbe8d797ac0aca22a4ba036b038',1,'deleted_socket_fd_count():&#160;server.c']]],
-  ['deleted_5fsocket_5ffds_508',['deleted_socket_fds',['../connection_2server_8h.html#ad7aca607c352e64a6f7f67099351ec8d',1,'deleted_socket_fds():&#160;server.c'],['../connection_2server_8c.html#ad7aca607c352e64a6f7f67099351ec8d',1,'deleted_socket_fds():&#160;server.c']]],
-  ['destruction_5fpercentage_509',['destruction_percentage',['../structplayer__game__state__t.html#a78772d2b54814b9e20497dca115775e2',1,'player_game_state_t']]],
-  ['dirt_510',['dirt',['../structmap__sprite__rects__t.html#a2c89cb939dc937ebaa4b7922aa7e1abe',1,'map_sprite_rects_t']]],
-  ['dirt_5fbottom_511',['dirt_bottom',['../structmap__sprite__rects__t.html#a664c98e23ca5b3b751b63da427a7e150',1,'map_sprite_rects_t']]],
-  ['dirt_5fbottom_5fleft_512',['dirt_bottom_left',['../structmap__sprite__rects__t.html#a845fe2ac502264be67e8ed516c83f957',1,'map_sprite_rects_t']]],
-  ['dirt_5fbottom_5fright_513',['dirt_bottom_right',['../structmap__sprite__rects__t.html#a018b10dd8c87649476f5a774b9141ad7',1,'map_sprite_rects_t']]],
-  ['dirt_5fleft_514',['dirt_left',['../structmap__sprite__rects__t.html#a7f4c64f7d6e7c2ec57a937c269f1475d',1,'map_sprite_rects_t']]],
-  ['dirt_5fright_515',['dirt_right',['../structmap__sprite__rects__t.html#ae5f692cbb58bb97fd3c1b2a37ff65951',1,'map_sprite_rects_t']]],
-  ['dirt_5ftop_516',['dirt_top',['../structmap__sprite__rects__t.html#a796b31bab0f5d8479e095834f443e0f2',1,'map_sprite_rects_t']]],
-  ['dirt_5ftop_5fleft_517',['dirt_top_left',['../structmap__sprite__rects__t.html#ac953357a9daf746571e054798a5715dc',1,'map_sprite_rects_t']]],
-  ['dirt_5ftop_5fright_518',['dirt_top_right',['../structmap__sprite__rects__t.html#ab3cee4efb1a5d04a1d4a8ed8355e9003',1,'map_sprite_rects_t']]]
+  ['cancel_5ffight_5fbutton_598',['cancel_fight_button',['../structhud__t.html#a2d787a3d3fb984e6d2eb88d9602f18c9',1,'hud_t']]],
+  ['capacity_599',['capacity',['../structnode__list__t.html#af7b148204b1c50f8baa3947a13570ec0',1,'node_list_t::capacity()'],['../structserver__game__state__array__s.html#a4bad095c55c0092beeb586b22797f395',1,'server_game_state_array_s::capacity()']]],
+  ['client_600',['client',['../structserver__client__connection__t.html#ade3e7b2f8e407748d0c350ed0dad7d58',1,'server_client_connection_t::client()'],['../connection_2client_8c.html#ad72bb670c0751a5e8729d02bf7482d63',1,'client():&#160;client.c'],['../connection_2client_8h.html#ad72bb670c0751a5e8729d02bf7482d63',1,'client():&#160;client.c']]],
+  ['client_5fconnection_5fstate_601',['client_connection_state',['../connection_2client_8c.html#a1a752118a20ea115ecfae15cdd47f62b',1,'client_connection_state():&#160;client.c'],['../connection_2client_8h.html#a1a752118a20ea115ecfae15cdd47f62b',1,'client_connection_state():&#160;client.c']]],
+  ['client_5fdata_602',['client_data',['../structplayer__game__state__t.html#aea40b94327611248991f0972c2d5cc77',1,'player_game_state_t']]],
+  ['corner_5fwall_603',['corner_wall',['../structbuilding__sprite__rects__t.html#a53619129e0c3378e5f233a6b429d560c',1,'building_sprite_rects_t']]],
+  ['count_604',['count',['../structserver__game__state__array__s.html#a58e63760e69f28995cec9e51e3c25224',1,'server_game_state_array_s']]],
+  ['current_5fframe_605',['current_frame',['../structanim__t.html#a6382c403b21267799ba732adba7f812e',1,'anim_t']]],
+  ['current_5fstate_606',['current_state',['../structanim__t.html#ad67f347002585f815346dc88e31eece0',1,'anim_t']]]
 ];

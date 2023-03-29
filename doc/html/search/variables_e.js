@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vertical_5fwall_573',['vertical_wall',['../structbuilding__sprite__rects__t.html#ad872bbeb557f28946895bda4ea1638e5',1,'building_sprite_rects_t']]]
+  ['quit_5fbutton_684',['quit_button',['../structmenu__t.html#a16f17dcee9cb355c33cfbe18b7b8c36e',1,'menu_t']]]
 ];

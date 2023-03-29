@@ -1,5 +1,5 @@
 /**
- * @file game_state.h
+ * @file game_state_enum.h
  * @author Lucas Dureau
  * @brief Définition des différents états du jeux
  * @version 0.1

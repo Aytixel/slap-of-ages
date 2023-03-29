@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['waitclienthandshake_492',['waitClientHandshake',['../connection_2server_8c.html#ac12cd916a09a69510fb2688caf974ea2',1,'waitClientHandshake():&#160;server.c'],['../connection_2server_8h.html#ac12cd916a09a69510fb2688caf974ea2',1,'waitClientHandshake():&#160;server.c']]],
-  ['waitserverhandshake_493',['waitServerHandshake',['../connection_2client_8c.html#ac909041a5b1d4ae68f56d64fc93695d3',1,'waitServerHandshake():&#160;client.c'],['../connection_2client_8h.html#ac909041a5b1d4ae68f56d64fc93695d3',1,'waitServerHandshake():&#160;client.c']]]
+  ['updateanim_587',['updateAnim',['../animation_8c.html#a63392350c695b02122edb70286d308f7',1,'updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window):&#160;animation.c'],['../animation_8h.html#a63392350c695b02122edb70286d308f7',1,'updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window):&#160;animation.c']]],
+  ['updatebuildingcoord_588',['updateBuildingCoord',['../building_8c.html#ae484836162b2b44181583801f583c74d',1,'updateBuildingCoord(building_t *building, SDL_Point *position):&#160;building.c'],['../building_8h.html#ae484836162b2b44181583801f583c74d',1,'updateBuildingCoord(building_t *building, SDL_Point *position):&#160;building.c']]],
+  ['updatetextbox_589',['updateTextbox',['../input_8c.html#a605bab3d77ec1b0d265f04495e7bcdc9',1,'updateTextbox(SDL_Event *event, textbox_t *textbox):&#160;input.c'],['../input_8h.html#a605bab3d77ec1b0d265f04495e7bcdc9',1,'updateTextbox(SDL_Event *event, textbox_t *textbox):&#160;input.c']]],
+  ['updatewindowsize_590',['updateWindowSize',['../window_8c.html#ab1efa57caae2a77f346b314c3076d89f',1,'updateWindowSize(window_t *window, SDL_Event *event):&#160;window.c'],['../window_8h.html#ab1efa57caae2a77f346b314c3076d89f',1,'updateWindowSize(window_t *window, SDL_Event *event):&#160;window.c']]]
 ];

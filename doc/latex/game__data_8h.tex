@@ -7,6 +7,7 @@ Implémentation des prototypes de \mbox{\hyperlink{game__data_8c}{client/game\+\
 
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}timer/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}map/building.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}game\+\_\+state\+\_\+enum.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
@@ -16,15 +17,18 @@ struct \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\
 \doxysubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{game__data_8h_aee655befad3b1afa60c5fdd49663ae66}\label{game__data_8h_aee655befad3b1afa60c5fdd49663ae66}} 
+typedef struct \mbox{\hyperlink{structbuilding__s}{building\+\_\+s}} {\bfseries building\+\_\+t}
+\item 
 \mbox{\Hypertarget{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}\label{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}} 
 typedef struct \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+s}} \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Structure de données contenant les données du jeux. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{game__data_8h_a9671fe3875530be690bc1d098fa694e0}{create\+Game\+Data}} ()
+\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{game__data_8h_a6391857ac2597850f4a9186c5ea48ff2}{create\+Game\+Data}} (int map\+\_\+size)
 \begin{DoxyCompactList}\small\item\em Créer les données du jeux. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__data_8h_ac524888f11aad6e7479f72c7fdeef8b0}{delete\+Game\+Data}} (\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$$\ast$game\+\_\+data)
+int \mbox{\hyperlink{game__data_8h_a4b01542ac037409889a0c342ae1afb90}{delete\+Game\+Data}} (\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$$\ast$game\+\_\+data, int map\+\_\+size)
 \begin{DoxyCompactList}\small\item\em Détruit les données du jeux. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -43,24 +47,29 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{game__data_8h_a9671fe3875530be690bc1d098fa694e0}\label{game__data_8h_a9671fe3875530be690bc1d098fa694e0}} 
+\mbox{\Hypertarget{game__data_8h_a6391857ac2597850f4a9186c5ea48ff2}\label{game__data_8h_a6391857ac2597850f4a9186c5ea48ff2}} 
 \index{game\_data.h@{game\_data.h}!createGameData@{createGameData}}
 \index{createGameData@{createGameData}!game\_data.h@{game\_data.h}}
 \doxysubsubsection{\texorpdfstring{createGameData()}{createGameData()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}}$\ast$ create\+Game\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}}$\ast$ create\+Game\+Data (\begin{DoxyParamCaption}\item[{int}]{map\+\_\+size }\end{DoxyParamCaption})}
 
 
 
 Créer les données du jeux. 
 
+
+\begin{DoxyParams}{Paramètres}
+{\em map\+\_\+size} & taille de la carte \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 un pointer sur les {\bfseries{données du jeux}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{game__data_8h_ac524888f11aad6e7479f72c7fdeef8b0}\label{game__data_8h_ac524888f11aad6e7479f72c7fdeef8b0}} 
+\mbox{\Hypertarget{game__data_8h_a4b01542ac037409889a0c342ae1afb90}\label{game__data_8h_a4b01542ac037409889a0c342ae1afb90}} 
 \index{game\_data.h@{game\_data.h}!deleteGameData@{deleteGameData}}
 \index{deleteGameData@{deleteGameData}!game\_data.h@{game\_data.h}}
 \doxysubsubsection{\texorpdfstring{deleteGameData()}{deleteGameData()}}
-{\footnotesize\ttfamily int delete\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$$\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int delete\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$$\ast$}]{game\+\_\+data,  }\item[{int}]{map\+\_\+size }\end{DoxyParamCaption})}
 
 
 
@@ -69,6 +78,8 @@ Détruit les données du jeux.
 
 \begin{DoxyParams}{Paramètres}
 {\em game\+\_\+data} & une référence d\textquotesingle{}un pointeur sur les données du jeux \\
+\hline
+{\em map\+\_\+size} & taille de la carte \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}

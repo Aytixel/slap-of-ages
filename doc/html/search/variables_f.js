@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['well_574',['well',['../structbuilding__sprite__rects__t.html#a04a329884a2ae6f5eb9d5a83a1644932',1,'building_sprite_rects_t']]],
-  ['width_575',['width',['../structsprite__t.html#a608b74d1243cdac2e2cbcc0d40ade78e',1,'sprite_t::width()'],['../structwindow__t.html#ade23597c3ed81f62276a0ade09f936be',1,'window_t::width()']]],
-  ['width_5fscale_5ffactor_576',['width_scale_factor',['../structwindow__t.html#ad7005a52d95af554f57b8a3147df7183',1,'window_t']]],
-  ['win_5fcount_577',['win_count',['../structclient__game__data__s.html#a499e2d491796d1ba806d50b6288b45b5',1,'client_game_data_s']]],
-  ['window_578',['window',['../structwindow__t.html#a29435f6d7667ff1ee309674d98962040',1,'window_t']]]
+  ['rect_685',['rect',['../structbuilding__s.html#a795ebedb1ad83bb5c093f6035b6937c6',1,'building_s']]],
+  ['recv_5flength_686',['recv_length',['../structclient__t.html#a570e2ac54279c17f79dbba934a640831',1,'client_t::recv_length()'],['../structserver__client__t.html#ac1d78d04464accf90c40d4327c21a119',1,'server_client_t::recv_length()']]],
+  ['renderer_687',['renderer',['../structwindow__t.html#a79ad8be3dbb4a46cbf4554b64f64d70c',1,'window_t']]]
 ];

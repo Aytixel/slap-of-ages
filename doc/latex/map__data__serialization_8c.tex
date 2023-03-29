@@ -1,0 +1,85 @@
+\hypertarget{map__data__serialization_8c}{}\doxysection{Référence du fichier src/client/map\+\_\+data\+\_\+serialization.c}
+\label{map__data__serialization_8c}\index{src/client/map\_data\_serialization.c@{src/client/map\_data\_serialization.c}}
+
+
+Fonction pour transformé la carte en données pouvant être stocker ou envoyer.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}map\+\_\+data\+\_\+serialization.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{map__data__serialization_8c_a6f5db7ef6099bb5ca45918a5fab00e8b}{serialize\+\_\+map}} (void $\ast$$\ast$data, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building, int gold\+\_\+cost, int map\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Converti les données de la carte en données pouvant être stocker ou envoyer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{map__data__serialization_8c_ac6435be7587adbaa9197c87a31f36dd0}{deserialize\+\_\+map}} (void $\ast$data, int data\+\_\+length, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building, int $\ast$gold\+\_\+cost, int map\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Reconverti les données de la carte en structure et variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fonction pour transformé la carte en données pouvant être stocker ou envoyer. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+28/03/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{map__data__serialization_8c_ac6435be7587adbaa9197c87a31f36dd0}\label{map__data__serialization_8c_ac6435be7587adbaa9197c87a31f36dd0}} 
+\index{map\_data\_serialization.c@{map\_data\_serialization.c}!deserialize\_map@{deserialize\_map}}
+\index{deserialize\_map@{deserialize\_map}!map\_data\_serialization.c@{map\_data\_serialization.c}}
+\doxysubsubsection{\texorpdfstring{deserialize\_map()}{deserialize\_map()}}
+{\footnotesize\ttfamily int deserialize\+\_\+map (\begin{DoxyParamCaption}\item[{void $\ast$}]{data,  }\item[{int}]{data\+\_\+lenth,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building,  }\item[{int $\ast$}]{gold\+\_\+cost,  }\item[{int}]{map\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Reconverti les données de la carte en structure et variable. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em data} & un pointeur sur les données \\
+\hline
+{\em data\+\_\+lenth} & longueur des données \\
+\hline
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em map\+\_\+building} & matrice contenant la totalité des bâtiments placés sur la carte \\
+\hline
+{\em gold\+\_\+cost} & un pointeur sur le coût en or du village \\
+\hline
+{\em map\+\_\+size} & taille de la carte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map__data__serialization_8c_a6f5db7ef6099bb5ca45918a5fab00e8b}\label{map__data__serialization_8c_a6f5db7ef6099bb5ca45918a5fab00e8b}} 
+\index{map\_data\_serialization.c@{map\_data\_serialization.c}!serialize\_map@{serialize\_map}}
+\index{serialize\_map@{serialize\_map}!map\_data\_serialization.c@{map\_data\_serialization.c}}
+\doxysubsubsection{\texorpdfstring{serialize\_map()}{serialize\_map()}}
+{\footnotesize\ttfamily int serialize\+\_\+map (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{data,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building,  }\item[{int}]{gold\+\_\+cost,  }\item[{int}]{map\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Converti les données de la carte en données pouvant être stocker ou envoyer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em data} & une référence sur un pointeur sur les données \\
+\hline
+{\em map\+\_\+building} & matrice contenant la totalité des bâtiments placés sur la carte \\
+\hline
+{\em gold\+\_\+cost} & le coût en or du village \\
+\hline
+{\em map\+\_\+size} & taille de la carte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{taille des données}} 
+\end{DoxyReturn}

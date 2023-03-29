@@ -16,7 +16,7 @@ typedef struct \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{client_2game__state_8h_af9473f8a8b798285447bfaac34c9e759}{toggle\+Matchmaking}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+void \mbox{\hyperlink{client_2game__state_8h_a9c96c02ec3dfccb377998936cc700c5c}{toggle\+Matchmaking}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int map\+\_\+size)
 \begin{DoxyCompactList}\small\item\em Ajoute, ou enlève le client à la file d\textquotesingle{}attente des parties. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{client_2game__state_8h_a3e5f4d1be10bd8366d727b53066e6c97}{start\+Game}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Lance la partie / phase de combat. \end{DoxyCompactList}\item 
@@ -29,8 +29,6 @@ void \mbox{\hyperlink{client_2game__state_8h_a8793faeeb2625e2ea285d36e1a3da044}{
 \doxysubsection{Description détaillée}
 Implémentation des prototypes de \mbox{\hyperlink{client_2game__state_8c}{client/game\+\_\+state.\+c}}. 
 
-Définition des différents états du jeux.
-
 \begin{DoxyAuthor}{Auteur}
 Lucas Dureau 
 \end{DoxyAuthor}
@@ -38,16 +36,7 @@ Lucas Dureau
 0.\+1 
 \end{DoxyVersion}
 \begin{DoxyDate}{Date}
-19/03/2023
-\end{DoxyDate}
-\begin{DoxyAuthor}{Auteur}
-Lucas Dureau 
-\end{DoxyAuthor}
-\begin{DoxyVersion}{Version}
-0.\+1 
-\end{DoxyVersion}
-\begin{DoxyDate}{Date}
-17/03/2023 
+19/03/2023 
 \end{DoxyDate}
 
 
@@ -103,11 +92,11 @@ Lance la partie / phase de combat.
 {\em game\+\_\+data} & pointeur sur les données du jeux \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{client_2game__state_8h_af9473f8a8b798285447bfaac34c9e759}\label{client_2game__state_8h_af9473f8a8b798285447bfaac34c9e759}} 
+\mbox{\Hypertarget{client_2game__state_8h_a9c96c02ec3dfccb377998936cc700c5c}\label{client_2game__state_8h_a9c96c02ec3dfccb377998936cc700c5c}} 
 \index{game\_state.h@{game\_state.h}!toggleMatchmaking@{toggleMatchmaking}}
 \index{toggleMatchmaking@{toggleMatchmaking}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{toggleMatchmaking()}{toggleMatchmaking()}}
-{\footnotesize\ttfamily void toggle\+Matchmaking (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void toggle\+Matchmaking (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{int}]{map\+\_\+size }\end{DoxyParamCaption})}
 
 
 
@@ -117,6 +106,8 @@ Ajoute, ou enlève le client à la file d\textquotesingle{}attente des parties.
 \begin{DoxyParams}{Paramètres}
 {\em client} & pointeur sur le client socket \\
 \hline
-{\em game\+\_\+data} & pointeur sur les données du jeux \\
+{\em game\+\_\+data} & un pointeur sur les données du jeux \\
+\hline
+{\em map\+\_\+size} & taille de la carte \\
 \hline
 \end{DoxyParams}

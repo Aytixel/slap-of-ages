@@ -1,10 +1,9 @@
 /**
- * @file test_menu.c
+ * @file menu.c
  * @author Arthur Dureau
  * @brief Fichier de création du menu multijoueur
  * @version 1.0
  * @date 03/03/2023
- *
  *
  */
 
@@ -56,7 +55,7 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
   menu->book_animation = createAnim(16, book_states, loadSprite(window, "asset/sprite/menu/book.png"), 8);
   menu->book_animation_state = BOOK_OPEN_ANIM;
 
-  menu->join_button = createButton(window, menu->text_font, "JOIN", dark_text_color, light_text_color);
+  menu->join_button = createButton(window, menu->text_font, "REJOINDRE", dark_text_color, light_text_color);
   menu->quit_button = createButton(window, menu->text_font, "QUITTER", dark_text_color, light_text_color);
 
   menu->hostname_label = createTextSprite(window, menu->text_font, "Ip", light_text_color);
@@ -149,8 +148,8 @@ extern int menuRenderer(window_t *window, menu_t *menu)
   if (menu->book_animation_state == BOOK_OPENED_ANIM)
   {
     // Affichage des boutons
-    menu->join_button->rect = positionFromCenter(window, menu->join_button->sprite->width * scale_factor, menu->join_button->sprite->height * scale_factor, -220 * scale_factor, -25 * scale_factor, TRANSFORM_ORIGIN_LEFT);
-    menu->quit_button->rect = positionFromCenter(window, menu->quit_button->sprite->width * scale_factor, menu->quit_button->sprite->height * scale_factor, -220 * scale_factor, 25 * scale_factor, TRANSFORM_ORIGIN_LEFT);
+    menu->join_button->rect = positionFromCenter(window, menu->join_button->sprite->width * scale_factor, menu->join_button->sprite->height * scale_factor, -140 * scale_factor, -25 * scale_factor, TRANSFORM_ORIGIN_CENTER);
+    menu->quit_button->rect = positionFromCenter(window, menu->quit_button->sprite->width * scale_factor, menu->quit_button->sprite->height * scale_factor, -140 * scale_factor, 25 * scale_factor, TRANSFORM_ORIGIN_CENTER);
 
     renderButton(window, menu->join_button);
     renderButton(window, menu->quit_button);

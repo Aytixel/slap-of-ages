@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages: Référence du fichier src/menu/menu.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1a56cc8cdc1689899910be5fa4716ee4.html">menu</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier menu.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier de création du menu multijoueur.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="timer_8h_source.html">timer/timer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="menu_8h_source.html">menu/menu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="input_8h_source.html">window/input.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="window_8h_source.html">window/window.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ad1ace9949b3984eb46ae5d833d4ef84a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmenu__t.html">menu_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#ad1ace9949b3984eb46ae5d833d4ef84a">createMenu</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *game_data)</td></tr>
+<tr class="memdesc:ad1ace9949b3984eb46ae5d833d4ef84a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de création du menu.  <a href="menu_8c.html#ad1ace9949b3984eb46ae5d833d4ef84a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad1ace9949b3984eb46ae5d833d4ef84a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a164df07b83240357d29ac317a542c9b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a164df07b83240357d29ac317a542c9b6">menuEventHandler</a> (<a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *game_data, SDL_Event *event, <a class="el" href="structmenu__t.html">menu_t</a> *menu)</td></tr>
+<tr class="memdesc:a164df07b83240357d29ac317a542c9b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'écoute des événements du menu.  <a href="menu_8c.html#a164df07b83240357d29ac317a542c9b6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a164df07b83240357d29ac317a542c9b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf97f9d40d3e741e9124a901a4dd049b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#adf97f9d40d3e741e9124a901a4dd049b">menuRenderer</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="structmenu__t.html">menu_t</a> *menu)</td></tr>
+<tr class="memdesc:adf97f9d40d3e741e9124a901a4dd049b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'affichage du menu.  <a href="menu_8c.html#adf97f9d40d3e741e9124a901a4dd049b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adf97f9d40d3e741e9124a901a4dd049b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbad575b626f543582434ac6a39c28b3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#afbad575b626f543582434ac6a39c28b3">deleteMenu</a> (<a class="el" href="structmenu__t.html">menu_t</a> **menu)</td></tr>
+<tr class="memdesc:afbad575b626f543582434ac6a39c28b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de destruction du menu.  <a href="menu_8c.html#afbad575b626f543582434ac6a39c28b3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afbad575b626f543582434ac6a39c28b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier de création du menu multijoueur. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Arthur Dureau </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>03/03/2023 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ad1ace9949b3984eb46ae5d833d4ef84a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1ace9949b3984eb46ae5d833d4ef84a">&#9670;&nbsp;</a></span>createMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmenu__t.html">menu_t</a>* createMenu </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de création du menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données du jeux </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointeur sur un menu </dd></dl>
+
+</div>
+</div>
+<a id="afbad575b626f543582434ac6a39c28b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbad575b626f543582434ac6a39c28b3">&#9670;&nbsp;</a></span>deleteMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int deleteMenu </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmenu__t.html">menu_t</a> **&#160;</td>
+          <td class="paramname"><em>menu</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de destruction du menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">menu</td><td>une référence sur un pointeur sur un menu </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="a164df07b83240357d29ac317a542c9b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a164df07b83240357d29ac317a542c9b6">&#9670;&nbsp;</a></span>menuEventHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int menuEventHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Event *&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmenu__t.html">menu_t</a> *&#160;</td>
+          <td class="paramname"><em>menu</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'écoute des événements du menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données du jeux </td></tr>
+    <tr><td class="paramname">event</td><td>un pointeur sur les événements </td></tr>
+    <tr><td class="paramname">menu</td><td>un pointeur sur un menu </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si le bouton join est cliquer, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="adf97f9d40d3e741e9124a901a4dd049b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf97f9d40d3e741e9124a901a4dd049b">&#9670;&nbsp;</a></span>menuRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int menuRenderer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmenu__t.html">menu_t</a> *&#160;</td>
+          <td class="paramname"><em>menu</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'affichage du menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">menu</td><td>un pointeur sur un menu </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si le programme peut continuer, 0 sinon </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

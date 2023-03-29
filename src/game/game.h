@@ -22,35 +22,26 @@
 /**
  * @brief Structure de noeud
  *
- * @param x Coordonnée x du node
- * @param y Coordonnée y du noeud
- * @param g_cost Coût du noeud
- * @param h_cost Coût heuristique du noeud
- * @param f_cost Coût total du noeud
- * @param parent Pointeur vers le noeud parent
  */
 typedef struct node_s
 {
-    int x;
-    int y;
-    float g_cost;
-    float h_cost;
-    float f_cost;
-    struct node_s *parent;
+    int x;                 /**< Coordonnée x du node*/
+    int y;                 /**< Coordonnée y du noeud*/
+    float g_cost;          /**< Coût du noeud*/
+    float h_cost;          /**< Coût heuristique du noeud*/
+    float f_cost;          /**< Coût total du noeud*/
+    struct node_s *parent; /**< Pointeur vers le noeud parent*/
 } node_t;
 
 /**
  * @brief Structure de liste de noeud
  *
- * @param nodes Tableau de pointeur vers les noeuds
- * @param size Taille de la liste
- * @param capacity Capacité de la liste
  */
 typedef struct
 {
-    node_t **nodes;
-    int size;
-    int capacity;
+    node_t **nodes; /**< Tableau de pointeur vers les noeuds*/
+    int size;       /**< Taille de la liste*/
+    int capacity;   /**< Capacité de la liste*/
 } node_list_t;
 
 /**
