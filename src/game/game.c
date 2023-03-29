@@ -132,13 +132,16 @@ node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int map_size, i
     add_node(all_list, start_node);
 
     // Liste des nodes déjà explorés
-    int (*closed_list)[map_size] = malloc(map_size * sizeof(*closed_list));
-    for (int i = 0; i < map_size; i++) {
-        for (int j = 0; j < map_size; j++) {
+    int **closed_list = malloc(map_size * sizeof(void *));
+    for (int i = 0; i < map_size; i++)
+    {
+        closed_list[i] = malloc(map_size * sizeof(int));
+
+        for (int j = 0; j < map_size; j++)
+        {
             closed_list[i][j] = 0;
         }
     }
-
 
     // Tableau des déplacements possibles
     int dx[] = {1, 0, -1, 0};
@@ -163,6 +166,11 @@ node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int map_size, i
         // Si on a atteint le node final, on retourne le node courant
         if (current_node->x == goal_node->x && current_node->y == goal_node->y)
         {
+            for (int i = 0; i < map_size; i++)
+            {
+                free(closed_list[i]);
+            }
+            free(closed_list);
             remove_parent_from_list(all_list, current_node);
             clear_node_list(all_list);
             free_node_list(all_list);
@@ -182,17 +190,10 @@ node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int map_size, i
             int new_y = current_node->y + dy[i];
 
             // Si le voisin est invalide ou qu'il a déjà été exploré, on passe au voisin suivant
-            if(wall == 0){
-                if (!is_valid(new_x, new_y, map_size, mat) || closed_list[new_y][new_x])
-                {
-                    continue;
-                }
-            }else{
-                if (!is_valid_no_wall(new_x, new_y, map_size) || closed_list[new_y][new_x])
-                {
-                    continue;
-                }
-            }
+            int invalid_neighbor = wall == 0 ? !is_valid(new_x, new_y, map_size, mat) : !is_valid_no_wall(new_x, new_y, map_size);
+
+            if (invalid_neighbor || closed_list[new_y][new_x])
+                continue;
 
             // Calcule du coût du voisin
             node_t *neighbor = create_node(new_x, new_y, current_node);
@@ -223,7 +224,8 @@ node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int map_size, i
         }
     }
 
-    for (int i = 0; i < map_size; i++) {
+    for (int i = 0; i < map_size; i++)
+    {
         free(closed_list[i]);
     }
     free(closed_list);
