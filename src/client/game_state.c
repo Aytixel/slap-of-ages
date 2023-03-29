@@ -13,7 +13,7 @@
 #include "game_state_enum.h"
 #include "game_state.h"
 
-extern void toggleMatchmaking(client_t *client, building_t ***map_building, client_game_data_t *game_data, int map_size)
+extern void toggleMatchmaking(client_t *client, client_game_data_t *game_data, int map_size)
 {
     packet_t *packet = NULL;
 
@@ -22,7 +22,7 @@ extern void toggleMatchmaking(client_t *client, building_t ***map_building, clie
     case PREPARATION_GAME_STATE:
         game_data->state = MATCHMAKING_GAME_STATE;
 
-        packet = createSetMapPacket(map_building, game_data, map_size);
+        packet = createSetMapPacket(game_data, map_size);
 
         sendToServer(client, packet);
         deletePacket(&packet);

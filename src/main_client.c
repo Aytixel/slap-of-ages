@@ -27,7 +27,6 @@ void windowEventHandler(
     window_t *window,
     client_game_data_t *game_data,
     building_renderer_t *building_renderer,
-    building_t ***map_building,
     menu_t *menu,
     hud_t *hud)
 {
@@ -74,12 +73,12 @@ void windowEventHandler(
         }
         break;
     case CLIENT_CONNECTED:
-        hudEventHandler(event, hud, client, map_building, game_data, MAP_SIZE);
+        hudEventHandler(event, hud, client, game_data, MAP_SIZE);
 
         switch (game_data->state)
         {
         case PREPARATION_GAME_STATE:
-            buildingEventHandler(event, game_data, map_building, building_renderer, window);
+            buildingEventHandler(event, game_data, building_renderer, window);
             break;
         default:
             break;
@@ -88,7 +87,7 @@ void windowEventHandler(
     }
 }
 
-void handle_packet(packet_t *packet, window_t *window, building_t ***map_building, client_game_data_t *game_data)
+void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_data)
 {
     char title[150] = "";
 
@@ -102,7 +101,7 @@ void handle_packet(packet_t *packet, window_t *window, building_t ***map_buildin
         SDL_SetWindowTitle(window->window, title);
         break;
     case SET_MAP_PACKET_ID:
-        readSetMapPacket(packet, window, map_building, game_data, MAP_SIZE);
+        readSetMapPacket(packet, window, game_data, MAP_SIZE);
         startGame(client, game_data);
         printf("Partie lancé\n");
         break;
@@ -151,8 +150,7 @@ int main(int argc, char *argv[])
     initSocket();
 
     frame_timer_t *main_timer = createTimer(1000 / 30);
-    building_t ***map_building = createBuildingMatrix(MAP_SIZE);
-    client_game_data_t *game_data = createGameData();
+    client_game_data_t *game_data = createGameData(MAP_SIZE);
     menu_t *menu = createMenu(window, game_data);
     hud_t *hud = createHud(window);
 
@@ -166,7 +164,7 @@ int main(int argc, char *argv[])
         int time_left = timeLeft(main_timer);
 
         if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
-            windowEventHandler(&event, window, game_data, building_renderer, map_building, menu, hud);
+            windowEventHandler(&event, window, game_data, building_renderer, menu, hud);
 
         if (checkTime(main_timer))
         {
@@ -202,7 +200,7 @@ int main(int argc, char *argv[])
 
                 if (packet != NULL)
                 {
-                    handle_packet(packet, window, map_building, game_data);
+                    handle_packet(packet, window, game_data);
                     deletePacket(&packet);
                 }
                 break;
@@ -215,7 +213,21 @@ int main(int argc, char *argv[])
             {
             case CLIENT_CONNECTED:
                 renderMap(window, map_renderer);
-                renderBuildingMatrix(window, map_building, building_renderer, MAP_SIZE);
+
+                switch (game_data->state)
+                {
+                case PREPARATION_GAME_STATE:
+                case MATCHMAKING_GAME_STATE:
+                    renderBuildingMatrix(window, game_data->map_building, building_renderer, MAP_SIZE);
+                    break;
+                case COMBAT_GAME_STATE:
+                case WAITING_RESULT_GAME_STATE:
+                    renderBuildingMatrix(window, game_data->opponent_map_building, building_renderer, MAP_SIZE);
+                    break;
+                default:
+                    break;
+                }
+
                 renderHud(window, hud, map_renderer, game_data);
                 break;
             default:
@@ -230,8 +242,7 @@ int main(int argc, char *argv[])
     closeClientConnection();
     deleteHud(&hud);
     deleteMenu(&menu);
-    deleteGameData(&game_data);
-    destroyBuildingMatrix(&map_building, MAP_SIZE);
+    deleteGameData(&game_data, MAP_SIZE);
     deleteTimer(&main_timer);
     endSocket();
     deleteBuildingRenderer(&building_renderer);

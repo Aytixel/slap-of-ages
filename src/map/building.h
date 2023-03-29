@@ -10,6 +10,8 @@
 #ifndef __BUILDING_H
 #define __BUILDING_H
 
+typedef struct client_game_data_s client_game_data_t;
+
 #include "building_renderer.h"
 #include "map/map_renderer.h"
 #include "client/game_data.h"
@@ -26,7 +28,7 @@
  * @param gold_cost coût du bâtiment en or
  */
 
-typedef struct
+typedef struct building_s
 {
     building_type_e type;
     SDL_Rect rect;
@@ -92,8 +94,8 @@ extern void clearMatrix(building_t ***building_matrix, int map_size);
 /**
  * @brief Détruit la matrice de bâtiments
  *
- * @param building_matrix
- * @param map_size
+ * @param building_matrix matrice contenant les bâtiments
+ * @param map_size taille de la carte
  */
 extern void destroyBuildingMatrix(building_t ****building_matrix, int map_size);
 
@@ -144,12 +146,11 @@ extern building_t *getBuilding(building_t ***building_matrix, SDL_Point *positio
 /**
  * @brief Fonction d'écoute des événements du système de placement de bâtiment
  *
- * @param event
- * @param game_data
- * @param map_building matrice contenant les bâtiments
- * @param building_renderer
+ * @param event un pointeur sur les événements
+ * @param game_data un pointeur sur les données du jeux
+ * @param building_renderer un pointeur sur la structure qui gère l'affichage des bâtiments
  * @param window un pointeur sur une fenêtre
  */
-extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data, building_t ***map_building, building_renderer_t *building_renderer, window_t *window);
+extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data, building_renderer_t *building_renderer, window_t *window);
 
 #endif

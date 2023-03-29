@@ -32,11 +32,11 @@ extern hud_t *createHud(window_t *window)
     return hud;
 }
 
-extern void hudEventHandler(SDL_Event *event, hud_t *hud, client_t *client, building_t ***map_building, client_game_data_t *game_data, int map_size)
+extern void hudEventHandler(SDL_Event *event, hud_t *hud, client_t *client, client_game_data_t *game_data, int map_size)
 {
     if (isMouseClickInRect(*event, hud->fight_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN) ||
         isMouseClickInRect(*event, hud->cancel_fight_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
-        toggleMatchmaking(client, map_building, game_data, map_size);
+        toggleMatchmaking(client, game_data, map_size);
 
     SDL_Point mouse_point = getMousePosition();
 

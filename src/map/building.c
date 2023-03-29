@@ -249,7 +249,7 @@ extern building_t *getBuilding(building_t ***building_matrix, SDL_Point *positio
     return building_matrix[position->x][position->y];
 }
 
-extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data, building_t ***map_building, building_renderer_t *building_renderer, window_t *window)
+extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data, building_renderer_t *building_renderer, window_t *window)
 {
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT)
     {
@@ -257,23 +257,23 @@ extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data
         SDL_Point tile_position = getTileCoord(&mouse_position, window, building_renderer->map_renderer);
         building_t *new = createBuilding(MILL_BUILDING, &tile_position, window);
 
-        if (canPlaceBuilding(building_renderer, new, &tile_position, map_building))
+        if (canPlaceBuilding(building_renderer, new, &tile_position, game_data->map_building))
         {
             if (game_data->gold_count - new->gold_cost >= 0)
             {
-                addBuildingInMatrix(map_building, new);
+                addBuildingInMatrix(game_data->map_building, new);
                 game_data->gold_count -= new->gold_cost;
                 game_data->gold_cost += new->gold_cost;
             }
             else
                 destroyBuilding(&new);
         }
-        else if (tile_position.x != -1 && tile_position.y != -1 && map_building[tile_position.x][tile_position.y] != NULL)
+        else if (tile_position.x != -1 && tile_position.y != -1 && game_data->map_building[tile_position.x][tile_position.y] != NULL)
         {
-            game_data->gold_count += map_building[tile_position.x][tile_position.y]->gold_cost;
-            game_data->gold_cost -= map_building[tile_position.x][tile_position.y]->gold_cost;
+            game_data->gold_count += game_data->map_building[tile_position.x][tile_position.y]->gold_cost;
+            game_data->gold_cost -= game_data->map_building[tile_position.x][tile_position.y]->gold_cost;
             destroyBuilding(&new);
-            removeBuildingFromMatrix(map_building, map_building[tile_position.x][tile_position.y]);
+            removeBuildingFromMatrix(game_data->map_building, game_data->map_building[tile_position.x][tile_position.y]);
         }
     }
 }

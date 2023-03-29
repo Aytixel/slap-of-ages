@@ -10,12 +10,12 @@
 #include <stdlib.h>
 #include "map_data_serialization.h"
 
-extern int serialize_map(void **data, building_t ***map_building, client_game_data_t *game_data, int map_size)
+extern int serialize_map(void **data, building_t ***map_building, int gold_cost, int map_size)
 {
     *data = malloc(sizeof(int) + sizeof(char) * map_size * map_size);
 
     int data_size = 0;
-    memcpy(*data, &game_data->gold_cost, sizeof(int));
+    memcpy(*data, &gold_cost, sizeof(int));
     data_size += sizeof(int);
 
     char type;
@@ -34,13 +34,13 @@ extern int serialize_map(void **data, building_t ***map_building, client_game_da
     return data_size;
 }
 
-extern int deserialize_map(void *data, int data_length, window_t *window, building_t ***map_building, client_game_data_t *game_data, int map_size)
+extern int deserialize_map(void *data, int data_length, window_t *window, building_t ***map_building, int *gold_cost, int map_size)
 {
     if (data_length < sizeof(int) + sizeof(char) * map_size * map_size)
         return -1;
 
     int data_size = 0;
-    memcpy(&game_data->gold_cost, data, sizeof(int));
+    memcpy(gold_cost, data, sizeof(int));
     data_size += sizeof(int);
 
     clearMatrix(map_building, map_size);
