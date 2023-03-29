@@ -24,7 +24,7 @@ int main()
 
     // Test Algortihme A*
     printf("Test Algorithme A*:\n");
-    node_t *path = a_star(start_x, start_y, goal_x, goal_y, mat);
+    node_t *path = a_star(start_x, start_y, goal_x, goal_y, MAT_SIZE, mat, 0);
 
     if (path)
     {
@@ -32,12 +32,12 @@ int main()
         display_path(path);
         printf("\n");
 
-        fill_path_in_mat(path, mat);
+        fill_path_in_mat(path, MAT_SIZE, mat);
         mat[start_y][start_x] = START;
         mat[goal_y][goal_x] = GOAL;
 
         printf("Affichage du chemin trouvé dans la matrice( 5 = chemin utilisé ):\n");
-        display_mat(mat);
+        display_mat(MAT_SIZE, mat);
 
         free_node_path(path);
     }
@@ -62,7 +62,7 @@ int main()
 
     // Test Algortihme A* sans murs (on peut passer à travers les murs)
     printf("\nTest Algorithme A* sans prise en compte des murs:\n");
-    node_t *path_no_wall = a_star_no_wall(start_x, start_y, goal_x, goal_y, mat);
+    node_t *path_no_wall = a_star(start_x, start_y, goal_x, goal_y, MAT_SIZE, mat, 1);
 
     if (path_no_wall)
     {
@@ -70,12 +70,12 @@ int main()
         display_path(path_no_wall);
         printf("\n");
 
-        fill_path_in_mat(path_no_wall, mat);
+        fill_path_in_mat(path_no_wall, MAT_SIZE, mat);
         mat[start_y][start_x] = START;
         mat[goal_y][goal_x] = GOAL;
 
         printf("Affichage du chemin trouvé dans la matrice( 5 = chemin utilisé ):\n");
-        display_mat(mat);
+        display_mat(MAT_SIZE, mat);
 
         free_node_path(path_no_wall);
     }

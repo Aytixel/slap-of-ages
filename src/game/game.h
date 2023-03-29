@@ -15,7 +15,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define MAT_SIZE 10
 #define OBSTACLE -1
 #define START 1
 #define GOAL 2
@@ -59,7 +58,7 @@ typedef struct
  *
  * @return node_list*
  */
-extern node_list_t *create_node_list();
+extern node_list_t *create_node_list(int map_size);
 
 /**
  * @brief Vide une liste de ses noeuds
@@ -131,11 +130,23 @@ extern float heuristic(node_t *a, node_t *b);
  *
  * @param x
  * @param y
+ * @param map_size
  * @param mat
  * @return true
  * @return false
  */
-extern bool is_valid(int x, int y, int mat[][MAT_SIZE]);
+extern bool is_valid(int x, int y, int map_size, int mat[][map_size]);
+
+/**
+ * @brief Vérification de la validité d'un node sans les murs
+ *
+ * @param x
+ * @param y
+ * @param map_size
+ * @return true
+ * @return false
+ */
+extern bool is_valid_no_wall(int x, int y, int map_size);
 
 /**
  * @brief Algorithme de pathfinding A*
@@ -145,31 +156,10 @@ extern bool is_valid(int x, int y, int mat[][MAT_SIZE]);
  * @param goal_x
  * @param goal_y
  * @param mat
+ * @param wall
  * @return node*
  */
-extern node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int mat[][MAT_SIZE]);
-
-/**
- * @brief Vérification de la validité d'un node sans les murs
- *
- * @param x
- * @param y
- * @return true
- * @return false
- */
-extern bool is_valid_no_wall(int x, int y);
-
-/**
- * @brief Algorithme de pathfinding A* sans les murs
- *
- * @param start_x
- * @param start_y
- * @param goal_x
- * @param goal_y
- * @param mat
- * @return node*
- */
-node_t *a_star_no_wall(int start_x, int start_y, int goal_x, int goal_y, int mat[][MAT_SIZE]);
+extern node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int map_size, int mat[][map_size], int wall);
 
 /**
  * @brief Affichage du chemin
@@ -182,15 +172,17 @@ extern void display_path(node_t *node);
  * @brief Remplissage de la matrice avec le chemin
  *
  * @param node
+ * @param map_size
  * @param mat
  */
-extern void fill_path_in_mat(node_t *node, int mat[][MAT_SIZE]);
+extern void fill_path_in_mat(node_t *node, int map_size, int mat[][map_size]);
 
 /**
  * @brief Affichage de la matrice
  *
+ * @param map_size
  * @param mat
  */
-extern void display_mat(int mat[][MAT_SIZE]);
+extern void display_mat(int map_size, int mat[][map_size]);
 
 #endif
