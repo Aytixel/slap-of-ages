@@ -33,6 +33,7 @@ typedef struct client_game_data_s
     int win_count;                       /**< nombre de victoire*/
     frame_timer_t *timer;                /**< chronomètre de fin de partie*/
     char *opponent_pseudo;               /**< pseudo du joueur adverse*/
+    int initial_opponent_gold_cost;      /**< nombre d'or que coûte le village adverse initiale*/
     int opponent_gold_cost;              /**< nombre d'or que coûte le village adverse*/
     building_t ***opponent_map_building; /**< matrice contenant la totalité des bâtiments placés sur la carte adverse*/
 } client_game_data_t;

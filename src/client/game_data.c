@@ -23,6 +23,7 @@ extern client_game_data_t *createGameData(int map_size)
     game_data->win_count = 0;
     game_data->timer = NULL;
     game_data->opponent_pseudo = NULL;
+    game_data->initial_opponent_gold_cost = 0;
     game_data->opponent_gold_cost = 0;
     game_data->opponent_map_building = createBuildingMatrix(map_size);
 

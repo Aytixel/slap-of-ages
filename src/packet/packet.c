@@ -69,7 +69,9 @@ extern packet_t *createSetMapPacket(client_game_data_t *game_data, int map_size)
 
 extern void readSetMapPacket(packet_t *packet, window_t *window, client_game_data_t *game_data, int map_size)
 {
-    deserialize_map(packet->data, packet->data_length, window, game_data->opponent_map_building, &game_data->opponent_gold_cost, map_size);
+    deserialize_map(packet->data, packet->data_length, window, game_data->opponent_map_building, &game_data->initial_opponent_gold_cost, map_size);
+
+    game_data->opponent_gold_cost = game_data->initial_opponent_gold_cost;
 }
 
 extern packet_t *createIsPlayerReadyPacket(int is_player_ready)
