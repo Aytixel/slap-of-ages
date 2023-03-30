@@ -259,10 +259,9 @@ extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data
 
         if (canPlaceBuilding(building_renderer, new, &tile_position, game_data->map_building))
         {
-            if (game_data->gold_count - new->gold_cost >= 0)
+            if (game_data->gold_count - game_data->gold_cost - new->gold_cost >= 0)
             {
                 addBuildingInMatrix(game_data->map_building, new);
-                game_data->gold_count -= new->gold_cost;
                 game_data->gold_cost += new->gold_cost;
             }
             else
@@ -270,7 +269,6 @@ extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data
         }
         else if (tile_position.x != -1 && tile_position.y != -1 && game_data->map_building[tile_position.x][tile_position.y] != NULL)
         {
-            game_data->gold_count += game_data->map_building[tile_position.x][tile_position.y]->gold_cost;
             game_data->gold_cost -= game_data->map_building[tile_position.x][tile_position.y]->gold_cost;
             destroyBuilding(&new);
             removeBuildingFromMatrix(game_data->map_building, game_data->map_building[tile_position.x][tile_position.y]);

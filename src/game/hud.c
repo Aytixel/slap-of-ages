@@ -34,7 +34,7 @@ extern hud_t *createHud(window_t *window)
 
 extern void hudEventHandler(SDL_Event *event, hud_t *hud, client_t *client, client_game_data_t *game_data, int map_size)
 {
-    if (isMouseClickInRect(*event, hud->fight_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN) ||
+    if ((isMouseClickInRect(*event, hud->fight_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN) && game_data->gold_cost > 0) ||
         isMouseClickInRect(*event, hud->cancel_fight_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
         toggleMatchmaking(client, game_data, map_size);
 
@@ -50,7 +50,7 @@ extern void renderHud(window_t *window, hud_t *hud, map_renderer_t *map_renderer
     char text[50] = "";
     char number_text[50] = "";
 
-    SDL_itoa(game_data->gold_count, text, 10);
+    SDL_itoa(game_data->gold_count - game_data->gold_cost, text, 10);
     sprite_t *gold_count_sprite = createTextSprite(window, hud->text_font, strcat(text, " or"), hud->text_color);
     SDL_Rect gold_count_rect = positionFromCenter(
         window,
