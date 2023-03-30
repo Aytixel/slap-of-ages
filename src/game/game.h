@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "map/building.h"
 
 #define OBSTACLE -1
 #define START 1
@@ -25,8 +26,7 @@
  */
 typedef struct node_s
 {
-    int x;                 /**< Coordonnée x du node*/
-    int y;                 /**< Coordonnée y du noeud*/
+    SDL_Point position;    /**< Coordonnées du noeud*/
     float g_cost;          /**< Coût du noeud*/
     float h_cost;          /**< Coût heuristique du noeud*/
     float f_cost;          /**< Coût total du noeud*/
@@ -93,12 +93,11 @@ extern node_t *remove_node(node_list_t *list, int index);
 /**
  * @brief Creation d'une noeud
  *
- * @param x
- * @param y
+ * @param position
  * @param parent
  * @return node*
  */
-extern node_t *create_node(int x, int y, node_t *parent);
+extern node_t *create_node(SDL_Point position, node_t *parent);
 
 /**
  * @brief Libération de la mémoire d'une node et de ses parent
@@ -126,7 +125,7 @@ extern float heuristic(node_t *a, node_t *b);
  * @return true
  * @return false
  */
-extern bool is_valid(int x, int y, int map_size, int mat[][map_size]);
+extern bool is_valid(SDL_Point position, int map_size, building_t ***map_building);
 
 /**
  * @brief Vérification de la validité d'un node sans les murs
@@ -137,20 +136,18 @@ extern bool is_valid(int x, int y, int map_size, int mat[][map_size]);
  * @return true
  * @return false
  */
-extern bool is_valid_no_wall(int x, int y, int map_size);
+extern bool is_valid_no_wall(SDL_Point position, int map_size);
 
 /**
  * @brief Algorithme de pathfinding A*
  *
- * @param start_x
- * @param start_y
- * @param goal_x
- * @param goal_y
- * @param mat
+ * @param start
+ * @param goal
+ * @param map_building
  * @param wall
  * @return node*
  */
-extern node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int map_size, int mat[][map_size], int wall);
+extern node_t *a_star(SDL_Point start, SDL_Point goal, int map_size, building_t ***map_building, int wall);
 
 /**
  * @brief Affichage du chemin
@@ -158,22 +155,5 @@ extern node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int map_
  * @param node
  */
 extern void display_path(node_t *node);
-
-/**
- * @brief Remplissage de la matrice avec le chemin
- *
- * @param node
- * @param map_size
- * @param mat
- */
-extern void fill_path_in_mat(node_t *node, int map_size, int mat[][map_size]);
-
-/**
- * @brief Affichage de la matrice
- *
- * @param map_size
- * @param mat
- */
-extern void display_mat(int map_size, int mat[][map_size]);
 
 #endif

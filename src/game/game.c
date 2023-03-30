@@ -15,7 +15,6 @@
 #include "game.h"
 
 #define MAP_SIZE 10
-#define OBSTACLE -1
 #define START 1
 #define GOAL 2
 
@@ -80,11 +79,10 @@ node_t *remove_node(node_list_t *list, int index)
     return node;
 }
 
-node_t *create_node(int x, int y, node_t *parent)
+node_t *create_node(SDL_Point position, node_t *parent)
 {
     node_t *new_node = (node_t *)malloc(sizeof(node_t));
-    new_node->x = x;
-    new_node->y = y;
+    new_node->position = position;
     new_node->g_cost = 0;
     new_node->h_cost = 0;
     new_node->f_cost = 0;
@@ -106,32 +104,50 @@ void free_node_path(node_t *node)
 
 float heuristic(node_t *a, node_t *b)
 {
-    return sqrtf(powf(a->x - b->x, 2) + powf(a->y - b->y, 2));
+    return sqrtf(powf(a->position.x - b->position.x, 2) + powf(a->position.y - b->position.y, 2));
 }
 
-bool is_valid(int x, int y, int map_size, int mat[][map_size])
+bool is_valid(SDL_Point position, int map_size, building_t ***map_building)
 {
-    return x >= 0 && x < map_size && y >= 0 && y < map_size && mat[y][x] != OBSTACLE;
+    if (position.x >= 0 && position.x < map_size && position.y >= 0 && position.y < map_size)
+    {
+        if (map_building[position.x][position.y] == NULL)
+            return 1;
+        switch (map_building[position.x][position.y]->type)
+        {
+        case CORNER_WALL_BUILDING:
+        case VERTICAL_WALL_BUILDING:
+        case HORIZONTAL_WALL_BUILDING:
+            return 1;
+            break;
+
+        default:
+            return 0;
+            break;
+        }
+    }
+
+    return 0;
 }
 
-bool is_valid_no_wall(int x, int y, int map_size)
+bool is_valid_no_wall(SDL_Point position, int map_size)
 {
-    return x >= 0 && x < map_size && y >= 0 && y < map_size;
+    return position.x >= 0 && position.x < map_size && position.y >= 0 && position.y < map_size;
 }
 
-node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int map_size, int mat[][map_size], int wall)
+node_t *a_star(SDL_Point start, SDL_Point goal, int map_size, building_t ***map_building, int wall)
 {
 
-    node_t *start_node = create_node(start_x, start_y, NULL);
-    node_t *goal_node = create_node(goal_x, goal_y, NULL);
+    node_t *start_node = create_node(start, NULL);
+    node_t *goal_node = create_node(goal, NULL);
 
-    // Liste des nodes à explorer
+    // Liste des noeuds à explorer
     node_list_t *open_list = create_node_list(map_size);
     node_list_t *all_list = create_node_list(map_size);
     add_node(open_list, start_node);
     add_node(all_list, start_node);
 
-    // Liste des nodes déjà explorés
+    // Liste des noeuds déjà explorés
     int **closed_list = malloc(map_size * sizeof(void *));
     for (int i = 0; i < map_size; i++)
     {
@@ -147,7 +163,7 @@ node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int map_size, i
     int dx[] = {1, 0, -1, 0};
     int dy[] = {0, 1, 0, -1};
 
-    // Tant qu'il reste des nodes à explorer
+    // Tant qu'il reste des noeuds à explorer
     while (open_list->size > 0)
     {
         node_t *current_node = open_list->nodes[0];
@@ -163,8 +179,8 @@ node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int map_size, i
             }
         }
 
-        // Si on a atteint le node final, on retourne le node courant
-        if (current_node->x == goal_node->x && current_node->y == goal_node->y)
+        // Si on a atteint le node final, on retourne le noeud courant
+        if (current_node->position.x == goal_node->position.x && current_node->position.y == goal_node->position.y)
         {
             for (int i = 0; i < map_size; i++)
             {
@@ -179,41 +195,43 @@ node_t *a_star(int start_x, int start_y, int goal_x, int goal_y, int map_size, i
             return current_node;
         }
 
-        // On retire le node de la liste des nodes à explorer et on l'ajoute à la liste des nodes déjà explorés
+        // On retire le noeud de la liste des noeuds à explorer et on l'ajoute à la liste des noeuds déjà explorés
         remove_node(open_list, current_index);
-        closed_list[current_node->y][current_node->x] = 1;
+        closed_list[current_node->position.y][current_node->position.x] = 1;
 
-        // On explore les voisins du node courant
+        // On explore les voisins du noeud courant
         for (int i = 0; i < 4; i++)
         {
-            int new_x = current_node->x + dx[i];
-            int new_y = current_node->y + dy[i];
+            int new_x = current_node->position.x + dx[i];
+            int new_y = current_node->position.y + dy[i];
+
+            SDL_Point neighbor_position = {new_x, new_y};
 
             // Si le voisin est invalide ou qu'il a déjà été exploré, on passe au voisin suivant
-            int invalid_neighbor = wall == 0 ? !is_valid(new_x, new_y, map_size, mat) : !is_valid_no_wall(new_x, new_y, map_size);
+            int invalid_neighbor = wall == 0 ? !is_valid(neighbor_position, map_size, map_building) : !is_valid_no_wall(neighbor_position, map_size);
 
             if (invalid_neighbor || closed_list[new_y][new_x])
                 continue;
 
             // Calcule du coût du voisin
-            node_t *neighbor = create_node(new_x, new_y, current_node);
+            node_t *neighbor = create_node(neighbor_position, current_node);
             neighbor->g_cost = current_node->g_cost + 1;
             neighbor->h_cost = heuristic(neighbor, goal_node);
             neighbor->f_cost = neighbor->g_cost + neighbor->h_cost;
 
             bool in_open_list = false;
 
-            // Parcours de la liste des nodes, vérifie si les coordonnées du voisin sont déjà présentes dans la liste et vérifie si le coût du voisin est inférieur ou égal au coût du node déjà présent dans la liste
+            // Parcours de la liste des noeuds, vérifie si les coordonnées du voisin sont déjà présentes dans la liste et vérifie si le coût du voisin est inférieur ou égal au coût du noeud déjà présent dans la liste
             for (int j = 0; j < open_list->size; j++)
             {
-                if (open_list->nodes[j]->x == new_x && open_list->nodes[j]->y == new_y && open_list->nodes[j]->g_cost <= neighbor->g_cost)
+                if (open_list->nodes[j]->position.x == new_x && open_list->nodes[j]->position.y == new_y && open_list->nodes[j]->g_cost <= neighbor->g_cost)
                 {
                     in_open_list = true;
                     break;
                 }
             }
 
-            // Sinon, on l'ajoute à la liste des nodes à explorer
+            // Sinon, on l'ajoute à la liste des noeuds à explorer
             if (!in_open_list)
             {
                 add_node(open_list, neighbor);
@@ -242,33 +260,10 @@ void display_path(node_t *node)
     if (node->parent != NULL)
     {
         display_path(node->parent);
-        printf("-> (%d, %d) ", node->x, node->y);
+        printf("-> (%d, %d) ", node->position.x, node->position.y);
     }
     else
     {
-        printf("(%d, %d) ", node->x, node->y);
-    }
-}
-
-// Affichage du chemin avec des 5 dans la matrice
-void fill_path_in_mat(node_t *node, int map_size, int mat[][map_size])
-{
-    if (node->parent != NULL)
-    {
-        fill_path_in_mat(node->parent, map_size, mat);
-    }
-    mat[node->y][node->x] = 5;
-}
-
-// Affichage de la matrice
-void display_mat(int map_size, int mat[][map_size])
-{
-    for (int y = 0; y < map_size; y++)
-    {
-        for (int x = 0; x < map_size; x++)
-        {
-            printf("%2d ", mat[y][x]);
-        }
-        printf("\n");
+        printf("(%d, %d) ", node->position.x, node->position.y);
     }
 }

@@ -1,86 +1,135 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_main.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include "timer/timer.h"
+#include "window/window.h"
+#include "window/input.h"
+#include "map/building_renderer.h"
+#include "map/building.h"
 #include "game/game.h"
 
-#define MAT_SIZE 10
+#define MAP_SIZE 20
+
+int running = 1;
+
+SDL_Point test_position = {0, 0};
+
+SDL_Point mouse_position;
+
+void signalHandler(int s)
+{
+    running = 0;
+}
+
+void windowEventHandler(SDL_Event *event, window_t *window)
+{
+    // gestion des évènements de la fenêtre
+}
 
 int main()
 {
-    int mat[MAT_SIZE][MAT_SIZE] = {
-        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {-1, 0, 0, -1, -1, -1, -1, -1, 0, -1},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, -1, 0, 0, 0, 0, 0, 0, 0, -1},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-        {0, 0, 0, -1, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, -1, 0, -1, 2, 0}};
-    int start_x = 0;
-    int start_y = 0;
-    int goal_x = MAT_SIZE - 1;
-    int goal_y = MAT_SIZE - 1;
+    window_t *window = createWindow("Slap of Ages", 600, 600);
+    map_renderer_t *map_renderer = createMapRenderer(window, MAP_SIZE);
+    building_renderer_t *building_renderer = createBuildingRenderer(window, map_renderer);
+    frame_timer_t *main_timer = createTimer(1000 / 30);
 
-    // Test Algortihme A*
-    printf("Test Algorithme A*:\n");
-    node_t *path = a_star(start_x, start_y, goal_x, goal_y, MAT_SIZE, mat, 0);
+    building_t ***map_building = createBuildingMatrix(MAP_SIZE);
 
-    if (path)
+    if (window == NULL || map_renderer == NULL)
+        return 1;
+
+    SDL_Point rat_position = {100, 300};
+
+    int rat_states[] = {4, 8, 12, 4, 5, -1};
+
+    anim_t *rat = createAnim(
+        TILE_SIZE,
+        rat_states,
+        loadSprite(window, "asset/sprite/characters/ratfolk_axe.png"),
+        13);
+
+    int time_left;
+
+    SDL_Point house_1_position = {6, 2};
+    SDL_Point house_2_position = {17, 8};
+    SDL_Point house_3_position = {6, 14};
+
+    building_t *house_1 = createBuilding(HOUSE_1_BUILDING, &house_1_position, window);
+    building_t *house_2 = createBuilding(FIELD_BUILDING, &house_2_position, window);
+    building_t *house_3 = createBuilding(MINE_BUILDING, &house_3_position, window);
+
+    addBuildingInMatrix(map_building, house_1);
+    addBuildingInMatrix(map_building, house_2);
+    addBuildingInMatrix(map_building, house_3);
+
+    while (running)
     {
-        printf("Chemin trouver: ");
-        display_path(path);
-        printf("\n");
 
-        fill_path_in_mat(path, MAT_SIZE, mat);
-        mat[start_y][start_x] = START;
-        mat[goal_y][goal_x] = GOAL;
+        SDL_Event event;
+        time_left = timeLeft(main_timer);
 
-        printf("Affichage du chemin trouvé dans la matrice( 5 = chemin utilisé ):\n");
-        display_mat(MAT_SIZE, mat);
-
-        free_node_path(path);
-    }
-    else
-    {
-        printf("Pas de chemin trouver.\n");
-    }
-
-    // Reset de la matrice pour le test A* sans murs
-    mat[start_y][start_x] = START;
-    mat[goal_y][goal_x] = GOAL;
-    for (int y = 0; y < MAT_SIZE; y++)
-    {
-        for (int x = 0; x < MAT_SIZE; x++)
+        if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
         {
-            if (mat[y][x] == 5)
+            switch (event.type)
             {
-                mat[y][x] = 0;
+            case SDL_QUIT:
+                running = 0;
+                break;
+            case SDL_WINDOWEVENT:
+                switch (event.window.event)
+                {
+                case SDL_WINDOWEVENT_RESIZED:
+                    window->width = event.window.data1;
+                    window->height = event.window.data2;
+                    break;
+                }
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                switch (event.button.button)
+                {
+                case SDL_BUTTON_LEFT:
+                    mouse_position.x = event.button.x;
+                    mouse_position.y = event.button.y;
+
+                    test_position = getTileCoord(&mouse_position, window, map_renderer);
+
+                    break;
+                }
+                break;
             }
+        }
+
+        if (checkTime(main_timer))
+        {
+
+            SDL_RenderClear(window->renderer);
+            renderMap(window, map_renderer);
+
+            for (int i = 0; i < MAP_SIZE; i++)
+            {
+                for (int j = 0; j < MAP_SIZE; j++)
+                {
+                    if (map_building[i][j] != NULL)
+                    {
+                        renderBuilding(window, building_renderer, &(map_building[i][j]->position), map_building[i][j]->type, &map_building[i][j]->rect);
+                    }
+                }
+            }
+
+            updateAnim(rat, RAT_IDLE_ANIM, map_renderer->tile_size, &rat_position, window);
+
+            SDL_RenderPresent(window->renderer);
         }
     }
 
-    // Test Algortihme A* sans murs (on peut passer à travers les murs)
-    printf("\nTest Algorithme A* sans prise en compte des murs:\n");
-    node_t *path_no_wall = a_star(start_x, start_y, goal_x, goal_y, MAT_SIZE, mat, 1);
+    deleteTimer(&main_timer);
+    destroyBuildingMatrix(&map_building, MAP_SIZE);
+    deleteBuildingRenderer(&building_renderer);
+    deleteMapRenderer(&map_renderer);
+    destroyWindow(&window);
 
-    if (path_no_wall)
-    {
-        printf("Chemin trouver: ");
-        display_path(path_no_wall);
-        printf("\n");
-
-        fill_path_in_mat(path_no_wall, MAT_SIZE, mat);
-        mat[start_y][start_x] = START;
-        mat[goal_y][goal_x] = GOAL;
-
-        printf("Affichage du chemin trouvé dans la matrice( 5 = chemin utilisé ):\n");
-        display_mat(MAT_SIZE, mat);
-
-        free_node_path(path_no_wall);
-    }
-    else
-    {
-        printf("Pas de chemin trouver.\n");
-    }
+    return 0;
 }
