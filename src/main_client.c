@@ -143,23 +143,56 @@ int main(int argc, char *argv[])
     map_renderer_t *map_renderer = createMapRenderer(window, MAP_SIZE);
 
     if (map_renderer == NULL)
+    {
+        destroyWindow(&window);
         return 1;
+    }
 
     building_renderer_t *building_renderer = createBuildingRenderer(window, map_renderer);
 
     if (building_renderer == NULL)
+    {
+        destroyWindow(&window);
+        deleteMapRenderer(&map_renderer);
         return 1;
+    }
 
     initSocket();
 
     frame_timer_t *main_timer = createTimer(1000 / 30);
     client_game_data_t *game_data = createGameData(MAP_SIZE);
     menu_t *menu = createMenu(window, game_data);
-    hud_t *hud = createHud(window);
-    building_hud_t *building_hud = createBuildingHud(window);
 
     if (menu == NULL)
+    {
+        destroyWindow(&window);
+        deleteMapRenderer(&map_renderer);
+        deleteBuildingRenderer(&building_renderer);
         return 1;
+    }
+
+    hud_t *hud = createHud(window);
+
+    if (hud == NULL)
+    {
+        destroyWindow(&window);
+        deleteMapRenderer(&map_renderer);
+        deleteBuildingRenderer(&building_renderer);
+        deleteMenu(&menu);
+        return 1;
+    }
+
+    building_hud_t *building_hud = createBuildingHud(window);
+
+    if (building_hud == NULL)
+    {
+        destroyWindow(&window);
+        deleteMapRenderer(&map_renderer);
+        deleteBuildingRenderer(&building_renderer);
+        deleteMenu(&menu);
+        deleteHud(&hud);
+        return 1;
+    }
 
     // boucle principale
     while (running)
