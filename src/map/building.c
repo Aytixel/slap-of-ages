@@ -255,7 +255,7 @@ extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data
     {
         SDL_Point mouse_position = {event->button.x, event->button.y};
         SDL_Point tile_position = getTileCoord(&mouse_position, window, building_renderer->map_renderer);
-        building_t *new = createBuilding(MILL_BUILDING, &tile_position, window);
+        building_t *new = createBuilding(game_data->selected_building_type, &tile_position, window);
 
         if (canPlaceBuilding(building_renderer, new, &tile_position, game_data->map_building))
         {
@@ -275,5 +275,7 @@ extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data
             destroyBuilding(&new);
             removeBuildingFromMatrix(game_data->map_building, game_data->map_building[tile_position.x][tile_position.y]);
         }
+        else
+            destroyBuilding(&new);
     }
 }

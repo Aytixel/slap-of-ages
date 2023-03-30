@@ -8,6 +8,7 @@
 #include "map/map_renderer.h"
 #include "map/building_renderer.h"
 #include "map/building.h"
+#include "map/building_hud.h"
 #include "menu/menu.h"
 #include "client/game_data.h"
 #include "client/game_state.h"
@@ -26,6 +27,7 @@ void windowEventHandler(
     SDL_Event *event,
     window_t *window,
     client_game_data_t *game_data,
+    building_hud_t *building_hud,
     building_renderer_t *building_renderer,
     menu_t *menu,
     hud_t *hud)
@@ -79,6 +81,7 @@ void windowEventHandler(
         {
         case PREPARATION_GAME_STATE:
             buildingEventHandler(event, game_data, building_renderer, window);
+            buildingHudEventHandler(event, building_hud, game_data);
             break;
         default:
             break;
@@ -153,6 +156,7 @@ int main(int argc, char *argv[])
     client_game_data_t *game_data = createGameData(MAP_SIZE);
     menu_t *menu = createMenu(window, game_data);
     hud_t *hud = createHud(window);
+    building_hud_t *building_hud = createBuildingHud(window);
 
     if (menu == NULL)
         return 1;
@@ -164,7 +168,7 @@ int main(int argc, char *argv[])
         int time_left = timeLeft(main_timer);
 
         if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
-            windowEventHandler(&event, window, game_data, building_renderer, menu, hud);
+            windowEventHandler(&event, window, game_data, building_hud, building_renderer, menu, hud);
 
         if (checkTime(main_timer))
         {
@@ -219,6 +223,7 @@ int main(int argc, char *argv[])
                 case PREPARATION_GAME_STATE:
                 case MATCHMAKING_GAME_STATE:
                     renderBuildingMatrix(window, game_data->map_building, building_renderer, MAP_SIZE);
+                    renderBuildingHud(window, building_hud, building_renderer);
                     break;
                 case COMBAT_GAME_STATE:
                 case WAITING_RESULT_GAME_STATE:
@@ -240,6 +245,7 @@ int main(int argc, char *argv[])
     }
 
     closeClientConnection();
+    deleteBuildingHud(&building_hud);
     deleteHud(&hud);
     deleteMenu(&menu);
     deleteGameData(&game_data, MAP_SIZE);

@@ -17,6 +17,7 @@ extern client_game_data_t *createGameData(int map_size)
 
     game_data->port = 4539;
     game_data->state = CONNECTION_GAME_STATE;
+    game_data->selected_building_type = HOUSE_1_BUILDING;
     game_data->map_building = createBuildingMatrix(map_size);
     game_data->gold_count = 1000;
     game_data->gold_cost = 0;
