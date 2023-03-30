@@ -10,8 +10,11 @@
 #include "map/building_renderer.h"
 #include "map/building.h"
 #include "game/game.h"
+#include "window/animation.h"
+#include "window/animation_states.h"
 
 #define MAP_SIZE 20
+#define TILE_SIZE 16
 
 int running = 1;
 
