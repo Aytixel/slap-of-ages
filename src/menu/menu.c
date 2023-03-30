@@ -1,6 +1,6 @@
 /**
  * @file menu.c
- * @author Arthur Dureau
+ * @author Arthur Dureau, Lucas Dureau
  * @brief Fichier de création du menu multijoueur
  * @version 1.0
  * @date 03/03/2023

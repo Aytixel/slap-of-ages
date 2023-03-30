@@ -1,6 +1,6 @@
 /**
  * @file building.c
- * @author Hôa Le Luet
+ * @author Hôa Le Luet, Lucas Dureau
  * @brief Permet la gestion des bâtiments, leur création, leur destruction
  * @version 0.1
  * @date 09/03/2023

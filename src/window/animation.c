@@ -1,3 +1,12 @@
+/**
+ * @file animation.c
+ * @brief Gestion des animations
+ * @author Hôa Le Luet
+ * @version 1.0
+ * @date 03/03/2023
+ *
+ *
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
@@ -9,25 +18,14 @@
 #include "window.h"
 
 /**
- * @file animation.c
- * @brief Gestion des animations
- * @author Hôa Le Luet
- * @version 1.0
- * @date 03/03/2023
+ * @brief Initialise les images d'une animation
  *
- *
+ * @param tab tableau contenant les positions et tailles des différentes images de l'animation dans la source
+ * @param nb_frames nombre d'images de l'animation
+ * @param src image source de l'animation
+ * @param line ligne contenant les différentes étapes d'une animation dans l'image source
+ * @param nb_lines nombre de lignes dans l'image source
  */
-
-/**
- * @brief   Initialise les images d'une animation
- *
- * @param tab : tableau contenant les positions et tailles des différentes images de l'animation dans la source
- * @param nb_frames : nombre d'images de l'animation
- * @param src : image source de l'animation
- * @param line : ligne contenant les différentes étapes d'une animation dans l'image source
- * @param nb_lines : nombre de lignes dans l'image source
- */
-
 void initFrames(SDL_Rect *tab, int max_frames, int nb_frames, sprite_t *sprite, int line, int nb_lines)
 {
 

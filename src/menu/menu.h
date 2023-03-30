@@ -1,6 +1,6 @@
 /**
  * @file menu.h
- * @author Arthur Dureau
+ * @author Arthur Dureau, Lucas Dureau
  * @brief Implémentation des prototypes de menu/menu.c
  * @version 1.0
  * @date 03/03/2023

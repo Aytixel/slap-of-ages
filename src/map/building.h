@@ -1,6 +1,6 @@
 /**
  * @file building.h
- * @author Hôa Le Luet
+ * @author Hôa Le Luet, Lucas Dureau
  * @brief
  * @version 0.1
  * @date 2023-03-09
@@ -76,8 +76,8 @@ extern void buildingTakesDamages(building_t ***matrix, building_t *building, int
 /**
  * @brief Permet de détruire tout les bâtiments sur la carte
  *
- * @param building_matrix Matrice contenant la totalité des bâtiments placés sur la carte
- * @param map_size Taille de la carte en nombre de cases
+ * @param building_matrix matrice contenant la totalité des bâtiments placés sur la carte
+ * @param map_size taille de la carte en nombre de cases
  */
 extern void clearMatrix(building_t ***building_matrix, int map_size);
 
@@ -93,33 +93,33 @@ extern void destroyBuildingMatrix(building_t ****building_matrix, int map_size);
  * @brief Permet d'ajouter un bâtiment sur la carte
  *
  *
- * @param building_matrix Matrice contenant la totalité des bâtiments placés sur la carte
- * @param building Le bâtiment à ajouter à la carte
+ * @param building_matrix matrice contenant la totalité des bâtiments placés sur la carte
+ * @param building le bâtiment à ajouter à la carte
  */
 extern void addBuildingInMatrix(building_t ***building_matrix, building_t *building);
 
 /**
  * @brief Permet de supprimer un bâtiment de la carte
  *
- * @param building_matrix Matrice contenant la totalité des bâtiments placés sur la carte
- * @param building Le bâtiment à supprimer de la carte
+ * @param building_matrix matrice contenant la totalité des bâtiments placés sur la carte
+ * @param building le bâtiment à supprimer de la carte
  */
 extern void removeBuildingFromMatrix(building_t ***building_matrix, building_t *building);
 
 /**
  * @brief Permet de mettre à jour la position d'un bâtiment
  *
- * @param building Le bâtiment à mettre à jour
- * @param position La nouvelle position du bâtiment
+ * @param building le bâtiment à mettre à jour
+ * @param position la nouvelle position du bâtiment
  */
 extern void updateBuildingCoord(building_t *building, SDL_Point *position);
 
 /**
  * @brief Permet de vérifier si un bâtiment peut être placé à une position donnée
  *
- * @param building Le bâtiment qui doit être placé
- * @param position La position à vérifier
- * @param building_matrix Matrice contenant la totalité des bâtiments placés sur la carte
+ * @param building le bâtiment qui doit être placé
+ * @param position la position à vérifier
+ * @param building_matrix matrice contenant la totalité des bâtiments placés sur la carte
  * @return retourne 1 si le bâtiment peut être placé, 0 sinon
  */
 extern int canPlaceBuilding(building_renderer_t *building_renderer, building_t *building, SDL_Point *position, building_t ***building_matrix);

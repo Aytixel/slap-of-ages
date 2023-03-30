@@ -11,7 +11,7 @@
 #define __ANIMATION_STATES_H
 
 /**
- * @brief   Enumération des états d'une animation de portail
+ * @brief Enumération des états d'une animation de portail
  *
  */
 typedef enum
@@ -22,7 +22,7 @@ typedef enum
 } portal_anim_state_e;
 
 /**
- * @brief   Enumération des états d'une animation de livre
+ * @brief Enumération des états d'une animation de livre
  *
  */
 typedef enum
@@ -33,7 +33,7 @@ typedef enum
 } book_anim_state_e;
 
 /**
- * @brief   Enumération des états d'une animation de démon
+ * @brief Enumération des états d'une animation de démon
  *
  */
 typedef enum
@@ -45,7 +45,7 @@ typedef enum
 } daemon_anim_state_e;
 
 /**
- * @brief   Enumération des états d'une animation de Géant goblin
+ * @brief Enumération des états d'une animation de Géant goblin
  *
  */
 typedef enum
@@ -58,7 +58,7 @@ typedef enum
 } goblin_giant_anim_state_e;
 
 /**
- * @brief   Enumération des états d'une animation de Rat avec une hache
+ * @brief Enumération des états d'une animation de Rat avec une hache
  *
  */
 typedef enum

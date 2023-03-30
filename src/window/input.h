@@ -1,6 +1,6 @@
 /**
  * @file input.h
- * @author Arthur Dureau
+ * @author Arthur Dureau, Lucas Dureau
  * @brief Implémentation des prototypes de window/input.c
  * @version 1.0
  * @date 03/03/2023
@@ -22,12 +22,12 @@
 
 typedef struct
 {
-    sprite_t *sprite;
-    SDL_Rect rect;
-    int is_selected;
-    TTF_Font *font;
-    SDL_Color color;
-    SDL_Color selected_color;
+    sprite_t *sprite;         /**< sprite du texte*/
+    SDL_Rect rect;            /**< rectangle d'affichage*/
+    int is_selected;          /**< le bouton est-il sélectionner*/
+    TTF_Font *font;           /**< police d'écriture*/
+    SDL_Color color;          /**< couleur du texte*/
+    SDL_Color selected_color; /**< couleur du texte sélectionner*/
     char *text;
 } button_t;
 
@@ -35,17 +35,16 @@ typedef struct
  * @brief Structure contenant les données d'une textbox
  *
  */
-
 typedef struct
 {
-    sprite_t *sprite;
-    SDL_Rect rect;
-    SDL_Rect text_rect;
-    int max_width;
-    int character_limit;
-    int character_diplay_count;
-    TTF_Font *font;
-    SDL_Color color;
+    sprite_t *sprite;           /**< sprite du texte*/
+    SDL_Rect rect;              /**< rectangle de la boite de texte*/
+    SDL_Rect text_rect;         /**< rectangle de texte*/
+    int max_width;              /**< largueur maximum*/
+    int character_limit;        /**< limite de caractère à afficher*/
+    int character_diplay_count; /**< nombre de caractère à afficher*/
+    TTF_Font *font;             /**< police d'écriture*/
+    SDL_Color color;            /**< couleur du texte*/
     char *text;
 } textbox_t;
 
