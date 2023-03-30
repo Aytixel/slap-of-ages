@@ -1,0 +1,13 @@
+<map id="src/window/animation.c" name="src/window/animation.c">
+<area shape="rect" id="node1" title="Gestion des animations." alt="" coords="328,5,504,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,72,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="97,80,167,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="228,229,324,256"/>
+<area shape="rect" id="node5" title=" " alt="" coords="243,80,379,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="477,155,621,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="419,229,536,256"/>
+<area shape="rect" id="node8" href="$timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="629,80,736,107"/>
+<area shape="rect" id="node10" href="$animation_8h.html" title="Animation fonctions." alt="" coords="454,80,554,107"/>
+<area shape="rect" id="node11" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="371,155,453,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="645,155,736,181"/>
+</map>

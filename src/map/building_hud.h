@@ -48,7 +48,7 @@ extern building_hud_t *createBuildingHud(window_t *window);
  *
  * @param event un pointeur sur les événements
  * @param building_hud un pointeur sur linterface de sélection de bâtiment
- * @param game_data un pointeur sur les données du jeux
+ * @param game_data un pointeur sur les données du jeu
  */
 extern void buildingHudEventHandler(SDL_Event *event, building_hud_t *building_hud, client_game_data_t *game_data);
 

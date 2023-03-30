@@ -1,0 +1,8 @@
+<map id="src/connection/server.h" name="src/connection/server.h">
+<area shape="rect" id="node1" title="Implémentation des prototypes de connection/server.c." alt="" coords="103,5,275,32"/>
+<area shape="rect" id="node2" href="$connection_2server_8c.html" title="Permet de gérer la connexion des clients au serveur." alt="" coords="5,80,176,107"/>
+<area shape="rect" id="node3" href="$server_2game__state_8h.html" title="Implémentation des prototypes de server/game_state.c." alt="" coords="200,80,379,107"/>
+<area shape="rect" id="node4" href="$client__data_8h.html" title="Implémentation des prototypes de server/client_data.c." alt="" coords="202,155,377,181"/>
+<area shape="rect" id="node6" href="$server_2game__state_8c.html" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie." alt="" coords="401,155,580,181"/>
+<area shape="rect" id="node5" href="$client__data_8c.html" title="Implémente les fonctions associées la structure de données pour les clients connectés au serveur." alt="" coords="203,229,376,256"/>
+</map>

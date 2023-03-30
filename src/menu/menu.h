@@ -45,7 +45,7 @@ typedef struct
  * @brief Fonction de création du menu
  *
  * @param window un pointeur sur une fenêtre
- * @param game_data un pointeur sur les données du jeux
+ * @param game_data un pointeur sur les données du jeu
  * @return un pointeur sur un menu
  */
 extern menu_t *createMenu(window_t *window, client_game_data_t *game_data);
@@ -53,7 +53,7 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data);
 /**
  * @brief Fonction d'écoute des événements du menu
  *
- * @param game_data un pointeur sur les données du jeux
+ * @param game_data un pointeur sur les données du jeu
  * @param event un pointeur sur les événements
  * @param menu un pointeur sur un menu
  * @return 1 si le bouton join est cliquer, 0 sinon

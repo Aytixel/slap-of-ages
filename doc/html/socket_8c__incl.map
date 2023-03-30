@@ -1,0 +1,22 @@
+<map id="src/socket/socket.c" name="src/socket/socket.c">
+<area shape="rect" id="node1" title="Enssemble de fonctions utilitaire pour l&#39;utilisation des sockets." alt="" coords="226,5,370,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,76,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="100,80,192,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="216,80,287,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="311,80,381,107"/>
+<area shape="rect" id="node6" href="$packet_8h.html" title="Implémentation des prototypes de packet/packet.c." alt="" coords="357,155,481,181"/>
+<area shape="rect" id="node19" href="$socket_8h.html" title="Implémentation des prototypes de socket/socket.c." alt="" coords="457,80,533,107"/>
+<area shape="rect" id="node7" title=" " alt="" coords="61,304,132,331"/>
+<area shape="rect" id="node8" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="291,229,438,256"/>
+<area shape="rect" id="node11" href="$building_8h.html" title=" " alt="" coords="467,304,585,331"/>
+<area shape="rect" id="node18" href="$packet__id_8h.html" title="Définition des identifiants de paquet résaux." alt="" coords="513,229,609,256"/>
+<area shape="rect" id="node9" href="$timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="157,304,263,331"/>
+<area shape="rect" id="node17" href="$game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="287,304,442,331"/>
+<area shape="rect" id="node10" title=" " alt="" coords="165,379,255,405"/>
+<area shape="rect" id="node12" href="$building__renderer_8h.html" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="397,379,543,405"/>
+<area shape="rect" id="node16" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="508,453,632,480"/>
+<area shape="rect" id="node13" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="451,528,588,555"/>
+<area shape="rect" id="node14" title=" " alt="" coords="406,603,502,629"/>
+<area shape="rect" id="node15" title=" " alt="" coords="526,603,643,629"/>
+<area shape="rect" id="node20" title=" " alt="" coords="506,155,602,181"/>
+</map>

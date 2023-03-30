@@ -1,6 +1,6 @@
 # Slap of Ages
 
-**Slap of Ages est un projet mené par 4 étudiants en L2 Informatique de l'université du Mans sur une durée de 3 mois, le jeu consiste en la création d'un village et d'une armée pour combattre les villages des autres joueurs. Ce jeu est inspiré de Clash of Clans**
+***Slap of Ages*** est un projet mené par *4 étudiants en L2 Informatique* de l'université du Mans sur une durée de 3 mois, le jeu consiste en la création d'un village et d'une armée pour combattre les villages des autres joueurs. Ce jeu est inspiré du jeu Clash of Clans.
 
 [Lien vers le jeu](https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=fr&gl=US)
 
@@ -13,6 +13,16 @@
 ## Documents liés :
 
 Gantt : https://docs.google.com/spreadsheets/d/1tzo2DsVGko6vCwdnjP4RdRnp5ozh0s1jijUkGqu_1Vs/edit?usp=sharing
+
+Documentation *(prise sur la branche `dev`)* : https://aytixel.github.io/slap-of-ages/doc/html/
+
+## Compilation :
+
+Si vous compilez le projet pour la première fois faite `make all`. Cette commande compilera la SDL, cela peut donc prendre un peu de temps.
+
+Si vous voulez recompiler `make clean build` et pour recompiler les fichiers de test `make clean build_test`.
+
+Si vous voulez juste compiler la SDL `make install_sdl`. Cette compilation n'a lieu que sur Linux et MacOs.
 
 ## Convention de nommage :
 

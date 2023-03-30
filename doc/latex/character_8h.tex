@@ -1,0 +1,82 @@
+\hypertarget{character_8h}{}\doxysection{Référence du fichier src/game/character.h}
+\label{character_8h}\index{src/game/character.h@{src/game/character.h}}
+
+
+Fonction de gestion des characters.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}character\+\_\+renderer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}map/map\+\_\+renderer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}client/game\+\_\+data.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+Graphe des dépendances par inclusion de character.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcharacter__s}{character\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{character_8h_ab24f44887164d006cb3be7f21e4f4d76}\label{character_8h_ab24f44887164d006cb3be7f21e4f4d76}} 
+typedef struct \mbox{\hyperlink{structcharacter__s}{character\+\_\+s}} {\bfseries character\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{character_8h_ae28e69389f83564de15de25585103354}\label{character_8h_ae28e69389f83564de15de25585103354}} 
+\mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$ {\bfseries create\+Character} (character\+\_\+type\+\_\+e type, SDL\+\_\+\+Point $\ast$position)
+\item 
+\mbox{\Hypertarget{character_8h_ae50ab64d761a23cf3662ba32da5b46f3}\label{character_8h_ae50ab64d761a23cf3662ba32da5b46f3}} 
+\mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$$\ast$$\ast$ {\bfseries create\+Character\+Matrix} ()
+\item 
+\mbox{\Hypertarget{character_8h_adb0d5f5c7c15caf67fe555b22cd3088b}\label{character_8h_adb0d5f5c7c15caf67fe555b22cd3088b}} 
+void {\bfseries render\+Character\+Matrix} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+character, \mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer)
+\item 
+\mbox{\Hypertarget{character_8h_a745967f11b91975cf43e3284412c1517}\label{character_8h_a745967f11b91975cf43e3284412c1517}} 
+void {\bfseries destroy\+Character} (\mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$$\ast$character)
+\item 
+\mbox{\Hypertarget{character_8h_a19fbc773af3c16fe20781bc013f27c24}\label{character_8h_a19fbc773af3c16fe20781bc013f27c24}} 
+void {\bfseries clear\+Character\+Matrix} (\mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$$\ast$$\ast$character\+\_\+matrix)
+\item 
+\mbox{\Hypertarget{character_8h_a5b412441d97a7dbc2c3a38296bb093f3}\label{character_8h_a5b412441d97a7dbc2c3a38296bb093f3}} 
+void {\bfseries destroy\+Character\+Matrix} (\mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$$\ast$$\ast$$\ast$character\+\_\+matrix)
+\item 
+\mbox{\Hypertarget{character_8h_a2c30420409c1dae10f70198373c310b7}\label{character_8h_a2c30420409c1dae10f70198373c310b7}} 
+void {\bfseries add\+Character\+In\+Matrix} (\mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$$\ast$$\ast$character\+\_\+matrix, \mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$character)
+\item 
+\mbox{\Hypertarget{character_8h_a07c82ec6a9bbb02d8467f0ad24ae5dda}\label{character_8h_a07c82ec6a9bbb02d8467f0ad24ae5dda}} 
+void {\bfseries remove\+Character\+From\+Matrix} (\mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$$\ast$$\ast$character\+\_\+matrix, \mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$character)
+\item 
+\mbox{\Hypertarget{character_8h_a902b5d008f4a0758a56369484e5b4ce4}\label{character_8h_a902b5d008f4a0758a56369484e5b4ce4}} 
+int {\bfseries can\+Place\+Character} (\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer, \mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$character, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$$\ast$$\ast$character\+\_\+matrix)
+\item 
+\mbox{\Hypertarget{character_8h_aa0b21e1638eb6b228942e1cb52a2f0cc}\label{character_8h_aa0b21e1638eb6b228942e1cb52a2f0cc}} 
+\mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$ {\bfseries get\+Character} (\mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$$\ast$$\ast$character\+\_\+matrix, SDL\+\_\+\+Point $\ast$position)
+\item 
+\mbox{\Hypertarget{character_8h_ad3da5e6ec51ee558a0fc6011aac48684}\label{character_8h_ad3da5e6ec51ee558a0fc6011aac48684}} 
+void {\bfseries character\+Event\+Handler} (SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, \mbox{\hyperlink{structcharacter__s}{character\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+character, \mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fonction de gestion des characters. 
+
+\begin{DoxyAuthor}{Auteur}
+Arthur Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+19/03/2023 
+\end{DoxyDate}

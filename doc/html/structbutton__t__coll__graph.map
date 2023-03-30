@@ -1,0 +1,4 @@
+<map id="button_t" name="button_t">
+<area shape="rect" id="node1" title="Structure contenant les données d&#39;un bouton." alt="" coords="5,95,81,121"/>
+<area shape="rect" id="node2" href="$structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="8,5,79,32"/>
+</map>

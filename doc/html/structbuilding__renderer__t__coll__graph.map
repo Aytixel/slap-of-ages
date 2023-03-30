@@ -1,0 +1,7 @@
+<map id="building_renderer_t" name="building_renderer_t">
+<area shape="rect" id="node1" title="Structure contenant les données pour afficher les bâtiments." alt="" coords="149,213,297,240"/>
+<area shape="rect" id="node2" href="$structbuilding__sprite__rects__t.html" title="Structure contenant les positions et tailles des sprites des bâtiments." alt="" coords="5,109,175,136"/>
+<area shape="rect" id="node3" href="$structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="205,5,276,32"/>
+<area shape="rect" id="node4" href="$structmap__renderer__t.html" title="Structure contenant les données de la carte." alt="" coords="289,109,414,136"/>
+<area shape="rect" id="node5" href="$structmap__sprite__rects__t.html" title="Structure contenant les positions et tailles des sprites de la carte." alt="" coords="318,5,465,32"/>
+</map>

@@ -12,6 +12,22 @@ Implémentation des prototypes de \mbox{\hyperlink{menu_8c}{menu/menu.\+c}}.
 {\ttfamily \#include \char`\"{}window/animation.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}window/animation\+\_\+states.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}client/game\+\_\+data.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de menu.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{menu_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,7 +50,7 @@ int \mbox{\hyperlink{menu_8h_afbad575b626f543582434ac6a39c28b3}{delete\+Menu}} (
 Implémentation des prototypes de \mbox{\hyperlink{menu_8c}{menu/menu.\+c}}. 
 
 \begin{DoxyAuthor}{Auteur}
-Arthur Dureau 
+Arthur Dureau, Lucas Dureau 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
 1.\+0 
@@ -59,7 +75,7 @@ Fonction de création du menu.
 \begin{DoxyParams}{Paramètres}
 {\em window} & un pointeur sur une fenêtre \\
 \hline
-{\em game\+\_\+data} & un pointeur sur les données du jeux \\
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -95,7 +111,7 @@ Fonction d\textquotesingle{}écoute des événements du menu.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em game\+\_\+data} & un pointeur sur les données du jeux \\
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
 \hline
 {\em event} & un pointeur sur les événements \\
 \hline

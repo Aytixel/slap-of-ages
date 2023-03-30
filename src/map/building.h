@@ -133,7 +133,7 @@ extern building_t *getBuilding(building_t ***building_matrix, SDL_Point *positio
  * @brief Fonction d'écoute des événements du système de placement de bâtiment
  *
  * @param event un pointeur sur les événements
- * @param game_data un pointeur sur les données du jeux
+ * @param game_data un pointeur sur les données du jeu
  * @param building_renderer un pointeur sur la structure qui gère l'affichage des bâtiments
  * @param window un pointeur sur une fenêtre
  */

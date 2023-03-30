@@ -9,26 +9,30 @@ Structure contenant les données d\textquotesingle{}un bouton.
 
 {\ttfamily \#include $<$input.\+h$>$}
 
+
+
+Graphe de collaboration de button\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=140pt]{structbutton__t__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Attributs publics}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structbutton__t_af4fb1ea18a6ee4e630c1239ec257454c}\label{structbutton__t_af4fb1ea18a6ee4e630c1239ec257454c}} 
-\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ {\bfseries sprite}
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{structbutton__t_af4fb1ea18a6ee4e630c1239ec257454c}{sprite}}
 \item 
-\mbox{\Hypertarget{structbutton__t_a7728a48af6cdd8b4d4e068d2ab173f36}\label{structbutton__t_a7728a48af6cdd8b4d4e068d2ab173f36}} 
-SDL\+\_\+\+Rect {\bfseries rect}
+SDL\+\_\+\+Rect \mbox{\hyperlink{structbutton__t_a7728a48af6cdd8b4d4e068d2ab173f36}{rect}}
 \item 
-\mbox{\Hypertarget{structbutton__t_a4ce3b985313ab3a92d897a7d5b78bd86}\label{structbutton__t_a4ce3b985313ab3a92d897a7d5b78bd86}} 
-int {\bfseries is\+\_\+selected}
+int \mbox{\hyperlink{structbutton__t_a4ce3b985313ab3a92d897a7d5b78bd86}{is\+\_\+selected}}
 \item 
-\mbox{\Hypertarget{structbutton__t_a147c28e9d5ac343747dc53b521a7f348}\label{structbutton__t_a147c28e9d5ac343747dc53b521a7f348}} 
-TTF\+\_\+\+Font $\ast$ {\bfseries font}
+TTF\+\_\+\+Font $\ast$ \mbox{\hyperlink{structbutton__t_a147c28e9d5ac343747dc53b521a7f348}{font}}
 \item 
-\mbox{\Hypertarget{structbutton__t_a3d53723f5731a2b246b17613c3fa6190}\label{structbutton__t_a3d53723f5731a2b246b17613c3fa6190}} 
-SDL\+\_\+\+Color {\bfseries color}
+SDL\+\_\+\+Color \mbox{\hyperlink{structbutton__t_a3d53723f5731a2b246b17613c3fa6190}{color}}
 \item 
-\mbox{\Hypertarget{structbutton__t_a9144c50fc95223ae4bb1c1a22fbf52db}\label{structbutton__t_a9144c50fc95223ae4bb1c1a22fbf52db}} 
-SDL\+\_\+\+Color {\bfseries selected\+\_\+color}
+SDL\+\_\+\+Color \mbox{\hyperlink{structbutton__t_a9144c50fc95223ae4bb1c1a22fbf52db}{selected\+\_\+color}}
 \item 
 \mbox{\Hypertarget{structbutton__t_ac5fc8d884f1a6cff80aa4b080516906f}\label{structbutton__t_ac5fc8d884f1a6cff80aa4b080516906f}} 
 char $\ast$ {\bfseries text}
@@ -37,6 +41,45 @@ char $\ast$ {\bfseries text}
 
 \doxysubsection{Description détaillée}
 Structure contenant les données d\textquotesingle{}un bouton. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structbutton__t_a3d53723f5731a2b246b17613c3fa6190}\label{structbutton__t_a3d53723f5731a2b246b17613c3fa6190}} 
+\index{button\_t@{button\_t}!color@{color}}
+\index{color@{color}!button\_t@{button\_t}}
+\doxysubsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily SDL\+\_\+\+Color button\+\_\+t\+::color}
+
+couleur du texte \mbox{\Hypertarget{structbutton__t_a147c28e9d5ac343747dc53b521a7f348}\label{structbutton__t_a147c28e9d5ac343747dc53b521a7f348}} 
+\index{button\_t@{button\_t}!font@{font}}
+\index{font@{font}!button\_t@{button\_t}}
+\doxysubsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily TTF\+\_\+\+Font$\ast$ button\+\_\+t\+::font}
+
+police d\textquotesingle{}écriture \mbox{\Hypertarget{structbutton__t_a4ce3b985313ab3a92d897a7d5b78bd86}\label{structbutton__t_a4ce3b985313ab3a92d897a7d5b78bd86}} 
+\index{button\_t@{button\_t}!is\_selected@{is\_selected}}
+\index{is\_selected@{is\_selected}!button\_t@{button\_t}}
+\doxysubsubsection{\texorpdfstring{is\_selected}{is\_selected}}
+{\footnotesize\ttfamily int button\+\_\+t\+::is\+\_\+selected}
+
+le bouton est-\/il sélectionner \mbox{\Hypertarget{structbutton__t_a7728a48af6cdd8b4d4e068d2ab173f36}\label{structbutton__t_a7728a48af6cdd8b4d4e068d2ab173f36}} 
+\index{button\_t@{button\_t}!rect@{rect}}
+\index{rect@{rect}!button\_t@{button\_t}}
+\doxysubsubsection{\texorpdfstring{rect}{rect}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect button\+\_\+t\+::rect}
+
+rectangle d\textquotesingle{}affichage \mbox{\Hypertarget{structbutton__t_a9144c50fc95223ae4bb1c1a22fbf52db}\label{structbutton__t_a9144c50fc95223ae4bb1c1a22fbf52db}} 
+\index{button\_t@{button\_t}!selected\_color@{selected\_color}}
+\index{selected\_color@{selected\_color}!button\_t@{button\_t}}
+\doxysubsubsection{\texorpdfstring{selected\_color}{selected\_color}}
+{\footnotesize\ttfamily SDL\+\_\+\+Color button\+\_\+t\+::selected\+\_\+color}
+
+couleur du texte sélectionner \mbox{\Hypertarget{structbutton__t_af4fb1ea18a6ee4e630c1239ec257454c}\label{structbutton__t_af4fb1ea18a6ee4e630c1239ec257454c}} 
+\index{button\_t@{button\_t}!sprite@{sprite}}
+\index{sprite@{sprite}!button\_t@{button\_t}}
+\doxysubsubsection{\texorpdfstring{sprite}{sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ button\+\_\+t\+::sprite}
+
+sprite du texte 
 
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 

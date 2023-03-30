@@ -9,6 +9,14 @@ Implémente toute les fonctions pour créer, et lire les différents paquets.
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}packet.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}client/map\+\_\+data\+\_\+serialization.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de packet.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{packet_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
@@ -20,9 +28,9 @@ void \mbox{\hyperlink{packet_8c_ae81a3bfde9a24192f8c6dcfd69dc51da}{read\+Handsha
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant le pseudo. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{packet_8c_a122133c809cbe724167772655612afdc}{read\+Set\+Pseudo\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, char $\ast$$\ast$pseudo)
 \begin{DoxyCompactList}\small\item\em Lie un paquet définissant le pseudo. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_a7e6584958e184eba23ecdf2883bb0549}{create\+Set\+Map\+Packet}} (\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int map\+\_\+size)
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_a65783bd7eb31b5dc30a720ac388208ba}{create\+Set\+Map\+Packet}} (\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant la carte. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{packet_8c_af1607c2aa4f00a32919d64eede4d3624}{read\+Set\+Map\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, int map\+\_\+size)
+void \mbox{\hyperlink{packet_8c_a16a8bdfc3a47dfd077182eb4d07fa5e3}{read\+Set\+Map\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Lie un paquet définissant la carte. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_a0909f0a69bb4b40010fef318357fa9db}{create\+Is\+Player\+Ready\+Packet}} (int is\+\_\+player\+\_\+ready)
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant si le joueur est prêt. \end{DoxyCompactList}\item 
@@ -127,11 +135,11 @@ Créer un paquet définissant si le joueur est prêt.
 \begin{DoxyReturn}{Renvoie}
 un pointer sur un {\bfseries{paquet}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{packet_8c_a7e6584958e184eba23ecdf2883bb0549}\label{packet_8c_a7e6584958e184eba23ecdf2883bb0549}} 
+\mbox{\Hypertarget{packet_8c_a65783bd7eb31b5dc30a720ac388208ba}\label{packet_8c_a65783bd7eb31b5dc30a720ac388208ba}} 
 \index{packet.c@{packet.c}!createSetMapPacket@{createSetMapPacket}}
 \index{createSetMapPacket@{createSetMapPacket}!packet.c@{packet.c}}
 \doxysubsubsection{\texorpdfstring{createSetMapPacket()}{createSetMapPacket()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ create\+Set\+Map\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{int}]{map\+\_\+size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ create\+Set\+Map\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -139,9 +147,7 @@ Créer un paquet définissant la carte.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em game\+\_\+data} & un pointeur sur les données du jeux \\
-\hline
-{\em map\+\_\+size} & taille de la carte \\
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -235,11 +241,11 @@ Lie un paquet définissant si le joueur est prêt.
 {\em is\+\_\+player\+\_\+ready} & le joueur est-\/il prêt ? \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{packet_8c_af1607c2aa4f00a32919d64eede4d3624}\label{packet_8c_af1607c2aa4f00a32919d64eede4d3624}} 
+\mbox{\Hypertarget{packet_8c_a16a8bdfc3a47dfd077182eb4d07fa5e3}\label{packet_8c_a16a8bdfc3a47dfd077182eb4d07fa5e3}} 
 \index{packet.c@{packet.c}!readSetMapPacket@{readSetMapPacket}}
 \index{readSetMapPacket@{readSetMapPacket}!packet.c@{packet.c}}
 \doxysubsubsection{\texorpdfstring{readSetMapPacket()}{readSetMapPacket()}}
-{\footnotesize\ttfamily void read\+Set\+Map\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{int}]{map\+\_\+size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void read\+Set\+Map\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -251,9 +257,7 @@ Lie un paquet définissant la carte.
 \hline
 {\em window} & un pointeur sur une fenêtre \\
 \hline
-{\em game\+\_\+data} & un pointeur sur les données du jeux \\
-\hline
-{\em map\+\_\+size} & taille de la carte \\
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{packet_8c_a122133c809cbe724167772655612afdc}\label{packet_8c_a122133c809cbe724167772655612afdc}} 

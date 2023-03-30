@@ -1,0 +1,119 @@
+\hypertarget{building__hud_8c}{}\doxysection{Référence du fichier src/map/building\+\_\+hud.c}
+\label{building__hud_8c}\index{src/map/building\_hud.c@{src/map/building\_hud.c}}
+
+
+Permet de gérer l\textquotesingle{}affichage des bâtiments.  
+
+
+{\ttfamily \#include \char`\"{}building\+\_\+renderer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}building\+\_\+hud.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de building\+\_\+hud.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{building__hud_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$ \mbox{\hyperlink{building__hud_8c_a30fa47a93ced154ab5df888bf00a9252}{create\+Building\+Hud}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window)
+\begin{DoxyCompactList}\small\item\em Créer les données de linterface de sélection de bâtiment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{building__hud_8c_a334f527d6f207c7a9120aba752dab028}{building\+Hud\+Event\+Handler}} (SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$building\+\_\+hud, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}écoute des événements du menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{building__hud_8c_aa17236ced591ebd837fde370506c3500}{render\+Building\+Hud}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$building\+\_\+hud, \mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}affichage de linterface de sélection de bâtiment. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{building__hud_8c_af7bd7e1074a5e223e0095a62c3bf0b94}{delete\+Building\+Hud}} (\mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$$\ast$building\+\_\+hud)
+\begin{DoxyCompactList}\small\item\em Détruit les données de linterface de sélection de bâtiment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Permet de gérer l\textquotesingle{}affichage des bâtiments. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+30/03/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{building__hud_8c_a334f527d6f207c7a9120aba752dab028}\label{building__hud_8c_a334f527d6f207c7a9120aba752dab028}} 
+\index{building\_hud.c@{building\_hud.c}!buildingHudEventHandler@{buildingHudEventHandler}}
+\index{buildingHudEventHandler@{buildingHudEventHandler}!building\_hud.c@{building\_hud.c}}
+\doxysubsubsection{\texorpdfstring{buildingHudEventHandler()}{buildingHudEventHandler()}}
+{\footnotesize\ttfamily void building\+Hud\+Event\+Handler (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$}]{building\+\_\+hud,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}écoute des événements du menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & un pointeur sur les événements \\
+\hline
+{\em building\+\_\+hud} & un pointeur sur linterface de sélection de bâtiment \\
+\hline
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{building__hud_8c_a30fa47a93ced154ab5df888bf00a9252}\label{building__hud_8c_a30fa47a93ced154ab5df888bf00a9252}} 
+\index{building\_hud.c@{building\_hud.c}!createBuildingHud@{createBuildingHud}}
+\index{createBuildingHud@{createBuildingHud}!building\_hud.c@{building\_hud.c}}
+\doxysubsubsection{\texorpdfstring{createBuildingHud()}{createBuildingHud()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}}$\ast$ create\+Building\+Hud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window }\end{DoxyParamCaption})}
+
+
+
+Créer les données de linterface de sélection de bâtiment. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur les {\bfseries{données de linterface de sélection de bâtiment}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{building__hud_8c_af7bd7e1074a5e223e0095a62c3bf0b94}\label{building__hud_8c_af7bd7e1074a5e223e0095a62c3bf0b94}} 
+\index{building\_hud.c@{building\_hud.c}!deleteBuildingHud@{deleteBuildingHud}}
+\index{deleteBuildingHud@{deleteBuildingHud}!building\_hud.c@{building\_hud.c}}
+\doxysubsubsection{\texorpdfstring{deleteBuildingHud()}{deleteBuildingHud()}}
+{\footnotesize\ttfamily int delete\+Building\+Hud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$$\ast$}]{building\+\_\+hud }\end{DoxyParamCaption})}
+
+
+
+Détruit les données de linterface de sélection de bâtiment. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em building\+\_\+hud} & une référence d\textquotesingle{}un pointeur sur les données de linterface de sélection de bâtiment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{building__hud_8c_aa17236ced591ebd837fde370506c3500}\label{building__hud_8c_aa17236ced591ebd837fde370506c3500}} 
+\index{building\_hud.c@{building\_hud.c}!renderBuildingHud@{renderBuildingHud}}
+\index{renderBuildingHud@{renderBuildingHud}!building\_hud.c@{building\_hud.c}}
+\doxysubsubsection{\texorpdfstring{renderBuildingHud()}{renderBuildingHud()}}
+{\footnotesize\ttfamily void render\+Building\+Hud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$}]{building\+\_\+hud,  }\item[{\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$}]{building\+\_\+renderer }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}affichage de linterface de sélection de bâtiment. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em building\+\_\+hud} & un pointeur sur linterface de sélection de bâtiment \\
+\hline
+{\em building\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des bâtiments \\
+\hline
+\end{DoxyParams}

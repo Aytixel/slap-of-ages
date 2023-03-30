@@ -18,12 +18,12 @@ typedef struct building_s building_t;
 #include "game_state_enum.h"
 
 /**
- * @brief Structure de données contenant les données du jeux
+ * @brief Structure de données contenant les données du jeu
  *
  */
 typedef struct client_game_data_s
 {
-    client_game_state_e state;              /**< états du jeux*/
+    client_game_state_e state;              /**< états du jeu*/
     char hostname[1024];                    /**< addresse du serveur*/
     uint16_t port;                          /**< port du serveur*/
     char pseudo[64];                        /**< pseudo du joueur*/
@@ -40,16 +40,16 @@ typedef struct client_game_data_s
 } client_game_data_t;
 
 /**
- * @brief Créer les données du jeux
+ * @brief Créer les données du jeu
  *
- * @return un pointer sur les **données du jeux**
+ * @return un pointer sur les **données du jeu**
  */
 extern client_game_data_t *createGameData();
 
 /**
- * @brief Détruit les données du jeux
+ * @brief Détruit les données du jeu
  *
- * @param game_data une référence d'un pointeur sur les données du jeux
+ * @param game_data une référence d'un pointeur sur les données du jeu
  * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
  */
 extern int deleteGameData(client_game_data_t **game_data);

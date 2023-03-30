@@ -1,0 +1,11 @@
+<map id="src/window/input.h" name="src/window/input.h">
+<area shape="rect" id="node1" title="Implémentation des prototypes de window/input.c." alt="" coords="393,5,537,32"/>
+<area shape="rect" id="node2" href="$hud_8h.html" title="Implémentation des prototypes de game/hud.c." alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node4" href="$building_8c.html" title="Permet la gestion des bâtiments, leur création, leur destruction." alt="" coords="152,80,293,107"/>
+<area shape="rect" id="node5" href="$building__hud_8h.html" title="Implémentation des prototypes de map/building_hud.c." alt="" coords="317,80,491,107"/>
+<area shape="rect" id="node7" href="$menu_8c.html" title="Fichier de création du menu multijoueur." alt="" coords="539,155,674,181"/>
+<area shape="rect" id="node8" href="$menu_8h.html" title="Implémentation des prototypes de menu/menu.c." alt="" coords="566,80,701,107"/>
+<area shape="rect" id="node9" href="$input_8c.html" title="Fichier de création des boutons et des textes." alt="" coords="725,80,867,107"/>
+<area shape="rect" id="node3" href="$hud_8c.html" title="Implémente les fonctions pour gérer l&#39;affichage en jeux." alt="" coords="6,155,127,181"/>
+<area shape="rect" id="node6" href="$building__hud_8c.html" title="Permet de gérer l&#39;affichage des bâtiments." alt="" coords="318,155,490,181"/>
+</map>

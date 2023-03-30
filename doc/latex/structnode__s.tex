@@ -9,12 +9,20 @@ Structure de noeud.
 
 {\ttfamily \#include $<$game.\+h$>$}
 
+
+
+Graphe de collaboration de node\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{structnode__s__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Attributs publics}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{structnode__s_a7b8a3e34c729daf93576f622edb9113a}{x}}
-\item 
-int \mbox{\hyperlink{structnode__s_a1e9975fb937954e2f8e585f9cbe5e27c}{y}}
+SDL\+\_\+\+Point \mbox{\hyperlink{structnode__s_ab4fab5d7fb28e4677ad7f2511244602f}{position}}
 \item 
 float \mbox{\hyperlink{structnode__s_abaab78f9d1fda4af093e11b158248673}{g\+\_\+cost}}
 \item 
@@ -54,19 +62,13 @@ Coût heuristique du noeud \mbox{\Hypertarget{structnode__s_a5cef87b7c05a552d265
 \doxysubsubsection{\texorpdfstring{parent}{parent}}
 {\footnotesize\ttfamily struct \mbox{\hyperlink{structnode__s}{node\+\_\+s}}$\ast$ node\+\_\+s\+::parent}
 
-Pointeur vers le noeud parent \mbox{\Hypertarget{structnode__s_a7b8a3e34c729daf93576f622edb9113a}\label{structnode__s_a7b8a3e34c729daf93576f622edb9113a}} 
-\index{node\_s@{node\_s}!x@{x}}
-\index{x@{x}!node\_s@{node\_s}}
-\doxysubsubsection{\texorpdfstring{x}{x}}
-{\footnotesize\ttfamily int node\+\_\+s\+::x}
+Pointeur vers le noeud parent \mbox{\Hypertarget{structnode__s_ab4fab5d7fb28e4677ad7f2511244602f}\label{structnode__s_ab4fab5d7fb28e4677ad7f2511244602f}} 
+\index{node\_s@{node\_s}!position@{position}}
+\index{position@{position}!node\_s@{node\_s}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily SDL\+\_\+\+Point node\+\_\+s\+::position}
 
-Coordonnée x du node \mbox{\Hypertarget{structnode__s_a1e9975fb937954e2f8e585f9cbe5e27c}\label{structnode__s_a1e9975fb937954e2f8e585f9cbe5e27c}} 
-\index{node\_s@{node\_s}!y@{y}}
-\index{y@{y}!node\_s@{node\_s}}
-\doxysubsubsection{\texorpdfstring{y}{y}}
-{\footnotesize\ttfamily int node\+\_\+s\+::y}
-
-Coordonnée y du noeud 
+Coordonnées du noeud 
 
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 

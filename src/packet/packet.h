@@ -61,7 +61,7 @@ extern void readSetPseudoPacket(packet_t *packet, char **pseudo);
 /**
  * @brief Créer un paquet définissant la carte
  *
- * @param game_data un pointeur sur les données du jeux
+ * @param game_data un pointeur sur les données du jeu
  * @return un pointer sur un **paquet**
  */
 extern packet_t *createSetMapPacket(client_game_data_t *game_data);
@@ -71,7 +71,7 @@ extern packet_t *createSetMapPacket(client_game_data_t *game_data);
  *
  * @param packet paquet à lire
  * @param window un pointeur sur une fenêtre
- * @param game_data un pointeur sur les données du jeux
+ * @param game_data un pointeur sur les données du jeu
  */
 extern void readSetMapPacket(packet_t *packet, window_t *window, client_game_data_t *game_data);
 

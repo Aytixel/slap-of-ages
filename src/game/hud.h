@@ -16,7 +16,7 @@
 #include "map/map_renderer.h"
 
 /**
- * @brief Structure de données contenant les données de l'interface en jeux
+ * @brief Structure de données contenant les données de l'interface en jeu
  *
  */
 typedef struct
@@ -28,11 +28,11 @@ typedef struct
 } hud_t;
 
 /**
- * @brief Créer les données de l'interface en jeux
+ * @brief Créer les données de l'interface en jeu
  *
  * @param window un pointeur sur une fenêtre
  *
- * @return un pointer sur les **données de l'interface en jeux**
+ * @return un pointer sur les **données de l'interface en jeu**
  */
 extern hud_t *createHud(window_t *window);
 
@@ -40,26 +40,26 @@ extern hud_t *createHud(window_t *window);
  * @brief Fonction d'écoute des événements du menu
  *
  * @param event un pointeur sur les événements
- * @param hud un pointeur sur l'interface en jeux
+ * @param hud un pointeur sur l'interface en jeu
  * @param client un pointeur sur le client socket
- * @param game_data un pointeur sur les données du jeux
+ * @param game_data un pointeur sur les données du jeu
  */
 extern void hudEventHandler(SDL_Event *event, hud_t *hud, client_t *client, client_game_data_t *game_data);
 
 /**
- * @brief Fonction d'affichage de l'interface en jeux
+ * @brief Fonction d'affichage de l'interface en jeu
  *
  * @param window un pointeur sur une fenêtre
- * @param hud un pointeur sur l'interface en jeux
+ * @param hud un pointeur sur l'interface en jeu
  * @param map_renderer un pointeur sur la carte
- * @param game_data un pointeur sur les données du jeux
+ * @param game_data un pointeur sur les données du jeu
  */
 extern void renderHud(window_t *window, hud_t *hud, map_renderer_t *map_renderer, client_game_data_t *game_data);
 
 /**
- * @brief Détruit les données de l'interface en jeux
+ * @brief Détruit les données de l'interface en jeu
  *
- * @param hud une référence d'un pointeur sur les données de l'interface en jeux
+ * @param hud une référence d'un pointeur sur les données de l'interface en jeu
  * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
  */
 extern int deleteHud(hud_t **hud);

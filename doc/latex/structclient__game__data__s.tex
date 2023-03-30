@@ -2,13 +2,23 @@
 \label{structclient__game__data__s}\index{client\_game\_data\_s@{client\_game\_data\_s}}
 
 
-Structure de données contenant les données du jeux.  
+Structure de données contenant les données du jeu.  
 
 
 
 
 {\ttfamily \#include $<$game\+\_\+data.\+h$>$}
 
+
+
+Graphe de collaboration de client\+\_\+game\+\_\+data\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{structclient__game__data__s__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Attributs publics}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,6 +31,8 @@ uint16\+\_\+t \mbox{\hyperlink{structclient__game__data__s_aa24e6a9eb5976f5b290e
 char \mbox{\hyperlink{structclient__game__data__s_a779d64ed08c3f51b66602b65a2e7916f}{pseudo}} \mbox{[}64\mbox{]}
 \item 
 \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$ \mbox{\hyperlink{structclient__game__data__s_ab634d4a9e0de62041d4e21bf102344f7}{map\+\_\+building}}
+\item 
+\mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} \mbox{\hyperlink{structclient__game__data__s_a6e64a4e8804a0a643890039a3cda10d3}{selected\+\_\+building\+\_\+type}}
 \item 
 int \mbox{\hyperlink{structclient__game__data__s_a45790e3280969168ff9dc8ef8273c3fd}{gold\+\_\+count}}
 \item 
@@ -41,7 +53,7 @@ int \mbox{\hyperlink{structclient__game__data__s_a0d7b1c114172b5dd93d3b368c5d369
 
 
 \doxysubsection{Description détaillée}
-Structure de données contenant les données du jeux. 
+Structure de données contenant les données du jeu. 
 
 \doxysubsection{Documentation des données membres}
 \mbox{\Hypertarget{structclient__game__data__s_a8bbcc157ac51dc32af9e47d7f1ce6d64}\label{structclient__game__data__s_a8bbcc157ac51dc32af9e47d7f1ce6d64}} 
@@ -104,13 +116,19 @@ port du serveur \mbox{\Hypertarget{structclient__game__data__s_a779d64ed08c3f51b
 \doxysubsubsection{\texorpdfstring{pseudo}{pseudo}}
 {\footnotesize\ttfamily char client\+\_\+game\+\_\+data\+\_\+s\+::pseudo\mbox{[}64\mbox{]}}
 
-pseudo du joueur \mbox{\Hypertarget{structclient__game__data__s_acd0137d5a8ba5830e00cd5ffff76cc8c}\label{structclient__game__data__s_acd0137d5a8ba5830e00cd5ffff76cc8c}} 
+pseudo du joueur \mbox{\Hypertarget{structclient__game__data__s_a6e64a4e8804a0a643890039a3cda10d3}\label{structclient__game__data__s_a6e64a4e8804a0a643890039a3cda10d3}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!selected\_building\_type@{selected\_building\_type}}
+\index{selected\_building\_type@{selected\_building\_type}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{selected\_building\_type}{selected\_building\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} client\+\_\+game\+\_\+data\+\_\+s\+::selected\+\_\+building\+\_\+type}
+
+type de bâtiment sélectionner \mbox{\Hypertarget{structclient__game__data__s_acd0137d5a8ba5830e00cd5ffff76cc8c}\label{structclient__game__data__s_acd0137d5a8ba5830e00cd5ffff76cc8c}} 
 \index{client\_game\_data\_s@{client\_game\_data\_s}!state@{state}}
 \index{state@{state}!client\_game\_data\_s@{client\_game\_data\_s}}
 \doxysubsubsection{\texorpdfstring{state}{state}}
 {\footnotesize\ttfamily \mbox{\hyperlink{game__state__enum_8h_a5f4e5be92f57f9c4a2b5ba9ccb240c8a}{client\+\_\+game\+\_\+state\+\_\+e}} client\+\_\+game\+\_\+data\+\_\+s\+::state}
 
-états du jeux \mbox{\Hypertarget{structclient__game__data__s_abeffe4849ee2b5bb3f8057b592475d99}\label{structclient__game__data__s_abeffe4849ee2b5bb3f8057b592475d99}} 
+états du jeu \mbox{\Hypertarget{structclient__game__data__s_abeffe4849ee2b5bb3f8057b592475d99}\label{structclient__game__data__s_abeffe4849ee2b5bb3f8057b592475d99}} 
 \index{client\_game\_data\_s@{client\_game\_data\_s}!timer@{timer}}
 \index{timer@{timer}!client\_game\_data\_s@{client\_game\_data\_s}}
 \doxysubsubsection{\texorpdfstring{timer}{timer}}

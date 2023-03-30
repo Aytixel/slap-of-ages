@@ -77,6 +77,40 @@ $(function() {
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="socket_2client_8h_source.html">socket/client.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="game__data_8h_source.html">game_data.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de game_state.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="client_2game__state_8h__incl.png" border="0" usemap="#asrc_2client_2game__state_8h" alt=""/></div>
+<map name="asrc_2client_2game__state_8h" id="asrc_2client_2game__state_8h">
+<area shape="rect" title="Implémentation des prototypes de client/game_state.c." alt="" coords="223,5,398,32"/>
+<area shape="rect" href="socket_2client_8h.html" title="Implémentation des prototypes de socket/client.c." alt="" coords="205,80,321,107"/>
+<area shape="rect" href="game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="227,304,373,331"/>
+<area shape="rect" title=" " alt="" coords="225,229,321,256"/>
+<area shape="rect" href="socket_8h.html" title="Implémentation des prototypes de socket/socket.c." alt="" coords="159,155,235,181"/>
+<area shape="rect" href="packet_8h.html" title="Implémentation des prototypes de packet/packet.c." alt="" coords="77,229,201,256"/>
+<area shape="rect" title=" " alt="" coords="103,379,174,405"/>
+<area shape="rect" href="building_8h.html" title=" " alt="" coords="198,379,317,405"/>
+<area shape="rect" href="packet__id_8h.html" title="Définition des identifiants de paquet résaux." alt="" coords="5,304,101,331"/>
+<area shape="rect" href="timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="341,379,448,405"/>
+<area shape="rect" href="game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="472,379,627,405"/>
+<area shape="rect" title=" " alt="" coords="349,453,440,480"/>
+<area shape="rect" href="building__renderer_8h.html" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="101,453,248,480"/>
+<area shape="rect" href="map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="213,528,337,555"/>
+<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="155,603,293,629"/>
+<area shape="rect" title=" " alt="" coords="111,677,207,704"/>
+<area shape="rect" title=" " alt="" coords="231,677,348,704"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="client_2game__state_8h__dep__incl.png" border="0" usemap="#asrc_2client_2game__state_8hdep" alt=""/></div>
+<map name="asrc_2client_2game__state_8hdep" id="asrc_2client_2game__state_8hdep">
+<area shape="rect" title="Implémentation des prototypes de client/game_state.c." alt="" coords="90,5,265,32"/>
+<area shape="rect" href="client_2game__state_8c.html" title="Définition des différents états du jeux." alt="" coords="5,80,179,107"/>
+<area shape="rect" href="hud_8c.html" title="Implémente les fonctions pour gérer l&#39;affichage en jeux." alt="" coords="203,80,325,107"/>
+</map>
+</div>
 </div>
 <p><a href="client_2game__state_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
@@ -88,9 +122,9 @@ typedef struct <a class="el" href="structclient__game__data__s.html">client_game
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a9c96c02ec3dfccb377998936cc700c5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_2game__state_8h.html#a9c96c02ec3dfccb377998936cc700c5c">toggleMatchmaking</a> (<a class="el" href="structclient__t.html">client_t</a> *<a class="el" href="connection_2client_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>, <a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *game_data, int map_size)</td></tr>
-<tr class="memdesc:a9c96c02ec3dfccb377998936cc700c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute, ou enlève le client à la file d'attente des parties.  <a href="client_2game__state_8h.html#a9c96c02ec3dfccb377998936cc700c5c">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a9c96c02ec3dfccb377998936cc700c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9473f8a8b798285447bfaac34c9e759"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_2game__state_8h.html#af9473f8a8b798285447bfaac34c9e759">toggleMatchmaking</a> (<a class="el" href="structclient__t.html">client_t</a> *<a class="el" href="connection_2client_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>, <a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *game_data)</td></tr>
+<tr class="memdesc:af9473f8a8b798285447bfaac34c9e759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute, ou enlève le client à la file d'attente des parties.  <a href="client_2game__state_8h.html#af9473f8a8b798285447bfaac34c9e759">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af9473f8a8b798285447bfaac34c9e759"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e5f4d1be10bd8366d727b53066e6c97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_2game__state_8h.html#a3e5f4d1be10bd8366d727b53066e6c97">startGame</a> (<a class="el" href="structclient__t.html">client_t</a> *<a class="el" href="connection_2client_8h.html#ad72bb670c0751a5e8729d02bf7482d63">client</a>, <a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *game_data)</td></tr>
 <tr class="memdesc:a3e5f4d1be10bd8366d727b53066e6c97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lance la partie / phase de combat.  <a href="client_2game__state_8h.html#a3e5f4d1be10bd8366d727b53066e6c97">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3e5f4d1be10bd8366d727b53066e6c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,7 +171,7 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">client</td><td>pointeur sur le client socket </td></tr>
-    <tr><td class="paramname">game_data</td><td>pointeur sur les données du jeux </td></tr>
+    <tr><td class="paramname">game_data</td><td>pointeur sur les données du jeu </td></tr>
   </table>
   </dd>
 </dl>
@@ -174,7 +208,7 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">client</td><td>pointeur sur le client socket </td></tr>
-    <tr><td class="paramname">game_data</td><td>pointeur sur les données du jeux </td></tr>
+    <tr><td class="paramname">game_data</td><td>pointeur sur les données du jeu </td></tr>
   </table>
   </dd>
 </dl>
@@ -211,15 +245,15 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">client</td><td>pointeur sur le client socket </td></tr>
-    <tr><td class="paramname">game_data</td><td>pointeur sur les données du jeux </td></tr>
+    <tr><td class="paramname">game_data</td><td>pointeur sur les données du jeu </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a9c96c02ec3dfccb377998936cc700c5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c96c02ec3dfccb377998936cc700c5c">&#9670;&nbsp;</a></span>toggleMatchmaking()</h2>
+<a id="af9473f8a8b798285447bfaac34c9e759"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9473f8a8b798285447bfaac34c9e759">&#9670;&nbsp;</a></span>toggleMatchmaking()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -234,13 +268,7 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *&#160;</td>
-          <td class="paramname"><em>game_data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>map_size</em>&#160;</td>
+          <td class="paramname"><em>game_data</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -254,8 +282,7 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">client</td><td>pointeur sur le client socket </td></tr>
-    <tr><td class="paramname">game_data</td><td>un pointeur sur les données du jeux </td></tr>
-    <tr><td class="paramname">map_size</td><td>taille de la carte </td></tr>
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données du jeu </td></tr>
   </table>
   </dd>
 </dl>
