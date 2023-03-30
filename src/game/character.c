@@ -4,6 +4,7 @@
 #include <SDL2/SDL_main.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include "client/common.h"
 #include "timer/timer.h"
 #include "character.h"
 #include "character_renderer.h"
@@ -37,18 +38,18 @@ extern character_t *createCharacter(character_type_e type, SDL_Point *position)
     return character;
 }
 
-extern character_t ***createCharacterMatrix(int map_size)
+extern character_t ***createCharacterMatrix()
 {
-    character_t ***character_matrix = malloc(sizeof(character_t **) * map_size);
+    character_t ***character_matrix = malloc(sizeof(character_t **) * MAP_SIZE);
 
-    for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
-        character_matrix[i] = malloc(sizeof(character_t *) * map_size);
+        character_matrix[i] = malloc(sizeof(character_t *) * MAP_SIZE);
     }
 
-    for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
-        for (int j = 0; j < map_size; j++)
+        for (int j = 0; j < MAP_SIZE; j++)
         {
             character_matrix[i][j] = NULL;
         }
@@ -57,21 +58,20 @@ extern character_t ***createCharacterMatrix(int map_size)
     return character_matrix;
 }
 
-extern void renderCharacterMatrix(window_t *window, character_t ***map_character, character_renderer_t *character_renderer, int map_size)
+extern void renderCharacterMatrix(window_t *window, character_t ***map_character, character_renderer_t *character_renderer)
 {
-    for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
-        for (int j = 0; j < map_size; j++)
+        for (int j = 0; j < MAP_SIZE; j++)
         {
             if (map_character[i][j] != NULL)
             {
                 SDL_Rect destination_rect;
-                renderCharacter(window, (character_renderer_t *) character_renderer, &(map_character[i][j]->position), map_character[i][j]->type, &destination_rect);
+                renderCharacter(window, (character_renderer_t *)character_renderer, &(map_character[i][j]->position), map_character[i][j]->type, &destination_rect);
             }
         }
     }
 }
-
 
 extern void destroyCharacter(character_t **character)
 {
@@ -81,11 +81,11 @@ extern void destroyCharacter(character_t **character)
     *character = NULL;
 }
 
-extern void clearCharacterMatrix(character_t ***character_matrix, int map_size)
+extern void clearCharacterMatrix(character_t ***character_matrix)
 {
-    for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
-        for (int j = 0; j < map_size; j++)
+        for (int j = 0; j < MAP_SIZE; j++)
         {
             if (character_matrix[i][j] != NULL)
             {
@@ -95,11 +95,11 @@ extern void clearCharacterMatrix(character_t ***character_matrix, int map_size)
     }
 }
 
-extern void destroyCharacterMatrix(character_t ****character_matrix, int map_size)
+extern void destroyCharacterMatrix(character_t ****character_matrix)
 {
-    clearCharacterMatrix(*character_matrix, map_size);
+    clearCharacterMatrix(*character_matrix);
 
-        for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
         free((*character_matrix)[i]);
     }
@@ -163,4 +163,3 @@ extern void characterEventHandler(SDL_Event *event, client_game_data_t *game_dat
         }
     }
 }
-

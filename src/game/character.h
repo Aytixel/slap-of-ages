@@ -30,11 +30,11 @@ typedef struct character_s
 } character_t;
 
 extern character_t *createCharacter(character_type_e type, SDL_Point *position);
-extern character_t ***createCharacterMatrix(int map_size);
-extern void renderCharacterMatrix(window_t *window, character_t ***map_character, character_renderer_t *character_renderer, int map_size);
+extern character_t ***createCharacterMatrix();
+extern void renderCharacterMatrix(window_t *window, character_t ***map_character, character_renderer_t *character_renderer);
 extern void destroyCharacter(character_t **character);
-extern void clearCharacterMatrix(character_t ***character_matrix, int map_size);
-extern void destroyCharacterMatrix(character_t ****character_matrix, int map_size);
+extern void clearCharacterMatrix(character_t ***character_matrix);
+extern void destroyCharacterMatrix(character_t ****character_matrix);
 extern void addCharacterInMatrix(character_t ***character_matrix, character_t *character);
 extern void removeCharacterFromMatrix(character_t ***character_matrix, character_t *character);
 extern int canPlaceCharacter(character_renderer_t *character_renderer, character_t *character, SDL_Point *position, character_t ***character_matrix);

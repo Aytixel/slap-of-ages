@@ -42,10 +42,9 @@ extern building_t *createBuilding(building_type_e type, SDL_Point *position, win
 /**
  * @brief Créer la matrice de bâtiment
  *
- * @param map_size taille de la carte
  * @return retourne un pointeur sur la matrice
  */
-extern building_t ***createBuildingMatrix(int map_size);
+extern building_t ***createBuildingMatrix();
 
 /**
  * @brief Affiche la matrice de bâtiment
@@ -53,9 +52,8 @@ extern building_t ***createBuildingMatrix(int map_size);
  * @param window un pointeur sur une fenêtre
  * @param map_building matrice contenant la totalité des bâtiments placés sur la carte
  * @param building_renderer
- * @param map_size taille de la carte
  */
-extern void renderBuildingMatrix(window_t *window, building_t ***map_building, building_renderer_t *building_renderer, int map_size);
+extern void renderBuildingMatrix(window_t *window, building_t ***map_building, building_renderer_t *building_renderer);
 
 /**
  * @brief Détruit la structure de bâtiment
@@ -77,17 +75,15 @@ extern void buildingTakesDamages(building_t ***matrix, building_t *building, int
  * @brief Permet de détruire tout les bâtiments sur la carte
  *
  * @param building_matrix matrice contenant la totalité des bâtiments placés sur la carte
- * @param map_size taille de la carte en nombre de cases
  */
-extern void clearMatrix(building_t ***building_matrix, int map_size);
+extern void clearMatrix(building_t ***building_matrix);
 
 /**
  * @brief Détruit la matrice de bâtiments
  *
  * @param building_matrix matrice contenant les bâtiments
- * @param map_size taille de la carte
  */
-extern void destroyBuildingMatrix(building_t ****building_matrix, int map_size);
+extern void destroyBuildingMatrix(building_t ****building_matrix);
 
 /**
  * @brief Permet d'ajouter un bâtiment sur la carte

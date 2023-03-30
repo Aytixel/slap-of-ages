@@ -8,6 +8,7 @@
  */
 
 #include <stdlib.h>
+#include "client/common.h"
 #include "building_renderer.h"
 
 #define BUILDING_TILE_SIZE 16
@@ -55,8 +56,8 @@ extern int canRenderBuilding(building_renderer_t *building_renderer, SDL_Point *
 {
     return position->x >= 0 &&
            position->y >= 0 &&
-           position->x + ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type].w <= building_renderer->map_renderer->size &&
-           position->y + ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type].h <= building_renderer->map_renderer->size;
+           position->x + ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type].w <= MAP_SIZE &&
+           position->y + ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type].h <= MAP_SIZE;
 }
 
 extern int renderBuilding(window_t *window, building_renderer_t *building_renderer, SDL_Point *position, building_type_e building_type, SDL_Rect *destination_rect)

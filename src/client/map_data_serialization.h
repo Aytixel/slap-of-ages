@@ -19,10 +19,9 @@
  * @param data une référence sur un pointeur sur les données
  * @param map_building matrice contenant la totalité des bâtiments placés sur la carte
  * @param gold_cost le coût en or du village
- * @param map_size taille de la carte
  * @return **taille des données**
  */
-extern int serialize_map(void **data, building_t ***map_building, int gold_cost, int map_size);
+extern int serialize_map(void **data, building_t ***map_building, int gold_cost);
 
 /**
  * @brief Reconverti les données de la carte en structure et variable
@@ -32,9 +31,8 @@ extern int serialize_map(void **data, building_t ***map_building, int gold_cost,
  * @param window un pointeur sur une fenêtre
  * @param map_building matrice contenant la totalité des bâtiments placés sur la carte
  * @param gold_cost un pointeur sur le coût en or du village
- * @param map_size taille de la carte
  * @return **0** si tous se passe bien, **-1** sinon
  */
-extern int deserialize_map(void *data, int data_lenth, window_t *window, building_t ***map_building, int *gold_cost, int map_size);
+extern int deserialize_map(void *data, int data_lenth, window_t *window, building_t ***map_building, int *gold_cost);
 
 #endif

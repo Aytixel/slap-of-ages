@@ -57,19 +57,19 @@ extern void readSetPseudoPacket(packet_t *packet, char **pseudo)
     memcpy(*pseudo, packet->data + sizeof(int), pseudo_length);
 }
 
-extern packet_t *createSetMapPacket(client_game_data_t *game_data, int map_size)
+extern packet_t *createSetMapPacket(client_game_data_t *game_data)
 {
     packet_t *packet = malloc(sizeof(packet_t));
 
     packet->id = SET_MAP_PACKET_ID;
-    packet->data_length = serialize_map(&packet->data, game_data->map_building, game_data->gold_cost, map_size);
+    packet->data_length = serialize_map(&packet->data, game_data->map_building, game_data->gold_cost);
 
     return packet;
 }
 
-extern void readSetMapPacket(packet_t *packet, window_t *window, client_game_data_t *game_data, int map_size)
+extern void readSetMapPacket(packet_t *packet, window_t *window, client_game_data_t *game_data)
 {
-    deserialize_map(packet->data, packet->data_length, window, game_data->opponent_map_building, &game_data->initial_opponent_gold_cost, map_size);
+    deserialize_map(packet->data, packet->data_length, window, game_data->opponent_map_building, &game_data->initial_opponent_gold_cost);
 
     game_data->opponent_gold_cost = game_data->initial_opponent_gold_cost;
 }

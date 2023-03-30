@@ -6,6 +6,7 @@
  * @date 27/03/2023
  *
  */
+#include "client/common.h"
 #include "client/game_state.h"
 #include "hud.h"
 
@@ -32,11 +33,11 @@ extern hud_t *createHud(window_t *window)
     return hud;
 }
 
-extern void hudEventHandler(SDL_Event *event, hud_t *hud, client_t *client, client_game_data_t *game_data, int map_size)
+extern void hudEventHandler(SDL_Event *event, hud_t *hud, client_t *client, client_game_data_t *game_data)
 {
     if ((isMouseClickInRect(*event, hud->fight_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN) && game_data->gold_cost > 0) ||
         isMouseClickInRect(*event, hud->cancel_fight_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
-        toggleMatchmaking(client, game_data, map_size);
+        toggleMatchmaking(client, game_data);
 
     SDL_Point mouse_point = getMousePosition();
 

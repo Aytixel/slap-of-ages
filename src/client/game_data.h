@@ -42,18 +42,16 @@ typedef struct client_game_data_s
 /**
  * @brief Créer les données du jeux
  *
- * @param map_size taille de la carte
  * @return un pointer sur les **données du jeux**
  */
-extern client_game_data_t *createGameData(int map_size);
+extern client_game_data_t *createGameData();
 
 /**
  * @brief Détruit les données du jeux
  *
  * @param game_data une référence d'un pointeur sur les données du jeux
- * @param map_size taille de la carte
  * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
  */
-extern int deleteGameData(client_game_data_t **game_data, int map_size);
+extern int deleteGameData(client_game_data_t **game_data);
 
 #endif

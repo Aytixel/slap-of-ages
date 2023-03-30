@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "client/common.h"
 #include "character_renderer.h"
 
 #define CHARACTER_TILE_SIZE 16
@@ -38,8 +39,8 @@ extern int canRenderCharacter(character_renderer_t *character_renderer, SDL_Poin
 {
     return position->x >= 0 &&
            position->y >= 0 &&
-           position->x + ((SDL_Rect *)&character_renderer->sprite_tile_rects)[character_type].w <= character_renderer->map_renderer->size &&
-           position->y + ((SDL_Rect *)&character_renderer->sprite_tile_rects)[character_type].h <= character_renderer->map_renderer->size;
+           position->x + ((SDL_Rect *)&character_renderer->sprite_tile_rects)[character_type].w <= MAP_SIZE &&
+           position->y + ((SDL_Rect *)&character_renderer->sprite_tile_rects)[character_type].h <= MAP_SIZE;
 }
 
 extern int renderCharacter(window_t *window, character_renderer_t *character_renderer, SDL_Point *position, character_type_e character_type, SDL_Rect *destination_rect)

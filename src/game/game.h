@@ -49,7 +49,7 @@ typedef struct
  *
  * @return node_list*
  */
-extern node_list_t *create_node_list(int map_size);
+extern node_list_t *create_node_list();
 
 /**
  * @brief Vide une liste de ses noeuds
@@ -120,23 +120,21 @@ extern float heuristic(node_t *a, node_t *b);
  *
  * @param x
  * @param y
- * @param map_size
  * @param mat
  * @return true
  * @return false
  */
-extern bool is_valid(SDL_Point position, int map_size, building_t ***map_building);
+extern bool is_valid(SDL_Point position, building_t ***map_building);
 
 /**
  * @brief Vérification de la validité d'un node sans les murs
  *
  * @param x
  * @param y
- * @param map_size
  * @return true
  * @return false
  */
-extern bool is_valid_no_wall(SDL_Point position, int map_size);
+extern bool is_valid_no_wall(SDL_Point position);
 
 /**
  * @brief Algorithme de pathfinding A*
@@ -147,7 +145,7 @@ extern bool is_valid_no_wall(SDL_Point position, int map_size);
  * @param wall
  * @return node*
  */
-extern node_t *a_star(SDL_Point start, SDL_Point goal, int map_size, building_t ***map_building, int wall);
+extern node_t *a_star(SDL_Point start, SDL_Point goal, building_t ***map_building, int wall);
 
 /**
  * @brief Affichage du chemin

@@ -20,9 +20,8 @@ typedef struct client_game_data_s client_game_data_t;
  *
  * @param client pointeur sur le client socket
  * @param game_data un pointeur sur les données du jeux
- * @param map_size taille de la carte
  */
-extern void toggleMatchmaking(client_t *client, client_game_data_t *game_data, int map_size);
+extern void toggleMatchmaking(client_t *client, client_game_data_t *game_data);
 
 /**
  * @brief Lance la partie / phase de combat

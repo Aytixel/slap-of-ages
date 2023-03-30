@@ -8,11 +8,12 @@
  */
 
 #include <stdlib.h>
+#include "client/common.h"
 #include "map_data_serialization.h"
 
-extern int serialize_map(void **data, building_t ***map_building, int gold_cost, int map_size)
+extern int serialize_map(void **data, building_t ***map_building, int gold_cost)
 {
-    *data = malloc(sizeof(int) + sizeof(char) * map_size * map_size);
+    *data = malloc(sizeof(int) + sizeof(char) * MAP_SIZE * MAP_SIZE);
 
     int data_size = 0;
     memcpy(*data, &gold_cost, sizeof(int));
@@ -20,9 +21,9 @@ extern int serialize_map(void **data, building_t ***map_building, int gold_cost,
 
     char type;
 
-    for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
-        for (int j = 0; j < map_size; j++)
+        for (int j = 0; j < MAP_SIZE; j++)
         {
             type = map_building[i][j] != NULL && map_building[i][j]->position.x == i && map_building[i][j]->position.y == j ? map_building[i][j]->type : -1;
 
@@ -34,22 +35,22 @@ extern int serialize_map(void **data, building_t ***map_building, int gold_cost,
     return data_size;
 }
 
-extern int deserialize_map(void *data, int data_length, window_t *window, building_t ***map_building, int *gold_cost, int map_size)
+extern int deserialize_map(void *data, int data_length, window_t *window, building_t ***map_building, int *gold_cost)
 {
-    if (data_length < sizeof(int) + sizeof(char) * map_size * map_size)
+    if (data_length < sizeof(int) + sizeof(char) * MAP_SIZE * MAP_SIZE)
         return -1;
 
     int data_size = 0;
     memcpy(gold_cost, data, sizeof(int));
     data_size += sizeof(int);
 
-    clearMatrix(map_building, map_size);
+    clearMatrix(map_building);
 
     char type;
 
-    for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
-        for (int j = 0; j < map_size; j++)
+        for (int j = 0; j < MAP_SIZE; j++)
         {
             memcpy(&type, data + data_size, sizeof(char));
             data_size += sizeof(char);

@@ -2,14 +2,12 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <string.h>
+#include "server/common.h"
 #include "timer/timer.h"
 #include "connection/server.h"
 #include "server/client_data.h"
 #include "server/game_state.h"
 #include "utils/getopt.h"
-
-#define DEFAULT_HOSTNAME "0.0.0.0"
-#define DEFAULT_PORT 4539
 
 int running = 1;
 

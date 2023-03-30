@@ -12,6 +12,7 @@
 #include <SDL2/SDL_main.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include "client/common.h"
 #include "timer/timer.h"
 #include "building.h"
 #include "building_renderer.h"
@@ -82,18 +83,18 @@ extern building_t *createBuilding(building_type_e type, SDL_Point *position, win
     return building;
 }
 
-extern building_t ***createBuildingMatrix(int map_size)
+extern building_t ***createBuildingMatrix()
 {
-    building_t ***building_matrix = malloc(sizeof(building_t **) * map_size);
+    building_t ***building_matrix = malloc(sizeof(building_t **) * MAP_SIZE);
 
-    for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
-        building_matrix[i] = malloc(sizeof(building_t *) * map_size);
+        building_matrix[i] = malloc(sizeof(building_t *) * MAP_SIZE);
     }
 
-    for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
-        for (int j = 0; j < map_size; j++)
+        for (int j = 0; j < MAP_SIZE; j++)
         {
             building_matrix[i][j] = NULL;
         }
@@ -102,11 +103,11 @@ extern building_t ***createBuildingMatrix(int map_size)
     return building_matrix;
 }
 
-extern void renderBuildingMatrix(window_t *window, building_t ***map_building, building_renderer_t *building_renderer, int map_size)
+extern void renderBuildingMatrix(window_t *window, building_t ***map_building, building_renderer_t *building_renderer)
 {
-    for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
-        for (int j = 0; j < map_size; j++)
+        for (int j = 0; j < MAP_SIZE; j++)
         {
             if (map_building[i][j] != NULL)
                 renderBuilding(window, building_renderer, &(map_building[i][j]->position), map_building[i][j]->type, &map_building[i][j]->rect);
@@ -133,11 +134,11 @@ extern void buildingTakesDamages(building_t ***matrix, building_t *building, int
     }
 }
 
-extern void clearMatrix(building_t ***building_matrix, int map_size)
+extern void clearMatrix(building_t ***building_matrix)
 {
-    for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
-        for (int j = 0; j < map_size; j++)
+        for (int j = 0; j < MAP_SIZE; j++)
         {
             if (building_matrix[i][j] != NULL)
             {
@@ -147,11 +148,11 @@ extern void clearMatrix(building_t ***building_matrix, int map_size)
     }
 }
 
-extern void destroyBuildingMatrix(building_t ****building_matrix, int map_size)
+extern void destroyBuildingMatrix(building_t ****building_matrix)
 {
-    clearMatrix(*building_matrix, map_size);
+    clearMatrix(*building_matrix);
 
-    for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
         free((*building_matrix)[i]);
     }

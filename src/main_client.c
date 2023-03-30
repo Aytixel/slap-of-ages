@@ -14,8 +14,6 @@
 #include "client/game_state.h"
 #include "game/hud.h"
 
-#define MAP_SIZE 24
-
 int running = 1;
 
 void signalHandler(int s)
@@ -75,7 +73,7 @@ void windowEventHandler(
         }
         break;
     case CLIENT_CONNECTED:
-        hudEventHandler(event, hud, client, game_data, MAP_SIZE);
+        hudEventHandler(event, hud, client, game_data);
 
         switch (game_data->state)
         {
@@ -104,7 +102,7 @@ void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_
         SDL_SetWindowTitle(window->window, title);
         break;
     case SET_MAP_PACKET_ID:
-        readSetMapPacket(packet, window, game_data, MAP_SIZE);
+        readSetMapPacket(packet, window, game_data);
         startGame(client, game_data);
         printf("Partie lancé\n");
         break;
@@ -140,7 +138,7 @@ int main(int argc, char *argv[])
     if (window == NULL)
         return 1;
 
-    map_renderer_t *map_renderer = createMapRenderer(window, MAP_SIZE);
+    map_renderer_t *map_renderer = createMapRenderer(window);
 
     if (map_renderer == NULL)
     {
@@ -160,7 +158,7 @@ int main(int argc, char *argv[])
     initSocket();
 
     frame_timer_t *main_timer = createTimer(1000 / 30);
-    client_game_data_t *game_data = createGameData(MAP_SIZE);
+    client_game_data_t *game_data = createGameData();
     menu_t *menu = createMenu(window, game_data);
 
     if (menu == NULL)
@@ -255,12 +253,12 @@ int main(int argc, char *argv[])
                 {
                 case PREPARATION_GAME_STATE:
                 case MATCHMAKING_GAME_STATE:
-                    renderBuildingMatrix(window, game_data->map_building, building_renderer, MAP_SIZE);
+                    renderBuildingMatrix(window, game_data->map_building, building_renderer);
                     renderBuildingHud(window, building_hud, building_renderer);
                     break;
                 case COMBAT_GAME_STATE:
                 case WAITING_RESULT_GAME_STATE:
-                    renderBuildingMatrix(window, game_data->opponent_map_building, building_renderer, MAP_SIZE);
+                    renderBuildingMatrix(window, game_data->opponent_map_building, building_renderer);
                     break;
                 default:
                     break;
@@ -281,7 +279,7 @@ int main(int argc, char *argv[])
     deleteBuildingHud(&building_hud);
     deleteHud(&hud);
     deleteMenu(&menu);
-    deleteGameData(&game_data, MAP_SIZE);
+    deleteGameData(&game_data);
     deleteTimer(&main_timer);
     endSocket();
     deleteBuildingRenderer(&building_renderer);

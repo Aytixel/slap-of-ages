@@ -12,18 +12,18 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
+#include "client/common.h"
 #include "game.h"
 
-#define MAP_SIZE 10
 #define START 1
 #define GOAL 2
 
-node_list_t *create_node_list(int map_size)
+node_list_t *create_node_list()
 {
     node_list_t *list = (node_list_t *)malloc(sizeof(node_list_t));
-    list->nodes = (node_t **)malloc(map_size * sizeof(node_t *));
+    list->nodes = (node_t **)malloc(MAP_SIZE * sizeof(node_t *));
     list->size = 0;
-    list->capacity = map_size;
+    list->capacity = MAP_SIZE;
     return list;
 }
 
@@ -107,9 +107,9 @@ float heuristic(node_t *a, node_t *b)
     return sqrtf(powf(a->position.x - b->position.x, 2) + powf(a->position.y - b->position.y, 2));
 }
 
-bool is_valid(SDL_Point position, int map_size, building_t ***map_building)
+bool is_valid(SDL_Point position, building_t ***map_building)
 {
-    if (position.x >= 0 && position.x < map_size && position.y >= 0 && position.y < map_size)
+    if (position.x >= 0 && position.x < MAP_SIZE && position.y >= 0 && position.y < MAP_SIZE)
     {
         if (map_building[position.x][position.y] == NULL)
             return 1;
@@ -130,30 +130,30 @@ bool is_valid(SDL_Point position, int map_size, building_t ***map_building)
     return 0;
 }
 
-bool is_valid_no_wall(SDL_Point position, int map_size)
+bool is_valid_no_wall(SDL_Point position)
 {
-    return position.x >= 0 && position.x < map_size && position.y >= 0 && position.y < map_size;
+    return position.x >= 0 && position.x < MAP_SIZE && position.y >= 0 && position.y < MAP_SIZE;
 }
 
-node_t *a_star(SDL_Point start, SDL_Point goal, int map_size, building_t ***map_building, int wall)
+node_t *a_star(SDL_Point start, SDL_Point goal, building_t ***map_building, int wall)
 {
 
     node_t *start_node = create_node(start, NULL);
     node_t *goal_node = create_node(goal, NULL);
 
     // Liste des noeuds à explorer
-    node_list_t *open_list = create_node_list(map_size);
-    node_list_t *all_list = create_node_list(map_size);
+    node_list_t *open_list = create_node_list(MAP_SIZE);
+    node_list_t *all_list = create_node_list(MAP_SIZE);
     add_node(open_list, start_node);
     add_node(all_list, start_node);
 
     // Liste des noeuds déjà explorés
-    int **closed_list = malloc(map_size * sizeof(void *));
-    for (int i = 0; i < map_size; i++)
+    int **closed_list = malloc(MAP_SIZE * sizeof(void *));
+    for (int i = 0; i < MAP_SIZE; i++)
     {
-        closed_list[i] = malloc(map_size * sizeof(int));
+        closed_list[i] = malloc(MAP_SIZE * sizeof(int));
 
-        for (int j = 0; j < map_size; j++)
+        for (int j = 0; j < MAP_SIZE; j++)
         {
             closed_list[i][j] = 0;
         }
@@ -182,7 +182,7 @@ node_t *a_star(SDL_Point start, SDL_Point goal, int map_size, building_t ***map_
         // Si on a atteint le node final, on retourne le noeud courant
         if (current_node->position.x == goal_node->position.x && current_node->position.y == goal_node->position.y)
         {
-            for (int i = 0; i < map_size; i++)
+            for (int i = 0; i < MAP_SIZE; i++)
             {
                 free(closed_list[i]);
             }
@@ -208,7 +208,7 @@ node_t *a_star(SDL_Point start, SDL_Point goal, int map_size, building_t ***map_
             SDL_Point neighbor_position = {new_x, new_y};
 
             // Si le voisin est invalide ou qu'il a déjà été exploré, on passe au voisin suivant
-            int invalid_neighbor = wall == 0 ? !is_valid(neighbor_position, map_size, map_building) : !is_valid_no_wall(neighbor_position, map_size);
+            int invalid_neighbor = wall == 0 ? !is_valid(neighbor_position, map_building) : !is_valid_no_wall(neighbor_position);
 
             if (invalid_neighbor || closed_list[new_y][new_x])
                 continue;
@@ -242,7 +242,7 @@ node_t *a_star(SDL_Point start, SDL_Point goal, int map_size, building_t ***map_
         }
     }
 
-    for (int i = 0; i < map_size; i++)
+    for (int i = 0; i < MAP_SIZE; i++)
     {
         free(closed_list[i]);
     }

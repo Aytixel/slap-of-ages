@@ -43,7 +43,6 @@ typedef struct
  */
 typedef struct
 {
-    int size;                             /**< taille de la carte en nombre de cases*/
     int tile_size;                        /**< taille d'une case en pixel*/
     sprite_t *ground_sprite;              /**< grille de sprite contenant les sprites du sol */
     sprite_t *tree_sprite;                /**< grille de sprite contenant les sprites des arbres */
@@ -58,10 +57,9 @@ typedef struct
  * Initialise aussi les données des sprites nécessaires à l'affichage de la carte
  *
  * @param window un pointeur sur une fenêtre
- * @param size taille de la carte en nombre de cases
  * @return un pointer sur un **carte**
  */
-extern map_renderer_t *createMapRenderer(window_t *window, int map_size);
+extern map_renderer_t *createMapRenderer(window_t *window);
 
 /**
  * @brief Fait le rendu de la carte sur la fenêtre

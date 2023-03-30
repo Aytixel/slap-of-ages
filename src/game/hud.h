@@ -43,9 +43,8 @@ extern hud_t *createHud(window_t *window);
  * @param hud un pointeur sur l'interface en jeux
  * @param client un pointeur sur le client socket
  * @param game_data un pointeur sur les données du jeux
- * @param map_size taille de la carte
  */
-extern void hudEventHandler(SDL_Event *event, hud_t *hud, client_t *client, client_game_data_t *game_data, int map_size);
+extern void hudEventHandler(SDL_Event *event, hud_t *hud, client_t *client, client_game_data_t *game_data);
 
 /**
  * @brief Fonction d'affichage de l'interface en jeux
