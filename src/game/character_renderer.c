@@ -18,10 +18,10 @@ extern character_renderer_t *createCharacterRenderer(window_t *window, map_rende
         int daemon_frame_rate = 10;
         int daemon_tile_size = CHARACTER_TILE_SIZE;
         int daemon_states[] = {6, 6, 4, 8, -1};
-        anim_t *daemon_animation = createAnim(daemon_tile_size, 
-        daemon_states, 
-        character_renderer->sprite, 
-        daemon_frame_rate);
+        anim_t *daemon_animation = createAnim(daemon_tile_size,
+                                              daemon_states,
+                                              character_renderer->sprite,
+                                              daemon_frame_rate);
 
         daemon_animation->current_state = DAEMON_IDLE_ANIM;
         character_renderer->animation = daemon_animation;
@@ -40,10 +40,6 @@ extern character_renderer_t *createCharacterRenderer(window_t *window, map_rende
     return character_renderer;
 }
 
-
-
-
-
 extern int canRenderCharacter(character_renderer_t *character_renderer, SDL_Point *position, character_type_e character_type)
 {
     return position->x >= 0 &&
@@ -60,12 +56,10 @@ extern int renderCharacter(window_t *window, character_renderer_t *character_ren
     if (!canRenderCharacter(character_renderer, position, character_type))
         return 0;
 
-
-    updateAnim(character_renderer->animation, character_renderer->animation->current_state, CHARACTER_TILE_SIZE, &(character->position), window);
+    updateAnim(character_renderer->animation, character_renderer->animation->current_state, CHARACTER_TILE_SIZE, &(character->position), window, TRANSFORM_ORIGIN_CENTER);
 
     return 1;
 }
-
 
 extern int deleteCharacterRenderer(character_renderer_t **character_renderer)
 {

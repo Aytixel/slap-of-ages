@@ -136,8 +136,8 @@ extern int menuRenderer(window_t *window, menu_t *menu)
   SDL_SetRenderDrawColor(window->renderer, 192, 148, 115, 0);
 
   // Affichage de l'image de fond
-  SDL_Point book_position = {window->width / 2 - menu->book_animation->frame_rect.w / 2, window->height / 2 - menu->book_animation->frame_rect.h / 2};
-  if (updateAnim(menu->book_animation, menu->book_animation_state, scale_factor * 70, &book_position, window) == 1)
+  SDL_Point book_position = {0, 0};
+  if (updateAnim(menu->book_animation, menu->book_animation_state, scale_factor * 70, &book_position, window, TRANSFORM_ORIGIN_CENTER) == 1)
   {
     if (menu->book_animation_state == BOOK_OPEN_ANIM)
       menu->book_animation_state = BOOK_OPENED_ANIM;

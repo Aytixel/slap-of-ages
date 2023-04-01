@@ -1,7 +1,7 @@
 /**
  * @file animation.h
  * @brief Animation fonctions
- * @author Hôa Le Luet
+ * @author Hôa Le Luet, Lucas Dureau
  * @version 1.0
  * @date 03/03/2023
  *
@@ -59,9 +59,10 @@ extern int destroyAnim(anim_t **anim);
  * @param tile_size taille d'une tuile
  * @param position position de l'animation
  * @param window la fenêtre où l'animation est affichée
+ * @param origin point d'origine sur lequel est centrée l'élément
  *
  * @return un int valant 1 si l'animation est terminée, -1 si l'animation n'existe pas, 0 sinon
  */
-extern int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window);
+extern int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window, transform_origin_e origin);
 
 #endif

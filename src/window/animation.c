@@ -1,7 +1,7 @@
 /**
  * @file animation.c
  * @brief Gestion des animations
- * @author Hôa Le Luet
+ * @author Hôa Le Luet, Lucas Dureau
  * @version 1.0
  * @date 03/03/2023
  *
@@ -113,7 +113,7 @@ extern int destroyAnim(anim_t **anim)
     return 0;
 }
 
-extern int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window)
+extern int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window, transform_origin_e origin)
 {
     if (anim == NULL)
         return -1;
@@ -124,9 +124,7 @@ extern int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *pos
         anim->current_frame = 0;
     }
 
-    SDL_Rect frame_rect = {position->x, position->y, anim->frame_tile_width * tile_size, anim->frame_tile_height * tile_size};
-
-    anim->frame_rect = frame_rect;
+    anim->frame_rect = positionFromCenter(window, anim->frame_tile_width * tile_size, anim->frame_tile_height * tile_size, position->x, position->y, origin);
 
     SDL_RenderCopy(window->renderer, anim->sprite->texture, &anim->state_frames[anim->current_state][anim->current_frame], &anim->frame_rect);
 

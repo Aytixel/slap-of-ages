@@ -9,7 +9,7 @@
 #include "window/animation.h"
 #include "window/animation_states.h"
 #include "character.h"
-//#include "character_renderer.h"
+// #include "character_renderer.h"
 #include "window/window.h"
 #include "window/input.h"
 
@@ -41,7 +41,6 @@ extern character_t *createCharacter(character_type_e type, SDL_Point *position)
 
     return character;
 }
-
 
 extern character_t ***createCharacterMatrix()
 {
@@ -77,7 +76,6 @@ extern void renderCharacterMatrix(window_t *window, character_t ***map_character
         }
     }
 }
-
 
 extern void destroyCharacter(character_t **character)
 {
