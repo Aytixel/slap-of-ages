@@ -9,8 +9,7 @@
 #include "window/input.h"
 #include "map/building_renderer.h"
 #include "map/building.h"
-
-#define MAP_SIZE 20
+#include "client/common.h"
 
 int running = 1;
 
@@ -73,20 +72,14 @@ int main(int argc, char *argv[])
 
                     test_position = getTileCoord(&mouse_position, window, map_renderer);
 
-                    building_t *new = createBuilding(MILL_BUILDING, &test_position, window);
-
-                    if (canPlaceBuilding(building_renderer, new, &test_position, map_building))
+                    if (canPlaceBuilding(building_renderer, MILL_BUILDING, &test_position, map_building))
                     {
-
-                        addBuildingInMatrix(map_building, new);
+                        addBuildingInMatrix(map_building, createBuilding(MILL_BUILDING, &test_position, window));
 
                         printf("Building created\n");
                     }
                     else
-                    {
                         printf("Building not created\n");
-                        destroyBuilding(&new);
-                    }
 
                     break;
                 case SDL_BUTTON_RIGHT:
