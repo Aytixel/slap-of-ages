@@ -6,10 +6,14 @@
 #include <SDL2/SDL_ttf.h>
 #include "client/common.h"
 #include "timer/timer.h"
+#include "window/animation.h"
+#include "window/animation_states.h"
 #include "character.h"
-#include "character_renderer.h"
+//#include "character_renderer.h"
 #include "window/window.h"
 #include "window/input.h"
+
+#define TILE_SIZE 8
 
 extern character_t *createCharacter(character_type_e type, SDL_Point *position)
 {
@@ -20,7 +24,7 @@ extern character_t *createCharacter(character_type_e type, SDL_Point *position)
 
     switch (type)
     {
-    case ARCHER_CHARACTER:
+    case DAEMON_CHARACTER:
         character->hp = 100;
         character->attack = 0;
         character->speed = 1;
@@ -37,6 +41,7 @@ extern character_t *createCharacter(character_type_e type, SDL_Point *position)
 
     return character;
 }
+
 
 extern character_t ***createCharacterMatrix()
 {
@@ -67,11 +72,12 @@ extern void renderCharacterMatrix(window_t *window, character_t ***map_character
             if (map_character[i][j] != NULL)
             {
                 SDL_Rect destination_rect;
-                renderCharacter(window, (character_renderer_t *)character_renderer, &(map_character[i][j]->position), map_character[i][j]->type, &destination_rect);
+                renderCharacter(window, (character_renderer_t *)character_renderer, map_character[i][j], &destination_rect);
             }
         }
     }
 }
+
 
 extern void destroyCharacter(character_t **character)
 {
@@ -141,7 +147,7 @@ extern void characterEventHandler(SDL_Event *event, client_game_data_t *game_dat
     {
         SDL_Point mouse_position = {event->button.x, event->button.y};
         SDL_Point tile_position = getTileCoord(&mouse_position, window, character_renderer->map_renderer);
-        character_t *new = createCharacter(ARCHER_CHARACTER, &tile_position);
+        character_t *new = createCharacter(DAEMON_CHARACTER, &tile_position);
 
         if (canPlaceCharacter(character_renderer, new, &tile_position, map_character))
         {

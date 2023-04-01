@@ -16,6 +16,8 @@
 #include "character_renderer.h"
 #include "map/map_renderer.h"
 #include "client/game_data.h"
+#include "window/animation.h"
+#include "window/animation_states.h"
 
 #include <SDL2/SDL.h>
 

@@ -2,13 +2,17 @@
 #define __CHARACTER_RENDERER_H
 
 #include "window/window.h"
+#include <SDL2/SDL.h>
 #include "map/map_renderer.h"
-//#include "character.h"
+#include "timer/timer.h"
+#include "window/animation.h"
+
+typedef struct character_s character_t;
 
 typedef enum character_type_e
 {
     GIANT_CHARACTER,
-    ARCHER_CHARACTER
+    DAEMON_CHARACTER
 } character_type_e;
 
 /**
@@ -30,13 +34,14 @@ typedef struct
 {
     map_renderer_t *map_renderer;
     sprite_t *sprite;
+    anim_t *animation;
     character_sprite_rects_t sprite_tile_rects;
     character_sprite_rects_t sprite_rects;
 } character_renderer_t;
 
-extern character_renderer_t *createCharacterRenderer(window_t *window, map_renderer_t *map_renderer);
+extern character_renderer_t *createCharacterRenderer(window_t *window, map_renderer_t *map_renderer, character_type_e type);
 extern int canRenderCharacter(character_renderer_t *character_renderer, SDL_Point *position, character_type_e character_type);
-extern int renderCharacter(window_t *window, character_renderer_t *character_renderer, SDL_Point *position, character_type_e character_type, SDL_Rect *destination_rect);
+extern int renderCharacter(window_t *window, character_renderer_t *character_renderer, character_t *character, SDL_Rect *destination_rect);
 extern int deleteCharacterRenderer(character_renderer_t **character_renderer);
 
 #endif

@@ -1,39 +1,48 @@
 #include <stdlib.h>
 #include "client/common.h"
 #include "character_renderer.h"
+#include "character.h"
 
-#define CHARACTER_TILE_SIZE 16
+#define CHARACTER_TILE_SIZE 8
 
-extern character_renderer_t *createCharacterRenderer(window_t *window, map_renderer_t *map_renderer)
+extern character_renderer_t *createCharacterRenderer(window_t *window, map_renderer_t *map_renderer, character_type_e type)
 {
     character_renderer_t *character_renderer = malloc(sizeof(character_renderer_t));
 
     character_renderer->map_renderer = map_renderer;
-    character_renderer->sprite = loadSprite(window, "asset/sprite/characters/daemon.png");
+
+    switch (type)
+    {
+    case DAEMON_CHARACTER:
+        character_renderer->sprite = loadSprite(window, "asset/sprite/characters/daemon.png");
+        int daemon_frame_rate = 10;
+        int daemon_tile_size = CHARACTER_TILE_SIZE;
+        int daemon_states[] = {6, 6, 4, 8, -1};
+        anim_t *daemon_animation = createAnim(daemon_tile_size, 
+        daemon_states, 
+        character_renderer->sprite, 
+        daemon_frame_rate);
+
+        daemon_animation->current_state = DAEMON_IDLE_ANIM;
+        character_renderer->animation = daemon_animation;
+        break;
+    default:
+        character_renderer->sprite = NULL;
+        break;
+    }
 
     if (character_renderer->sprite == NULL)
     {
         free(character_renderer);
-
         return NULL;
-    }
-
-    // position et taille de chaque sprite en nombre de cases
-    character_sprite_rects_t sprite_tile_rects = {
-        {0, 0, 3, 3},
-        {1, 1, 3, 3},
-        {2, 2, 3, 3}};
-
-    character_renderer->sprite_tile_rects = sprite_tile_rects;
-
-    // conversion de la position et la taille des sprites en pixel
-    for (int i = 0; i < sizeof(character_sprite_rects_t) / sizeof(int); i++)
-    {
-        ((int *)&character_renderer->sprite_rects)[i] = ((int *)&character_renderer->sprite_tile_rects)[i] * CHARACTER_TILE_SIZE;
     }
 
     return character_renderer;
 }
+
+
+
+
 
 extern int canRenderCharacter(character_renderer_t *character_renderer, SDL_Point *position, character_type_e character_type)
 {
@@ -43,28 +52,20 @@ extern int canRenderCharacter(character_renderer_t *character_renderer, SDL_Poin
            position->y + ((SDL_Rect *)&character_renderer->sprite_tile_rects)[character_type].h <= MAP_SIZE;
 }
 
-extern int renderCharacter(window_t *window, character_renderer_t *character_renderer, SDL_Point *position, character_type_e character_type, SDL_Rect *destination_rect)
+extern int renderCharacter(window_t *window, character_renderer_t *character_renderer, character_t *character, SDL_Rect *destination_rect)
 {
+    SDL_Point *position = &(character->position);
+    character_type_e character_type = character->type;
+
     if (!canRenderCharacter(character_renderer, position, character_type))
         return 0;
 
-    SDL_Rect tile_rect = ((SDL_Rect *)&character_renderer->sprite_tile_rects)[character_type];
-    *destination_rect = positionFromCenter(
-        window,
-        character_renderer->map_renderer->tile_size * tile_rect.w,
-        character_renderer->map_renderer->tile_size * tile_rect.h,
-        character_renderer->map_renderer->tile_size * position->x - character_renderer->map_renderer->offset_from_center,
-        character_renderer->map_renderer->tile_size * position->y - character_renderer->map_renderer->offset_from_center,
-        TRANSFORM_ORIGIN_CENTER);
 
-    SDL_RenderCopy(
-        window->renderer,
-        character_renderer->sprite->texture,
-        ((SDL_Rect *)&character_renderer->sprite_rects) + character_type,
-        destination_rect);
+    updateAnim(character_renderer->animation, character_renderer->animation->current_state, CHARACTER_TILE_SIZE, &(character->position), window);
 
     return 1;
 }
+
 
 extern int deleteCharacterRenderer(character_renderer_t **character_renderer)
 {

@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 {
     window_t *window = createWindow("Slap of Ages", 600, 600);
     map_renderer_t *map_renderer = createMapRenderer(window);
-    character_renderer_t *character_renderer = createCharacterRenderer(window, map_renderer);
+    character_renderer_t *character_renderer = createCharacterRenderer(window, map_renderer, DAEMON_CHARACTER);
     frame_timer_t *main_timer = createTimer(1000 / 30);
 
     character_t ***map_character = createCharacterMatrix(MAP_SIZE);
@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
 
         SDL_Event event;
         time_left = timeLeft(main_timer);
+
 
         if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
         {
@@ -74,7 +75,7 @@ int main(int argc, char *argv[])
 
                     test_position = getTileCoord(&mouse_position, window, map_renderer);
 
-                    character_t *new = createCharacter(ARCHER_CHARACTER, &test_position);
+                    character_t *new = createCharacter(DAEMON_CHARACTER, &test_position);
 
                     if (canPlaceCharacter(character_renderer, new, &test_position, map_character))
                     {
@@ -118,8 +119,21 @@ int main(int argc, char *argv[])
                 {
                     if (map_character[i][j] != NULL)
                     {
+                        //character_t *character = map_character[i][j];
+
+                        int new_state;
+                        if (/* Condition si le character move */1) {
+                            new_state = DAEMON_MOVE_ANIM;
+                        } else {
+                            new_state = DAEMON_IDLE_ANIM;
+                        }
+
+                        if (new_state != character_renderer->animation->current_state) {
+                            character_renderer->animation->current_state = new_state;
+                        }
+
                         SDL_Rect destination_rect;
-                        renderCharacter(window, character_renderer, &(map_character[i][j]->position), map_character[i][j]->type, &destination_rect);
+                        renderCharacter(window, (character_renderer_t *)character_renderer, map_character[i][j], &destination_rect);
                     }
                 }
             }
