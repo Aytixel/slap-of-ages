@@ -57,8 +57,8 @@ int main(int argc, char *argv[])
         if (event.button.clicks == 1 && (event.button.button == SDL_BUTTON_LEFT))
         {
 
-          rat_position.x = event.button.x;
-          rat_position.y = event.button.y;
+          rat_position.x = event.button.x - window->width / 2;
+          rat_position.y = event.button.y - window->height / 2;
         }
         else
         {
@@ -83,9 +83,9 @@ int main(int argc, char *argv[])
     {
       SDL_RenderClear(window->renderer);
 
-      updateAnim(goblin, GOBLIN_GIANT_ATTACK_ANIM, 100, &goblin_position, window);
-      updateAnim(rat, RAT_IDLE_ANIM, 100, &rat_position, window);
-      updateAnim(green_portal, PORTAL_DESPAWN_ANIM, 50, &portal_position, window);
+      updateAnim(goblin, GOBLIN_GIANT_ATTACK_ANIM, 100, &goblin_position, window, TRANSFORM_ORIGIN_CENTER);
+      updateAnim(rat, RAT_IDLE_ANIM, 100, &rat_position, window, TRANSFORM_ORIGIN_CENTER);
+      updateAnim(green_portal, PORTAL_DESPAWN_ANIM, 50, &portal_position, window, TRANSFORM_ORIGIN_CENTER);
 
       SDL_RenderPresent(window->renderer);
     }

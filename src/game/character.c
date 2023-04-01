@@ -1,3 +1,13 @@
+/**
+ * @file character.c
+ * @brief Permet de gérer les personnages
+ * @author Dureau Arthur
+ * @version 1.0
+ * @date 29/03/2023
+ *
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
@@ -12,8 +22,6 @@
 // #include "character_renderer.h"
 #include "window/window.h"
 #include "window/input.h"
-
-#define TILE_SIZE 8
 
 extern character_t *createCharacter(character_type_e type, SDL_Point *position)
 {

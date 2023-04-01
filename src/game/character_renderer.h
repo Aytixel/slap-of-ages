@@ -1,3 +1,13 @@
+/**
+ * @file character.h
+ * @author Arthur Dureau
+ * @brief Fonction de gestion de l'affichage des characters
+ * @version 1.0
+ * @date 19/03/2023
+ *
+ *
+ */
+
 #ifndef __CHARACTER_RENDERER_H
 #define __CHARACTER_RENDERER_H
 
@@ -35,8 +45,6 @@ typedef struct
     map_renderer_t *map_renderer;
     sprite_t *sprite;
     anim_t *animation;
-    character_sprite_rects_t sprite_tile_rects;
-    character_sprite_rects_t sprite_rects;
 } character_renderer_t;
 
 extern character_renderer_t *createCharacterRenderer(window_t *window, map_renderer_t *map_renderer, character_type_e type);

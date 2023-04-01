@@ -10,8 +10,7 @@
 #include "map/map_renderer.h"
 #include "game/character_renderer.h"
 #include "game/character.h"
-
-#define MAP_SIZE 20
+#include "client/common.h"
 
 int running = 1;
 
@@ -36,7 +35,7 @@ int main(int argc, char *argv[])
     character_renderer_t *character_renderer = createCharacterRenderer(window, map_renderer, DAEMON_CHARACTER);
     frame_timer_t *main_timer = createTimer(1000 / 30);
 
-    character_t ***map_character = createCharacterMatrix(MAP_SIZE);
+    character_t ***map_character = createCharacterMatrix();
 
     int time_left;
 
@@ -48,7 +47,6 @@ int main(int argc, char *argv[])
 
         SDL_Event event;
         time_left = timeLeft(main_timer);
-
 
         if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
         {
@@ -119,16 +117,20 @@ int main(int argc, char *argv[])
                 {
                     if (map_character[i][j] != NULL)
                     {
-                        //character_t *character = map_character[i][j];
+                        // character_t *character = map_character[i][j];
 
                         int new_state;
-                        if (/* Condition si le character move */1) {
+                        if (/* Condition si le character move */ 1)
+                        {
                             new_state = DAEMON_MOVE_ANIM;
-                        } else {
+                        }
+                        else
+                        {
                             new_state = DAEMON_IDLE_ANIM;
                         }
 
-                        if (new_state != character_renderer->animation->current_state) {
+                        if (new_state != character_renderer->animation->current_state)
+                        {
                             character_renderer->animation->current_state = new_state;
                         }
 

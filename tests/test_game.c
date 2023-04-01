@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
                 }
             }
 
-            updateAnim(rat, RAT_IDLE_ANIM, map_renderer->tile_size, &rat_position, window);
+            updateAnim(rat, RAT_IDLE_ANIM, map_renderer->tile_size, &rat_position, window, TRANSFORM_ORIGIN_CENTER);
 
             SDL_RenderPresent(window->renderer);
         }
