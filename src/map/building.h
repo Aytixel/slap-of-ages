@@ -26,9 +26,8 @@ typedef struct building_s
     SDL_Rect rect;        /**< position et taille du bâtiment en pixel*/
     SDL_Point position;   /**< position du bâtiment en cases*/
 
-    int hp;        /**< points de vie du bâtiment*/
-    int max_hp;    /**< points de vie maximum du bâtiment*/
-    int gold_cost; /**< coût du bâtiment en or*/
+    int hp;     /**< points de vie du bâtiment*/
+    int max_hp; /**< points de vie maximum du bâtiment*/
 } building_t;
 
 /**
@@ -38,6 +37,14 @@ typedef struct building_s
  * @return building_renderer_t*
  */
 extern building_t *createBuilding(building_type_e type, SDL_Point *position, window_t *window);
+
+/**
+ * @brief Récupère le prix d'un bâtiment
+ *
+ * @param type le type de bâtiment qui doit être placé
+ * @return coût du bâtiment en or
+ */
+extern int getBuildingGoldCost(building_type_e type);
 
 /**
  * @brief Créer la matrice de bâtiment
@@ -113,21 +120,32 @@ extern void updateBuildingCoord(building_t *building, SDL_Point *position);
 /**
  * @brief Permet de vérifier si un bâtiment peut être placé à une position donnée
  *
- * @param building le bâtiment qui doit être placé
+ * @param building_renderer un pointeur sur la structure qui gère l'affichage des bâtiments
+ * @param type le type de bâtiment qui doit être placé
  * @param position la position à vérifier
  * @param building_matrix matrice contenant la totalité des bâtiments placés sur la carte
  * @return retourne 1 si le bâtiment peut être placé, 0 sinon
  */
-extern int canPlaceBuilding(building_renderer_t *building_renderer, building_t *building, SDL_Point *position, building_t ***building_matrix);
+extern int canPlaceBuilding(building_renderer_t *building_renderer, building_type_e type, SDL_Point *position, building_t ***building_matrix);
 
 /**
  * @brief Récupère le bâtiment à une position donnée
  *
  * @param building_matrix matrice contenant les bâtiments
- * @param position position du bätiment à retourner
+ * @param x position du bâtiment à retourner en x
+ * @param y position du bâtiment à retourner en y
  * @return building_t* si le bâtiment existe, NULL sinon
  */
-extern building_t *getBuilding(building_t ***building_matrix, SDL_Point *position);
+extern building_t *getBuilding(building_t ***building_matrix, int x, int y);
+
+/**
+ * @brief Récupère le bâtiment à une position donnée
+ *
+ * @param building_matrix matrice contenant les bâtiments
+ * @param position position du bâtiment à retourner
+ * @return building_t* si le bâtiment existe, NULL sinon
+ */
+extern building_t *getBuildingWithPoint(building_t ***building_matrix, SDL_Point *position);
 
 /**
  * @brief Fonction d'écoute des événements du système de placement de bâtiment

@@ -55,32 +55,30 @@ extern building_t *createBuilding(building_type_e type, SDL_Point *position, win
 
     building->hp = building->max_hp;
 
+    return building;
+}
+
+extern int getBuildingGoldCost(building_type_e type)
+{
     switch (type)
     {
     case HOUSE_1_BUILDING:
     case HOUSE_2_BUILDING:
     case HOUSE_3_BUILDING:
-        building->gold_cost = 30;
-        break;
+        return 30;
     case WELL_BUILDING:
-        building->gold_cost = 20;
-        break;
+        return 20;
     case MILL_BUILDING:
     case MINE_BUILDING:
-        building->gold_cost = 100;
-        break;
+        return 100;
     case CORNER_WALL_BUILDING:
     case VERTICAL_WALL_BUILDING:
     case HORIZONTAL_WALL_BUILDING:
     case FIELD_BUILDING:
-        building->gold_cost = 10;
-        break;
+        return 10;
     default:
-        building->gold_cost = 5;
-        break;
+        return 5;
     }
-
-    return building;
 }
 
 extern building_t ***createBuildingMatrix()
@@ -109,17 +107,19 @@ extern void renderBuildingMatrix(window_t *window, building_t ***map_building, b
     {
         for (int j = 0; j < MAP_SIZE; j++)
         {
-            if (map_building[i][j] != NULL)
-                renderBuilding(window, building_renderer, &(map_building[i][j]->position), map_building[i][j]->type, &map_building[i][j]->rect);
+            building_t *building = getBuilding(map_building, i, j);
+
+            if (building != NULL)
+                renderBuilding(window, building_renderer, &(building->position), building->type, &building->rect);
         }
     }
 }
 
 extern void destroyBuilding(building_t **building)
 {
-
     if (*building == NULL || building == NULL)
         return;
+
     free(*building);
     *building = NULL;
 }
@@ -140,10 +140,10 @@ extern void clearMatrix(building_t ***building_matrix)
     {
         for (int j = 0; j < MAP_SIZE; j++)
         {
-            if (building_matrix[i][j] != NULL)
-            {
-                removeBuildingFromMatrix(building_matrix, building_matrix[i][j]);
-            }
+            building_t *building = getBuilding(building_matrix, i, j);
+
+            if (building != NULL)
+                removeBuildingFromMatrix(building_matrix, building);
         }
     }
 }
@@ -163,7 +163,6 @@ extern void destroyBuildingMatrix(building_t ****building_matrix)
 
 extern void addBuildingInMatrix(building_t ***building_matrix, building_t *building)
 {
-
     switch (building->type)
     {
     case MILL_BUILDING:
@@ -212,14 +211,14 @@ extern void updateBuildingCoord(building_t *building, SDL_Point *position)
     building->position = *position;
 }
 
-extern int canPlaceBuilding(building_renderer_t *building_renderer, building_t *building, SDL_Point *position, building_t ***building_matrix)
+extern int canPlaceBuilding(building_renderer_t *building_renderer, building_type_e type, SDL_Point *position, building_t ***building_matrix)
 {
 
-    if (canRenderBuilding(building_renderer, position, building->type))
+    if (canRenderBuilding(building_renderer, position, type))
     {
-        if (building_matrix[position->x][position->y] == NULL)
+        if (getBuildingWithPoint(building_matrix, position) == NULL)
         {
-            switch (building->type)
+            switch (type)
             {
             case MILL_BUILDING:
             case VERTICAL_WALL_BUILDING:
@@ -245,9 +244,17 @@ extern int canPlaceBuilding(building_renderer_t *building_renderer, building_t *
     return 0;
 }
 
-extern building_t *getBuilding(building_t ***building_matrix, SDL_Point *position)
+extern building_t *getBuilding(building_t ***building_matrix, int x, int y)
 {
-    return building_matrix[position->x][position->y];
+    if (x < 0 || y < 0 || x >= MAP_SIZE || y >= MAP_SIZE)
+        return NULL;
+
+    return building_matrix[x][y];
+}
+
+extern building_t *getBuildingWithPoint(building_t ***building_matrix, SDL_Point *position)
+{
+    return getBuilding(building_matrix, position->x, position->y);
 }
 
 extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data, building_renderer_t *building_renderer, window_t *window)
@@ -256,25 +263,20 @@ extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data
     {
         SDL_Point mouse_position = {event->button.x, event->button.y};
         SDL_Point tile_position = getTileCoord(&mouse_position, window, building_renderer->map_renderer);
-        building_t *new = createBuilding(game_data->selected_building_type, &tile_position, window);
+        building_t *building = NULL;
+        int gold_cost = getBuildingGoldCost(game_data->selected_building_type);
 
-        if (canPlaceBuilding(building_renderer, new, &tile_position, game_data->map_building))
+        if (
+            canPlaceBuilding(building_renderer, game_data->selected_building_type, &tile_position, game_data->map_building) &&
+            game_data->gold_count - game_data->gold_cost - gold_cost >= 0)
         {
-            if (game_data->gold_count - game_data->gold_cost - new->gold_cost >= 0)
-            {
-                addBuildingInMatrix(game_data->map_building, new);
-                game_data->gold_cost += new->gold_cost;
-            }
-            else
-                destroyBuilding(&new);
+            addBuildingInMatrix(game_data->map_building, createBuilding(game_data->selected_building_type, &tile_position, window));
+            game_data->gold_cost += gold_cost;
         }
-        else if (tile_position.x != -1 && tile_position.y != -1 && game_data->map_building[tile_position.x][tile_position.y] != NULL)
+        else if ((building = getBuildingWithPoint(game_data->map_building, &tile_position)) != NULL)
         {
-            game_data->gold_cost -= game_data->map_building[tile_position.x][tile_position.y]->gold_cost;
-            destroyBuilding(&new);
-            removeBuildingFromMatrix(game_data->map_building, game_data->map_building[tile_position.x][tile_position.y]);
+            game_data->gold_cost -= gold_cost;
+            removeBuildingFromMatrix(game_data->map_building, building);
         }
-        else
-            destroyBuilding(&new);
     }
 }
