@@ -32,10 +32,10 @@ void windowEventHandler(SDL_Event *event, window_t *window)
     // gestion des évènements de la fenêtre
 }
 
-int main()
+int main(int argc, char *argv[])
 {
     window_t *window = createWindow("Slap of Ages", 600, 600);
-    map_renderer_t *map_renderer = createMapRenderer(window, MAP_SIZE);
+    map_renderer_t *map_renderer = createMapRenderer(window);
     building_renderer_t *building_renderer = createBuildingRenderer(window, map_renderer);
     frame_timer_t *main_timer = createTimer(1000 / 30);
 
@@ -129,7 +129,7 @@ int main()
     }
 
     deleteTimer(&main_timer);
-    destroyBuildingMatrix(&map_building, MAP_SIZE);
+    destroyBuildingMatrix(&map_building);
     deleteBuildingRenderer(&building_renderer);
     deleteMapRenderer(&map_renderer);
     destroyWindow(&window);
