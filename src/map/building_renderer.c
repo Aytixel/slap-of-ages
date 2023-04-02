@@ -18,7 +18,7 @@ extern building_renderer_t *createBuildingRenderer(window_t *window, map_rendere
     building_renderer_t *building_renderer = malloc(sizeof(building_renderer_t));
 
     building_renderer->map_renderer = map_renderer;
-    building_renderer->sprite = loadSprite(window, "asset/sprite/building/MasterSimple.png");
+    building_renderer->sprite = loadSprite(window, "asset/sprite/building/building.png");
 
     if (building_renderer->sprite == NULL)
     {
@@ -29,18 +29,18 @@ extern building_renderer_t *createBuildingRenderer(window_t *window, map_rendere
 
     // position et taille de chaque sprite en nombre de cases
     building_sprite_rects_t sprite_tile_rects = {
-        {10, 0, 1, 1},
-        {10, 1, 1, 1},
-        {11, 1, 1, 1},
-        {10, 2, 1, 2},
-        {9, 0, 1, 1},
-        {10, 4, 1, 1},
-        {9, 1, 1, 1},
-        {12, 6, 1, 1},
-        {12, 4, 1, 2},
-        {10, 5, 2, 1},
-        {11, 6, 1, 2},
-        {12, 7, 2, 1}};
+        {1, 0, 1, 1},
+        {1, 1, 1, 1},
+        {2, 1, 1, 1},
+        {3, 0, 1, 2},
+        {0, 0, 1, 1},
+        {2, 1, 1, 1},
+        {0, 1, 1, 1},
+        {8, 0, 1, 1},
+        {6, 0, 1, 2},
+        {4, 1, 2, 1},
+        {7, 0, 1, 2},
+        {4, 0, 2, 1}};
 
     building_renderer->sprite_tile_rects = sprite_tile_rects;
 
