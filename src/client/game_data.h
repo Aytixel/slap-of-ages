@@ -13,6 +13,7 @@
 typedef struct building_s building_t;
 
 #include <stdint.h>
+#include "common.h"
 #include "timer/timer.h"
 #include "map/building.h"
 #include "game_state_enum.h"
@@ -24,9 +25,9 @@ typedef struct building_s building_t;
 typedef struct client_game_data_s
 {
     client_game_state_e state;              /**< états du jeu*/
-    char hostname[1024];                    /**< addresse du serveur*/
+    char hostname[HOSTNAME_SIZE];           /**< addresse du serveur*/
     uint16_t port;                          /**< port du serveur*/
-    char pseudo[64];                        /**< pseudo du joueur*/
+    char pseudo[PSEUDO_SIZE];               /**< pseudo du joueur*/
     building_t ***map_building;             /**< matrice contenant la totalité des bâtiments placés sur la carte*/
     building_type_e selected_building_type; /**< type de bâtiment sélectionner*/
     int gold_count;                         /**< nombre d'or en la possession du joueur*/

@@ -14,17 +14,17 @@
 #include "map/building.h"
 
 /**
- * @brief Converti les données de la carte en données pouvant être stocker ou envoyer
+ * @brief Converti les données de la carte en données pouvant être stockées ou envoyées
  *
  * @param data une référence sur un pointeur sur les données
  * @param map_building matrice contenant la totalité des bâtiments placés sur la carte
  * @param gold_cost le coût en or du village
  * @return **taille des données**
  */
-extern int serialize_map(void **data, building_t ***map_building, int gold_cost);
+extern int serializeMapData(void **data, building_t ***map_building, int gold_cost);
 
 /**
- * @brief Reconverti les données de la carte en structure et variable
+ * @brief Reconvertie les données de la carte en structure et en variable
  *
  * @param data un pointeur sur les données
  * @param data_lenth longueur des données
@@ -33,6 +33,6 @@ extern int serialize_map(void **data, building_t ***map_building, int gold_cost)
  * @param gold_cost un pointeur sur le coût en or du village
  * @return **0** si tous se passe bien, **-1** sinon
  */
-extern int deserialize_map(void *data, int data_lenth, window_t *window, building_t ***map_building, int *gold_cost);
+extern int deserializeMapData(void *data, int data_lenth, window_t *window, building_t ***map_building, int *gold_cost);
 
 #endif

@@ -16,7 +16,7 @@ extern client_game_data_t *createGameData()
 {
     client_game_data_t *game_data = malloc(sizeof(client_game_data_t));
 
-    game_data->port = DEFAULT_PORT;
+    game_data->port = CLIENT_DEFAULT_PORT;
     game_data->state = CONNECTION_GAME_STATE;
     game_data->selected_building_type = HOUSE_1_BUILDING;
     game_data->map_building = createBuildingMatrix();
@@ -29,7 +29,7 @@ extern client_game_data_t *createGameData()
     game_data->opponent_gold_cost = 0;
     game_data->opponent_map_building = createBuildingMatrix();
 
-    strcpy(game_data->hostname, DEFAULT_HOSTNAME);
+    strcpy(game_data->hostname, CLIENT_DEFAULT_HOSTNAME);
     strcpy(game_data->pseudo, "");
 
     return game_data;

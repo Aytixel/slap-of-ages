@@ -47,12 +47,12 @@ void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port
     }
 
     if (!*port)
-        *port = DEFAULT_PORT;
+        *port = SERVER_DEFAULT_PORT;
 
     if (*hostname == NULL)
     {
-        *hostname = malloc(strlen(DEFAULT_HOSTNAME) + 1);
-        strcpy(*hostname, DEFAULT_HOSTNAME);
+        *hostname = malloc(strlen(SERVER_DEFAULT_HOSTNAME) + 1);
+        strcpy(*hostname, SERVER_DEFAULT_HOSTNAME);
     }
 }
 

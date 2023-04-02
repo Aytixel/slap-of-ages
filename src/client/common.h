@@ -10,8 +10,13 @@
 #ifndef __CLIENT_COMMON_H
 #define __CLIENT_COMMON_H
 
-#define DEFAULT_HOSTNAME "localhost"
-#define DEFAULT_PORT 4539
+#define HOSTNAME_SIZE 1024
+#define PSEUDO_SIZE 64
+
+#define CLIENT_DEFAULT_HOSTNAME "localhost"
+#define CLIENT_DEFAULT_PORT 4539
+
+#define SAVE_FILENAME "./data.soa"
 
 #define MAP_SIZE 24
 

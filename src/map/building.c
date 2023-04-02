@@ -13,6 +13,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include "client/common.h"
+#include "client/game_data_serialization.h"
 #include "timer/timer.h"
 #include "building.h"
 #include "building_renderer.h"
@@ -278,5 +279,7 @@ extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data
             game_data->gold_cost -= gold_cost;
             removeBuildingFromMatrix(game_data->map_building, building);
         }
+
+        serializeGameData(game_data);
     }
 }

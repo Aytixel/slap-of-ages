@@ -4,6 +4,7 @@
 #include <SDL2/SDL_main.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include "client/common.h"
 #include "timer/timer.h"
 #include "window/window.h"
 #include "window/input.h"
@@ -13,7 +14,6 @@
 #include "window/animation.h"
 #include "window/animation_states.h"
 
-#define MAP_SIZE 20
 #define TILE_SIZE 16
 
 int running = 1;

@@ -12,6 +12,7 @@
 #include "menu/menu.h"
 #include "client/game_data.h"
 #include "client/game_state.h"
+#include "client/game_data_serialization.h"
 #include "game/hud.h"
 
 int running = 1;
@@ -62,6 +63,8 @@ void windowEventHandler(
             char title[90] = "";
             sprintf(title, "Slap of Ages : %s", game_data->pseudo);
             SDL_SetWindowTitle(window->window, title);
+
+            serializeGameData(game_data);
 
             if (!initClientConnection(game_data->hostname, game_data->port))
             {
@@ -117,6 +120,8 @@ void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_
         if (has_won == 1 || has_won == 2)
             game_data->win_count++;
 
+        serializeGameData(game_data);
+
         printf("Gagné : %d, Nombre de victoire : %d\n", has_won, game_data->win_count);
 
         sprintf(title, "Slap of Ages : %s", game_data->pseudo);
@@ -159,6 +164,9 @@ int main(int argc, char *argv[])
 
     frame_timer_t *main_timer = createTimer(1000 / 30);
     client_game_data_t *game_data = createGameData();
+
+    deserializeGameData(window, game_data);
+
     menu_t *menu = createMenu(window, game_data);
 
     if (menu == NULL)

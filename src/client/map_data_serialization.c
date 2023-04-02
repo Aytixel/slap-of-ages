@@ -11,7 +11,7 @@
 #include "client/common.h"
 #include "map_data_serialization.h"
 
-extern int serialize_map(void **data, building_t ***map_building, int gold_cost)
+extern int serializeMapData(void **data, building_t ***map_building, int gold_cost)
 {
     *data = malloc(sizeof(int) + sizeof(char) * MAP_SIZE * MAP_SIZE);
 
@@ -35,7 +35,7 @@ extern int serialize_map(void **data, building_t ***map_building, int gold_cost)
     return data_size;
 }
 
-extern int deserialize_map(void *data, int data_length, window_t *window, building_t ***map_building, int *gold_cost)
+extern int deserializeMapData(void *data, int data_length, window_t *window, building_t ***map_building, int *gold_cost)
 {
     if (data_length < sizeof(int) + sizeof(char) * MAP_SIZE * MAP_SIZE)
         return -1;

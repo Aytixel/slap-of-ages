@@ -56,7 +56,7 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data);
  * @param game_data un pointeur sur les données du jeu
  * @param event un pointeur sur les événements
  * @param menu un pointeur sur un menu
- * @return 1 si le bouton join est cliquer, 0 sinon
+ * @return 1 si le bouton rejoindre est cliquer, 0 sinon
  */
 extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, menu_t *menu);
 

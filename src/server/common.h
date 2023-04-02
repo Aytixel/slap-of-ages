@@ -10,7 +10,7 @@
 #ifndef __SERVER_COMMON_H
 #define __SERVER_COMMON_H
 
-#define DEFAULT_HOSTNAME "0.0.0.0"
-#define DEFAULT_PORT 4539
+#define SERVER_DEFAULT_HOSTNAME "0.0.0.0"
+#define SERVER_DEFAULT_PORT 4539
 
 #endif

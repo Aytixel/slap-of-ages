@@ -66,9 +66,9 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
 
   SDL_itoa(game_data->port, port_textbox_default_text, 10);
 
-  menu->hostname_textbox = createTextbox(window, menu->textbox_font, game_data->hostname, dark_text_color, 1024);
+  menu->hostname_textbox = createTextbox(window, menu->textbox_font, game_data->hostname, dark_text_color, HOSTNAME_SIZE);
   menu->port_textbox = createTextbox(window, menu->textbox_font, port_textbox_default_text, dark_text_color, 7);
-  menu->pseudo_textbox = createTextbox(window, menu->textbox_font, game_data->pseudo, dark_text_color, 64);
+  menu->pseudo_textbox = createTextbox(window, menu->textbox_font, game_data->pseudo, dark_text_color, PSEUDO_SIZE);
   menu->hostname_textbox->max_width = 440;
   menu->port_textbox->max_width = 440;
   menu->pseudo_textbox->max_width = 440;
