@@ -20,9 +20,15 @@ Documentation *(prise sur la branche `dev`)* : https://aytixel.github.io/slap-of
 
 Si vous compilez le projet pour la première fois faite `make all`. Cette commande compilera la SDL, cela peut donc prendre un peu de temps.
 
-Si vous voulez recompiler `make clean build` et pour recompiler les fichiers de test `make clean build_test`.
+Pour recompiler `make clean build`, `make clean build_test` pour les fichiers de test et `make clean build_release` pour compiler une version définitive.
 
-Si vous voulez juste compiler la SDL `make install_sdl`. Cette compilation n'a lieu que sur Linux et MacOs.
+Si vous voulez juste installer la SDL `make install_sdl`. Cette compilation n'a lieu que sur Linux et MacOs.
+
+## Lancer le jeu :
+
+Pour lancer le jeu il suffit d'exécuter `main_client`, dans le dossier `bin`.
+
+Et si vous souhaitez lancer un serveur faite de même avec `main_server`.
 
 ## Convention de nommage :
 
