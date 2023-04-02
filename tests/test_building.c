@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
                 {
                     if (map_building[i][j] != NULL)
                     {
-                        renderBuilding(window, building_renderer, &(map_building[i][j]->position), map_building[i][j]->type, &map_building[i][j]->rect);
+                        renderBuilding(window, building_renderer, &(map_building[i][j]->position), map_building[i][j]->type);
                     }
                 }
             }

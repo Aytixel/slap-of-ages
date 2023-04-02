@@ -24,10 +24,7 @@ extern building_t *createBuilding(building_type_e type, SDL_Point *position, win
 {
     building_t *building = malloc(sizeof(building_t));
 
-    SDL_Rect rect = {0, 0, 0, 0};
-
     building->type = type;
-    building->rect = rect;
     building->position = *position;
 
     switch (type)
@@ -111,7 +108,41 @@ extern void renderBuildingMatrix(window_t *window, building_t ***map_building, b
             building_t *building = getBuilding(map_building, i, j);
 
             if (building != NULL)
-                renderBuilding(window, building_renderer, &(building->position), building->type, &building->rect);
+            {
+                if (building->position.x == i && building->position.y == j)
+                    renderBuilding(window, building_renderer, &building->position, building->type);
+
+                if (building->type == CORNER_WALL_BUILDING ||
+                    building->type == VERTICAL_WALL_BUILDING ||
+                    building->type == HORIZONTAL_WALL_BUILDING)
+                {
+                    building_t *top_building = getBuilding(map_building, i, j - 1);
+
+                    if (top_building != NULL &&
+                        top_building != building &&
+                        (top_building->type == CORNER_WALL_BUILDING ||
+                         top_building->type == VERTICAL_WALL_BUILDING ||
+                         top_building->type == HORIZONTAL_WALL_BUILDING))
+                    {
+                        SDL_Point position = {i, j - 1};
+
+                        renderBuilding(window, building_renderer, &position, VERTICAL_SPACE_FILLER_WALL_BUILDING);
+                    }
+
+                    building_t *left_building = getBuilding(map_building, i - 1, j);
+
+                    if (left_building != NULL &&
+                        left_building != building &&
+                        (left_building->type == CORNER_WALL_BUILDING ||
+                         left_building->type == VERTICAL_WALL_BUILDING ||
+                         left_building->type == HORIZONTAL_WALL_BUILDING))
+                    {
+                        SDL_Point position = {i - 1, j};
+
+                        renderBuilding(window, building_renderer, &position, HORIZONTAL_SPACE_FILLER_WALL_BUILDING);
+                    }
+                }
+            }
         }
     }
 }

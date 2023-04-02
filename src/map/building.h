@@ -23,7 +23,6 @@ typedef struct client_game_data_s client_game_data_t;
 typedef struct building_s
 {
     building_type_e type; /**< type du bâtiment*/
-    SDL_Rect rect;        /**< position et taille du bâtiment en pixel*/
     SDL_Point position;   /**< position du bâtiment en cases*/
 
     int hp;     /**< points de vie du bâtiment*/

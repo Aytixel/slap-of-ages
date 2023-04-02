@@ -29,7 +29,8 @@ typedef enum
     CORNER_WALL_BUILDING,
     VERTICAL_WALL_BUILDING,
     HORIZONTAL_WALL_BUILDING,
-    SPACE_FILLER_WALL_BUILDING,
+    VERTICAL_SPACE_FILLER_WALL_BUILDING,
+    HORIZONTAL_SPACE_FILLER_WALL_BUILDING,
 } building_type_e;
 
 /**
@@ -38,17 +39,18 @@ typedef enum
  */
 typedef struct
 {
-    SDL_Rect house_1;           /**< maison 1*/
-    SDL_Rect house_2;           /**< maison 2*/
-    SDL_Rect house_3;           /**< maison 3*/
-    SDL_Rect mill;              /**< moulin*/
-    SDL_Rect mine;              /**< mine*/
-    SDL_Rect field;             /**< champs*/
-    SDL_Rect well;              /**< puit*/
-    SDL_Rect corner_wall;       /**< coin de mur*/
-    SDL_Rect vertical_wall;     /**< mur verticale*/
-    SDL_Rect horizontal_wall;   /**< mur horizontale*/
-    SDL_Rect space_filler_wall; /**< mur de remplissage entre deux murs l'un au-dessus de l'autre*/
+    SDL_Rect house_1;                      /**< maison 1*/
+    SDL_Rect house_2;                      /**< maison 2*/
+    SDL_Rect house_3;                      /**< maison 3*/
+    SDL_Rect mill;                         /**< moulin*/
+    SDL_Rect mine;                         /**< mine*/
+    SDL_Rect field;                        /**< champs*/
+    SDL_Rect well;                         /**< puit*/
+    SDL_Rect corner_wall;                  /**< coin de mur*/
+    SDL_Rect vertical_wall;                /**< mur verticale*/
+    SDL_Rect horizontal_wall;              /**< mur horizontale*/
+    SDL_Rect vertical_space_filler_wall;   /**< mur de remplissage entre deux murs l'un au-dessus de l'autre*/
+    SDL_Rect horizontal_space_filler_wall; /**< mur de remplissage entre deux murs l'un à côté de l'autre*/
 } building_sprite_rects_t;
 
 /**
@@ -91,7 +93,7 @@ extern int canRenderBuilding(building_renderer_t *building_renderer, SDL_Point *
  * @param building_type type de batiment à afficher
  * @return **1** si on peut le placer, **0** sinon
  */
-extern int renderBuilding(window_t *window, building_renderer_t *building_renderer, SDL_Point *position, building_type_e building_type, SDL_Rect *destination_rect);
+extern int renderBuilding(window_t *window, building_renderer_t *building_renderer, SDL_Point *position, building_type_e building_type);
 
 /**
  * @brief Détruit la structure qui gère l'affichage des bâtiments

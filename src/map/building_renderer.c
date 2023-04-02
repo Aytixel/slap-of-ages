@@ -39,7 +39,8 @@ extern building_renderer_t *createBuildingRenderer(window_t *window, map_rendere
         {12, 6, 1, 1},
         {12, 4, 1, 2},
         {10, 5, 2, 1},
-        {11, 6, 1, 2}};
+        {11, 6, 1, 2},
+        {12, 7, 2, 1}};
 
     building_renderer->sprite_tile_rects = sprite_tile_rects;
 
@@ -60,13 +61,13 @@ extern int canRenderBuilding(building_renderer_t *building_renderer, SDL_Point *
            position->y + ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type].h <= MAP_SIZE;
 }
 
-extern int renderBuilding(window_t *window, building_renderer_t *building_renderer, SDL_Point *position, building_type_e building_type, SDL_Rect *destination_rect)
+extern int renderBuilding(window_t *window, building_renderer_t *building_renderer, SDL_Point *position, building_type_e building_type)
 {
     if (!canRenderBuilding(building_renderer, position, building_type))
         return 0;
 
     SDL_Rect tile_rect = ((SDL_Rect *)&building_renderer->sprite_tile_rects)[building_type];
-    *destination_rect = positionFromCenter(
+    SDL_Rect destination_rect = positionFromCenter(
         window,
         building_renderer->map_renderer->tile_size * tile_rect.w,
         building_renderer->map_renderer->tile_size * tile_rect.h,
@@ -78,7 +79,7 @@ extern int renderBuilding(window_t *window, building_renderer_t *building_render
         window->renderer,
         building_renderer->sprite->texture,
         ((SDL_Rect *)&building_renderer->sprite_rects) + building_type,
-        destination_rect);
+        &destination_rect);
 
     return 1;
 }
