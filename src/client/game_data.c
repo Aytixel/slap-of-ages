@@ -29,7 +29,9 @@ extern client_game_data_t *createGameData()
     game_data->opponent_gold_cost = 0;
     game_data->opponent_map_building = createBuildingMatrix();
 
+    memset(game_data->hostname, 0, HOSTNAME_SIZE);
     strcpy(game_data->hostname, CLIENT_DEFAULT_HOSTNAME);
+    memset(game_data->pseudo, 0, PSEUDO_SIZE);
     strcpy(game_data->pseudo, "");
 
     return game_data;
