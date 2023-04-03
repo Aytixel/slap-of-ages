@@ -24,21 +24,20 @@
  */
 typedef struct
 {
-    TTF_Font *text_font;                    /**< police d'écriture du texte*/
-    TTF_Font *textbox_font;                 /**< police d'écriture pour les boites de texte*/
-    animation_t *book_animation;                 /**< animation du livre*/
-    book_anim_state_e book_animation_state; /**< état de l'animation du livre*/
-    button_t *join_button;                  /**< bouton rejoindre*/
-    button_t *quit_button;                  /**< bouton quitter*/
-    sprite_t *hostname_label;               /**< sprite de l'étiquette "ip"*/
-    sprite_t *port_label;                   /**< sprite de l'étiquette "port"*/
-    sprite_t *pseudo_label;                 /**< sprite de l'étiquette "pseudo"*/
-    textbox_t *hostname_textbox;            /**< boite de text "ip"*/
-    textbox_t *port_textbox;                /**< boite de text "port"*/
-    textbox_t *pseudo_textbox;              /**< boite de text "pseudo"*/
-    SDL_Rect hostname_rect;                 /**< rectangle d'affiche de la boite de text "ip"*/
-    SDL_Rect port_rect;                     /**< rectangle d'affiche de la boite de text "port"*/
-    SDL_Rect pseudo_rect;                   /**< rectangle d'affiche de la boite de text "pseudo"*/
+    TTF_Font *text_font;         /**< police d'écriture du texte*/
+    TTF_Font *textbox_font;      /**< police d'écriture pour les boites de texte*/
+    animation_t *book_animation; /**< animation du livre*/
+    button_t *join_button;       /**< bouton rejoindre*/
+    button_t *quit_button;       /**< bouton quitter*/
+    sprite_t *hostname_label;    /**< sprite de l'étiquette "ip"*/
+    sprite_t *port_label;        /**< sprite de l'étiquette "port"*/
+    sprite_t *pseudo_label;      /**< sprite de l'étiquette "pseudo"*/
+    textbox_t *hostname_textbox; /**< boite de text "ip"*/
+    textbox_t *port_textbox;     /**< boite de text "port"*/
+    textbox_t *pseudo_textbox;   /**< boite de text "pseudo"*/
+    SDL_Rect hostname_rect;      /**< rectangle d'affiche de la boite de text "ip"*/
+    SDL_Rect port_rect;          /**< rectangle d'affiche de la boite de text "port"*/
+    SDL_Rect pseudo_rect;        /**< rectangle d'affiche de la boite de text "pseudo"*/
 } menu_t;
 
 /**
