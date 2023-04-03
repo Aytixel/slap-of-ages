@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 
     int rat_states[] = {4, 8, 12, 4, 5, -1};
 
-    anim_t *rat = createAnim(
+    animation_t *rat = createAnimation(
         TILE_SIZE,
         rat_states,
         loadSprite(window, "asset/sprite/characters/ratfolk_axe.png"),
@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
                 }
             }
 
-            updateAnim(rat, RAT_IDLE_ANIM, map_renderer->tile_size, &rat_position, window, TRANSFORM_ORIGIN_CENTER);
+            updateAnimation(rat, RAT_IDLE_ANIM, map_renderer->tile_size, &rat_position, window, TRANSFORM_ORIGIN_CENTER);
 
             SDL_RenderPresent(window->renderer);
         }

@@ -19,5 +19,6 @@
 #define SAVE_FILENAME "./data.soa"
 
 #define MAP_SIZE 24
+#define CHARACTER_PLACEMENT_MARGIN 2
 
 #endif

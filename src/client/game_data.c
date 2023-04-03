@@ -20,6 +20,7 @@ extern client_game_data_t *createGameData()
     game_data->state = CONNECTION_GAME_STATE;
     game_data->selected_building_type = HOUSE_1_BUILDING;
     game_data->map_building = createBuildingMatrix();
+    game_data->character_matrix = createCharacterMatrix();
     game_data->gold_count = 1000;
     game_data->gold_cost = 0;
     game_data->win_count = 0;
@@ -47,6 +48,7 @@ extern int deleteGameData(client_game_data_t **game_data)
 
     deleteTimer(&(*game_data)->timer);
     destroyBuildingMatrix(&(*game_data)->map_building);
+    destroyCharacterMatrix(&(*game_data)->character_matrix);
     destroyBuildingMatrix(&(*game_data)->opponent_map_building);
 
     free(*game_data);

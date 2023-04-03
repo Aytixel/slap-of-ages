@@ -19,19 +19,19 @@ int main(int argc, char *argv[])
   int rat_states[] = {4, 8, 12, 4, 5, -1};
   int goblin_states[] = {2, 8, 7, 4, 6, -1};
 
-  anim_t *green_portal = createAnim(
+  animation_t *green_portal = createAnimation(
       TILE_SIZE,
       portal_states,
       loadSprite(window, "asset/sprite/portal/GreenPortal.png"),
       10);
 
-  anim_t *rat = createAnim(
+  animation_t *rat = createAnimation(
       TILE_SIZE,
       rat_states,
       loadSprite(window, "asset/sprite/characters/ratfolk_axe.png"),
       13);
 
-  anim_t *goblin = createAnim(
+  animation_t *goblin = createAnimation(
       TILE_SIZE,
       goblin_states,
       loadSprite(window, "asset/sprite/characters/giant_goblin.png"),
@@ -62,9 +62,9 @@ int main(int argc, char *argv[])
         }
         else
         {
-          destroyAnim(&green_portal);
-          destroyAnim(&rat);
-          destroyAnim(&goblin);
+          destroyAnimation(&green_portal);
+          destroyAnimation(&rat);
+          destroyAnimation(&goblin);
         }
         break;
       case SDL_WINDOWEVENT:
@@ -83,18 +83,18 @@ int main(int argc, char *argv[])
     {
       SDL_RenderClear(window->renderer);
 
-      updateAnim(goblin, GOBLIN_GIANT_ATTACK_ANIM, 100, &goblin_position, window, TRANSFORM_ORIGIN_CENTER);
-      updateAnim(rat, RAT_IDLE_ANIM, 100, &rat_position, window, TRANSFORM_ORIGIN_CENTER);
-      updateAnim(green_portal, PORTAL_DESPAWN_ANIM, 50, &portal_position, window, TRANSFORM_ORIGIN_CENTER);
+      updateAnimation(goblin, GOBLIN_GIANT_ATTACK_ANIM, 100, &goblin_position, window, TRANSFORM_ORIGIN_CENTER);
+      updateAnimation(rat, RAT_IDLE_ANIM, 100, &rat_position, window, TRANSFORM_ORIGIN_CENTER);
+      updateAnimation(green_portal, PORTAL_DESPAWN_ANIM, 50, &portal_position, window, TRANSFORM_ORIGIN_CENTER);
 
       SDL_RenderPresent(window->renderer);
     }
   }
 
   deleteTimer(&main_timer);
-  destroyAnim(&green_portal);
-  destroyAnim(&rat);
-  destroyAnim(&goblin);
+  destroyAnimation(&green_portal);
+  destroyAnimation(&rat);
+  destroyAnimation(&goblin);
   destroyWindow(&window);
 
   return 0;

@@ -30,7 +30,7 @@ typedef struct building_s
 } building_t;
 
 /**
- * @brief Créer la structure qui gère l'affichage des bâtiments
+ * @brief Créer la structure qui gère les données des bâtiments
  *
  * @param window un pointeur sur une fenêtre
  * @return building_renderer_t*
@@ -57,7 +57,7 @@ extern building_t ***createBuildingMatrix();
  *
  * @param window un pointeur sur une fenêtre
  * @param map_building matrice contenant la totalité des bâtiments placés sur la carte
- * @param building_renderer
+ * @param building_renderer un pointeur sur la structure qui gère l'affichage des bâtiments
  */
 extern void renderBuildingMatrix(window_t *window, building_t ***map_building, building_renderer_t *building_renderer);
 
@@ -109,14 +109,6 @@ extern void addBuildingInMatrix(building_t ***building_matrix, building_t *build
 extern void removeBuildingFromMatrix(building_t ***building_matrix, building_t *building);
 
 /**
- * @brief Permet de mettre à jour la position d'un bâtiment
- *
- * @param building le bâtiment à mettre à jour
- * @param position la nouvelle position du bâtiment
- */
-extern void updateBuildingCoord(building_t *building, SDL_Point *position);
-
-/**
  * @brief Permet de vérifier si un bâtiment peut être placé à une position donnée
  *
  * @param building_renderer un pointeur sur la structure qui gère l'affichage des bâtiments
@@ -149,7 +141,7 @@ extern building_t *getBuildingWithPoint(building_t ***building_matrix, SDL_Point
 /**
  * @brief Fonction d'écoute des événements du système de placement de bâtiment
  *
- * @param event un pointeur sur les événements
+ * @param event un pointeur sur les données du jeu
  * @param game_data un pointeur sur les données du jeu
  * @param building_renderer un pointeur sur la structure qui gère l'affichage des bâtiments
  * @param window un pointeur sur une fenêtre

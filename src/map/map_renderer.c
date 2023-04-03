@@ -8,6 +8,7 @@
  */
 
 #include <stdlib.h>
+#include <math.h>
 #include "client/common.h"
 #include "map_renderer.h"
 
@@ -248,23 +249,10 @@ extern int deleteMapRenderer(map_renderer_t **map_renderer)
 
 extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_renderer_t *map_renderer)
 {
-
-    SDL_Rect center_coord;
-    SDL_Point tile_coord;
-
-    int maxPixels = map_renderer->tile_size * MAP_SIZE;
-
-    center_coord = positionToCenter(window, 0, 0);
-
-    tile_coord.x = (mouse_position->x - center_coord.x + maxPixels / 2) / map_renderer->tile_size;
-    tile_coord.y = (mouse_position->y - center_coord.y + maxPixels / 2) / map_renderer->tile_size;
-
-    if (tile_coord.x < 0 || tile_coord.y < 0 || tile_coord.x >= MAP_SIZE || tile_coord.y >= MAP_SIZE)
-    {
-        tile_coord.x = -1;
-        tile_coord.y = -1;
-        return tile_coord;
-    }
+    SDL_Rect center_coord = positionToCenter(window, 0, 0);
+    SDL_Point tile_coord = {
+        round((1.0 * mouse_position->x - center_coord.x - map_renderer->tile_size / 2 + map_renderer->offset_from_center) / map_renderer->tile_size),
+        round((1.0 * mouse_position->y - center_coord.y - map_renderer->tile_size / 2 + map_renderer->offset_from_center) / map_renderer->tile_size)};
 
     return tile_coord;
 }

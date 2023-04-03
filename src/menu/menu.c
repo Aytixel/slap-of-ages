@@ -52,7 +52,7 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
   SDL_Color dark_text_color = {52, 36, 20, 0};
 
   int book_states[] = {4, 4, 1, -1};
-  menu->book_animation = createAnim(16, book_states, loadSprite(window, "asset/sprite/menu/book.png"), 8);
+  menu->book_animation = createAnimation(16, book_states, loadSprite(window, "asset/sprite/menu/book.png"), 8);
   menu->book_animation_state = BOOK_OPEN_ANIM;
 
   menu->join_button = createButton(window, menu->text_font, "REJOINDRE", dark_text_color, light_text_color);
@@ -137,7 +137,7 @@ extern int menuRenderer(window_t *window, menu_t *menu)
 
   // Affichage de l'image de fond
   SDL_Point book_position = {0, 0};
-  if (updateAnim(menu->book_animation, menu->book_animation_state, scale_factor * 70, &book_position, window, TRANSFORM_ORIGIN_CENTER) == 1)
+  if (updateAnimation(menu->book_animation, menu->book_animation_state, scale_factor * 70, &book_position, window, TRANSFORM_ORIGIN_CENTER) == 1)
   {
     if (menu->book_animation_state == BOOK_OPEN_ANIM)
       menu->book_animation_state = BOOK_OPENED_ANIM;
@@ -205,7 +205,7 @@ extern int deleteMenu(menu_t **menu)
   if (menu == NULL || *menu == NULL)
     return -1;
 
-  destroyAnim(&(*menu)->book_animation);
+  destroyAnimation(&(*menu)->book_animation);
 
   TTF_CloseFont((*menu)->text_font);
   TTF_CloseFont((*menu)->textbox_font);

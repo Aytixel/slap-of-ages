@@ -75,7 +75,7 @@ extern int getBuildingGoldCost(building_type_e type)
     case FIELD_BUILDING:
         return 10;
     default:
-        return 5;
+        return 0;
     }
 }
 
@@ -238,11 +238,6 @@ extern void removeBuildingFromMatrix(building_t ***building_matrix, building_t *
     }
 }
 
-extern void updateBuildingCoord(building_t *building, SDL_Point *position)
-{
-    building->position = *position;
-}
-
 extern int canPlaceBuilding(building_renderer_t *building_renderer, building_type_e type, SDL_Point *position, building_t ***building_matrix)
 {
 
@@ -254,22 +249,17 @@ extern int canPlaceBuilding(building_renderer_t *building_renderer, building_typ
             {
             case MILL_BUILDING:
             case VERTICAL_WALL_BUILDING:
-                if (building_matrix[position->x][position->y + 1] == NULL)
-                {
+                if (getBuilding(building_matrix, position->x, position->y + 1) == NULL)
                     return 1;
-                }
                 break;
 
             case HORIZONTAL_WALL_BUILDING:
-                if (building_matrix[position->x + 1][position->y] == NULL)
-                {
+                if (getBuilding(building_matrix, position->x + 1, position->y) == NULL)
                     return 1;
-                }
                 break;
 
             default:
                 return 1;
-                break;
             }
         }
     }

@@ -26,7 +26,7 @@ typedef struct
 {
     TTF_Font *text_font;                    /**< police d'écriture du texte*/
     TTF_Font *textbox_font;                 /**< police d'écriture pour les boites de texte*/
-    anim_t *book_animation;                 /**< animation du livre*/
+    animation_t *book_animation;                 /**< animation du livre*/
     book_anim_state_e book_animation_state; /**< état de l'animation du livre*/
     button_t *join_button;                  /**< bouton rejoindre*/
     button_t *quit_button;                  /**< bouton quitter*/

@@ -30,7 +30,7 @@ typedef struct
     int current_state;   /**< état courant*/
     int current_frame;   /**< image courante*/
     SDL_Rect frame_rect; /**< rectangle d'affichage de l'animation en cour*/
-} anim_t;
+} animation_t;
 
 /**
  * @brief Crée une animation à partir de la taille d'une tuile, du nombre d'images par état, de l'image source et du nombre d'images par seconde
@@ -41,7 +41,15 @@ typedef struct
  * @param frame_rate nombre d'images par seconde
  * @return un objet de type anim_t*
  */
-extern anim_t *createAnim(int tile_size, int *state_frame_count, sprite_t *sprite, int frame_rate);
+extern animation_t *createAnimation(int tile_size, int *state_frame_count, sprite_t *sprite, int frame_rate);
+
+/**
+ * @brief Détruit une animation sans détruire son sprite
+ *
+ * @param anim animation à détruire
+ * @return un int valant -1 si l'animation n'existe pas, 0 sinon
+ */
+extern int destroyAnimationWithoutSprite(animation_t **anim);
 
 /**
  * @brief Détruit une animation
@@ -49,7 +57,7 @@ extern anim_t *createAnim(int tile_size, int *state_frame_count, sprite_t *sprit
  * @param anim animation à détruire
  * @return un int valant -1 si l'animation n'existe pas, 0 sinon
  */
-extern int destroyAnim(anim_t **anim);
+extern int destroyAnimation(animation_t **anim);
 
 /**
  * @brief Met à jour l'animation en modifiant l'état et la position de l'animation
@@ -63,6 +71,6 @@ extern int destroyAnim(anim_t **anim);
  *
  * @return un int valant 1 si l'animation est terminée, -1 si l'animation n'existe pas, 0 sinon
  */
-extern int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window, transform_origin_e origin);
+extern int updateAnimation(animation_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window, transform_origin_e origin);
 
 #endif

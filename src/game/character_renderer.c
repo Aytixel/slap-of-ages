@@ -1,7 +1,7 @@
 /**
  * @file character_renderer.c
+ * @author Dureau Arthur, Lucas Dureau
  * @brief Permet de gérer l'affichage des personnages
- * @author Dureau Arthur
  * @version 1.0
  * @date 29/03/2023
  *
@@ -13,82 +13,96 @@
 #include "character_renderer.h"
 #include "character.h"
 
-#define CHARACTER_TILE_SIZE 32
-
-extern character_renderer_t *createCharacterRenderer(window_t *window, map_renderer_t *map_renderer, character_type_e type)
+extern character_renderer_t *createCharacterRenderer(window_t *window, map_renderer_t *map_renderer)
 {
     character_renderer_t *character_renderer = malloc(sizeof(character_renderer_t));
 
     character_renderer->map_renderer = map_renderer;
 
-    switch (type)
-    {
-    case DAEMON_CHARACTER:
-        character_renderer->sprite = loadSprite(window, "asset/sprite/characters/daemon.png");
-        int daemon_frame_rate = 10;
-        int daemon_tile_size = CHARACTER_TILE_SIZE;
-        int daemon_states[] = {6, 6, 4, 8, -1};
-        anim_t *daemon_animation = createAnim(daemon_tile_size,
-                                              daemon_states,
-                                              character_renderer->sprite,
-                                              daemon_frame_rate);
+    // giant
+    character_renderer->animations.giant.sprite = loadSprite(window, "asset/sprite/characters/giant_goblin.png");
 
-        daemon_animation->current_state = DAEMON_IDLE_ANIM;
-        character_renderer->animation = daemon_animation;
-        break;
-    default:
-        character_renderer->sprite = NULL;
-        break;
-    }
-
-    if (character_renderer->sprite == NULL)
+    if (character_renderer->animations.giant.sprite == NULL)
     {
         free(character_renderer);
+
         return NULL;
     }
+
+    character_renderer->animations.giant.fps = 10;
+    character_renderer->animations.giant.tile_size = 32;
+    character_renderer->animations.giant.default_state = GOBLIN_GIANT_IDLE_ANIM;
+    character_renderer->animations.giant.state_frame_count = malloc(sizeof(int) * 6);
+    int giant_states[] = {2, 8, 7, 4, 6, -1};
+
+    for (int i = 0; i < 6; i++)
+        character_renderer->animations.giant.state_frame_count[i] = giant_states[i];
+
+    // deamon
+    character_renderer->animations.deamon.sprite = loadSprite(window, "asset/sprite/characters/daemon.png");
+
+    if (character_renderer->animations.deamon.sprite == NULL)
+    {
+        destroySprite(&character_renderer->animations.giant.sprite);
+        free(character_renderer->animations.giant.state_frame_count);
+        free(character_renderer);
+
+        return NULL;
+    }
+
+    character_renderer->animations.deamon.fps = 10;
+    character_renderer->animations.deamon.tile_size = 32;
+    character_renderer->animations.deamon.default_state = DAEMON_IDLE_ANIM;
+    character_renderer->animations.deamon.state_frame_count = malloc(sizeof(int) * 5);
+    int daemon_states[] = {6, 6, 4, 8, -1};
+
+    for (int i = 0; i < 5; i++)
+        character_renderer->animations.deamon.state_frame_count[i] = daemon_states[i];
+
+    // rat
+    character_renderer->animations.rat.sprite = loadSprite(window, "asset/sprite/characters/ratfolk_axe.png");
+
+    if (character_renderer->animations.rat.sprite == NULL)
+    {
+        destroySprite(&character_renderer->animations.giant.sprite);
+        destroySprite(&character_renderer->animations.deamon.sprite);
+        free(character_renderer->animations.giant.state_frame_count);
+        free(character_renderer->animations.deamon.state_frame_count);
+        free(character_renderer);
+
+        return NULL;
+    }
+
+    character_renderer->animations.rat.fps = 10;
+    character_renderer->animations.rat.tile_size = 32;
+    character_renderer->animations.rat.default_state = RAT_IDLE_ANIM;
+    character_renderer->animations.rat.state_frame_count = malloc(sizeof(int) * 6);
+    int rat_states[] = {4, 8, 12, 4, 5, -1};
+
+    for (int i = 0; i < 6; i++)
+        character_renderer->animations.rat.state_frame_count[i] = rat_states[i];
 
     return character_renderer;
 }
 
-extern int canRenderCharacter(character_renderer_t *character_renderer, SDL_Point *position, character_type_e character_type)
+extern int canRenderCharacter(character_renderer_t *character_renderer, SDL_Point *position)
 {
-    return position->x >= -2 &&
-           position->y >= -2 &&
-           position->x < MAP_SIZE + 2 &&
-           position->y < MAP_SIZE + 2;
+    return position->x >= -CHARACTER_PLACEMENT_MARGIN &&
+           position->y >= -CHARACTER_PLACEMENT_MARGIN &&
+           position->x < MAP_SIZE + CHARACTER_PLACEMENT_MARGIN &&
+           position->y < MAP_SIZE + CHARACTER_PLACEMENT_MARGIN;
 }
 
-extern int renderCharacter(window_t *window, character_renderer_t *character_renderer, character_t *character, SDL_Rect *destination_rect)
+extern int renderCharacter(window_t *window, character_renderer_t *character_renderer, character_t *character)
 {
-    SDL_Point position = character->position; // map_renderer->tile_size
-    // SDL_FPoint
-    position.x *= character_renderer->map_renderer->tile_size;
-    position.y *= character_renderer->map_renderer->tile_size;
-    position.x -= character_renderer->map_renderer->offset_from_center;
-    position.y -= character_renderer->map_renderer->offset_from_center;
-    position.x += character_renderer->map_renderer->tile_size / 2;
-    position.y += character_renderer->map_renderer->tile_size;
-    character_type_e character_type = character->type;
-
-    if (!canRenderCharacter(character_renderer, &character->position, character_type))
-    {
+    if (!canRenderCharacter(character_renderer, &character->position))
         return 0;
-    }
 
-    /*
-    SDL_Rect current_frame_rect = character_renderer->animation->frame_rect;
-    *destination_rect = positionFromCenter(
-        window,
-        character_renderer->map_renderer->tile_size * current_frame_rect.w,
-        character_renderer->map_renderer->tile_size * current_frame_rect.h,
-        character_renderer->map_renderer->tile_size * position->x - character_renderer->map_renderer->offset_from_center,
-        character_renderer->map_renderer->tile_size * position->y - character_renderer->map_renderer->offset_from_center,
-        TRANSFORM_ORIGIN_CENTER);
+    SDL_Point position = {
+        character->position.x * character_renderer->map_renderer->tile_size - character_renderer->map_renderer->offset_from_center + character_renderer->map_renderer->tile_size / 2,
+        character->position.y * character_renderer->map_renderer->tile_size - character_renderer->map_renderer->offset_from_center + character_renderer->map_renderer->tile_size};
 
-    SDL_Point destination_point = {destination_rect->x, destination_rect->y};
-    */
-
-    updateAnim(character_renderer->animation, character_renderer->animation->current_state, character_renderer->map_renderer->tile_size, &position, window, TRANSFORM_ORIGIN_BOTTOM);
+    updateAnimation(character->animation, character->animation->current_state, character_renderer->map_renderer->tile_size, &position, window, TRANSFORM_ORIGIN_BOTTOM);
 
     return 1;
 }
@@ -98,7 +112,12 @@ extern int deleteCharacterRenderer(character_renderer_t **character_renderer)
     if (character_renderer == NULL || *character_renderer == NULL)
         return -1;
 
-    destroySprite(&(*character_renderer)->sprite);
+    destroySprite(&(*character_renderer)->animations.giant.sprite);
+    destroySprite(&(*character_renderer)->animations.deamon.sprite);
+    destroySprite(&(*character_renderer)->animations.rat.sprite);
+    free((*character_renderer)->animations.giant.state_frame_count);
+    free((*character_renderer)->animations.deamon.state_frame_count);
+    free((*character_renderer)->animations.rat.state_frame_count);
     free(*character_renderer);
     *character_renderer = NULL;
 

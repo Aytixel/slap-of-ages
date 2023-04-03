@@ -40,13 +40,13 @@ void initFrames(SDL_Rect *tab, int max_frames, int nb_frames, sprite_t *sprite, 
     }
 }
 
-extern anim_t *createAnim(int tile_size, int *state_frame_count, sprite_t *sprite, int frame_rate)
+extern animation_t *createAnimation(int tile_size, int *state_frame_count, sprite_t *sprite, int frame_rate)
 {
 
     int max_frames = 0;
     int state_count = 0;
 
-    anim_t *anim = malloc(sizeof(anim_t));
+    animation_t *anim = malloc(sizeof(animation_t));
 
     for (int i = 0; state_frame_count[i] > 0; i++)
     {
@@ -91,7 +91,7 @@ extern anim_t *createAnim(int tile_size, int *state_frame_count, sprite_t *sprit
     return anim;
 }
 
-extern int destroyAnim(anim_t **anim)
+extern int destroyAnimationWithoutSprite(animation_t **anim)
 {
     if (anim == NULL || *anim == NULL)
         return -1;
@@ -103,7 +103,6 @@ extern int destroyAnim(anim_t **anim)
         free((*anim)->state_frames[i]);
     }
 
-    destroySprite(&(*anim)->sprite);
     deleteTimer(&(*anim)->timer);
 
     free((*anim)->state_frames);
@@ -113,7 +112,17 @@ extern int destroyAnim(anim_t **anim)
     return 0;
 }
 
-extern int updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window, transform_origin_e origin)
+extern int destroyAnimation(animation_t **anim)
+{
+    if (anim == NULL || *anim == NULL)
+        return -1;
+
+    destroySprite(&(*anim)->sprite);
+
+    return destroyAnimationWithoutSprite(anim);
+}
+
+extern int updateAnimation(animation_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window, transform_origin_e origin)
 {
     if (anim == NULL)
         return -1;
