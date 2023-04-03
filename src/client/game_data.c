@@ -21,8 +21,10 @@ extern client_game_data_t *createGameData()
     game_data->selected_building_type = HOUSE_1_BUILDING;
     game_data->map_building = createBuildingMatrix();
     game_data->character_matrix = createCharacterMatrix();
-    game_data->gold_count = 1000;
+    game_data->gold_count = DEFAULT_GOLD_COUNT;
     game_data->gold_cost = 0;
+    game_data->elixir_count = DEFAULT_ELIXIR_COUNT;
+    game_data->elixir_cost = 0;
     game_data->win_count = 0;
     game_data->timer = NULL;
     game_data->opponent_pseudo = NULL;

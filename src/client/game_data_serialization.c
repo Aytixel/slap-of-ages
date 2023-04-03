@@ -38,6 +38,11 @@ extern int serializeGameData(client_game_data_t *game_data)
         fclose(file);
         return -1;
     }
+    if (fwrite(&game_data->elixir_count, sizeof(int), 1, file) != 1)
+    {
+        fclose(file);
+        return -1;
+    }
     if (fwrite(&game_data->win_count, sizeof(int), 1, file) != 1)
     {
         fclose(file);
@@ -73,6 +78,7 @@ extern int deserializeGameData(window_t *window, client_game_data_t *game_data)
     uint16_t port;
     char pseudo[PSEUDO_SIZE];
     int gold_count;
+    int elixir_count;
     int win_count;
 
     if (fread(hostname, sizeof(char), HOSTNAME_SIZE, file) != HOSTNAME_SIZE)
@@ -91,6 +97,11 @@ extern int deserializeGameData(window_t *window, client_game_data_t *game_data)
         return -1;
     }
     if (fread(&gold_count, sizeof(int), 1, file) != 1)
+    {
+        fclose(file);
+        return -1;
+    }
+    if (fread(&elixir_count, sizeof(int), 1, file) != 1)
     {
         fclose(file);
         return -1;
@@ -125,6 +136,7 @@ extern int deserializeGameData(window_t *window, client_game_data_t *game_data)
     game_data->port = port;
     strcpy(game_data->pseudo, pseudo);
     game_data->gold_count = gold_count;
+    game_data->elixir_count = elixir_count;
     game_data->win_count = win_count;
 
     return 0;

@@ -34,6 +34,8 @@ typedef struct client_game_data_s
     building_type_e selected_building_type; /**< type de bâtiment sélectionner*/
     int gold_count;                         /**< nombre d'or en la possession du joueur*/
     int gold_cost;                          /**< nombre d'or que coûte le village*/
+    int elixir_count;                       /**< nombre d'élixir en la possession du joueur*/
+    int elixir_cost;                        /**< nombre d'élixir que coûte les troupes*/
     int win_count;                          /**< nombre de victoire*/
     frame_timer_t *timer;                   /**< chronomètre de fin de partie*/
     char *opponent_pseudo;                  /**< pseudo du joueur adverse*/

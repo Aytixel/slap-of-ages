@@ -64,6 +64,19 @@ extern void renderHud(window_t *window, hud_t *hud, map_renderer_t *map_renderer
     SDL_RenderCopy(window->renderer, gold_count_sprite->texture, NULL, &gold_count_rect);
     destroySprite(&gold_count_sprite);
 
+    SDL_itoa(game_data->elixir_count - game_data->elixir_cost, text, 10);
+    sprite_t *elixir_count_sprite = createTextSprite(window, hud->text_font, strcat(text, " ex"), hud->text_color);
+    SDL_Rect elixir_count_rect = positionFromCenter(
+        window,
+        elixir_count_sprite->width * scale_factor,
+        elixir_count_sprite->height * scale_factor,
+        map_renderer->offset_from_center + 32 * scale_factor,
+        -map_renderer->offset_from_center - 32 * scale_factor,
+        TRANSFORM_ORIGIN_BOTTOM_RIGHT);
+
+    SDL_RenderCopy(window->renderer, elixir_count_sprite->texture, NULL, &elixir_count_rect);
+    destroySprite(&elixir_count_sprite);
+
     strcpy(text, "victoire ");
     SDL_itoa(game_data->win_count, number_text, 10);
     sprite_t *win_count_sprite = createTextSprite(window, hud->text_font, strcat(text, number_text), hud->text_color);
