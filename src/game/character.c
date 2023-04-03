@@ -157,8 +157,7 @@ extern void removeCharacterFromList(character_list_t *character_list, character_
 extern int canPlaceCharacter(character_renderer_t *character_renderer, SDL_Point *position, building_t ***building_matrix, character_list_t *character_list)
 {
     if (canRenderCharacter(character_renderer, position) &&
-        getBuildingWithPoint(building_matrix, position) == NULL &&
-        getCharacterWithPoint(character_list, position) == NULL)
+        getBuildingWithPoint(building_matrix, position) == NULL)
         return 1;
 
     return 0;
