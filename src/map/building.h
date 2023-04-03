@@ -40,7 +40,7 @@ extern building_t *createBuilding(building_type_e type, SDL_Point *position, win
 /**
  * @brief Récupère le prix d'un bâtiment
  *
- * @param type le type de bâtiment qui doit être placé
+ * @param type le type de bâtiment
  * @return coût du bâtiment en or
  */
 extern int getBuildingGoldCost(building_type_e type);
@@ -82,7 +82,7 @@ extern void buildingTakesDamages(building_t ***matrix, building_t *building, int
  *
  * @param building_matrix matrice contenant la totalité des bâtiments placés sur la carte
  */
-extern void clearMatrix(building_t ***building_matrix);
+extern void clearBuildingMatrix(building_t ***building_matrix);
 
 /**
  * @brief Détruit la matrice de bâtiments

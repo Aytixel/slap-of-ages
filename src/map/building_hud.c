@@ -27,13 +27,13 @@ extern building_hud_t *createBuildingHud(window_t *window)
     SDL_Color selected_text_color = {52, 36, 20, 0};
 
     building_hud->text_color = text_color;
-    building_hud->house_1_button = createButton(window, building_hud->text_font, "30", text_color, selected_text_color);
-    building_hud->house_2_button = createButton(window, building_hud->text_font, "30", text_color, selected_text_color);
-    building_hud->house_3_button = createButton(window, building_hud->text_font, "30", text_color, selected_text_color);
+    building_hud->house_1_button = createButton(window, building_hud->text_font, "20", text_color, selected_text_color);
+    building_hud->house_2_button = createButton(window, building_hud->text_font, "40", text_color, selected_text_color);
+    building_hud->house_3_button = createButton(window, building_hud->text_font, "100", text_color, selected_text_color);
     building_hud->mill_button = createButton(window, building_hud->text_font, "100", text_color, selected_text_color);
     building_hud->mine_button = createButton(window, building_hud->text_font, "100", text_color, selected_text_color);
     building_hud->field_button = createButton(window, building_hud->text_font, "10", text_color, selected_text_color);
-    building_hud->well_button = createButton(window, building_hud->text_font, "20", text_color, selected_text_color);
+    building_hud->well_button = createButton(window, building_hud->text_font, "40", text_color, selected_text_color);
     building_hud->corner_wall_button = createButton(window, building_hud->text_font, "10", text_color, selected_text_color);
     building_hud->vertical_wall_button = createButton(window, building_hud->text_font, "10", text_color, selected_text_color);
     building_hud->horizontal_wall_button = createButton(window, building_hud->text_font, "10", text_color, selected_text_color);

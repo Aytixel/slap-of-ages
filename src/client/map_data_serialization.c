@@ -44,7 +44,7 @@ extern int deserializeMapData(void *data, int data_length, window_t *window, bui
     memcpy(gold_cost, data, sizeof(int));
     data_size += sizeof(int);
 
-    clearMatrix(map_building);
+    clearBuildingMatrix(map_building);
 
     char type;
 

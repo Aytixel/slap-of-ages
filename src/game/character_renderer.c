@@ -29,7 +29,7 @@ extern character_renderer_t *createCharacterRenderer(window_t *window, map_rende
         return NULL;
     }
 
-    character_renderer->animations.giant.fps = 10;
+    character_renderer->animations.giant.fps = 4;
     character_renderer->animations.giant.tile_size = 32;
     character_renderer->animations.giant.default_state = GOBLIN_GIANT_IDLE_ANIM;
     character_renderer->animations.giant.state_frame_count = malloc(sizeof(int) * 6);
@@ -50,7 +50,7 @@ extern character_renderer_t *createCharacterRenderer(window_t *window, map_rende
         return NULL;
     }
 
-    character_renderer->animations.deamon.fps = 10;
+    character_renderer->animations.deamon.fps = 8;
     character_renderer->animations.deamon.tile_size = 32;
     character_renderer->animations.deamon.default_state = DAEMON_IDLE_ANIM;
     character_renderer->animations.deamon.state_frame_count = malloc(sizeof(int) * 5);
@@ -73,7 +73,7 @@ extern character_renderer_t *createCharacterRenderer(window_t *window, map_rende
         return NULL;
     }
 
-    character_renderer->animations.rat.fps = 10;
+    character_renderer->animations.rat.fps = 8;
     character_renderer->animations.rat.tile_size = 32;
     character_renderer->animations.rat.default_state = RAT_IDLE_ANIM;
     character_renderer->animations.rat.state_frame_count = malloc(sizeof(int) * 6);

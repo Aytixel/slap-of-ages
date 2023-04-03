@@ -35,10 +35,10 @@ extern building_t *createBuilding(building_type_e type, SDL_Point *position, win
     case WELL_BUILDING:
         building->max_hp = 100;
         break;
-    case MILL_BUILDING:
     case MINE_BUILDING:
-        building->max_hp = 150;
+        building->max_hp = 210;
         break;
+    case MILL_BUILDING:
     case FIELD_BUILDING:
         building->max_hp = 50;
         break;
@@ -60,14 +60,14 @@ extern int getBuildingGoldCost(building_type_e type)
 {
     switch (type)
     {
-    case HOUSE_1_BUILDING:
-    case HOUSE_2_BUILDING:
-    case HOUSE_3_BUILDING:
-        return 30;
     case WELL_BUILDING:
+    case HOUSE_2_BUILDING:
+        return 40;
+    case HOUSE_1_BUILDING:
         return 20;
     case MILL_BUILDING:
     case MINE_BUILDING:
+    case HOUSE_3_BUILDING:
         return 100;
     case CORNER_WALL_BUILDING:
     case VERTICAL_WALL_BUILDING:
@@ -166,7 +166,7 @@ extern void buildingTakesDamages(building_t ***matrix, building_t *building, int
     }
 }
 
-extern void clearMatrix(building_t ***building_matrix)
+extern void clearBuildingMatrix(building_t ***building_matrix)
 {
     for (int i = 0; i < MAP_SIZE; i++)
     {
@@ -182,7 +182,7 @@ extern void clearMatrix(building_t ***building_matrix)
 
 extern void destroyBuildingMatrix(building_t ****building_matrix)
 {
-    clearMatrix(*building_matrix);
+    clearBuildingMatrix(*building_matrix);
 
     for (int i = 0; i < MAP_SIZE; i++)
     {

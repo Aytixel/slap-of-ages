@@ -28,6 +28,7 @@ void windowEventHandler(
     client_game_data_t *game_data,
     building_hud_t *building_hud,
     building_renderer_t *building_renderer,
+    character_renderer_t *character_renderer,
     menu_t *menu,
     hud_t *hud)
 {
@@ -84,6 +85,9 @@ void windowEventHandler(
             buildingEventHandler(event, game_data, building_renderer, window);
             buildingHudEventHandler(event, building_hud, game_data);
             break;
+        case COMBAT_GAME_STATE:
+            characterEventHandler(event, game_data, character_renderer, window);
+            break;
         default:
             break;
         }
@@ -91,7 +95,7 @@ void windowEventHandler(
     }
 }
 
-void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_data)
+void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_data, character_renderer_t *character_renderer)
 {
     char title[150] = "";
 
@@ -107,6 +111,7 @@ void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_
     case SET_MAP_PACKET_ID:
         readSetMapPacket(packet, window, game_data);
         startGame(client, game_data);
+        addDefenceCharacter(character_renderer, game_data);
         printf("Partie lancé\n");
         break;
     case HAS_PLAYER_WON_PACKET_ID:
@@ -121,6 +126,9 @@ void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_
             game_data->win_count++;
 
         serializeGameData(game_data);
+
+        game_data->elixir_cost = 0;
+        clearCharacterList(game_data->character_list);
 
         printf("Gagné : %d, Nombre de victoire : %d\n", has_won, game_data->win_count);
 
@@ -160,6 +168,16 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    character_renderer_t *character_renderer = createCharacterRenderer(window, map_renderer);
+
+    if (character_renderer == NULL)
+    {
+        destroyWindow(&window);
+        deleteMapRenderer(&map_renderer);
+        deleteBuildingRenderer(&building_renderer);
+        return 1;
+    }
+
     initSocket();
 
     frame_timer_t *main_timer = createTimer(1000 / 30);
@@ -171,9 +189,10 @@ int main(int argc, char *argv[])
 
     if (menu == NULL)
     {
-        destroyWindow(&window);
         deleteMapRenderer(&map_renderer);
+        destroyWindow(&window);
         deleteBuildingRenderer(&building_renderer);
+        deleteCharacterRenderer(&character_renderer);
         return 1;
     }
 
@@ -184,6 +203,7 @@ int main(int argc, char *argv[])
         destroyWindow(&window);
         deleteMapRenderer(&map_renderer);
         deleteBuildingRenderer(&building_renderer);
+        deleteCharacterRenderer(&character_renderer);
         deleteMenu(&menu);
         return 1;
     }
@@ -195,6 +215,7 @@ int main(int argc, char *argv[])
         destroyWindow(&window);
         deleteMapRenderer(&map_renderer);
         deleteBuildingRenderer(&building_renderer);
+        deleteCharacterRenderer(&character_renderer);
         deleteMenu(&menu);
         deleteHud(&hud);
         return 1;
@@ -207,7 +228,7 @@ int main(int argc, char *argv[])
         int time_left = timeLeft(main_timer);
 
         if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
-            windowEventHandler(&event, window, game_data, building_hud, building_renderer, menu, hud);
+            windowEventHandler(&event, window, game_data, building_hud, building_renderer, character_renderer, menu, hud);
 
         if (checkTime(main_timer))
         {
@@ -243,7 +264,7 @@ int main(int argc, char *argv[])
 
                 if (packet != NULL)
                 {
-                    handle_packet(packet, window, game_data);
+                    handle_packet(packet, window, game_data, character_renderer);
                     deletePacket(&packet);
                 }
                 break;
@@ -265,6 +286,9 @@ int main(int argc, char *argv[])
                     renderBuildingHud(window, building_hud, building_renderer);
                     break;
                 case COMBAT_GAME_STATE:
+                    renderBuildingMatrix(window, game_data->opponent_map_building, building_renderer);
+                    renderCharacterList(window, game_data->character_list, character_renderer);
+                    break;
                 case WAITING_RESULT_GAME_STATE:
                     renderBuildingMatrix(window, game_data->opponent_map_building, building_renderer);
                     break;
@@ -290,6 +314,7 @@ int main(int argc, char *argv[])
     deleteGameData(&game_data);
     deleteTimer(&main_timer);
     endSocket();
+    deleteCharacterRenderer(&character_renderer);
     deleteBuildingRenderer(&building_renderer);
     deleteMapRenderer(&map_renderer);
     destroyWindow(&window);

@@ -11,6 +11,7 @@
 #define __CLIENT_GAME_DATA_H
 
 typedef struct building_s building_t;
+typedef struct character_list_s character_list_t;
 
 #include <stdint.h>
 #include "common.h"
@@ -30,7 +31,7 @@ typedef struct client_game_data_s
     uint16_t port;                          /**< port du serveur*/
     char pseudo[PSEUDO_SIZE];               /**< pseudo du joueur*/
     building_t ***map_building;             /**< matrice contenant la totalité des bâtiments placés sur la carte*/
-    character_t ***character_matrix;        /**< matrice contenant la totalité des troupes*/
+    character_list_t *character_list;       /**< liste contenant la totalité des troupes*/
     building_type_e selected_building_type; /**< type de bâtiment sélectionner*/
     int gold_count;                         /**< nombre d'or en la possession du joueur*/
     int gold_cost;                          /**< nombre d'or que coûte le village*/
