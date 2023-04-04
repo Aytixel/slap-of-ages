@@ -18,31 +18,35 @@
 #define START 1
 #define GOAL 2
 
-node_list_t *create_node_list()
+node_list_t *createNodeList()
 {
     node_list_t *list = (node_list_t *)malloc(sizeof(node_list_t));
-    list->nodes = (node_t **)malloc(MAP_SIZE * sizeof(node_t *));
+
     list->size = 0;
     list->capacity = MAP_SIZE;
+    list->nodes = (node_t **)malloc(list->capacity * sizeof(node_t *));
+
     return list;
 }
 
-void clear_node_list(node_list_t *list)
+void clearNodeList(node_list_t *list)
 {
-    do
+    while (list->size > 0)
     {
-        if (list->nodes[--list->size] != NULL)
+        list->size--;
+
+        if (list->nodes[list->size] != NULL)
             free(list->nodes[list->size]);
-    } while (list->size);
+    }
 }
 
-void free_node_list(node_list_t *list)
+void freeNodeList(node_list_t *list)
 {
     free(list->nodes);
     free(list);
 }
 
-void remove_parent_from_list(node_list_t *list, node_t *node)
+void removeParentFromList(node_list_t *list, node_t *node)
 {
     node_t *last_node = NULL;
 
@@ -55,42 +59,47 @@ void remove_parent_from_list(node_list_t *list, node_t *node)
         {
             if (list->nodes[i] == last_node)
             {
-                remove_node(list, i);
+                removeNode(list, i);
                 break;
             }
         }
     }
 }
 
-void add_node(node_list_t *list, node_t *node)
+void addNode(node_list_t *list, node_t *node)
 {
     if (list->size == list->capacity)
     {
         list->capacity *= 2;
         list->nodes = (node_t **)realloc(list->nodes, list->capacity * sizeof(node_t *));
     }
+
     list->nodes[list->size++] = node;
 }
 
-node_t *remove_node(node_list_t *list, int index)
+node_t *removeNode(node_list_t *list, int index)
 {
     node_t *node = list->nodes[index];
+
     list->nodes[index] = list->nodes[--list->size];
+
     return node;
 }
 
-node_t *create_node(SDL_Point position, node_t *parent)
+node_t *createNode(SDL_Point position, node_t *parent)
 {
     node_t *new_node = (node_t *)malloc(sizeof(node_t));
+
     new_node->position = position;
     new_node->g_cost = 0;
     new_node->h_cost = 0;
     new_node->f_cost = 0;
     new_node->parent = parent;
+
     return new_node;
 }
 
-void free_node_path(node_t *node)
+void freeNodePath(node_t *node)
 {
     node_t *last_node = NULL;
 
@@ -107,53 +116,59 @@ float heuristic(node_t *a, node_t *b)
     return sqrtf(powf(a->position.x - b->position.x, 2) + powf(a->position.y - b->position.y, 2));
 }
 
-bool is_valid(SDL_Point position, building_t ***map_building)
+bool isValidNoWall(SDL_Point position)
+{
+    return position.x >= -CHARACTER_PLACEMENT_MARGIN &&
+           position.x < MAP_SIZE + CHARACTER_PLACEMENT_MARGIN &&
+           position.y >= -CHARACTER_PLACEMENT_MARGIN &&
+           position.y < MAP_SIZE + CHARACTER_PLACEMENT_MARGIN;
+}
+
+bool isValid(SDL_Point position, building_t ***map_building)
 {
     if (position.x >= 0 && position.x < MAP_SIZE && position.y >= 0 && position.y < MAP_SIZE)
     {
         if (map_building[position.x][position.y] == NULL)
             return 1;
+
         switch (map_building[position.x][position.y]->type)
         {
         case CORNER_WALL_BUILDING:
         case VERTICAL_WALL_BUILDING:
         case HORIZONTAL_WALL_BUILDING:
-            return 1;
-            break;
-
-        default:
             return 0;
-            break;
+        default:
+            return 1;
         }
     }
 
-    return 0;
+    return isValidNoWall(position);
 }
 
-bool is_valid_no_wall(SDL_Point position)
-{
-    return position.x >= 0 && position.x < MAP_SIZE && position.y >= 0 && position.y < MAP_SIZE;
-}
-
-node_t *a_star(SDL_Point start, SDL_Point goal, building_t ***map_building, int wall)
+node_t *aStar(SDL_Point start, SDL_Point goal, building_t ***map_building, int wall)
 {
 
-    node_t *start_node = create_node(start, NULL);
-    node_t *goal_node = create_node(goal, NULL);
+    node_t *start_node = createNode(start, NULL);
+    node_t *goal_node = createNode(goal, NULL);
 
     // Liste des noeuds à explorer
-    node_list_t *open_list = create_node_list(MAP_SIZE);
-    node_list_t *all_list = create_node_list(MAP_SIZE);
-    add_node(open_list, start_node);
-    add_node(all_list, start_node);
+    node_list_t *open_list = createNodeList();
+    node_list_t *all_list = createNodeList();
+
+    addNode(open_list, start_node);
+    addNode(all_list, start_node);
 
     // Liste des noeuds déjà explorés
-    int **closed_list = malloc(MAP_SIZE * sizeof(void *));
-    for (int i = 0; i < MAP_SIZE; i++)
-    {
-        closed_list[i] = malloc(MAP_SIZE * sizeof(int));
+    int **closed_list = malloc((MAP_SIZE + CHARACTER_PLACEMENT_MARGIN * 2) * sizeof(void *));
 
-        for (int j = 0; j < MAP_SIZE; j++)
+    closed_list += CHARACTER_PLACEMENT_MARGIN;
+
+    for (int i = -CHARACTER_PLACEMENT_MARGIN; i < MAP_SIZE + CHARACTER_PLACEMENT_MARGIN; i++)
+    {
+        closed_list[i] = malloc((MAP_SIZE + CHARACTER_PLACEMENT_MARGIN * 2) * sizeof(int));
+        closed_list[i] += CHARACTER_PLACEMENT_MARGIN;
+
+        for (int j = -CHARACTER_PLACEMENT_MARGIN; j < MAP_SIZE + CHARACTER_PLACEMENT_MARGIN; j++)
         {
             closed_list[i][j] = 0;
         }
@@ -182,21 +197,24 @@ node_t *a_star(SDL_Point start, SDL_Point goal, building_t ***map_building, int 
         // Si on a atteint le node final, on retourne le noeud courant
         if (current_node->position.x == goal_node->position.x && current_node->position.y == goal_node->position.y)
         {
-            for (int i = 0; i < MAP_SIZE; i++)
+            for (int i = -CHARACTER_PLACEMENT_MARGIN; i < MAP_SIZE + CHARACTER_PLACEMENT_MARGIN; i++)
             {
-                free(closed_list[i]);
+                free(closed_list[i] - CHARACTER_PLACEMENT_MARGIN);
             }
-            free(closed_list);
-            remove_parent_from_list(all_list, current_node);
-            clear_node_list(all_list);
-            free_node_list(all_list);
-            free_node_list(open_list);
+
+            free(closed_list - CHARACTER_PLACEMENT_MARGIN);
+            removeParentFromList(all_list, current_node);
+            clearNodeList(all_list);
+            freeNodeList(all_list);
+            freeNodeList(open_list);
             free(goal_node);
+            gotoNextPositionInPath(&current_node);
+
             return current_node;
         }
 
         // On retire le noeud de la liste des noeuds à explorer et on l'ajoute à la liste des noeuds déjà explorés
-        remove_node(open_list, current_index);
+        removeNode(open_list, current_index);
         closed_list[current_node->position.y][current_node->position.x] = 1;
 
         // On explore les voisins du noeud courant
@@ -208,13 +226,13 @@ node_t *a_star(SDL_Point start, SDL_Point goal, building_t ***map_building, int 
             SDL_Point neighbor_position = {new_x, new_y};
 
             // Si le voisin est invalide ou qu'il a déjà été exploré, on passe au voisin suivant
-            int invalid_neighbor = wall == 0 ? !is_valid(neighbor_position, map_building) : !is_valid_no_wall(neighbor_position);
+            int invalid_neighbor = wall ? !isValid(neighbor_position, map_building) : !isValidNoWall(neighbor_position);
 
             if (invalid_neighbor || closed_list[new_y][new_x])
                 continue;
 
             // Calcule du coût du voisin
-            node_t *neighbor = create_node(neighbor_position, current_node);
+            node_t *neighbor = createNode(neighbor_position, current_node);
             neighbor->g_cost = current_node->g_cost + 1;
             neighbor->h_cost = heuristic(neighbor, goal_node);
             neighbor->f_cost = neighbor->g_cost + neighbor->h_cost;
@@ -234,36 +252,55 @@ node_t *a_star(SDL_Point start, SDL_Point goal, building_t ***map_building, int 
             // Sinon, on l'ajoute à la liste des noeuds à explorer
             if (!in_open_list)
             {
-                add_node(open_list, neighbor);
-                add_node(all_list, neighbor);
+                addNode(open_list, neighbor);
+                addNode(all_list, neighbor);
             }
             else
                 free(neighbor);
         }
     }
 
-    for (int i = 0; i < MAP_SIZE; i++)
+    for (int i = -CHARACTER_PLACEMENT_MARGIN; i < MAP_SIZE + CHARACTER_PLACEMENT_MARGIN; i++)
     {
-        free(closed_list[i]);
+        free(closed_list[i] - CHARACTER_PLACEMENT_MARGIN);
     }
-    free(closed_list);
-    clear_node_list(all_list);
-    free_node_list(all_list);
-    free_node_list(open_list);
+
+    free(closed_list - CHARACTER_PLACEMENT_MARGIN);
+    clearNodeList(all_list);
+    freeNodeList(all_list);
+    freeNodeList(open_list);
     free(goal_node);
+
     return NULL;
 }
 
-// Affichage du chemin en coordonnées
-void display_path(node_t *node)
+extern void gotoNextPositionInPath(node_t **node)
 {
-    if (node->parent != NULL)
+    while ((*node)->parent != NULL)
     {
-        display_path(node->parent);
-        printf("-> (%d, %d) ", node->position.x, node->position.y);
+        node = &(*node)->parent;
     }
-    else
+
+    free(*node);
+    *node = NULL;
+}
+
+SDL_Point getNextPositionInPath(node_t *node)
+{
+    while (node->parent != NULL)
     {
-        printf("(%d, %d) ", node->position.x, node->position.y);
+        node = node->parent;
+    }
+
+    return node->position;
+}
+
+// Affichage du chemin en coordonnées
+void displayPath(node_t *node)
+{
+    while (node != NULL)
+    {
+        printf("(%d, %d) <- ", node->position.x, node->position.y);
+        node = node->parent;
     }
 }

@@ -53,7 +53,7 @@ extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
 
   int book_states[] = {4, 4, 1, -1};
   menu->book_animation = createAnimation(16, book_states, loadSprite(window, "asset/sprite/menu/book.png"), 8);
-  menu->book_animation->current_state = BOOK_OPEN_ANIM;
+  changeAnimationState(menu->book_animation, BOOK_OPEN_ANIM);
 
   menu->join_button = createButton(window, menu->text_font, "REJOINDRE", dark_text_color, light_text_color);
   menu->quit_button = createButton(window, menu->text_font, "QUITTER", dark_text_color, light_text_color);
@@ -81,7 +81,7 @@ extern int menuEventHandler(client_game_data_t *game_data, SDL_Event *event, men
   static int selected_textbox = 0;
 
   if (event->type == SDL_QUIT || isMouseClickInRect(*event, menu->quit_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN))
-    menu->book_animation->current_state = BOOK_CLOSE_ANIM;
+    changeAnimationState(menu->book_animation, BOOK_CLOSE_ANIM);
 
   if (isMouseClickInRect(*event, menu->join_button->rect, SDL_BUTTON_LEFT, SDL_MOUSEBUTTONDOWN) && strlen(menu->pseudo_textbox->text) >= 3)
   {
@@ -137,10 +137,10 @@ extern int menuRenderer(window_t *window, menu_t *menu)
 
   // Affichage de l'image de fond
   SDL_Point book_position = {0, 0};
-  if (updateAnimation(menu->book_animation, menu->book_animation->current_state, scale_factor * 70, &book_position, window, TRANSFORM_ORIGIN_CENTER) == 1)
+  if (updateAnimation(menu->book_animation, scale_factor * 70, &book_position, window, TRANSFORM_ORIGIN_CENTER) == 1)
   {
     if (menu->book_animation->current_state == BOOK_OPEN_ANIM)
-      menu->book_animation->current_state = BOOK_OPENED_ANIM;
+      changeAnimationState(menu->book_animation, BOOK_OPENED_ANIM);
     else if (menu->book_animation->current_state == BOOK_CLOSE_ANIM)
       return 0;
   }

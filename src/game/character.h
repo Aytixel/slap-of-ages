@@ -10,13 +10,14 @@
 #ifndef __CHARACTER_H
 #define __CHARACTER_H
 
+typedef struct node_s node_t;
+
 #include "character_renderer.h"
 #include "map/map_renderer.h"
 #include "client/game_data.h"
 #include "window/animation.h"
 #include "window/animation_states.h"
-
-#include <SDL2/SDL.h>
+#include "game/game.h"
 
 /**
  * @brief Structure contenant les données d'une troupe
@@ -25,12 +26,13 @@
 typedef struct character_s
 {
     character_type_e type;  /**< type de troupe*/
-    SDL_Point position;     /**< position de la troupe*/
+    SDL_FPoint position;    /**< position de la troupe*/
     animation_t *animation; /**< animation de la troupe*/
     int hp;                 /**< point de vie de la troupe*/
     int attack;             /**< point d'attack de la troupe*/
     int speed;              /**< vitesse de la troupe*/
     int is_defender;        /**< indique si la troupe est défenseure*/
+    node_t *path;           /**< chemin jusqu'à la cible*/
 } character_t;
 
 /**
@@ -153,6 +155,13 @@ extern character_t *getCharacterWithPoint(character_list_t *character_list, SDL_
  * @param game_data un pointeur sur les données du jeu
  */
 extern void addDefenceCharacter(character_renderer_t *character_renderer, client_game_data_t *game_data);
+
+/**
+ * @brief Met à jours les troupes
+ *
+ * @param game_data un pointeur sur les données du jeu
+ */
+extern void updateCharacter(client_game_data_t *game_data);
 
 /**
  * @brief Fonction d'écoute des événements du système de placement de troupe

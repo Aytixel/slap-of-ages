@@ -38,10 +38,10 @@ extern character_renderer_t *createCharacterRenderer(window_t *window, map_rende
     for (int i = 0; i < 6; i++)
         character_renderer->animations.giant.state_frame_count[i] = giant_states[i];
 
-    // deamon
-    character_renderer->animations.deamon.sprite = loadSprite(window, "asset/sprite/characters/daemon.png");
+    // daemon
+    character_renderer->animations.daemon.sprite = loadSprite(window, "asset/sprite/characters/daemon.png");
 
-    if (character_renderer->animations.deamon.sprite == NULL)
+    if (character_renderer->animations.daemon.sprite == NULL)
     {
         destroySprite(&character_renderer->animations.giant.sprite);
         free(character_renderer->animations.giant.state_frame_count);
@@ -50,14 +50,14 @@ extern character_renderer_t *createCharacterRenderer(window_t *window, map_rende
         return NULL;
     }
 
-    character_renderer->animations.deamon.fps = 8;
-    character_renderer->animations.deamon.tile_size = 32;
-    character_renderer->animations.deamon.default_state = DAEMON_IDLE_ANIM;
-    character_renderer->animations.deamon.state_frame_count = malloc(sizeof(int) * 5);
+    character_renderer->animations.daemon.fps = 8;
+    character_renderer->animations.daemon.tile_size = 32;
+    character_renderer->animations.daemon.default_state = DAEMON_IDLE_ANIM;
+    character_renderer->animations.daemon.state_frame_count = malloc(sizeof(int) * 5);
     int daemon_states[] = {6, 6, 4, 8, -1};
 
     for (int i = 0; i < 5; i++)
-        character_renderer->animations.deamon.state_frame_count[i] = daemon_states[i];
+        character_renderer->animations.daemon.state_frame_count[i] = daemon_states[i];
 
     // rat
     character_renderer->animations.rat.sprite = loadSprite(window, "asset/sprite/characters/ratfolk_axe.png");
@@ -65,9 +65,9 @@ extern character_renderer_t *createCharacterRenderer(window_t *window, map_rende
     if (character_renderer->animations.rat.sprite == NULL)
     {
         destroySprite(&character_renderer->animations.giant.sprite);
-        destroySprite(&character_renderer->animations.deamon.sprite);
+        destroySprite(&character_renderer->animations.daemon.sprite);
         free(character_renderer->animations.giant.state_frame_count);
-        free(character_renderer->animations.deamon.state_frame_count);
+        free(character_renderer->animations.daemon.state_frame_count);
         free(character_renderer);
 
         return NULL;
@@ -95,14 +95,16 @@ extern int canRenderCharacter(character_renderer_t *character_renderer, SDL_Poin
 
 extern int renderCharacter(window_t *window, character_renderer_t *character_renderer, character_t *character)
 {
-    if (!canRenderCharacter(character_renderer, &character->position))
+    SDL_Point character_position = {character->position.x, character->position.y};
+
+    if (!canRenderCharacter(character_renderer, &character_position))
         return 0;
 
     SDL_Point position = {
         character->position.x * character_renderer->map_renderer->tile_size - character_renderer->map_renderer->offset_from_center + character_renderer->map_renderer->tile_size / 2,
         character->position.y * character_renderer->map_renderer->tile_size - character_renderer->map_renderer->offset_from_center + character_renderer->map_renderer->tile_size};
 
-    updateAnimation(character->animation, character->animation->current_state, character_renderer->map_renderer->tile_size, &position, window, TRANSFORM_ORIGIN_BOTTOM);
+    updateAnimation(character->animation, character_renderer->map_renderer->tile_size, &position, window, TRANSFORM_ORIGIN_BOTTOM);
 
     return 1;
 }
@@ -113,10 +115,10 @@ extern int deleteCharacterRenderer(character_renderer_t **character_renderer)
         return -1;
 
     destroySprite(&(*character_renderer)->animations.giant.sprite);
-    destroySprite(&(*character_renderer)->animations.deamon.sprite);
+    destroySprite(&(*character_renderer)->animations.daemon.sprite);
     destroySprite(&(*character_renderer)->animations.rat.sprite);
     free((*character_renderer)->animations.giant.state_frame_count);
-    free((*character_renderer)->animations.deamon.state_frame_count);
+    free((*character_renderer)->animations.daemon.state_frame_count);
     free((*character_renderer)->animations.rat.state_frame_count);
     free(*character_renderer);
     *character_renderer = NULL;

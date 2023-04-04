@@ -21,8 +21,10 @@ extern character_t *createCharacter(character_renderer_t *character_renderer, ch
     character_t *character = malloc(sizeof(character_t));
 
     character->type = type;
-    character->position = *position;
+    character->position.x = position->x;
+    character->position.y = position->y;
     character->is_defender = is_defender;
+    character->path = NULL;
 
     float health_multiplier = is_defender ? 1.7 : 1;
     float attack_multiplier = is_defender ? 1.4 : 1;
@@ -44,10 +46,10 @@ extern character_t *createCharacter(character_renderer_t *character_renderer, ch
         character->attack = 45.0 * attack_multiplier;
         character->speed = 2;
         character->animation = createAnimation(
-            character_renderer->animations.deamon.tile_size,
-            character_renderer->animations.deamon.state_frame_count,
-            character_renderer->animations.deamon.sprite,
-            character_renderer->animations.deamon.fps);
+            character_renderer->animations.daemon.tile_size,
+            character_renderer->animations.daemon.state_frame_count,
+            character_renderer->animations.daemon.sprite,
+            character_renderer->animations.daemon.fps);
         break;
     case RAT_CHARACTER:
         character->hp = 35.0 * health_multiplier;
@@ -104,6 +106,9 @@ extern void destroyCharacter(character_t **character)
         return;
 
     destroyAnimationWithoutSprite(&(*character)->animation);
+
+    if ((*character)->path != NULL)
+        freeNodePath((*character)->path);
 
     free(*character);
     *character = NULL;
@@ -207,6 +212,105 @@ extern void addDefenceCharacter(character_renderer_t *character_renderer, client
                 default:
                     break;
                 }
+            }
+        }
+    }
+}
+
+extern void updateCharacter(client_game_data_t *game_data)
+{
+    for (int i = 0; i < game_data->character_list->count; i++)
+    {
+        character_t *character = game_data->character_list->list[i];
+
+        if (character->path == NULL)
+        {
+            SDL_Point start = {character->position.x, character->position.y};
+            SDL_Point goal = {0, 0};
+
+            switch (character->type)
+            {
+            case DAEMON_CHARACTER:
+                character->path = aStar(start, goal, game_data->map_building, 0);
+                break;
+            case GIANT_CHARACTER:
+            case RAT_CHARACTER:
+                character->path = aStar(start, goal, game_data->map_building, 1);
+
+                if (character->path == NULL)
+                    character->path = aStar(start, goal, game_data->map_building, 0);
+                break;
+            }
+        }
+        else
+        {
+            SDL_Point position = getNextPositionInPath(character->path);
+            int x_diff = position.x - (int)character->position.x;
+            int y_diff = position.y - (int)character->position.y;
+            float displacement = (float)character->speed / 30;
+
+            if (x_diff > 0)
+            {
+                character->position.x += displacement;
+
+                if (character->position.x > position.x)
+                    character->position.x = position.x;
+            }
+            else
+            {
+                character->position.x -= displacement;
+
+                if (character->position.x < position.x)
+                    character->position.x = position.x;
+            }
+
+            if (y_diff > 0)
+            {
+                character->position.y += displacement;
+
+                if (character->position.y > position.y)
+                    character->position.y = position.y;
+            }
+            else
+            {
+                character->position.y -= displacement;
+
+                if (character->position.y < position.y)
+                    character->position.y = position.y;
+            }
+
+            if (x_diff == 0 && y_diff == 0)
+                gotoNextPositionInPath(&character->path);
+        }
+
+        if (character->path != NULL)
+        {
+            switch (character->type)
+            {
+            case GIANT_CHARACTER:
+                changeAnimationState(character->animation, GOBLIN_GIANT_MOVE_ANIM);
+                break;
+            case DAEMON_CHARACTER:
+                changeAnimationState(character->animation, DAEMON_MOVE_ANIM);
+                break;
+            case RAT_CHARACTER:
+                changeAnimationState(character->animation, RAT_MOVE_ANIM);
+                break;
+            }
+        }
+        else
+        {
+            switch (character->type)
+            {
+            case GIANT_CHARACTER:
+                changeAnimationState(character->animation, GOBLIN_GIANT_IDLE_ANIM);
+                break;
+            case DAEMON_CHARACTER:
+                changeAnimationState(character->animation, DAEMON_IDLE_ANIM);
+                break;
+            case RAT_CHARACTER:
+                changeAnimationState(character->animation, RAT_IDLE_ANIM);
+                break;
             }
         }
     }

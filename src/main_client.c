@@ -260,6 +260,9 @@ int main(int argc, char *argv[])
 
                 checkClientGameTimeout(client, game_data);
 
+                if (game_data->state == COMBAT_GAME_STATE)
+                    updateCharacter(game_data);
+
                 packet_t *packet = recvFromServer(client);
 
                 if (packet != NULL)

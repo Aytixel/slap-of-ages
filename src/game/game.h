@@ -49,21 +49,21 @@ typedef struct
  *
  * @return node_list*
  */
-extern node_list_t *create_node_list();
+extern node_list_t *createNodeList();
 
 /**
  * @brief Vide une liste de ses noeuds
  *
  * @param list
  */
-extern void clear_node_list(node_list_t *list);
+extern void clearNodeList(node_list_t *list);
 
 /**
  * @brief Libération de la mémoire d'une liste de noeud
  *
  * @param list
  */
-extern void free_node_list(node_list_t *list);
+extern void freeNodeList(node_list_t *list);
 
 /**
  * @brief Suppression de la liste d'un noeud et de ses parents
@@ -71,7 +71,7 @@ extern void free_node_list(node_list_t *list);
  * @param list
  * @param node
  */
-void remove_parent_from_list(node_list_t *list, node_t *node);
+void removeParentFromList(node_list_t *list, node_t *node);
 
 /**
  * @brief Ajout d'un noeud à la liste
@@ -79,7 +79,7 @@ void remove_parent_from_list(node_list_t *list, node_t *node);
  * @param list
  * @param node
  */
-extern void add_node(node_list_t *list, node_t *node);
+extern void addNode(node_list_t *list, node_t *node);
 
 /**
  * @brief Suppression d'un noeud
@@ -88,7 +88,7 @@ extern void add_node(node_list_t *list, node_t *node);
  * @param index
  * @return node*
  */
-extern node_t *remove_node(node_list_t *list, int index);
+extern node_t *removeNode(node_list_t *list, int index);
 
 /**
  * @brief Creation d'une noeud
@@ -97,14 +97,14 @@ extern node_t *remove_node(node_list_t *list, int index);
  * @param parent
  * @return node*
  */
-extern node_t *create_node(SDL_Point position, node_t *parent);
+extern node_t *createNode(SDL_Point position, node_t *parent);
 
 /**
  * @brief Libération de la mémoire d'une node et de ses parent
  *
  * @param node
  */
-extern void free_node_path(node_t *node);
+extern void freeNodePath(node_t *node);
 
 /**
  * @brief Heuristique pour l'algorithme A*
@@ -116,6 +116,16 @@ extern void free_node_path(node_t *node);
 extern float heuristic(node_t *a, node_t *b);
 
 /**
+ * @brief Vérification de la validité d'un node sans les murs
+ *
+ * @param x
+ * @param y
+ * @return true
+ * @return false
+ */
+extern bool isValidNoWall(SDL_Point position);
+
+/**
  * @brief Vérification de la validité d'un node
  *
  * @param x
@@ -124,17 +134,7 @@ extern float heuristic(node_t *a, node_t *b);
  * @return true
  * @return false
  */
-extern bool is_valid(SDL_Point position, building_t ***map_building);
-
-/**
- * @brief Vérification de la validité d'un node sans les murs
- *
- * @param x
- * @param y
- * @return true
- * @return false
- */
-extern bool is_valid_no_wall(SDL_Point position);
+extern bool isValid(SDL_Point position, building_t ***map_building);
 
 /**
  * @brief Algorithme de pathfinding A*
@@ -145,13 +145,28 @@ extern bool is_valid_no_wall(SDL_Point position);
  * @param wall
  * @return node*
  */
-extern node_t *a_star(SDL_Point start, SDL_Point goal, building_t ***map_building, int wall);
+extern node_t *aStar(SDL_Point start, SDL_Point goal, building_t ***map_building, int wall);
+
+/**
+ * @brief Va à la prochaine position dans le chemin en enlevant le noeud courant
+ *
+ * @param node
+ */
+extern void gotoNextPositionInPath(node_t **node);
+
+/**
+ * @brief Récupère la position vers la quelle avancer
+ *
+ * @param node
+ * @return SDL_Point
+ */
+extern SDL_Point getNextPositionInPath(node_t *node);
 
 /**
  * @brief Affichage du chemin
  *
  * @param node
  */
-extern void display_path(node_t *node);
+extern void displayPath(node_t *node);
 
 #endif

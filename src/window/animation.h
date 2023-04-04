@@ -60,10 +60,17 @@ extern int destroyAnimationWithoutSprite(animation_t **anim);
 extern int destroyAnimation(animation_t **anim);
 
 /**
- * @brief Met à jour l'animation en modifiant l'état et la position de l'animation
+ * @brief Change l'état de l'animation
  *
  * @param anim animation à mettre à jour
  * @param new_state nouvel état de l'animation
+ */
+extern void changeAnimationState(animation_t *anim, int new_state);
+
+/**
+ * @brief Met à jour l'animation la position de l'animation
+ *
+ * @param anim animation à mettre à jour
  * @param tile_size taille d'une tuile
  * @param position position de l'animation
  * @param window la fenêtre où l'animation est affichée
@@ -71,6 +78,6 @@ extern int destroyAnimation(animation_t **anim);
  *
  * @return un int valant 1 si l'animation est terminée, -1 si l'animation n'existe pas, 0 sinon
  */
-extern int updateAnimation(animation_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window, transform_origin_e origin);
+extern int updateAnimation(animation_t *anim, int tile_size, SDL_Point *position, window_t *window, transform_origin_e origin);
 
 #endif

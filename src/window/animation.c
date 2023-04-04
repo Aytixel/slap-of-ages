@@ -28,10 +28,8 @@
  */
 void initFrames(SDL_Rect *tab, int max_frames, int nb_frames, sprite_t *sprite, int line, int nb_lines)
 {
-
     for (int i = 0; i < nb_frames; i++)
     {
-
         tab[i].x = (sprite->width / max_frames) * i;
         tab[i].y = (sprite->height / nb_lines) * line;
 
@@ -42,31 +40,27 @@ void initFrames(SDL_Rect *tab, int max_frames, int nb_frames, sprite_t *sprite, 
 
 extern animation_t *createAnimation(int tile_size, int *state_frame_count, sprite_t *sprite, int frame_rate)
 {
-
-    int max_frames = 0;
-    int state_count = 0;
-
     animation_t *anim = malloc(sizeof(animation_t));
+
+    anim->state_count = 0;
 
     for (int i = 0; state_frame_count[i] > 0; i++)
     {
-        state_count++;
+        anim->state_count++;
     }
 
-    anim->state_frame_count = malloc(sizeof(int) * state_count);
+    anim->state_frame_count = malloc(sizeof(int) * anim->state_count);
 
-    for (int i = 0; i < state_count; i++)
+    int max_frames = 0;
+
+    for (int i = 0; i < anim->state_count; i++)
     {
         if (state_frame_count[i] > max_frames)
             max_frames = state_frame_count[i];
-    }
 
-    for (int i = 0; i < state_count; i++)
-    {
         anim->state_frame_count[i] = state_frame_count[i];
     }
 
-    anim->state_count = state_count;
     anim->current_frame = 0;
     anim->current_state = 0;
     anim->sprite = sprite;
@@ -77,12 +71,12 @@ extern animation_t *createAnimation(int tile_size, int *state_frame_count, sprit
 
     anim->timer = createTimer(1000 / frame_rate);
 
-    anim->state_frames = malloc(sizeof(SDL_Rect *) * state_count);
+    anim->state_frames = malloc(sizeof(SDL_Rect *) * anim->state_count);
 
-    for (int i = 0; i < state_count; i++)
+    for (int i = 0; i < anim->state_count; i++)
     {
         anim->state_frames[i] = malloc(sizeof(SDL_Rect) * state_frame_count[i]);
-        initFrames(anim->state_frames[i], max_frames, state_frame_count[i], sprite, i, state_count);
+        initFrames(anim->state_frames[i], max_frames, state_frame_count[i], sprite, i, anim->state_count);
     }
 
     anim->frame_tile_width = anim->state_frames[0][0].w / tile_size;
@@ -122,18 +116,24 @@ extern int destroyAnimation(animation_t **anim)
     return destroyAnimationWithoutSprite(anim);
 }
 
-extern int updateAnimation(animation_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window, transform_origin_e origin)
+extern void changeAnimationState(animation_t *anim, int new_state)
 {
-    if (anim == NULL)
-        return -1;
-
-    if (anim->current_state != new_state)
+    if (anim->current_state != new_state && new_state >= 0 && new_state < anim->state_count)
     {
         anim->current_state = new_state;
         anim->current_frame = 0;
     }
+}
+
+extern int updateAnimation(animation_t *anim, int tile_size, SDL_Point *position, window_t *window, transform_origin_e origin)
+{
+    if (anim == NULL)
+        return -1;
 
     anim->frame_rect = positionFromCenter(window, anim->frame_tile_width * tile_size, anim->frame_tile_height * tile_size, position->x, position->y, origin);
+
+    if (SDL_RectEmpty(&anim->state_frames[anim->current_state][anim->current_frame]))
+        printf("empty %d %d\n", anim->current_state, anim->current_frame);
 
     SDL_RenderCopy(window->renderer, anim->sprite->texture, &anim->state_frames[anim->current_state][anim->current_frame], &anim->frame_rect);
 

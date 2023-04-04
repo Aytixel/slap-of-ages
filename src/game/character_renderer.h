@@ -50,7 +50,7 @@ typedef struct
 typedef struct
 {
     animation_data_t giant;  /**< paramètres d'animation pour le géant goblin*/
-    animation_data_t deamon; /**< paramètres d'animation pour le démon*/
+    animation_data_t daemon; /**< paramètres d'animation pour le démon*/
     animation_data_t rat;    /**< paramètres d'animation pour le rat guerrier*/
 } character_animations_data_t;
 
