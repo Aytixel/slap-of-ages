@@ -30,7 +30,7 @@ typedef struct character_s
     animation_t *animation;          /**< animation de la troupe*/
     int hp;                          /**< point de vie de la troupe*/
     int attack;                      /**< point d'attack de la troupe*/
-    int speed;                       /**< vitesse de la troupe*/
+    float speed;                     /**< vitesse de la troupe*/
     int is_defender;                 /**< indique si la troupe est défenseure*/
     node_t *path;                    /**< chemin jusqu'à la cible*/
     building_t *targeted_building;   /**< bâtiment ciblé*/
