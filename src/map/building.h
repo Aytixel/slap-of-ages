@@ -74,8 +74,9 @@ extern void destroyBuilding(building_t **building);
  * @param game_data un pointeur sur les données du jeu
  * @param building un pointeur sur un bâtiment
  * @param damages les dégâts subis par le bâtiment
+ * @return int
  */
-extern void buildingTakesDamages(client_game_data_t *game_data, building_t *building, int damages);
+extern int buildingTakesDamages(client_game_data_t *game_data, building_t *building, int damages);
 
 /**
  * @brief Permet de détruire tout les bâtiments sur la carte

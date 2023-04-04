@@ -153,7 +153,7 @@ extern void destroyBuilding(building_t **building)
     *building = NULL;
 }
 
-extern void buildingTakesDamages(client_game_data_t *game_data, building_t *building, int damages)
+extern int buildingTakesDamages(client_game_data_t *game_data, building_t *building, int damages)
 {
     building->hp -= damages;
 
@@ -161,7 +161,11 @@ extern void buildingTakesDamages(client_game_data_t *game_data, building_t *buil
     {
         game_data->opponent_gold_cost -= getBuildingGoldCost(building->type);
         removeBuildingFromMatrix(game_data->opponent_map_building, building);
+
+        return 1;
     }
+
+    return 0;
 }
 
 extern void clearBuildingMatrix(building_t ***building_matrix)

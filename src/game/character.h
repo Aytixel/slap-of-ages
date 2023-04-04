@@ -96,8 +96,9 @@ extern void destroyCharacter(character_t **character);
  * @param game_data un pointeur sur les données du jeu
  * @param character un pointeur sur une troupe
  * @param damages les dégâts subis par la troup
+ * @return int
  */
-extern void characterTakesDamages(client_game_data_t *game_data, character_t *character, int damages);
+extern int characterTakesDamages(client_game_data_t *game_data, character_t *character, int damages);
 
 /**
  * @brief Permet de détruire toute les troupes sur la carte
@@ -139,6 +140,15 @@ extern void removeCharacterFromList(character_list_t *character_list, character_
  * @return int
  */
 extern int canPlaceCharacter(character_renderer_t *character_renderer, SDL_Point *position, building_t ***building_matrix, character_list_t *character_list);
+
+/**
+ * @brief Récupère la troupe la plus proche
+ *
+ * @param character_list liste contenant la totalité des troupes
+ * @param character un pointeur sur une troupe
+ * @return character_t*
+ */
+extern character_t *getNearestCharacter(character_list_t *character_list, character_t *character);
 
 /**
  * @brief Récupère la troupe à une position donnée

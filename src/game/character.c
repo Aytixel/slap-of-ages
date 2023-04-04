@@ -116,12 +116,18 @@ extern void destroyCharacter(character_t **character)
     *character = NULL;
 }
 
-extern void characterTakesDamages(client_game_data_t *game_data, character_t *character, int damages)
+extern int characterTakesDamages(client_game_data_t *game_data, character_t *character, int damages)
 {
     character->hp -= damages;
 
     if (character->hp <= 0)
+    {
         removeCharacterFromList(game_data->character_list, character);
+
+        return 1;
+    }
+
+    return 0;
 }
 
 extern void clearCharacterList(character_list_t *character_list)
@@ -178,6 +184,33 @@ extern int canPlaceCharacter(character_renderer_t *character_renderer, SDL_Point
     return 0;
 }
 
+extern character_t *getNearestCharacter(character_list_t *character_list, character_t *character)
+{
+    character_t *nearest_character = NULL;
+    float nearest_distance = 0;
+
+    for (int i = -CHARACTER_PLACEMENT_MARGIN; i < MAP_SIZE + CHARACTER_PLACEMENT_MARGIN; i++)
+    {
+        for (int j = -CHARACTER_PLACEMENT_MARGIN; j < MAP_SIZE + CHARACTER_PLACEMENT_MARGIN; j++)
+        {
+            character_t *character_ = getCharacter(character_list, i, j);
+
+            if (character_ != NULL && character_ != character && character_->is_defender != character->is_defender)
+            {
+                float distance = sqrtf(powf(character_->position.x - (int)character->position.x, 2) + powf(character_->position.y - (int)character->position.y, 2));
+
+                if (nearest_character == NULL || distance < nearest_distance)
+                {
+                    nearest_character = character_;
+                    nearest_distance = distance;
+                }
+            }
+        }
+    }
+
+    return nearest_character;
+}
+
 extern character_t *getCharacter(character_list_t *character_list, int x, int y)
 {
     if (x < 0 || y < 0 || x >= MAP_SIZE || y >= MAP_SIZE)
@@ -228,9 +261,9 @@ extern void addDefenceCharacter(character_renderer_t *character_renderer, client
 }
 
 /**
- * @brief Récupère si la troupe est en train d'attacker
+ * @brief Récupère si la troupe est en train d'attacker un bâtiment
  *
- * @param character
+ * @param character un pointeur sur une troupe
  * @return int
  */
 static int characterAttackingBuilding(character_t *character)
@@ -243,71 +276,220 @@ static int characterAttackingBuilding(character_t *character)
 }
 
 /**
- * @brief Récupère la nouvelle cible d'une troupe
+ * @brief Récupère si la troupe est en train d'attacker une troupe
  *
- * @param game_data
- * @param character
+ * @param character un pointeur sur une troupe
+ * @return int
  */
-static void getCharacterTarget(client_game_data_t *game_data, character_t *character)
+static int characterAttackingCharacter(character_t *character)
 {
-    if (!character->is_defender)
+    return character != NULL &&
+           character->targeted_character != NULL &&
+           (int)character->position.x == (int)character->targeted_character->position.x &&
+           (int)character->position.y == (int)character->targeted_character->position.y;
+}
+
+/**
+ * @brief Inflige des dégats à la cible de la troupe
+ *
+ * @param game_data un pointeur sur les données du jeu
+ * @param character un pointeur sur une troupe
+ * @return int
+ */
+static int characterAttackTarget(client_game_data_t *game_data, character_t *character, int attack_animation_state)
+{
+    if (isAnimationCycleEnded(character->animation))
     {
-        SDL_Point start = {character->position.x, character->position.y};
+        if (characterAttackingBuilding(character) && buildingTakesDamages(game_data, character->targeted_building, character->attack))
+        {
+            for (int i = 0; i < game_data->character_list->count; i++)
+            {
+                if (game_data->character_list->list[i] != character &&
+                    character->targeted_building == game_data->character_list->list[i]->targeted_building)
+                    game_data->character_list->list[i]->targeted_building = NULL;
+            }
+
+            character->targeted_building = NULL;
+        }
+
+        if (characterAttackingCharacter(character) && characterTakesDamages(game_data, character->targeted_character, character->attack))
+        {
+            for (int i = 0; i < game_data->character_list->count; i++)
+            {
+                if (game_data->character_list->list[i] != character &&
+                    character->targeted_character == game_data->character_list->list[i]->targeted_character)
+                    game_data->character_list->list[i]->targeted_character = NULL;
+            }
+
+            character->targeted_character = NULL;
+        }
+    }
+
+    if (characterAttackingBuilding(character) || characterAttackingCharacter(character))
+    {
+        changeAnimationState(character->animation, attack_animation_state);
+
+        return 1;
+    }
+
+    return 0;
+}
+
+/**
+ * @brief Met à jour la cible d'une troupe
+ *
+ * @param game_data un pointeur sur les données du jeu
+ * @param character un pointeur sur une troupe
+ */
+static void
+updateCharacterTarget(client_game_data_t *game_data, character_t *character)
+{
+    SDL_Point start = {character->position.x, character->position.y};
+
+    if (!character->is_defender) // si la troupe est défenseure
+    {
+        character_t *nearest_character = getNearestCharacter(game_data->character_list, character);
+        node_t *nearest_character_path = NULL;
+
+        if (nearest_character != NULL)
+        {
+            SDL_Point goal = {nearest_character->position.x, nearest_character->position.y};
+
+            nearest_character_path = aStar(start, goal, game_data->map_building, 1);
+
+            if (nearest_character_path == NULL)
+            {
+                freeNodePath(nearest_character_path);
+                nearest_character_path = aStar(start, goal, game_data->map_building, 0);
+            }
+        }
 
         building_t *nearest_building = getNearestBuilding(game_data->opponent_map_building, &start, 0);
 
         if (nearest_building == NULL)
             nearest_building = getNearestBuilding(game_data->opponent_map_building, &start, 1);
 
-        character->targeted_building = nearest_building;
+        node_t *nearest_building_path = NULL;
 
         if (nearest_building != NULL)
         {
-            if (characterAttackingBuilding(character))
-            {
-                switch (character->type)
-                {
-                case GIANT_CHARACTER:
-                    changeAnimationState(character->animation, GOBLIN_GIANT_ATTACK_ANIM);
-                    break;
-                case DAEMON_CHARACTER:
-                    changeAnimationState(character->animation, DAEMON_ATTACK_ANIM);
-                    break;
-                case RAT_CHARACTER:
-                    changeAnimationState(character->animation, RAT_ATTACK_ANIM);
-                    break;
-                }
+            nearest_building_path = aStar(start, nearest_building->position, game_data->map_building, 1);
 
-                if (isAnimationCycleEnded(character->animation))
-                    buildingTakesDamages(game_data, nearest_building, character->attack);
+            if (nearest_building_path == NULL)
+            {
+                freeNodePath(nearest_building_path);
+                nearest_building_path = aStar(start, nearest_building->position, game_data->map_building, 0);
+            }
+        }
+
+        character->targeted_building = NULL;
+        character->targeted_character = NULL;
+        freeNodePath(character->path);
+        character->path = NULL;
+
+        if (nearest_building == NULL && nearest_character == NULL)
+            return;
+
+        int attack_animation_state = 0;
+
+        switch (character->type)
+        {
+        case GIANT_CHARACTER:
+            attack_animation_state = GOBLIN_GIANT_ATTACK_ANIM;
+
+            if (nearest_building != NULL)
+            {
+                character->targeted_building = nearest_building;
+                character->path = nearest_building_path;
             }
             else
             {
-                switch (character->type)
-                {
-                case DAEMON_CHARACTER:
-                    character->path = aStar(start, nearest_building->position, game_data->map_building, 0);
-                    break;
-                case GIANT_CHARACTER:
-                case RAT_CHARACTER:
-                    character->path = aStar(start, nearest_building->position, game_data->map_building, 1);
-
-                    if (character->path == NULL)
-                        character->path = aStar(start, nearest_building->position, game_data->map_building, 0);
-                    break;
-                }
+                character->targeted_character = nearest_character;
+                character->path = nearest_character_path;
             }
+            break;
+        case DAEMON_CHARACTER:
+            attack_animation_state = DAEMON_ATTACK_ANIM;
+
+            if (nearest_building != NULL)
+            {
+                character->targeted_building = nearest_building;
+                character->path = nearest_building_path;
+            }
+            else
+            {
+                character->targeted_character = nearest_character;
+                character->path = nearest_character_path;
+            }
+            break;
+        case RAT_CHARACTER:
+            attack_animation_state = RAT_ATTACK_ANIM;
+
+            if (nearest_character != NULL)
+            {
+                character->targeted_character = nearest_character;
+                character->path = nearest_character_path;
+            }
+            else
+            {
+                character->targeted_building = nearest_building;
+                character->path = nearest_building_path;
+            }
+            break;
         }
+
+        if (character->targeted_character == NULL)
+            freeNodePath(nearest_character_path);
+        if (character->targeted_building == NULL)
+            freeNodePath(nearest_building_path);
+
+        characterAttackTarget(game_data, character, attack_animation_state);
+    }
+    else // si la troupe n'est défenseure pas
+    {
+        character_t *nearest_character = getNearestCharacter(game_data->character_list, character);
+        node_t *nearest_character_path = NULL;
+
+        if (nearest_character != NULL)
+        {
+            SDL_Point goal = {nearest_character->position.x, nearest_character->position.y};
+
+            nearest_character_path = aStar(start, goal, game_data->map_building, 0);
+        }
+
+        int attack_animation_state = 0;
+
+        switch (character->type)
+        {
+        case GIANT_CHARACTER:
+            attack_animation_state = GOBLIN_GIANT_ATTACK_ANIM;
+            break;
+        case DAEMON_CHARACTER:
+            attack_animation_state = DAEMON_ATTACK_ANIM;
+            break;
+        case RAT_CHARACTER:
+            attack_animation_state = RAT_ATTACK_ANIM;
+            break;
+        }
+
+        character->targeted_character = nearest_character;
+        freeNodePath(character->path);
+        character->path = nearest_character_path;
+
+        characterAttackTarget(game_data, character, attack_animation_state);
     }
 }
 
 /**
  * @brief Met à jour la position d'une troupe
  *
- * @param character
+ * @param character un pointeur sur une troupe
  */
 static void updateCharacterPosition(character_t *character)
 {
+    if (character->path == NULL)
+        return;
+
     SDL_Point position = getNextPositionInPath(character->path);
     int x_diff = position.x - (int)character->position.x;
     int y_diff = position.y - (int)character->position.y;
@@ -345,37 +527,6 @@ static void updateCharacterPosition(character_t *character)
 
     if (x_diff == 0 && y_diff == 0)
         gotoNextPositionInPath(&character->path);
-
-    if (character->path == NULL)
-    {
-        switch (character->type)
-        {
-        case GIANT_CHARACTER:
-            changeAnimationState(character->animation, GOBLIN_GIANT_IDLE_ANIM);
-            break;
-        case DAEMON_CHARACTER:
-            changeAnimationState(character->animation, DAEMON_IDLE_ANIM);
-            break;
-        case RAT_CHARACTER:
-            changeAnimationState(character->animation, RAT_IDLE_ANIM);
-            break;
-        }
-    }
-    else
-    {
-        switch (character->type)
-        {
-        case GIANT_CHARACTER:
-            changeAnimationState(character->animation, GOBLIN_GIANT_MOVE_ANIM);
-            break;
-        case DAEMON_CHARACTER:
-            changeAnimationState(character->animation, DAEMON_MOVE_ANIM);
-            break;
-        case RAT_CHARACTER:
-            changeAnimationState(character->animation, RAT_MOVE_ANIM);
-            break;
-        }
-    }
 }
 
 extern void updateCharacter(client_game_data_t *game_data)
@@ -384,10 +535,42 @@ extern void updateCharacter(client_game_data_t *game_data)
     {
         character_t *character = game_data->character_list->list[i];
 
-        if (character->path == NULL)
-            getCharacterTarget(game_data, character);
-        else
-            updateCharacterPosition(character);
+        updateCharacterTarget(game_data, character);
+        updateCharacterPosition(character);
+
+        if (!characterAttackingBuilding(character) && !characterAttackingCharacter(character))
+        {
+            if (character->path == NULL)
+            {
+                switch (character->type)
+                {
+                case GIANT_CHARACTER:
+                    changeAnimationState(character->animation, GOBLIN_GIANT_IDLE_ANIM);
+                    break;
+                case DAEMON_CHARACTER:
+                    changeAnimationState(character->animation, DAEMON_IDLE_ANIM);
+                    break;
+                case RAT_CHARACTER:
+                    changeAnimationState(character->animation, RAT_IDLE_ANIM);
+                    break;
+                }
+            }
+            else
+            {
+                switch (character->type)
+                {
+                case GIANT_CHARACTER:
+                    changeAnimationState(character->animation, GOBLIN_GIANT_MOVE_ANIM);
+                    break;
+                case DAEMON_CHARACTER:
+                    changeAnimationState(character->animation, DAEMON_MOVE_ANIM);
+                    break;
+                case RAT_CHARACTER:
+                    changeAnimationState(character->animation, RAT_MOVE_ANIM);
+                    break;
+                }
+            }
+        }
     }
 }
 
