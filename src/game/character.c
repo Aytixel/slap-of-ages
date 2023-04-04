@@ -268,10 +268,10 @@ static int characterAttackingBuilding(character_t *character)
     return character != NULL &&
            !character->is_defender &&
            character->targeted_building != NULL &&
-           (int)character->position.x <= character->targeted_building->position.x + 1 &&
-           (int)character->position.x >= character->targeted_building->position.x - 1 &&
-           (int)character->position.y <= character->targeted_building->position.y + 1 &&
-           (int)character->position.y >= character->targeted_building->position.y - 1;
+           character->targeted_building->position.x <= character->position.x + 1 &&
+           character->targeted_building->position.x >= character->position.x - 1 &&
+           character->targeted_building->position.y <= character->position.y + 1 &&
+           character->targeted_building->position.y >= character->position.y - 1;
 }
 
 /**
@@ -284,10 +284,10 @@ static int characterAttackingCharacter(character_t *character)
 {
     return character != NULL &&
            character->targeted_character != NULL &&
-           (int)character->position.x <= (int)character->targeted_character->position.x + 1 &&
-           (int)character->position.x >= (int)character->targeted_character->position.x - 1 &&
-           (int)character->position.y <= (int)character->targeted_character->position.y + 1 &&
-           (int)character->position.y >= (int)character->targeted_character->position.y - 1;
+           character->targeted_character->position.x <= character->position.x + 1 &&
+           character->targeted_character->position.x >= character->position.x - 1 &&
+           character->targeted_character->position.y <= character->position.y + 1 &&
+           character->targeted_character->position.y >= character->position.y - 1;
 }
 
 /**
@@ -346,154 +346,200 @@ static int characterAttackTarget(client_game_data_t *game_data, character_t *cha
  */
 static void updateCharacterTarget(client_game_data_t *game_data, character_t *character)
 {
+    int attack_animation_state = 0;
+
+    switch (character->type)
+    {
+    case GIANT_CHARACTER:
+        attack_animation_state = GOBLIN_GIANT_ATTACK_ANIM;
+        break;
+    case DAEMON_CHARACTER:
+        attack_animation_state = DAEMON_ATTACK_ANIM;
+        break;
+    case RAT_CHARACTER:
+        attack_animation_state = RAT_ATTACK_ANIM;
+        break;
+    }
+
+    if (characterAttackTarget(game_data, character, attack_animation_state))
+        return;
+
     SDL_Point start = {character->position.x, character->position.y};
 
-    if (!character->is_defender) // si la troupe est défenseure
+    if (character->is_defender) // si la troupe est défenseure
     {
-        character_t *nearest_character = getNearestCharacter(game_data->character_list, character);
-        node_t *nearest_character_path = NULL;
-        building_t *nearest_building = getNearestBuilding(game_data->opponent_map_building, &start, 0);
-        node_t *nearest_building_path = NULL;
-
-        switch (character->type)
-        {
-        case GIANT_CHARACTER:
-        case RAT_CHARACTER:
-            if (nearest_character != NULL)
-            {
-                SDL_Point goal = {nearest_character->position.x, nearest_character->position.y};
-
-                nearest_character_path = aStar(start, goal, game_data->opponent_map_building, 1);
-            }
-
-            if (nearest_building != NULL)
-            {
-                nearest_building_path = aStar(start, nearest_building->position, game_data->opponent_map_building, 1);
-
-                if (nearest_building_path == NULL)
-                {
-                    freeNodePath(nearest_building_path);
-
-                    nearest_building = getNearestBuilding(game_data->opponent_map_building, &start, 1);
-
-                    if (nearest_building != NULL)
-                        nearest_building_path = aStar(start, nearest_building->position, game_data->opponent_map_building, 1);
-                }
-            }
-            else
-            {
-                nearest_building = getNearestBuilding(game_data->opponent_map_building, &start, 1);
-
-                if (nearest_building != NULL)
-                    nearest_building_path = aStar(start, nearest_building->position, game_data->opponent_map_building, 1);
-            }
-            break;
-        case DAEMON_CHARACTER:
-            if (nearest_character != NULL)
-            {
-                SDL_Point goal = {nearest_character->position.x, nearest_character->position.y};
-
-                nearest_character_path = aStar(start, goal, game_data->opponent_map_building, 0);
-            }
-
-            if (nearest_building != NULL)
-                nearest_building_path = aStar(start, nearest_building->position, game_data->opponent_map_building, 0);
-            break;
-        }
-
-        character->targeted_building = NULL;
-        character->targeted_character = NULL;
         freeNodePath(character->path);
+
         character->path = NULL;
-
-        if (nearest_building_path == NULL && nearest_character_path == NULL)
-            return;
-
-        int attack_animation_state = 0;
-
-        switch (character->type)
-        {
-        case GIANT_CHARACTER:
-            attack_animation_state = GOBLIN_GIANT_ATTACK_ANIM;
-
-            if (nearest_building_path != NULL)
-            {
-                character->targeted_building = nearest_building;
-                character->path = nearest_building_path;
-            }
-            else if (nearest_character_path != NULL)
-            {
-                character->targeted_character = nearest_character;
-                character->path = nearest_character_path;
-            }
-            break;
-        case DAEMON_CHARACTER:
-            attack_animation_state = DAEMON_ATTACK_ANIM;
-
-            if (nearest_building_path != NULL)
-            {
-                character->targeted_building = nearest_building;
-                character->path = nearest_building_path;
-            }
-            else if (nearest_character_path != NULL)
-            {
-                character->targeted_character = nearest_character;
-                character->path = nearest_character_path;
-            }
-            break;
-        case RAT_CHARACTER:
-            attack_animation_state = RAT_ATTACK_ANIM;
-
-            if (nearest_character_path != NULL)
-            {
-                character->targeted_character = nearest_character;
-                character->path = nearest_character_path;
-            }
-            else if (nearest_building_path != NULL)
-            {
-                character->targeted_building = nearest_building;
-                character->path = nearest_building_path;
-            }
-            break;
-        }
-
-        if (character->targeted_character == NULL)
-            freeNodePath(nearest_character_path);
-        if (character->targeted_building == NULL)
-            freeNodePath(nearest_building_path);
-
-        characterAttackTarget(game_data, character, attack_animation_state);
-    }
-    else // si la troupe n'est défenseure pas
-    {
-        freeNodePath(character->path);
-
         character->targeted_character = getNearestCharacter(game_data->character_list, character);
-        character->path = NULL;
 
         if (character->targeted_character != NULL)
         {
             SDL_Point goal = {character->targeted_character->position.x, character->targeted_character->position.y};
 
             character->path = aStar(start, goal, game_data->opponent_map_building, 0);
-        }
 
-        int attack_animation_state = 0;
+            if (character->path == NULL)
+                character->targeted_character = NULL;
+        }
+    }
+    else // si la troupe n'est pas défenseure
+    {
+        character_t *nearest_character = getNearestCharacter(game_data->character_list, character);
+        building_t *nearest_building = getNearestBuilding(game_data->opponent_map_building, &start, 0);
+
+        node_t *nearest_building_path = NULL;
+        node_t *nearest_character_path = NULL;
+
+        if (nearest_building == NULL)
+            nearest_building = getNearestBuilding(game_data->opponent_map_building, &start, 1);
 
         switch (character->type)
         {
-        case GIANT_CHARACTER:
-            attack_animation_state = GOBLIN_GIANT_ATTACK_ANIM;
-            break;
         case DAEMON_CHARACTER:
-            attack_animation_state = DAEMON_ATTACK_ANIM;
+            if (nearest_building != NULL)
+            {
+                SDL_Point goal = {nearest_building->position.x, nearest_building->position.y};
+
+                nearest_building_path = aStar(start, goal, game_data->opponent_map_building, 0);
+
+                if (nearest_building_path != NULL)
+                {
+                    freeNodePath(character->path);
+
+                    character->path = NULL;
+                    character->path = nearest_building_path;
+                    character->targeted_building = nearest_building;
+                }
+            }
+            else if (nearest_character != NULL)
+            {
+                SDL_Point goal = {nearest_character->position.x, nearest_character->position.y};
+
+                nearest_character_path = aStar(start, goal, game_data->opponent_map_building, 0);
+
+                if (nearest_character_path != NULL)
+                {
+                    freeNodePath(character->path);
+
+                    character->path = NULL;
+                    character->path = nearest_character_path;
+                    character->targeted_character = nearest_character;
+                }
+            }
+            else
+            {
+                character->targeted_character = NULL;
+                character->targeted_building = NULL;
+            }
+            break;
+        case GIANT_CHARACTER:
+            if (nearest_building != NULL)
+            {
+                SDL_Point goal = {nearest_building->position.x, nearest_building->position.y};
+
+                nearest_building_path = aStar(start, goal, game_data->opponent_map_building, 1);
+
+                if (nearest_building_path != NULL)
+                {
+                    freeNodePath(character->path);
+
+                    character->path = NULL;
+                    character->path = nearest_building_path;
+                    character->targeted_building = nearest_building;
+                }
+                else if ((nearest_building = getNearestBuilding(game_data->opponent_map_building, &start, 1)) != NULL)
+                {
+                    // si on ne trouve pas de chemin vers les bâtiments chemin vers un mur
+                    SDL_Point goal = {nearest_building->position.x, nearest_building->position.y};
+
+                    nearest_building_path = aStar(start, goal, game_data->opponent_map_building, 0);
+
+                    if (nearest_building_path != NULL)
+                    {
+                        freeNodePath(character->path);
+
+                        character->path = NULL;
+                        character->path = nearest_building_path;
+                        character->targeted_building = nearest_building;
+                    }
+                }
+            }
+            else if (nearest_character != NULL)
+            {
+                SDL_Point goal = {nearest_character->position.x, nearest_character->position.y};
+
+                nearest_character_path = aStar(start, goal, game_data->opponent_map_building, 1);
+
+                if (nearest_character_path != NULL)
+                {
+                    freeNodePath(character->path);
+
+                    character->path = NULL;
+                    character->path = nearest_character_path;
+                    character->targeted_character = nearest_character;
+                }
+            }
+            else
+            {
+                character->targeted_character = NULL;
+                character->targeted_building = NULL;
+            }
             break;
         case RAT_CHARACTER:
-            attack_animation_state = RAT_ATTACK_ANIM;
+            if (nearest_character != NULL)
+            {
+                SDL_Point goal = {nearest_character->position.x, nearest_character->position.y};
+
+                nearest_character_path = aStar(start, goal, game_data->opponent_map_building, 1);
+
+                if (nearest_character_path != NULL)
+                {
+                    freeNodePath(character->path);
+
+                    character->path = NULL;
+                    character->path = nearest_character_path;
+                    character->targeted_character = nearest_character;
+                }
+            }
+            else if (nearest_building != NULL)
+            {
+                SDL_Point goal = {nearest_building->position.x, nearest_building->position.y};
+
+                nearest_building_path = aStar(start, goal, game_data->opponent_map_building, 1);
+
+                if (nearest_building_path != NULL)
+                {
+                    freeNodePath(character->path);
+
+                    character->path = NULL;
+                    character->path = nearest_building_path;
+                    character->targeted_building = nearest_building;
+                }
+                else if ((nearest_building = getNearestBuilding(game_data->opponent_map_building, &start, 1)) != NULL)
+                {
+                    // si on ne trouve pas de chemin vers les bâtiments chemin vers un mur
+                    SDL_Point goal = {nearest_building->position.x, nearest_building->position.y};
+
+                    nearest_building_path = aStar(start, goal, game_data->opponent_map_building, 0);
+
+                    if (nearest_building_path != NULL)
+                    {
+                        freeNodePath(character->path);
+
+                        character->path = NULL;
+                        character->path = nearest_building_path;
+                        character->targeted_building = nearest_building;
+                    }
+                }
+            }
+            else
+            {
+                character->targeted_character = NULL;
+                character->targeted_building = NULL;
+            }
             break;
         }
-
-        characterAttackTarget(game_data, character, attack_animation_state);
     }
 }
 
@@ -504,7 +550,7 @@ static void updateCharacterTarget(client_game_data_t *game_data, character_t *ch
  */
 static void updateCharacterPosition(character_t *character)
 {
-    if (character->path == NULL)
+    if (character->path == NULL || characterAttackingBuilding(character) || characterAttackingCharacter(character))
         return;
 
     SDL_Point position = getNextPositionInPath(character->path);
@@ -597,12 +643,12 @@ extern void characterEventHandler(SDL_Event *event, client_game_data_t *game_dat
     {
         SDL_Point mouse_position = {event->button.x, event->button.y};
         SDL_Point tile_position = getTileCoord(&mouse_position, window, character_renderer->map_renderer);
-        int elixir_cost = getCharacterElixirCost(GIANT_CHARACTER);
+        int elixir_cost = getCharacterElixirCost(RAT_CHARACTER);
 
         if (canPlaceCharacter(character_renderer, &tile_position, game_data->opponent_map_building, game_data->character_list) &&
             game_data->elixir_count - game_data->elixir_cost - elixir_cost >= 0)
         {
-            addCharacterInList(game_data->character_list, createCharacter(character_renderer, GIANT_CHARACTER, &tile_position, 0));
+            addCharacterInList(game_data->character_list, createCharacter(character_renderer, RAT_CHARACTER, &tile_position, 0));
             game_data->elixir_cost += elixir_cost;
         }
     }
