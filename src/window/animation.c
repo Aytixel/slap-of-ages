@@ -125,6 +125,11 @@ extern void changeAnimationState(animation_t *anim, int new_state)
     }
 }
 
+extern int isAnimationCycleEnded(animation_t *anim)
+{
+    return anim->current_frame >= anim->state_frame_count[anim->current_state] - 1;
+}
+
 extern int updateAnimation(animation_t *anim, int tile_size, SDL_Point *position, window_t *window, transform_origin_e origin)
 {
     if (anim == NULL)

@@ -71,11 +71,11 @@ extern void destroyBuilding(building_t **building);
 /**
  * @brief Permet de gérer les dégâts subis par un bâtiment
  *
- * @param matrix matrice contenant la totalité des bâtiments placés sur la carte
+ * @param game_data un pointeur sur les données du jeu
  * @param building un pointeur sur un bâtiment
  * @param damages les dégâts subis par le bâtiment
  */
-extern void buildingTakesDamages(building_t ***matrix, building_t *building, int damages);
+extern void buildingTakesDamages(client_game_data_t *game_data, building_t *building, int damages);
 
 /**
  * @brief Permet de détruire tout les bâtiments sur la carte
@@ -118,6 +118,16 @@ extern void removeBuildingFromMatrix(building_t ***building_matrix, building_t *
  * @return retourne 1 si le bâtiment peut être placé, 0 sinon
  */
 extern int canPlaceBuilding(building_renderer_t *building_renderer, building_type_e type, SDL_Point *position, building_t ***building_matrix);
+
+/**
+ * @brief Récupère le bâtiment le plus proche
+ *
+ * @param building_matrix matrice contenant la totalité des bâtiments placés sur la carte
+ * @param position position depuis laquel chercher
+ * @param wall indique si l'on compte les mures ou non
+ * @return building_t*
+ */
+extern building_t *getNearestBuilding(building_t ***building_matrix, SDL_Point *position, int wall);
 
 /**
  * @brief Récupère le bâtiment à une position donnée

@@ -25,6 +25,8 @@ extern character_t *createCharacter(character_renderer_t *character_renderer, ch
     character->position.y = position->y;
     character->is_defender = is_defender;
     character->path = NULL;
+    character->targeted_building = NULL;
+    character->targeted_character = NULL;
 
     float health_multiplier = is_defender ? 1.7 : 1;
     float attack_multiplier = is_defender ? 1.4 : 1;
@@ -112,6 +114,14 @@ extern void destroyCharacter(character_t **character)
 
     free(*character);
     *character = NULL;
+}
+
+extern void characterTakesDamages(client_game_data_t *game_data, character_t *character, int damages)
+{
+    character->hp -= damages;
+
+    if (character->hp <= 0)
+        removeCharacterFromList(game_data->character_list, character);
 }
 
 extern void clearCharacterList(character_list_t *character_list)
@@ -217,6 +227,157 @@ extern void addDefenceCharacter(character_renderer_t *character_renderer, client
     }
 }
 
+/**
+ * @brief Récupère si la troupe est en train d'attacker
+ *
+ * @param character
+ * @return int
+ */
+static int characterAttackingBuilding(character_t *character)
+{
+    return character != NULL &&
+           !character->is_defender &&
+           character->targeted_building != NULL &&
+           (int)character->position.x == character->targeted_building->position.x &&
+           (int)character->position.y == character->targeted_building->position.y;
+}
+
+/**
+ * @brief Récupère la nouvelle cible d'une troupe
+ *
+ * @param game_data
+ * @param character
+ */
+static void getCharacterTarget(client_game_data_t *game_data, character_t *character)
+{
+    if (!character->is_defender)
+    {
+        SDL_Point start = {character->position.x, character->position.y};
+
+        building_t *nearest_building = getNearestBuilding(game_data->opponent_map_building, &start, 0);
+
+        if (nearest_building == NULL)
+            nearest_building = getNearestBuilding(game_data->opponent_map_building, &start, 1);
+
+        character->targeted_building = nearest_building;
+
+        if (nearest_building != NULL)
+        {
+            if (characterAttackingBuilding(character))
+            {
+                switch (character->type)
+                {
+                case GIANT_CHARACTER:
+                    changeAnimationState(character->animation, GOBLIN_GIANT_ATTACK_ANIM);
+                    break;
+                case DAEMON_CHARACTER:
+                    changeAnimationState(character->animation, DAEMON_ATTACK_ANIM);
+                    break;
+                case RAT_CHARACTER:
+                    changeAnimationState(character->animation, RAT_ATTACK_ANIM);
+                    break;
+                }
+
+                if (isAnimationCycleEnded(character->animation))
+                    buildingTakesDamages(game_data, nearest_building, character->attack);
+            }
+            else
+            {
+                switch (character->type)
+                {
+                case DAEMON_CHARACTER:
+                    character->path = aStar(start, nearest_building->position, game_data->map_building, 0);
+                    break;
+                case GIANT_CHARACTER:
+                case RAT_CHARACTER:
+                    character->path = aStar(start, nearest_building->position, game_data->map_building, 1);
+
+                    if (character->path == NULL)
+                        character->path = aStar(start, nearest_building->position, game_data->map_building, 0);
+                    break;
+                }
+            }
+        }
+    }
+}
+
+/**
+ * @brief Met à jour la position d'une troupe
+ *
+ * @param character
+ */
+static void updateCharacterPosition(character_t *character)
+{
+    SDL_Point position = getNextPositionInPath(character->path);
+    int x_diff = position.x - (int)character->position.x;
+    int y_diff = position.y - (int)character->position.y;
+    float displacement = (float)character->speed / 30;
+
+    if (x_diff > 0)
+    {
+        character->position.x += displacement;
+
+        if (character->position.x > position.x)
+            character->position.x = position.x;
+    }
+    else
+    {
+        character->position.x -= displacement;
+
+        if (character->position.x < position.x)
+            character->position.x = position.x;
+    }
+
+    if (y_diff > 0)
+    {
+        character->position.y += displacement;
+
+        if (character->position.y > position.y)
+            character->position.y = position.y;
+    }
+    else
+    {
+        character->position.y -= displacement;
+
+        if (character->position.y < position.y)
+            character->position.y = position.y;
+    }
+
+    if (x_diff == 0 && y_diff == 0)
+        gotoNextPositionInPath(&character->path);
+
+    if (character->path == NULL)
+    {
+        switch (character->type)
+        {
+        case GIANT_CHARACTER:
+            changeAnimationState(character->animation, GOBLIN_GIANT_IDLE_ANIM);
+            break;
+        case DAEMON_CHARACTER:
+            changeAnimationState(character->animation, DAEMON_IDLE_ANIM);
+            break;
+        case RAT_CHARACTER:
+            changeAnimationState(character->animation, RAT_IDLE_ANIM);
+            break;
+        }
+    }
+    else
+    {
+        switch (character->type)
+        {
+        case GIANT_CHARACTER:
+            changeAnimationState(character->animation, GOBLIN_GIANT_MOVE_ANIM);
+            break;
+        case DAEMON_CHARACTER:
+            changeAnimationState(character->animation, DAEMON_MOVE_ANIM);
+            break;
+        case RAT_CHARACTER:
+            changeAnimationState(character->animation, RAT_MOVE_ANIM);
+            break;
+        }
+    }
+}
+
 extern void updateCharacter(client_game_data_t *game_data)
 {
     for (int i = 0; i < game_data->character_list->count; i++)
@@ -224,95 +385,9 @@ extern void updateCharacter(client_game_data_t *game_data)
         character_t *character = game_data->character_list->list[i];
 
         if (character->path == NULL)
-        {
-            SDL_Point start = {character->position.x, character->position.y};
-            SDL_Point goal = {0, 0};
-
-            switch (character->type)
-            {
-            case DAEMON_CHARACTER:
-                character->path = aStar(start, goal, game_data->map_building, 0);
-                break;
-            case GIANT_CHARACTER:
-            case RAT_CHARACTER:
-                character->path = aStar(start, goal, game_data->map_building, 1);
-
-                if (character->path == NULL)
-                    character->path = aStar(start, goal, game_data->map_building, 0);
-                break;
-            }
-        }
+            getCharacterTarget(game_data, character);
         else
-        {
-            SDL_Point position = getNextPositionInPath(character->path);
-            int x_diff = position.x - (int)character->position.x;
-            int y_diff = position.y - (int)character->position.y;
-            float displacement = (float)character->speed / 30;
-
-            if (x_diff > 0)
-            {
-                character->position.x += displacement;
-
-                if (character->position.x > position.x)
-                    character->position.x = position.x;
-            }
-            else
-            {
-                character->position.x -= displacement;
-
-                if (character->position.x < position.x)
-                    character->position.x = position.x;
-            }
-
-            if (y_diff > 0)
-            {
-                character->position.y += displacement;
-
-                if (character->position.y > position.y)
-                    character->position.y = position.y;
-            }
-            else
-            {
-                character->position.y -= displacement;
-
-                if (character->position.y < position.y)
-                    character->position.y = position.y;
-            }
-
-            if (x_diff == 0 && y_diff == 0)
-                gotoNextPositionInPath(&character->path);
-        }
-
-        if (character->path != NULL)
-        {
-            switch (character->type)
-            {
-            case GIANT_CHARACTER:
-                changeAnimationState(character->animation, GOBLIN_GIANT_MOVE_ANIM);
-                break;
-            case DAEMON_CHARACTER:
-                changeAnimationState(character->animation, DAEMON_MOVE_ANIM);
-                break;
-            case RAT_CHARACTER:
-                changeAnimationState(character->animation, RAT_MOVE_ANIM);
-                break;
-            }
-        }
-        else
-        {
-            switch (character->type)
-            {
-            case GIANT_CHARACTER:
-                changeAnimationState(character->animation, GOBLIN_GIANT_IDLE_ANIM);
-                break;
-            case DAEMON_CHARACTER:
-                changeAnimationState(character->animation, DAEMON_IDLE_ANIM);
-                break;
-            case RAT_CHARACTER:
-                changeAnimationState(character->animation, RAT_IDLE_ANIM);
-                break;
-            }
-        }
+            updateCharacterPosition(character);
     }
 }
 

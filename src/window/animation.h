@@ -68,6 +68,14 @@ extern int destroyAnimation(animation_t **anim);
 extern void changeAnimationState(animation_t *anim, int new_state);
 
 /**
+ * @brief Récupère si c'est la fin du cycle d'animation
+ *
+ * @param anim animation à mettre à jour
+ * @return int
+ */
+extern int isAnimationCycleEnded(animation_t *anim);
+
+/**
  * @brief Met à jour l'animation la position de l'animation
  *
  * @param anim animation à mettre à jour

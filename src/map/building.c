@@ -8,10 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_main.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
+#include <math.h>
 #include "client/common.h"
 #include "client/game_data_serialization.h"
 #include "timer/timer.h"
@@ -156,13 +153,14 @@ extern void destroyBuilding(building_t **building)
     *building = NULL;
 }
 
-extern void buildingTakesDamages(building_t ***matrix, building_t *building, int damages)
+extern void buildingTakesDamages(client_game_data_t *game_data, building_t *building, int damages)
 {
     building->hp -= damages;
 
     if (building->hp <= 0)
     {
-        removeBuildingFromMatrix(matrix, building);
+        game_data->opponent_gold_cost -= getBuildingGoldCost(building->type);
+        removeBuildingFromMatrix(game_data->opponent_map_building, building);
     }
 }
 
@@ -264,6 +262,39 @@ extern int canPlaceBuilding(building_renderer_t *building_renderer, building_typ
         }
     }
     return 0;
+}
+
+extern building_t *getNearestBuilding(building_t ***building_matrix, SDL_Point *position, int wall)
+{
+    building_t *nearest_building = NULL;
+    float nearest_distance = 0;
+
+    for (int i = 0; i < MAP_SIZE; i++)
+    {
+        for (int j = 0; j < MAP_SIZE; j++)
+        {
+            building_t *building = getBuilding(building_matrix, i, j);
+
+            if (building != NULL)
+            {
+                if (wall == 0 &&
+                    (building->type == CORNER_WALL_BUILDING ||
+                     building->type == VERTICAL_WALL_BUILDING ||
+                     building->type == HORIZONTAL_WALL_BUILDING))
+                    continue;
+
+                float distance = sqrtf(powf(building->position.x - position->x, 2) + powf(building->position.y - position->y, 2));
+
+                if (nearest_building == NULL || distance < nearest_distance)
+                {
+                    nearest_building = building;
+                    nearest_distance = distance;
+                }
+            }
+        }
+    }
+
+    return nearest_building;
 }
 
 extern building_t *getBuilding(building_t ***building_matrix, int x, int y)

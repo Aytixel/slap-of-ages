@@ -25,14 +25,16 @@ typedef struct node_s node_t;
  */
 typedef struct character_s
 {
-    character_type_e type;  /**< type de troupe*/
-    SDL_FPoint position;    /**< position de la troupe*/
-    animation_t *animation; /**< animation de la troupe*/
-    int hp;                 /**< point de vie de la troupe*/
-    int attack;             /**< point d'attack de la troupe*/
-    int speed;              /**< vitesse de la troupe*/
-    int is_defender;        /**< indique si la troupe est défenseure*/
-    node_t *path;           /**< chemin jusqu'à la cible*/
+    character_type_e type;           /**< type de troupe*/
+    SDL_FPoint position;             /**< position de la troupe*/
+    animation_t *animation;          /**< animation de la troupe*/
+    int hp;                          /**< point de vie de la troupe*/
+    int attack;                      /**< point d'attack de la troupe*/
+    int speed;                       /**< vitesse de la troupe*/
+    int is_defender;                 /**< indique si la troupe est défenseure*/
+    node_t *path;                    /**< chemin jusqu'à la cible*/
+    building_t *targeted_building;   /**< bâtiment ciblé*/
+    character_t *targeted_character; /**< troupe ciblé*/
 } character_t;
 
 /**
@@ -87,6 +89,15 @@ extern void renderCharacterList(window_t *window, character_list_t *character_li
  * @param character un pointeur sur une troupe
  */
 extern void destroyCharacter(character_t **character);
+
+/**
+ * @brief Permet de gérer les dégâts subis par une troupe
+ *
+ * @param game_data un pointeur sur les données du jeu
+ * @param character un pointeur sur une troupe
+ * @param damages les dégâts subis par la troup
+ */
+extern void characterTakesDamages(client_game_data_t *game_data, character_t *character, int damages);
 
 /**
  * @brief Permet de détruire toute les troupes sur la carte

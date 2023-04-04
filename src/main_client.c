@@ -41,18 +41,6 @@ void windowEventHandler(
         if (client_connection_state == CLIENT_CONNECTED)
             running = 0;
         break;
-    case SDL_KEYDOWN:
-        if (event->key.state == SDL_PRESSED)
-        {
-            switch (event->key.keysym.sym)
-            {
-            case SDLK_z:
-                // temporaire
-                endGame(client, game_data);
-                break;
-            }
-        }
-        break;
     }
 
     switch (client_connection_state)
@@ -258,10 +246,14 @@ int main(int argc, char *argv[])
                     break;
                 }
 
-                checkClientGameTimeout(client, game_data);
-
                 if (game_data->state == COMBAT_GAME_STATE)
+                {
+                    checkClientGameTimeout(client, game_data);
                     updateCharacter(game_data);
+
+                    if (game_data->opponent_gold_cost <= 0)
+                        endGame(client, game_data);
+                }
 
                 packet_t *packet = recvFromServer(client);
 
