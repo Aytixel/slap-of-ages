@@ -7,6 +7,22 @@ Implémentation des prototypes de \mbox{\hyperlink{window_8c}{window/window.\+c}
 
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+Graphe des dépendances par inclusion de window.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{window_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{window_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,10 +50,14 @@ enum \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{window_8h_ab1efa57caae2a77f346b314c3076d89f}{update\+Window\+Size}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, SDL\+\_\+\+Event $\ast$event)
+\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8h_ae86a3185973be72e90ebb6ec30e5daa7}{create\+Window}} (char $\ast$title, int width, int height)
 \begin{DoxyCompactList}\small\item\em Créer une fenêtre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{window_8h_ab1efa57caae2a77f346b314c3076d89f}{update\+Window\+Size}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, SDL\+\_\+\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em Met à jours la taille de la fenêtre. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{window_8h_a2b6afcc06737563c2c82cb5b822bcb6e}{destroy\+Window}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$$\ast$window)
 \begin{DoxyCompactList}\small\item\em Détruit une fenêtre. \end{DoxyCompactList}\item 
+TTF\+\_\+\+Font $\ast$ \mbox{\hyperlink{window_8h_a1aa4702721f7b4b6a599a14fdd0a426c}{load\+Font}} (char $\ast$path, int pt\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Charge une police depuis un fichier. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8h_a12caaf6efa15b7b7ef17f25474d3f4ce}{load\+Sprite}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, char $\ast$path)
 \begin{DoxyCompactList}\small\item\em Charge un sprite depuis une image. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{window_8h_a62b282ec4c4144041dc9263805726a73}{create\+Text\+Sprite}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, TTF\+\_\+\+Font $\ast$font, char $\ast$text, SDL\+\_\+\+Color color)
@@ -140,6 +160,37 @@ Génère un sprite à partir d\textquotesingle{}un texte.
 \begin{DoxyReturn}{Renvoie}
 un pointer sur un {\bfseries{sprite}} 
 \end{DoxyReturn}
+\mbox{\Hypertarget{window_8h_ae86a3185973be72e90ebb6ec30e5daa7}\label{window_8h_ae86a3185973be72e90ebb6ec30e5daa7}} 
+\index{window.h@{window.h}!createWindow@{createWindow}}
+\index{createWindow@{createWindow}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{createWindow()}{createWindow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structwindow__t}{window\+\_\+t}}$\ast$ create\+Window (\begin{DoxyParamCaption}\item[{char $\ast$}]{title,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Créer une fenêtre. 
+
+Définis \+:
+\begin{DoxyItemize}
+\item la taille minimale de la fenêtre, comme étant la taille passé en paramètre.
+\item la couleur de nettoyage au noir.
+\item la fenêtre comme redimensionnable.
+\end{DoxyItemize}
+
+Puis nettoie la fenêtre.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em title} & nom de la fenêtre \\
+\hline
+{\em width} & largeur de la fenêtre \\
+\hline
+{\em height} & longueur de la fenêtre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur une {\bfseries{fenêtre}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{window_8h_ac84ead18493a5445ba473190996fe36b}\label{window_8h_ac84ead18493a5445ba473190996fe36b}} 
 \index{window.h@{window.h}!destroySprite@{destroySprite}}
 \index{destroySprite@{destroySprite}!window.h@{window.h}}
@@ -175,6 +226,26 @@ Détruit une fenêtre.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8h_a1aa4702721f7b4b6a599a14fdd0a426c}\label{window_8h_a1aa4702721f7b4b6a599a14fdd0a426c}} 
+\index{window.h@{window.h}!loadFont@{loadFont}}
+\index{loadFont@{loadFont}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{loadFont()}{loadFont()}}
+{\footnotesize\ttfamily TTF\+\_\+\+Font$\ast$ load\+Font (\begin{DoxyParamCaption}\item[{char $\ast$}]{path,  }\item[{int}]{pt\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Charge une police depuis un fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em path} & chemin vers le fichier de la police \\
+\hline
+{\em pt\+\_\+size} & taille de la police \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur une {\bfseries{TTF\+\_\+\+Font}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{window_8h_a12caaf6efa15b7b7ef17f25474d3f4ce}\label{window_8h_a12caaf6efa15b7b7ef17f25474d3f4ce}} 
 \index{window.h@{window.h}!loadSprite@{loadSprite}}
@@ -254,26 +325,12 @@ une {\bfseries{position}} sur la fenêtre
 
 
 
-Créer une fenêtre. 
-
-Définis \+:
-\begin{DoxyItemize}
-\item la taille minimale de la fenêtre, comme étant la taille passé en paramètre.
-\item la couleur de nettoyage au noir.
-\item la fenêtre comme redimensionnable.
-\end{DoxyItemize}
-
-Puis nettoie la fenêtre.
+Met à jours la taille de la fenêtre. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em title} & nom de la fenêtre \\
+{\em window} & un pointeur sur une fenêtre \\
 \hline
-{\em width} & largeur de la fenêtre \\
-\hline
-{\em height} & longueur de la fenêtre \\
+{\em event} & un pointeur sur event \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-un pointer sur une {\bfseries{fenêtre}} 
-\end{DoxyReturn}

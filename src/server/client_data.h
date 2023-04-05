@@ -12,6 +12,7 @@
 
 typedef struct server_game_state_s server_game_state_t;
 
+#include "packet/packet.h"
 #include "game_state.h"
 
 /**
@@ -24,6 +25,7 @@ typedef struct server_client_data_s
     int is_player_ready;             /**< le joueur est-il prêt ?*/
     int is_in_game;                  /**< le joueur est-il en jeu ?*/
     server_game_state_t *game_state; /**< un pointeur sur les données de partie*/
+    packet_t *map_packet;            /**< paquet contenant les données de la carte*/
 } server_client_data_t;
 
 /**

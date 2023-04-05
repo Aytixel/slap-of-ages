@@ -57,6 +57,10 @@ extern window_t *createWindow(char *title, int width, int height)
 
     window->width = width;
     window->height = height;
+    window->original_width = width;
+    window->original_height = height;
+    window->width_scale_factor = 1;
+    window->height_scale_factor = 1;
 
     SDL_SetWindowMinimumSize(window->window, width, height);
     SDL_SetRenderDrawColor(window->renderer, 0, 0, 0, 255);
@@ -64,6 +68,17 @@ extern window_t *createWindow(char *title, int width, int height)
     SDL_RenderPresent(window->renderer);
 
     return window;
+}
+
+extern void updateWindowSize(window_t *window, SDL_Event *event)
+{
+    if (event->type == SDL_WINDOWEVENT && event->window.event == SDL_WINDOWEVENT_RESIZED)
+    {
+        window->width = event->window.data1;
+        window->height = event->window.data2;
+        window->width_scale_factor = (float)window->width / (float)window->original_width;
+        window->height_scale_factor = (float)window->height / (float)window->original_height;
+    }
 }
 
 extern int destroyWindow(window_t **window)

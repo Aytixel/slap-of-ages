@@ -77,13 +77,35 @@ $(function() {
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="window_8h_source.html">window.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de animation.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="animation_8h__incl.png" border="0" usemap="#asrc_2window_2animation_8h" alt=""/></div>
+<map name="asrc_2window_2animation_8h" id="asrc_2window_2animation_8h">
+<area shape="rect" title="Animation fonctions." alt="" coords="57,5,234,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,149,107"/>
+<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="173,80,256,107"/>
+<area shape="rect" title=" " alt="" coords="101,155,197,181"/>
+<area shape="rect" title=" " alt="" coords="221,155,339,181"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="animation_8h__dep__incl.png" border="0" usemap="#asrc_2window_2animation_8hdep" alt=""/></div>
+<map name="asrc_2window_2animation_8hdep" id="asrc_2window_2animation_8hdep">
+<area shape="rect" title="Animation fonctions." alt="" coords="73,5,251,32"/>
+<area shape="rect" href="menu_8h.html" title="Implémentation des prototypes de menu/menu.c." alt="" coords="5,80,140,107"/>
+<area shape="rect" href="animation_8c.html" title="Gestion des animations." alt="" coords="165,80,341,107"/>
+<area shape="rect" href="menu_8c.html" title="Fichier de création du menu multijoueur." alt="" coords="5,155,140,181"/>
+</map>
+</div>
 </div>
 <p><a href="animation_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structanim__t.html">anim_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure d'une animation.  <a href="structanim__t.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -145,10 +167,10 @@ Fonctions</h2></td></tr>
 <p>Crée une animation à partir de la taille d'une tuile, du nombre d'images par état, de l'image source et du nombre d'images par seconde. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tile_size</td><td>: taille d'une tuile </td></tr>
-    <tr><td class="paramname">state_frame_count</td><td>: tableau contenant le nombre d'images par état </td></tr>
-    <tr><td class="paramname">sprite</td><td>: image source de l'animation </td></tr>
-    <tr><td class="paramname">frame_rate</td><td>: nombre d'images par seconde </td></tr>
+    <tr><td class="paramname">tile_size</td><td>taille d'une tuile </td></tr>
+    <tr><td class="paramname">state_frame_count</td><td>tableau contenant le nombre d'images par état </td></tr>
+    <tr><td class="paramname">sprite</td><td>image source de l'animation </td></tr>
+    <tr><td class="paramname">frame_rate</td><td>nombre d'images par seconde </td></tr>
   </table>
   </dd>
 </dl>
@@ -175,7 +197,7 @@ Fonctions</h2></td></tr>
 <p>Détruit une animation. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">anim</td><td>: animation à détruire </td></tr>
+    <tr><td class="paramname">anim</td><td>animation à détruire </td></tr>
   </table>
   </dd>
 </dl>
@@ -230,11 +252,11 @@ Fonctions</h2></td></tr>
 <p>Met à jour l'animation en modifiant l'état et la position de l'animation. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">anim</td><td>: animation à mettre à jour </td></tr>
-    <tr><td class="paramname">new_state</td><td>: nouvel état de l'animation </td></tr>
-    <tr><td class="paramname">tile_size</td><td>: taille d'une tuile </td></tr>
-    <tr><td class="paramname">position</td><td>: position de l'animation </td></tr>
-    <tr><td class="paramname">window</td><td>: la fenêtre où l'animation est affichée</td></tr>
+    <tr><td class="paramname">anim</td><td>animation à mettre à jour </td></tr>
+    <tr><td class="paramname">new_state</td><td>nouvel état de l'animation </td></tr>
+    <tr><td class="paramname">tile_size</td><td>taille d'une tuile </td></tr>
+    <tr><td class="paramname">position</td><td>position de l'animation </td></tr>
+    <tr><td class="paramname">window</td><td>la fenêtre où l'animation est affichée</td></tr>
   </table>
   </dd>
 </dl>

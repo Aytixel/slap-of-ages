@@ -52,6 +52,7 @@ typedef struct server_game_state_array_s
 {
     server_game_state_t **game_state; /**< tableau des données de partie*/
     int count;                        /**< nombre de partie*/
+    int capacity;                     /**< capacité du tableau*/
 } server_game_state_array_t;
 
 /**

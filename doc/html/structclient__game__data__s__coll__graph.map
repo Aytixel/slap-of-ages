@@ -1,0 +1,5 @@
+<map id="client_game_data_s" name="client_game_data_s">
+<area shape="rect" id="node1" title="Structure de données contenant les données du jeu." alt="" coords="67,109,219,136"/>
+<area shape="rect" id="node2" href="$structbuilding__s.html" title="Structure contenant les données des bâtiments." alt="" coords="5,5,93,32"/>
+<area shape="rect" id="node3" href="$structframe__timer__t.html" title="Timer permettant l&#39;éxécution de code à intervalle régulier." alt="" coords="180,5,295,32"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="server_client_connection_t" name="server_client_connection_t">
+<area shape="rect" id="node1" title="Représente une connexion au serveur." alt="" coords="5,184,201,211"/>
+<area shape="rect" id="node2" href="$structserver__client__t.html" title="Client serveur socket." alt="" coords="44,95,163,121"/>
+<area shape="rect" id="node3" href="$structpacket__t.html" title="Paquet réseaux pour les sockets." alt="" coords="65,5,142,32"/>
+</map>

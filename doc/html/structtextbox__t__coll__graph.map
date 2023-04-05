@@ -1,0 +1,4 @@
+<map id="textbox_t" name="textbox_t">
+<area shape="rect" id="node1" title="Structure contenant les données d&#39;une textbox." alt="" coords="5,95,89,121"/>
+<area shape="rect" id="node2" href="$structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="12,5,83,32"/>
+</map>

@@ -4,7 +4,7 @@
 #include "socket/server.h"
 #include "socket/client.h"
 
-int main()
+int main(int argc, char *argv[])
 {
     printf("Test de socket/server.h socket/client.h socket/socket.h\n\n");
 

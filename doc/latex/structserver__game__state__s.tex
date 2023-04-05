@@ -1,0 +1,59 @@
+\hypertarget{structserver__game__state__s}{}\doxysection{Référence de la structure server\+\_\+game\+\_\+state\+\_\+s}
+\label{structserver__game__state__s}\index{server\_game\_state\_s@{server\_game\_state\_s}}
+
+
+Structure de données contenant les informations d\textquotesingle{}une partie.  
+
+
+
+
+{\ttfamily \#include $<$game\+\_\+state.\+h$>$}
+
+
+
+Graphe de collaboration de server\+\_\+game\+\_\+state\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structserver__game__state__s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structplayer__game__state__t}{player\+\_\+game\+\_\+state\+\_\+t}} $\ast$ \mbox{\hyperlink{structserver__game__state__s_aa7bfee31a3f1f81cf9cdaf0fd93ea94f}{player}} \mbox{[}2\mbox{]}
+\item 
+\mbox{\hyperlink{server_2game__state_8h_a39f14111b1d24e22ec6118acf38da7cb}{server\+\_\+game\+\_\+state\+\_\+array\+\_\+t}} $\ast$ \mbox{\hyperlink{structserver__game__state__s_ae775da3b0f8a30c9f307a1175d4cbec4}{array}}
+\item 
+\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$ \mbox{\hyperlink{structserver__game__state__s_a86ef7ed18d0f9cae5e2f754667a15843}{timer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure de données contenant les informations d\textquotesingle{}une partie. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structserver__game__state__s_ae775da3b0f8a30c9f307a1175d4cbec4}\label{structserver__game__state__s_ae775da3b0f8a30c9f307a1175d4cbec4}} 
+\index{server\_game\_state\_s@{server\_game\_state\_s}!array@{array}}
+\index{array@{array}!server\_game\_state\_s@{server\_game\_state\_s}}
+\doxysubsubsection{\texorpdfstring{array}{array}}
+{\footnotesize\ttfamily \mbox{\hyperlink{server_2game__state_8h_a39f14111b1d24e22ec6118acf38da7cb}{server\+\_\+game\+\_\+state\+\_\+array\+\_\+t}}$\ast$ server\+\_\+game\+\_\+state\+\_\+s\+::array}
+
+pointeur sur la structure parente \mbox{\Hypertarget{structserver__game__state__s_aa7bfee31a3f1f81cf9cdaf0fd93ea94f}\label{structserver__game__state__s_aa7bfee31a3f1f81cf9cdaf0fd93ea94f}} 
+\index{server\_game\_state\_s@{server\_game\_state\_s}!player@{player}}
+\index{player@{player}!server\_game\_state\_s@{server\_game\_state\_s}}
+\doxysubsubsection{\texorpdfstring{player}{player}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structplayer__game__state__t}{player\+\_\+game\+\_\+state\+\_\+t}}$\ast$ server\+\_\+game\+\_\+state\+\_\+s\+::player\mbox{[}2\mbox{]}}
+
+joueurs \mbox{\Hypertarget{structserver__game__state__s_a86ef7ed18d0f9cae5e2f754667a15843}\label{structserver__game__state__s_a86ef7ed18d0f9cae5e2f754667a15843}} 
+\index{server\_game\_state\_s@{server\_game\_state\_s}!timer@{timer}}
+\index{timer@{timer}!server\_game\_state\_s@{server\_game\_state\_s}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}}$\ast$ server\+\_\+game\+\_\+state\+\_\+s\+::timer}
+
+chronomètre de fin de partie 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/server/\mbox{\hyperlink{server_2game__state_8h}{game\+\_\+state.\+h}}\end{DoxyCompactItemize}

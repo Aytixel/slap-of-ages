@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages:  Fichier source de src/game/game.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1699be727a800b1d059c6f7f2b91d2ee.html">game</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">game.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="game_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef __GAME_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define __GAME_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="building_8h.html">map/building.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define OBSTACLE -1</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define START 1</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define GOAL 2</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structnode__s.html">   27</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structnode__s.html">node_s</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structnode__s.html#ab4fab5d7fb28e4677ad7f2511244602f">   29</a></span>&#160;    SDL_Point <a class="code" href="structnode__s.html#ab4fab5d7fb28e4677ad7f2511244602f">position</a>;    </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structnode__s.html#abaab78f9d1fda4af093e11b158248673">   30</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structnode__s.html#abaab78f9d1fda4af093e11b158248673">g_cost</a>;          </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structnode__s.html#af8280f143fc45e1d83787fe6555d1d08">   31</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structnode__s.html#af8280f143fc45e1d83787fe6555d1d08">h_cost</a>;          </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structnode__s.html#a444b91ef74e3caf2b66b6cddff0cc09d">   32</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structnode__s.html#a444b91ef74e3caf2b66b6cddff0cc09d">f_cost</a>;          </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structnode__s.html#a5cef87b7c05a552d265f92cae292caac">   33</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structnode__s.html">node_s</a> *<a class="code" href="structnode__s.html#a5cef87b7c05a552d265f92cae292caac">parent</a>; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">   34</a></span>&#160;} <a class="code" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structnode__list__t.html">   40</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structnode__list__t.html#a1291c2dccfff2be96f95ff93cd7acce4">   42</a></span>&#160;    <a class="code" href="structnode__s.html">node_t</a> **<a class="code" href="structnode__list__t.html#a1291c2dccfff2be96f95ff93cd7acce4">nodes</a>; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structnode__list__t.html#a5449080c1a451781b3cb795cd39d9390">   43</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structnode__list__t.html#a5449080c1a451781b3cb795cd39d9390">size</a>;       </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structnode__list__t.html#af7b148204b1c50f8baa3947a13570ec0">   44</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structnode__list__t.html#af7b148204b1c50f8baa3947a13570ec0">capacity</a>;   </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <a class="code" href="structnode__list__t.html">node_list_t</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">extern</span> <a class="code" href="structnode__list__t.html">node_list_t</a> *<a class="code" href="game_8h.html#aa58163b9adcf970353e3f50fc1032730">create_node_list</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="game_8h.html#a73f344593f712bab4a9f61339b966d62">clear_node_list</a>(<a class="code" href="structnode__list__t.html">node_list_t</a> *list);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="game_8h.html#ab562c582d4e018758f92c4fdc1a1d00c">free_node_list</a>(<a class="code" href="structnode__list__t.html">node_list_t</a> *list);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordtype">void</span> <a class="code" href="game_8h.html#a193e1b2f426ee4d1166c1c4664c3f188">remove_parent_from_list</a>(<a class="code" href="structnode__list__t.html">node_list_t</a> *list, <a class="code" href="structnode__s.html">node_t</a> *node);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="game_8h.html#a4200a0320d316103883ba535bf913391">add_node</a>(<a class="code" href="structnode__list__t.html">node_list_t</a> *list, <a class="code" href="structnode__s.html">node_t</a> *node);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">extern</span> <a class="code" href="structnode__s.html">node_t</a> *<a class="code" href="game_8h.html#af8d7cfbdfc4aedca5ea7ddce9ddf77a0">remove_node</a>(<a class="code" href="structnode__list__t.html">node_list_t</a> *list, <span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">extern</span> <a class="code" href="structnode__s.html">node_t</a> *<a class="code" href="game_8h.html#a6032b90b973ab7a7066e06fdec962ab3">create_node</a>(SDL_Point <a class="code" href="structnode__s.html#ab4fab5d7fb28e4677ad7f2511244602f">position</a>, <a class="code" href="structnode__s.html">node_t</a> *<a class="code" href="structnode__s.html#a5cef87b7c05a552d265f92cae292caac">parent</a>);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="game_8h.html#ad22ba344bea1322fd21925363d83870d">free_node_path</a>(<a class="code" href="structnode__s.html">node_t</a> *node);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code" href="game_8h.html#a73a16060935346f073c8ce1985bc9bf4">heuristic</a>(<a class="code" href="structnode__s.html">node_t</a> *a, <a class="code" href="structnode__s.html">node_t</a> *b);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="game_8h.html#aec254c7d1667b25910203410536417b8">is_valid</a>(SDL_Point <a class="code" href="structnode__s.html#ab4fab5d7fb28e4677ad7f2511244602f">position</a>, <a class="code" href="structbuilding__s.html">building_t</a> ***map_building);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="game_8h.html#a8089d4c4019f061ae047133f73594ed1">is_valid_no_wall</a>(SDL_Point <a class="code" href="structnode__s.html#ab4fab5d7fb28e4677ad7f2511244602f">position</a>);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keyword">extern</span> <a class="code" href="structnode__s.html">node_t</a> *<a class="code" href="game_8h.html#a39bf2f013b42ebf95614fda258ea097a">a_star</a>(SDL_Point start, SDL_Point goal, <a class="code" href="structbuilding__s.html">building_t</a> ***map_building, <span class="keywordtype">int</span> wall);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="game_8h.html#a129ee813ae2288ad62db99cb38adc5ed">display_path</a>(<a class="code" href="structnode__s.html">node_t</a> *node);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="abuilding_8h_html"><div class="ttname"><a href="building_8h.html">building.h</a></div></div>
+<div class="ttc" id="agame_8h_html_a129ee813ae2288ad62db99cb38adc5ed"><div class="ttname"><a href="game_8h.html#a129ee813ae2288ad62db99cb38adc5ed">display_path</a></div><div class="ttdeci">void display_path(node_t *node)</div><div class="ttdoc">Affichage du chemin.</div><div class="ttdef"><b>Definition:</b> game.c:258</div></div>
+<div class="ttc" id="agame_8h_html_a193e1b2f426ee4d1166c1c4664c3f188"><div class="ttname"><a href="game_8h.html#a193e1b2f426ee4d1166c1c4664c3f188">remove_parent_from_list</a></div><div class="ttdeci">void remove_parent_from_list(node_list_t *list, node_t *node)</div><div class="ttdoc">Suppression de la liste d'un noeud et de ses parents.</div><div class="ttdef"><b>Definition:</b> game.c:45</div></div>
+<div class="ttc" id="agame_8h_html_a33b99e5345d46cf63926673aa2b9ff83"><div class="ttname"><a href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a></div><div class="ttdeci">struct node_s node_t</div><div class="ttdoc">Structure de noeud.</div></div>
+<div class="ttc" id="agame_8h_html_a39bf2f013b42ebf95614fda258ea097a"><div class="ttname"><a href="game_8h.html#a39bf2f013b42ebf95614fda258ea097a">a_star</a></div><div class="ttdeci">node_t * a_star(SDL_Point start, SDL_Point goal, building_t ***map_building, int wall)</div><div class="ttdoc">Algorithme de pathfinding A*.</div><div class="ttdef"><b>Definition:</b> game.c:138</div></div>
+<div class="ttc" id="agame_8h_html_a4200a0320d316103883ba535bf913391"><div class="ttname"><a href="game_8h.html#a4200a0320d316103883ba535bf913391">add_node</a></div><div class="ttdeci">void add_node(node_list_t *list, node_t *node)</div><div class="ttdoc">Ajout d'un noeud à la liste.</div><div class="ttdef"><b>Definition:</b> game.c:65</div></div>
+<div class="ttc" id="agame_8h_html_a6032b90b973ab7a7066e06fdec962ab3"><div class="ttname"><a href="game_8h.html#a6032b90b973ab7a7066e06fdec962ab3">create_node</a></div><div class="ttdeci">node_t * create_node(SDL_Point position, node_t *parent)</div><div class="ttdoc">Creation d'une noeud.</div><div class="ttdef"><b>Definition:</b> game.c:82</div></div>
+<div class="ttc" id="agame_8h_html_a73a16060935346f073c8ce1985bc9bf4"><div class="ttname"><a href="game_8h.html#a73a16060935346f073c8ce1985bc9bf4">heuristic</a></div><div class="ttdeci">float heuristic(node_t *a, node_t *b)</div><div class="ttdoc">Heuristique pour l'algorithme A*.</div><div class="ttdef"><b>Definition:</b> game.c:105</div></div>
+<div class="ttc" id="agame_8h_html_a73f344593f712bab4a9f61339b966d62"><div class="ttname"><a href="game_8h.html#a73f344593f712bab4a9f61339b966d62">clear_node_list</a></div><div class="ttdeci">void clear_node_list(node_list_t *list)</div><div class="ttdoc">Vide une liste de ses noeuds.</div><div class="ttdef"><b>Definition:</b> game.c:30</div></div>
+<div class="ttc" id="agame_8h_html_a8089d4c4019f061ae047133f73594ed1"><div class="ttname"><a href="game_8h.html#a8089d4c4019f061ae047133f73594ed1">is_valid_no_wall</a></div><div class="ttdeci">bool is_valid_no_wall(SDL_Point position)</div><div class="ttdoc">Vérification de la validité d'un node sans les murs.</div><div class="ttdef"><b>Definition:</b> game.c:133</div></div>
+<div class="ttc" id="agame_8h_html_aa58163b9adcf970353e3f50fc1032730"><div class="ttname"><a href="game_8h.html#aa58163b9adcf970353e3f50fc1032730">create_node_list</a></div><div class="ttdeci">node_list_t * create_node_list()</div><div class="ttdoc">Creation d'une liste de noeud.</div><div class="ttdef"><b>Definition:</b> game.c:21</div></div>
+<div class="ttc" id="agame_8h_html_ab562c582d4e018758f92c4fdc1a1d00c"><div class="ttname"><a href="game_8h.html#ab562c582d4e018758f92c4fdc1a1d00c">free_node_list</a></div><div class="ttdeci">void free_node_list(node_list_t *list)</div><div class="ttdoc">Libération de la mémoire d'une liste de noeud.</div><div class="ttdef"><b>Definition:</b> game.c:39</div></div>
+<div class="ttc" id="agame_8h_html_ad22ba344bea1322fd21925363d83870d"><div class="ttname"><a href="game_8h.html#ad22ba344bea1322fd21925363d83870d">free_node_path</a></div><div class="ttdeci">void free_node_path(node_t *node)</div><div class="ttdoc">Libération de la mémoire d'une node et de ses parent.</div><div class="ttdef"><b>Definition:</b> game.c:93</div></div>
+<div class="ttc" id="agame_8h_html_aec254c7d1667b25910203410536417b8"><div class="ttname"><a href="game_8h.html#aec254c7d1667b25910203410536417b8">is_valid</a></div><div class="ttdeci">bool is_valid(SDL_Point position, building_t ***map_building)</div><div class="ttdoc">Vérification de la validité d'un node.</div><div class="ttdef"><b>Definition:</b> game.c:110</div></div>
+<div class="ttc" id="agame_8h_html_af8d7cfbdfc4aedca5ea7ddce9ddf77a0"><div class="ttname"><a href="game_8h.html#af8d7cfbdfc4aedca5ea7ddce9ddf77a0">remove_node</a></div><div class="ttdeci">node_t * remove_node(node_list_t *list, int index)</div><div class="ttdoc">Suppression d'un noeud.</div><div class="ttdef"><b>Definition:</b> game.c:75</div></div>
+<div class="ttc" id="astructbuilding__s_html"><div class="ttname"><a href="structbuilding__s.html">building_s</a></div><div class="ttdoc">Structure contenant les données des bâtiments.</div><div class="ttdef"><b>Definition:</b> building.h:24</div></div>
+<div class="ttc" id="astructnode__list__t_html"><div class="ttname"><a href="structnode__list__t.html">node_list_t</a></div><div class="ttdoc">Structure de liste de noeud.</div><div class="ttdef"><b>Definition:</b> game.h:41</div></div>
+<div class="ttc" id="astructnode__list__t_html_a1291c2dccfff2be96f95ff93cd7acce4"><div class="ttname"><a href="structnode__list__t.html#a1291c2dccfff2be96f95ff93cd7acce4">node_list_t::nodes</a></div><div class="ttdeci">node_t ** nodes</div><div class="ttdef"><b>Definition:</b> game.h:42</div></div>
+<div class="ttc" id="astructnode__list__t_html_a5449080c1a451781b3cb795cd39d9390"><div class="ttname"><a href="structnode__list__t.html#a5449080c1a451781b3cb795cd39d9390">node_list_t::size</a></div><div class="ttdeci">int size</div><div class="ttdef"><b>Definition:</b> game.h:43</div></div>
+<div class="ttc" id="astructnode__list__t_html_af7b148204b1c50f8baa3947a13570ec0"><div class="ttname"><a href="structnode__list__t.html#af7b148204b1c50f8baa3947a13570ec0">node_list_t::capacity</a></div><div class="ttdeci">int capacity</div><div class="ttdef"><b>Definition:</b> game.h:44</div></div>
+<div class="ttc" id="astructnode__s_html"><div class="ttname"><a href="structnode__s.html">node_s</a></div><div class="ttdoc">Structure de noeud.</div><div class="ttdef"><b>Definition:</b> game.h:28</div></div>
+<div class="ttc" id="astructnode__s_html_a444b91ef74e3caf2b66b6cddff0cc09d"><div class="ttname"><a href="structnode__s.html#a444b91ef74e3caf2b66b6cddff0cc09d">node_s::f_cost</a></div><div class="ttdeci">float f_cost</div><div class="ttdef"><b>Definition:</b> game.h:32</div></div>
+<div class="ttc" id="astructnode__s_html_a5cef87b7c05a552d265f92cae292caac"><div class="ttname"><a href="structnode__s.html#a5cef87b7c05a552d265f92cae292caac">node_s::parent</a></div><div class="ttdeci">struct node_s * parent</div><div class="ttdef"><b>Definition:</b> game.h:33</div></div>
+<div class="ttc" id="astructnode__s_html_ab4fab5d7fb28e4677ad7f2511244602f"><div class="ttname"><a href="structnode__s.html#ab4fab5d7fb28e4677ad7f2511244602f">node_s::position</a></div><div class="ttdeci">SDL_Point position</div><div class="ttdef"><b>Definition:</b> game.h:29</div></div>
+<div class="ttc" id="astructnode__s_html_abaab78f9d1fda4af093e11b158248673"><div class="ttname"><a href="structnode__s.html#abaab78f9d1fda4af093e11b158248673">node_s::g_cost</a></div><div class="ttdeci">float g_cost</div><div class="ttdef"><b>Definition:</b> game.h:30</div></div>
+<div class="ttc" id="astructnode__s_html_af8280f143fc45e1d83787fe6555d1d08"><div class="ttname"><a href="structnode__s.html#af8280f143fc45e1d83787fe6555d1d08">node_s::h_cost</a></div><div class="ttdeci">float h_cost</div><div class="ttdef"><b>Definition:</b> game.h:31</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

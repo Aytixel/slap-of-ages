@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['server_5fclient_5fconnected_465',['SERVER_CLIENT_CONNECTED',['../connection_2server_8h.html#a4f72aa08096f869ed5f76e97c4b896cdae25deb417e739fb1188573f13b997286',1,'server.h']]],
-  ['server_5fclient_5fwaiting_5fhandshake_466',['SERVER_CLIENT_WAITING_HANDSHAKE',['../connection_2server_8h.html#a4f72aa08096f869ed5f76e97c4b896cdaf410b2afc00d25efce0b8981166bc72b',1,'server.h']]],
-  ['set_5fmap_5fpacket_5fid_467',['SET_MAP_PACKET_ID',['../packet__id_8h.html#a0fc5416dae21974a42a4729378dd2eefa23617cb891e07330e3473e5ed45ac6ab',1,'packet_id.h']]],
-  ['set_5fpseudo_5fpacket_5fid_468',['SET_PSEUDO_PACKET_ID',['../packet__id_8h.html#a0fc5416dae21974a42a4729378dd2eefac090198435f85d6a0b8e7c2523e4b59c',1,'packet_id.h']]]
+  ['handshake_5fpacket_5fid_813',['HANDSHAKE_PACKET_ID',['../packet__id_8h.html#a0fc5416dae21974a42a4729378dd2eefaf49d35f92b4014cc402e853f913f286a',1,'packet_id.h']]],
+  ['has_5fplayer_5fwon_5fpacket_5fid_814',['HAS_PLAYER_WON_PACKET_ID',['../packet__id_8h.html#a0fc5416dae21974a42a4729378dd2eefacda3a1c3c8a708f0326d87635e1f10b0',1,'packet_id.h']]]
 ];

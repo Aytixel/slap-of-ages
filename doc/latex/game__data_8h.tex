@@ -1,0 +1,96 @@
+\hypertarget{game__data_8h}{}\doxysection{Référence du fichier src/client/game\+\_\+data.h}
+\label{game__data_8h}\index{src/client/game\_data.h@{src/client/game\_data.h}}
+
+
+Implémentation des prototypes de \mbox{\hyperlink{game__data_8c}{client/game\+\_\+data.\+c}}.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}timer/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}map/building.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}game\+\_\+state\+\_\+enum.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de game\+\_\+data.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__data_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__data_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Structure de données contenant les données du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{game__data_8h_aee655befad3b1afa60c5fdd49663ae66}\label{game__data_8h_aee655befad3b1afa60c5fdd49663ae66}} 
+typedef struct \mbox{\hyperlink{structbuilding__s}{building\+\_\+s}} {\bfseries building\+\_\+t}
+\item 
+\mbox{\Hypertarget{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}\label{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}} 
+typedef struct \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+s}} \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure de données contenant les données du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{game__data_8h_a9671fe3875530be690bc1d098fa694e0}{create\+Game\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Créer les données du jeu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game__data_8h_ac524888f11aad6e7479f72c7fdeef8b0}{delete\+Game\+Data}} (\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$$\ast$game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Détruit les données du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des prototypes de \mbox{\hyperlink{game__data_8c}{client/game\+\_\+data.\+c}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+17/03/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{game__data_8h_a9671fe3875530be690bc1d098fa694e0}\label{game__data_8h_a9671fe3875530be690bc1d098fa694e0}} 
+\index{game\_data.h@{game\_data.h}!createGameData@{createGameData}}
+\index{createGameData@{createGameData}!game\_data.h@{game\_data.h}}
+\doxysubsubsection{\texorpdfstring{createGameData()}{createGameData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}}$\ast$ create\+Game\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Créer les données du jeu. 
+
+\begin{DoxyReturn}{Renvoie}
+un pointer sur les {\bfseries{données du jeu}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game__data_8h_ac524888f11aad6e7479f72c7fdeef8b0}\label{game__data_8h_ac524888f11aad6e7479f72c7fdeef8b0}} 
+\index{game\_data.h@{game\_data.h}!deleteGameData@{deleteGameData}}
+\index{deleteGameData@{deleteGameData}!game\_data.h@{game\_data.h}}
+\doxysubsubsection{\texorpdfstring{deleteGameData()}{deleteGameData()}}
+{\footnotesize\ttfamily int delete\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$$\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Détruit les données du jeu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game\+\_\+data} & une référence d\textquotesingle{}un pointeur sur les données du jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}

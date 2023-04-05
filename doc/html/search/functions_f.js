@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['waitclienthandshake_371',['waitClientHandshake',['../connection_2server_8c.html#ac12cd916a09a69510fb2688caf974ea2',1,'waitClientHandshake():&#160;server.c'],['../connection_2server_8h.html#ac12cd916a09a69510fb2688caf974ea2',1,'waitClientHandshake():&#160;server.c']]],
-  ['waitserverhandshake_372',['waitServerHandshake',['../connection_2client_8c.html#ac909041a5b1d4ae68f56d64fc93695d3',1,'waitServerHandshake():&#160;client.c'],['../connection_2client_8h.html#ac909041a5b1d4ae68f56d64fc93695d3',1,'waitServerHandshake():&#160;client.c']]]
+  ['timeleft_624',['timeLeft',['../timer_8c.html#a9dee6b2101c6ecee96b7891920ee6aa6',1,'timeLeft(frame_timer_t *timer):&#160;timer.c'],['../timer_8h.html#a9dee6b2101c6ecee96b7891920ee6aa6',1,'timeLeft(frame_timer_t *timer):&#160;timer.c']]],
+  ['togglematchmaking_625',['toggleMatchmaking',['../client_2game__state_8c.html#af9473f8a8b798285447bfaac34c9e759',1,'toggleMatchmaking(client_t *client, client_game_data_t *game_data):&#160;game_state.c'],['../client_2game__state_8h.html#af9473f8a8b798285447bfaac34c9e759',1,'toggleMatchmaking(client_t *client, client_game_data_t *game_data):&#160;game_state.c']]]
 ];

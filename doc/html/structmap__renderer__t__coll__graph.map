@@ -1,0 +1,5 @@
+<map id="map_renderer_t" name="map_renderer_t">
+<area shape="rect" id="node1" title="Structure contenant les données de la carte." alt="" coords="45,109,170,136"/>
+<area shape="rect" id="node2" href="$structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="5,5,76,32"/>
+<area shape="rect" id="node3" href="$structmap__sprite__rects__t.html" title="Structure contenant les positions et tailles des sprites de la carte." alt="" coords="101,5,247,32"/>
+</map>

@@ -1,7 +1,7 @@
 /**
- * @file game_state.h
+ * @file game_state_enum.h
  * @author Lucas Dureau
- * @brief Définition des différents états du jeux
+ * @brief Définition des différents états du jeu
  * @version 0.1
  * @date 17/03/2023
  *
@@ -11,7 +11,7 @@
 #define __CLIENT_GAME_STATE_ENUM_H
 
 /**
- * @brief Enumération définissant les différents états du jeux
+ * @brief Enumération définissant les différents états du jeu
  *
  */
 typedef enum

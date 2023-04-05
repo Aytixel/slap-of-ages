@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages:  Fichier source de src/server/game_state.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_075bb3ff235063c77951cd176d15a741.html">server</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">game_state.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="server_2game__state_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">    1</a></span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef __SERVER_GAME_STATE_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define __SERVER_GAME_STATE_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structserver__client__data__s.html">server_client_data_s</a> <a class="code" href="structserver__client__data__s.html">server_client_data_t</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structserver__game__state__array__s.html">server_game_state_array_s</a> <a class="code" href="structserver__game__state__array__s.html">server_game_state_array_t</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="client__data_8h.html">client_data.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="connection_2server_8h.html">connection/server.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="packet_8h.html">packet/packet.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="timer_8h.html">timer/timer.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structplayer__game__state__t.html">   26</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structplayer__game__state__t.html#a85203594f12b21f82e98f7b02a87275d">   28</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structplayer__game__state__t.html#a85203594f12b21f82e98f7b02a87275d">socket_fd</a>;                     </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structplayer__game__state__t.html#a78772d2b54814b9e20497dca115775e2">   29</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structplayer__game__state__t.html#a78772d2b54814b9e20497dca115775e2">destruction_percentage</a>;        </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structplayer__game__state__t.html#aad9acac851ad13cdeaf030753efc2aa3">   30</a></span>&#160;    <span class="keywordtype">long</span> <a class="code" href="structplayer__game__state__t.html#aad9acac851ad13cdeaf030753efc2aa3">time_left</a>;                    </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structplayer__game__state__t.html#ac0aec1bc43cbb28c4dc7c9f1d67503ab">   31</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structplayer__game__state__t.html#ac0aec1bc43cbb28c4dc7c9f1d67503ab">has_finished</a>;                  </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structplayer__game__state__t.html#aea40b94327611248991f0972c2d5cc77">   32</a></span>&#160;    <a class="code" href="structserver__client__data__s.html">server_client_data_t</a> *<a class="code" href="structplayer__game__state__t.html#aea40b94327611248991f0972c2d5cc77">client_data</a>; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structplayer__game__state__t.html#a513575add1f79fd1c11f928d7c6563a8">   33</a></span>&#160;    <a class="code" href="structserver__client__t.html">server_client_t</a> *<a class="code" href="structplayer__game__state__t.html#a513575add1f79fd1c11f928d7c6563a8">server_client</a>;    </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <a class="code" href="structplayer__game__state__t.html">player_game_state_t</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structserver__game__state__s.html">   40</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structserver__game__state__s.html">server_game_state_s</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structserver__game__state__s.html#aa7bfee31a3f1f81cf9cdaf0fd93ea94f">   42</a></span>&#160;    <a class="code" href="structplayer__game__state__t.html">player_game_state_t</a> *<a class="code" href="structserver__game__state__s.html#aa7bfee31a3f1f81cf9cdaf0fd93ea94f">player</a>[2];   </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structserver__game__state__s.html#ae775da3b0f8a30c9f307a1175d4cbec4">   43</a></span>&#160;    <a class="code" href="structserver__game__state__array__s.html">server_game_state_array_t</a> *<a class="code" href="structserver__game__state__s.html#ae775da3b0f8a30c9f307a1175d4cbec4">array</a>; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structserver__game__state__s.html#a86ef7ed18d0f9cae5e2f754667a15843">   44</a></span>&#160;    <a class="code" href="structframe__timer__t.html">frame_timer_t</a> *<a class="code" href="structserver__game__state__s.html#a86ef7ed18d0f9cae5e2f754667a15843">timer</a>;             </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="server_2game__state_8h.html#afd402a84eeb68f6b701214e00d9af9fe">   45</a></span>&#160;} <a class="code" href="server_2game__state_8h.html#afd402a84eeb68f6b701214e00d9af9fe">server_game_state_t</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="structserver__game__state__array__s.html">   51</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structserver__game__state__array__s.html">server_game_state_array_s</a></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structserver__game__state__array__s.html#af52b8bf0f8d56e6f64c790674e2ef346">   53</a></span>&#160;    <a class="code" href="structserver__game__state__s.html">server_game_state_t</a> **<a class="code" href="structserver__game__state__array__s.html#af52b8bf0f8d56e6f64c790674e2ef346">game_state</a>; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structserver__game__state__array__s.html#a58e63760e69f28995cec9e51e3c25224">   54</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structserver__game__state__array__s.html#a58e63760e69f28995cec9e51e3c25224">count</a>;                        </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structserver__game__state__array__s.html#a4bad095c55c0092beeb586b22797f395">   55</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structserver__game__state__array__s.html#a4bad095c55c0092beeb586b22797f395">capacity</a>;                     </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <a class="code" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">extern</span> <a class="code" href="structserver__game__state__array__s.html">server_game_state_array_t</a> *<a class="code" href="server_2game__state_8h.html#a835ab82b56f9edd78cbe654ed538fdf2">createGameStateArray</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="server_2game__state_8h.html#aad04fe80872805250b982cb6abb99b9b">addGameStateToArray</a>(<a class="code" href="structserver__game__state__array__s.html">server_game_state_array_t</a> *game_state_array);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#a46f810f0261de2b741d360639635f0fb">findGame</a>(<a class="code" href="structserver__game__state__array__s.html">server_game_state_array_t</a> *game_state_array);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#a115a3f9c7f540c360b195c378631333d">removeGameStateFromArray</a>(<a class="code" href="structserver__game__state__array__s.html">server_game_state_array_t</a> *game_state_array, <span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#ac118fba2e7d699b1353e76bda119a791">deleteGameStateArray</a>(<a class="code" href="structserver__game__state__array__s.html">server_game_state_array_t</a> **game_state_array);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">extern</span> <a class="code" href="structplayer__game__state__t.html">player_game_state_t</a> *<a class="code" href="server_2game__state_8h.html#a901ec9e3da468047783e774389c1bcf2">createPlayerState</a>(<span class="keywordtype">int</span> socket_fd, <a class="code" href="structserver__client__data__s.html">server_client_data_t</a> *client_data, <a class="code" href="structserver__client__t.html">server_client_t</a> *<a class="code" href="connection_2server_8c.html#a297c23f4f449cf533cd0e72bb4a5ef27">server_client</a>);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#a6224b302f4d0f4e9b452eda00a6307c8">deletePlayerState</a>(<a class="code" href="structplayer__game__state__t.html">player_game_state_t</a> **player_game_state);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">extern</span> <a class="code" href="structserver__game__state__s.html">server_game_state_t</a> *<a class="code" href="server_2game__state_8h.html#ae40a6de223e7598df4a5dbd06fe94bc8">createGameState</a>();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#a639b9f09ba39d9c8cf39776e039ee625">addPlayerToGame</a>(<a class="code" href="structserver__game__state__s.html">server_game_state_t</a> *game_state, <span class="keywordtype">int</span> socket_fd, <a class="code" href="structserver__client__data__s.html">server_client_data_t</a> *client_data, <a class="code" href="structserver__client__t.html">server_client_t</a> *<a class="code" href="connection_2server_8c.html#a297c23f4f449cf533cd0e72bb4a5ef27">server_client</a>);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#ab14802d8def697b5091f4d2120dc25e9">removePlayerFromGame</a>(<a class="code" href="structserver__game__state__s.html">server_game_state_t</a> *game_state, <span class="keywordtype">int</span> socket_fd);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#a5ac64b24fab05b072fd17d8accd98d82">isGameEmpty</a>(<a class="code" href="structserver__game__state__s.html">server_game_state_t</a> *game_state);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#a8e16ddacb5584560026c88ed76f99090">isGameStarted</a>(<a class="code" href="structserver__game__state__s.html">server_game_state_t</a> *game_state);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#a11fddda124734fdbcad24f152b078074">isGameFinished</a>(<a class="code" href="structserver__game__state__s.html">server_game_state_t</a> *game_state);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#aee6ba7e5965d06e995a07e0b16000920">gameHasPlayer</a>(<a class="code" href="structserver__game__state__s.html">server_game_state_t</a> *game_state, <span class="keywordtype">int</span> socket_fd);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#a8e580e2a81c9bcafdda182402cc2f1c2">setPlayerFinished</a>(<a class="code" href="structserver__game__state__s.html">server_game_state_t</a> *game_state, <span class="keywordtype">int</span> socket_fd, <a class="code" href="structpacket__t.html">packet_t</a> *packet);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#a1e07642221c7a58760aea08005414fbf">gameWinner</a>(<a class="code" href="structserver__game__state__s.html">server_game_state_t</a> *game_state);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="server_2game__state_8h.html#a2d0fb5117be45a721b3f6d7c83f170f3">deleteGameState</a>(<a class="code" href="structserver__game__state__s.html">server_game_state_t</a> **game_state);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="server_2game__state_8h.html#a5992d5b801c5a4e0f44f61af457a7cad">setPlayerFinishedInArray</a>(<a class="code" href="structserver__game__state__array__s.html">server_game_state_array_t</a> *game_state_array, <span class="keywordtype">int</span> socket_fd, <a class="code" href="structpacket__t.html">packet_t</a> *packet);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="server_2game__state_8h.html#a883c9e1af0d67b87969392535b3132d3">checkServerGameTimeout</a>(<a class="code" href="structserver__game__state__array__s.html">server_game_state_array_t</a> *game_state_array);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="server_2game__state_8h.html#a75b2092a394125e055a115418a15b895">setPlayerIsReadyInArray</a>(<a class="code" href="structserver__game__state__array__s.html">server_game_state_array_t</a> *game_state_array, <a class="code" href="structserver__client__data__s.html">server_client_data_t</a> *client_data, <a class="code" href="structserver__client__t.html">server_client_t</a> *<a class="code" href="connection_2server_8c.html#a297c23f4f449cf533cd0e72bb4a5ef27">server_client</a>, <a class="code" href="structpacket__t.html">packet_t</a> *packet);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclient__data_8h_html"><div class="ttname"><a href="client__data_8h.html">client_data.h</a></div><div class="ttdoc">Implémentation des prototypes de server/client_data.c.</div></div>
+<div class="ttc" id="aconnection_2server_8c_html_a297c23f4f449cf533cd0e72bb4a5ef27"><div class="ttname"><a href="connection_2server_8c.html#a297c23f4f449cf533cd0e72bb4a5ef27">server_client</a></div><div class="ttdeci">server_client_t * server_client</div><div class="ttdoc">Client serveur socket courant.</div><div class="ttdef"><b>Definition:</b> server.c:21</div></div>
+<div class="ttc" id="aconnection_2server_8h_html"><div class="ttname"><a href="connection_2server_8h.html">server.h</a></div><div class="ttdoc">Implémentation des prototypes de connection/server.c.</div></div>
+<div class="ttc" id="apacket_8h_html"><div class="ttname"><a href="packet_8h.html">packet.h</a></div><div class="ttdoc">Implémentation des prototypes de packet/packet.c.</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a115a3f9c7f540c360b195c378631333d"><div class="ttname"><a href="server_2game__state_8h.html#a115a3f9c7f540c360b195c378631333d">removeGameStateFromArray</a></div><div class="ttdeci">int removeGameStateFromArray(server_game_state_array_t *game_state_array, int index)</div><div class="ttdoc">Enlève les données d'une partie du tableau.</div><div class="ttdef"><b>Definition:</b> game_state.c:52</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a11fddda124734fdbcad24f152b078074"><div class="ttname"><a href="server_2game__state_8h.html#a11fddda124734fdbcad24f152b078074">isGameFinished</a></div><div class="ttdeci">int isGameFinished(server_game_state_t *game_state)</div><div class="ttdoc">Récupère si la partie est finie.</div><div class="ttdef"><b>Definition:</b> game_state.c:159</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a1e07642221c7a58760aea08005414fbf"><div class="ttname"><a href="server_2game__state_8h.html#a1e07642221c7a58760aea08005414fbf">gameWinner</a></div><div class="ttdeci">int gameWinner(server_game_state_t *game_state)</div><div class="ttdoc">Récupère quel joueur à gagner.</div><div class="ttdef"><b>Definition:</b> game_state.c:190</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a2d0fb5117be45a721b3f6d7c83f170f3"><div class="ttname"><a href="server_2game__state_8h.html#a2d0fb5117be45a721b3f6d7c83f170f3">deleteGameState</a></div><div class="ttdeci">int deleteGameState(server_game_state_t **game_state)</div><div class="ttdoc">Détruit les données d'une partie.</div><div class="ttdef"><b>Definition:</b> game_state.c:211</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a39f14111b1d24e22ec6118acf38da7cb"><div class="ttname"><a href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a></div><div class="ttdeci">struct server_game_state_array_s server_game_state_array_t</div><div class="ttdoc">Structure de données contenant un tableau des données de partie.</div><div class="ttdef"><b>Definition:</b> game_state.h:14</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a46f810f0261de2b741d360639635f0fb"><div class="ttname"><a href="server_2game__state_8h.html#a46f810f0261de2b741d360639635f0fb">findGame</a></div><div class="ttdeci">int findGame(server_game_state_array_t *game_state_array)</div><div class="ttdoc">Trouve une partie qui n'est pas commencé</div><div class="ttdef"><b>Definition:</b> game_state.c:38</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a5992d5b801c5a4e0f44f61af457a7cad"><div class="ttname"><a href="server_2game__state_8h.html#a5992d5b801c5a4e0f44f61af457a7cad">setPlayerFinishedInArray</a></div><div class="ttdeci">void setPlayerFinishedInArray(server_game_state_array_t *game_state_array, int socket_fd, packet_t *packet)</div><div class="ttdoc">Définit un joueur comme ayant fini, dans le liste des parties.</div><div class="ttdef"><b>Definition:</b> game_state.c:226</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a5ac64b24fab05b072fd17d8accd98d82"><div class="ttname"><a href="server_2game__state_8h.html#a5ac64b24fab05b072fd17d8accd98d82">isGameEmpty</a></div><div class="ttdeci">int isGameEmpty(server_game_state_t *game_state)</div><div class="ttdoc">Récupère si la partie est vide.</div><div class="ttdef"><b>Definition:</b> game_state.c:149</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a6224b302f4d0f4e9b452eda00a6307c8"><div class="ttname"><a href="server_2game__state_8h.html#a6224b302f4d0f4e9b452eda00a6307c8">deletePlayerState</a></div><div class="ttdeci">int deletePlayerState(player_game_state_t **player_game_state)</div><div class="ttdoc">Détruit les données d'un joueur pour la partie.</div><div class="ttdef"><b>Definition:</b> game_state.c:95</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a639b9f09ba39d9c8cf39776e039ee625"><div class="ttname"><a href="server_2game__state_8h.html#a639b9f09ba39d9c8cf39776e039ee625">addPlayerToGame</a></div><div class="ttdeci">int addPlayerToGame(server_game_state_t *game_state, int socket_fd, server_client_data_t *client_data, server_client_t *server_client)</div><div class="ttdoc">Ajoute un joueur à la partie.</div><div class="ttdef"><b>Definition:</b> game_state.c:124</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a75b2092a394125e055a115418a15b895"><div class="ttname"><a href="server_2game__state_8h.html#a75b2092a394125e055a115418a15b895">setPlayerIsReadyInArray</a></div><div class="ttdeci">void setPlayerIsReadyInArray(server_game_state_array_t *game_state_array, server_client_data_t *client_data, server_client_t *server_client, packet_t *packet)</div><div class="ttdoc">Définit un joueur comme étant prêt à jouer, ou non, dans le liste des parties.</div><div class="ttdef"><b>Definition:</b> game_state.c:306</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a835ab82b56f9edd78cbe654ed538fdf2"><div class="ttname"><a href="server_2game__state_8h.html#a835ab82b56f9edd78cbe654ed538fdf2">createGameStateArray</a></div><div class="ttdeci">server_game_state_array_t * createGameStateArray()</div><div class="ttdoc">Créer un tableau avec les données de partie.</div><div class="ttdef"><b>Definition:</b> game_state.c:14</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a883c9e1af0d67b87969392535b3132d3"><div class="ttname"><a href="server_2game__state_8h.html#a883c9e1af0d67b87969392535b3132d3">checkServerGameTimeout</a></div><div class="ttdeci">void checkServerGameTimeout(server_game_state_array_t *game_state_array)</div><div class="ttdoc">Vérifie si une partie à dépassé le temps limite, et la supprime.</div><div class="ttdef"><b>Definition:</b> game_state.c:268</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a8e16ddacb5584560026c88ed76f99090"><div class="ttname"><a href="server_2game__state_8h.html#a8e16ddacb5584560026c88ed76f99090">isGameStarted</a></div><div class="ttdeci">int isGameStarted(server_game_state_t *game_state)</div><div class="ttdoc">Récupère si la partie est commencé</div><div class="ttdef"><b>Definition:</b> game_state.c:154</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a8e580e2a81c9bcafdda182402cc2f1c2"><div class="ttname"><a href="server_2game__state_8h.html#a8e580e2a81c9bcafdda182402cc2f1c2">setPlayerFinished</a></div><div class="ttdeci">int setPlayerFinished(server_game_state_t *game_state, int socket_fd, packet_t *packet)</div><div class="ttdoc">Définit un joueur comme ayant fini.</div><div class="ttdef"><b>Definition:</b> game_state.c:174</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_a901ec9e3da468047783e774389c1bcf2"><div class="ttname"><a href="server_2game__state_8h.html#a901ec9e3da468047783e774389c1bcf2">createPlayerState</a></div><div class="ttdeci">player_game_state_t * createPlayerState(int socket_fd, server_client_data_t *client_data, server_client_t *server_client)</div><div class="ttdoc">Créer les données d'un joueur pour la partie.</div><div class="ttdef"><b>Definition:</b> game_state.c:81</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_aad04fe80872805250b982cb6abb99b9b"><div class="ttname"><a href="server_2game__state_8h.html#aad04fe80872805250b982cb6abb99b9b">addGameStateToArray</a></div><div class="ttdeci">void addGameStateToArray(server_game_state_array_t *game_state_array)</div><div class="ttdoc">Ajoute une nouvelle partie au tableau.</div><div class="ttdef"><b>Definition:</b> game_state.c:25</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_ab14802d8def697b5091f4d2120dc25e9"><div class="ttname"><a href="server_2game__state_8h.html#ab14802d8def697b5091f4d2120dc25e9">removePlayerFromGame</a></div><div class="ttdeci">int removePlayerFromGame(server_game_state_t *game_state, int socket_fd)</div><div class="ttdoc">Enlève un joueur à la partie.</div><div class="ttdef"><b>Definition:</b> game_state.c:137</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_ac118fba2e7d699b1353e76bda119a791"><div class="ttname"><a href="server_2game__state_8h.html#ac118fba2e7d699b1353e76bda119a791">deleteGameStateArray</a></div><div class="ttdeci">int deleteGameStateArray(server_game_state_array_t **game_state_array)</div><div class="ttdoc">Détruit un tableau avec les données de partie.</div><div class="ttdef"><b>Definition:</b> game_state.c:64</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_ae40a6de223e7598df4a5dbd06fe94bc8"><div class="ttname"><a href="server_2game__state_8h.html#ae40a6de223e7598df4a5dbd06fe94bc8">createGameState</a></div><div class="ttdeci">server_game_state_t * createGameState()</div><div class="ttdoc">Créer les données d'un partie.</div><div class="ttdef"><b>Definition:</b> game_state.c:112</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_aee6ba7e5965d06e995a07e0b16000920"><div class="ttname"><a href="server_2game__state_8h.html#aee6ba7e5965d06e995a07e0b16000920">gameHasPlayer</a></div><div class="ttdeci">int gameHasPlayer(server_game_state_t *game_state, int socket_fd)</div><div class="ttdoc">Récupère si ce joueur est dans cette partie.</div><div class="ttdef"><b>Definition:</b> game_state.c:164</div></div>
+<div class="ttc" id="aserver_2game__state_8h_html_afd402a84eeb68f6b701214e00d9af9fe"><div class="ttname"><a href="server_2game__state_8h.html#afd402a84eeb68f6b701214e00d9af9fe">server_game_state_t</a></div><div class="ttdeci">struct server_game_state_s server_game_state_t</div><div class="ttdoc">Structure de données contenant les informations d'une partie.</div></div>
+<div class="ttc" id="astructframe__timer__t_html"><div class="ttname"><a href="structframe__timer__t.html">frame_timer_t</a></div><div class="ttdoc">Timer permettant l'éxécution de code à intervalle régulier.</div><div class="ttdef"><b>Definition:</b> timer.h:20</div></div>
+<div class="ttc" id="astructpacket__t_html"><div class="ttname"><a href="structpacket__t.html">packet_t</a></div><div class="ttdoc">Paquet réseaux pour les sockets.</div><div class="ttdef"><b>Definition:</b> packet.h:23</div></div>
+<div class="ttc" id="astructplayer__game__state__t_html"><div class="ttname"><a href="structplayer__game__state__t.html">player_game_state_t</a></div><div class="ttdoc">Structure de données contenant les informations d'une partie pour un joueur.</div><div class="ttdef"><b>Definition:</b> game_state.h:27</div></div>
+<div class="ttc" id="astructplayer__game__state__t_html_a513575add1f79fd1c11f928d7c6563a8"><div class="ttname"><a href="structplayer__game__state__t.html#a513575add1f79fd1c11f928d7c6563a8">player_game_state_t::server_client</a></div><div class="ttdeci">server_client_t * server_client</div><div class="ttdef"><b>Definition:</b> game_state.h:33</div></div>
+<div class="ttc" id="astructplayer__game__state__t_html_a78772d2b54814b9e20497dca115775e2"><div class="ttname"><a href="structplayer__game__state__t.html#a78772d2b54814b9e20497dca115775e2">player_game_state_t::destruction_percentage</a></div><div class="ttdeci">int destruction_percentage</div><div class="ttdef"><b>Definition:</b> game_state.h:29</div></div>
+<div class="ttc" id="astructplayer__game__state__t_html_a85203594f12b21f82e98f7b02a87275d"><div class="ttname"><a href="structplayer__game__state__t.html#a85203594f12b21f82e98f7b02a87275d">player_game_state_t::socket_fd</a></div><div class="ttdeci">int socket_fd</div><div class="ttdef"><b>Definition:</b> game_state.h:28</div></div>
+<div class="ttc" id="astructplayer__game__state__t_html_aad9acac851ad13cdeaf030753efc2aa3"><div class="ttname"><a href="structplayer__game__state__t.html#aad9acac851ad13cdeaf030753efc2aa3">player_game_state_t::time_left</a></div><div class="ttdeci">long time_left</div><div class="ttdef"><b>Definition:</b> game_state.h:30</div></div>
+<div class="ttc" id="astructplayer__game__state__t_html_ac0aec1bc43cbb28c4dc7c9f1d67503ab"><div class="ttname"><a href="structplayer__game__state__t.html#ac0aec1bc43cbb28c4dc7c9f1d67503ab">player_game_state_t::has_finished</a></div><div class="ttdeci">int has_finished</div><div class="ttdef"><b>Definition:</b> game_state.h:31</div></div>
+<div class="ttc" id="astructplayer__game__state__t_html_aea40b94327611248991f0972c2d5cc77"><div class="ttname"><a href="structplayer__game__state__t.html#aea40b94327611248991f0972c2d5cc77">player_game_state_t::client_data</a></div><div class="ttdeci">server_client_data_t * client_data</div><div class="ttdef"><b>Definition:</b> game_state.h:32</div></div>
+<div class="ttc" id="astructserver__client__data__s_html"><div class="ttname"><a href="structserver__client__data__s.html">server_client_data_s</a></div><div class="ttdoc">Structure de données associée à un client du serveur.</div><div class="ttdef"><b>Definition:</b> client_data.h:23</div></div>
+<div class="ttc" id="astructserver__client__t_html"><div class="ttname"><a href="structserver__client__t.html">server_client_t</a></div><div class="ttdoc">Client serveur socket.</div><div class="ttdef"><b>Definition:</b> server.h:43</div></div>
+<div class="ttc" id="astructserver__game__state__array__s_html"><div class="ttname"><a href="structserver__game__state__array__s.html">server_game_state_array_s</a></div><div class="ttdoc">Structure de données contenant un tableau des données de partie.</div><div class="ttdef"><b>Definition:</b> game_state.h:52</div></div>
+<div class="ttc" id="astructserver__game__state__array__s_html_a4bad095c55c0092beeb586b22797f395"><div class="ttname"><a href="structserver__game__state__array__s.html#a4bad095c55c0092beeb586b22797f395">server_game_state_array_s::capacity</a></div><div class="ttdeci">int capacity</div><div class="ttdef"><b>Definition:</b> game_state.h:55</div></div>
+<div class="ttc" id="astructserver__game__state__array__s_html_a58e63760e69f28995cec9e51e3c25224"><div class="ttname"><a href="structserver__game__state__array__s.html#a58e63760e69f28995cec9e51e3c25224">server_game_state_array_s::count</a></div><div class="ttdeci">int count</div><div class="ttdef"><b>Definition:</b> game_state.h:54</div></div>
+<div class="ttc" id="astructserver__game__state__array__s_html_af52b8bf0f8d56e6f64c790674e2ef346"><div class="ttname"><a href="structserver__game__state__array__s.html#af52b8bf0f8d56e6f64c790674e2ef346">server_game_state_array_s::game_state</a></div><div class="ttdeci">server_game_state_t ** game_state</div><div class="ttdef"><b>Definition:</b> game_state.h:53</div></div>
+<div class="ttc" id="astructserver__game__state__s_html"><div class="ttname"><a href="structserver__game__state__s.html">server_game_state_s</a></div><div class="ttdoc">Structure de données contenant les informations d'une partie.</div><div class="ttdef"><b>Definition:</b> game_state.h:41</div></div>
+<div class="ttc" id="astructserver__game__state__s_html_a86ef7ed18d0f9cae5e2f754667a15843"><div class="ttname"><a href="structserver__game__state__s.html#a86ef7ed18d0f9cae5e2f754667a15843">server_game_state_s::timer</a></div><div class="ttdeci">frame_timer_t * timer</div><div class="ttdef"><b>Definition:</b> game_state.h:44</div></div>
+<div class="ttc" id="astructserver__game__state__s_html_aa7bfee31a3f1f81cf9cdaf0fd93ea94f"><div class="ttname"><a href="structserver__game__state__s.html#aa7bfee31a3f1f81cf9cdaf0fd93ea94f">server_game_state_s::player</a></div><div class="ttdeci">player_game_state_t * player[2]</div><div class="ttdef"><b>Definition:</b> game_state.h:42</div></div>
+<div class="ttc" id="astructserver__game__state__s_html_ae775da3b0f8a30c9f307a1175d4cbec4"><div class="ttname"><a href="structserver__game__state__s.html#ae775da3b0f8a30c9f307a1175d4cbec4">server_game_state_s::array</a></div><div class="ttdeci">server_game_state_array_t * array</div><div class="ttdef"><b>Definition:</b> game_state.h:43</div></div>
+<div class="ttc" id="atimer_8h_html"><div class="ttname"><a href="timer_8h.html">timer.h</a></div><div class="ttdoc">Implémentation des prototypes de timer/timer.c.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

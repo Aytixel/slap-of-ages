@@ -1,0 +1,13 @@
+<map id="src/map/building.h" name="src/map/building.h">
+<area shape="rect" id="node1" title=" " alt="" coords="211,5,354,32"/>
+<area shape="rect" id="node2" href="$building__renderer_8h.html" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="44,80,191,107"/>
+<area shape="rect" id="node6" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="106,155,230,181"/>
+<area shape="rect" id="node7" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="265,80,412,107"/>
+<area shape="rect" id="node3" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="50,229,187,256"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,304,101,331"/>
+<area shape="rect" id="node5" title=" " alt="" coords="125,304,243,331"/>
+<area shape="rect" id="node8" title=" " alt="" coords="254,155,325,181"/>
+<area shape="rect" id="node9" href="$timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="349,155,456,181"/>
+<area shape="rect" id="node11" href="$game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="480,155,635,181"/>
+<area shape="rect" id="node10" title=" " alt="" coords="357,229,448,256"/>
+</map>

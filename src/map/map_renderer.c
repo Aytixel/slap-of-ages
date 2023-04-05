@@ -8,15 +8,16 @@
  */
 
 #include <stdlib.h>
+#include <math.h>
+#include "client/common.h"
 #include "map_renderer.h"
 
 #define MAP_TILE_SIZE 16
 
-extern map_renderer_t *createMapRenderer(window_t *window, int map_size)
+extern map_renderer_t *createMapRenderer(window_t *window)
 {
     map_renderer_t *map_renderer = malloc(sizeof(map_renderer_t));
 
-    map_renderer->size = map_size;
     map_renderer->tile_size = MAP_TILE_SIZE;
     map_renderer->ground_sprite = loadSprite(window, "asset/sprite/map/Tiles.png");
 
@@ -63,6 +64,8 @@ extern map_renderer_t *createMapRenderer(window_t *window, int map_size)
     {
         ((int *)&map_renderer->sprite_rects)[i] = ((int *)&map_renderer->sprite_tile_rects)[i] * MAP_TILE_SIZE;
     }
+
+    map_renderer->offset_from_center = map_renderer->tile_size * MAP_SIZE / 2;
 
     return map_renderer;
 }
@@ -130,19 +133,21 @@ static int randomizeTreePlacement(int x, int y)
 
 extern void renderMap(window_t *window, map_renderer_t *map_renderer)
 {
-    // ajuste la taille des cases pour que la carte remplisse toute la hauteur de la fenêtre
-    map_renderer->tile_size = window->height / (map_renderer->size + 12);
+    map_renderer->offset_from_center = map_renderer->tile_size * MAP_SIZE / 2;
 
-    int offset = map_renderer->tile_size * ((float)map_renderer->size / 2 - 1);
+    // ajuste la taille des cases pour que la carte remplisse toute la hauteur de la fenêtre
+    map_renderer->tile_size = window->height / (MAP_SIZE + 12);
+
+    int offset = map_renderer->offset_from_center - map_renderer->tile_size;
 
     // calcul le nombre de cases pour remplir la moitié de la fenêtre
-    int halft_width_tile_count = window->width / 2 / map_renderer->tile_size - map_renderer->size / 2 + 1;
-    int halft_height_tile_count = window->height / 2 / map_renderer->tile_size - map_renderer->size / 2 + 1;
+    int halft_width_tile_count = window->width / 2 / map_renderer->tile_size - MAP_SIZE / 2 + 1;
+    int halft_height_tile_count = window->height / 2 / map_renderer->tile_size - MAP_SIZE / 2 + 1;
 
     // affichage du sol de la carte
-    for (int y = -halft_height_tile_count; y < map_renderer->size + halft_height_tile_count; y++)
+    for (int y = -halft_height_tile_count; y < MAP_SIZE + halft_height_tile_count; y++)
     {
-        for (int x = -halft_width_tile_count; x < map_renderer->size + halft_width_tile_count; x++)
+        for (int x = -halft_width_tile_count; x < MAP_SIZE + halft_width_tile_count; x++)
         {
             SDL_Rect ground_destination_rect = positionFromCenter(
                 window,
@@ -154,29 +159,29 @@ extern void renderMap(window_t *window, map_renderer_t *map_renderer)
             SDL_Rect *source_rect = &map_renderer->sprite_rects.dirt; // texture de terre par default
 
             // decide quel type de sol afficher
-            if (x >= -1 && x <= map_renderer->size && y >= -1 && y <= map_renderer->size)
+            if (x >= -1 && x <= MAP_SIZE && y >= -1 && y <= MAP_SIZE)
             {
                 if (x == -1)
                 {
                     if (y == -1)
                         source_rect = &map_renderer->sprite_rects.dirt_top_left;
-                    else if (y == map_renderer->size)
+                    else if (y == MAP_SIZE)
                         source_rect = &map_renderer->sprite_rects.dirt_bottom_left;
                     else
                         source_rect = &map_renderer->sprite_rects.dirt_left;
                 }
-                else if (x == map_renderer->size)
+                else if (x == MAP_SIZE)
                 {
                     if (y == -1)
                         source_rect = &map_renderer->sprite_rects.dirt_top_right;
-                    else if (y == map_renderer->size)
+                    else if (y == MAP_SIZE)
                         source_rect = &map_renderer->sprite_rects.dirt_bottom_right;
                     else
                         source_rect = &map_renderer->sprite_rects.dirt_right;
                 }
                 else if (y == -1)
                     source_rect = &map_renderer->sprite_rects.dirt_top;
-                else if (y == map_renderer->size)
+                else if (y == MAP_SIZE)
                     source_rect = &map_renderer->sprite_rects.dirt_bottom;
                 else
                     source_rect = (x + y) % 2 // créer un damier avec la couleur des sprites
@@ -193,9 +198,9 @@ extern void renderMap(window_t *window, map_renderer_t *map_renderer)
     }
 
     // affichage des arbres au tour de la carte
-    for (int y = -halft_height_tile_count; y < map_renderer->size + halft_height_tile_count + 8; y++)
+    for (int y = -halft_height_tile_count; y < MAP_SIZE + halft_height_tile_count + 8; y++)
     {
-        for (int x = -halft_width_tile_count; x < map_renderer->size + halft_width_tile_count + 7; x++)
+        for (int x = -halft_width_tile_count; x < MAP_SIZE + halft_width_tile_count + 7; x++)
         {
             // texture de l'arbre moyen par default
             SDL_Rect tree_source_rect;
@@ -206,9 +211,9 @@ extern void renderMap(window_t *window, map_renderer_t *map_renderer)
             // decide s'il faut afficher un arbre
             if ((
                     x < -1 ||
-                    x > map_renderer->size + tree_tile_rect.w - 1 ||
+                    x > MAP_SIZE + tree_tile_rect.w - 1 ||
                     y < -1 ||
-                    y > map_renderer->size + tree_tile_rect.h - 1) &&
+                    y > MAP_SIZE + tree_tile_rect.h - 1) &&
                 randomizeTreePlacement(x, y))
             {
                 SDL_Rect tree_destination_rect = positionFromCenter(
@@ -240,4 +245,14 @@ extern int deleteMapRenderer(map_renderer_t **map_renderer)
     *map_renderer = NULL;
 
     return 0;
+}
+
+extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_renderer_t *map_renderer)
+{
+    SDL_Rect center_coord = positionToCenter(window, 0, 0);
+    SDL_Point tile_coord = {
+        round((1.0 * mouse_position->x - center_coord.x - map_renderer->tile_size / 2 + map_renderer->offset_from_center) / map_renderer->tile_size),
+        round((1.0 * mouse_position->y - center_coord.y - map_renderer->tile_size / 2 + map_renderer->offset_from_center) / map_renderer->tile_size)};
+
+    return tile_coord;
 }

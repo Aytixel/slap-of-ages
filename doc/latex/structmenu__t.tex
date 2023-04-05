@@ -1,0 +1,155 @@
+\hypertarget{structmenu__t}{}\doxysection{Référence de la structure menu\+\_\+t}
+\label{structmenu__t}\index{menu\_t@{menu\_t}}
+
+
+Structure pour stocker information du menu\+\_\+test.  
+
+
+
+
+{\ttfamily \#include $<$menu.\+h$>$}
+
+
+
+Graphe de collaboration de menu\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structmenu__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+TTF\+\_\+\+Font $\ast$ \mbox{\hyperlink{structmenu__t_a8950e810dafe2edf39ad4016352ef3a5}{text\+\_\+font}}
+\item 
+TTF\+\_\+\+Font $\ast$ \mbox{\hyperlink{structmenu__t_a9b50feaa5bca8525b9932f27d32b6905}{textbox\+\_\+font}}
+\item 
+\mbox{\hyperlink{structanim__t}{anim\+\_\+t}} $\ast$ \mbox{\hyperlink{structmenu__t_a8ca82ff0aa62f162a8f0a2a1c0c33fc1}{book\+\_\+animation}}
+\item 
+\mbox{\hyperlink{animation__states_8h_a7a370becafed996f28dcb795b7413f85}{book\+\_\+anim\+\_\+state\+\_\+e}} \mbox{\hyperlink{structmenu__t_a45585951e5936cb91ee230dd9a0d5494}{book\+\_\+animation\+\_\+state}}
+\item 
+\mbox{\hyperlink{structbutton__t}{button\+\_\+t}} $\ast$ \mbox{\hyperlink{structmenu__t_a9c33dfb370d88cc9c3bf1603e921e486}{join\+\_\+button}}
+\item 
+\mbox{\hyperlink{structbutton__t}{button\+\_\+t}} $\ast$ \mbox{\hyperlink{structmenu__t_a16f17dcee9cb355c33cfbe18b7b8c36e}{quit\+\_\+button}}
+\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{structmenu__t_a9f70669e349af41cae4f9890a75d9b30}{hostname\+\_\+label}}
+\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{structmenu__t_a033178a58b226a1c8144347933726ed9}{port\+\_\+label}}
+\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{structmenu__t_ad9764036f9e539ca700673e72f4f5873}{pseudo\+\_\+label}}
+\item 
+\mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}} $\ast$ \mbox{\hyperlink{structmenu__t_a893c891895e5c8865985cc139865400d}{hostname\+\_\+textbox}}
+\item 
+\mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}} $\ast$ \mbox{\hyperlink{structmenu__t_a67d1f2a8aec3cdee633ea83eb52e53c8}{port\+\_\+textbox}}
+\item 
+\mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}} $\ast$ \mbox{\hyperlink{structmenu__t_ac43024e6bc3a106071e9b589de4c0f54}{pseudo\+\_\+textbox}}
+\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{structmenu__t_afed13f94e200ebbce379776e5e00debd}{hostname\+\_\+rect}}
+\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{structmenu__t_a1d28e8c3eab5320453be98c62f04c7e7}{port\+\_\+rect}}
+\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{structmenu__t_a4f59e26f2c1f43fbd214dba39a6d5161}{pseudo\+\_\+rect}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure pour stocker information du menu\+\_\+test. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structmenu__t_a8ca82ff0aa62f162a8f0a2a1c0c33fc1}\label{structmenu__t_a8ca82ff0aa62f162a8f0a2a1c0c33fc1}} 
+\index{menu\_t@{menu\_t}!book\_animation@{book\_animation}}
+\index{book\_animation@{book\_animation}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{book\_animation}{book\_animation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structanim__t}{anim\+\_\+t}}$\ast$ menu\+\_\+t\+::book\+\_\+animation}
+
+animation du livre \mbox{\Hypertarget{structmenu__t_a45585951e5936cb91ee230dd9a0d5494}\label{structmenu__t_a45585951e5936cb91ee230dd9a0d5494}} 
+\index{menu\_t@{menu\_t}!book\_animation\_state@{book\_animation\_state}}
+\index{book\_animation\_state@{book\_animation\_state}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{book\_animation\_state}{book\_animation\_state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{animation__states_8h_a7a370becafed996f28dcb795b7413f85}{book\+\_\+anim\+\_\+state\+\_\+e}} menu\+\_\+t\+::book\+\_\+animation\+\_\+state}
+
+état de l\textquotesingle{}animation du livre \mbox{\Hypertarget{structmenu__t_a9f70669e349af41cae4f9890a75d9b30}\label{structmenu__t_a9f70669e349af41cae4f9890a75d9b30}} 
+\index{menu\_t@{menu\_t}!hostname\_label@{hostname\_label}}
+\index{hostname\_label@{hostname\_label}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{hostname\_label}{hostname\_label}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ menu\+\_\+t\+::hostname\+\_\+label}
+
+sprite de l\textquotesingle{}étiquette \char`\"{}ip\char`\"{} \mbox{\Hypertarget{structmenu__t_afed13f94e200ebbce379776e5e00debd}\label{structmenu__t_afed13f94e200ebbce379776e5e00debd}} 
+\index{menu\_t@{menu\_t}!hostname\_rect@{hostname\_rect}}
+\index{hostname\_rect@{hostname\_rect}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{hostname\_rect}{hostname\_rect}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect menu\+\_\+t\+::hostname\+\_\+rect}
+
+rectangle d\textquotesingle{}affiche de la boite de text \char`\"{}ip\char`\"{} \mbox{\Hypertarget{structmenu__t_a893c891895e5c8865985cc139865400d}\label{structmenu__t_a893c891895e5c8865985cc139865400d}} 
+\index{menu\_t@{menu\_t}!hostname\_textbox@{hostname\_textbox}}
+\index{hostname\_textbox@{hostname\_textbox}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{hostname\_textbox}{hostname\_textbox}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}}$\ast$ menu\+\_\+t\+::hostname\+\_\+textbox}
+
+boite de text \char`\"{}ip\char`\"{} \mbox{\Hypertarget{structmenu__t_a9c33dfb370d88cc9c3bf1603e921e486}\label{structmenu__t_a9c33dfb370d88cc9c3bf1603e921e486}} 
+\index{menu\_t@{menu\_t}!join\_button@{join\_button}}
+\index{join\_button@{join\_button}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{join\_button}{join\_button}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structbutton__t}{button\+\_\+t}}$\ast$ menu\+\_\+t\+::join\+\_\+button}
+
+bouton rejoindre \mbox{\Hypertarget{structmenu__t_a033178a58b226a1c8144347933726ed9}\label{structmenu__t_a033178a58b226a1c8144347933726ed9}} 
+\index{menu\_t@{menu\_t}!port\_label@{port\_label}}
+\index{port\_label@{port\_label}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{port\_label}{port\_label}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ menu\+\_\+t\+::port\+\_\+label}
+
+sprite de l\textquotesingle{}étiquette \char`\"{}port\char`\"{} \mbox{\Hypertarget{structmenu__t_a1d28e8c3eab5320453be98c62f04c7e7}\label{structmenu__t_a1d28e8c3eab5320453be98c62f04c7e7}} 
+\index{menu\_t@{menu\_t}!port\_rect@{port\_rect}}
+\index{port\_rect@{port\_rect}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{port\_rect}{port\_rect}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect menu\+\_\+t\+::port\+\_\+rect}
+
+rectangle d\textquotesingle{}affiche de la boite de text \char`\"{}port\char`\"{} \mbox{\Hypertarget{structmenu__t_a67d1f2a8aec3cdee633ea83eb52e53c8}\label{structmenu__t_a67d1f2a8aec3cdee633ea83eb52e53c8}} 
+\index{menu\_t@{menu\_t}!port\_textbox@{port\_textbox}}
+\index{port\_textbox@{port\_textbox}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{port\_textbox}{port\_textbox}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}}$\ast$ menu\+\_\+t\+::port\+\_\+textbox}
+
+boite de text \char`\"{}port\char`\"{} \mbox{\Hypertarget{structmenu__t_ad9764036f9e539ca700673e72f4f5873}\label{structmenu__t_ad9764036f9e539ca700673e72f4f5873}} 
+\index{menu\_t@{menu\_t}!pseudo\_label@{pseudo\_label}}
+\index{pseudo\_label@{pseudo\_label}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{pseudo\_label}{pseudo\_label}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ menu\+\_\+t\+::pseudo\+\_\+label}
+
+sprite de l\textquotesingle{}étiquette \char`\"{}pseudo\char`\"{} \mbox{\Hypertarget{structmenu__t_a4f59e26f2c1f43fbd214dba39a6d5161}\label{structmenu__t_a4f59e26f2c1f43fbd214dba39a6d5161}} 
+\index{menu\_t@{menu\_t}!pseudo\_rect@{pseudo\_rect}}
+\index{pseudo\_rect@{pseudo\_rect}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{pseudo\_rect}{pseudo\_rect}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect menu\+\_\+t\+::pseudo\+\_\+rect}
+
+rectangle d\textquotesingle{}affiche de la boite de text \char`\"{}pseudo\char`\"{} \mbox{\Hypertarget{structmenu__t_ac43024e6bc3a106071e9b589de4c0f54}\label{structmenu__t_ac43024e6bc3a106071e9b589de4c0f54}} 
+\index{menu\_t@{menu\_t}!pseudo\_textbox@{pseudo\_textbox}}
+\index{pseudo\_textbox@{pseudo\_textbox}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{pseudo\_textbox}{pseudo\_textbox}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtextbox__t}{textbox\+\_\+t}}$\ast$ menu\+\_\+t\+::pseudo\+\_\+textbox}
+
+boite de text \char`\"{}pseudo\char`\"{} \mbox{\Hypertarget{structmenu__t_a16f17dcee9cb355c33cfbe18b7b8c36e}\label{structmenu__t_a16f17dcee9cb355c33cfbe18b7b8c36e}} 
+\index{menu\_t@{menu\_t}!quit\_button@{quit\_button}}
+\index{quit\_button@{quit\_button}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{quit\_button}{quit\_button}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structbutton__t}{button\+\_\+t}}$\ast$ menu\+\_\+t\+::quit\+\_\+button}
+
+bouton quitter \mbox{\Hypertarget{structmenu__t_a8950e810dafe2edf39ad4016352ef3a5}\label{structmenu__t_a8950e810dafe2edf39ad4016352ef3a5}} 
+\index{menu\_t@{menu\_t}!text\_font@{text\_font}}
+\index{text\_font@{text\_font}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{text\_font}{text\_font}}
+{\footnotesize\ttfamily TTF\+\_\+\+Font$\ast$ menu\+\_\+t\+::text\+\_\+font}
+
+police d\textquotesingle{}écriture du texte \mbox{\Hypertarget{structmenu__t_a9b50feaa5bca8525b9932f27d32b6905}\label{structmenu__t_a9b50feaa5bca8525b9932f27d32b6905}} 
+\index{menu\_t@{menu\_t}!textbox\_font@{textbox\_font}}
+\index{textbox\_font@{textbox\_font}!menu\_t@{menu\_t}}
+\doxysubsubsection{\texorpdfstring{textbox\_font}{textbox\_font}}
+{\footnotesize\ttfamily TTF\+\_\+\+Font$\ast$ menu\+\_\+t\+::textbox\+\_\+font}
+
+police d\textquotesingle{}écriture pour les boites de texte 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/menu/\mbox{\hyperlink{menu_8h}{menu.\+h}}\end{DoxyCompactItemize}

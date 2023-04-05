@@ -18,6 +18,7 @@ extern server_client_data_t *createServerClientData()
     client_data->is_player_ready = 0;
     client_data->is_in_game = 0;
     client_data->game_state = NULL;
+    client_data->map_packet = NULL;
 
     return client_data;
 }
@@ -61,6 +62,8 @@ extern int deleteServerClientData(server_client_data_t **client_data)
                 deletePlayerState(&(*client_data)->game_state->player[1]);
         }
     }
+
+    deletePacket(&(*client_data)->map_packet);
 
     free(*client_data);
     *client_data = NULL;

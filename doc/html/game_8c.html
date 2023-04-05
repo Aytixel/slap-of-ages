@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages: Référence du fichier src/game/game.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1699be727a800b1d059c6f7f2b91d2ee.html">game</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier game.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fonction divers pour le jeu.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="client_2common_8h_source.html">client/common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="game_8h_source.html">game.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de game.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="game_8c__incl.png" border="0" usemap="#asrc_2game_2game_8c" alt=""/></div>
+<map name="asrc_2game_2game_8c" id="asrc_2game_2game_8c">
+<area shape="rect" title="Fonction divers pour le jeu." alt="" coords="182,5,317,32"/>
+<area shape="rect" title=" " alt="" coords="13,155,80,181"/>
+<area shape="rect" title=" " alt="" coords="105,155,175,181"/>
+<area shape="rect" title=" " alt="" coords="341,155,424,181"/>
+<area shape="rect" title=" " alt="" coords="325,80,393,107"/>
+<area shape="rect" href="client_2common_8h.html" title="Definition globale pour le client." alt="" coords="417,80,548,107"/>
+<area shape="rect" href="game_8h.html" title="Fonction divers pour le jeu." alt="" coords="178,80,249,107"/>
+<area shape="rect" href="building_8h.html" title=" " alt="" coords="199,155,318,181"/>
+<area shape="rect" href="building__renderer_8h.html" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="100,229,247,256"/>
+<area shape="rect" href="map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="6,304,130,331"/>
+<area shape="rect" href="game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="271,229,417,256"/>
+<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="50,379,187,405"/>
+<area shape="rect" title=" " alt="" coords="5,453,101,480"/>
+<area shape="rect" title=" " alt="" coords="125,453,243,480"/>
+<area shape="rect" title=" " alt="" coords="206,304,277,331"/>
+<area shape="rect" href="timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="301,304,408,331"/>
+<area shape="rect" href="game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="432,304,587,331"/>
+<area shape="rect" title=" " alt="" coords="309,379,400,405"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a3018c7600b7bb9866400596a56a57af7"><td class="memItemLeft" align="right" valign="top"><a id="a3018c7600b7bb9866400596a56a57af7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>START</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a3018c7600b7bb9866400596a56a57af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a236f7135ab66c95a8da2d629f752665d"><td class="memItemLeft" align="right" valign="top"><a id="a236f7135ab66c95a8da2d629f752665d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>GOAL</b>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a236f7135ab66c95a8da2d629f752665d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aa58163b9adcf970353e3f50fc1032730"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structnode__list__t.html">node_list_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#aa58163b9adcf970353e3f50fc1032730">create_node_list</a> ()</td></tr>
+<tr class="memdesc:aa58163b9adcf970353e3f50fc1032730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creation d'une liste de noeud.  <a href="game_8c.html#aa58163b9adcf970353e3f50fc1032730">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa58163b9adcf970353e3f50fc1032730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73f344593f712bab4a9f61339b966d62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a73f344593f712bab4a9f61339b966d62">clear_node_list</a> (<a class="el" href="structnode__list__t.html">node_list_t</a> *list)</td></tr>
+<tr class="memdesc:a73f344593f712bab4a9f61339b966d62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vide une liste de ses noeuds.  <a href="game_8c.html#a73f344593f712bab4a9f61339b966d62">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a73f344593f712bab4a9f61339b966d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab562c582d4e018758f92c4fdc1a1d00c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#ab562c582d4e018758f92c4fdc1a1d00c">free_node_list</a> (<a class="el" href="structnode__list__t.html">node_list_t</a> *list)</td></tr>
+<tr class="memdesc:ab562c582d4e018758f92c4fdc1a1d00c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libération de la mémoire d'une liste de noeud.  <a href="game_8c.html#ab562c582d4e018758f92c4fdc1a1d00c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab562c582d4e018758f92c4fdc1a1d00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a193e1b2f426ee4d1166c1c4664c3f188"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a193e1b2f426ee4d1166c1c4664c3f188">remove_parent_from_list</a> (<a class="el" href="structnode__list__t.html">node_list_t</a> *list, <a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *node)</td></tr>
+<tr class="memdesc:a193e1b2f426ee4d1166c1c4664c3f188"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression de la liste d'un noeud et de ses parents.  <a href="game_8c.html#a193e1b2f426ee4d1166c1c4664c3f188">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a193e1b2f426ee4d1166c1c4664c3f188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4200a0320d316103883ba535bf913391"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a4200a0320d316103883ba535bf913391">add_node</a> (<a class="el" href="structnode__list__t.html">node_list_t</a> *list, <a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *node)</td></tr>
+<tr class="memdesc:a4200a0320d316103883ba535bf913391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajout d'un noeud à la liste.  <a href="game_8c.html#a4200a0320d316103883ba535bf913391">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4200a0320d316103883ba535bf913391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8d7cfbdfc4aedca5ea7ddce9ddf77a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#af8d7cfbdfc4aedca5ea7ddce9ddf77a0">remove_node</a> (<a class="el" href="structnode__list__t.html">node_list_t</a> *list, int index)</td></tr>
+<tr class="memdesc:af8d7cfbdfc4aedca5ea7ddce9ddf77a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression d'un noeud.  <a href="game_8c.html#af8d7cfbdfc4aedca5ea7ddce9ddf77a0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af8d7cfbdfc4aedca5ea7ddce9ddf77a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6032b90b973ab7a7066e06fdec962ab3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a6032b90b973ab7a7066e06fdec962ab3">create_node</a> (SDL_Point position, <a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *parent)</td></tr>
+<tr class="memdesc:a6032b90b973ab7a7066e06fdec962ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creation d'une noeud.  <a href="game_8c.html#a6032b90b973ab7a7066e06fdec962ab3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6032b90b973ab7a7066e06fdec962ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad22ba344bea1322fd21925363d83870d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#ad22ba344bea1322fd21925363d83870d">free_node_path</a> (<a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *node)</td></tr>
+<tr class="memdesc:ad22ba344bea1322fd21925363d83870d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libération de la mémoire d'une node et de ses parent.  <a href="game_8c.html#ad22ba344bea1322fd21925363d83870d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad22ba344bea1322fd21925363d83870d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73a16060935346f073c8ce1985bc9bf4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a73a16060935346f073c8ce1985bc9bf4">heuristic</a> (<a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *a, <a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *b)</td></tr>
+<tr class="memdesc:a73a16060935346f073c8ce1985bc9bf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heuristique pour l'algorithme A*.  <a href="game_8c.html#a73a16060935346f073c8ce1985bc9bf4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a73a16060935346f073c8ce1985bc9bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec254c7d1667b25910203410536417b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#aec254c7d1667b25910203410536417b8">is_valid</a> (SDL_Point position, <a class="el" href="structbuilding__s.html">building_t</a> ***map_building)</td></tr>
+<tr class="memdesc:aec254c7d1667b25910203410536417b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérification de la validité d'un node.  <a href="game_8c.html#aec254c7d1667b25910203410536417b8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aec254c7d1667b25910203410536417b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8089d4c4019f061ae047133f73594ed1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a8089d4c4019f061ae047133f73594ed1">is_valid_no_wall</a> (SDL_Point position)</td></tr>
+<tr class="memdesc:a8089d4c4019f061ae047133f73594ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérification de la validité d'un node sans les murs.  <a href="game_8c.html#a8089d4c4019f061ae047133f73594ed1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8089d4c4019f061ae047133f73594ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39bf2f013b42ebf95614fda258ea097a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a39bf2f013b42ebf95614fda258ea097a">a_star</a> (SDL_Point start, SDL_Point goal, <a class="el" href="structbuilding__s.html">building_t</a> ***map_building, int wall)</td></tr>
+<tr class="memdesc:a39bf2f013b42ebf95614fda258ea097a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorithme de pathfinding A*.  <a href="game_8c.html#a39bf2f013b42ebf95614fda258ea097a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a39bf2f013b42ebf95614fda258ea097a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a129ee813ae2288ad62db99cb38adc5ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a129ee813ae2288ad62db99cb38adc5ed">display_path</a> (<a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *node)</td></tr>
+<tr class="memdesc:a129ee813ae2288ad62db99cb38adc5ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du chemin.  <a href="game_8c.html#a129ee813ae2288ad62db99cb38adc5ed">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a129ee813ae2288ad62db99cb38adc5ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fonction divers pour le jeu. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Arthur Dureau, Hôa Le Luet, Lucas Dureau </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>19/03/2023 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a39bf2f013b42ebf95614fda258ea097a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39bf2f013b42ebf95614fda258ea097a">&#9670;&nbsp;</a></span>a_star()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a>* a_star </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Point&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Point&#160;</td>
+          <td class="paramname"><em>goal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> ***&#160;</td>
+          <td class="paramname"><em>map_building</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>wall</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Algorithme de pathfinding A*. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td></td></tr>
+    <tr><td class="paramname">goal</td><td></td></tr>
+    <tr><td class="paramname">map_building</td><td></td></tr>
+    <tr><td class="paramname">wall</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>node* </dd></dl>
+
+</div>
+</div>
+<a id="a4200a0320d316103883ba535bf913391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4200a0320d316103883ba535bf913391">&#9670;&nbsp;</a></span>add_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_node </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structnode__list__t.html">node_list_t</a> *&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajout d'un noeud à la liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td></td></tr>
+    <tr><td class="paramname">node</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a73f344593f712bab4a9f61339b966d62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73f344593f712bab4a9f61339b966d62">&#9670;&nbsp;</a></span>clear_node_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear_node_list </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structnode__list__t.html">node_list_t</a> *&#160;</td>
+          <td class="paramname"><em>list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vide une liste de ses noeuds. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6032b90b973ab7a7066e06fdec962ab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6032b90b973ab7a7066e06fdec962ab3">&#9670;&nbsp;</a></span>create_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a>* create_node </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Point&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *&#160;</td>
+          <td class="paramname"><em>parent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creation d'une noeud. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td></td></tr>
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>node* </dd></dl>
+
+</div>
+</div>
+<a id="aa58163b9adcf970353e3f50fc1032730"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa58163b9adcf970353e3f50fc1032730">&#9670;&nbsp;</a></span>create_node_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structnode__list__t.html">node_list_t</a>* create_node_list </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creation d'une liste de noeud. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>node_list* </dd></dl>
+
+</div>
+</div>
+<a id="a129ee813ae2288ad62db99cb38adc5ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a129ee813ae2288ad62db99cb38adc5ed">&#9670;&nbsp;</a></span>display_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void display_path </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du chemin. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab562c582d4e018758f92c4fdc1a1d00c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab562c582d4e018758f92c4fdc1a1d00c">&#9670;&nbsp;</a></span>free_node_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_node_list </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structnode__list__t.html">node_list_t</a> *&#160;</td>
+          <td class="paramname"><em>list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libération de la mémoire d'une liste de noeud. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad22ba344bea1322fd21925363d83870d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad22ba344bea1322fd21925363d83870d">&#9670;&nbsp;</a></span>free_node_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_node_path </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libération de la mémoire d'une node et de ses parent. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a73a16060935346f073c8ce1985bc9bf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73a16060935346f073c8ce1985bc9bf4">&#9670;&nbsp;</a></span>heuristic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float heuristic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Heuristique pour l'algorithme A*. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td></td></tr>
+    <tr><td class="paramname">b</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>float </dd></dl>
+
+</div>
+</div>
+<a id="aec254c7d1667b25910203410536417b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec254c7d1667b25910203410536417b8">&#9670;&nbsp;</a></span>is_valid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_valid </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Point&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> ***&#160;</td>
+          <td class="paramname"><em>map_building</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérification de la validité d'un node. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">mat</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
+<a id="a8089d4c4019f061ae047133f73594ed1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8089d4c4019f061ae047133f73594ed1">&#9670;&nbsp;</a></span>is_valid_no_wall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_valid_no_wall </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Point&#160;</td>
+          <td class="paramname"><em>position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérification de la validité d'un node sans les murs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
+<a id="af8d7cfbdfc4aedca5ea7ddce9ddf77a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8d7cfbdfc4aedca5ea7ddce9ddf77a0">&#9670;&nbsp;</a></span>remove_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a>* remove_node </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structnode__list__t.html">node_list_t</a> *&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Suppression d'un noeud. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td></td></tr>
+    <tr><td class="paramname">index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>node* </dd></dl>
+
+</div>
+</div>
+<a id="a193e1b2f426ee4d1166c1c4664c3f188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a193e1b2f426ee4d1166c1c4664c3f188">&#9670;&nbsp;</a></span>remove_parent_from_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void remove_parent_from_list </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structnode__list__t.html">node_list_t</a> *&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="game_8h.html#a33b99e5345d46cf63926673aa2b9ff83">node_t</a> *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Suppression de la liste d'un noeud et de ses parents. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td></td></tr>
+    <tr><td class="paramname">node</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

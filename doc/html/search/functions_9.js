@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['nextclientconnection_347',['nextClientConnection',['../connection_2server_8c.html#a6a647b23b1b3410dcba1a6271e3f8f9e',1,'nextClientConnection():&#160;server.c'],['../connection_2server_8h.html#a6a647b23b1b3410dcba1a6271e3f8f9e',1,'nextClientConnection():&#160;server.c']]]
+  ['loadfont_588',['loadFont',['../window_8c.html#a1aa4702721f7b4b6a599a14fdd0a426c',1,'loadFont(char *path, int pt_size):&#160;window.c'],['../window_8h.html#a1aa4702721f7b4b6a599a14fdd0a426c',1,'loadFont(char *path, int pt_size):&#160;window.c']]],
+  ['loadsprite_589',['loadSprite',['../window_8c.html#a12caaf6efa15b7b7ef17f25474d3f4ce',1,'loadSprite(window_t *window, char *path):&#160;window.c'],['../window_8h.html#a12caaf6efa15b7b7ef17f25474d3f4ce',1,'loadSprite(window_t *window, char *path):&#160;window.c']]]
 ];

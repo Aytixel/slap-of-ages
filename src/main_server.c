@@ -2,14 +2,12 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <string.h>
+#include "server/common.h"
 #include "timer/timer.h"
 #include "connection/server.h"
 #include "server/client_data.h"
 #include "server/game_state.h"
 #include "utils/getopt.h"
-
-#define DEFAULT_HOSTNAME "0.0.0.0"
-#define DEFAULT_PORT 4539
 
 int running = 1;
 
@@ -49,16 +47,16 @@ void get_connection_info(int argc, char *argv[], char **hostname, uint16_t *port
     }
 
     if (!*port)
-        *port = DEFAULT_PORT;
+        *port = SERVER_DEFAULT_PORT;
 
     if (*hostname == NULL)
     {
-        *hostname = malloc(strlen(DEFAULT_HOSTNAME) + 1);
-        strcpy(*hostname, DEFAULT_HOSTNAME);
+        *hostname = malloc(strlen(SERVER_DEFAULT_HOSTNAME) + 1);
+        strcpy(*hostname, SERVER_DEFAULT_HOSTNAME);
     }
 }
 
-void handle_packet(packet_t *packet, server_game_state_array_t *game_state_array)
+int handle_packet(packet_t *packet, server_game_state_array_t *game_state_array)
 {
     server_client_data_t *client_data = *server_client_data;
 
@@ -69,8 +67,10 @@ void handle_packet(packet_t *packet, server_game_state_array_t *game_state_array
         printf("%d : Pseudo définie : %s\n", server_client->socket_fd, client_data->pseudo);
         break;
     case SET_MAP_PACKET_ID:
+        deletePacket(&client_data->map_packet);
+        client_data->map_packet = packet;
         printf("%d : %s a envoyer les données la de carte\n", server_client->socket_fd, client_data->pseudo);
-        break;
+        return 0;
     case IS_PLAYER_READY_PACKET_ID:
         setPlayerIsReadyInArray(game_state_array, client_data, server_client, packet);
         break;
@@ -78,6 +78,8 @@ void handle_packet(packet_t *packet, server_game_state_array_t *game_state_array
         setPlayerFinishedInArray(game_state_array, server_client->socket_fd, packet);
         break;
     }
+
+    return 1;
 }
 
 int main(int argc, char *argv[])
@@ -132,11 +134,8 @@ int main(int argc, char *argv[])
                 case SERVER_CLIENT_CONNECTED:;
                     packet_t *packet = recvFromServerClient(server_client);
 
-                    if (packet != NULL)
-                    {
-                        handle_packet(packet, game_state_array);
+                    if (packet != NULL && handle_packet(packet, game_state_array))
                         deletePacket(&packet);
-                    }
                     break;
                 }
             }

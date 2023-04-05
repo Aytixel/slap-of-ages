@@ -1,0 +1,75 @@
+\hypertarget{structserver__client__data__s}{}\doxysection{Référence de la structure server\+\_\+client\+\_\+data\+\_\+s}
+\label{structserver__client__data__s}\index{server\_client\_data\_s@{server\_client\_data\_s}}
+
+
+Structure de données associée à un client du serveur.  
+
+
+
+
+{\ttfamily \#include $<$client\+\_\+data.\+h$>$}
+
+
+
+Graphe de collaboration de server\+\_\+client\+\_\+data\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structserver__client__data__s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{structserver__client__data__s_ae12668052dac414bb1d8eb79442275a9}{pseudo}}
+\item 
+int \mbox{\hyperlink{structserver__client__data__s_a72145ab26888507a2b90d0588b203702}{is\+\_\+player\+\_\+ready}}
+\item 
+int \mbox{\hyperlink{structserver__client__data__s_af5127f01c37fdb4bf7d74896a990462e}{is\+\_\+in\+\_\+game}}
+\item 
+\mbox{\hyperlink{structserver__game__state__s}{server\+\_\+game\+\_\+state\+\_\+t}} $\ast$ \mbox{\hyperlink{structserver__client__data__s_a9341e312c63869dd3fb2a5a442898c57}{game\+\_\+state}}
+\item 
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{structserver__client__data__s_ae864d4ab09e226e3109cb6a068895b0e}{map\+\_\+packet}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure de données associée à un client du serveur. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structserver__client__data__s_a9341e312c63869dd3fb2a5a442898c57}\label{structserver__client__data__s_a9341e312c63869dd3fb2a5a442898c57}} 
+\index{server\_client\_data\_s@{server\_client\_data\_s}!game\_state@{game\_state}}
+\index{game\_state@{game\_state}!server\_client\_data\_s@{server\_client\_data\_s}}
+\doxysubsubsection{\texorpdfstring{game\_state}{game\_state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structserver__game__state__s}{server\+\_\+game\+\_\+state\+\_\+t}}$\ast$ server\+\_\+client\+\_\+data\+\_\+s\+::game\+\_\+state}
+
+un pointeur sur les données de partie \mbox{\Hypertarget{structserver__client__data__s_af5127f01c37fdb4bf7d74896a990462e}\label{structserver__client__data__s_af5127f01c37fdb4bf7d74896a990462e}} 
+\index{server\_client\_data\_s@{server\_client\_data\_s}!is\_in\_game@{is\_in\_game}}
+\index{is\_in\_game@{is\_in\_game}!server\_client\_data\_s@{server\_client\_data\_s}}
+\doxysubsubsection{\texorpdfstring{is\_in\_game}{is\_in\_game}}
+{\footnotesize\ttfamily int server\+\_\+client\+\_\+data\+\_\+s\+::is\+\_\+in\+\_\+game}
+
+le joueur est-\/il en jeu ? \mbox{\Hypertarget{structserver__client__data__s_a72145ab26888507a2b90d0588b203702}\label{structserver__client__data__s_a72145ab26888507a2b90d0588b203702}} 
+\index{server\_client\_data\_s@{server\_client\_data\_s}!is\_player\_ready@{is\_player\_ready}}
+\index{is\_player\_ready@{is\_player\_ready}!server\_client\_data\_s@{server\_client\_data\_s}}
+\doxysubsubsection{\texorpdfstring{is\_player\_ready}{is\_player\_ready}}
+{\footnotesize\ttfamily int server\+\_\+client\+\_\+data\+\_\+s\+::is\+\_\+player\+\_\+ready}
+
+le joueur est-\/il prêt ? \mbox{\Hypertarget{structserver__client__data__s_ae864d4ab09e226e3109cb6a068895b0e}\label{structserver__client__data__s_ae864d4ab09e226e3109cb6a068895b0e}} 
+\index{server\_client\_data\_s@{server\_client\_data\_s}!map\_packet@{map\_packet}}
+\index{map\_packet@{map\_packet}!server\_client\_data\_s@{server\_client\_data\_s}}
+\doxysubsubsection{\texorpdfstring{map\_packet}{map\_packet}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ server\+\_\+client\+\_\+data\+\_\+s\+::map\+\_\+packet}
+
+paquet contenant les données de la carte \mbox{\Hypertarget{structserver__client__data__s_ae12668052dac414bb1d8eb79442275a9}\label{structserver__client__data__s_ae12668052dac414bb1d8eb79442275a9}} 
+\index{server\_client\_data\_s@{server\_client\_data\_s}!pseudo@{pseudo}}
+\index{pseudo@{pseudo}!server\_client\_data\_s@{server\_client\_data\_s}}
+\doxysubsubsection{\texorpdfstring{pseudo}{pseudo}}
+{\footnotesize\ttfamily char$\ast$ server\+\_\+client\+\_\+data\+\_\+s\+::pseudo}
+
+pseudo du joueur 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/server/\mbox{\hyperlink{client__data_8h}{client\+\_\+data.\+h}}\end{DoxyCompactItemize}

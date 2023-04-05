@@ -73,11 +73,19 @@ $(function() {
  <a href="structmap__renderer__t.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="map__renderer_8h_source.html">map_renderer.h</a>&gt;</code></p>
+<div class="dynheader">
+Graphe de collaboration de map_renderer_t:</div>
+<div class="dyncontent">
+<div class="center"><img src="structmap__renderer__t__coll__graph.png" border="0" usemap="#amap__renderer__t_coll__map" alt="Collaboration graph"/></div>
+<map name="amap__renderer__t_coll__map" id="amap__renderer__t_coll__map">
+<area shape="rect" title="Structure contenant les données de la carte." alt="" coords="45,109,170,136"/>
+<area shape="rect" href="structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="5,5,76,32"/>
+<area shape="rect" href="structmap__sprite__rects__t.html" title="Structure contenant les positions et tailles des sprites de la carte." alt="" coords="101,5,247,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Attributs publics</h2></td></tr>
-<tr class="memitem:aca9cb9938b6a910235c5ac5f717adcd0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmap__renderer__t.html#aca9cb9938b6a910235c5ac5f717adcd0">size</a></td></tr>
-<tr class="separator:aca9cb9938b6a910235c5ac5f717adcd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1ac9bf9c90c324ff18a4d4a8bbb1d91"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmap__renderer__t.html#af1ac9bf9c90c324ff18a4d4a8bbb1d91">tile_size</a></td></tr>
 <tr class="separator:af1ac9bf9c90c324ff18a4d4a8bbb1d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a793930fec1df3e3c28e61085fabe121f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsprite__t.html">sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmap__renderer__t.html#a793930fec1df3e3c28e61085fabe121f">ground_sprite</a></td></tr>
@@ -88,6 +96,8 @@ Attributs publics</h2></td></tr>
 <tr class="separator:a0c475362d9f2758a9189029fd86e6b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a446b0dacc8639448a1074c3707412af7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmap__sprite__rects__t.html">map_sprite_rects_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmap__renderer__t.html#a446b0dacc8639448a1074c3707412af7">sprite_rects</a></td></tr>
 <tr class="separator:a446b0dacc8639448a1074c3707412af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35308b6a65cf850931b7029165f7b52a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmap__renderer__t.html#a35308b6a65cf850931b7029165f7b52a">offset_from_center</a></td></tr>
+<tr class="separator:a35308b6a65cf850931b7029165f7b52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Structure contenant les données de la carte. </p>
@@ -107,18 +117,18 @@ Attributs publics</h2></td></tr>
 
 </div>
 </div>
-<a id="aca9cb9938b6a910235c5ac5f717adcd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca9cb9938b6a910235c5ac5f717adcd0">&#9670;&nbsp;</a></span>size</h2>
+<a id="a35308b6a65cf850931b7029165f7b52a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35308b6a65cf850931b7029165f7b52a">&#9670;&nbsp;</a></span>offset_from_center</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int map_renderer_t::size</td>
+          <td class="memname">int map_renderer_t::offset_from_center</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>taille de la carte en nombre de cases </p>
+<p>décalage en pixel depuis le centre de la carte jusqu'au bord </p>
 
 </div>
 </div>

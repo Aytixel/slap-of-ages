@@ -1,0 +1,97 @@
+\hypertarget{map__data__serialization_8h}{}\doxysection{Référence du fichier src/client/map\+\_\+data\+\_\+serialization.h}
+\label{map__data__serialization_8h}\index{src/client/map\_data\_serialization.h@{src/client/map\_data\_serialization.h}}
+
+
+Implémentation des prototypes de \mbox{\hyperlink{map__data__serialization_8c}{client/map\+\_\+data\+\_\+serialization.\+c}}.  
+
+
+{\ttfamily \#include \char`\"{}client/game\+\_\+data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}map/building.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de map\+\_\+data\+\_\+serialization.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map__data__serialization_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{map__data__serialization_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{map__data__serialization_8h_a3a6a623a64cf2ce428db393b44b8ffb3}{serialize\+\_\+map}} (void $\ast$$\ast$data, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building, int gold\+\_\+cost)
+\begin{DoxyCompactList}\small\item\em Converti les données de la carte en données pouvant être stocker ou envoyer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{map__data__serialization_8h_ad535c1239d7e7bdffd0f376d8c9d39d4}{deserialize\+\_\+map}} (void $\ast$data, int data\+\_\+lenth, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building, int $\ast$gold\+\_\+cost)
+\begin{DoxyCompactList}\small\item\em Reconverti les données de la carte en structure et variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des prototypes de \mbox{\hyperlink{map__data__serialization_8c}{client/map\+\_\+data\+\_\+serialization.\+c}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+28/03/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{map__data__serialization_8h_ad535c1239d7e7bdffd0f376d8c9d39d4}\label{map__data__serialization_8h_ad535c1239d7e7bdffd0f376d8c9d39d4}} 
+\index{map\_data\_serialization.h@{map\_data\_serialization.h}!deserialize\_map@{deserialize\_map}}
+\index{deserialize\_map@{deserialize\_map}!map\_data\_serialization.h@{map\_data\_serialization.h}}
+\doxysubsubsection{\texorpdfstring{deserialize\_map()}{deserialize\_map()}}
+{\footnotesize\ttfamily int deserialize\+\_\+map (\begin{DoxyParamCaption}\item[{void $\ast$}]{data,  }\item[{int}]{data\+\_\+lenth,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building,  }\item[{int $\ast$}]{gold\+\_\+cost }\end{DoxyParamCaption})}
+
+
+
+Reconverti les données de la carte en structure et variable. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em data} & un pointeur sur les données \\
+\hline
+{\em data\+\_\+lenth} & longueur des données \\
+\hline
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em map\+\_\+building} & matrice contenant la totalité des bâtiments placés sur la carte \\
+\hline
+{\em gold\+\_\+cost} & un pointeur sur le coût en or du village \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map__data__serialization_8h_a3a6a623a64cf2ce428db393b44b8ffb3}\label{map__data__serialization_8h_a3a6a623a64cf2ce428db393b44b8ffb3}} 
+\index{map\_data\_serialization.h@{map\_data\_serialization.h}!serialize\_map@{serialize\_map}}
+\index{serialize\_map@{serialize\_map}!map\_data\_serialization.h@{map\_data\_serialization.h}}
+\doxysubsubsection{\texorpdfstring{serialize\_map()}{serialize\_map()}}
+{\footnotesize\ttfamily int serialize\+\_\+map (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{data,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building,  }\item[{int}]{gold\+\_\+cost }\end{DoxyParamCaption})}
+
+
+
+Converti les données de la carte en données pouvant être stocker ou envoyer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em data} & une référence sur un pointeur sur les données \\
+\hline
+{\em map\+\_\+building} & matrice contenant la totalité des bâtiments placés sur la carte \\
+\hline
+{\em gold\+\_\+cost} & le coût en or du village \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{taille des données}} 
+\end{DoxyReturn}

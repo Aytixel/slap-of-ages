@@ -5,27 +5,44 @@
 Implémentation des prototypes de \mbox{\hyperlink{client__data_8c}{server/client\+\_\+data.\+c}}.  
 
 
+{\ttfamily \#include \char`\"{}packet/packet.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}game\+\_\+state.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de client\+\_\+data.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__data_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__data_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structclient__data__s}{client\+\_\+data\+\_\+s}}
+struct \mbox{\hyperlink{structserver__client__data__s}{server\+\_\+client\+\_\+data\+\_\+s}}
 \begin{DoxyCompactList}\small\item\em Structure de données associée à un client du serveur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{client__data_8h_ac66b2833e0ba8d5049e06cb6dca9c191}\label{client__data_8h_ac66b2833e0ba8d5049e06cb6dca9c191}} 
-typedef struct \mbox{\hyperlink{structgame__data__s}{game\+\_\+data\+\_\+s}} {\bfseries game\+\_\+data\+\_\+t}
+\mbox{\Hypertarget{client__data_8h_afd402a84eeb68f6b701214e00d9af9fe}\label{client__data_8h_afd402a84eeb68f6b701214e00d9af9fe}} 
+typedef struct \mbox{\hyperlink{structserver__game__state__s}{server\+\_\+game\+\_\+state\+\_\+s}} {\bfseries server\+\_\+game\+\_\+state\+\_\+t}
 \item 
-\mbox{\Hypertarget{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}\label{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}} 
-typedef struct \mbox{\hyperlink{structclient__data__s}{client\+\_\+data\+\_\+s}} \mbox{\hyperlink{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}{client\+\_\+data\+\_\+t}}
+\mbox{\Hypertarget{client__data_8h_a27e988531d32be024dc5795dfd357dbc}\label{client__data_8h_a27e988531d32be024dc5795dfd357dbc}} 
+typedef struct \mbox{\hyperlink{structserver__client__data__s}{server\+\_\+client\+\_\+data\+\_\+s}} \mbox{\hyperlink{client__data_8h_a27e988531d32be024dc5795dfd357dbc}{server\+\_\+client\+\_\+data\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Structure de données associée à un client du serveur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}{client\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{client__data_8h_a5c6494284ad06058564d710bb51d7610}{create\+Client\+Data}} ()
+\mbox{\hyperlink{client__data_8h_a27e988531d32be024dc5795dfd357dbc}{server\+\_\+client\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{client__data_8h_a266cf6c9739c6f23a20e9bb38a3f09b1}{create\+Server\+Client\+Data}} ()
 \begin{DoxyCompactList}\small\item\em Créer les données d\textquotesingle{}un client. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{client__data_8h_aa038121e7f4b45436f33b28c6b1f5a25}{delete\+Client\+Data}} (\mbox{\hyperlink{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}{client\+\_\+data\+\_\+t}} $\ast$$\ast$client\+\_\+data)
+int \mbox{\hyperlink{client__data_8h_a98d67776b9517331edf551d575937050}{delete\+Server\+Client\+Data}} (\mbox{\hyperlink{client__data_8h_a27e988531d32be024dc5795dfd357dbc}{server\+\_\+client\+\_\+data\+\_\+t}} $\ast$$\ast$client\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Détruit les données d\textquotesingle{}un client. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -44,11 +61,11 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{client__data_8h_a5c6494284ad06058564d710bb51d7610}\label{client__data_8h_a5c6494284ad06058564d710bb51d7610}} 
-\index{client\_data.h@{client\_data.h}!createClientData@{createClientData}}
-\index{createClientData@{createClientData}!client\_data.h@{client\_data.h}}
-\doxysubsubsection{\texorpdfstring{createClientData()}{createClientData()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}{client\+\_\+data\+\_\+t}}$\ast$ create\+Client\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{client__data_8h_a266cf6c9739c6f23a20e9bb38a3f09b1}\label{client__data_8h_a266cf6c9739c6f23a20e9bb38a3f09b1}} 
+\index{client\_data.h@{client\_data.h}!createServerClientData@{createServerClientData}}
+\index{createServerClientData@{createServerClientData}!client\_data.h@{client\_data.h}}
+\doxysubsubsection{\texorpdfstring{createServerClientData()}{createServerClientData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{client__data_8h_a27e988531d32be024dc5795dfd357dbc}{server\+\_\+client\+\_\+data\+\_\+t}}$\ast$ create\+Server\+Client\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -57,11 +74,11 @@ Créer les données d\textquotesingle{}un client.
 \begin{DoxyReturn}{Renvoie}
 un pointer sur les {\bfseries{données client}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{client__data_8h_aa038121e7f4b45436f33b28c6b1f5a25}\label{client__data_8h_aa038121e7f4b45436f33b28c6b1f5a25}} 
-\index{client\_data.h@{client\_data.h}!deleteClientData@{deleteClientData}}
-\index{deleteClientData@{deleteClientData}!client\_data.h@{client\_data.h}}
-\doxysubsubsection{\texorpdfstring{deleteClientData()}{deleteClientData()}}
-{\footnotesize\ttfamily int delete\+Client\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{client__data_8h_a21bca4ad2bc83c2b3f0fe45dce419625}{client\+\_\+data\+\_\+t}} $\ast$$\ast$}]{client\+\_\+data }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{client__data_8h_a98d67776b9517331edf551d575937050}\label{client__data_8h_a98d67776b9517331edf551d575937050}} 
+\index{client\_data.h@{client\_data.h}!deleteServerClientData@{deleteServerClientData}}
+\index{deleteServerClientData@{deleteServerClientData}!client\_data.h@{client\_data.h}}
+\doxysubsubsection{\texorpdfstring{deleteServerClientData()}{deleteServerClientData()}}
+{\footnotesize\ttfamily int delete\+Server\+Client\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{client__data_8h_a27e988531d32be024dc5795dfd357dbc}{server\+\_\+client\+\_\+data\+\_\+t}} $\ast$$\ast$}]{client\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -69,7 +86,7 @@ Détruit les données d\textquotesingle{}un client.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em server} & une référence d\textquotesingle{}un pointeur sur les données client \\
+{\em client\+\_\+data} & une référence d\textquotesingle{}un pointeur sur les données client \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}

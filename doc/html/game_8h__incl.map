@@ -1,0 +1,17 @@
+<map id="src/game/game.h" name="src/game/game.h">
+<area shape="rect" id="node1" title="Fonction divers pour le jeu." alt="" coords="115,5,250,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,72,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="97,80,167,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="192,80,275,107"/>
+<area shape="rect" id="node5" href="$building_8h.html" title=" " alt="" coords="299,80,418,107"/>
+<area shape="rect" id="node6" href="$building__renderer_8h.html" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="120,155,267,181"/>
+<area shape="rect" id="node10" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="182,229,306,256"/>
+<area shape="rect" id="node11" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="341,155,488,181"/>
+<area shape="rect" id="node7" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="126,304,263,331"/>
+<area shape="rect" id="node8" title=" " alt="" coords="81,379,177,405"/>
+<area shape="rect" id="node9" title=" " alt="" coords="201,379,319,405"/>
+<area shape="rect" id="node12" title=" " alt="" coords="330,229,401,256"/>
+<area shape="rect" id="node13" href="$timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="425,229,532,256"/>
+<area shape="rect" id="node15" href="$game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="556,229,711,256"/>
+<area shape="rect" id="node14" title=" " alt="" coords="433,304,524,331"/>
+</map>

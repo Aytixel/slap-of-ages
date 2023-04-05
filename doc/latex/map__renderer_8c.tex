@@ -6,7 +6,16 @@ Permet de gérer l\textquotesingle{}affichage de la carte.
 
 
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}client/common.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}map\+\_\+renderer.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de map\+\_\+renderer.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map__renderer_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,12 +25,14 @@ Permet de gérer l\textquotesingle{}affichage de la carte.
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$ \mbox{\hyperlink{map__renderer_8c_a4bb5cdb1ba72050c3a2d3e8769f98e19}{create\+Map\+Renderer}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, int map\+\_\+size)
+\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$ \mbox{\hyperlink{map__renderer_8c_a807402c2782c9e38b6cd7842d62d7955}{create\+Map\+Renderer}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window)
 \begin{DoxyCompactList}\small\item\em Créer la carte. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{map__renderer_8c_aaa163cacd97f7a89d6e1cc62e768f666}{render\+Map}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$map\+\_\+renderer)
 \begin{DoxyCompactList}\small\item\em Fait le rendu de la carte sur la fenêtre. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{map__renderer_8c_a0080f8d2407fca5cc19293b4fe44191f}{delete\+Map\+Renderer}} (\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$$\ast$map\+\_\+renderer)
-\begin{DoxyCompactList}\small\item\em Détruit la carte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Détruit la carte. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Point \mbox{\hyperlink{map__renderer_8c_a12d3608151a440b85c524b3bd72c1868}{get\+Tile\+Coord}} (SDL\+\_\+\+Point $\ast$mouse\+\_\+position, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$map\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em Permet de gérer la position du batiment selon le placement de la souris. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -39,11 +50,11 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{map__renderer_8c_a4bb5cdb1ba72050c3a2d3e8769f98e19}\label{map__renderer_8c_a4bb5cdb1ba72050c3a2d3e8769f98e19}} 
+\mbox{\Hypertarget{map__renderer_8c_a807402c2782c9e38b6cd7842d62d7955}\label{map__renderer_8c_a807402c2782c9e38b6cd7842d62d7955}} 
 \index{map\_renderer.c@{map\_renderer.c}!createMapRenderer@{createMapRenderer}}
 \index{createMapRenderer@{createMapRenderer}!map\_renderer.c@{map\_renderer.c}}
 \doxysubsubsection{\texorpdfstring{createMapRenderer()}{createMapRenderer()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}}$\ast$ create\+Map\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{int}]{map\+\_\+size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}}$\ast$ create\+Map\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window }\end{DoxyParamCaption})}
 
 
 
@@ -54,8 +65,6 @@ Initialise aussi les données des sprites nécessaires à l\textquotesingle{}aff
 
 \begin{DoxyParams}{Paramètres}
 {\em window} & un pointeur sur une fenêtre \\
-\hline
-{\em size} & taille de la carte en nombre de cases \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -78,6 +87,28 @@ Détruit la carte.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map__renderer_8c_a12d3608151a440b85c524b3bd72c1868}\label{map__renderer_8c_a12d3608151a440b85c524b3bd72c1868}} 
+\index{map\_renderer.c@{map\_renderer.c}!getTileCoord@{getTileCoord}}
+\index{getTileCoord@{getTileCoord}!map\_renderer.c@{map\_renderer.c}}
+\doxysubsubsection{\texorpdfstring{getTileCoord()}{getTileCoord()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Point get\+Tile\+Coord (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Point $\ast$}]{mouse\+\_\+position,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$}]{map\+\_\+renderer }\end{DoxyParamCaption})}
+
+
+
+Permet de gérer la position du batiment selon le placement de la souris. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mouse\+\_\+position} & la position de la souris \\
+\hline
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em map\+\_\+renderer} & un pointeur sur la structure de rendu de la carte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+Point contenant les coordonnées du bâtiment en cases, si le clique de la souris est en dehors de la carte, la valeur retournée est \{-\/1, -\/1\}. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{map__renderer_8c_aaa163cacd97f7a89d6e1cc62e768f666}\label{map__renderer_8c_aaa163cacd97f7a89d6e1cc62e768f666}} 
 \index{map\_renderer.c@{map\_renderer.c}!renderMap@{renderMap}}

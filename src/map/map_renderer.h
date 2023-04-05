@@ -43,12 +43,12 @@ typedef struct
  */
 typedef struct
 {
-    int size;                             /**< taille de la carte en nombre de cases*/
     int tile_size;                        /**< taille d'une case en pixel*/
     sprite_t *ground_sprite;              /**< grille de sprite contenant les sprites du sol */
     sprite_t *tree_sprite;                /**< grille de sprite contenant les sprites des arbres */
     map_sprite_rects_t sprite_tile_rects; /**< positions et tailles des sprites de la carte en nombre de cases*/
     map_sprite_rects_t sprite_rects;      /**< positions et tailles des sprites de la carte en nombre de pixels*/
+    int offset_from_center;               /**< décalage en pixel depuis le centre de la carte jusqu'au bord*/
 } map_renderer_t;
 
 /**
@@ -57,10 +57,9 @@ typedef struct
  * Initialise aussi les données des sprites nécessaires à l'affichage de la carte
  *
  * @param window un pointeur sur une fenêtre
- * @param size taille de la carte en nombre de cases
  * @return un pointer sur un **carte**
  */
-extern map_renderer_t *createMapRenderer(window_t *window, int map_size);
+extern map_renderer_t *createMapRenderer(window_t *window);
 
 /**
  * @brief Fait le rendu de la carte sur la fenêtre
@@ -79,5 +78,15 @@ extern void renderMap(window_t *window, map_renderer_t *map_renderer);
  * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
  */
 extern int deleteMapRenderer(map_renderer_t **map_renderer);
+
+/**
+ * @brief Permet de gérer la position du batiment selon le placement de la souris
+ *
+ * @param mouse_position la position de la souris
+ * @param window un pointeur sur une fenêtre
+ * @param map_renderer un pointeur sur la structure de rendu de la carte
+ * @return SDL_Point contenant les coordonnées du bâtiment en cases, si le clique de la souris est en dehors de la carte, la valeur retournée est {-1, -1}.
+ */
+extern SDL_Point getTileCoord(SDL_Point *mouse_position, window_t *window, map_renderer_t *map_renderer);
 
 #endif

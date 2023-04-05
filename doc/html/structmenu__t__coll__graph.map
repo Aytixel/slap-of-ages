@@ -1,0 +1,8 @@
+<map id="menu_t" name="menu_t">
+<area shape="rect" id="node1" title="Structure pour stocker information du menu_test." alt="" coords="172,231,243,257"/>
+<area shape="rect" id="node2" href="$structbutton__t.html" title="Structure contenant les données d&#39;un bouton." alt="" coords="391,103,467,130"/>
+<area shape="rect" id="node3" href="$structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="153,5,224,32"/>
+<area shape="rect" id="node4" href="$structanim__t.html" title=" " alt="" coords="299,103,366,130"/>
+<area shape="rect" id="node6" href="$structtextbox__t.html" title="Structure contenant les données d&#39;une textbox." alt="" coords="5,103,89,130"/>
+<area shape="rect" id="node5" href="$structframe__timer__t.html" title="Timer permettant l&#39;éxécution de code à intervalle régulier." alt="" coords="297,5,411,32"/>
+</map>

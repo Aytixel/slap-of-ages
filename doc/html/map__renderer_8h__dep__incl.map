@@ -1,0 +1,40 @@
+<map id="src/map/map_renderer.h" name="src/map/map_renderer.h">
+<area shape="rect" id="node1" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="363,5,543,32"/>
+<area shape="rect" id="node2" href="$character_8h.html" title="Fonction de gestion des characters." alt="" coords="43,326,202,353"/>
+<area shape="rect" id="node3" href="$character__renderer_8h_source.html" title=" " alt="" coords="5,155,152,196"/>
+<area shape="rect" id="node4" href="$hud_8h.html" title="Implémentation des prototypes de game/hud.c." alt="" coords="179,572,301,599"/>
+<area shape="rect" id="node6" href="$building_8h.html" title=" " alt="" coords="821,162,963,189"/>
+<area shape="rect" id="node36" href="$building__renderer_8h.html" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="883,80,1085,107"/>
+<area shape="rect" id="node38" href="$map__renderer_8c.html" title="Permet de gérer l&#39;affichage de la carte." alt="" coords="1109,80,1288,107"/>
+<area shape="rect" id="node5" href="$hud_8c.html" title="Implémente les fonctions pour gérer l&#39;affichage en jeux." alt="" coords="211,647,333,673"/>
+<area shape="rect" id="node7" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="568,244,739,271"/>
+<area shape="rect" id="node11" href="$map__data__serialization_8h.html" title="Implémentation des prototypes de client/map_data_serialization.c." alt="" coords="731,319,882,360"/>
+<area shape="rect" id="node18" href="$packet_8h.html" title="Implémentation des prototypes de packet/packet.c." alt="" coords="907,326,1053,353"/>
+<area shape="rect" id="node33" href="$game_8h.html" title="Fonction divers pour le jeu." alt="" coords="1002,244,1137,271"/>
+<area shape="rect" id="node35" href="$building_8c.html" title="Permet la gestion des bâtiments, leur création, leur destruction." alt="" coords="1229,244,1371,271"/>
+<area shape="rect" id="node8" href="$game__data_8c.html" title="Implémente les fonctions associées la structure de données contenant les données du jeux." alt="" coords="538,326,707,353"/>
+<area shape="rect" id="node9" href="$client_2game__state_8h.html" title="Implémentation des prototypes de client/game_state.c." alt="" coords="326,572,501,599"/>
+<area shape="rect" id="node14" href="$building__hud_8h.html" title="Implémentation des prototypes de map/building_hud.c." alt="" coords="1077,326,1251,353"/>
+<area shape="rect" id="node16" href="$menu_8h.html" title="Implémentation des prototypes de menu/menu.c." alt="" coords="379,326,514,353"/>
+<area shape="rect" id="node10" href="$client_2game__state_8c.html" title="Définition des différents états du jeux." alt="" coords="420,647,593,673"/>
+<area shape="rect" id="node12" href="$map__data__serialization_8c.html" title="Fonction pour transformé la carte en données pouvant être stocker ou envoyer." alt="" coords="538,408,689,449"/>
+<area shape="rect" id="node13" href="$packet_8c.html" title="Implémente toute les fonctions pour créer, et lire les différents paquets." alt="" coords="713,415,860,442"/>
+<area shape="rect" id="node15" href="$building__hud_8c.html" title="Permet de gérer l&#39;affichage des bâtiments." alt="" coords="1397,415,1569,442"/>
+<area shape="rect" id="node17" href="$menu_8c.html" title="Fichier de création du menu multijoueur." alt="" coords="379,415,514,442"/>
+<area shape="rect" id="node19" href="$client__data_8h.html" title="Implémentation des prototypes de server/client_data.c." alt="" coords="1346,572,1521,599"/>
+<area shape="rect" id="node21" href="$server_2game__state_8h.html" title="Implémentation des prototypes de server/game_state.c." alt="" coords="1256,647,1435,673"/>
+<area shape="rect" id="node23" href="$socket_8c.html" title="Enssemble de fonctions utilitaire pour l&#39;utilisation des sockets." alt="" coords="1099,497,1243,524"/>
+<area shape="rect" id="node24" href="$socket_8h.html" title="Implémentation des prototypes de socket/socket.c." alt="" coords="935,415,1081,442"/>
+<area shape="rect" id="node20" href="$client__data_8c.html" title="Implémente les fonctions associées la structure de données pour les clients connectés au serveur." alt="" coords="1459,647,1632,673"/>
+<area shape="rect" id="node22" href="$server_2game__state_8c.html" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie." alt="" coords="1256,721,1435,748"/>
+<area shape="rect" id="node25" href="$socket_2client_8h.html" title="Implémentation des prototypes de socket/client.c." alt="" coords="576,497,715,524"/>
+<area shape="rect" id="node29" href="$socket_2server_8h.html" title="Implémentation des prototypes de socket/server.c." alt="" coords="931,497,1074,524"/>
+<area shape="rect" id="node26" href="$connection_2client_8h.html" title="Implémentation des prototypes de connection/client.c." alt="" coords="739,572,907,599"/>
+<area shape="rect" id="node28" href="$socket_2client_8c.html" title="Client socket simple permettant l&#39;échange de paquet de manière non bloquante." alt="" coords="576,572,715,599"/>
+<area shape="rect" id="node27" href="$connection_2client_8c.html" title="Permet de gérer la connexion du client au serveur." alt="" coords="739,647,906,673"/>
+<area shape="rect" id="node30" href="$connection_2server_8h.html" title="Implémentation des prototypes de connection/server.c." alt="" coords="1098,572,1270,599"/>
+<area shape="rect" id="node32" href="$socket_2server_8c.html" title="Serveur socket simple permettant l&#39;échange de paquet de manière non bloquante." alt="" coords="931,572,1074,599"/>
+<area shape="rect" id="node31" href="$connection_2server_8c.html" title="Permet de gérer la connexion des clients au serveur." alt="" coords="1061,647,1232,673"/>
+<area shape="rect" id="node34" href="$game_8c.html" title="Fonction divers pour le jeu." alt="" coords="1275,326,1410,353"/>
+<area shape="rect" id="node37" href="$building__renderer_8c.html" title="Permet de gérer l&#39;affichage des bâtiments." alt="" coords="1115,162,1317,189"/>
+</map>

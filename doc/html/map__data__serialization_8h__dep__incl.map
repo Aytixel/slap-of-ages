@@ -1,0 +1,5 @@
+<map id="src/client/map_data_serialization.h" name="src/client/map_data_serialization.h">
+<area shape="rect" id="node1" title="Implémentation des prototypes de client/map_data_serialization.c." alt="" coords="92,5,243,47"/>
+<area shape="rect" id="node2" href="$map__data__serialization_8c.html" title="Fonction pour transformé la carte en données pouvant être stocker ou envoyer." alt="" coords="5,95,156,136"/>
+<area shape="rect" id="node3" href="$packet_8c.html" title="Implémente toute les fonctions pour créer, et lire les différents paquets." alt="" coords="181,102,327,129"/>
+</map>

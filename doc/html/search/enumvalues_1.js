@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['game_5ffinished_5fpacket_5fid_461',['GAME_FINISHED_PACKET_ID',['../packet__id_8h.html#a0fc5416dae21974a42a4729378dd2eefaa943cabbdd4bf4dd206ce469694d8b25',1,'packet_id.h']]]
+  ['client_5fconnected_798',['CLIENT_CONNECTED',['../connection_2client_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109a0a688bcbb16a63434cfec434f3c04b84',1,'client.h']]],
+  ['client_5fwaiting_5fhandshake_799',['CLIENT_WAITING_HANDSHAKE',['../connection_2client_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109a9e4012e1c852a4746f71569e3c3ef5b2',1,'client.h']]],
+  ['client_5fwaiting_5finfo_800',['CLIENT_WAITING_INFO',['../connection_2client_8h.html#a7c97443fe3e0cc3faa9c6203a19b6109ac3cbef5e484efeed88a0b2313b0ba4f4',1,'client.h']]],
+  ['combat_5fgame_5fstate_801',['COMBAT_GAME_STATE',['../game__state__enum_8h.html#a5f4e5be92f57f9c4a2b5ba9ccb240c8aadb156e5f63ad83bf199fcd821498f8b4',1,'game_state_enum.h']]],
+  ['connection_5fgame_5fstate_802',['CONNECTION_GAME_STATE',['../game__state__enum_8h.html#a5f4e5be92f57f9c4a2b5ba9ccb240c8aa70709adc69d7bc5b92b51d55279da0ea',1,'game_state_enum.h']]]
 ];

@@ -78,6 +78,33 @@ $(function() {
 <div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="window_8h_source.html">window.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de input.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="input_8h__incl.png" border="0" usemap="#asrc_2window_2input_8h" alt=""/></div>
+<map name="asrc_2window_2input_8h" id="asrc_2window_2input_8h">
+<area shape="rect" title="Implémentation des prototypes de window/input.c." alt="" coords="53,5,197,32"/>
+<area shape="rect" title=" " alt="" coords="5,155,101,181"/>
+<area shape="rect" title=" " alt="" coords="139,155,256,181"/>
+<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="84,80,167,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="input_8h__dep__incl.png" border="0" usemap="#asrc_2window_2input_8hdep" alt=""/></div>
+<map name="asrc_2window_2input_8hdep" id="asrc_2window_2input_8hdep">
+<area shape="rect" title="Implémentation des prototypes de window/input.c." alt="" coords="393,5,537,32"/>
+<area shape="rect" href="hud_8h.html" title="Implémentation des prototypes de game/hud.c." alt="" coords="5,80,128,107"/>
+<area shape="rect" href="building_8c.html" title="Permet la gestion des bâtiments, leur création, leur destruction." alt="" coords="152,80,293,107"/>
+<area shape="rect" href="building__hud_8h.html" title="Implémentation des prototypes de map/building_hud.c." alt="" coords="317,80,491,107"/>
+<area shape="rect" href="menu_8c.html" title="Fichier de création du menu multijoueur." alt="" coords="539,155,674,181"/>
+<area shape="rect" href="menu_8h.html" title="Implémentation des prototypes de menu/menu.c." alt="" coords="566,80,701,107"/>
+<area shape="rect" href="input_8c.html" title="Fichier de création des boutons et des textes." alt="" coords="725,80,867,107"/>
+<area shape="rect" href="hud_8c.html" title="Implémente les fonctions pour gérer l&#39;affichage en jeux." alt="" coords="6,155,127,181"/>
+<area shape="rect" href="building__hud_8c.html" title="Permet de gérer l&#39;affichage des bâtiments." alt="" coords="318,155,490,181"/>
+</map>
+</div>
 </div>
 <p><a href="input_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
@@ -86,29 +113,38 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbutton__t.html">button_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure contenant les données d'un bouton.  <a href="structbutton__t.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTextbox__t.html">Textbox_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure contenant les données d'une textbox.  <a href="structTextbox__t.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtextbox__t.html">textbox_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure contenant les données d'une textbox.  <a href="structtextbox__t.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a0d976d005610f1e7e438dded0d99414a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#a0d976d005610f1e7e438dded0d99414a">createButton</a> (TTF_Font *font, const char *buttonText, SDL_Color color, float buttonXRatio, float buttonYRatio, float buttonWidthRatio, float buttonHeightRatio, <a class="el" href="structbutton__t.html">button_t</a> *button, <a class="el" href="structwindow__t.html">window_t</a> *window)</td></tr>
-<tr class="memdesc:a0d976d005610f1e7e438dded0d99414a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de création des boutons.  <a href="input_8h.html#a0d976d005610f1e7e438dded0d99414a">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a0d976d005610f1e7e438dded0d99414a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af89f66ab3d05dbf317fea058dd832b94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#af89f66ab3d05dbf317fea058dd832b94">destroyButton</a> (<a class="el" href="structbutton__t.html">button_t</a> *button)</td></tr>
-<tr class="memdesc:af89f66ab3d05dbf317fea058dd832b94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de destruction des boutons.  <a href="input_8h.html#af89f66ab3d05dbf317fea058dd832b94">Plus de détails...</a><br /></td></tr>
-<tr class="separator:af89f66ab3d05dbf317fea058dd832b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa822c0183171093a88f63484108ab22d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#aa822c0183171093a88f63484108ab22d">createTextbox</a> (TTF_Font *font, SDL_Color color, SDL_Rect rect, <a class="el" href="structTextbox__t.html">Textbox_t</a> *textbox, <a class="el" href="structwindow__t.html">window_t</a> *window)</td></tr>
-<tr class="memdesc:aa822c0183171093a88f63484108ab22d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de création des textes box (texte de saisie)  <a href="input_8h.html#aa822c0183171093a88f63484108ab22d">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aa822c0183171093a88f63484108ab22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeca6d08c5d51c805ce4a80bebf737d86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#aeca6d08c5d51c805ce4a80bebf737d86">updateTextboxText</a> (SDL_Event event, TTF_Font *font, char *inputText, int *width, int *height)</td></tr>
-<tr class="memdesc:aeca6d08c5d51c805ce4a80bebf737d86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de mise à jour des textes box (texte de saisie)  <a href="input_8h.html#aeca6d08c5d51c805ce4a80bebf737d86">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aeca6d08c5d51c805ce4a80bebf737d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3a0b91845cc76df7ff14633f17ee08e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#ae3a0b91845cc76df7ff14633f17ee08e">destroyTextbox</a> (<a class="el" href="structTextbox__t.html">Textbox_t</a> *textbox)</td></tr>
-<tr class="memdesc:ae3a0b91845cc76df7ff14633f17ee08e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de destruction des textes box (texte de saisie)  <a href="input_8h.html#ae3a0b91845cc76df7ff14633f17ee08e">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ae3a0b91845cc76df7ff14633f17ee08e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a272d585313f8dc3dba68225db615e3c2"><td class="memItemLeft" align="right" valign="top"><a id="a272d585313f8dc3dba68225db615e3c2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b> (SDL_Event event, SDL_Rect rect, int button, int type)</td></tr>
+<tr class="memitem:a7467b8ce731e7502a4be1b6f3a84dced"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbutton__t.html">button_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#a7467b8ce731e7502a4be1b6f3a84dced">createButton</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, TTF_Font *font, char *text, SDL_Color color, SDL_Color selected_color)</td></tr>
+<tr class="memdesc:a7467b8ce731e7502a4be1b6f3a84dced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de création des boutons.  <a href="input_8h.html#a7467b8ce731e7502a4be1b6f3a84dced">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7467b8ce731e7502a4be1b6f3a84dced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aaa18d50e0c9f6008f184f3dee2fab1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#a3aaa18d50e0c9f6008f184f3dee2fab1">renderButton</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="structbutton__t.html">button_t</a> *button)</td></tr>
+<tr class="memdesc:a3aaa18d50e0c9f6008f184f3dee2fab1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'affichage d'un bouton.  <a href="input_8h.html#a3aaa18d50e0c9f6008f184f3dee2fab1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3aaa18d50e0c9f6008f184f3dee2fab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec1545dbdfac3ff07962b872d2676f57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#aec1545dbdfac3ff07962b872d2676f57">destroyButton</a> (<a class="el" href="structbutton__t.html">button_t</a> **button)</td></tr>
+<tr class="memdesc:aec1545dbdfac3ff07962b872d2676f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de destruction des boutons.  <a href="input_8h.html#aec1545dbdfac3ff07962b872d2676f57">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aec1545dbdfac3ff07962b872d2676f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca78e922d914fce518f1f82112c38bfd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtextbox__t.html">textbox_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#aca78e922d914fce518f1f82112c38bfd">createTextbox</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, TTF_Font *font, char *text, SDL_Color color, int character_limit)</td></tr>
+<tr class="memdesc:aca78e922d914fce518f1f82112c38bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de création des textes box (texte de saisie)  <a href="input_8h.html#aca78e922d914fce518f1f82112c38bfd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aca78e922d914fce518f1f82112c38bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10883f008e16c3ccd7350cf655ea8172"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#a10883f008e16c3ccd7350cf655ea8172">renderTextbox</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="structtextbox__t.html">textbox_t</a> *textbox)</td></tr>
+<tr class="memdesc:a10883f008e16c3ccd7350cf655ea8172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'affichage d'une boite de texte.  <a href="input_8h.html#a10883f008e16c3ccd7350cf655ea8172">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a10883f008e16c3ccd7350cf655ea8172"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a605bab3d77ec1b0d265f04495e7bcdc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#a605bab3d77ec1b0d265f04495e7bcdc9">updateTextbox</a> (SDL_Event *event, <a class="el" href="structtextbox__t.html">textbox_t</a> *textbox)</td></tr>
+<tr class="memdesc:a605bab3d77ec1b0d265f04495e7bcdc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de mise à jour des textes box (texte de saisie)  <a href="input_8h.html#a605bab3d77ec1b0d265f04495e7bcdc9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a605bab3d77ec1b0d265f04495e7bcdc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81020d9cac36be61007bec033fd64ce8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#a81020d9cac36be61007bec033fd64ce8">destroyTextbox</a> (<a class="el" href="structtextbox__t.html">textbox_t</a> **textbox)</td></tr>
+<tr class="memdesc:a81020d9cac36be61007bec033fd64ce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de destruction des textes box (texte de saisie)  <a href="input_8h.html#a81020d9cac36be61007bec033fd64ce8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a81020d9cac36be61007bec033fd64ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fbd406adaa193e0c4f25f145b569717"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#a8fbd406adaa193e0c4f25f145b569717">drawRect</a> (SDL_Renderer *renderer, SDL_Rect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a)</td></tr>
+<tr class="memdesc:a8fbd406adaa193e0c4f25f145b569717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'affichage d'un rectangle.  <a href="input_8h.html#a8fbd406adaa193e0c4f25f145b569717">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8fbd406adaa193e0c4f25f145b569717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272d585313f8dc3dba68225db615e3c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#a272d585313f8dc3dba68225db615e3c2">isMouseClickInRect</a> (SDL_Event event, SDL_Rect rect, int button, int type)</td></tr>
+<tr class="memdesc:a272d585313f8dc3dba68225db615e3c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de détection de clic dans une zone.  <a href="input_8h.html#a272d585313f8dc3dba68225db615e3c2">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a272d585313f8dc3dba68225db615e3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae364f224b8606e9aac19dcdf5817205e"><td class="memItemLeft" align="right" valign="top">SDL_Point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#ae364f224b8606e9aac19dcdf5817205e">getMousePosition</a> ()</td></tr>
 <tr class="memdesc:ae364f224b8606e9aac19dcdf5817205e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de récupération de la position de la souris.  <a href="input_8h.html#ae364f224b8606e9aac19dcdf5817205e">Plus de détails...</a><br /></td></tr>
@@ -116,27 +152,33 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Implémentation des prototypes de <a class="el" href="input_8c.html" title="Fichier de création des boutons et des textes.">window/input.c</a>. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Arthur Dureau </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>Arthur Dureau, Lucas Dureau </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>03/03/2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a0d976d005610f1e7e438dded0d99414a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d976d005610f1e7e438dded0d99414a">&#9670;&nbsp;</a></span>createButton()</h2>
+<a id="a7467b8ce731e7502a4be1b6f3a84dced"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7467b8ce731e7502a4be1b6f3a84dced">&#9670;&nbsp;</a></span>createButton()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void createButton </td>
+          <td class="memname"><a class="el" href="structbutton__t.html">button_t</a>* createButton </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">TTF_Font *&#160;</td>
           <td class="paramname"><em>font</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>buttonText</em>, </td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -147,38 +189,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>buttonXRatio</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>buttonYRatio</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>buttonWidthRatio</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>buttonHeightRatio</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structbutton__t.html">button_t</a> *&#160;</td>
-          <td class="paramname"><em>button</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
-          <td class="paramname"><em>window</em>&#160;</td>
+          <td class="paramtype">SDL_Color&#160;</td>
+          <td class="paramname"><em>selected_color</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -191,35 +203,41 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b>
 <p>Fonction de création des boutons. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">renderer</td><td></td></tr>
-    <tr><td class="paramname">font</td><td></td></tr>
-    <tr><td class="paramname">buttonText</td><td></td></tr>
-    <tr><td class="paramname">color</td><td></td></tr>
-    <tr><td class="paramname">buttonXRatio</td><td></td></tr>
-    <tr><td class="paramname">buttonYRatio</td><td></td></tr>
-    <tr><td class="paramname">buttonWidthRatio</td><td></td></tr>
-    <tr><td class="paramname">buttonHeightRatio</td><td></td></tr>
-    <tr><td class="paramname">button</td><td></td></tr>
-    <tr><td class="paramname">width</td><td></td></tr>
-    <tr><td class="paramname">height</td><td></td></tr>
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">font</td><td>police d'écriture </td></tr>
+    <tr><td class="paramname">text</td><td></td></tr>
+    <tr><td class="paramname">color</td><td>couleur du texte </td></tr>
+    <tr><td class="paramname">selected_color</td><td>couleur du text séléctionner </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointeur sur un bouton </dd></dl>
 
 </div>
 </div>
-<a id="aa822c0183171093a88f63484108ab22d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa822c0183171093a88f63484108ab22d">&#9670;&nbsp;</a></span>createTextbox()</h2>
+<a id="aca78e922d914fce518f1f82112c38bfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca78e922d914fce518f1f82112c38bfd">&#9670;&nbsp;</a></span>createTextbox()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void createTextbox </td>
+          <td class="memname"><a class="el" href="structtextbox__t.html">textbox_t</a>* createTextbox </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">TTF_Font *&#160;</td>
           <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -230,20 +248,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">SDL_Rect&#160;</td>
-          <td class="paramname"><em>rect</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structTextbox__t.html">Textbox_t</a> *&#160;</td>
-          <td class="paramname"><em>textbox</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
-          <td class="paramname"><em>window</em>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>character_limit</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -256,23 +262,20 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b>
 <p>Fonction de création des textes box (texte de saisie) </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">renderer</td><td></td></tr>
-    <tr><td class="paramname">font</td><td></td></tr>
-    <tr><td class="paramname">color</td><td></td></tr>
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
-    <tr><td class="paramname">w</td><td></td></tr>
-    <tr><td class="paramname">h</td><td></td></tr>
-    <tr><td class="paramname">rect</td><td></td></tr>
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">font</td><td>police d'écriture </td></tr>
+    <tr><td class="paramname">text</td><td></td></tr>
+    <tr><td class="paramname">color</td><td>couleur du texte </td></tr>
+    <tr><td class="paramname">character_limit</td><td>nombre maximum de caractère </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointeur sur une boite de texte </dd></dl>
 
 </div>
 </div>
-<a id="af89f66ab3d05dbf317fea058dd832b94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af89f66ab3d05dbf317fea058dd832b94">&#9670;&nbsp;</a></span>destroyButton()</h2>
+<a id="aec1545dbdfac3ff07962b872d2676f57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec1545dbdfac3ff07962b872d2676f57">&#9670;&nbsp;</a></span>destroyButton()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -280,7 +283,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b>
         <tr>
           <td class="memname">void destroyButton </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbutton__t.html">button_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structbutton__t.html">button_t</a> **&#160;</td>
           <td class="paramname"><em>button</em></td><td>)</td>
           <td></td>
         </tr>
@@ -290,16 +293,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b>
 <p>Fonction de destruction des boutons. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">button</td><td></td></tr>
+    <tr><td class="paramname">button</td><td>une référence sur un pointeur sur un bouton </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>void </dd></dl>
 
 </div>
 </div>
-<a id="ae3a0b91845cc76df7ff14633f17ee08e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3a0b91845cc76df7ff14633f17ee08e">&#9670;&nbsp;</a></span>destroyTextbox()</h2>
+<a id="a81020d9cac36be61007bec033fd64ce8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81020d9cac36be61007bec033fd64ce8">&#9670;&nbsp;</a></span>destroyTextbox()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,7 +309,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b>
         <tr>
           <td class="memname">void destroyTextbox </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structTextbox__t.html">Textbox_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structtextbox__t.html">textbox_t</a> **&#160;</td>
           <td class="paramname"><em>textbox</em></td><td>)</td>
           <td></td>
         </tr>
@@ -317,11 +319,75 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b>
 <p>Fonction de destruction des textes box (texte de saisie) </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">textbox</td><td></td></tr>
+    <tr><td class="paramname">textbox</td><td>une référence sur un pointeur sur une boite de texte </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a8fbd406adaa193e0c4f25f145b569717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fbd406adaa193e0c4f25f145b569717">&#9670;&nbsp;</a></span>drawRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawRect </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>rect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'affichage d'un rectangle. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>moteur de rendue de la fenêtre </td></tr>
+    <tr><td class="paramname">rect</td><td>rectangle de dessin </td></tr>
+    <tr><td class="paramname">r</td><td>rouge </td></tr>
+    <tr><td class="paramname">g</td><td>vert </td></tr>
+    <tr><td class="paramname">b</td><td>bleu </td></tr>
+    <tr><td class="paramname">a</td><td>transparence </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -345,14 +411,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b>
 
 </div>
 </div>
-<a id="aeca6d08c5d51c805ce4a80bebf737d86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeca6d08c5d51c805ce4a80bebf737d86">&#9670;&nbsp;</a></span>updateTextboxText()</h2>
+<a id="a272d585313f8dc3dba68225db615e3c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a272d585313f8dc3dba68225db615e3c2">&#9670;&nbsp;</a></span>isMouseClickInRect()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void updateTextboxText </td>
+          <td class="memname">int isMouseClickInRect </td>
           <td>(</td>
           <td class="paramtype">SDL_Event&#160;</td>
           <td class="paramname"><em>event</em>, </td>
@@ -360,26 +426,134 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">TTF_Font *&#160;</td>
-          <td class="paramname"><em>font</em>, </td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>rect</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>inputText</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>button</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de détection de clic dans une zone. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>événements </td></tr>
+    <tr><td class="paramname">rect</td><td>rectangle de détection </td></tr>
+    <tr><td class="paramname">button</td><td>quel bouton est détecter </td></tr>
+    <tr><td class="paramname">type</td><td>quel état du bouton est détecter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="a3aaa18d50e0c9f6008f184f3dee2fab1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3aaa18d50e0c9f6008f184f3dee2fab1">&#9670;&nbsp;</a></span>renderButton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void renderButton </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structbutton__t.html">button_t</a> *&#160;</td>
+          <td class="paramname"><em>button</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'affichage d'un bouton. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">button</td><td>un pointeur sur un bouton </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a10883f008e16c3ccd7350cf655ea8172"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10883f008e16c3ccd7350cf655ea8172">&#9670;&nbsp;</a></span>renderTextbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void renderTextbox </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtextbox__t.html">textbox_t</a> *&#160;</td>
+          <td class="paramname"><em>textbox</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'affichage d'une boite de texte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">textbox</td><td>un pointeur sur une boite de texte </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a605bab3d77ec1b0d265f04495e7bcdc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a605bab3d77ec1b0d265f04495e7bcdc9">&#9670;&nbsp;</a></span>updateTextbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateTextbox </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Event *&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtextbox__t.html">textbox_t</a> *&#160;</td>
+          <td class="paramname"><em>textbox</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -392,15 +566,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseClickInRect</b>
 <p>Fonction de mise à jour des textes box (texte de saisie) </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">event</td><td></td></tr>
-    <tr><td class="paramname">font</td><td></td></tr>
-    <tr><td class="paramname">inputText</td><td></td></tr>
-    <tr><td class="paramname">width</td><td></td></tr>
-    <tr><td class="paramname">height</td><td></td></tr>
+    <tr><td class="paramname">event</td><td>un pointeur sur les événements </td></tr>
+    <tr><td class="paramname">textbox</td><td>un pointeur sur une boite de texte </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>void </dd></dl>
 
 </div>
 </div>

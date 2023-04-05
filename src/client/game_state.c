@@ -22,7 +22,7 @@ extern void toggleMatchmaking(client_t *client, client_game_data_t *game_data)
     case PREPARATION_GAME_STATE:
         game_data->state = MATCHMAKING_GAME_STATE;
 
-        packet = createSetMapPacket();
+        packet = createSetMapPacket(game_data);
 
         sendToServer(client, packet);
         deletePacket(&packet);
@@ -63,7 +63,9 @@ extern void endGame(client_t *client, client_game_data_t *game_data)
     {
         game_data->state = WAITING_RESULT_GAME_STATE;
 
-        packet_t *packet = createGameFinishedPacket(79, timeLeft(game_data->timer));
+        packet_t *packet = createGameFinishedPacket(
+            100 - (float)game_data->opponent_gold_cost / (float)game_data->initial_opponent_gold_cost * 100,
+            timeLeft(game_data->timer));
 
         deleteTimer(&game_data->timer);
 

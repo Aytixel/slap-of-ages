@@ -1,0 +1,4 @@
+<map id="client_t" name="client_t">
+<area shape="rect" id="node1" title="Client socket." alt="" coords="9,95,79,121"/>
+<area shape="rect" id="node2" href="$structpacket__t.html" title="Paquet réseaux pour les sockets." alt="" coords="5,5,83,32"/>
+</map>

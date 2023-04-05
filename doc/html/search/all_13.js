@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['waitclienthandshake_231',['waitClientHandshake',['../connection_2server_8c.html#ac12cd916a09a69510fb2688caf974ea2',1,'waitClientHandshake():&#160;server.c'],['../connection_2server_8h.html#ac12cd916a09a69510fb2688caf974ea2',1,'waitClientHandshake():&#160;server.c']]],
-  ['waitserverhandshake_232',['waitServerHandshake',['../connection_2client_8c.html#ac909041a5b1d4ae68f56d64fc93695d3',1,'waitServerHandshake():&#160;client.c'],['../connection_2client_8h.html#ac909041a5b1d4ae68f56d64fc93695d3',1,'waitServerHandshake():&#160;client.c']]],
-  ['well_233',['well',['../structbuilding__sprite__rects__t.html#a04a329884a2ae6f5eb9d5a83a1644932',1,'building_sprite_rects_t']]],
-  ['width_234',['width',['../structsprite__t.html#a608b74d1243cdac2e2cbcc0d40ade78e',1,'sprite_t::width()'],['../structwindow__t.html#ade23597c3ed81f62276a0ade09f936be',1,'window_t::width()']]],
-  ['window_235',['window',['../structwindow__t.html#a29435f6d7667ff1ee309674d98962040',1,'window_t']]],
-  ['window_2ec_236',['window.c',['../window_8c.html',1,'']]],
-  ['window_2eh_237',['window.h',['../window_8h.html',1,'']]],
-  ['window_5ft_238',['window_t',['../structwindow__t.html',1,'']]]
+  ['updateanim_402',['updateAnim',['../animation_8c.html#a63392350c695b02122edb70286d308f7',1,'updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window):&#160;animation.c'],['../animation_8h.html#a63392350c695b02122edb70286d308f7',1,'updateAnim(anim_t *anim, int new_state, int tile_size, SDL_Point *position, window_t *window):&#160;animation.c']]],
+  ['updatebuildingcoord_403',['updateBuildingCoord',['../building_8c.html#ae484836162b2b44181583801f583c74d',1,'updateBuildingCoord(building_t *building, SDL_Point *position):&#160;building.c'],['../building_8h.html#ae484836162b2b44181583801f583c74d',1,'updateBuildingCoord(building_t *building, SDL_Point *position):&#160;building.c']]],
+  ['updatetextbox_404',['updateTextbox',['../input_8c.html#a605bab3d77ec1b0d265f04495e7bcdc9',1,'updateTextbox(SDL_Event *event, textbox_t *textbox):&#160;input.c'],['../input_8h.html#a605bab3d77ec1b0d265f04495e7bcdc9',1,'updateTextbox(SDL_Event *event, textbox_t *textbox):&#160;input.c']]],
+  ['updatewindowsize_405',['updateWindowSize',['../window_8c.html#ab1efa57caae2a77f346b314c3076d89f',1,'updateWindowSize(window_t *window, SDL_Event *event):&#160;window.c'],['../window_8h.html#ab1efa57caae2a77f346b314c3076d89f',1,'updateWindowSize(window_t *window, SDL_Event *event):&#160;window.c']]]
 ];

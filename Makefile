@@ -1,5 +1,5 @@
 TARGET=main_client main_server
-TEST_TARGET=test_timer test_socket test_window test_animation recupererDonnee stockerDonnee test_building test_game_state
+TEST_TARGET=test_timer test_game test_socket test_window test_animation recupererDonnee stockerDonnee gestion_ressources test_building test_game_state
 
 ifeq ($(OS), Windows_NT)
 
@@ -8,7 +8,7 @@ INC_DIR=include/windows
 LIB_TARGET=SDL2.dll SDL2_ttf.dll SDL2_image.dll
 LIB_TARGET_DIR=dll
 
-LFLAGS=-Wall -L$(LIB_DIR) -lmingw32 -lws2_32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+LFLAGS=-L$(LIB_DIR) -lm -lmingw32 -lws2_32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
 
 EXE_EXT=.exe
 PATH_SEP=\\
@@ -19,7 +19,7 @@ CP=copy
 
 else
 
-CPU_COUNT=$(grep -c processor /proc/cpuinfo)
+CPU_COUNT=$$(($(shell grep -c processor /proc/cpuinfo) - 2))
 
 ifeq ($(shell uname -s), Linux)
 OS=Linux
@@ -35,7 +35,7 @@ endif
 
 LIB_TARGET_DIR=$(LIB_DIR)
 
-LFLAGS=-Wall -L $(LIB_DIR) -Wl,-rpath $(LIB_DIR) -Wl,-rpath ./  -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+LFLAGS=-L $(LIB_DIR) -Wl,-rpath $(LIB_DIR) -Wl,-rpath ./ -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
 
 EXE_EXT=
 PATH_SEP=/
@@ -52,7 +52,8 @@ BIN_DIR=bin
 TEST_DIR=tests
 
 CC=gcc
-CFLAGS=-g -Wall -I$(INC_DIR) -I$(SRC_DIR)
+CFLAGS=-I$(INC_DIR) -I$(SRC_DIR)
+DEBUG_FLAGS=-g -Wall 
 
 TRGS:=$(TARGET:%=$(BIN_DIR)/%)
 TEST_TRGS:=$(TEST_TARGET:%=$(BIN_DIR)/%)
@@ -69,26 +70,32 @@ TEST_MAINS:=$(TEST_TARGET:%=$(OBJ_DIR)/%.o)
 OBJS:=$(filter-out $(MAINS),$(OBJECTS))
 
 all: install_sdl build build_test
-	
+
+.PHONY: build_release
+build_release: DEBUG_FLAGS=
+build_release: $(TRGS) copy_lib
+
+.PHONY: build
 build: $(TRGS) copy_lib
 	
+.PHONY: build_test
 build_test: $(TEST_TRGS) copy_lib
 
 $(TRGS): $(OBJECTS)
-	@$(CC) $(subst $(BIN_DIR),$(OBJ_DIR),$@).o $(OBJS) $(LFLAGS) -o $@$(EXE_EXT)
+	@$(CC) $(subst $(BIN_DIR),$(OBJ_DIR),$@).o $(OBJS) $(DEBUG_FLAGS) $(LFLAGS) -o $@$(EXE_EXT)
 	@echo "Linking $(notdir $@) complete!"
 
 $(TEST_TRGS): $(OBJS) $(TEST_OBJECTS)
-	@$(CC) $(subst $(BIN_DIR),$(OBJ_DIR),$@).o $(OBJS) $(LFLAGS) -o $@$(EXE_EXT)
+	@$(CC) $(subst $(BIN_DIR),$(OBJ_DIR),$@).o $(OBJS) $(DEBUG_FLAGS) $(LFLAGS) -o $@$(EXE_EXT)
 	@echo "Linking $(notdir $@) complete!"
 	
+$(OBJECTS): SRC_FILE=$(filter %/$(subst ___,/,$(subst .o,.c,$(notdir $@))),$(SOURCES))
 $(OBJECTS):
-	$(eval SRC_FILE:=$(filter %/$(subst ___,/,$(subst .o,.c,$(notdir $@))),$(SOURCES)))
-	@$(CC) $(CFLAGS) -c $(SRC_FILE) -o $@
+	@$(CC) $(DEBUG_FLAGS) $(CFLAGS) -c $(SRC_FILE) -o $@
 	@echo "Compiled $(SRC_FILE) successfully!"
 	
 $(TEST_OBJECTS): $(OBJ_DIR)/%.o : $(TEST_DIR)/%.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(DEBUG_FLAGS) $(CFLAGS) -c $< -o $@
 	@echo "Compiled $< successfully!"
 	
 .PHONY: copy_lib
@@ -121,6 +128,7 @@ clean_docs:
 	@$(RM_DIR) $(subst /,$(PATH_SEP),doc/latex/)
 	@echo "Documentation cleanup complete!"
 
+.PHONY: install_sdl
 install_sdl:
 ifneq ($(OS), Windows_NT)
 	@rm -rf SDL_lib

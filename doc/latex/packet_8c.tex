@@ -8,6 +8,15 @@ Implémente toute les fonctions pour créer, et lire les différents paquets.
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}packet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}client/map\+\_\+data\+\_\+serialization.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de packet.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{packet_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
@@ -19,17 +28,17 @@ void \mbox{\hyperlink{packet_8c_ae81a3bfde9a24192f8c6dcfd69dc51da}{read\+Handsha
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant le pseudo. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{packet_8c_a122133c809cbe724167772655612afdc}{read\+Set\+Pseudo\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, char $\ast$$\ast$pseudo)
 \begin{DoxyCompactList}\small\item\em Lie un paquet définissant le pseudo. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_ae0acf6153b1204095dea477077a1bdc1}{create\+Set\+Map\+Packet}} ()
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_a65783bd7eb31b5dc30a720ac388208ba}{create\+Set\+Map\+Packet}} (\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant la carte. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{packet_8c_a78edd7cbf720fd90e2b9ae393d83e9b7}{read\+Set\+Map\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet)
+void \mbox{\hyperlink{packet_8c_a16a8bdfc3a47dfd077182eb4d07fa5e3}{read\+Set\+Map\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Lie un paquet définissant la carte. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_a0909f0a69bb4b40010fef318357fa9db}{create\+Is\+Player\+Ready\+Packet}} (int is\+\_\+player\+\_\+ready)
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant si le joueur est prêt. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{packet_8c_aa08e62c9ca737b8884f7ced46a0050bd}{read\+Is\+Player\+Ready\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, int $\ast$is\+\_\+player\+\_\+ready)
 \begin{DoxyCompactList}\small\item\em Lie un paquet définissant si le joueur est prêt. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_a1eae042bf09db2efc6c862a5ebb61708}{create\+Game\+Finished\+Packet}} (float destruction\+\_\+percentage, long time\+\_\+left)
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_a1e339e97e9c797a72ec63cd4f932ed35}{create\+Game\+Finished\+Packet}} (int destruction\+\_\+percentage, long time\+\_\+left)
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant le fait qu\textquotesingle{}un joueur à terminé \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{packet_8c_a05cbe61d2bb9bdbef7d0f3fe5c10ad08}{read\+Game\+Finished\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, float $\ast$destruction\+\_\+percentage, long $\ast$time\+\_\+left)
+void \mbox{\hyperlink{packet_8c_a9c951cb8069f3c2a9eadda4387ff2026}{read\+Game\+Finished\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, int $\ast$destruction\+\_\+percentage, long $\ast$time\+\_\+left)
 \begin{DoxyCompactList}\small\item\em Lie un paquet définissant le fait qu\textquotesingle{}un joueur à terminé \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_a1af8e9984c275e58c407c25fdb5afa52}{create\+Has\+Player\+Won\+Packet}} (int has\+\_\+player\+\_\+won)
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant si le joueur à gagné \end{DoxyCompactList}\item 
@@ -52,11 +61,11 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{packet_8c_a1eae042bf09db2efc6c862a5ebb61708}\label{packet_8c_a1eae042bf09db2efc6c862a5ebb61708}} 
+\mbox{\Hypertarget{packet_8c_a1e339e97e9c797a72ec63cd4f932ed35}\label{packet_8c_a1e339e97e9c797a72ec63cd4f932ed35}} 
 \index{packet.c@{packet.c}!createGameFinishedPacket@{createGameFinishedPacket}}
 \index{createGameFinishedPacket@{createGameFinishedPacket}!packet.c@{packet.c}}
 \doxysubsubsection{\texorpdfstring{createGameFinishedPacket()}{createGameFinishedPacket()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ create\+Game\+Finished\+Packet (\begin{DoxyParamCaption}\item[{float}]{destruction\+\_\+percentage,  }\item[{long}]{time\+\_\+left }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ create\+Game\+Finished\+Packet (\begin{DoxyParamCaption}\item[{int}]{destruction\+\_\+percentage,  }\item[{long}]{time\+\_\+left }\end{DoxyParamCaption})}
 
 
 
@@ -126,16 +135,21 @@ Créer un paquet définissant si le joueur est prêt.
 \begin{DoxyReturn}{Renvoie}
 un pointer sur un {\bfseries{paquet}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{packet_8c_ae0acf6153b1204095dea477077a1bdc1}\label{packet_8c_ae0acf6153b1204095dea477077a1bdc1}} 
+\mbox{\Hypertarget{packet_8c_a65783bd7eb31b5dc30a720ac388208ba}\label{packet_8c_a65783bd7eb31b5dc30a720ac388208ba}} 
 \index{packet.c@{packet.c}!createSetMapPacket@{createSetMapPacket}}
 \index{createSetMapPacket@{createSetMapPacket}!packet.c@{packet.c}}
 \doxysubsubsection{\texorpdfstring{createSetMapPacket()}{createSetMapPacket()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ create\+Set\+Map\+Packet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ create\+Set\+Map\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
 Créer un paquet définissant la carte. 
 
+
+\begin{DoxyParams}{Paramètres}
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 un pointer sur un {\bfseries{paquet}} 
 \end{DoxyReturn}
@@ -157,11 +171,11 @@ Créer un paquet définissant le pseudo.
 \begin{DoxyReturn}{Renvoie}
 un pointer sur un {\bfseries{paquet}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{packet_8c_a05cbe61d2bb9bdbef7d0f3fe5c10ad08}\label{packet_8c_a05cbe61d2bb9bdbef7d0f3fe5c10ad08}} 
+\mbox{\Hypertarget{packet_8c_a9c951cb8069f3c2a9eadda4387ff2026}\label{packet_8c_a9c951cb8069f3c2a9eadda4387ff2026}} 
 \index{packet.c@{packet.c}!readGameFinishedPacket@{readGameFinishedPacket}}
 \index{readGameFinishedPacket@{readGameFinishedPacket}!packet.c@{packet.c}}
 \doxysubsubsection{\texorpdfstring{readGameFinishedPacket()}{readGameFinishedPacket()}}
-{\footnotesize\ttfamily void read\+Game\+Finished\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet,  }\item[{float $\ast$}]{destruction\+\_\+percentage,  }\item[{long $\ast$}]{time\+\_\+left }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void read\+Game\+Finished\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet,  }\item[{int $\ast$}]{destruction\+\_\+percentage,  }\item[{long $\ast$}]{time\+\_\+left }\end{DoxyParamCaption})}
 
 
 
@@ -227,11 +241,11 @@ Lie un paquet définissant si le joueur est prêt.
 {\em is\+\_\+player\+\_\+ready} & le joueur est-\/il prêt ? \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{packet_8c_a78edd7cbf720fd90e2b9ae393d83e9b7}\label{packet_8c_a78edd7cbf720fd90e2b9ae393d83e9b7}} 
+\mbox{\Hypertarget{packet_8c_a16a8bdfc3a47dfd077182eb4d07fa5e3}\label{packet_8c_a16a8bdfc3a47dfd077182eb4d07fa5e3}} 
 \index{packet.c@{packet.c}!readSetMapPacket@{readSetMapPacket}}
 \index{readSetMapPacket@{readSetMapPacket}!packet.c@{packet.c}}
 \doxysubsubsection{\texorpdfstring{readSetMapPacket()}{readSetMapPacket()}}
-{\footnotesize\ttfamily void read\+Set\+Map\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void read\+Set\+Map\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -240,6 +254,10 @@ Lie un paquet définissant la carte.
 
 \begin{DoxyParams}{Paramètres}
 {\em packet} & paquet à lire \\
+\hline
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{packet_8c_a122133c809cbe724167772655612afdc}\label{packet_8c_a122133c809cbe724167772655612afdc}} 

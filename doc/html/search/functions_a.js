@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['positionfromcenter_348',['positionFromCenter',['../window_8c.html#ad3c4f018bc737c5c0b0436fe379817ba',1,'positionFromCenter(window_t *window, int width, int height, int x, int y, transform_origin_e origin):&#160;window.c'],['../window_8h.html#ad3c4f018bc737c5c0b0436fe379817ba',1,'positionFromCenter(window_t *window, int width, int height, int x, int y, transform_origin_e origin):&#160;window.c']]],
-  ['positiontocenter_349',['positionToCenter',['../window_8c.html#a1de1e31a95e63b3a09ad7c3f4a7637c6',1,'positionToCenter(window_t *window, int width, int height):&#160;window.c'],['../window_8h.html#a1de1e31a95e63b3a09ad7c3f4a7637c6',1,'positionToCenter(window_t *window, int width, int height):&#160;window.c']]]
+  ['menueventhandler_590',['menuEventHandler',['../menu_8c.html#a164df07b83240357d29ac317a542c9b6',1,'menuEventHandler(client_game_data_t *game_data, SDL_Event *event, menu_t *menu):&#160;menu.c'],['../menu_8h.html#a164df07b83240357d29ac317a542c9b6',1,'menuEventHandler(client_game_data_t *game_data, SDL_Event *event, menu_t *menu):&#160;menu.c']]],
+  ['menurenderer_591',['menuRenderer',['../menu_8c.html#adf97f9d40d3e741e9124a901a4dd049b',1,'menuRenderer(window_t *window, menu_t *menu):&#160;menu.c'],['../menu_8h.html#adf97f9d40d3e741e9124a901a4dd049b',1,'menuRenderer(window_t *window, menu_t *menu):&#160;menu.c']]]
 ];

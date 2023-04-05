@@ -1,0 +1,883 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slap of Ages: Référence du fichier src/server/game_state.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Slap of Ages
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_075bb3ff235063c77951cd176d15a741.html">server</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier game_state.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implémentation des prototypes de <a class="el" href="server_2game__state_8c.html" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie.">server/game_state.c</a>.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="client__data_8h_source.html">client_data.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="connection_2server_8h_source.html">connection/server.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="packet_8h_source.html">packet/packet.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="timer_8h_source.html">timer/timer.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de game_state.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="server_2game__state_8h__incl.png" border="0" usemap="#asrc_2server_2game__state_8h" alt=""/></div>
+<map name="asrc_2server_2game__state_8h" id="asrc_2server_2game__state_8h">
+<area shape="rect" title="Implémentation des prototypes de server/game_state.c." alt="" coords="118,5,297,32"/>
+<area shape="rect" title=" " alt="" coords="13,80,84,107"/>
+<area shape="rect" href="client__data_8h.html" title="Implémentation des prototypes de server/client_data.c." alt="" coords="109,80,215,107"/>
+<area shape="rect" href="packet_8h.html" title="Implémentation des prototypes de packet/packet.c." alt="" coords="191,304,315,331"/>
+<area shape="rect" href="timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="423,453,530,480"/>
+<area shape="rect" href="connection_2server_8h.html" title="Implémentation des prototypes de connection/server.c." alt="" coords="290,80,439,107"/>
+<area shape="rect" title=" " alt="" coords="5,453,76,480"/>
+<area shape="rect" href="game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="198,379,345,405"/>
+<area shape="rect" href="building_8h.html" title=" " alt="" coords="280,453,399,480"/>
+<area shape="rect" href="packet__id_8h.html" title="Définition des identifiants de paquet résaux." alt="" coords="78,379,174,405"/>
+<area shape="rect" href="game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="101,453,255,480"/>
+<area shape="rect" title=" " alt="" coords="431,528,522,555"/>
+<area shape="rect" href="building__renderer_8h.html" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="182,528,329,555"/>
+<area shape="rect" href="map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="293,603,417,629"/>
+<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="236,677,373,704"/>
+<area shape="rect" title=" " alt="" coords="191,752,287,779"/>
+<area shape="rect" title=" " alt="" coords="311,752,429,779"/>
+<area shape="rect" href="socket_2server_8h.html" title="Implémentation des prototypes de socket/server.c." alt="" coords="305,155,425,181"/>
+<area shape="rect" title=" " alt="" coords="342,304,438,331"/>
+<area shape="rect" href="socket_8h.html" title="Implémentation des prototypes de socket/socket.c." alt="" coords="291,229,367,256"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="server_2game__state_8h__dep__incl.png" border="0" usemap="#asrc_2server_2game__state_8hdep" alt=""/></div>
+<map name="asrc_2server_2game__state_8hdep" id="asrc_2server_2game__state_8hdep">
+<area shape="rect" title="Implémentation des prototypes de server/game_state.c." alt="" coords="5,5,184,32"/>
+<area shape="rect" href="client__data_8h.html" title="Implémentation des prototypes de server/client_data.c." alt="" coords="7,80,182,107"/>
+<area shape="rect" href="server_2game__state_8c.html" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie." alt="" coords="207,80,385,107"/>
+<area shape="rect" href="client__data_8c.html" title="Implémente les fonctions associées la structure de données pour les clients connectés au serveur." alt="" coords="8,155,181,181"/>
+</map>
+</div>
+</div>
+<p><a href="server_2game__state_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__game__state__t.html">player_game_state_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données contenant les informations d'une partie pour un joueur.  <a href="structplayer__game__state__t.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structserver__game__state__s.html">server_game_state_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données contenant les informations d'une partie.  <a href="structserver__game__state__s.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structserver__game__state__array__s.html">server_game_state_array_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données contenant un tableau des données de partie.  <a href="structserver__game__state__array__s.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a27e988531d32be024dc5795dfd357dbc"><td class="memItemLeft" align="right" valign="top"><a id="a27e988531d32be024dc5795dfd357dbc"></a>
+typedef struct <a class="el" href="structserver__client__data__s.html">server_client_data_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>server_client_data_t</b></td></tr>
+<tr class="separator:a27e988531d32be024dc5795dfd357dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39f14111b1d24e22ec6118acf38da7cb"><td class="memItemLeft" align="right" valign="top"><a id="a39f14111b1d24e22ec6118acf38da7cb"></a>
+typedef struct <a class="el" href="structserver__game__state__array__s.html">server_game_state_array_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a></td></tr>
+<tr class="memdesc:a39f14111b1d24e22ec6118acf38da7cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données contenant un tableau des données de partie. <br /></td></tr>
+<tr class="separator:a39f14111b1d24e22ec6118acf38da7cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd402a84eeb68f6b701214e00d9af9fe"><td class="memItemLeft" align="right" valign="top"><a id="afd402a84eeb68f6b701214e00d9af9fe"></a>
+typedef struct <a class="el" href="structserver__game__state__s.html">server_game_state_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#afd402a84eeb68f6b701214e00d9af9fe">server_game_state_t</a></td></tr>
+<tr class="memdesc:afd402a84eeb68f6b701214e00d9af9fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données contenant les informations d'une partie. <br /></td></tr>
+<tr class="separator:afd402a84eeb68f6b701214e00d9af9fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a835ab82b56f9edd78cbe654ed538fdf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a835ab82b56f9edd78cbe654ed538fdf2">createGameStateArray</a> ()</td></tr>
+<tr class="memdesc:a835ab82b56f9edd78cbe654ed538fdf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un tableau avec les données de partie.  <a href="server_2game__state_8h.html#a835ab82b56f9edd78cbe654ed538fdf2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a835ab82b56f9edd78cbe654ed538fdf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad04fe80872805250b982cb6abb99b9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#aad04fe80872805250b982cb6abb99b9b">addGameStateToArray</a> (<a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *game_state_array)</td></tr>
+<tr class="memdesc:aad04fe80872805250b982cb6abb99b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une nouvelle partie au tableau.  <a href="server_2game__state_8h.html#aad04fe80872805250b982cb6abb99b9b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aad04fe80872805250b982cb6abb99b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46f810f0261de2b741d360639635f0fb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a46f810f0261de2b741d360639635f0fb">findGame</a> (<a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *game_state_array)</td></tr>
+<tr class="memdesc:a46f810f0261de2b741d360639635f0fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trouve une partie qui n'est pas commencé  <a href="server_2game__state_8h.html#a46f810f0261de2b741d360639635f0fb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a46f810f0261de2b741d360639635f0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a115a3f9c7f540c360b195c378631333d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a115a3f9c7f540c360b195c378631333d">removeGameStateFromArray</a> (<a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *game_state_array, int index)</td></tr>
+<tr class="memdesc:a115a3f9c7f540c360b195c378631333d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève les données d'une partie du tableau.  <a href="server_2game__state_8h.html#a115a3f9c7f540c360b195c378631333d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a115a3f9c7f540c360b195c378631333d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac118fba2e7d699b1353e76bda119a791"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#ac118fba2e7d699b1353e76bda119a791">deleteGameStateArray</a> (<a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> **game_state_array)</td></tr>
+<tr class="memdesc:ac118fba2e7d699b1353e76bda119a791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un tableau avec les données de partie.  <a href="server_2game__state_8h.html#ac118fba2e7d699b1353e76bda119a791">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac118fba2e7d699b1353e76bda119a791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a901ec9e3da468047783e774389c1bcf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structplayer__game__state__t.html">player_game_state_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a901ec9e3da468047783e774389c1bcf2">createPlayerState</a> (int socket_fd, <a class="el" href="client__data_8h.html#a27e988531d32be024dc5795dfd357dbc">server_client_data_t</a> *client_data, <a class="el" href="structserver__client__t.html">server_client_t</a> *<a class="el" href="connection_2server_8h.html#a297c23f4f449cf533cd0e72bb4a5ef27">server_client</a>)</td></tr>
+<tr class="memdesc:a901ec9e3da468047783e774389c1bcf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer les données d'un joueur pour la partie.  <a href="server_2game__state_8h.html#a901ec9e3da468047783e774389c1bcf2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a901ec9e3da468047783e774389c1bcf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6224b302f4d0f4e9b452eda00a6307c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a6224b302f4d0f4e9b452eda00a6307c8">deletePlayerState</a> (<a class="el" href="structplayer__game__state__t.html">player_game_state_t</a> **player_game_state)</td></tr>
+<tr class="memdesc:a6224b302f4d0f4e9b452eda00a6307c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit les données d'un joueur pour la partie.  <a href="server_2game__state_8h.html#a6224b302f4d0f4e9b452eda00a6307c8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6224b302f4d0f4e9b452eda00a6307c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae40a6de223e7598df4a5dbd06fe94bc8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#ae40a6de223e7598df4a5dbd06fe94bc8">createGameState</a> ()</td></tr>
+<tr class="memdesc:ae40a6de223e7598df4a5dbd06fe94bc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer les données d'un partie.  <a href="server_2game__state_8h.html#ae40a6de223e7598df4a5dbd06fe94bc8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae40a6de223e7598df4a5dbd06fe94bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a639b9f09ba39d9c8cf39776e039ee625"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a639b9f09ba39d9c8cf39776e039ee625">addPlayerToGame</a> (<a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *game_state, int socket_fd, <a class="el" href="client__data_8h.html#a27e988531d32be024dc5795dfd357dbc">server_client_data_t</a> *client_data, <a class="el" href="structserver__client__t.html">server_client_t</a> *<a class="el" href="connection_2server_8h.html#a297c23f4f449cf533cd0e72bb4a5ef27">server_client</a>)</td></tr>
+<tr class="memdesc:a639b9f09ba39d9c8cf39776e039ee625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un joueur à la partie.  <a href="server_2game__state_8h.html#a639b9f09ba39d9c8cf39776e039ee625">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a639b9f09ba39d9c8cf39776e039ee625"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab14802d8def697b5091f4d2120dc25e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#ab14802d8def697b5091f4d2120dc25e9">removePlayerFromGame</a> (<a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *game_state, int socket_fd)</td></tr>
+<tr class="memdesc:ab14802d8def697b5091f4d2120dc25e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève un joueur à la partie.  <a href="server_2game__state_8h.html#ab14802d8def697b5091f4d2120dc25e9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab14802d8def697b5091f4d2120dc25e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ac64b24fab05b072fd17d8accd98d82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a5ac64b24fab05b072fd17d8accd98d82">isGameEmpty</a> (<a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *game_state)</td></tr>
+<tr class="memdesc:a5ac64b24fab05b072fd17d8accd98d82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère si la partie est vide.  <a href="server_2game__state_8h.html#a5ac64b24fab05b072fd17d8accd98d82">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5ac64b24fab05b072fd17d8accd98d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e16ddacb5584560026c88ed76f99090"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a8e16ddacb5584560026c88ed76f99090">isGameStarted</a> (<a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *game_state)</td></tr>
+<tr class="memdesc:a8e16ddacb5584560026c88ed76f99090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère si la partie est commencé  <a href="server_2game__state_8h.html#a8e16ddacb5584560026c88ed76f99090">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8e16ddacb5584560026c88ed76f99090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11fddda124734fdbcad24f152b078074"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a11fddda124734fdbcad24f152b078074">isGameFinished</a> (<a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *game_state)</td></tr>
+<tr class="memdesc:a11fddda124734fdbcad24f152b078074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère si la partie est finie.  <a href="server_2game__state_8h.html#a11fddda124734fdbcad24f152b078074">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a11fddda124734fdbcad24f152b078074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee6ba7e5965d06e995a07e0b16000920"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#aee6ba7e5965d06e995a07e0b16000920">gameHasPlayer</a> (<a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *game_state, int socket_fd)</td></tr>
+<tr class="memdesc:aee6ba7e5965d06e995a07e0b16000920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère si ce joueur est dans cette partie.  <a href="server_2game__state_8h.html#aee6ba7e5965d06e995a07e0b16000920">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aee6ba7e5965d06e995a07e0b16000920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e580e2a81c9bcafdda182402cc2f1c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a8e580e2a81c9bcafdda182402cc2f1c2">setPlayerFinished</a> (<a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *game_state, int socket_fd, <a class="el" href="structpacket__t.html">packet_t</a> *packet)</td></tr>
+<tr class="memdesc:a8e580e2a81c9bcafdda182402cc2f1c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définit un joueur comme ayant fini.  <a href="server_2game__state_8h.html#a8e580e2a81c9bcafdda182402cc2f1c2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8e580e2a81c9bcafdda182402cc2f1c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e07642221c7a58760aea08005414fbf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a1e07642221c7a58760aea08005414fbf">gameWinner</a> (<a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *game_state)</td></tr>
+<tr class="memdesc:a1e07642221c7a58760aea08005414fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère quel joueur à gagner.  <a href="server_2game__state_8h.html#a1e07642221c7a58760aea08005414fbf">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1e07642221c7a58760aea08005414fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d0fb5117be45a721b3f6d7c83f170f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a2d0fb5117be45a721b3f6d7c83f170f3">deleteGameState</a> (<a class="el" href="structserver__game__state__s.html">server_game_state_t</a> **game_state)</td></tr>
+<tr class="memdesc:a2d0fb5117be45a721b3f6d7c83f170f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit les données d'une partie.  <a href="server_2game__state_8h.html#a2d0fb5117be45a721b3f6d7c83f170f3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2d0fb5117be45a721b3f6d7c83f170f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5992d5b801c5a4e0f44f61af457a7cad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a5992d5b801c5a4e0f44f61af457a7cad">setPlayerFinishedInArray</a> (<a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *game_state_array, int socket_fd, <a class="el" href="structpacket__t.html">packet_t</a> *packet)</td></tr>
+<tr class="memdesc:a5992d5b801c5a4e0f44f61af457a7cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définit un joueur comme ayant fini, dans le liste des parties.  <a href="server_2game__state_8h.html#a5992d5b801c5a4e0f44f61af457a7cad">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5992d5b801c5a4e0f44f61af457a7cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a883c9e1af0d67b87969392535b3132d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a883c9e1af0d67b87969392535b3132d3">checkServerGameTimeout</a> (<a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *game_state_array)</td></tr>
+<tr class="memdesc:a883c9e1af0d67b87969392535b3132d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une partie à dépassé le temps limite, et la supprime.  <a href="server_2game__state_8h.html#a883c9e1af0d67b87969392535b3132d3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a883c9e1af0d67b87969392535b3132d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75b2092a394125e055a115418a15b895"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_2game__state_8h.html#a75b2092a394125e055a115418a15b895">setPlayerIsReadyInArray</a> (<a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *game_state_array, <a class="el" href="client__data_8h.html#a27e988531d32be024dc5795dfd357dbc">server_client_data_t</a> *client_data, <a class="el" href="structserver__client__t.html">server_client_t</a> *<a class="el" href="connection_2server_8h.html#a297c23f4f449cf533cd0e72bb4a5ef27">server_client</a>, <a class="el" href="structpacket__t.html">packet_t</a> *packet)</td></tr>
+<tr class="memdesc:a75b2092a394125e055a115418a15b895"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définit un joueur comme étant prêt à jouer, ou non, dans le liste des parties.  <a href="server_2game__state_8h.html#a75b2092a394125e055a115418a15b895">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a75b2092a394125e055a115418a15b895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Implémentation des prototypes de <a class="el" href="server_2game__state_8c.html" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie.">server/game_state.c</a>. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Lucas Dureau </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>02/03/2023 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aad04fe80872805250b982cb6abb99b9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad04fe80872805250b982cb6abb99b9b">&#9670;&nbsp;</a></span>addGameStateToArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addGameStateToArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state_array</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute une nouvelle partie au tableau. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state_array</td><td>une référence d'un pointeur sur un tableau avec les données de partie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a639b9f09ba39d9c8cf39776e039ee625"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a639b9f09ba39d9c8cf39776e039ee625">&#9670;&nbsp;</a></span>addPlayerToGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int addPlayerToGame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="client__data_8h.html#a27e988531d32be024dc5795dfd357dbc">server_client_data_t</a> *&#160;</td>
+          <td class="paramname"><em>client_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td>
+          <td class="paramname"><em>server_client</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute un joueur à la partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state</td><td>un pointeur sur les données d'une partie </td></tr>
+    <tr><td class="paramname">socket_fd</td><td>id du socket client </td></tr>
+    <tr><td class="paramname">client_data</td><td>un pointeur sur les données client </td></tr>
+    <tr><td class="paramname">server_client</td><td>un pointeur sur client serveur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si le joueur a pu être ajouté, <b>0</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="a883c9e1af0d67b87969392535b3132d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a883c9e1af0d67b87969392535b3132d3">&#9670;&nbsp;</a></span>checkServerGameTimeout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void checkServerGameTimeout </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state_array</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie si une partie à dépassé le temps limite, et la supprime. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state_array</td><td>une référence d'un pointeur sur un tableau avec les données de partie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae40a6de223e7598df4a5dbd06fe94bc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae40a6de223e7598df4a5dbd06fe94bc8">&#9670;&nbsp;</a></span>createGameState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structserver__game__state__s.html">server_game_state_t</a>* createGameState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer les données d'un partie. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur les <b>données d'une partie</b> </dd></dl>
+
+</div>
+</div>
+<a id="a835ab82b56f9edd78cbe654ed538fdf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a835ab82b56f9edd78cbe654ed538fdf2">&#9670;&nbsp;</a></span>createGameStateArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a>* createGameStateArray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer un tableau avec les données de partie. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur le <b>tableau des données de partie</b> </dd></dl>
+
+</div>
+</div>
+<a id="a901ec9e3da468047783e774389c1bcf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a901ec9e3da468047783e774389c1bcf2">&#9670;&nbsp;</a></span>createPlayerState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structplayer__game__state__t.html">player_game_state_t</a>* createPlayerState </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="client__data_8h.html#a27e988531d32be024dc5795dfd357dbc">server_client_data_t</a> *&#160;</td>
+          <td class="paramname"><em>client_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td>
+          <td class="paramname"><em>server_client</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer les données d'un joueur pour la partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket_fd</td><td>id du socket client </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur les <b>données d'un joueur pour la partie</b> </dd></dl>
+
+</div>
+</div>
+<a id="a2d0fb5117be45a721b3f6d7c83f170f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d0fb5117be45a721b3f6d7c83f170f3">&#9670;&nbsp;</a></span>deleteGameState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int deleteGameState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__game__state__s.html">server_game_state_t</a> **&#160;</td>
+          <td class="paramname"><em>game_state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit les données d'une partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state</td><td>une référence d'un pointeur sur les données d'une partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="ac118fba2e7d699b1353e76bda119a791"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac118fba2e7d699b1353e76bda119a791">&#9670;&nbsp;</a></span>deleteGameStateArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int deleteGameStateArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> **&#160;</td>
+          <td class="paramname"><em>game_state_array</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit un tableau avec les données de partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state_array</td><td>une référence d'un pointeur sur un tableau avec les données de partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="a6224b302f4d0f4e9b452eda00a6307c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6224b302f4d0f4e9b452eda00a6307c8">&#9670;&nbsp;</a></span>deletePlayerState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int deletePlayerState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structplayer__game__state__t.html">player_game_state_t</a> **&#160;</td>
+          <td class="paramname"><em>player_game_state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit les données d'un joueur pour la partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player_game_state</td><td>une référence d'un pointeur sur les données d'un joueur pour la partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si tous se passe bien, <b>-1</b> si le pointeur en entrée est null </dd></dl>
+
+</div>
+</div>
+<a id="a46f810f0261de2b741d360639635f0fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46f810f0261de2b741d360639635f0fb">&#9670;&nbsp;</a></span>findGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int findGame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state_array</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Trouve une partie qui n'est pas commencé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state_array</td><td>une référence d'un pointeur sur un tableau avec les données de partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>l'<b>index</b> de la partie trouvé, <b>-1</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="aee6ba7e5965d06e995a07e0b16000920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee6ba7e5965d06e995a07e0b16000920">&#9670;&nbsp;</a></span>gameHasPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gameHasPlayer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket_fd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère si ce joueur est dans cette partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state</td><td>un pointeur sur les données d'une partie </td></tr>
+    <tr><td class="paramname">socket_fd</td><td>id du socket client </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si ce joueur est le joueur 1, <b>1</b> si il est le 2ème, <b>-1</b> si il n'en fait pas partie </dd></dl>
+
+</div>
+</div>
+<a id="a1e07642221c7a58760aea08005414fbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e07642221c7a58760aea08005414fbf">&#9670;&nbsp;</a></span>gameWinner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gameWinner </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère quel joueur à gagner. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state</td><td>un pointeur sur les données d'une partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si ce joueur est le joueur 1, <b>1</b> si il est le 2ème, <b>2</b> si ils sont ex-aequo, <b>-1</b> si la partie n'est pas fini </dd></dl>
+
+</div>
+</div>
+<a id="a5ac64b24fab05b072fd17d8accd98d82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ac64b24fab05b072fd17d8accd98d82">&#9670;&nbsp;</a></span>isGameEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isGameEmpty </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère si la partie est vide. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state</td><td>un pointeur sur les données d'une partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si la partie est vide, <b>0</b> sinont </dd></dl>
+
+</div>
+</div>
+<a id="a11fddda124734fdbcad24f152b078074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11fddda124734fdbcad24f152b078074">&#9670;&nbsp;</a></span>isGameFinished()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isGameFinished </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère si la partie est finie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state</td><td>un pointeur sur les données d'une partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si la partie est finie, <b>0</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="a8e16ddacb5584560026c88ed76f99090"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e16ddacb5584560026c88ed76f99090">&#9670;&nbsp;</a></span>isGameStarted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isGameStarted </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère si la partie est commencé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state</td><td>un pointeur sur les données d'une partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si la partie est commencé, <b>0</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="a115a3f9c7f540c360b195c378631333d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a115a3f9c7f540c360b195c378631333d">&#9670;&nbsp;</a></span>removeGameStateFromArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int removeGameStateFromArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state_array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enlève les données d'une partie du tableau. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state_array</td><td>une référence d'un pointeur sur un tableau avec les données de partie </td></tr>
+    <tr><td class="paramname">index</td><td>dans le tableau </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si la partie a pu être enlevé, <b>0</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="ab14802d8def697b5091f4d2120dc25e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab14802d8def697b5091f4d2120dc25e9">&#9670;&nbsp;</a></span>removePlayerFromGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int removePlayerFromGame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket_fd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enlève un joueur à la partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state</td><td>un pointeur sur les données d'une partie </td></tr>
+    <tr><td class="paramname">socket_fd</td><td>id du socket client </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>1</b> si le joueur a pu être enlevé, <b>0</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="a8e580e2a81c9bcafdda182402cc2f1c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e580e2a81c9bcafdda182402cc2f1c2">&#9670;&nbsp;</a></span>setPlayerFinished()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int setPlayerFinished </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserver__game__state__s.html">server_game_state_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td>
+          <td class="paramname"><em>packet</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définit un joueur comme ayant fini. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state</td><td>un pointeur sur les données d'une partie </td></tr>
+    <tr><td class="paramname">socket_fd</td><td>id du socket client </td></tr>
+    <tr><td class="paramname">packet</td><td>un pointeur le paquet contenant les informations de fin de partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>0</b> si le joueur est dans cette partie, <b>-1</b> sinon </dd></dl>
+
+</div>
+</div>
+<a id="a5992d5b801c5a4e0f44f61af457a7cad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5992d5b801c5a4e0f44f61af457a7cad">&#9670;&nbsp;</a></span>setPlayerFinishedInArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setPlayerFinishedInArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state_array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td>
+          <td class="paramname"><em>packet</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définit un joueur comme ayant fini, dans le liste des parties. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state_array</td><td>une référence d'un pointeur sur un tableau avec les données de partie </td></tr>
+    <tr><td class="paramname">socket_fd</td><td>id du socket client </td></tr>
+    <tr><td class="paramname">packet</td><td>un pointeur le paquet contenant les informations de fin de partie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a75b2092a394125e055a115418a15b895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75b2092a394125e055a115418a15b895">&#9670;&nbsp;</a></span>setPlayerIsReadyInArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setPlayerIsReadyInArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="server_2game__state_8h.html#a39f14111b1d24e22ec6118acf38da7cb">server_game_state_array_t</a> *&#160;</td>
+          <td class="paramname"><em>game_state_array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="client__data_8h.html#a27e988531d32be024dc5795dfd357dbc">server_client_data_t</a> *&#160;</td>
+          <td class="paramname"><em>client_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structserver__client__t.html">server_client_t</a> *&#160;</td>
+          <td class="paramname"><em>server_client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpacket__t.html">packet_t</a> *&#160;</td>
+          <td class="paramname"><em>packet</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définit un joueur comme étant prêt à jouer, ou non, dans le liste des parties. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_state_array</td><td>une référence d'un pointeur sur un tableau avec les données de partie </td></tr>
+    <tr><td class="paramname">client_data</td><td>un pointeur sur les données client </td></tr>
+    <tr><td class="paramname">server_client</td><td>un pointeur sur client serveur </td></tr>
+    <tr><td class="paramname">packet</td><td>un pointeur le paquet contenant si le joeur est prêt </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
