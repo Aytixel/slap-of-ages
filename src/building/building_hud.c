@@ -1,7 +1,7 @@
 /**
  * @file building_hud.c
  * @author Lucas Dureau
- * @brief Permet de gérer l'affichage des bâtiments
+ * @brief Permet de gérer l'affichage de l'interface de sélection des bâtiments
  * @version 0.1
  * @date 30/03/2023
  *
@@ -26,17 +26,28 @@ extern building_hud_t *createBuildingHud(window_t *window)
     SDL_Color text_color = {255, 255, 255, 0};
     SDL_Color selected_text_color = {52, 36, 20, 0};
 
-    building_hud->text_color = text_color;
-    building_hud->house_1_button = createButton(window, building_hud->text_font, "20", text_color, selected_text_color);
-    building_hud->house_2_button = createButton(window, building_hud->text_font, "40", text_color, selected_text_color);
-    building_hud->house_3_button = createButton(window, building_hud->text_font, "100", text_color, selected_text_color);
-    building_hud->mill_button = createButton(window, building_hud->text_font, "100", text_color, selected_text_color);
-    building_hud->mine_button = createButton(window, building_hud->text_font, "100", text_color, selected_text_color);
-    building_hud->field_button = createButton(window, building_hud->text_font, "10", text_color, selected_text_color);
-    building_hud->well_button = createButton(window, building_hud->text_font, "40", text_color, selected_text_color);
-    building_hud->corner_wall_button = createButton(window, building_hud->text_font, "10", text_color, selected_text_color);
-    building_hud->vertical_wall_button = createButton(window, building_hud->text_font, "10", text_color, selected_text_color);
-    building_hud->horizontal_wall_button = createButton(window, building_hud->text_font, "10", text_color, selected_text_color);
+    char buffer[5] = {0};
+
+    SDL_itoa(getBuildingGoldCost(HOUSE_1_BUILDING), buffer, 10);
+    building_hud->house_1_button = createButton(window, building_hud->text_font, buffer, text_color, selected_text_color);
+    SDL_itoa(getBuildingGoldCost(HOUSE_2_BUILDING), buffer, 10);
+    building_hud->house_2_button = createButton(window, building_hud->text_font, buffer, text_color, selected_text_color);
+    SDL_itoa(getBuildingGoldCost(HOUSE_3_BUILDING), buffer, 10);
+    building_hud->house_3_button = createButton(window, building_hud->text_font, buffer, text_color, selected_text_color);
+    SDL_itoa(getBuildingGoldCost(MILL_BUILDING), buffer, 10);
+    building_hud->mill_button = createButton(window, building_hud->text_font, buffer, text_color, selected_text_color);
+    SDL_itoa(getBuildingGoldCost(MINE_BUILDING), buffer, 10);
+    building_hud->mine_button = createButton(window, building_hud->text_font, buffer, text_color, selected_text_color);
+    SDL_itoa(getBuildingGoldCost(FIELD_BUILDING), buffer, 10);
+    building_hud->field_button = createButton(window, building_hud->text_font, buffer, text_color, selected_text_color);
+    SDL_itoa(getBuildingGoldCost(WELL_BUILDING), buffer, 10);
+    building_hud->well_button = createButton(window, building_hud->text_font, buffer, text_color, selected_text_color);
+    SDL_itoa(getBuildingGoldCost(CORNER_WALL_BUILDING), buffer, 10);
+    building_hud->corner_wall_button = createButton(window, building_hud->text_font, buffer, text_color, selected_text_color);
+    SDL_itoa(getBuildingGoldCost(VERTICAL_WALL_BUILDING), buffer, 10);
+    building_hud->vertical_wall_button = createButton(window, building_hud->text_font, buffer, text_color, selected_text_color);
+    SDL_itoa(getBuildingGoldCost(HORIZONTAL_WALL_BUILDING), buffer, 10);
+    building_hud->horizontal_wall_button = createButton(window, building_hud->text_font, buffer, text_color, selected_text_color);
 
     memset(&building_hud->rects, 0, sizeof(building_sprite_rects_t));
 

@@ -1,7 +1,7 @@
 /**
  * @file building_renderer.h
  * @author Lucas Dureau
- * @brief Implémentation des prototypes de map/building_renderer.c
+ * @brief Implémentation des prototypes de building/building_renderer.c
  * @version 0.1
  * @date 03/03/2023
  *

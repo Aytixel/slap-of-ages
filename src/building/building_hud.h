@@ -1,7 +1,7 @@
 /**
  * @file building_hud.h
  * @author Lucas Dureau
- * @brief Implémentation des prototypes de map/building_hud.c
+ * @brief Implémentation des prototypes de building/building_hud.c
  * @version 0.1
  * @date 30/03/2023
  *
@@ -20,7 +20,6 @@
 typedef struct
 {
     TTF_Font *text_font;              /**< police d'écriture pour le texte*/
-    SDL_Color text_color;             /**< couleur du texte*/
     building_sprite_rects_t rects;    /**< rectangle d'affichage des boutons*/
     button_t *house_1_button;         /**< bouton de sélection de la maison 1*/
     button_t *house_2_button;         /**< bouton de sélection de la maison 2*/
@@ -44,7 +43,7 @@ typedef struct
 extern building_hud_t *createBuildingHud(window_t *window);
 
 /**
- * @brief Fonction d'écoute des événements du menu
+ * @brief Fonction d'écoute des événements de linterface de sélection de bâtiment
  *
  * @param event un pointeur sur les événements
  * @param building_hud un pointeur sur linterface de sélection de bâtiment

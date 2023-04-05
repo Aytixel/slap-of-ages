@@ -14,6 +14,7 @@
 #include "client/game_state.h"
 #include "client/game_data_serialization.h"
 #include "game/hud.h"
+#include "character/character_hud.h"
 
 int running = 1;
 
@@ -27,6 +28,7 @@ void windowEventHandler(
     window_t *window,
     client_game_data_t *game_data,
     building_hud_t *building_hud,
+    character_hud_t *character_hud,
     building_renderer_t *building_renderer,
     character_renderer_t *character_renderer,
     menu_t *menu,
@@ -75,6 +77,7 @@ void windowEventHandler(
             break;
         case COMBAT_GAME_STATE:
             characterEventHandler(event, game_data, character_renderer, window);
+            characterHudEventHandler(event, character_hud, game_data);
             break;
         default:
             break;
@@ -219,6 +222,20 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    character_hud_t *character_hud = createCharacterHud(window, character_renderer);
+
+    if (building_hud == NULL)
+    {
+        destroyWindow(&window);
+        deleteMapRenderer(&map_renderer);
+        deleteBuildingRenderer(&building_renderer);
+        deleteCharacterRenderer(&character_renderer);
+        deleteMenu(&menu);
+        deleteHud(&hud);
+        deleteBuildingHud(&building_hud);
+        return 1;
+    }
+
     // boucle principale
     while (running)
     {
@@ -226,7 +243,7 @@ int main(int argc, char *argv[])
         int time_left = timeLeft(main_timer);
 
         if (SDL_WaitEventTimeout(&event, time_left > 0 ? time_left : 0))
-            windowEventHandler(&event, window, game_data, building_hud, building_renderer, character_renderer, menu, hud);
+            windowEventHandler(&event, window, game_data, building_hud, character_hud, building_renderer, character_renderer, menu, hud);
 
         if (checkTime(main_timer))
         {
@@ -286,13 +303,14 @@ int main(int argc, char *argv[])
                 switch (game_data->state)
                 {
                 case PREPARATION_GAME_STATE:
+                    renderBuildingHud(window, building_hud, building_renderer);
                 case MATCHMAKING_GAME_STATE:
                     renderBuildingMatrix(window, game_data->map_building, building_renderer);
-                    renderBuildingHud(window, building_hud, building_renderer);
                     break;
                 case COMBAT_GAME_STATE:
                     renderBuildingMatrix(window, game_data->opponent_map_building, building_renderer);
                     renderCharacterList(window, game_data->character_list, character_renderer);
+                    renderCharacterHud(window, character_hud);
                     break;
                 case WAITING_RESULT_GAME_STATE:
                     renderBuildingMatrix(window, game_data->opponent_map_building, building_renderer);
@@ -313,6 +331,7 @@ int main(int argc, char *argv[])
     }
 
     closeClientConnection();
+    deleteCharacterHud(&character_hud);
     deleteBuildingHud(&building_hud);
     deleteHud(&hud);
     deleteMenu(&menu);

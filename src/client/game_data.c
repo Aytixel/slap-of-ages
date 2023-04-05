@@ -19,6 +19,7 @@ extern client_game_data_t *createGameData()
     game_data->port = CLIENT_DEFAULT_PORT;
     game_data->state = CONNECTION_GAME_STATE;
     game_data->selected_building_type = HOUSE_1_BUILDING;
+    game_data->selected_character_type = RAT_CHARACTER;
     game_data->map_building = createBuildingMatrix();
     game_data->character_list = createCharacterList();
     game_data->gold_count = DEFAULT_GOLD_COUNT;

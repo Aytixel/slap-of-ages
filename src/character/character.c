@@ -644,12 +644,12 @@ extern void characterEventHandler(SDL_Event *event, client_game_data_t *game_dat
     {
         SDL_Point mouse_position = {event->button.x, event->button.y};
         SDL_Point tile_position = getTileCoord(&mouse_position, window, character_renderer->map_renderer);
-        int elixir_cost = getCharacterElixirCost(RAT_CHARACTER);
+        int elixir_cost = getCharacterElixirCost(game_data->selected_character_type);
 
         if (canPlaceCharacter(character_renderer, &tile_position, game_data->opponent_map_building, game_data->character_list) &&
             game_data->elixir_count - game_data->elixir_cost - elixir_cost >= 0)
         {
-            addCharacterInList(game_data->character_list, createCharacter(character_renderer, RAT_CHARACTER, &tile_position, 0));
+            addCharacterInList(game_data->character_list, createCharacter(character_renderer, game_data->selected_character_type, &tile_position, 0));
             game_data->elixir_cost += elixir_cost;
         }
     }
