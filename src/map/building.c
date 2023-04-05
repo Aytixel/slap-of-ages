@@ -332,7 +332,7 @@ extern void buildingEventHandler(SDL_Event *event, client_game_data_t *game_data
         }
         else if ((building = getBuildingWithPoint(game_data->map_building, &tile_position)) != NULL)
         {
-            game_data->gold_cost -= gold_cost;
+            game_data->gold_cost -= getBuildingGoldCost(building->type);
             removeBuildingFromMatrix(game_data->map_building, building);
         }
 
