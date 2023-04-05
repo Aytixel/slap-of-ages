@@ -8,6 +8,7 @@
  */
 
 #include <stdlib.h>
+#include <math.h>
 #include "client/common.h"
 #include "timer/timer.h"
 #include "window/animation.h"
