@@ -11,7 +11,7 @@
 #define __BUILDING_RENDERER_H
 
 #include "window/window.h"
-#include "map_renderer.h"
+#include "map/map_renderer.h"
 
 /**
  * @brief Enumération des différents types de bâtiments

@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "map/building.h"
+#include "building/building.h"
 
 #define OBSTACLE -1
 #define START 1

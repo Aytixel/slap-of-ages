@@ -12,7 +12,7 @@
 
 #include <stdint.h>
 #include "client/game_data.h"
-#include "map/building.h"
+#include "building/building.h"
 #include "packet_id.h"
 
 /**

@@ -7,8 +7,8 @@
 #include "timer/timer.h"
 #include "window/window.h"
 #include "window/input.h"
-#include "map/building_renderer.h"
-#include "map/building.h"
+#include "building/building_renderer.h"
+#include "building/building.h"
 #include "client/common.h"
 
 int running = 1;

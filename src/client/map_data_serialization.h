@@ -11,7 +11,7 @@
 #define __MAP_DATA_SERIALIZATION_H
 
 #include "client/game_data.h"
-#include "map/building.h"
+#include "building/building.h"
 
 /**
  * @brief Converti les données de la carte en données pouvant être stockées ou envoyées
