@@ -110,8 +110,18 @@ void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_
         readHasPlayerWonPacket(packet, &has_won);
         deleteTimer(&game_data->timer);
 
-        if (has_won == 1 || has_won == 2)
+        switch (has_won)
+        {
+        case 2:
+            game_data->gold_count += GOLD_GAIN;
+        case 1:
+            game_data->elixir_count += ELIXIR_GAIN;
             game_data->win_count++;
+            break;
+        default:
+            game_data->gold_count += GOLD_GAIN;
+            break;
+        }
 
         serializeGameData(game_data);
 
