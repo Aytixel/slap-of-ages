@@ -32,13 +32,13 @@ typedef struct \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{client_2game__state_8h_af9473f8a8b798285447bfaac34c9e759}{toggle\+Matchmaking}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+void \mbox{\hyperlink{client_2game__state_8h_af9473f8a8b798285447bfaac34c9e759}{toggle\+Matchmaking}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Ajoute, ou enlève le client à la file d\textquotesingle{}attente des parties. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{client_2game__state_8h_a3e5f4d1be10bd8366d727b53066e6c97}{start\+Game}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+void \mbox{\hyperlink{client_2game__state_8h_a3e5f4d1be10bd8366d727b53066e6c97}{start\+Game}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Lance la partie / phase de combat. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{client_2game__state_8h_a814e04e15651c8893d838a26167580f7}{check\+Client\+Game\+Timeout}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+void \mbox{\hyperlink{client_2game__state_8h_a814e04e15651c8893d838a26167580f7}{check\+Client\+Game\+Timeout}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Vérifie si la partie dépasse de le temps à partie, et envoie un paquet de fin de partie. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{client_2game__state_8h_a8793faeeb2625e2ea285d36e1a3da044}{end\+Game}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+void \mbox{\hyperlink{client_2game__state_8h_a8793faeeb2625e2ea285d36e1a3da044}{end\+Game}} (\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Envoie le paquet de fin de partie. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -61,7 +61,7 @@ Lucas Dureau
 \index{game\_state.h@{game\_state.h}!checkClientGameTimeout@{checkClientGameTimeout}}
 \index{checkClientGameTimeout@{checkClientGameTimeout}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{checkClientGameTimeout()}{checkClientGameTimeout()}}
-{\footnotesize\ttfamily void check\+Client\+Game\+Timeout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void check\+Client\+Game\+Timeout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -78,7 +78,7 @@ Vérifie si la partie dépasse de le temps à partie, et envoie un paquet de fin
 \index{game\_state.h@{game\_state.h}!endGame@{endGame}}
 \index{endGame@{endGame}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{endGame()}{endGame()}}
-{\footnotesize\ttfamily void end\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void end\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -95,7 +95,7 @@ Envoie le paquet de fin de partie.
 \index{game\_state.h@{game\_state.h}!startGame@{startGame}}
 \index{startGame@{startGame}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{startGame()}{startGame()}}
-{\footnotesize\ttfamily void start\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void start\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -112,7 +112,7 @@ Lance la partie / phase de combat.
 \index{game\_state.h@{game\_state.h}!toggleMatchmaking@{toggleMatchmaking}}
 \index{toggleMatchmaking@{toggleMatchmaking}!game\_state.h@{game\_state.h}}
 \doxysubsubsection{\texorpdfstring{toggleMatchmaking()}{toggleMatchmaking()}}
-{\footnotesize\ttfamily void toggle\+Matchmaking (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void toggle\+Matchmaking (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 

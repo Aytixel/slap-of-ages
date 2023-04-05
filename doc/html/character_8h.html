@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Slap of Ages: Référence du fichier src/game/character.h</title>
+<title>Slap of Ages: Référence du fichier src/character/character.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1699be727a800b1d059c6f7f2b91d2ee.html">game</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_cff08ed9a466d3fe1316b71e9cfad869.html">character</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -76,32 +76,84 @@ $(function() {
 
 <p>Fonction de gestion des characters.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &quot;character_renderer.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;character_renderer.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="map__renderer_8h_source.html">map/map_renderer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="game__data_8h_source.html">client/game_data.h</a>&quot;</code><br />
-<code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="animation_8h_source.html">window/animation.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="animation__states_8h_source.html">window/animation_states.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="game_8h_source.html">game/game.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de character.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="character_8h__incl.png" border="0" usemap="#asrc_2game_2character_8h" alt=""/></div>
-<map name="asrc_2game_2character_8h" id="asrc_2game_2character_8h">
-<area shape="rect" title="Fonction de gestion des characters." alt="" coords="167,5,326,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,72,107"/>
-<area shape="rect" title=" " alt="" coords="97,80,167,107"/>
-<area shape="rect" href="character__renderer_8h_source.html" title=" " alt="" coords="243,229,399,256"/>
-<area shape="rect" title=" " alt="" coords="208,453,304,480"/>
-<area shape="rect" href="map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="359,304,516,331"/>
-<area shape="rect" href="game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="527,80,673,107"/>
-<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="343,379,481,405"/>
-<area shape="rect" title=" " alt="" coords="353,453,471,480"/>
-<area shape="rect" title=" " alt="" coords="618,155,689,181"/>
-<area shape="rect" href="timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="713,155,820,181"/>
-<area shape="rect" href="building_8h.html" title=" " alt="" coords="475,155,594,181"/>
-<area shape="rect" href="game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="844,155,999,181"/>
-<area shape="rect" title=" " alt="" coords="721,229,812,256"/>
-<area shape="rect" href="building__renderer_8h.html" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="525,229,672,256"/>
+<div class="center"><img src="character_8h__incl.png" border="0" usemap="#asrc_2character_2character_8h" alt=""/></div>
+<map name="asrc_2character_2character_8h" id="asrc_2character_2character_8h">
+<area shape="rect" title="Fonction de gestion des characters." alt="" coords="361,5,543,32"/>
+<area shape="rect" href="character__renderer_8h_source.html" title=" " alt="" coords="133,229,289,256"/>
+<area shape="rect" href="map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="416,304,573,331"/>
+<area shape="rect" href="animation_8h.html" title="Animation fonctions." alt="" coords="5,304,160,331"/>
+<area shape="rect" href="game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="379,80,525,107"/>
+<area shape="rect" href="animation__states_8h.html" title="fichier contenant les différents états des animations" alt="" coords="550,80,751,107"/>
+<area shape="rect" href="game_8h.html" title="Fonction divers pour le jeu." alt="" coords="899,80,1011,107"/>
+<area shape="rect" title=" " alt="" coords="209,453,305,480"/>
+<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="379,379,517,405"/>
+<area shape="rect" href="timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="285,304,392,331"/>
+<area shape="rect" title=" " alt="" coords="389,453,507,480"/>
+<area shape="rect" title=" " alt="" coords="264,379,355,405"/>
+<area shape="rect" title=" " alt="" coords="11,379,155,405"/>
+<area shape="rect" title=" " alt="" coords="365,155,435,181"/>
+<area shape="rect" href="client_2common_8h.html" title="Definition globale pour le client." alt="" coords="460,155,551,181"/>
+<area shape="rect" href="building_8h.html" title=" " alt="" coords="754,155,897,181"/>
+<area shape="rect" href="game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="575,155,729,181"/>
+<area shape="rect" href="building__renderer_8h.html" title="Implémentation des prototypes de building/building_renderer.c." alt="" coords="537,229,684,256"/>
+<area shape="rect" title=" " alt="" coords="921,155,988,181"/>
+<area shape="rect" title=" " alt="" coords="1013,155,1083,181"/>
+<area shape="rect" title=" " alt="" coords="1108,155,1191,181"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="character_8h__dep__incl.png" border="0" usemap="#asrc_2character_2character_8hdep" alt=""/></div>
+<map name="asrc_2character_2character_8hdep" id="asrc_2character_2character_8hdep">
+<area shape="rect" title="Fonction de gestion des characters." alt="" coords="1470,5,1653,32"/>
+<area shape="rect" href="character_8c.html" title="Permet de gérer les troupes." alt="" coords="1076,87,1257,114"/>
+<area shape="rect" href="character__renderer_8c.html" title="Permet de gérer l&#39;affichage des personnages." alt="" coords="1281,80,1452,121"/>
+<area shape="rect" href="game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="1476,87,1647,114"/>
+<area shape="rect" href="building_8h.html" title=" " alt="" coords="1251,177,1416,203"/>
+<area shape="rect" href="map__data__serialization_8h.html" title="Implémentation des prototypes de client/map_data_serialization.c." alt="" coords="1282,259,1433,300"/>
+<area shape="rect" href="game__data__serialization_8h_source.html" title=" " alt="" coords="1278,348,1437,389"/>
+<area shape="rect" href="packet_8h.html" title="Implémentation des prototypes de packet/packet.c." alt="" coords="920,266,1067,293"/>
+<area shape="rect" href="client_2game__state_8h.html" title="Implémentation des prototypes de client/game_state.c." alt="" coords="1137,527,1311,553"/>
+<area shape="rect" href="hud_8h.html" title="Implémentation des prototypes de game/hud.c." alt="" coords="1336,527,1459,553"/>
+<area shape="rect" href="building__hud_8h.html" title="Implémentation des prototypes de building/building_hud.c." alt="" coords="1542,169,1695,211"/>
+<area shape="rect" href="character__hud_8h.html" title="Implémentation des prototypes de character/character_hud.c." alt="" coords="1964,169,2135,211"/>
+<area shape="rect" href="game__data_8c.html" title="Implémente les fonctions associées la structure de données contenant les données du jeux." alt="" coords="1719,177,1889,203"/>
+<area shape="rect" href="menu_8h.html" title="Implémentation des prototypes de menu/menu.c." alt="" coords="2159,177,2294,203"/>
+<area shape="rect" href="building_8c.html" title="Permet la gestion des bâtiments, leur création, leur destruction." alt="" coords="1158,445,1322,471"/>
+<area shape="rect" href="game_8h.html" title="Fonction divers pour le jeu." alt="" coords="1569,266,1703,293"/>
+<area shape="rect" href="map__data__serialization_8c.html" title="Fonction pour transformé la carte en données pouvant être stocker ou envoyer." alt="" coords="1461,348,1611,389"/>
+<area shape="rect" href="packet_8c.html" title="Implémente toute les fonctions pour créer, et lire les différents paquets." alt="" coords="1056,355,1203,382"/>
+<area shape="rect" href="game__data__serialization_8c.html" title="Fonction pour transformé les données du jeu, en données pouvant être stocker ou envoyer." alt="" coords="1346,437,1505,479"/>
+<area shape="rect" href="game_8c.html" title="Fonction divers pour le jeu." alt="" coords="1687,355,1822,382"/>
+<area shape="rect" href="client_2game__state_8c.html" title="Définition des différents états du jeux." alt="" coords="1044,601,1217,628"/>
+<area shape="rect" href="client__data_8h.html" title="Implémentation des prototypes de server/client_data.c." alt="" coords="117,527,291,553"/>
+<area shape="rect" href="server_2game__state_8h.html" title="Implémentation des prototypes de server/game_state.c." alt="" coords="203,601,381,628"/>
+<area shape="rect" href="socket_8c.html" title="Enssemble de fonctions utilitaire pour l&#39;utilisation des sockets." alt="" coords="917,445,1061,471"/>
+<area shape="rect" href="socket_8h.html" title="Implémentation des prototypes de socket/socket.c." alt="" coords="767,355,913,382"/>
+<area shape="rect" href="client__data_8c.html" title="Implémente les fonctions associées la structure de données pour les clients connectés au serveur." alt="" coords="5,601,179,628"/>
+<area shape="rect" href="server_2game__state_8c.html" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie." alt="" coords="203,676,381,703"/>
+<area shape="rect" href="socket_2client_8h.html" title="Implémentation des prototypes de socket/client.c." alt="" coords="755,445,893,471"/>
+<area shape="rect" href="socket_2server_8h.html" title="Implémentation des prototypes de socket/server.c." alt="" coords="563,445,706,471"/>
+<area shape="rect" href="connection_2client_8h.html" title="Implémentation des prototypes de connection/client.c." alt="" coords="731,527,899,553"/>
+<area shape="rect" href="socket_2client_8c.html" title="Client socket simple permettant l&#39;échange de paquet de manière non bloquante." alt="" coords="923,527,1061,553"/>
+<area shape="rect" href="hud_8c.html" title="Implémente les fonctions pour gérer l&#39;affichage en jeux." alt="" coords="1305,601,1426,628"/>
+<area shape="rect" href="connection_2client_8c.html" title="Permet de gérer la connexion du client au serveur." alt="" coords="731,601,898,628"/>
+<area shape="rect" href="connection_2server_8h.html" title="Implémentation des prototypes de connection/server.c." alt="" coords="367,527,539,553"/>
+<area shape="rect" href="socket_2server_8c.html" title="Serveur socket simple permettant l&#39;échange de paquet de manière non bloquante." alt="" coords="563,527,706,553"/>
+<area shape="rect" href="connection_2server_8c.html" title="Permet de gérer la connexion des clients au serveur." alt="" coords="405,601,576,628"/>
+<area shape="rect" href="building__hud_8c.html" title="Permet de gérer l&#39;affichage de l&#39;interface de sélection des bâtiments." alt="" coords="1727,259,1881,300"/>
+<area shape="rect" href="character__hud_8c.html" title="Permet de gérer l&#39;affichage de l&#39;interface de sélection des troupes." alt="" coords="1964,259,2135,300"/>
+<area shape="rect" href="menu_8c.html" title="Fichier de création du menu multijoueur." alt="" coords="2159,266,2294,293"/>
 </map>
 </div>
 </div>
@@ -110,56 +162,715 @@ Graphe des dépendances par inclusion de character.h:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__s.html">character_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure contenant les données d'une troupe.  <a href="structcharacter__s.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__list__s.html">character_list_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de liste pour les troupes.  <a href="structcharacter__list__s.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Définitions de type</h2></td></tr>
+<tr class="memitem:a33b99e5345d46cf63926673aa2b9ff83"><td class="memItemLeft" align="right" valign="top"><a id="a33b99e5345d46cf63926673aa2b9ff83"></a>
+typedef struct <a class="el" href="structnode__s.html">node_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>node_t</b></td></tr>
+<tr class="separator:a33b99e5345d46cf63926673aa2b9ff83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab24f44887164d006cb3be7f21e4f4d76"><td class="memItemLeft" align="right" valign="top"><a id="ab24f44887164d006cb3be7f21e4f4d76"></a>
-typedef struct <a class="el" href="structcharacter__s.html">character_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>character_t</b></td></tr>
+typedef struct <a class="el" href="structcharacter__s.html">character_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a></td></tr>
+<tr class="memdesc:ab24f44887164d006cb3be7f21e4f4d76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure contenant les données d'une troupe. <br /></td></tr>
 <tr class="separator:ab24f44887164d006cb3be7f21e4f4d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa98fe56c73c43d69dba015fa2536d391"><td class="memItemLeft" align="right" valign="top"><a id="aa98fe56c73c43d69dba015fa2536d391"></a>
+typedef struct <a class="el" href="structcharacter__list__s.html">character_list_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a></td></tr>
+<tr class="memdesc:aa98fe56c73c43d69dba015fa2536d391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de liste pour les troupes. <br /></td></tr>
+<tr class="separator:aa98fe56c73c43d69dba015fa2536d391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ae28e69389f83564de15de25585103354"><td class="memItemLeft" align="right" valign="top"><a id="ae28e69389f83564de15de25585103354"></a>
-<a class="el" href="structcharacter__s.html">character_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createCharacter</b> (character_type_e type, SDL_Point *position)</td></tr>
-<tr class="separator:ae28e69389f83564de15de25585103354"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae50ab64d761a23cf3662ba32da5b46f3"><td class="memItemLeft" align="right" valign="top"><a id="ae50ab64d761a23cf3662ba32da5b46f3"></a>
-<a class="el" href="structcharacter__s.html">character_t</a> ***&#160;</td><td class="memItemRight" valign="bottom"><b>createCharacterMatrix</b> ()</td></tr>
-<tr class="separator:ae50ab64d761a23cf3662ba32da5b46f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb0d5f5c7c15caf67fe555b22cd3088b"><td class="memItemLeft" align="right" valign="top"><a id="adb0d5f5c7c15caf67fe555b22cd3088b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>renderCharacterMatrix</b> (<a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="structcharacter__s.html">character_t</a> ***map_character, <a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *character_renderer)</td></tr>
-<tr class="separator:adb0d5f5c7c15caf67fe555b22cd3088b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a745967f11b91975cf43e3284412c1517"><td class="memItemLeft" align="right" valign="top"><a id="a745967f11b91975cf43e3284412c1517"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyCharacter</b> (<a class="el" href="structcharacter__s.html">character_t</a> **character)</td></tr>
+<tr class="memitem:adab35f96855d46ab25dca3cbf26ca46a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#adab35f96855d46ab25dca3cbf26ca46a">createCharacter</a> (<a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *character_renderer, character_type_e type, SDL_Point *position, int is_defender)</td></tr>
+<tr class="memdesc:adab35f96855d46ab25dca3cbf26ca46a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer la structure qui gère les données d'une troupes.  <a href="character_8h.html#adab35f96855d46ab25dca3cbf26ca46a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adab35f96855d46ab25dca3cbf26ca46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe1da29700ebdb9049a886e99afc4417"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#afe1da29700ebdb9049a886e99afc4417">getCharacterElixirCost</a> (character_type_e type)</td></tr>
+<tr class="memdesc:afe1da29700ebdb9049a886e99afc4417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le coût d'une troupe.  <a href="character_8h.html#afe1da29700ebdb9049a886e99afc4417">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afe1da29700ebdb9049a886e99afc4417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ccf4d01a1f66a61b652c610b102079f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#a4ccf4d01a1f66a61b652c610b102079f">createCharacterList</a> ()</td></tr>
+<tr class="memdesc:a4ccf4d01a1f66a61b652c610b102079f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer la liste de troupe.  <a href="character_8h.html#a4ccf4d01a1f66a61b652c610b102079f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4ccf4d01a1f66a61b652c610b102079f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32b734447964102fbaeac8653c7412dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#a32b734447964102fbaeac8653c7412dd">renderCharacterList</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *character_list, <a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *character_renderer)</td></tr>
+<tr class="memdesc:a32b734447964102fbaeac8653c7412dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche la liste de troupe.  <a href="character_8h.html#a32b734447964102fbaeac8653c7412dd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a32b734447964102fbaeac8653c7412dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a745967f11b91975cf43e3284412c1517"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#a745967f11b91975cf43e3284412c1517">destroyCharacter</a> (<a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> **character)</td></tr>
+<tr class="memdesc:a745967f11b91975cf43e3284412c1517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la structure de troupe.  <a href="character_8h.html#a745967f11b91975cf43e3284412c1517">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a745967f11b91975cf43e3284412c1517"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19fbc773af3c16fe20781bc013f27c24"><td class="memItemLeft" align="right" valign="top"><a id="a19fbc773af3c16fe20781bc013f27c24"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearCharacterMatrix</b> (<a class="el" href="structcharacter__s.html">character_t</a> ***character_matrix)</td></tr>
-<tr class="separator:a19fbc773af3c16fe20781bc013f27c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b412441d97a7dbc2c3a38296bb093f3"><td class="memItemLeft" align="right" valign="top"><a id="a5b412441d97a7dbc2c3a38296bb093f3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyCharacterMatrix</b> (<a class="el" href="structcharacter__s.html">character_t</a> ****character_matrix)</td></tr>
-<tr class="separator:a5b412441d97a7dbc2c3a38296bb093f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c30420409c1dae10f70198373c310b7"><td class="memItemLeft" align="right" valign="top"><a id="a2c30420409c1dae10f70198373c310b7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addCharacterInMatrix</b> (<a class="el" href="structcharacter__s.html">character_t</a> ***character_matrix, <a class="el" href="structcharacter__s.html">character_t</a> *character)</td></tr>
-<tr class="separator:a2c30420409c1dae10f70198373c310b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07c82ec6a9bbb02d8467f0ad24ae5dda"><td class="memItemLeft" align="right" valign="top"><a id="a07c82ec6a9bbb02d8467f0ad24ae5dda"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeCharacterFromMatrix</b> (<a class="el" href="structcharacter__s.html">character_t</a> ***character_matrix, <a class="el" href="structcharacter__s.html">character_t</a> *character)</td></tr>
-<tr class="separator:a07c82ec6a9bbb02d8467f0ad24ae5dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a902b5d008f4a0758a56369484e5b4ce4"><td class="memItemLeft" align="right" valign="top"><a id="a902b5d008f4a0758a56369484e5b4ce4"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>canPlaceCharacter</b> (<a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *character_renderer, <a class="el" href="structcharacter__s.html">character_t</a> *character, SDL_Point *position, <a class="el" href="structcharacter__s.html">character_t</a> ***character_matrix)</td></tr>
-<tr class="separator:a902b5d008f4a0758a56369484e5b4ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0b21e1638eb6b228942e1cb52a2f0cc"><td class="memItemLeft" align="right" valign="top"><a id="aa0b21e1638eb6b228942e1cb52a2f0cc"></a>
-<a class="el" href="structcharacter__s.html">character_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getCharacter</b> (<a class="el" href="structcharacter__s.html">character_t</a> ***character_matrix, SDL_Point *position)</td></tr>
-<tr class="separator:aa0b21e1638eb6b228942e1cb52a2f0cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3da5e6ec51ee558a0fc6011aac48684"><td class="memItemLeft" align="right" valign="top"><a id="ad3da5e6ec51ee558a0fc6011aac48684"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>characterEventHandler</b> (SDL_Event *event, <a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *game_data, <a class="el" href="structcharacter__s.html">character_t</a> ***map_character, <a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *character_renderer, <a class="el" href="structwindow__t.html">window_t</a> *window)</td></tr>
-<tr class="separator:ad3da5e6ec51ee558a0fc6011aac48684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82cbcb289eb1acb7416932e62c79431b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#a82cbcb289eb1acb7416932e62c79431b">characterTakesDamages</a> (<a class="el" href="structclient__game__data__s.html">client_game_data_t</a> *game_data, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *character, int damages)</td></tr>
+<tr class="memdesc:a82cbcb289eb1acb7416932e62c79431b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de gérer les dégâts subis par une troupe.  <a href="character_8h.html#a82cbcb289eb1acb7416932e62c79431b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a82cbcb289eb1acb7416932e62c79431b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0a4ccb8291cee00c6b5eb498cb0c391"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#aa0a4ccb8291cee00c6b5eb498cb0c391">clearCharacterList</a> (<a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *character_list)</td></tr>
+<tr class="memdesc:aa0a4ccb8291cee00c6b5eb498cb0c391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de détruire toute les troupes sur la carte.  <a href="character_8h.html#aa0a4ccb8291cee00c6b5eb498cb0c391">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa0a4ccb8291cee00c6b5eb498cb0c391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df6088cabec913a5120e706669e2209"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#a2df6088cabec913a5120e706669e2209">destroyCharacterList</a> (<a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> **character_list)</td></tr>
+<tr class="memdesc:a2df6088cabec913a5120e706669e2209"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la liste de troupe.  <a href="character_8h.html#a2df6088cabec913a5120e706669e2209">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2df6088cabec913a5120e706669e2209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a260970ac631785c60a2780336ebf1166"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#a260970ac631785c60a2780336ebf1166">addCharacterInList</a> (<a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *character_list, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *character)</td></tr>
+<tr class="memdesc:a260970ac631785c60a2780336ebf1166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'ajouter une troupe sur la carte.  <a href="character_8h.html#a260970ac631785c60a2780336ebf1166">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a260970ac631785c60a2780336ebf1166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62fbf2baf352322ba4fcba62b4379b3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#a62fbf2baf352322ba4fcba62b4379b3e">removeCharacterFromList</a> (<a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *character_list, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *character)</td></tr>
+<tr class="memdesc:a62fbf2baf352322ba4fcba62b4379b3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de supprimer une troupe de la carte.  <a href="character_8h.html#a62fbf2baf352322ba4fcba62b4379b3e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a62fbf2baf352322ba4fcba62b4379b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd13a3794ada982357e26fef59a2908b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#afd13a3794ada982357e26fef59a2908b">canPlaceCharacter</a> (<a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *character_renderer, SDL_Point *position, <a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***building_matrix, <a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *character_list)</td></tr>
+<tr class="memdesc:afd13a3794ada982357e26fef59a2908b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de vérifier si une troupe peut être placé à une position donnée.  <a href="character_8h.html#afd13a3794ada982357e26fef59a2908b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afd13a3794ada982357e26fef59a2908b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f46b4b6e9e43bb7a35d93156b3b9f79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#a7f46b4b6e9e43bb7a35d93156b3b9f79">getNearestCharacter</a> (<a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *character_list, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *character)</td></tr>
+<tr class="memdesc:a7f46b4b6e9e43bb7a35d93156b3b9f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la troupe la plus proche.  <a href="character_8h.html#a7f46b4b6e9e43bb7a35d93156b3b9f79">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7f46b4b6e9e43bb7a35d93156b3b9f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe5f5998d07516a7566fbf3a80142b63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#abe5f5998d07516a7566fbf3a80142b63">getCharacter</a> (<a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *character_list, int x, int y)</td></tr>
+<tr class="memdesc:abe5f5998d07516a7566fbf3a80142b63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la troupe à une position donnée.  <a href="character_8h.html#abe5f5998d07516a7566fbf3a80142b63">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abe5f5998d07516a7566fbf3a80142b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa9524625fd613242d406b423905ff7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#aaa9524625fd613242d406b423905ff7a">getCharacterWithPoint</a> (<a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *character_list, SDL_Point *position)</td></tr>
+<tr class="memdesc:aaa9524625fd613242d406b423905ff7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la troupe à une position donnée.  <a href="character_8h.html#aaa9524625fd613242d406b423905ff7a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aaa9524625fd613242d406b423905ff7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab312a5ef092453ea9d8250b16f311938"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#ab312a5ef092453ea9d8250b16f311938">addDefenceCharacter</a> (<a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *character_renderer, <a class="el" href="structclient__game__data__s.html">client_game_data_t</a> *game_data)</td></tr>
+<tr class="memdesc:ab312a5ef092453ea9d8250b16f311938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute les troupes de défence à la carte.  <a href="character_8h.html#ab312a5ef092453ea9d8250b16f311938">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab312a5ef092453ea9d8250b16f311938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d7d6810aa7596f80c5d0aaa8f1eeae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#a2d7d6810aa7596f80c5d0aaa8f1eeae3">updateCharacter</a> (<a class="el" href="structclient__game__data__s.html">client_game_data_t</a> *game_data)</td></tr>
+<tr class="memdesc:a2d7d6810aa7596f80c5d0aaa8f1eeae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jours les troupes.  <a href="character_8h.html#a2d7d6810aa7596f80c5d0aaa8f1eeae3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2d7d6810aa7596f80c5d0aaa8f1eeae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7db7e0a9a9c68b79cd0d524d12746d83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8h.html#a7db7e0a9a9c68b79cd0d524d12746d83">characterEventHandler</a> (SDL_Event *event, <a class="el" href="structclient__game__data__s.html">client_game_data_t</a> *game_data, <a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *character_renderer, <a class="el" href="structwindow__t.html">window_t</a> *window)</td></tr>
+<tr class="memdesc:a7db7e0a9a9c68b79cd0d524d12746d83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'écoute des événements du système de placement de troupe.  <a href="character_8h.html#a7db7e0a9a9c68b79cd0d524d12746d83">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7db7e0a9a9c68b79cd0d524d12746d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Fonction de gestion des characters. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Arthur Dureau </dd></dl>
+<p>Fonction de gestion de l'affichage des characters.</p>
+<dl class="section author"><dt>Auteur</dt><dd>Arthur Dureau, Lucas Dureau </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>19/03/2023 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a260970ac631785c60a2780336ebf1166"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a260970ac631785c60a2780336ebf1166">&#9670;&nbsp;</a></span>addCharacterInList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addCharacterInList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *&#160;</td>
+          <td class="paramname"><em>character_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td>
+          <td class="paramname"><em>character</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet d'ajouter une troupe sur la carte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character_list</td><td>liste contenant la totalité des troupes </td></tr>
+    <tr><td class="paramname">character</td><td>un pointeur sur une troupe </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab312a5ef092453ea9d8250b16f311938"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab312a5ef092453ea9d8250b16f311938">&#9670;&nbsp;</a></span>addDefenceCharacter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addDefenceCharacter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *&#160;</td>
+          <td class="paramname"><em>character_renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structclient__game__data__s.html">client_game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute les troupes de défence à la carte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character_renderer</td><td>un pointeur sur la structure qui gère l'affichage des troupes </td></tr>
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données du jeu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afd13a3794ada982357e26fef59a2908b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd13a3794ada982357e26fef59a2908b">&#9670;&nbsp;</a></span>canPlaceCharacter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int canPlaceCharacter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *&#160;</td>
+          <td class="paramname"><em>character_renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Point *&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***&#160;</td>
+          <td class="paramname"><em>building_matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *&#160;</td>
+          <td class="paramname"><em>character_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de vérifier si une troupe peut être placé à une position donnée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character_renderer</td><td>un pointeur sur la structure qui gère l'affichage des troupes </td></tr>
+    <tr><td class="paramname">position</td><td>la position à vérifier </td></tr>
+    <tr><td class="paramname">building_matrix</td><td>matrice contenant la totalité des bâtiments placés sur la carte </td></tr>
+    <tr><td class="paramname">character_list</td><td>liste contenant la totalité des troupes </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="a7db7e0a9a9c68b79cd0d524d12746d83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7db7e0a9a9c68b79cd0d524d12746d83">&#9670;&nbsp;</a></span>characterEventHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void characterEventHandler </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Event *&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structclient__game__data__s.html">client_game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *&#160;</td>
+          <td class="paramname"><em>character_renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'écoute des événements du système de placement de troupe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>un pointeur sur les données du jeu </td></tr>
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données du jeu </td></tr>
+    <tr><td class="paramname">character_renderer</td><td>un pointeur sur la structure qui gère l'affichage des troupes </td></tr>
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a82cbcb289eb1acb7416932e62c79431b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82cbcb289eb1acb7416932e62c79431b">&#9670;&nbsp;</a></span>characterTakesDamages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int characterTakesDamages </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structclient__game__data__s.html">client_game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td>
+          <td class="paramname"><em>character</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>damages</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de gérer les dégâts subis par une troupe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données du jeu </td></tr>
+    <tr><td class="paramname">character</td><td>un pointeur sur une troupe </td></tr>
+    <tr><td class="paramname">damages</td><td>les dégâts subis par la troup </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="aa0a4ccb8291cee00c6b5eb498cb0c391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0a4ccb8291cee00c6b5eb498cb0c391">&#9670;&nbsp;</a></span>clearCharacterList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clearCharacterList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *&#160;</td>
+          <td class="paramname"><em>character_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de détruire toute les troupes sur la carte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character_list</td><td>liste contenant la totalité des troupes </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adab35f96855d46ab25dca3cbf26ca46a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab35f96855d46ab25dca3cbf26ca46a">&#9670;&nbsp;</a></span>createCharacter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a>* createCharacter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *&#160;</td>
+          <td class="paramname"><em>character_renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character_type_e&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Point *&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>is_defender</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer la structure qui gère les données d'une troupes. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character_renderer</td><td>un pointeur sur la structure qui gère l'affichage des troupes </td></tr>
+    <tr><td class="paramname">type</td><td>type de troupe à créer </td></tr>
+    <tr><td class="paramname">position</td><td>position de la troupe </td></tr>
+    <tr><td class="paramname">is_defender</td><td>la troupe est-elle défenseure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>character_t* </dd></dl>
+
+</div>
+</div>
+<a id="a4ccf4d01a1f66a61b652c610b102079f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ccf4d01a1f66a61b652c610b102079f">&#9670;&nbsp;</a></span>createCharacterList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a>* createCharacterList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer la liste de troupe. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>retourne un pointeur sur la liste </dd></dl>
+
+</div>
+</div>
+<a id="a745967f11b91975cf43e3284412c1517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a745967f11b91975cf43e3284412c1517">&#9670;&nbsp;</a></span>destroyCharacter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroyCharacter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> **&#160;</td>
+          <td class="paramname"><em>character</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit la structure de troupe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character</td><td>un pointeur sur une troupe </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2df6088cabec913a5120e706669e2209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2df6088cabec913a5120e706669e2209">&#9670;&nbsp;</a></span>destroyCharacterList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroyCharacterList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> **&#160;</td>
+          <td class="paramname"><em>character_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit la liste de troupe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character_list</td><td>liste contenant la totalité des troupes </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abe5f5998d07516a7566fbf3a80142b63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe5f5998d07516a7566fbf3a80142b63">&#9670;&nbsp;</a></span>getCharacter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a>* getCharacter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *&#160;</td>
+          <td class="paramname"><em>character_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère la troupe à une position donnée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character_list</td><td>liste contenant la totalité des troupes </td></tr>
+    <tr><td class="paramname">x</td><td>position de la troupe à retourner en x </td></tr>
+    <tr><td class="paramname">y</td><td>position de la troupe à retourner en y </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>character_t* si la troupe existe, NULL sinon </dd></dl>
+
+</div>
+</div>
+<a id="afe1da29700ebdb9049a886e99afc4417"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe1da29700ebdb9049a886e99afc4417">&#9670;&nbsp;</a></span>getCharacterElixirCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getCharacterElixirCost </td>
+          <td>(</td>
+          <td class="paramtype">character_type_e&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère le coût d'une troupe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>type de troupe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>coût de la troupe en élixir </dd></dl>
+
+</div>
+</div>
+<a id="aaa9524625fd613242d406b423905ff7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa9524625fd613242d406b423905ff7a">&#9670;&nbsp;</a></span>getCharacterWithPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a>* getCharacterWithPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *&#160;</td>
+          <td class="paramname"><em>character_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Point *&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère la troupe à une position donnée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character_list</td><td>liste contenant la totalité des troupes </td></tr>
+    <tr><td class="paramname">position</td><td>position de la troupe à retourner </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>character_t* si la troupe existe, NULL sinon </dd></dl>
+
+</div>
+</div>
+<a id="a7f46b4b6e9e43bb7a35d93156b3b9f79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f46b4b6e9e43bb7a35d93156b3b9f79">&#9670;&nbsp;</a></span>getNearestCharacter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a>* getNearestCharacter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *&#160;</td>
+          <td class="paramname"><em>character_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td>
+          <td class="paramname"><em>character</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère la troupe la plus proche. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character_list</td><td>liste contenant la totalité des troupes </td></tr>
+    <tr><td class="paramname">character</td><td>un pointeur sur une troupe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>character_t* </dd></dl>
+
+</div>
+</div>
+<a id="a62fbf2baf352322ba4fcba62b4379b3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62fbf2baf352322ba4fcba62b4379b3e">&#9670;&nbsp;</a></span>removeCharacterFromList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeCharacterFromList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *&#160;</td>
+          <td class="paramname"><em>character_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td>
+          <td class="paramname"><em>character</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de supprimer une troupe de la carte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character_list</td><td>liste contenant la totalité des troupes </td></tr>
+    <tr><td class="paramname">character</td><td>un pointeur sur une troupe </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a32b734447964102fbaeac8653c7412dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32b734447964102fbaeac8653c7412dd">&#9670;&nbsp;</a></span>renderCharacterList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void renderCharacterList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *&#160;</td>
+          <td class="paramname"><em>character_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcharacter__renderer__t.html">character_renderer_t</a> *&#160;</td>
+          <td class="paramname"><em>character_renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche la liste de troupe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
+    <tr><td class="paramname">character_list</td><td>liste contenant la totalité des troupes </td></tr>
+    <tr><td class="paramname">character_renderer</td><td>un pointeur sur la structure qui gère l'affichage des troupes </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2d7d6810aa7596f80c5d0aaa8f1eeae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d7d6810aa7596f80c5d0aaa8f1eeae3">&#9670;&nbsp;</a></span>updateCharacter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateCharacter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structclient__game__data__s.html">client_game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met à jours les troupes. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données du jeu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Structure contenant les données pour afficher les personnages.  
+<p>Structure contenant les données pour afficher les troupes.  
  <a href="structcharacter__renderer__t.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="character__renderer_8h_source.html">character_renderer.h</a>&gt;</code></p>
@@ -78,33 +78,57 @@ Graphe de collaboration de character_renderer_t:</div>
 <div class="dyncontent">
 <div class="center"><img src="structcharacter__renderer__t__coll__graph.png" border="0" usemap="#acharacter__renderer__t_coll__map" alt="Collaboration graph"/></div>
 <map name="acharacter__renderer__t_coll__map" id="acharacter__renderer__t_coll__map">
-<area shape="rect" title="Structure contenant les données pour afficher les personnages." alt="" coords="153,213,311,240"/>
-<area shape="rect" href="structcharacter__sprite__rects__t.html" title="Structure contenant les positions et tailles des sprites des personnages." alt="" coords="5,109,184,136"/>
-<area shape="rect" href="structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="214,5,285,32"/>
-<area shape="rect" href="structmap__renderer__t.html" title="Structure contenant les données de la carte." alt="" coords="297,109,423,136"/>
-<area shape="rect" href="structmap__sprite__rects__t.html" title="Structure contenant les positions et tailles des sprites de la carte." alt="" coords="327,5,473,32"/>
+<area shape="rect" title="Structure contenant les données pour afficher les troupes." alt="" coords="79,332,236,359"/>
+<area shape="rect" href="structcharacter__animations__data__t.html" title="Structure contenant les paramètres des animations des troupes." alt="" coords="11,228,173,269"/>
+<area shape="rect" href="structanimation__data__t.html" title="Structure contenant les paramètres d&#39;une animation." alt="" coords="5,109,141,136"/>
+<area shape="rect" href="structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="70,5,141,32"/>
+<area shape="rect" href="structmap__renderer__t.html" title="Structure contenant les données de la carte." alt="" coords="165,109,291,136"/>
+<area shape="rect" href="structmap__sprite__rects__t.html" title="Structure contenant les positions et tailles des sprites de la carte." alt="" coords="196,5,343,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Attributs publics</h2></td></tr>
-<tr class="memitem:a05e43e5fd8c76b1218f208cfcc336fef"><td class="memItemLeft" align="right" valign="top"><a id="a05e43e5fd8c76b1218f208cfcc336fef"></a>
-<a class="el" href="structmap__renderer__t.html">map_renderer_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>map_renderer</b></td></tr>
+<tr class="memitem:a05e43e5fd8c76b1218f208cfcc336fef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmap__renderer__t.html">map_renderer_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__renderer__t.html#a05e43e5fd8c76b1218f208cfcc336fef">map_renderer</a></td></tr>
 <tr class="separator:a05e43e5fd8c76b1218f208cfcc336fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56de1358cf3dc0dd120c4a3c5a1be565"><td class="memItemLeft" align="right" valign="top"><a id="a56de1358cf3dc0dd120c4a3c5a1be565"></a>
-<a class="el" href="structsprite__t.html">sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>sprite</b></td></tr>
-<tr class="separator:a56de1358cf3dc0dd120c4a3c5a1be565"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f3e88ec25e39af58908c9d0454c5fcd"><td class="memItemLeft" align="right" valign="top"><a id="a0f3e88ec25e39af58908c9d0454c5fcd"></a>
-<a class="el" href="structcharacter__sprite__rects__t.html">character_sprite_rects_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sprite_tile_rects</b></td></tr>
-<tr class="separator:a0f3e88ec25e39af58908c9d0454c5fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe54e765307e139fb1f37b40c4c7fe88"><td class="memItemLeft" align="right" valign="top"><a id="afe54e765307e139fb1f37b40c4c7fe88"></a>
-<a class="el" href="structcharacter__sprite__rects__t.html">character_sprite_rects_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sprite_rects</b></td></tr>
-<tr class="separator:afe54e765307e139fb1f37b40c4c7fe88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a890be3c577d980cee490cb639f67dc42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcharacter__animations__data__t.html">character_animations_data_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__renderer__t.html#a890be3c577d980cee490cb639f67dc42">animations</a></td></tr>
+<tr class="separator:a890be3c577d980cee490cb639f67dc42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Structure contenant les données pour afficher les personnages. </p>
-</div><hr/>La documentation de cette structure a été générée à partir du fichier suivant :<ul>
-<li>src/game/<a class="el" href="character__renderer_8h_source.html">character_renderer.h</a></li>
+<div class="textblock"><p>Structure contenant les données pour afficher les troupes. </p>
+</div><h2 class="groupheader">Documentation des données membres</h2>
+<a id="a890be3c577d980cee490cb639f67dc42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a890be3c577d980cee490cb639f67dc42">&#9670;&nbsp;</a></span>animations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcharacter__animations__data__t.html">character_animations_data_t</a> character_renderer_t::animations</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>paramètres d'animation des différentes troupes </p>
+
+</div>
+</div>
+<a id="a05e43e5fd8c76b1218f208cfcc336fef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05e43e5fd8c76b1218f208cfcc336fef">&#9670;&nbsp;</a></span>map_renderer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmap__renderer__t.html">map_renderer_t</a>* character_renderer_t::map_renderer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>un pointeur sur un pointeur sur la carte </p>
+
+</div>
+</div>
+<hr/>La documentation de cette structure a été générée à partir du fichier suivant :<ul>
+<li>src/character/<a class="el" href="character__renderer_8h_source.html">character_renderer.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -78,10 +78,10 @@ Graphe de collaboration de menu_t:</div>
 <div class="dyncontent">
 <div class="center"><img src="structmenu__t__coll__graph.png" border="0" usemap="#amenu__t_coll__map" alt="Collaboration graph"/></div>
 <map name="amenu__t_coll__map" id="amenu__t_coll__map">
-<area shape="rect" title="Structure pour stocker information du menu_test." alt="" coords="172,231,243,257"/>
-<area shape="rect" href="structbutton__t.html" title="Structure contenant les données d&#39;un bouton." alt="" coords="391,103,467,130"/>
+<area shape="rect" title="Structure pour stocker information du menu_test." alt="" coords="180,231,251,257"/>
+<area shape="rect" href="structbutton__t.html" title="Structure contenant les données d&#39;un bouton." alt="" coords="424,103,500,130"/>
 <area shape="rect" href="structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="153,5,224,32"/>
-<area shape="rect" href="structanim__t.html" title=" " alt="" coords="299,103,366,130"/>
+<area shape="rect" href="structanimation__t.html" title=" " alt="" coords="300,103,400,130"/>
 <area shape="rect" href="structtextbox__t.html" title="Structure contenant les données d&#39;une textbox." alt="" coords="5,103,89,130"/>
 <area shape="rect" href="structframe__timer__t.html" title="Timer permettant l&#39;éxécution de code à intervalle régulier." alt="" coords="297,5,411,32"/>
 </map>
@@ -93,10 +93,8 @@ Attributs publics</h2></td></tr>
 <tr class="separator:a8950e810dafe2edf39ad4016352ef3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b50feaa5bca8525b9932f27d32b6905"><td class="memItemLeft" align="right" valign="top">TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmenu__t.html#a9b50feaa5bca8525b9932f27d32b6905">textbox_font</a></td></tr>
 <tr class="separator:a9b50feaa5bca8525b9932f27d32b6905"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ca82ff0aa62f162a8f0a2a1c0c33fc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structanim__t.html">anim_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmenu__t.html#a8ca82ff0aa62f162a8f0a2a1c0c33fc1">book_animation</a></td></tr>
-<tr class="separator:a8ca82ff0aa62f162a8f0a2a1c0c33fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45585951e5936cb91ee230dd9a0d5494"><td class="memItemLeft" align="right" valign="top"><a class="el" href="animation__states_8h.html#a7a370becafed996f28dcb795b7413f85">book_anim_state_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmenu__t.html#a45585951e5936cb91ee230dd9a0d5494">book_animation_state</a></td></tr>
-<tr class="separator:a45585951e5936cb91ee230dd9a0d5494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a002f1b53ad3b420a05b13a0de959aa04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structanimation__t.html">animation_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmenu__t.html#a002f1b53ad3b420a05b13a0de959aa04">book_animation</a></td></tr>
+<tr class="separator:a002f1b53ad3b420a05b13a0de959aa04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c33dfb370d88cc9c3bf1603e921e486"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbutton__t.html">button_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmenu__t.html#a9c33dfb370d88cc9c3bf1603e921e486">join_button</a></td></tr>
 <tr class="separator:a9c33dfb370d88cc9c3bf1603e921e486"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16f17dcee9cb355c33cfbe18b7b8c36e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbutton__t.html">button_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmenu__t.html#a16f17dcee9cb355c33cfbe18b7b8c36e">quit_button</a></td></tr>
@@ -123,33 +121,18 @@ Attributs publics</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Structure pour stocker information du menu_test. </p>
 </div><h2 class="groupheader">Documentation des données membres</h2>
-<a id="a8ca82ff0aa62f162a8f0a2a1c0c33fc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ca82ff0aa62f162a8f0a2a1c0c33fc1">&#9670;&nbsp;</a></span>book_animation</h2>
+<a id="a002f1b53ad3b420a05b13a0de959aa04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a002f1b53ad3b420a05b13a0de959aa04">&#9670;&nbsp;</a></span>book_animation</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structanim__t.html">anim_t</a>* menu_t::book_animation</td>
+          <td class="memname"><a class="el" href="structanimation__t.html">animation_t</a>* menu_t::book_animation</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>animation du livre </p>
-
-</div>
-</div>
-<a id="a45585951e5936cb91ee230dd9a0d5494"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45585951e5936cb91ee230dd9a0d5494">&#9670;&nbsp;</a></span>book_animation_state</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="animation__states_8h.html#a7a370becafed996f28dcb795b7413f85">book_anim_state_e</a> menu_t::book_animation_state</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>état de l'animation du livre </p>
 
 </div>
 </div>

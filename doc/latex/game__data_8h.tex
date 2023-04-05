@@ -6,8 +6,10 @@ Implémentation des prototypes de \mbox{\hyperlink{game__data_8c}{client/game\+\
 
 
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}timer/timer.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}map/building.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}building/building.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}character/character.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}game\+\_\+state\+\_\+enum.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de game\+\_\+data.\+h\+:
 \nopagebreak
@@ -36,15 +38,18 @@ struct \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\
 \mbox{\Hypertarget{game__data_8h_aee655befad3b1afa60c5fdd49663ae66}\label{game__data_8h_aee655befad3b1afa60c5fdd49663ae66}} 
 typedef struct \mbox{\hyperlink{structbuilding__s}{building\+\_\+s}} {\bfseries building\+\_\+t}
 \item 
+\mbox{\Hypertarget{game__data_8h_aa98fe56c73c43d69dba015fa2536d391}\label{game__data_8h_aa98fe56c73c43d69dba015fa2536d391}} 
+typedef struct \mbox{\hyperlink{structcharacter__list__s}{character\+\_\+list\+\_\+s}} {\bfseries character\+\_\+list\+\_\+t}
+\item 
 \mbox{\Hypertarget{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}\label{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}} 
 typedef struct \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+s}} \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Structure de données contenant les données du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{game__data_8h_a9671fe3875530be690bc1d098fa694e0}{create\+Game\+Data}} ()
+\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$ \mbox{\hyperlink{game__data_8h_a9671fe3875530be690bc1d098fa694e0}{create\+Game\+Data}} ()
 \begin{DoxyCompactList}\small\item\em Créer les données du jeu. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game__data_8h_ac524888f11aad6e7479f72c7fdeef8b0}{delete\+Game\+Data}} (\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$$\ast$game\+\_\+data)
+int \mbox{\hyperlink{game__data_8h_ac524888f11aad6e7479f72c7fdeef8b0}{delete\+Game\+Data}} (\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$$\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Détruit les données du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -67,7 +72,7 @@ Lucas Dureau
 \index{game\_data.h@{game\_data.h}!createGameData@{createGameData}}
 \index{createGameData@{createGameData}!game\_data.h@{game\_data.h}}
 \doxysubsubsection{\texorpdfstring{createGameData()}{createGameData()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}}$\ast$ create\+Game\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}}$\ast$ create\+Game\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -80,7 +85,7 @@ un pointer sur les {\bfseries{données du jeu}}
 \index{game\_data.h@{game\_data.h}!deleteGameData@{deleteGameData}}
 \index{deleteGameData@{deleteGameData}!game\_data.h@{game\_data.h}}
 \doxysubsubsection{\texorpdfstring{deleteGameData()}{deleteGameData()}}
-{\footnotesize\ttfamily int delete\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$$\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int delete\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$$\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 

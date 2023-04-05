@@ -36,9 +36,9 @@ struct \mbox{\hyperlink{structhud__t}{hud\+\_\+t}}
 \item 
 \mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$ \mbox{\hyperlink{hud_8h_ac75dbdccfea3fba7b62d98c7364d233c}{create\+Hud}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window)
 \begin{DoxyCompactList}\small\item\em Créer les données de l\textquotesingle{}interface en jeu. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{hud_8h_ac9622281cef9ec781602da423b10b0c2}{hud\+Event\+Handler}} (SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$hud, \mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+void \mbox{\hyperlink{hud_8h_ac9622281cef9ec781602da423b10b0c2}{hud\+Event\+Handler}} (SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$hud, \mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$\mbox{\hyperlink{connection_2client_8h_ad72bb670c0751a5e8729d02bf7482d63}{client}}, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}écoute des événements du menu. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{hud_8h_aee20ca23a7a18af2557382a19988f746}{render\+Hud}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$hud, \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$map\+\_\+renderer, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+void \mbox{\hyperlink{hud_8h_aee20ca23a7a18af2557382a19988f746}{render\+Hud}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$hud, \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$map\+\_\+renderer, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}affichage de l\textquotesingle{}interface en jeu. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{hud_8h_ac6e778c19899aee355f34b285ac65244}{delete\+Hud}} (\mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$$\ast$hud)
 \begin{DoxyCompactList}\small\item\em Détruit les données de l\textquotesingle{}interface en jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -99,7 +99,7 @@ Détruit les données de l\textquotesingle{}interface en jeu.
 \index{hud.h@{hud.h}!hudEventHandler@{hudEventHandler}}
 \index{hudEventHandler@{hudEventHandler}!hud.h@{hud.h}}
 \doxysubsubsection{\texorpdfstring{hudEventHandler()}{hudEventHandler()}}
-{\footnotesize\ttfamily void hud\+Event\+Handler (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$}]{hud,  }\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void hud\+Event\+Handler (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$}]{hud,  }\item[{\mbox{\hyperlink{structclient__t}{client\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -120,7 +120,7 @@ Fonction d\textquotesingle{}écoute des événements du menu.
 \index{hud.h@{hud.h}!renderHud@{renderHud}}
 \index{renderHud@{renderHud}!hud.h@{hud.h}}
 \doxysubsubsection{\texorpdfstring{renderHud()}{renderHud()}}
-{\footnotesize\ttfamily void render\+Hud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$}]{hud,  }\item[{\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$}]{map\+\_\+renderer,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void render\+Hud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$}]{hud,  }\item[{\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$}]{map\+\_\+renderer,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 

@@ -1,0 +1,5 @@
+<map id="character_animations_data_t" name="character_animations_data_t">
+<area shape="rect" id="node1" title="Structure contenant les paramètres des animations des troupes." alt="" coords="5,213,168,255"/>
+<area shape="rect" id="node2" href="$structanimation__data__t.html" title="Structure contenant les paramètres d&#39;une animation." alt="" coords="19,95,155,121"/>
+<area shape="rect" id="node3" href="$structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="51,5,122,32"/>
+</map>

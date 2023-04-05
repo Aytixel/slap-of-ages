@@ -1,28 +1,115 @@
 \hypertarget{structcharacter__s}{}\doxysection{Référence de la structure character\+\_\+s}
 \label{structcharacter__s}\index{character\_s@{character\_s}}
+
+
+Structure contenant les données d\textquotesingle{}une troupe.  
+
+
+
+
+{\ttfamily \#include $<$character.\+h$>$}
+
+
+
+Graphe de collaboration de character\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structcharacter__s__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Attributs publics}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structcharacter__s_a28b2d87825e982cf3015052840734071}\label{structcharacter__s_a28b2d87825e982cf3015052840734071}} 
-character\+\_\+type\+\_\+e {\bfseries type}
+character\+\_\+type\+\_\+e \mbox{\hyperlink{structcharacter__s_a28b2d87825e982cf3015052840734071}{type}}
 \item 
-\mbox{\Hypertarget{structcharacter__s_adfd9e9d86ffcc2a6ee68d47095f148ff}\label{structcharacter__s_adfd9e9d86ffcc2a6ee68d47095f148ff}} 
-SDL\+\_\+\+Point {\bfseries position}
+SDL\+\_\+\+FPoint \mbox{\hyperlink{structcharacter__s_aa1ce56f93b1877f211f95822bc1ff3a0}{position}}
 \item 
-\mbox{\Hypertarget{structcharacter__s_a3c89ebd266a3ba67d3612b45143c0f87}\label{structcharacter__s_a3c89ebd266a3ba67d3612b45143c0f87}} 
-int {\bfseries hp}
+\mbox{\hyperlink{structanimation__t}{animation\+\_\+t}} $\ast$ \mbox{\hyperlink{structcharacter__s_a1535024ee0fe142f6534a7b6fea59c09}{animation}}
 \item 
-\mbox{\Hypertarget{structcharacter__s_a9841390ce415f5332c0d714c24015bbc}\label{structcharacter__s_a9841390ce415f5332c0d714c24015bbc}} 
-int {\bfseries attack}
+int \mbox{\hyperlink{structcharacter__s_a3c89ebd266a3ba67d3612b45143c0f87}{hp}}
 \item 
-\mbox{\Hypertarget{structcharacter__s_aa931fdff22bcf743e07332748f2ec992}\label{structcharacter__s_aa931fdff22bcf743e07332748f2ec992}} 
-int {\bfseries speed}
+int \mbox{\hyperlink{structcharacter__s_a9841390ce415f5332c0d714c24015bbc}{attack}}
 \item 
-\mbox{\Hypertarget{structcharacter__s_aa951d1287bb4291bed48759782076bd0}\label{structcharacter__s_aa951d1287bb4291bed48759782076bd0}} 
-int {\bfseries gold\+\_\+cost}
+float \mbox{\hyperlink{structcharacter__s_a71e2bc0089d6bb6f6252b431f43f2e06}{speed}}
+\item 
+int \mbox{\hyperlink{structcharacter__s_a203711dd7fd56188b4b66ca9e4571242}{is\+\_\+defender}}
+\item 
+\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$ \mbox{\hyperlink{structcharacter__s_a8585be5d7468a626d97d153c5688c9fc}{path}}
+\item 
+\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$ \mbox{\hyperlink{structcharacter__s_a2f9d82a7576ea4d39ea71de600dabf61}{targeted\+\_\+building}}
+\item 
+\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$ \mbox{\hyperlink{structcharacter__s_a8126ee264590baf8937f496867e4e238}{targeted\+\_\+character}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Description détaillée}
+Structure contenant les données d\textquotesingle{}une troupe. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structcharacter__s_a1535024ee0fe142f6534a7b6fea59c09}\label{structcharacter__s_a1535024ee0fe142f6534a7b6fea59c09}} 
+\index{character\_s@{character\_s}!animation@{animation}}
+\index{animation@{animation}!character\_s@{character\_s}}
+\doxysubsubsection{\texorpdfstring{animation}{animation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structanimation__t}{animation\+\_\+t}}$\ast$ character\+\_\+s\+::animation}
+
+animation de la troupe \mbox{\Hypertarget{structcharacter__s_a9841390ce415f5332c0d714c24015bbc}\label{structcharacter__s_a9841390ce415f5332c0d714c24015bbc}} 
+\index{character\_s@{character\_s}!attack@{attack}}
+\index{attack@{attack}!character\_s@{character\_s}}
+\doxysubsubsection{\texorpdfstring{attack}{attack}}
+{\footnotesize\ttfamily int character\+\_\+s\+::attack}
+
+point d\textquotesingle{}attack de la troupe \mbox{\Hypertarget{structcharacter__s_a3c89ebd266a3ba67d3612b45143c0f87}\label{structcharacter__s_a3c89ebd266a3ba67d3612b45143c0f87}} 
+\index{character\_s@{character\_s}!hp@{hp}}
+\index{hp@{hp}!character\_s@{character\_s}}
+\doxysubsubsection{\texorpdfstring{hp}{hp}}
+{\footnotesize\ttfamily int character\+\_\+s\+::hp}
+
+point de vie de la troupe \mbox{\Hypertarget{structcharacter__s_a203711dd7fd56188b4b66ca9e4571242}\label{structcharacter__s_a203711dd7fd56188b4b66ca9e4571242}} 
+\index{character\_s@{character\_s}!is\_defender@{is\_defender}}
+\index{is\_defender@{is\_defender}!character\_s@{character\_s}}
+\doxysubsubsection{\texorpdfstring{is\_defender}{is\_defender}}
+{\footnotesize\ttfamily int character\+\_\+s\+::is\+\_\+defender}
+
+indique si la troupe est défenseure \mbox{\Hypertarget{structcharacter__s_a8585be5d7468a626d97d153c5688c9fc}\label{structcharacter__s_a8585be5d7468a626d97d153c5688c9fc}} 
+\index{character\_s@{character\_s}!path@{path}}
+\index{path@{path}!character\_s@{character\_s}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnode__s}{node\+\_\+t}}$\ast$ character\+\_\+s\+::path}
+
+chemin jusqu\textquotesingle{}à la cible \mbox{\Hypertarget{structcharacter__s_aa1ce56f93b1877f211f95822bc1ff3a0}\label{structcharacter__s_aa1ce56f93b1877f211f95822bc1ff3a0}} 
+\index{character\_s@{character\_s}!position@{position}}
+\index{position@{position}!character\_s@{character\_s}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily SDL\+\_\+\+FPoint character\+\_\+s\+::position}
+
+position de la troupe \mbox{\Hypertarget{structcharacter__s_a71e2bc0089d6bb6f6252b431f43f2e06}\label{structcharacter__s_a71e2bc0089d6bb6f6252b431f43f2e06}} 
+\index{character\_s@{character\_s}!speed@{speed}}
+\index{speed@{speed}!character\_s@{character\_s}}
+\doxysubsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily float character\+\_\+s\+::speed}
+
+vitesse de la troupe \mbox{\Hypertarget{structcharacter__s_a2f9d82a7576ea4d39ea71de600dabf61}\label{structcharacter__s_a2f9d82a7576ea4d39ea71de600dabf61}} 
+\index{character\_s@{character\_s}!targeted\_building@{targeted\_building}}
+\index{targeted\_building@{targeted\_building}!character\_s@{character\_s}}
+\doxysubsubsection{\texorpdfstring{targeted\_building}{targeted\_building}}
+{\footnotesize\ttfamily \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}}$\ast$ character\+\_\+s\+::targeted\+\_\+building}
+
+bâtiment ciblé \mbox{\Hypertarget{structcharacter__s_a8126ee264590baf8937f496867e4e238}\label{structcharacter__s_a8126ee264590baf8937f496867e4e238}} 
+\index{character\_s@{character\_s}!targeted\_character@{targeted\_character}}
+\index{targeted\_character@{targeted\_character}!character\_s@{character\_s}}
+\doxysubsubsection{\texorpdfstring{targeted\_character}{targeted\_character}}
+{\footnotesize\ttfamily \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}}$\ast$ character\+\_\+s\+::targeted\+\_\+character}
+
+troupe ciblé \mbox{\Hypertarget{structcharacter__s_a28b2d87825e982cf3015052840734071}\label{structcharacter__s_a28b2d87825e982cf3015052840734071}} 
+\index{character\_s@{character\_s}!type@{type}}
+\index{type@{type}!character\_s@{character\_s}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily character\+\_\+type\+\_\+e character\+\_\+s\+::type}
+
+type de troupe 
+
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-src/game/\mbox{\hyperlink{character_8h}{character.\+h}}\end{DoxyCompactItemize}
+src/character/\mbox{\hyperlink{character_8h}{character.\+h}}\end{DoxyCompactItemize}

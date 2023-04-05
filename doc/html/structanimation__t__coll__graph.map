@@ -1,0 +1,5 @@
+<map id="animation_t" name="animation_t">
+<area shape="rect" id="node1" title=" " alt="" coords="71,95,171,121"/>
+<area shape="rect" id="node2" href="$structframe__timer__t.html" title="Timer permettant l&#39;éxécution de code à intervalle régulier." alt="" coords="5,5,120,32"/>
+<area shape="rect" id="node3" href="$structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="145,5,215,32"/>
+</map>

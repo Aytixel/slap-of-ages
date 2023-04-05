@@ -8,7 +8,7 @@ Fonction divers pour le jeu.
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}map/building.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}building/building.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de game.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -22,7 +22,7 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=181pt]{game_8h__dep__incl}
+\includegraphics[width=350pt]{game_8h__dep__incl}
 \end{center}
 \end{figure}
 \doxysubsection*{Classes}
@@ -53,31 +53,35 @@ typedef struct \mbox{\hyperlink{structnode__s}{node\+\_\+s}} \mbox{\hyperlink{ga
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8h_aa58163b9adcf970353e3f50fc1032730}{create\+\_\+node\+\_\+list}} ()
+\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8h_a36d864dccbe2302242068d6e7725235e}{create\+Node\+List}} ()
 \begin{DoxyCompactList}\small\item\em Creation d\textquotesingle{}une liste de noeud. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{game_8h_a73f344593f712bab4a9f61339b966d62}{clear\+\_\+node\+\_\+list}} (\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$list)
+void \mbox{\hyperlink{game_8h_af7f28f0eca794e66ebc0752dce10bc58}{clear\+Node\+List}} (\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$list)
 \begin{DoxyCompactList}\small\item\em Vide une liste de ses noeuds. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{game_8h_ab562c582d4e018758f92c4fdc1a1d00c}{free\+\_\+node\+\_\+list}} (\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$list)
+void \mbox{\hyperlink{game_8h_a55953001ad2cb87f62815289751624b4}{free\+Node\+List}} (\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$list)
 \begin{DoxyCompactList}\small\item\em Libération de la mémoire d\textquotesingle{}une liste de noeud. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{game_8h_a193e1b2f426ee4d1166c1c4664c3f188}{remove\+\_\+parent\+\_\+from\+\_\+list}} (\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$list, \mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$node)
+void \mbox{\hyperlink{game_8h_affabfd7036fa046e48ad4109edd03914}{remove\+Parent\+From\+List}} (\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$list, \mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$node)
 \begin{DoxyCompactList}\small\item\em Suppression de la liste d\textquotesingle{}un noeud et de ses parents. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{game_8h_a4200a0320d316103883ba535bf913391}{add\+\_\+node}} (\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$list, \mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$node)
+void \mbox{\hyperlink{game_8h_a99c0d68b80d1308ac95efe6ede233bb7}{add\+Node}} (\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$list, \mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$node)
 \begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}un noeud à la liste. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8h_af8d7cfbdfc4aedca5ea7ddce9ddf77a0}{remove\+\_\+node}} (\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$list, int index)
+\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8h_a3f326593499d7991c4e06dea63330692}{remove\+Node}} (\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$list, int index)
 \begin{DoxyCompactList}\small\item\em Suppression d\textquotesingle{}un noeud. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8h_a6032b90b973ab7a7066e06fdec962ab3}{create\+\_\+node}} (SDL\+\_\+\+Point position, \mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$parent)
+\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8h_ab375fc67d0c6d397f6967206446f8d7f}{create\+Node}} (SDL\+\_\+\+Point position, \mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$parent)
 \begin{DoxyCompactList}\small\item\em Creation d\textquotesingle{}une noeud. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{game_8h_ad22ba344bea1322fd21925363d83870d}{free\+\_\+node\+\_\+path}} (\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$node)
+void \mbox{\hyperlink{game_8h_ad1f28cbf3e4f4006a84023b5c5c3ff5e}{free\+Node\+Path}} (\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$node)
 \begin{DoxyCompactList}\small\item\em Libération de la mémoire d\textquotesingle{}une node et de ses parent. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{game_8h_a73a16060935346f073c8ce1985bc9bf4}{heuristic}} (\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$a, \mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$b)
+float \mbox{\hyperlink{game_8h_a73a16060935346f073c8ce1985bc9bf4}{heuristic}} (\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$a, \mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$b)
 \begin{DoxyCompactList}\small\item\em Heuristique pour l\textquotesingle{}algorithme A$\ast$. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{game_8h_aec254c7d1667b25910203410536417b8}{is\+\_\+valid}} (SDL\+\_\+\+Point position, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building)
-\begin{DoxyCompactList}\small\item\em Vérification de la validité d\textquotesingle{}un node. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{game_8h_a8089d4c4019f061ae047133f73594ed1}{is\+\_\+valid\+\_\+no\+\_\+wall}} (SDL\+\_\+\+Point position)
+bool \mbox{\hyperlink{game_8h_a40bb44712e413288d559ff0cde79d441}{is\+Valid\+No\+Wall}} (SDL\+\_\+\+Point position)
 \begin{DoxyCompactList}\small\item\em Vérification de la validité d\textquotesingle{}un node sans les murs. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8h_a39bf2f013b42ebf95614fda258ea097a}{a\+\_\+star}} (SDL\+\_\+\+Point start, SDL\+\_\+\+Point goal, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building, int wall)
+bool \mbox{\hyperlink{game_8h_ac5e829fe3dfd21d5148dc5259d1094c1}{is\+Valid}} (SDL\+\_\+\+Point position, \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building)
+\begin{DoxyCompactList}\small\item\em Vérification de la validité d\textquotesingle{}un node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$ \mbox{\hyperlink{game_8h_a67fcdb7ce8eca94632eccfdf49543a60}{a\+Star}} (SDL\+\_\+\+Point start, SDL\+\_\+\+Point goal, \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building, int wall)
 \begin{DoxyCompactList}\small\item\em Algorithme de pathfinding A$\ast$. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{game_8h_a129ee813ae2288ad62db99cb38adc5ed}{display\+\_\+path}} (\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$node)
+void \mbox{\hyperlink{game_8h_a2ee62260b56f4758964dbb0e9fed8150}{goto\+Next\+Position\+In\+Path}} (\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$$\ast$node)
+\begin{DoxyCompactList}\small\item\em Va à la prochaine position dans le chemin en enlevant le noeud courant. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Point \mbox{\hyperlink{game_8h_a78e0d96dfa895cffe000ecf64e5e281f}{get\+Next\+Position\+In\+Path}} (\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Récupère la position vers la quelle avancer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8h_af364c6aa9652bc985c608da1348efed5}{display\+Path}} (\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$node)
 \begin{DoxyCompactList}\small\item\em Affichage du chemin. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -96,11 +100,28 @@ Arthur Dureau, Hôa Le Luet, Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{game_8h_a39bf2f013b42ebf95614fda258ea097a}\label{game_8h_a39bf2f013b42ebf95614fda258ea097a}} 
-\index{game.h@{game.h}!a\_star@{a\_star}}
-\index{a\_star@{a\_star}!game.h@{game.h}}
-\doxysubsubsection{\texorpdfstring{a\_star()}{a\_star()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}}$\ast$ a\+\_\+star (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Point}]{start,  }\item[{SDL\+\_\+\+Point}]{goal,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building,  }\item[{int}]{wall }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{game_8h_a99c0d68b80d1308ac95efe6ede233bb7}\label{game_8h_a99c0d68b80d1308ac95efe6ede233bb7}} 
+\index{game.h@{game.h}!addNode@{addNode}}
+\index{addNode@{addNode}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{addNode()}{addNode()}}
+{\footnotesize\ttfamily void add\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$}]{list,  }\item[{\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Ajout d\textquotesingle{}un noeud à la liste. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list} & \\
+\hline
+{\em node} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game_8h_a67fcdb7ce8eca94632eccfdf49543a60}\label{game_8h_a67fcdb7ce8eca94632eccfdf49543a60}} 
+\index{game.h@{game.h}!aStar@{aStar}}
+\index{aStar@{aStar}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{aStar()}{aStar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnode__s}{node\+\_\+t}}$\ast$ a\+Star (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Point}]{start,  }\item[{SDL\+\_\+\+Point}]{goal,  }\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building,  }\item[{int}]{wall }\end{DoxyParamCaption})}
 
 
 
@@ -120,28 +141,11 @@ Algorithme de pathfinding A$\ast$.
 \begin{DoxyReturn}{Renvoie}
 node$\ast$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{game_8h_a4200a0320d316103883ba535bf913391}\label{game_8h_a4200a0320d316103883ba535bf913391}} 
-\index{game.h@{game.h}!add\_node@{add\_node}}
-\index{add\_node@{add\_node}!game.h@{game.h}}
-\doxysubsubsection{\texorpdfstring{add\_node()}{add\_node()}}
-{\footnotesize\ttfamily void add\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$}]{list,  }\item[{\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$}]{node }\end{DoxyParamCaption})}
-
-
-
-Ajout d\textquotesingle{}un noeud à la liste. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em list} & \\
-\hline
-{\em node} & \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{game_8h_a73f344593f712bab4a9f61339b966d62}\label{game_8h_a73f344593f712bab4a9f61339b966d62}} 
-\index{game.h@{game.h}!clear\_node\_list@{clear\_node\_list}}
-\index{clear\_node\_list@{clear\_node\_list}!game.h@{game.h}}
-\doxysubsubsection{\texorpdfstring{clear\_node\_list()}{clear\_node\_list()}}
-{\footnotesize\ttfamily void clear\+\_\+node\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$}]{list }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{game_8h_af7f28f0eca794e66ebc0752dce10bc58}\label{game_8h_af7f28f0eca794e66ebc0752dce10bc58}} 
+\index{game.h@{game.h}!clearNodeList@{clearNodeList}}
+\index{clearNodeList@{clearNodeList}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{clearNodeList()}{clearNodeList()}}
+{\footnotesize\ttfamily void clear\+Node\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$}]{list }\end{DoxyParamCaption})}
 
 
 
@@ -152,11 +156,11 @@ Vide une liste de ses noeuds.
 {\em list} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{game_8h_a6032b90b973ab7a7066e06fdec962ab3}\label{game_8h_a6032b90b973ab7a7066e06fdec962ab3}} 
-\index{game.h@{game.h}!create\_node@{create\_node}}
-\index{create\_node@{create\_node}!game.h@{game.h}}
-\doxysubsubsection{\texorpdfstring{create\_node()}{create\_node()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}}$\ast$ create\+\_\+node (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Point}]{position,  }\item[{\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$}]{parent }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{game_8h_ab375fc67d0c6d397f6967206446f8d7f}\label{game_8h_ab375fc67d0c6d397f6967206446f8d7f}} 
+\index{game.h@{game.h}!createNode@{createNode}}
+\index{createNode@{createNode}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{createNode()}{createNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnode__s}{node\+\_\+t}}$\ast$ create\+Node (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Point}]{position,  }\item[{\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$}]{parent }\end{DoxyParamCaption})}
 
 
 
@@ -172,11 +176,11 @@ Creation d\textquotesingle{}une noeud.
 \begin{DoxyReturn}{Renvoie}
 node$\ast$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{game_8h_aa58163b9adcf970353e3f50fc1032730}\label{game_8h_aa58163b9adcf970353e3f50fc1032730}} 
-\index{game.h@{game.h}!create\_node\_list@{create\_node\_list}}
-\index{create\_node\_list@{create\_node\_list}!game.h@{game.h}}
-\doxysubsubsection{\texorpdfstring{create\_node\_list()}{create\_node\_list()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}}$\ast$ create\+\_\+node\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{game_8h_a36d864dccbe2302242068d6e7725235e}\label{game_8h_a36d864dccbe2302242068d6e7725235e}} 
+\index{game.h@{game.h}!createNodeList@{createNodeList}}
+\index{createNodeList@{createNodeList}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{createNodeList()}{createNodeList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}}$\ast$ create\+Node\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -185,11 +189,11 @@ Creation d\textquotesingle{}une liste de noeud.
 \begin{DoxyReturn}{Renvoie}
 node\+\_\+list$\ast$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{game_8h_a129ee813ae2288ad62db99cb38adc5ed}\label{game_8h_a129ee813ae2288ad62db99cb38adc5ed}} 
-\index{game.h@{game.h}!display\_path@{display\_path}}
-\index{display\_path@{display\_path}!game.h@{game.h}}
-\doxysubsubsection{\texorpdfstring{display\_path()}{display\_path()}}
-{\footnotesize\ttfamily void display\+\_\+path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$}]{node }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{game_8h_af364c6aa9652bc985c608da1348efed5}\label{game_8h_af364c6aa9652bc985c608da1348efed5}} 
+\index{game.h@{game.h}!displayPath@{displayPath}}
+\index{displayPath@{displayPath}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{displayPath()}{displayPath()}}
+{\footnotesize\ttfamily void display\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$}]{node }\end{DoxyParamCaption})}
 
 
 
@@ -200,11 +204,11 @@ Affichage du chemin.
 {\em node} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{game_8h_ab562c582d4e018758f92c4fdc1a1d00c}\label{game_8h_ab562c582d4e018758f92c4fdc1a1d00c}} 
-\index{game.h@{game.h}!free\_node\_list@{free\_node\_list}}
-\index{free\_node\_list@{free\_node\_list}!game.h@{game.h}}
-\doxysubsubsection{\texorpdfstring{free\_node\_list()}{free\_node\_list()}}
-{\footnotesize\ttfamily void free\+\_\+node\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$}]{list }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{game_8h_a55953001ad2cb87f62815289751624b4}\label{game_8h_a55953001ad2cb87f62815289751624b4}} 
+\index{game.h@{game.h}!freeNodeList@{freeNodeList}}
+\index{freeNodeList@{freeNodeList}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{freeNodeList()}{freeNodeList()}}
+{\footnotesize\ttfamily void free\+Node\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$}]{list }\end{DoxyParamCaption})}
 
 
 
@@ -215,11 +219,11 @@ Libération de la mémoire d\textquotesingle{}une liste de noeud.
 {\em list} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{game_8h_ad22ba344bea1322fd21925363d83870d}\label{game_8h_ad22ba344bea1322fd21925363d83870d}} 
-\index{game.h@{game.h}!free\_node\_path@{free\_node\_path}}
-\index{free\_node\_path@{free\_node\_path}!game.h@{game.h}}
-\doxysubsubsection{\texorpdfstring{free\_node\_path()}{free\_node\_path()}}
-{\footnotesize\ttfamily void free\+\_\+node\+\_\+path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$}]{node }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{game_8h_ad1f28cbf3e4f4006a84023b5c5c3ff5e}\label{game_8h_ad1f28cbf3e4f4006a84023b5c5c3ff5e}} 
+\index{game.h@{game.h}!freeNodePath@{freeNodePath}}
+\index{freeNodePath@{freeNodePath}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{freeNodePath()}{freeNodePath()}}
+{\footnotesize\ttfamily void free\+Node\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$}]{node }\end{DoxyParamCaption})}
 
 
 
@@ -230,11 +234,44 @@ Libération de la mémoire d\textquotesingle{}une node et de ses parent.
 {\em node} & \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{game_8h_a78e0d96dfa895cffe000ecf64e5e281f}\label{game_8h_a78e0d96dfa895cffe000ecf64e5e281f}} 
+\index{game.h@{game.h}!getNextPositionInPath@{getNextPositionInPath}}
+\index{getNextPositionInPath@{getNextPositionInPath}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{getNextPositionInPath()}{getNextPositionInPath()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Point get\+Next\+Position\+In\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Récupère la position vers la quelle avancer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+Point 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a2ee62260b56f4758964dbb0e9fed8150}\label{game_8h_a2ee62260b56f4758964dbb0e9fed8150}} 
+\index{game.h@{game.h}!gotoNextPositionInPath@{gotoNextPositionInPath}}
+\index{gotoNextPositionInPath@{gotoNextPositionInPath}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{gotoNextPositionInPath()}{gotoNextPositionInPath()}}
+{\footnotesize\ttfamily void goto\+Next\+Position\+In\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$$\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Va à la prochaine position dans le chemin en enlevant le noeud courant. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em node} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{game_8h_a73a16060935346f073c8ce1985bc9bf4}\label{game_8h_a73a16060935346f073c8ce1985bc9bf4}} 
 \index{game.h@{game.h}!heuristic@{heuristic}}
 \index{heuristic@{heuristic}!game.h@{game.h}}
 \doxysubsubsection{\texorpdfstring{heuristic()}{heuristic()}}
-{\footnotesize\ttfamily float heuristic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$}]{a,  }\item[{\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$}]{b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float heuristic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$}]{a,  }\item[{\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$}]{b }\end{DoxyParamCaption})}
 
 
 
@@ -250,11 +287,11 @@ Heuristique pour l\textquotesingle{}algorithme A$\ast$.
 \begin{DoxyReturn}{Renvoie}
 float 
 \end{DoxyReturn}
-\mbox{\Hypertarget{game_8h_aec254c7d1667b25910203410536417b8}\label{game_8h_aec254c7d1667b25910203410536417b8}} 
-\index{game.h@{game.h}!is\_valid@{is\_valid}}
-\index{is\_valid@{is\_valid}!game.h@{game.h}}
-\doxysubsubsection{\texorpdfstring{is\_valid()}{is\_valid()}}
-{\footnotesize\ttfamily bool is\+\_\+valid (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Point}]{position,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{game_8h_ac5e829fe3dfd21d5148dc5259d1094c1}\label{game_8h_ac5e829fe3dfd21d5148dc5259d1094c1}} 
+\index{game.h@{game.h}!isValid@{isValid}}
+\index{isValid@{isValid}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool is\+Valid (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Point}]{position,  }\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building }\end{DoxyParamCaption})}
 
 
 
@@ -274,11 +311,11 @@ true
 
 false 
 \end{DoxyReturn}
-\mbox{\Hypertarget{game_8h_a8089d4c4019f061ae047133f73594ed1}\label{game_8h_a8089d4c4019f061ae047133f73594ed1}} 
-\index{game.h@{game.h}!is\_valid\_no\_wall@{is\_valid\_no\_wall}}
-\index{is\_valid\_no\_wall@{is\_valid\_no\_wall}!game.h@{game.h}}
-\doxysubsubsection{\texorpdfstring{is\_valid\_no\_wall()}{is\_valid\_no\_wall()}}
-{\footnotesize\ttfamily bool is\+\_\+valid\+\_\+no\+\_\+wall (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Point}]{position }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{game_8h_a40bb44712e413288d559ff0cde79d441}\label{game_8h_a40bb44712e413288d559ff0cde79d441}} 
+\index{game.h@{game.h}!isValidNoWall@{isValidNoWall}}
+\index{isValidNoWall@{isValidNoWall}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{isValidNoWall()}{isValidNoWall()}}
+{\footnotesize\ttfamily bool is\+Valid\+No\+Wall (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Point}]{position }\end{DoxyParamCaption})}
 
 
 
@@ -296,11 +333,11 @@ true
 
 false 
 \end{DoxyReturn}
-\mbox{\Hypertarget{game_8h_af8d7cfbdfc4aedca5ea7ddce9ddf77a0}\label{game_8h_af8d7cfbdfc4aedca5ea7ddce9ddf77a0}} 
-\index{game.h@{game.h}!remove\_node@{remove\_node}}
-\index{remove\_node@{remove\_node}!game.h@{game.h}}
-\doxysubsubsection{\texorpdfstring{remove\_node()}{remove\_node()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}}$\ast$ remove\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$}]{list,  }\item[{int}]{index }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{game_8h_a3f326593499d7991c4e06dea63330692}\label{game_8h_a3f326593499d7991c4e06dea63330692}} 
+\index{game.h@{game.h}!removeNode@{removeNode}}
+\index{removeNode@{removeNode}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{removeNode()}{removeNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnode__s}{node\+\_\+t}}$\ast$ remove\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$}]{list,  }\item[{int}]{index }\end{DoxyParamCaption})}
 
 
 
@@ -316,11 +353,11 @@ Suppression d\textquotesingle{}un noeud.
 \begin{DoxyReturn}{Renvoie}
 node$\ast$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{game_8h_a193e1b2f426ee4d1166c1c4664c3f188}\label{game_8h_a193e1b2f426ee4d1166c1c4664c3f188}} 
-\index{game.h@{game.h}!remove\_parent\_from\_list@{remove\_parent\_from\_list}}
-\index{remove\_parent\_from\_list@{remove\_parent\_from\_list}!game.h@{game.h}}
-\doxysubsubsection{\texorpdfstring{remove\_parent\_from\_list()}{remove\_parent\_from\_list()}}
-{\footnotesize\ttfamily void remove\+\_\+parent\+\_\+from\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$}]{list,  }\item[{\mbox{\hyperlink{game_8h_a33b99e5345d46cf63926673aa2b9ff83}{node\+\_\+t}} $\ast$}]{node }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{game_8h_affabfd7036fa046e48ad4109edd03914}\label{game_8h_affabfd7036fa046e48ad4109edd03914}} 
+\index{game.h@{game.h}!removeParentFromList@{removeParentFromList}}
+\index{removeParentFromList@{removeParentFromList}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{removeParentFromList()}{removeParentFromList()}}
+{\footnotesize\ttfamily void remove\+Parent\+From\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode__list__t}{node\+\_\+list\+\_\+t}} $\ast$}]{list,  }\item[{\mbox{\hyperlink{structnode__s}{node\+\_\+t}} $\ast$}]{node }\end{DoxyParamCaption})}
 
 
 

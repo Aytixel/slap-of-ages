@@ -16,7 +16,7 @@ Graphe de collaboration de client\+\_\+game\+\_\+data\+\_\+s\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=297pt]{structclient__game__data__s__coll__graph}
+\includegraphics[width=350pt]{structclient__game__data__s__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Attributs publics}
@@ -24,19 +24,27 @@ Graphe de collaboration de client\+\_\+game\+\_\+data\+\_\+s\+:
 \item 
 \mbox{\hyperlink{game__state__enum_8h_a5f4e5be92f57f9c4a2b5ba9ccb240c8a}{client\+\_\+game\+\_\+state\+\_\+e}} \mbox{\hyperlink{structclient__game__data__s_acd0137d5a8ba5830e00cd5ffff76cc8c}{state}}
 \item 
-char \mbox{\hyperlink{structclient__game__data__s_a9f3c8bbd1f3f0c66eded78b6fbb12929}{hostname}} \mbox{[}1024\mbox{]}
+char \mbox{\hyperlink{structclient__game__data__s_a81ec00d960e1087c84b543ac17486f87}{hostname}} \mbox{[}HOSTNAME\+\_\+\+SIZE\mbox{]}
 \item 
 uint16\+\_\+t \mbox{\hyperlink{structclient__game__data__s_aa24e6a9eb5976f5b290e2e08e6a18c58}{port}}
 \item 
-char \mbox{\hyperlink{structclient__game__data__s_a779d64ed08c3f51b66602b65a2e7916f}{pseudo}} \mbox{[}64\mbox{]}
+char \mbox{\hyperlink{structclient__game__data__s_a2e52931a80e06ce82b9f1a27b5a53b19}{pseudo}} \mbox{[}PSEUDO\+\_\+\+SIZE\mbox{]}
 \item 
-\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$ \mbox{\hyperlink{structclient__game__data__s_ab634d4a9e0de62041d4e21bf102344f7}{map\+\_\+building}}
+\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$ \mbox{\hyperlink{structclient__game__data__s_ab634d4a9e0de62041d4e21bf102344f7}{map\+\_\+building}}
+\item 
+\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$ \mbox{\hyperlink{structclient__game__data__s_ab95472c4b421ca2de37ef69fb224a376}{character\+\_\+list}}
 \item 
 \mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} \mbox{\hyperlink{structclient__game__data__s_a6e64a4e8804a0a643890039a3cda10d3}{selected\+\_\+building\+\_\+type}}
+\item 
+character\+\_\+type\+\_\+e \mbox{\hyperlink{structclient__game__data__s_a97f5d425937746b68708a0e230a608b1}{selected\+\_\+character\+\_\+type}}
 \item 
 int \mbox{\hyperlink{structclient__game__data__s_a45790e3280969168ff9dc8ef8273c3fd}{gold\+\_\+count}}
 \item 
 int \mbox{\hyperlink{structclient__game__data__s_a8bbcc157ac51dc32af9e47d7f1ce6d64}{gold\+\_\+cost}}
+\item 
+int \mbox{\hyperlink{structclient__game__data__s_a45075142d2a124cc8039bc205d5c52c7}{elixir\+\_\+count}}
+\item 
+int \mbox{\hyperlink{structclient__game__data__s_a2f0bb2202df1a4dc65b7d356cd391e00}{elixir\+\_\+cost}}
 \item 
 int \mbox{\hyperlink{structclient__game__data__s_a499e2d491796d1ba806d50b6288b45b5}{win\+\_\+count}}
 \item 
@@ -48,7 +56,7 @@ int \mbox{\hyperlink{structclient__game__data__s_aee20462e364861f1a381cef49ea00a
 \item 
 int \mbox{\hyperlink{structclient__game__data__s_a0d7b1c114172b5dd93d3b368c5d369d8}{opponent\+\_\+gold\+\_\+cost}}
 \item 
-\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$ \mbox{\hyperlink{structclient__game__data__s_a6597f7d0867b6b80749e6876948a7fd6}{opponent\+\_\+map\+\_\+building}}
+\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$ \mbox{\hyperlink{structclient__game__data__s_a6597f7d0867b6b80749e6876948a7fd6}{opponent\+\_\+map\+\_\+building}}
 \end{DoxyCompactItemize}
 
 
@@ -56,7 +64,25 @@ int \mbox{\hyperlink{structclient__game__data__s_a0d7b1c114172b5dd93d3b368c5d369
 Structure de données contenant les données du jeu. 
 
 \doxysubsection{Documentation des données membres}
-\mbox{\Hypertarget{structclient__game__data__s_a8bbcc157ac51dc32af9e47d7f1ce6d64}\label{structclient__game__data__s_a8bbcc157ac51dc32af9e47d7f1ce6d64}} 
+\mbox{\Hypertarget{structclient__game__data__s_ab95472c4b421ca2de37ef69fb224a376}\label{structclient__game__data__s_ab95472c4b421ca2de37ef69fb224a376}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!character\_list@{character\_list}}
+\index{character\_list@{character\_list}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{character\_list}{character\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}}$\ast$ client\+\_\+game\+\_\+data\+\_\+s\+::character\+\_\+list}
+
+liste contenant la totalité des troupes \mbox{\Hypertarget{structclient__game__data__s_a2f0bb2202df1a4dc65b7d356cd391e00}\label{structclient__game__data__s_a2f0bb2202df1a4dc65b7d356cd391e00}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!elixir\_cost@{elixir\_cost}}
+\index{elixir\_cost@{elixir\_cost}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{elixir\_cost}{elixir\_cost}}
+{\footnotesize\ttfamily int client\+\_\+game\+\_\+data\+\_\+s\+::elixir\+\_\+cost}
+
+nombre d\textquotesingle{}élixir que coûte les troupes \mbox{\Hypertarget{structclient__game__data__s_a45075142d2a124cc8039bc205d5c52c7}\label{structclient__game__data__s_a45075142d2a124cc8039bc205d5c52c7}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!elixir\_count@{elixir\_count}}
+\index{elixir\_count@{elixir\_count}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{elixir\_count}{elixir\_count}}
+{\footnotesize\ttfamily int client\+\_\+game\+\_\+data\+\_\+s\+::elixir\+\_\+count}
+
+nombre d\textquotesingle{}élixir en la possession du joueur \mbox{\Hypertarget{structclient__game__data__s_a8bbcc157ac51dc32af9e47d7f1ce6d64}\label{structclient__game__data__s_a8bbcc157ac51dc32af9e47d7f1ce6d64}} 
 \index{client\_game\_data\_s@{client\_game\_data\_s}!gold\_cost@{gold\_cost}}
 \index{gold\_cost@{gold\_cost}!client\_game\_data\_s@{client\_game\_data\_s}}
 \doxysubsubsection{\texorpdfstring{gold\_cost}{gold\_cost}}
@@ -68,11 +94,11 @@ nombre d\textquotesingle{}or que coûte le village \mbox{\Hypertarget{structclie
 \doxysubsubsection{\texorpdfstring{gold\_count}{gold\_count}}
 {\footnotesize\ttfamily int client\+\_\+game\+\_\+data\+\_\+s\+::gold\+\_\+count}
 
-nombre d\textquotesingle{}or en la possession du joueur \mbox{\Hypertarget{structclient__game__data__s_a9f3c8bbd1f3f0c66eded78b6fbb12929}\label{structclient__game__data__s_a9f3c8bbd1f3f0c66eded78b6fbb12929}} 
+nombre d\textquotesingle{}or en la possession du joueur \mbox{\Hypertarget{structclient__game__data__s_a81ec00d960e1087c84b543ac17486f87}\label{structclient__game__data__s_a81ec00d960e1087c84b543ac17486f87}} 
 \index{client\_game\_data\_s@{client\_game\_data\_s}!hostname@{hostname}}
 \index{hostname@{hostname}!client\_game\_data\_s@{client\_game\_data\_s}}
 \doxysubsubsection{\texorpdfstring{hostname}{hostname}}
-{\footnotesize\ttfamily char client\+\_\+game\+\_\+data\+\_\+s\+::hostname\mbox{[}1024\mbox{]}}
+{\footnotesize\ttfamily char client\+\_\+game\+\_\+data\+\_\+s\+::hostname\mbox{[}HOSTNAME\+\_\+\+SIZE\mbox{]}}
 
 addresse du serveur \mbox{\Hypertarget{structclient__game__data__s_aee20462e364861f1a381cef49ea00a40}\label{structclient__game__data__s_aee20462e364861f1a381cef49ea00a40}} 
 \index{client\_game\_data\_s@{client\_game\_data\_s}!initial\_opponent\_gold\_cost@{initial\_opponent\_gold\_cost}}
@@ -84,7 +110,7 @@ nombre d\textquotesingle{}or que coûte le village adverse initiale \mbox{\Hyper
 \index{client\_game\_data\_s@{client\_game\_data\_s}!map\_building@{map\_building}}
 \index{map\_building@{map\_building}!client\_game\_data\_s@{client\_game\_data\_s}}
 \doxysubsubsection{\texorpdfstring{map\_building}{map\_building}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}}$\ast$$\ast$$\ast$ client\+\_\+game\+\_\+data\+\_\+s\+::map\+\_\+building}
+{\footnotesize\ttfamily \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}}$\ast$$\ast$$\ast$ client\+\_\+game\+\_\+data\+\_\+s\+::map\+\_\+building}
 
 matrice contenant la totalité des bâtiments placés sur la carte \mbox{\Hypertarget{structclient__game__data__s_a0d7b1c114172b5dd93d3b368c5d369d8}\label{structclient__game__data__s_a0d7b1c114172b5dd93d3b368c5d369d8}} 
 \index{client\_game\_data\_s@{client\_game\_data\_s}!opponent\_gold\_cost@{opponent\_gold\_cost}}
@@ -96,7 +122,7 @@ nombre d\textquotesingle{}or que coûte le village adverse \mbox{\Hypertarget{st
 \index{client\_game\_data\_s@{client\_game\_data\_s}!opponent\_map\_building@{opponent\_map\_building}}
 \index{opponent\_map\_building@{opponent\_map\_building}!client\_game\_data\_s@{client\_game\_data\_s}}
 \doxysubsubsection{\texorpdfstring{opponent\_map\_building}{opponent\_map\_building}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}}$\ast$$\ast$$\ast$ client\+\_\+game\+\_\+data\+\_\+s\+::opponent\+\_\+map\+\_\+building}
+{\footnotesize\ttfamily \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}}$\ast$$\ast$$\ast$ client\+\_\+game\+\_\+data\+\_\+s\+::opponent\+\_\+map\+\_\+building}
 
 matrice contenant la totalité des bâtiments placés sur la carte adverse \mbox{\Hypertarget{structclient__game__data__s_a9a1b0847c4fd2986e183bc1e7618d4d7}\label{structclient__game__data__s_a9a1b0847c4fd2986e183bc1e7618d4d7}} 
 \index{client\_game\_data\_s@{client\_game\_data\_s}!opponent\_pseudo@{opponent\_pseudo}}
@@ -110,11 +136,11 @@ pseudo du joueur adverse \mbox{\Hypertarget{structclient__game__data__s_aa24e6a9
 \doxysubsubsection{\texorpdfstring{port}{port}}
 {\footnotesize\ttfamily uint16\+\_\+t client\+\_\+game\+\_\+data\+\_\+s\+::port}
 
-port du serveur \mbox{\Hypertarget{structclient__game__data__s_a779d64ed08c3f51b66602b65a2e7916f}\label{structclient__game__data__s_a779d64ed08c3f51b66602b65a2e7916f}} 
+port du serveur \mbox{\Hypertarget{structclient__game__data__s_a2e52931a80e06ce82b9f1a27b5a53b19}\label{structclient__game__data__s_a2e52931a80e06ce82b9f1a27b5a53b19}} 
 \index{client\_game\_data\_s@{client\_game\_data\_s}!pseudo@{pseudo}}
 \index{pseudo@{pseudo}!client\_game\_data\_s@{client\_game\_data\_s}}
 \doxysubsubsection{\texorpdfstring{pseudo}{pseudo}}
-{\footnotesize\ttfamily char client\+\_\+game\+\_\+data\+\_\+s\+::pseudo\mbox{[}64\mbox{]}}
+{\footnotesize\ttfamily char client\+\_\+game\+\_\+data\+\_\+s\+::pseudo\mbox{[}PSEUDO\+\_\+\+SIZE\mbox{]}}
 
 pseudo du joueur \mbox{\Hypertarget{structclient__game__data__s_a6e64a4e8804a0a643890039a3cda10d3}\label{structclient__game__data__s_a6e64a4e8804a0a643890039a3cda10d3}} 
 \index{client\_game\_data\_s@{client\_game\_data\_s}!selected\_building\_type@{selected\_building\_type}}
@@ -122,7 +148,13 @@ pseudo du joueur \mbox{\Hypertarget{structclient__game__data__s_a6e64a4e8804a0a6
 \doxysubsubsection{\texorpdfstring{selected\_building\_type}{selected\_building\_type}}
 {\footnotesize\ttfamily \mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} client\+\_\+game\+\_\+data\+\_\+s\+::selected\+\_\+building\+\_\+type}
 
-type de bâtiment sélectionner \mbox{\Hypertarget{structclient__game__data__s_acd0137d5a8ba5830e00cd5ffff76cc8c}\label{structclient__game__data__s_acd0137d5a8ba5830e00cd5ffff76cc8c}} 
+type de bâtiment sélectionner \mbox{\Hypertarget{structclient__game__data__s_a97f5d425937746b68708a0e230a608b1}\label{structclient__game__data__s_a97f5d425937746b68708a0e230a608b1}} 
+\index{client\_game\_data\_s@{client\_game\_data\_s}!selected\_character\_type@{selected\_character\_type}}
+\index{selected\_character\_type@{selected\_character\_type}!client\_game\_data\_s@{client\_game\_data\_s}}
+\doxysubsubsection{\texorpdfstring{selected\_character\_type}{selected\_character\_type}}
+{\footnotesize\ttfamily character\+\_\+type\+\_\+e client\+\_\+game\+\_\+data\+\_\+s\+::selected\+\_\+character\+\_\+type}
+
+type de troupe sélectionner \mbox{\Hypertarget{structclient__game__data__s_acd0137d5a8ba5830e00cd5ffff76cc8c}\label{structclient__game__data__s_acd0137d5a8ba5830e00cd5ffff76cc8c}} 
 \index{client\_game\_data\_s@{client\_game\_data\_s}!state@{state}}
 \index{state@{state}!client\_game\_data\_s@{client\_game\_data\_s}}
 \doxysubsubsection{\texorpdfstring{state}{state}}

@@ -1,25 +1,33 @@
 <map id="src/server/game_state.c" name="src/server/game_state.c">
-<area shape="rect" id="node1" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie." alt="" coords="45,5,223,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,76,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="101,80,167,107"/>
-<area shape="rect" id="node4" href="$server_2game__state_8h.html" title="Implémentation des prototypes de server/game_state.c." alt="" coords="192,80,303,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="53,155,124,181"/>
-<area shape="rect" id="node6" href="$client__data_8h.html" title="Implémentation des prototypes de server/client_data.c." alt="" coords="149,155,255,181"/>
-<area shape="rect" id="node7" href="$packet_8h.html" title="Implémentation des prototypes de packet/packet.c." alt="" coords="231,379,355,405"/>
-<area shape="rect" id="node10" href="$timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="463,528,570,555"/>
-<area shape="rect" id="node20" href="$connection_2server_8h.html" title="Implémentation des prototypes de connection/server.c." alt="" coords="330,155,479,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="45,528,116,555"/>
-<area shape="rect" id="node9" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="238,453,385,480"/>
-<area shape="rect" id="node12" href="$building_8h.html" title=" " alt="" coords="320,528,439,555"/>
-<area shape="rect" id="node19" href="$packet__id_8h.html" title="Définition des identifiants de paquet résaux." alt="" coords="118,453,214,480"/>
-<area shape="rect" id="node18" href="$game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="141,528,295,555"/>
-<area shape="rect" id="node11" title=" " alt="" coords="471,603,562,629"/>
-<area shape="rect" id="node13" href="$building__renderer_8h.html" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="222,603,369,629"/>
-<area shape="rect" id="node17" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="333,677,457,704"/>
-<area shape="rect" id="node14" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="276,752,413,779"/>
-<area shape="rect" id="node15" title=" " alt="" coords="231,827,327,853"/>
-<area shape="rect" id="node16" title=" " alt="" coords="351,827,469,853"/>
-<area shape="rect" id="node21" href="$socket_2server_8h.html" title="Implémentation des prototypes de socket/server.c." alt="" coords="345,229,465,256"/>
-<area shape="rect" id="node22" title=" " alt="" coords="382,379,478,405"/>
-<area shape="rect" id="node23" href="$socket_8h.html" title="Implémentation des prototypes de socket/socket.c." alt="" coords="331,304,407,331"/>
+<area shape="rect" id="node1" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie." alt="" coords="619,5,797,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="585,677,655,704"/>
+<area shape="rect" id="node3" title=" " alt="" coords="980,677,1047,704"/>
+<area shape="rect" id="node4" href="$server_2game__state_8h.html" title="Implémentation des prototypes de server/game_state.c." alt="" coords="653,80,763,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="482,155,553,181"/>
+<area shape="rect" id="node6" href="$client__data_8h.html" title="Implémentation des prototypes de server/client_data.c." alt="" coords="801,155,908,181"/>
+<area shape="rect" id="node7" href="$packet_8h.html" title="Implémentation des prototypes de packet/packet.c." alt="" coords="727,379,851,405"/>
+<area shape="rect" id="node11" href="$timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="5,677,112,704"/>
+<area shape="rect" id="node28" href="$connection_2server_8h.html" title="Implémentation des prototypes de connection/server.c." alt="" coords="577,155,727,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="854,528,925,555"/>
+<area shape="rect" id="node9" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="571,453,717,480"/>
+<area shape="rect" id="node13" href="$building_8h.html" title=" " alt="" coords="813,677,955,704"/>
+<area shape="rect" id="node27" href="$packet__id_8h.html" title="Définition des identifiants de paquet résaux." alt="" coords="827,453,923,480"/>
+<area shape="rect" id="node10" href="$client_2common_8h.html" title="Definition globale pour le client." alt="" coords="449,528,540,555"/>
+<area shape="rect" id="node19" href="$character_8h.html" title="Fonction de gestion des characters." alt="" coords="565,528,723,555"/>
+<area shape="rect" id="node26" href="$game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="271,528,425,555"/>
+<area shape="rect" id="node12" title=" " alt="" coords="13,752,104,779"/>
+<area shape="rect" id="node14" href="$building__renderer_8h.html" title="Implémentation des prototypes de building/building_renderer.c." alt="" coords="608,752,755,779"/>
+<area shape="rect" id="node18" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="441,827,599,853"/>
+<area shape="rect" id="node15" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="199,901,337,928"/>
+<area shape="rect" id="node16" title=" " alt="" coords="101,976,197,1003"/>
+<area shape="rect" id="node17" title=" " alt="" coords="221,976,339,1003"/>
+<area shape="rect" id="node20" href="$character__renderer_8h_source.html" title=" " alt="" coords="179,603,335,629"/>
+<area shape="rect" id="node21" href="$animation_8h.html" title="Animation fonctions." alt="" coords="328,677,483,704"/>
+<area shape="rect" id="node23" href="$animation__states_8h.html" title="fichier contenant les différents états des animations" alt="" coords="513,603,714,629"/>
+<area shape="rect" id="node24" href="$game_8h.html" title="Fonction divers pour le jeu." alt="" coords="739,603,851,629"/>
+<area shape="rect" id="node22" title=" " alt="" coords="339,752,483,779"/>
+<area shape="rect" id="node25" title=" " alt="" coords="705,677,788,704"/>
+<area shape="rect" id="node29" href="$socket_2server_8h.html" title="Implémentation des prototypes de socket/server.c." alt="" coords="592,229,712,256"/>
+<area shape="rect" id="node30" title=" " alt="" coords="585,379,681,405"/>
+<area shape="rect" id="node31" href="$socket_8h.html" title="Implémentation des prototypes de socket/socket.c." alt="" coords="650,304,726,331"/>
 </map>

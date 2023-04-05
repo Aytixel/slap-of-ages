@@ -107,30 +107,76 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a675a5e745b3c49f6bba9dc3a80af4eb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#a675a5e745b3c49f6bba9dc3a80af4eb8">initFrames</a> (SDL_Rect *tab, int max_frames, int nb_frames, <a class="el" href="structsprite__t.html">sprite_t</a> *sprite, int line, int nb_lines)</td></tr>
 <tr class="memdesc:a675a5e745b3c49f6bba9dc3a80af4eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les images d'une animation.  <a href="animation_8c.html#a675a5e745b3c49f6bba9dc3a80af4eb8">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a675a5e745b3c49f6bba9dc3a80af4eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34fc670dbf72971c172bbb3dfd7e9d00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structanim__t.html">anim_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#a34fc670dbf72971c172bbb3dfd7e9d00">createAnim</a> (int tile_size, int *state_frame_count, <a class="el" href="structsprite__t.html">sprite_t</a> *sprite, int frame_rate)</td></tr>
-<tr class="memdesc:a34fc670dbf72971c172bbb3dfd7e9d00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une animation à partir de la taille d'une tuile, du nombre d'images par état, de l'image source et du nombre d'images par seconde.  <a href="animation_8c.html#a34fc670dbf72971c172bbb3dfd7e9d00">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a34fc670dbf72971c172bbb3dfd7e9d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af448c425d4bef6da8fe9c6ed2dd98705"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#af448c425d4bef6da8fe9c6ed2dd98705">destroyAnim</a> (<a class="el" href="structanim__t.html">anim_t</a> **anim)</td></tr>
-<tr class="memdesc:af448c425d4bef6da8fe9c6ed2dd98705"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une animation.  <a href="animation_8c.html#af448c425d4bef6da8fe9c6ed2dd98705">Plus de détails...</a><br /></td></tr>
-<tr class="separator:af448c425d4bef6da8fe9c6ed2dd98705"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63392350c695b02122edb70286d308f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#a63392350c695b02122edb70286d308f7">updateAnim</a> (<a class="el" href="structanim__t.html">anim_t</a> *anim, int new_state, int tile_size, SDL_Point *position, <a class="el" href="structwindow__t.html">window_t</a> *window)</td></tr>
-<tr class="memdesc:a63392350c695b02122edb70286d308f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour l'animation en modifiant l'état et la position de l'animation.  <a href="animation_8c.html#a63392350c695b02122edb70286d308f7">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a63392350c695b02122edb70286d308f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba775f471e47704beb3b926e396ba4ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structanimation__t.html">animation_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#aba775f471e47704beb3b926e396ba4ac">createAnimation</a> (int tile_size, int *state_frame_count, <a class="el" href="structsprite__t.html">sprite_t</a> *sprite, int frame_rate)</td></tr>
+<tr class="memdesc:aba775f471e47704beb3b926e396ba4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une animation à partir de la taille d'une tuile, du nombre d'images par état, de l'image source et du nombre d'images par seconde.  <a href="animation_8c.html#aba775f471e47704beb3b926e396ba4ac">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aba775f471e47704beb3b926e396ba4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac07c8f697a8352a6d5c5d0e58083a07b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#ac07c8f697a8352a6d5c5d0e58083a07b">destroyAnimationWithoutSprite</a> (<a class="el" href="structanimation__t.html">animation_t</a> **anim)</td></tr>
+<tr class="memdesc:ac07c8f697a8352a6d5c5d0e58083a07b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une animation sans détruire son sprite.  <a href="animation_8c.html#ac07c8f697a8352a6d5c5d0e58083a07b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac07c8f697a8352a6d5c5d0e58083a07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a007d6f4cd53c4c0ba9967423ac24e84a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#a007d6f4cd53c4c0ba9967423ac24e84a">destroyAnimation</a> (<a class="el" href="structanimation__t.html">animation_t</a> **anim)</td></tr>
+<tr class="memdesc:a007d6f4cd53c4c0ba9967423ac24e84a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une animation.  <a href="animation_8c.html#a007d6f4cd53c4c0ba9967423ac24e84a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a007d6f4cd53c4c0ba9967423ac24e84a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b94498a1e17bdb14ce45d7f5736e0a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#a6b94498a1e17bdb14ce45d7f5736e0a8">changeAnimationState</a> (<a class="el" href="structanimation__t.html">animation_t</a> *anim, int new_state)</td></tr>
+<tr class="memdesc:a6b94498a1e17bdb14ce45d7f5736e0a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change l'état de l'animation.  <a href="animation_8c.html#a6b94498a1e17bdb14ce45d7f5736e0a8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6b94498a1e17bdb14ce45d7f5736e0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7366cee927c3238e6fcae96d2e2c29d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#a7366cee927c3238e6fcae96d2e2c29d5">isAnimationCycleEnded</a> (<a class="el" href="structanimation__t.html">animation_t</a> *anim)</td></tr>
+<tr class="memdesc:a7366cee927c3238e6fcae96d2e2c29d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère si c'est la fin du cycle d'animation.  <a href="animation_8c.html#a7366cee927c3238e6fcae96d2e2c29d5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7366cee927c3238e6fcae96d2e2c29d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62f4703d21d7e04b22333035a6f2bdc5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#a62f4703d21d7e04b22333035a6f2bdc5">updateAnimation</a> (<a class="el" href="structanimation__t.html">animation_t</a> *anim, int tile_size, SDL_Point *position, <a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">transform_origin_e</a> origin)</td></tr>
+<tr class="memdesc:a62f4703d21d7e04b22333035a6f2bdc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour l'animation la position de l'animation.  <a href="animation_8c.html#a62f4703d21d7e04b22333035a6f2bdc5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a62f4703d21d7e04b22333035a6f2bdc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Gestion des animations. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Hôa Le Luet </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>Hôa Le Luet, Lucas Dureau </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>03/03/2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a34fc670dbf72971c172bbb3dfd7e9d00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34fc670dbf72971c172bbb3dfd7e9d00">&#9670;&nbsp;</a></span>createAnim()</h2>
+<a id="a6b94498a1e17bdb14ce45d7f5736e0a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b94498a1e17bdb14ce45d7f5736e0a8">&#9670;&nbsp;</a></span>changeAnimationState()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structanim__t.html">anim_t</a>* createAnim </td>
+          <td class="memname">void changeAnimationState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structanimation__t.html">animation_t</a> *&#160;</td>
+          <td class="paramname"><em>anim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>new_state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change l'état de l'animation. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anim</td><td>animation à mettre à jour </td></tr>
+    <tr><td class="paramname">new_state</td><td>nouvel état de l'animation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aba775f471e47704beb3b926e396ba4ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba775f471e47704beb3b926e396ba4ac">&#9670;&nbsp;</a></span>createAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structanimation__t.html">animation_t</a>* createAnimation </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>tile_size</em>, </td>
@@ -175,16 +221,16 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="af448c425d4bef6da8fe9c6ed2dd98705"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af448c425d4bef6da8fe9c6ed2dd98705">&#9670;&nbsp;</a></span>destroyAnim()</h2>
+<a id="a007d6f4cd53c4c0ba9967423ac24e84a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a007d6f4cd53c4c0ba9967423ac24e84a">&#9670;&nbsp;</a></span>destroyAnimation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int destroyAnim </td>
+          <td class="memname">int destroyAnimation </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structanim__t.html">anim_t</a> **&#160;</td>
+          <td class="paramtype"><a class="el" href="structanimation__t.html">animation_t</a> **&#160;</td>
           <td class="paramname"><em>anim</em></td><td>)</td>
           <td></td>
         </tr>
@@ -192,6 +238,33 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Détruit une animation. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anim</td><td>animation à détruire </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un int valant -1 si l'animation n'existe pas, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="ac07c8f697a8352a6d5c5d0e58083a07b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac07c8f697a8352a6d5c5d0e58083a07b">&#9670;&nbsp;</a></span>destroyAnimationWithoutSprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int destroyAnimationWithoutSprite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structanimation__t.html">animation_t</a> **&#160;</td>
+          <td class="paramname"><em>anim</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit une animation sans détruire son sprite. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">anim</td><td>animation à détruire </td></tr>
@@ -266,23 +339,44 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a63392350c695b02122edb70286d308f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63392350c695b02122edb70286d308f7">&#9670;&nbsp;</a></span>updateAnim()</h2>
+<a id="a7366cee927c3238e6fcae96d2e2c29d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7366cee927c3238e6fcae96d2e2c29d5">&#9670;&nbsp;</a></span>isAnimationCycleEnded()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int updateAnim </td>
+          <td class="memname">int isAnimationCycleEnded </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structanim__t.html">anim_t</a> *&#160;</td>
-          <td class="paramname"><em>anim</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="structanimation__t.html">animation_t</a> *&#160;</td>
+          <td class="paramname"><em>anim</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>new_state</em>, </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère si c'est la fin du cycle d'animation. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anim</td><td>animation à mettre à jour </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="a62f4703d21d7e04b22333035a6f2bdc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62f4703d21d7e04b22333035a6f2bdc5">&#9670;&nbsp;</a></span>updateAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int updateAnimation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structanimation__t.html">animation_t</a> *&#160;</td>
+          <td class="paramname"><em>anim</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -300,7 +394,13 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structwindow__t.html">window_t</a> *&#160;</td>
-          <td class="paramname"><em>window</em>&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">transform_origin_e</a>&#160;</td>
+          <td class="paramname"><em>origin</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -310,14 +410,14 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Met à jour l'animation en modifiant l'état et la position de l'animation. </p>
+<p>Met à jour l'animation la position de l'animation. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">anim</td><td>animation à mettre à jour </td></tr>
-    <tr><td class="paramname">new_state</td><td>nouvel état de l'animation </td></tr>
     <tr><td class="paramname">tile_size</td><td>taille d'une tuile </td></tr>
     <tr><td class="paramname">position</td><td>position de l'animation </td></tr>
-    <tr><td class="paramname">window</td><td>la fenêtre où l'animation est affichée</td></tr>
+    <tr><td class="paramname">window</td><td>la fenêtre où l'animation est affichée </td></tr>
+    <tr><td class="paramname">origin</td><td>point d'origine sur lequel est centrée l'élément</td></tr>
   </table>
   </dd>
 </dl>

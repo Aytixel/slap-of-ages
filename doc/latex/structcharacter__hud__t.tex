@@ -1,0 +1,99 @@
+\hypertarget{structcharacter__hud__t}{}\doxysection{Référence de la structure character\+\_\+hud\+\_\+t}
+\label{structcharacter__hud__t}\index{character\_hud\_t@{character\_hud\_t}}
+
+
+Structure de données contenant les données de l\textquotesingle{}interface de sélection des troupes.  
+
+
+
+
+{\ttfamily \#include $<$character\+\_\+hud.\+h$>$}
+
+
+
+Graphe de collaboration de character\+\_\+hud\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structcharacter__hud__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+TTF\+\_\+\+Font $\ast$ \mbox{\hyperlink{structcharacter__hud__t_ab2717c1712889fac07fa853e2d476699}{text\+\_\+font}}
+\item 
+\mbox{\hyperlink{structanimation__t}{animation\+\_\+t}} $\ast$ \mbox{\hyperlink{structcharacter__hud__t_adee585afa657602964a03d17fec0c581}{rat\+\_\+animation}}
+\item 
+\mbox{\hyperlink{structanimation__t}{animation\+\_\+t}} $\ast$ \mbox{\hyperlink{structcharacter__hud__t_a915585f5e421eb42205dd10db2dc6603}{daemon\+\_\+animation}}
+\item 
+\mbox{\hyperlink{structanimation__t}{animation\+\_\+t}} $\ast$ \mbox{\hyperlink{structcharacter__hud__t_a54c34bb48599bca21e47053d8b2399a4}{giant\+\_\+animation}}
+\item 
+\mbox{\hyperlink{structbutton__t}{button\+\_\+t}} $\ast$ \mbox{\hyperlink{structcharacter__hud__t_a6a0722caea3ed85cf4bc0cb583c6ddeb}{rat\+\_\+button}}
+\item 
+\mbox{\hyperlink{structbutton__t}{button\+\_\+t}} $\ast$ \mbox{\hyperlink{structcharacter__hud__t_a13984843cdf14cc24bc8fe1bb3a6874f}{daemon\+\_\+button}}
+\item 
+\mbox{\hyperlink{structbutton__t}{button\+\_\+t}} $\ast$ \mbox{\hyperlink{structcharacter__hud__t_a39fda52c1675f553f49d31c1060b1593}{giant\+\_\+button}}
+\item 
+\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$ \mbox{\hyperlink{structcharacter__hud__t_ab2ec2dbd29cac397a90a70a60b07181f}{character\+\_\+renderer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure de données contenant les données de l\textquotesingle{}interface de sélection des troupes. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structcharacter__hud__t_ab2ec2dbd29cac397a90a70a60b07181f}\label{structcharacter__hud__t_ab2ec2dbd29cac397a90a70a60b07181f}} 
+\index{character\_hud\_t@{character\_hud\_t}!character\_renderer@{character\_renderer}}
+\index{character\_renderer@{character\_renderer}!character\_hud\_t@{character\_hud\_t}}
+\doxysubsubsection{\texorpdfstring{character\_renderer}{character\_renderer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}}$\ast$ character\+\_\+hud\+\_\+t\+::character\+\_\+renderer}
+
+un pointeur sur la structure qui gère l\textquotesingle{}affichage des troupes \mbox{\Hypertarget{structcharacter__hud__t_a915585f5e421eb42205dd10db2dc6603}\label{structcharacter__hud__t_a915585f5e421eb42205dd10db2dc6603}} 
+\index{character\_hud\_t@{character\_hud\_t}!daemon\_animation@{daemon\_animation}}
+\index{daemon\_animation@{daemon\_animation}!character\_hud\_t@{character\_hud\_t}}
+\doxysubsubsection{\texorpdfstring{daemon\_animation}{daemon\_animation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structanimation__t}{animation\+\_\+t}}$\ast$ character\+\_\+hud\+\_\+t\+::daemon\+\_\+animation}
+
+animation du démon \mbox{\Hypertarget{structcharacter__hud__t_a13984843cdf14cc24bc8fe1bb3a6874f}\label{structcharacter__hud__t_a13984843cdf14cc24bc8fe1bb3a6874f}} 
+\index{character\_hud\_t@{character\_hud\_t}!daemon\_button@{daemon\_button}}
+\index{daemon\_button@{daemon\_button}!character\_hud\_t@{character\_hud\_t}}
+\doxysubsubsection{\texorpdfstring{daemon\_button}{daemon\_button}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structbutton__t}{button\+\_\+t}}$\ast$ character\+\_\+hud\+\_\+t\+::daemon\+\_\+button}
+
+bouton de sélection du démon \mbox{\Hypertarget{structcharacter__hud__t_a54c34bb48599bca21e47053d8b2399a4}\label{structcharacter__hud__t_a54c34bb48599bca21e47053d8b2399a4}} 
+\index{character\_hud\_t@{character\_hud\_t}!giant\_animation@{giant\_animation}}
+\index{giant\_animation@{giant\_animation}!character\_hud\_t@{character\_hud\_t}}
+\doxysubsubsection{\texorpdfstring{giant\_animation}{giant\_animation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structanimation__t}{animation\+\_\+t}}$\ast$ character\+\_\+hud\+\_\+t\+::giant\+\_\+animation}
+
+animation du géant \mbox{\Hypertarget{structcharacter__hud__t_a39fda52c1675f553f49d31c1060b1593}\label{structcharacter__hud__t_a39fda52c1675f553f49d31c1060b1593}} 
+\index{character\_hud\_t@{character\_hud\_t}!giant\_button@{giant\_button}}
+\index{giant\_button@{giant\_button}!character\_hud\_t@{character\_hud\_t}}
+\doxysubsubsection{\texorpdfstring{giant\_button}{giant\_button}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structbutton__t}{button\+\_\+t}}$\ast$ character\+\_\+hud\+\_\+t\+::giant\+\_\+button}
+
+bouton de sélection du géant goblin \mbox{\Hypertarget{structcharacter__hud__t_adee585afa657602964a03d17fec0c581}\label{structcharacter__hud__t_adee585afa657602964a03d17fec0c581}} 
+\index{character\_hud\_t@{character\_hud\_t}!rat\_animation@{rat\_animation}}
+\index{rat\_animation@{rat\_animation}!character\_hud\_t@{character\_hud\_t}}
+\doxysubsubsection{\texorpdfstring{rat\_animation}{rat\_animation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structanimation__t}{animation\+\_\+t}}$\ast$ character\+\_\+hud\+\_\+t\+::rat\+\_\+animation}
+
+animation du rat \mbox{\Hypertarget{structcharacter__hud__t_a6a0722caea3ed85cf4bc0cb583c6ddeb}\label{structcharacter__hud__t_a6a0722caea3ed85cf4bc0cb583c6ddeb}} 
+\index{character\_hud\_t@{character\_hud\_t}!rat\_button@{rat\_button}}
+\index{rat\_button@{rat\_button}!character\_hud\_t@{character\_hud\_t}}
+\doxysubsubsection{\texorpdfstring{rat\_button}{rat\_button}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structbutton__t}{button\+\_\+t}}$\ast$ character\+\_\+hud\+\_\+t\+::rat\+\_\+button}
+
+bouton de sélection de lu rat \mbox{\Hypertarget{structcharacter__hud__t_ab2717c1712889fac07fa853e2d476699}\label{structcharacter__hud__t_ab2717c1712889fac07fa853e2d476699}} 
+\index{character\_hud\_t@{character\_hud\_t}!text\_font@{text\_font}}
+\index{text\_font@{text\_font}!character\_hud\_t@{character\_hud\_t}}
+\doxysubsubsection{\texorpdfstring{text\_font}{text\_font}}
+{\footnotesize\ttfamily TTF\+\_\+\+Font$\ast$ character\+\_\+hud\+\_\+t\+::text\+\_\+font}
+
+police d\textquotesingle{}écriture pour le texte 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/character/\mbox{\hyperlink{character__hud_8h}{character\+\_\+hud.\+h}}\end{DoxyCompactItemize}

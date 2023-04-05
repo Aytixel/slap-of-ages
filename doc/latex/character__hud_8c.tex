@@ -1,0 +1,118 @@
+\hypertarget{character__hud_8c}{}\doxysection{Référence du fichier src/character/character\+\_\+hud.c}
+\label{character__hud_8c}\index{src/character/character\_hud.c@{src/character/character\_hud.c}}
+
+
+Permet de gérer l\textquotesingle{}affichage de l\textquotesingle{}interface de sélection des troupes.  
+
+
+{\ttfamily \#include \char`\"{}character\+\_\+hud.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de character\+\_\+hud.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character__hud_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcharacter__hud__t}{character\+\_\+hud\+\_\+t}} $\ast$ \mbox{\hyperlink{character__hud_8c_a04193d89ebcb27accdb5957ea2442fc9}{create\+Character\+Hud}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em Créer les données de linterface de sélection de troupe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character__hud_8c_a228677e9999cd559da146c587cabdea3}{character\+Hud\+Event\+Handler}} (SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structcharacter__hud__t}{character\+\_\+hud\+\_\+t}} $\ast$character\+\_\+hud, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}écoute des événements de linterface de sélection de troupe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character__hud_8c_a4de9a8ca8383e5b98341b57bb0736613}{render\+Character\+Hud}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structcharacter__hud__t}{character\+\_\+hud\+\_\+t}} $\ast$character\+\_\+hud)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}affichage de linterface de sélection de troupe. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{character__hud_8c_acf3d7b03365e25254d42fbc34869d621}{delete\+Character\+Hud}} (\mbox{\hyperlink{structcharacter__hud__t}{character\+\_\+hud\+\_\+t}} $\ast$$\ast$character\+\_\+hud)
+\begin{DoxyCompactList}\small\item\em Détruit les données de linterface de sélection de troupe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Permet de gérer l\textquotesingle{}affichage de l\textquotesingle{}interface de sélection des troupes. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+05/04/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{character__hud_8c_a228677e9999cd559da146c587cabdea3}\label{character__hud_8c_a228677e9999cd559da146c587cabdea3}} 
+\index{character\_hud.c@{character\_hud.c}!characterHudEventHandler@{characterHudEventHandler}}
+\index{characterHudEventHandler@{characterHudEventHandler}!character\_hud.c@{character\_hud.c}}
+\doxysubsubsection{\texorpdfstring{characterHudEventHandler()}{characterHudEventHandler()}}
+{\footnotesize\ttfamily void character\+Hud\+Event\+Handler (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{structcharacter__hud__t}{character\+\_\+hud\+\_\+t}} $\ast$}]{character\+\_\+hud,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}écoute des événements de linterface de sélection de troupe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & un pointeur sur les événements \\
+\hline
+{\em character\+\_\+hud} & un pointeur sur linterface de sélection de troupe \\
+\hline
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{character__hud_8c_a04193d89ebcb27accdb5957ea2442fc9}\label{character__hud_8c_a04193d89ebcb27accdb5957ea2442fc9}} 
+\index{character\_hud.c@{character\_hud.c}!createCharacterHud@{createCharacterHud}}
+\index{createCharacterHud@{createCharacterHud}!character\_hud.c@{character\_hud.c}}
+\doxysubsubsection{\texorpdfstring{createCharacterHud()}{createCharacterHud()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcharacter__hud__t}{character\+\_\+hud\+\_\+t}}$\ast$ create\+Character\+Hud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$}]{character\+\_\+renderer }\end{DoxyParamCaption})}
+
+
+
+Créer les données de linterface de sélection de troupe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em character\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des troupes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur les {\bfseries{données de linterface de sélection de troupe}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character__hud_8c_acf3d7b03365e25254d42fbc34869d621}\label{character__hud_8c_acf3d7b03365e25254d42fbc34869d621}} 
+\index{character\_hud.c@{character\_hud.c}!deleteCharacterHud@{deleteCharacterHud}}
+\index{deleteCharacterHud@{deleteCharacterHud}!character\_hud.c@{character\_hud.c}}
+\doxysubsubsection{\texorpdfstring{deleteCharacterHud()}{deleteCharacterHud()}}
+{\footnotesize\ttfamily int delete\+Character\+Hud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcharacter__hud__t}{character\+\_\+hud\+\_\+t}} $\ast$$\ast$}]{character\+\_\+hud }\end{DoxyParamCaption})}
+
+
+
+Détruit les données de linterface de sélection de troupe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+hud} & une référence d\textquotesingle{}un pointeur sur les données de linterface de sélection de troupe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} si le pointeur en entrée est null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character__hud_8c_a4de9a8ca8383e5b98341b57bb0736613}\label{character__hud_8c_a4de9a8ca8383e5b98341b57bb0736613}} 
+\index{character\_hud.c@{character\_hud.c}!renderCharacterHud@{renderCharacterHud}}
+\index{renderCharacterHud@{renderCharacterHud}!character\_hud.c@{character\_hud.c}}
+\doxysubsubsection{\texorpdfstring{renderCharacterHud()}{renderCharacterHud()}}
+{\footnotesize\ttfamily void render\+Character\+Hud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structcharacter__hud__t}{character\+\_\+hud\+\_\+t}} $\ast$}]{character\+\_\+hud }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}affichage de linterface de sélection de troupe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em character\+\_\+hud} & un pointeur sur linterface de sélection de troupe \\
+\hline
+\end{DoxyParams}

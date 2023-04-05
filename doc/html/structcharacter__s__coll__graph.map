@@ -1,0 +1,8 @@
+<map id="character_s" name="character_s">
+<area shape="rect" id="node1" title="Structure contenant les données d&#39;une troupe." alt="" coords="150,184,247,211"/>
+<area shape="rect" id="node2" href="$structbuilding__s.html" title="Structure contenant les données des bâtiments." alt="" coords="5,95,93,121"/>
+<area shape="rect" id="node3" href="$structnode__s.html" title="Structure de noeud." alt="" coords="141,95,209,121"/>
+<area shape="rect" id="node4" href="$structanimation__t.html" title=" " alt="" coords="303,95,403,121"/>
+<area shape="rect" id="node5" href="$structframe__timer__t.html" title="Timer permettant l&#39;éxécution de code à intervalle régulier." alt="" coords="237,5,352,32"/>
+<area shape="rect" id="node6" href="$structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="377,5,447,32"/>
+</map>

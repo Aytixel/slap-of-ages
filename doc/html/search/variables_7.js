@@ -1,9 +1,21 @@
 var searchData=
 [
-  ['id_697',['id',['../structpacket__t.html#a71251cbc5bba8c3f0be835b1bd9fe107',1,'packet_t']]],
-  ['initial_5fopponent_5fgold_5fcost_698',['initial_opponent_gold_cost',['../structclient__game__data__s.html#aee20462e364861f1a381cef49ea00a40',1,'client_game_data_s']]],
-  ['interval_699',['interval',['../structframe__timer__t.html#a110868dbf0c237ccb836277240ba8bcb',1,'frame_timer_t']]],
-  ['is_5fin_5fgame_700',['is_in_game',['../structserver__client__data__s.html#af5127f01c37fdb4bf7d74896a990462e',1,'server_client_data_s']]],
-  ['is_5fplayer_5fready_701',['is_player_ready',['../structserver__client__data__s.html#a72145ab26888507a2b90d0588b203702',1,'server_client_data_s']]],
-  ['is_5fselected_702',['is_selected',['../structbutton__t.html#a4ce3b985313ab3a92d897a7d5b78bd86',1,'button_t']]]
+  ['h_5fcost_804',['h_cost',['../structnode__s.html#af8280f143fc45e1d83787fe6555d1d08',1,'node_s']]],
+  ['has_5ffinished_805',['has_finished',['../structplayer__game__state__t.html#ac0aec1bc43cbb28c4dc7c9f1d67503ab',1,'player_game_state_t']]],
+  ['height_806',['height',['../structsprite__t.html#a6718979180f6ac3ffdc44f41f8f75c00',1,'sprite_t::height()'],['../structwindow__t.html#a2e4e3c4402eb7b5f67e7574ec0e8c7bf',1,'window_t::height()']]],
+  ['height_5fscale_5ffactor_807',['height_scale_factor',['../structwindow__t.html#ac12111118cdd3429d412966f16ed6ba8',1,'window_t']]],
+  ['horizontal_5fspace_5ffiller_5fwall_808',['horizontal_space_filler_wall',['../structbuilding__sprite__rects__t.html#a7ea454f76dd07251f24af66283d7e318',1,'building_sprite_rects_t']]],
+  ['horizontal_5fwall_809',['horizontal_wall',['../structbuilding__sprite__rects__t.html#a006c2e19befe5c96cd5f451877917569',1,'building_sprite_rects_t']]],
+  ['horizontal_5fwall_5fbutton_810',['horizontal_wall_button',['../structbuilding__hud__t.html#a1f5b5b71e3489a76f2ef473cd56c100b',1,'building_hud_t']]],
+  ['hostname_811',['hostname',['../structclient__game__data__s.html#a81ec00d960e1087c84b543ac17486f87',1,'client_game_data_s']]],
+  ['hostname_5flabel_812',['hostname_label',['../structmenu__t.html#a9f70669e349af41cae4f9890a75d9b30',1,'menu_t']]],
+  ['hostname_5frect_813',['hostname_rect',['../structmenu__t.html#afed13f94e200ebbce379776e5e00debd',1,'menu_t']]],
+  ['hostname_5ftextbox_814',['hostname_textbox',['../structmenu__t.html#a893c891895e5c8865985cc139865400d',1,'menu_t']]],
+  ['house_5f1_815',['house_1',['../structbuilding__sprite__rects__t.html#a573b39da692dde1a050bd5dab88171a9',1,'building_sprite_rects_t']]],
+  ['house_5f1_5fbutton_816',['house_1_button',['../structbuilding__hud__t.html#a7bb356f7731cb3f2a71cdaa4a6b8fa36',1,'building_hud_t']]],
+  ['house_5f2_817',['house_2',['../structbuilding__sprite__rects__t.html#a636f5f45421d39f3eb208bd2ba27850a',1,'building_sprite_rects_t']]],
+  ['house_5f2_5fbutton_818',['house_2_button',['../structbuilding__hud__t.html#a120c239ef9b003c5d76997758acf5ec9',1,'building_hud_t']]],
+  ['house_5f3_819',['house_3',['../structbuilding__sprite__rects__t.html#ac37803313823e55b563e62a3994884e9',1,'building_sprite_rects_t']]],
+  ['house_5f3_5fbutton_820',['house_3_button',['../structbuilding__hud__t.html#a47273a1ce19ce5f013e79d29389dcf30',1,'building_hud_t']]],
+  ['hp_821',['hp',['../structbuilding__s.html#ad7984d54055c1353454497999b3b98a9',1,'building_s::hp()'],['../structcharacter__s.html#a3c89ebd266a3ba67d3612b45143c0f87',1,'character_s::hp()']]]
 ];

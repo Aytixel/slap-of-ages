@@ -36,9 +36,9 @@ struct \mbox{\hyperlink{structmenu__t}{menu\+\_\+t}}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$ \mbox{\hyperlink{menu_8h_ad1ace9949b3984eb46ae5d833d4ef84a}{create\+Menu}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$ \mbox{\hyperlink{menu_8h_ad1ace9949b3984eb46ae5d833d4ef84a}{create\+Menu}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Fonction de création du menu. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{menu_8h_a164df07b83240357d29ac317a542c9b6}{menu\+Event\+Handler}} (\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$menu)
+int \mbox{\hyperlink{menu_8h_a164df07b83240357d29ac317a542c9b6}{menu\+Event\+Handler}} (\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$menu)
 \begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}écoute des événements du menu. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{menu_8h_adf97f9d40d3e741e9124a901a4dd049b}{menu\+Renderer}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$menu)
 \begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}affichage du menu. \end{DoxyCompactList}\item 
@@ -65,7 +65,7 @@ Arthur Dureau, Lucas Dureau
 \index{menu.h@{menu.h}!createMenu@{createMenu}}
 \index{createMenu@{createMenu}!menu.h@{menu.h}}
 \doxysubsubsection{\texorpdfstring{createMenu()}{createMenu()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structmenu__t}{menu\+\_\+t}}$\ast$ create\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmenu__t}{menu\+\_\+t}}$\ast$ create\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -103,7 +103,7 @@ Fonction de destruction du menu.
 \index{menu.h@{menu.h}!menuEventHandler@{menuEventHandler}}
 \index{menuEventHandler@{menuEventHandler}!menu.h@{menu.h}}
 \doxysubsubsection{\texorpdfstring{menuEventHandler()}{menuEventHandler()}}
-{\footnotesize\ttfamily int menu\+Event\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{SDL\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$}]{menu }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int menu\+Event\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{SDL\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$}]{menu }\end{DoxyParamCaption})}
 
 
 
@@ -119,7 +119,7 @@ Fonction d\textquotesingle{}écoute des événements du menu.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-1 si le bouton join est cliquer, 0 sinon 
+1 si le bouton rejoindre est cliquer, 0 sinon 
 \end{DoxyReturn}
 \mbox{\Hypertarget{menu_8h_adf97f9d40d3e741e9124a901a4dd049b}\label{menu_8h_adf97f9d40d3e741e9124a901a4dd049b}} 
 \index{menu.h@{menu.h}!menuRenderer@{menuRenderer}}

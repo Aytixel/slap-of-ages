@@ -1,0 +1,12 @@
+<map id="character_hud_t" name="character_hud_t">
+<area shape="rect" id="node1" title="Structure de données contenant les données de l&#39;interface de sélection des troupes." alt="" coords="306,451,433,477"/>
+<area shape="rect" id="node2" href="$structbutton__t.html" title="Structure contenant les données d&#39;un bouton." alt="" coords="153,169,229,195"/>
+<area shape="rect" id="node3" href="$structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="357,5,427,32"/>
+<area shape="rect" id="node6" href="$structanimation__data__t.html" title="Structure contenant les paramètres d&#39;une animation." alt="" coords="412,109,548,136"/>
+<area shape="rect" id="node7" href="$structmap__renderer__t.html" title="Structure contenant les données de la carte." alt="" coords="252,109,377,136"/>
+<area shape="rect" id="node9" href="$structanimation__t.html" title=" " alt="" coords="573,109,673,136"/>
+<area shape="rect" id="node4" href="$structcharacter__renderer__t.html" title="Structure contenant les données pour afficher les troupes." alt="" coords="291,361,448,388"/>
+<area shape="rect" id="node5" href="$structcharacter__animations__data__t.html" title="Structure contenant les paramètres des animations des troupes." alt="" coords="428,228,591,269"/>
+<area shape="rect" id="node8" href="$structmap__sprite__rects__t.html" title="Structure contenant les positions et tailles des sprites de la carte." alt="" coords="5,5,152,32"/>
+<area shape="rect" id="node10" href="$structframe__timer__t.html" title="Timer permettant l&#39;éxécution de code à intervalle régulier." alt="" coords="565,5,680,32"/>
+</map>

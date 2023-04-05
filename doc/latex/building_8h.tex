@@ -1,5 +1,5 @@
-\hypertarget{building_8h}{}\doxysection{Référence du fichier src/map/building.h}
-\label{building_8h}\index{src/map/building.h@{src/map/building.h}}
+\hypertarget{building_8h}{}\doxysection{Référence du fichier src/building/building.h}
+\label{building_8h}\index{src/building/building.h@{src/building/building.h}}
 {\ttfamily \#include \char`\"{}building\+\_\+renderer.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}map/map\+\_\+renderer.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}client/game\+\_\+data.\+h\char`\"{}}\newline
@@ -36,31 +36,35 @@ typedef struct \mbox{\hyperlink{structbuilding__s}{building\+\_\+s}} \mbox{\hype
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$ \mbox{\hyperlink{building_8h_a0f68a06eac4621cc51e8d54f0fca2612}{create\+Building}} (\mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} type, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window)
-\begin{DoxyCompactList}\small\item\em Créer la structure qui gère l\textquotesingle{}affichage des bâtiments. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$ \mbox{\hyperlink{building_8h_aa2c558de4957ec67e94cad0eaeae31f6}{create\+Building\+Matrix}} ()
+\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$ \mbox{\hyperlink{building_8h_a0f68a06eac4621cc51e8d54f0fca2612}{create\+Building}} (\mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} type, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window)
+\begin{DoxyCompactList}\small\item\em Créer la structure qui gère les données des bâtiments. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{building_8h_ace35d85db13add18c8d2519c94325a83}{get\+Building\+Gold\+Cost}} (\mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} type)
+\begin{DoxyCompactList}\small\item\em Récupère le prix d\textquotesingle{}un bâtiment. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$ \mbox{\hyperlink{building_8h_aa2c558de4957ec67e94cad0eaeae31f6}{create\+Building\+Matrix}} ()
 \begin{DoxyCompactList}\small\item\em Créer la matrice de bâtiment. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{building_8h_a1c0d73369b416d65650e1bc5149e8c1b}{render\+Building\+Matrix}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building, \mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer)
+void \mbox{\hyperlink{building_8h_a1c0d73369b416d65650e1bc5149e8c1b}{render\+Building\+Matrix}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building, \mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer)
 \begin{DoxyCompactList}\small\item\em Affiche la matrice de bâtiment. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{building_8h_ade2ccc87dc1e502909b9cd2a51b1d0c4}{destroy\+Building}} (\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$building)
+void \mbox{\hyperlink{building_8h_ade2ccc87dc1e502909b9cd2a51b1d0c4}{destroy\+Building}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$building)
 \begin{DoxyCompactList}\small\item\em Détruit la structure de bâtiment. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{building_8h_a457d86207e11d8bb88876eac201006ae}{building\+Takes\+Damages}} (\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$matrix, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$building, int damages)
+int \mbox{\hyperlink{building_8h_a96e27618dd0b85e73774d655efcc5889}{building\+Takes\+Damages}} (\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$building, int damages)
 \begin{DoxyCompactList}\small\item\em Permet de gérer les dégâts subis par un bâtiment. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{building_8h_ae6507dcfe1feba95bf4f847d7d41cfe9}{clear\+Matrix}} (\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix)
+void \mbox{\hyperlink{building_8h_af01b20372e4b3d6b0e39ee518661c54b}{clear\+Building\+Matrix}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix)
 \begin{DoxyCompactList}\small\item\em Permet de détruire tout les bâtiments sur la carte. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{building_8h_aaff28888524861a6a475a09c559328c9}{destroy\+Building\+Matrix}} (\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$$\ast$building\+\_\+matrix)
+void \mbox{\hyperlink{building_8h_aaff28888524861a6a475a09c559328c9}{destroy\+Building\+Matrix}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$$\ast$building\+\_\+matrix)
 \begin{DoxyCompactList}\small\item\em Détruit la matrice de bâtiments. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{building_8h_a86ac7dec748252adb2e378d944655ad9}{add\+Building\+In\+Matrix}} (\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$building)
+void \mbox{\hyperlink{building_8h_a86ac7dec748252adb2e378d944655ad9}{add\+Building\+In\+Matrix}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix, \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$building)
 \begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter un bâtiment sur la carte. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{building_8h_a990186bd0bf609a0c38489843797df02}{remove\+Building\+From\+Matrix}} (\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$building)
+void \mbox{\hyperlink{building_8h_a990186bd0bf609a0c38489843797df02}{remove\+Building\+From\+Matrix}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix, \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$building)
 \begin{DoxyCompactList}\small\item\em Permet de supprimer un bâtiment de la carte. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{building_8h_ae484836162b2b44181583801f583c74d}{update\+Building\+Coord}} (\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$building, SDL\+\_\+\+Point $\ast$position)
-\begin{DoxyCompactList}\small\item\em Permet de mettre à jour la position d\textquotesingle{}un bâtiment. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{building_8h_a46ddb697279e75e0b97d6a4f50696963}{can\+Place\+Building}} (\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$building, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix)
+int \mbox{\hyperlink{building_8h_a1c99253533b55b7c4651d9c8d780ffaa}{can\+Place\+Building}} (\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer, \mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}} type, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix)
 \begin{DoxyCompactList}\small\item\em Permet de vérifier si un bâtiment peut être placé à une position donnée. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$ \mbox{\hyperlink{building_8h_a9f11e7c76ba5786c86a8a6651e158525}{get\+Building}} (\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix, SDL\+\_\+\+Point $\ast$position)
+\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$ \mbox{\hyperlink{building_8h_a7591787cadd9114562fc4f34707d5529}{get\+Nearest\+Building}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix, SDL\+\_\+\+Point $\ast$position, int wall)
+\begin{DoxyCompactList}\small\item\em Récupère le bâtiment le plus proche. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$ \mbox{\hyperlink{building_8h_ad6e7b36622e6d9818707b891e2ba5107}{get\+Building}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix, int x, int y)
 \begin{DoxyCompactList}\small\item\em Récupère le bâtiment à une position donnée. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{building_8h_adbf7d4e3bcae197e5aa059495e7380e3}{building\+Event\+Handler}} (SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, \mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window)
+\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$ \mbox{\hyperlink{building_8h_ae2f78ae1de8c87de7f984d227b4e21f6}{get\+Building\+With\+Point}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix, SDL\+\_\+\+Point $\ast$position)
+\begin{DoxyCompactList}\small\item\em Récupère le bâtiment à une position donnée. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{building_8h_adbf7d4e3bcae197e5aa059495e7380e3}{building\+Event\+Handler}} (SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, \mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window)
 \begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}écoute des événements du système de placement de bâtiment. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -81,7 +85,7 @@ Hôa Le Luet, Lucas Dureau
 \index{building.h@{building.h}!addBuildingInMatrix@{addBuildingInMatrix}}
 \index{addBuildingInMatrix@{addBuildingInMatrix}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{addBuildingInMatrix()}{addBuildingInMatrix()}}
-{\footnotesize\ttfamily void add\+Building\+In\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$}]{building }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void add\+Building\+In\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix,  }\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$}]{building }\end{DoxyParamCaption})}
 
 
 
@@ -98,7 +102,7 @@ Permet d\textquotesingle{}ajouter un bâtiment sur la carte.
 \index{building.h@{building.h}!buildingEventHandler@{buildingEventHandler}}
 \index{buildingEventHandler@{buildingEventHandler}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{buildingEventHandler()}{buildingEventHandler()}}
-{\footnotesize\ttfamily void building\+Event\+Handler (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$}]{building\+\_\+renderer,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void building\+Event\+Handler (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$}]{building\+\_\+renderer,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window }\end{DoxyParamCaption})}
 
 
 
@@ -106,7 +110,7 @@ Fonction d\textquotesingle{}écoute des événements du système de placement de
 
 
 \begin{DoxyParams}{Paramètres}
-{\em event} & un pointeur sur les événements \\
+{\em event} & un pointeur sur les données du jeu \\
 \hline
 {\em game\+\_\+data} & un pointeur sur les données du jeu \\
 \hline
@@ -115,11 +119,11 @@ Fonction d\textquotesingle{}écoute des événements du système de placement de
 {\em window} & un pointeur sur une fenêtre \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{building_8h_a457d86207e11d8bb88876eac201006ae}\label{building_8h_a457d86207e11d8bb88876eac201006ae}} 
+\mbox{\Hypertarget{building_8h_a96e27618dd0b85e73774d655efcc5889}\label{building_8h_a96e27618dd0b85e73774d655efcc5889}} 
 \index{building.h@{building.h}!buildingTakesDamages@{buildingTakesDamages}}
 \index{buildingTakesDamages@{buildingTakesDamages}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{buildingTakesDamages()}{buildingTakesDamages()}}
-{\footnotesize\ttfamily void building\+Takes\+Damages (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{matrix,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$}]{building,  }\item[{int}]{damages }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int building\+Takes\+Damages (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$}]{building,  }\item[{int}]{damages }\end{DoxyParamCaption})}
 
 
 
@@ -127,18 +131,21 @@ Permet de gérer les dégâts subis par un bâtiment.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em matrix} & matrice contenant la totalité des bâtiments placés sur la carte \\
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
 \hline
 {\em building} & un pointeur sur un bâtiment \\
 \hline
 {\em damages} & les dégâts subis par le bâtiment \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{building_8h_a46ddb697279e75e0b97d6a4f50696963}\label{building_8h_a46ddb697279e75e0b97d6a4f50696963}} 
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{building_8h_a1c99253533b55b7c4651d9c8d780ffaa}\label{building_8h_a1c99253533b55b7c4651d9c8d780ffaa}} 
 \index{building.h@{building.h}!canPlaceBuilding@{canPlaceBuilding}}
 \index{canPlaceBuilding@{canPlaceBuilding}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{canPlaceBuilding()}{canPlaceBuilding()}}
-{\footnotesize\ttfamily int can\+Place\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$}]{building\+\_\+renderer,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$}]{building,  }\item[{SDL\+\_\+\+Point $\ast$}]{position,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int can\+Place\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$}]{building\+\_\+renderer,  }\item[{\mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}}}]{type,  }\item[{SDL\+\_\+\+Point $\ast$}]{position,  }\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix }\end{DoxyParamCaption})}
 
 
 
@@ -146,7 +153,9 @@ Permet de vérifier si un bâtiment peut être placé à une position donnée.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em building} & le bâtiment qui doit être placé \\
+{\em building\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des bâtiments \\
+\hline
+{\em type} & le type de bâtiment qui doit être placé \\
 \hline
 {\em position} & la position à vérifier \\
 \hline
@@ -156,11 +165,11 @@ Permet de vérifier si un bâtiment peut être placé à une position donnée.
 \begin{DoxyReturn}{Renvoie}
 retourne 1 si le bâtiment peut être placé, 0 sinon 
 \end{DoxyReturn}
-\mbox{\Hypertarget{building_8h_ae6507dcfe1feba95bf4f847d7d41cfe9}\label{building_8h_ae6507dcfe1feba95bf4f847d7d41cfe9}} 
-\index{building.h@{building.h}!clearMatrix@{clearMatrix}}
-\index{clearMatrix@{clearMatrix}!building.h@{building.h}}
-\doxysubsubsection{\texorpdfstring{clearMatrix()}{clearMatrix()}}
-{\footnotesize\ttfamily void clear\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{building_8h_af01b20372e4b3d6b0e39ee518661c54b}\label{building_8h_af01b20372e4b3d6b0e39ee518661c54b}} 
+\index{building.h@{building.h}!clearBuildingMatrix@{clearBuildingMatrix}}
+\index{clearBuildingMatrix@{clearBuildingMatrix}!building.h@{building.h}}
+\doxysubsubsection{\texorpdfstring{clearBuildingMatrix()}{clearBuildingMatrix()}}
+{\footnotesize\ttfamily void clear\+Building\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix }\end{DoxyParamCaption})}
 
 
 
@@ -175,11 +184,11 @@ Permet de détruire tout les bâtiments sur la carte.
 \index{building.h@{building.h}!createBuilding@{createBuilding}}
 \index{createBuilding@{createBuilding}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{createBuilding()}{createBuilding()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}}$\ast$ create\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}}}]{type,  }\item[{SDL\+\_\+\+Point $\ast$}]{position,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}}$\ast$ create\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}}}]{type,  }\item[{SDL\+\_\+\+Point $\ast$}]{position,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window }\end{DoxyParamCaption})}
 
 
 
-Créer la structure qui gère l\textquotesingle{}affichage des bâtiments. 
+Créer la structure qui gère les données des bâtiments. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -193,7 +202,7 @@ building\+\_\+renderer\+\_\+t$\ast$
 \index{building.h@{building.h}!createBuildingMatrix@{createBuildingMatrix}}
 \index{createBuildingMatrix@{createBuildingMatrix}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{createBuildingMatrix()}{createBuildingMatrix()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}}$\ast$$\ast$$\ast$ create\+Building\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}}$\ast$$\ast$$\ast$ create\+Building\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -206,7 +215,7 @@ retourne un pointeur sur la matrice
 \index{building.h@{building.h}!destroyBuilding@{destroyBuilding}}
 \index{destroyBuilding@{destroyBuilding}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{destroyBuilding()}{destroyBuilding()}}
-{\footnotesize\ttfamily void destroy\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$}]{building }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void destroy\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$}]{building }\end{DoxyParamCaption})}
 
 
 
@@ -221,7 +230,7 @@ Détruit la structure de bâtiment.
 \index{building.h@{building.h}!destroyBuildingMatrix@{destroyBuildingMatrix}}
 \index{destroyBuildingMatrix@{destroyBuildingMatrix}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{destroyBuildingMatrix()}{destroyBuildingMatrix()}}
-{\footnotesize\ttfamily void destroy\+Building\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$$\ast$}]{building\+\_\+matrix }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void destroy\+Building\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$$\ast$}]{building\+\_\+matrix }\end{DoxyParamCaption})}
 
 
 
@@ -232,11 +241,11 @@ Détruit la matrice de bâtiments.
 {\em building\+\_\+matrix} & matrice contenant les bâtiments \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{building_8h_a9f11e7c76ba5786c86a8a6651e158525}\label{building_8h_a9f11e7c76ba5786c86a8a6651e158525}} 
+\mbox{\Hypertarget{building_8h_ad6e7b36622e6d9818707b891e2ba5107}\label{building_8h_ad6e7b36622e6d9818707b891e2ba5107}} 
 \index{building.h@{building.h}!getBuilding@{getBuilding}}
 \index{getBuilding@{getBuilding}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{getBuilding()}{getBuilding()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}}$\ast$ get\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix,  }\item[{SDL\+\_\+\+Point $\ast$}]{position }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}}$\ast$ get\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
 
 
 
@@ -246,17 +255,79 @@ Récupère le bâtiment à une position donnée.
 \begin{DoxyParams}{Paramètres}
 {\em building\+\_\+matrix} & matrice contenant les bâtiments \\
 \hline
-{\em position} & position du bätiment à retourner \\
+{\em x} & position du bâtiment à retourner en x \\
+\hline
+{\em y} & position du bâtiment à retourner en y \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 building\+\_\+t$\ast$ si le bâtiment existe, NULL sinon 
 \end{DoxyReturn}
+\mbox{\Hypertarget{building_8h_ace35d85db13add18c8d2519c94325a83}\label{building_8h_ace35d85db13add18c8d2519c94325a83}} 
+\index{building.h@{building.h}!getBuildingGoldCost@{getBuildingGoldCost}}
+\index{getBuildingGoldCost@{getBuildingGoldCost}!building.h@{building.h}}
+\doxysubsubsection{\texorpdfstring{getBuildingGoldCost()}{getBuildingGoldCost()}}
+{\footnotesize\ttfamily int get\+Building\+Gold\+Cost (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building__renderer_8h_a7c392720e17c5f7fb38aa063550d152c}{building\+\_\+type\+\_\+e}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Récupère le prix d\textquotesingle{}un bâtiment. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em type} & le type de bâtiment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+coût du bâtiment en or 
+\end{DoxyReturn}
+\mbox{\Hypertarget{building_8h_ae2f78ae1de8c87de7f984d227b4e21f6}\label{building_8h_ae2f78ae1de8c87de7f984d227b4e21f6}} 
+\index{building.h@{building.h}!getBuildingWithPoint@{getBuildingWithPoint}}
+\index{getBuildingWithPoint@{getBuildingWithPoint}!building.h@{building.h}}
+\doxysubsubsection{\texorpdfstring{getBuildingWithPoint()}{getBuildingWithPoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}}$\ast$ get\+Building\+With\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix,  }\item[{SDL\+\_\+\+Point $\ast$}]{position }\end{DoxyParamCaption})}
+
+
+
+Récupère le bâtiment à une position donnée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em building\+\_\+matrix} & matrice contenant les bâtiments \\
+\hline
+{\em position} & position du bâtiment à retourner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+building\+\_\+t$\ast$ si le bâtiment existe, NULL sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{building_8h_a7591787cadd9114562fc4f34707d5529}\label{building_8h_a7591787cadd9114562fc4f34707d5529}} 
+\index{building.h@{building.h}!getNearestBuilding@{getNearestBuilding}}
+\index{getNearestBuilding@{getNearestBuilding}!building.h@{building.h}}
+\doxysubsubsection{\texorpdfstring{getNearestBuilding()}{getNearestBuilding()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}}$\ast$ get\+Nearest\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix,  }\item[{SDL\+\_\+\+Point $\ast$}]{position,  }\item[{int}]{wall }\end{DoxyParamCaption})}
+
+
+
+Récupère le bâtiment le plus proche. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em building\+\_\+matrix} & matrice contenant la totalité des bâtiments placés sur la carte \\
+\hline
+{\em position} & position depuis laquel chercher \\
+\hline
+{\em wall} & indique si l\textquotesingle{}on compte les mures ou non \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+building\+\_\+t$\ast$ 
+\end{DoxyReturn}
 \mbox{\Hypertarget{building_8h_a990186bd0bf609a0c38489843797df02}\label{building_8h_a990186bd0bf609a0c38489843797df02}} 
 \index{building.h@{building.h}!removeBuildingFromMatrix@{removeBuildingFromMatrix}}
 \index{removeBuildingFromMatrix@{removeBuildingFromMatrix}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{removeBuildingFromMatrix()}{removeBuildingFromMatrix()}}
-{\footnotesize\ttfamily void remove\+Building\+From\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$}]{building }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void remove\+Building\+From\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix,  }\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$}]{building }\end{DoxyParamCaption})}
 
 
 
@@ -273,7 +344,7 @@ Permet de supprimer un bâtiment de la carte.
 \index{building.h@{building.h}!renderBuildingMatrix@{renderBuildingMatrix}}
 \index{renderBuildingMatrix@{renderBuildingMatrix}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{renderBuildingMatrix()}{renderBuildingMatrix()}}
-{\footnotesize\ttfamily void render\+Building\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building,  }\item[{\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$}]{building\+\_\+renderer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void render\+Building\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building,  }\item[{\mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$}]{building\+\_\+renderer }\end{DoxyParamCaption})}
 
 
 
@@ -285,23 +356,6 @@ Affiche la matrice de bâtiment.
 \hline
 {\em map\+\_\+building} & matrice contenant la totalité des bâtiments placés sur la carte \\
 \hline
-{\em building\+\_\+renderer} & \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{building_8h_ae484836162b2b44181583801f583c74d}\label{building_8h_ae484836162b2b44181583801f583c74d}} 
-\index{building.h@{building.h}!updateBuildingCoord@{updateBuildingCoord}}
-\index{updateBuildingCoord@{updateBuildingCoord}!building.h@{building.h}}
-\doxysubsubsection{\texorpdfstring{updateBuildingCoord()}{updateBuildingCoord()}}
-{\footnotesize\ttfamily void update\+Building\+Coord (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$}]{building,  }\item[{SDL\+\_\+\+Point $\ast$}]{position }\end{DoxyParamCaption})}
-
-
-
-Permet de mettre à jour la position d\textquotesingle{}un bâtiment. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em building} & le bâtiment à mettre à jour \\
-\hline
-{\em position} & la nouvelle position du bâtiment \\
+{\em building\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des bâtiments \\
 \hline
 \end{DoxyParams}

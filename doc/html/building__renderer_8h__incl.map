@@ -1,7 +1,7 @@
-<map id="src/map/building_renderer.h" name="src/map/building_renderer.h">
-<area shape="rect" id="node1" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="17,5,220,32"/>
-<area shape="rect" id="node2" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="50,155,187,181"/>
-<area shape="rect" id="node5" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="107,80,231,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,229,101,256"/>
-<area shape="rect" id="node4" title=" " alt="" coords="125,229,243,256"/>
+<map id="src/building/building_renderer.h" name="src/building/building_renderer.h">
+<area shape="rect" id="node1" title="Implémentation des prototypes de building/building_renderer.c." alt="" coords="42,5,195,47"/>
+<area shape="rect" id="node2" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="50,169,187,196"/>
+<area shape="rect" id="node5" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="99,95,256,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,244,101,271"/>
+<area shape="rect" id="node4" title=" " alt="" coords="125,244,243,271"/>
 </map>
