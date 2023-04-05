@@ -17,7 +17,7 @@ typedef struct character_list_s character_list_t;
 #include "common.h"
 #include "timer/timer.h"
 #include "map/building.h"
-#include "game/character.h"
+#include "character/character.h"
 #include "game_state_enum.h"
 
 /**
