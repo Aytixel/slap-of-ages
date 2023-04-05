@@ -83,9 +83,12 @@ int main(int argc, char *argv[])
     {
       SDL_RenderClear(window->renderer);
 
-      updateAnimation(goblin, GOBLIN_GIANT_ATTACK_ANIM, 100, &goblin_position, window, TRANSFORM_ORIGIN_CENTER);
-      updateAnimation(rat, RAT_IDLE_ANIM, 100, &rat_position, window, TRANSFORM_ORIGIN_CENTER);
-      updateAnimation(green_portal, PORTAL_DESPAWN_ANIM, 50, &portal_position, window, TRANSFORM_ORIGIN_CENTER);
+      changeAnimationState(goblin, GOBLIN_GIANT_ATTACK_ANIM);
+      changeAnimationState(rat, RAT_IDLE_ANIM);
+      changeAnimationState(green_portal, PORTAL_DESPAWN_ANIM);
+      updateAnimation(goblin, 100, &goblin_position, window, TRANSFORM_ORIGIN_CENTER);
+      updateAnimation(rat, 100, &rat_position, window, TRANSFORM_ORIGIN_CENTER);
+      updateAnimation(green_portal, 50, &portal_position, window, TRANSFORM_ORIGIN_CENTER);
 
       SDL_RenderPresent(window->renderer);
     }
