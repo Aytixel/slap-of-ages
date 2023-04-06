@@ -1,0 +1,75 @@
+\hypertarget{structanimation__data__t}{}\doxysection{Référence de la structure animation\+\_\+data\+\_\+t}
+\label{structanimation__data__t}\index{animation\_data\_t@{animation\_data\_t}}
+
+
+Structure contenant les paramètres d\textquotesingle{}une animation.  
+
+
+
+
+{\ttfamily \#include $<$character\+\_\+renderer.\+h$>$}
+
+
+
+Graphe de collaboration de animation\+\_\+data\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{structanimation__data__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{structanimation__data__t_a926fa3dcc402958d9c4e2d809f159f9a}{sprite}}
+\item 
+int \mbox{\hyperlink{structanimation__data__t_a4f1038edb543a52ebf2b7be58a76b682}{fps}}
+\item 
+int \mbox{\hyperlink{structanimation__data__t_a3a826ac273d4f2e926829dfc23ab50c3}{tile\+\_\+size}}
+\item 
+int \mbox{\hyperlink{structanimation__data__t_aea9583e421910718da4ea3333643a39f}{default\+\_\+state}}
+\item 
+int $\ast$ \mbox{\hyperlink{structanimation__data__t_af906b3c7e7185cfc781dd2d55def9056}{state\+\_\+frame\+\_\+count}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure contenant les paramètres d\textquotesingle{}une animation. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structanimation__data__t_aea9583e421910718da4ea3333643a39f}\label{structanimation__data__t_aea9583e421910718da4ea3333643a39f}} 
+\index{animation\_data\_t@{animation\_data\_t}!default\_state@{default\_state}}
+\index{default\_state@{default\_state}!animation\_data\_t@{animation\_data\_t}}
+\doxysubsubsection{\texorpdfstring{default\_state}{default\_state}}
+{\footnotesize\ttfamily int animation\+\_\+data\+\_\+t\+::default\+\_\+state}
+
+état d\textquotesingle{}animation par défaut \mbox{\Hypertarget{structanimation__data__t_a4f1038edb543a52ebf2b7be58a76b682}\label{structanimation__data__t_a4f1038edb543a52ebf2b7be58a76b682}} 
+\index{animation\_data\_t@{animation\_data\_t}!fps@{fps}}
+\index{fps@{fps}!animation\_data\_t@{animation\_data\_t}}
+\doxysubsubsection{\texorpdfstring{fps}{fps}}
+{\footnotesize\ttfamily int animation\+\_\+data\+\_\+t\+::fps}
+
+image par seconde de l\textquotesingle{}animation \mbox{\Hypertarget{structanimation__data__t_a926fa3dcc402958d9c4e2d809f159f9a}\label{structanimation__data__t_a926fa3dcc402958d9c4e2d809f159f9a}} 
+\index{animation\_data\_t@{animation\_data\_t}!sprite@{sprite}}
+\index{sprite@{sprite}!animation\_data\_t@{animation\_data\_t}}
+\doxysubsubsection{\texorpdfstring{sprite}{sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ animation\+\_\+data\+\_\+t\+::sprite}
+
+sprite de l\textquotesingle{}animation \mbox{\Hypertarget{structanimation__data__t_af906b3c7e7185cfc781dd2d55def9056}\label{structanimation__data__t_af906b3c7e7185cfc781dd2d55def9056}} 
+\index{animation\_data\_t@{animation\_data\_t}!state\_frame\_count@{state\_frame\_count}}
+\index{state\_frame\_count@{state\_frame\_count}!animation\_data\_t@{animation\_data\_t}}
+\doxysubsubsection{\texorpdfstring{state\_frame\_count}{state\_frame\_count}}
+{\footnotesize\ttfamily int$\ast$ animation\+\_\+data\+\_\+t\+::state\+\_\+frame\+\_\+count}
+
+tableau contenant le nombre d\textquotesingle{}images par état \mbox{\Hypertarget{structanimation__data__t_a3a826ac273d4f2e926829dfc23ab50c3}\label{structanimation__data__t_a3a826ac273d4f2e926829dfc23ab50c3}} 
+\index{animation\_data\_t@{animation\_data\_t}!tile\_size@{tile\_size}}
+\index{tile\_size@{tile\_size}!animation\_data\_t@{animation\_data\_t}}
+\doxysubsubsection{\texorpdfstring{tile\_size}{tile\_size}}
+{\footnotesize\ttfamily int animation\+\_\+data\+\_\+t\+::tile\+\_\+size}
+
+taille en pixel d\textquotesingle{}une case sur le sprite 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/character/\mbox{\hyperlink{character__renderer_8h}{character\+\_\+renderer.\+h}}\end{DoxyCompactItemize}

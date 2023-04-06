@@ -1,20 +1,11 @@
 var searchData=
 [
-  ['h_5fcost_680',['h_cost',['../structnode__s.html#af8280f143fc45e1d83787fe6555d1d08',1,'node_s']]],
-  ['has_5ffinished_681',['has_finished',['../structplayer__game__state__t.html#ac0aec1bc43cbb28c4dc7c9f1d67503ab',1,'player_game_state_t']]],
-  ['height_682',['height',['../structsprite__t.html#a6718979180f6ac3ffdc44f41f8f75c00',1,'sprite_t::height()'],['../structwindow__t.html#a2e4e3c4402eb7b5f67e7574ec0e8c7bf',1,'window_t::height()']]],
-  ['height_5fscale_5ffactor_683',['height_scale_factor',['../structwindow__t.html#ac12111118cdd3429d412966f16ed6ba8',1,'window_t']]],
-  ['horizontal_5fwall_684',['horizontal_wall',['../structbuilding__sprite__rects__t.html#a006c2e19befe5c96cd5f451877917569',1,'building_sprite_rects_t']]],
-  ['horizontal_5fwall_5fbutton_685',['horizontal_wall_button',['../structbuilding__hud__t.html#a1f5b5b71e3489a76f2ef473cd56c100b',1,'building_hud_t']]],
-  ['hostname_686',['hostname',['../structclient__game__data__s.html#a9f3c8bbd1f3f0c66eded78b6fbb12929',1,'client_game_data_s']]],
-  ['hostname_5flabel_687',['hostname_label',['../structmenu__t.html#a9f70669e349af41cae4f9890a75d9b30',1,'menu_t']]],
-  ['hostname_5frect_688',['hostname_rect',['../structmenu__t.html#afed13f94e200ebbce379776e5e00debd',1,'menu_t']]],
-  ['hostname_5ftextbox_689',['hostname_textbox',['../structmenu__t.html#a893c891895e5c8865985cc139865400d',1,'menu_t']]],
-  ['house_5f1_690',['house_1',['../structbuilding__sprite__rects__t.html#a573b39da692dde1a050bd5dab88171a9',1,'building_sprite_rects_t']]],
-  ['house_5f1_5fbutton_691',['house_1_button',['../structbuilding__hud__t.html#a7bb356f7731cb3f2a71cdaa4a6b8fa36',1,'building_hud_t']]],
-  ['house_5f2_692',['house_2',['../structbuilding__sprite__rects__t.html#a636f5f45421d39f3eb208bd2ba27850a',1,'building_sprite_rects_t']]],
-  ['house_5f2_5fbutton_693',['house_2_button',['../structbuilding__hud__t.html#a120c239ef9b003c5d76997758acf5ec9',1,'building_hud_t']]],
-  ['house_5f3_694',['house_3',['../structbuilding__sprite__rects__t.html#ac37803313823e55b563e62a3994884e9',1,'building_sprite_rects_t']]],
-  ['house_5f3_5fbutton_695',['house_3_button',['../structbuilding__hud__t.html#a47273a1ce19ce5f013e79d29389dcf30',1,'building_hud_t']]],
-  ['hp_696',['hp',['../structbuilding__s.html#ad7984d54055c1353454497999b3b98a9',1,'building_s']]]
+  ['g_5fcost_808',['g_cost',['../structnode__s.html#abaab78f9d1fda4af093e11b158248673',1,'node_s']]],
+  ['game_5fstate_809',['game_state',['../structserver__client__data__s.html#a9341e312c63869dd3fb2a5a442898c57',1,'server_client_data_s::game_state()'],['../structserver__game__state__array__s.html#af52b8bf0f8d56e6f64c790674e2ef346',1,'server_game_state_array_s::game_state()']]],
+  ['giant_810',['giant',['../structcharacter__animations__data__t.html#a37fe8c27b4f5a5abf89f35eb32996de9',1,'character_animations_data_t']]],
+  ['giant_5fanimation_811',['giant_animation',['../structcharacter__hud__t.html#a54c34bb48599bca21e47053d8b2399a4',1,'character_hud_t']]],
+  ['giant_5fbutton_812',['giant_button',['../structcharacter__hud__t.html#a39fda52c1675f553f49d31c1060b1593',1,'character_hud_t']]],
+  ['gold_5fcost_813',['gold_cost',['../structclient__game__data__s.html#a8bbcc157ac51dc32af9e47d7f1ce6d64',1,'client_game_data_s']]],
+  ['gold_5fcount_814',['gold_count',['../structclient__game__data__s.html#a45790e3280969168ff9dc8ef8273c3fd',1,'client_game_data_s']]],
+  ['ground_5fsprite_815',['ground_sprite',['../structmap__renderer__t.html#a793930fec1df3e3c28e61085fabe121f',1,'map_renderer_t']]]
 ];

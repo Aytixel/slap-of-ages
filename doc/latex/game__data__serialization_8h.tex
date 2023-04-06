@@ -1,0 +1,88 @@
+\hypertarget{game__data__serialization_8h}{}\doxysection{Référence du fichier src/client/game\+\_\+data\+\_\+serialization.h}
+\label{game__data__serialization_8h}\index{src/client/game\_data\_serialization.h@{src/client/game\_data\_serialization.h}}
+
+
+Implémentation des prototypes de \mbox{\hyperlink{game__data__serialization_8c}{client/game\+\_\+data\+\_\+serialization.\+c}}.  
+
+
+{\ttfamily \#include \char`\"{}window/window.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}game\+\_\+data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}map\+\_\+data\+\_\+serialization.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de game\+\_\+data\+\_\+serialization.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__data__serialization_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__data__serialization_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{game__data__serialization_8h_a7aa98dc6d46d55bc7ec41a51c4c2f3a6}{serialize\+Game\+Data}} (\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Converti les données du jeu, en données pouvant être stockées et les stockes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game__data__serialization_8h_a7b9128a378de390af3db08cedb89c22e}{deserialize\+Game\+Data}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Reconvertie les données du jeu en structure et en variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des prototypes de \mbox{\hyperlink{game__data__serialization_8c}{client/game\+\_\+data\+\_\+serialization.\+c}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+01/04/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{game__data__serialization_8h_a7b9128a378de390af3db08cedb89c22e}\label{game__data__serialization_8h_a7b9128a378de390af3db08cedb89c22e}} 
+\index{game\_data\_serialization.h@{game\_data\_serialization.h}!deserializeGameData@{deserializeGameData}}
+\index{deserializeGameData@{deserializeGameData}!game\_data\_serialization.h@{game\_data\_serialization.h}}
+\doxysubsubsection{\texorpdfstring{deserializeGameData()}{deserializeGameData()}}
+{\footnotesize\ttfamily int deserialize\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Reconvertie les données du jeu en structure et en variable. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game__data__serialization_8h_a7aa98dc6d46d55bc7ec41a51c4c2f3a6}\label{game__data__serialization_8h_a7aa98dc6d46d55bc7ec41a51c4c2f3a6}} 
+\index{game\_data\_serialization.h@{game\_data\_serialization.h}!serializeGameData@{serializeGameData}}
+\index{serializeGameData@{serializeGameData}!game\_data\_serialization.h@{game\_data\_serialization.h}}
+\doxysubsubsection{\texorpdfstring{serializeGameData()}{serializeGameData()}}
+{\footnotesize\ttfamily int serialize\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Converti les données du jeu, en données pouvant être stockées et les stockes. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} sinon 
+\end{DoxyReturn}

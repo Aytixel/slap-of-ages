@@ -35,7 +35,7 @@ endif
 
 LIB_TARGET_DIR=$(LIB_DIR)
 
-LFLAGS=-L $(LIB_DIR) -Wl,-rpath $(LIB_DIR) -Wl,-rpath ./ -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+LFLAGS=-L $(LIB_DIR) -Wl,-rpath $(LIB_DIR) -Wl,-rpath /lib/x86_64-linux-gnu/ -Wl,-rpath /usr/local/lib/ -Wl,-rpath /usr/lib/ -Wl,-rpath ./ -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
 
 EXE_EXT=
 PATH_SEP=/

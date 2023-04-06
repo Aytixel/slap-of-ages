@@ -1,7 +1,8 @@
 <map id="character_renderer_t" name="character_renderer_t">
-<area shape="rect" id="node1" title="Structure contenant les données pour afficher les personnages." alt="" coords="153,213,311,240"/>
-<area shape="rect" id="node2" href="$structcharacter__sprite__rects__t.html" title="Structure contenant les positions et tailles des sprites des personnages." alt="" coords="5,109,184,136"/>
-<area shape="rect" id="node3" href="$structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="214,5,285,32"/>
-<area shape="rect" id="node4" href="$structmap__renderer__t.html" title="Structure contenant les données de la carte." alt="" coords="297,109,423,136"/>
-<area shape="rect" id="node5" href="$structmap__sprite__rects__t.html" title="Structure contenant les positions et tailles des sprites de la carte." alt="" coords="327,5,473,32"/>
+<area shape="rect" id="node1" title="Structure contenant les données pour afficher les troupes." alt="" coords="79,332,236,359"/>
+<area shape="rect" id="node2" href="$structcharacter__animations__data__t.html" title="Structure contenant les paramètres des animations des troupes." alt="" coords="11,228,173,269"/>
+<area shape="rect" id="node3" href="$structanimation__data__t.html" title="Structure contenant les paramètres d&#39;une animation." alt="" coords="5,109,141,136"/>
+<area shape="rect" id="node4" href="$structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="70,5,141,32"/>
+<area shape="rect" id="node5" href="$structmap__renderer__t.html" title="Structure contenant les données de la carte." alt="" coords="165,109,291,136"/>
+<area shape="rect" id="node6" href="$structmap__sprite__rects__t.html" title="Structure contenant les positions et tailles des sprites de la carte." alt="" coords="196,5,343,32"/>
 </map>

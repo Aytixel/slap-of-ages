@@ -1,3 +1,11 @@
+/**
+ * @file main_client.c
+ * @author Lucas Dureau
+ * @brief Main du client
+ * @version 0.1
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -278,7 +286,7 @@ int main(int argc, char *argv[])
                     checkClientGameTimeout(client, game_data);
                     updateCharacter(game_data);
 
-                    if (game_data->opponent_gold_cost <= 0)
+                    if (game_data->opponent_gold_cost <= 0 || (game_data->elixir_cost >= game_data->elixir_count || game_data->character_list->count == 0))
                         endGame(client, game_data);
                 }
 

@@ -1,0 +1,11 @@
+<map id="src/character/character_renderer.h" name="src/character/character_renderer.h">
+<area shape="rect" id="node1" title="Fonction de gestion de l&#39;affichage des characters." alt="" coords="187,5,357,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,244,101,271"/>
+<area shape="rect" id="node3" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="127,169,265,196"/>
+<area shape="rect" id="node5" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="77,95,235,121"/>
+<area shape="rect" id="node6" href="$timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="488,95,595,121"/>
+<area shape="rect" id="node8" href="$animation_8h.html" title="Animation fonctions." alt="" coords="309,95,464,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="137,244,255,271"/>
+<area shape="rect" id="node7" title=" " alt="" coords="496,169,587,196"/>
+<area shape="rect" id="node9" title=" " alt="" coords="315,169,459,196"/>
+</map>

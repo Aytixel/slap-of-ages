@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Slap of Ages: Référence du fichier src/map/building.c</title>
+<title>Slap of Ages: Référence du fichier src/building/building.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_391513bbec656ad0f0b1433a02685683.html">map</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f716eb1e7b0c0983131a3eb5d1a5373.html">building</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -76,11 +76,9 @@ $(function() {
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;SDL2/SDL.h&gt;</code><br />
-<code>#include &lt;SDL2/SDL_main.h&gt;</code><br />
-<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
-<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="client_2common_8h_source.html">client/common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="game__data__serialization_8h_source.html">client/game_data_serialization.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="timer_8h_source.html">timer/timer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="building_8h_source.html">building.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="building__renderer_8h_source.html">building_renderer.h</a>&quot;</code><br />
@@ -89,68 +87,82 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de building.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="building_8c__incl.png" border="0" usemap="#asrc_2map_2building_8c" alt=""/></div>
-<map name="asrc_2map_2building_8c" id="asrc_2map_2building_8c">
-<area shape="rect" title="Permet la gestion des bâtiments, leur création, leur destruction." alt="" coords="660,5,801,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,72,107"/>
-<area shape="rect" title=" " alt="" coords="97,80,167,107"/>
-<area shape="rect" title=" " alt="" coords="359,379,455,405"/>
-<area shape="rect" title=" " alt="" coords="1024,80,1160,107"/>
-<area shape="rect" title=" " alt="" coords="1184,80,1328,107"/>
-<area shape="rect" title=" " alt="" coords="769,379,887,405"/>
-<area shape="rect" href="client_2common_8h.html" title="Definition globale pour le client." alt="" coords="1352,80,1483,107"/>
-<area shape="rect" href="timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="913,229,1020,256"/>
-<area shape="rect" href="building_8h.html" title=" " alt="" coords="617,80,703,107"/>
-<area shape="rect" href="building__renderer_8h.html" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="337,155,484,181"/>
-<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="338,304,475,331"/>
-<area shape="rect" href="input_8h.html" title="Implémentation des prototypes de window/input.c." alt="" coords="767,229,889,256"/>
-<area shape="rect" title=" " alt="" coords="921,304,1012,331"/>
-<area shape="rect" href="map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="345,229,469,256"/>
-<area shape="rect" href="game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="587,155,733,181"/>
-<area shape="rect" title=" " alt="" coords="493,229,563,256"/>
-<area shape="rect" href="game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="588,229,743,256"/>
+<div class="center"><img src="building_8c__incl.png" border="0" usemap="#asrc_2building_2building_8c" alt=""/></div>
+<map name="asrc_2building_2building_8c" id="asrc_2building_2building_8c">
+<area shape="rect" title="Permet la gestion des bâtiments, leur création, leur destruction." alt="" coords="625,5,789,32"/>
+<area shape="rect" title=" " alt="" coords="5,453,72,480"/>
+<area shape="rect" title=" " alt="" coords="97,453,167,480"/>
+<area shape="rect" title=" " alt="" coords="283,80,351,107"/>
+<area shape="rect" href="client_2common_8h.html" title="Definition globale pour le client." alt="" coords="427,304,557,331"/>
+<area shape="rect" href="game__data__serialization_8h.html" title="Implémentation des prototypes de client/game_data_serialization.c." alt="" coords="892,80,1127,107"/>
+<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="1126,677,1263,704"/>
+<area shape="rect" href="timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="629,453,736,480"/>
+<area shape="rect" href="building_8h.html" title=" " alt="" coords="1050,453,1193,480"/>
+<area shape="rect" href="building__renderer_8h.html" title="Implémentation des prototypes de building/building_renderer.c." alt="" coords="1097,528,1244,555"/>
+<area shape="rect" href="input_8h.html" title="Implémentation des prototypes de window/input.c." alt="" coords="1371,603,1493,629"/>
+<area shape="rect" href="game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="891,229,997,256"/>
+<area shape="rect" href="map__data__serialization_8h.html" title="Implémentation des prototypes de client/map_data_serialization.c." alt="" coords="981,155,1168,181"/>
+<area shape="rect" title=" " alt="" coords="1147,752,1243,779"/>
+<area shape="rect" title=" " alt="" coords="1317,752,1435,779"/>
+<area shape="rect" title=" " alt="" coords="1046,304,1117,331"/>
+<area shape="rect" href="character_8h.html" title="Fonction de gestion des characters." alt="" coords="582,304,741,331"/>
+<area shape="rect" href="game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="867,304,1021,331"/>
+<area shape="rect" title=" " alt="" coords="637,528,728,555"/>
+<area shape="rect" href="map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="981,603,1139,629"/>
+<area shape="rect" href="character__renderer_8h.html" title="Fonction de gestion de l&#39;affichage des characters." alt="" coords="362,379,518,405"/>
+<area shape="rect" href="animation_8h.html" title="Animation fonctions." alt="" coords="299,453,453,480"/>
+<area shape="rect" href="animation__states_8h.html" title="fichier contenant les différents états des animations" alt="" coords="645,379,846,405"/>
+<area shape="rect" href="game_8h.html" title="Fonction divers pour le jeu." alt="" coords="175,379,287,405"/>
+<area shape="rect" title=" " alt="" coords="259,528,403,555"/>
+<area shape="rect" title=" " alt="" coords="192,453,275,480"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a0f68a06eac4621cc51e8d54f0fca2612"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbuilding__s.html">building_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a0f68a06eac4621cc51e8d54f0fca2612">createBuilding</a> (<a class="el" href="building__renderer_8h.html#a7c392720e17c5f7fb38aa063550d152c">building_type_e</a> type, SDL_Point *position, <a class="el" href="structwindow__t.html">window_t</a> *window)</td></tr>
-<tr class="memdesc:a0f68a06eac4621cc51e8d54f0fca2612"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer la structure qui gère l'affichage des bâtiments.  <a href="building_8c.html#a0f68a06eac4621cc51e8d54f0fca2612">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a0f68a06eac4621cc51e8d54f0fca2612"><td class="memItemLeft" align="right" valign="top"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a0f68a06eac4621cc51e8d54f0fca2612">createBuilding</a> (<a class="el" href="building__renderer_8h.html#a7c392720e17c5f7fb38aa063550d152c">building_type_e</a> type, SDL_Point *position, <a class="el" href="structwindow__t.html">window_t</a> *window)</td></tr>
+<tr class="memdesc:a0f68a06eac4621cc51e8d54f0fca2612"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer la structure qui gère les données des bâtiments.  <a href="building_8c.html#a0f68a06eac4621cc51e8d54f0fca2612">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0f68a06eac4621cc51e8d54f0fca2612"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2c558de4957ec67e94cad0eaeae31f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbuilding__s.html">building_t</a> ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#aa2c558de4957ec67e94cad0eaeae31f6">createBuildingMatrix</a> ()</td></tr>
+<tr class="memitem:ace35d85db13add18c8d2519c94325a83"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#ace35d85db13add18c8d2519c94325a83">getBuildingGoldCost</a> (<a class="el" href="building__renderer_8h.html#a7c392720e17c5f7fb38aa063550d152c">building_type_e</a> type)</td></tr>
+<tr class="memdesc:ace35d85db13add18c8d2519c94325a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le prix d'un bâtiment.  <a href="building_8c.html#ace35d85db13add18c8d2519c94325a83">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ace35d85db13add18c8d2519c94325a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2c558de4957ec67e94cad0eaeae31f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#aa2c558de4957ec67e94cad0eaeae31f6">createBuildingMatrix</a> ()</td></tr>
 <tr class="memdesc:aa2c558de4957ec67e94cad0eaeae31f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer la matrice de bâtiment.  <a href="building_8c.html#aa2c558de4957ec67e94cad0eaeae31f6">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aa2c558de4957ec67e94cad0eaeae31f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c0d73369b416d65650e1bc5149e8c1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a1c0d73369b416d65650e1bc5149e8c1b">renderBuildingMatrix</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="structbuilding__s.html">building_t</a> ***map_building, <a class="el" href="structbuilding__renderer__t.html">building_renderer_t</a> *building_renderer)</td></tr>
+<tr class="memitem:a1c0d73369b416d65650e1bc5149e8c1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a1c0d73369b416d65650e1bc5149e8c1b">renderBuildingMatrix</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***map_building, <a class="el" href="structbuilding__renderer__t.html">building_renderer_t</a> *building_renderer)</td></tr>
 <tr class="memdesc:a1c0d73369b416d65650e1bc5149e8c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche la matrice de bâtiment.  <a href="building_8c.html#a1c0d73369b416d65650e1bc5149e8c1b">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a1c0d73369b416d65650e1bc5149e8c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade2ccc87dc1e502909b9cd2a51b1d0c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#ade2ccc87dc1e502909b9cd2a51b1d0c4">destroyBuilding</a> (<a class="el" href="structbuilding__s.html">building_t</a> **building)</td></tr>
+<tr class="memitem:ade2ccc87dc1e502909b9cd2a51b1d0c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#ade2ccc87dc1e502909b9cd2a51b1d0c4">destroyBuilding</a> (<a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> **building)</td></tr>
 <tr class="memdesc:ade2ccc87dc1e502909b9cd2a51b1d0c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la structure de bâtiment.  <a href="building_8c.html#ade2ccc87dc1e502909b9cd2a51b1d0c4">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ade2ccc87dc1e502909b9cd2a51b1d0c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a457d86207e11d8bb88876eac201006ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a457d86207e11d8bb88876eac201006ae">buildingTakesDamages</a> (<a class="el" href="structbuilding__s.html">building_t</a> ***matrix, <a class="el" href="structbuilding__s.html">building_t</a> *building, int damages)</td></tr>
-<tr class="memdesc:a457d86207e11d8bb88876eac201006ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de gérer les dégâts subis par un bâtiment.  <a href="building_8c.html#a457d86207e11d8bb88876eac201006ae">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a457d86207e11d8bb88876eac201006ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6507dcfe1feba95bf4f847d7d41cfe9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#ae6507dcfe1feba95bf4f847d7d41cfe9">clearMatrix</a> (<a class="el" href="structbuilding__s.html">building_t</a> ***building_matrix)</td></tr>
-<tr class="memdesc:ae6507dcfe1feba95bf4f847d7d41cfe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de détruire tout les bâtiments sur la carte.  <a href="building_8c.html#ae6507dcfe1feba95bf4f847d7d41cfe9">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ae6507dcfe1feba95bf4f847d7d41cfe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaff28888524861a6a475a09c559328c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#aaff28888524861a6a475a09c559328c9">destroyBuildingMatrix</a> (<a class="el" href="structbuilding__s.html">building_t</a> ****building_matrix)</td></tr>
+<tr class="memitem:a96e27618dd0b85e73774d655efcc5889"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a96e27618dd0b85e73774d655efcc5889">buildingTakesDamages</a> (<a class="el" href="structclient__game__data__s.html">client_game_data_t</a> *game_data, <a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> *building, int damages)</td></tr>
+<tr class="memdesc:a96e27618dd0b85e73774d655efcc5889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de gérer les dégâts subis par un bâtiment.  <a href="building_8c.html#a96e27618dd0b85e73774d655efcc5889">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a96e27618dd0b85e73774d655efcc5889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af01b20372e4b3d6b0e39ee518661c54b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#af01b20372e4b3d6b0e39ee518661c54b">clearBuildingMatrix</a> (<a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***building_matrix)</td></tr>
+<tr class="memdesc:af01b20372e4b3d6b0e39ee518661c54b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de détruire tout les bâtiments sur la carte.  <a href="building_8c.html#af01b20372e4b3d6b0e39ee518661c54b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af01b20372e4b3d6b0e39ee518661c54b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaff28888524861a6a475a09c559328c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#aaff28888524861a6a475a09c559328c9">destroyBuildingMatrix</a> (<a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ****building_matrix)</td></tr>
 <tr class="memdesc:aaff28888524861a6a475a09c559328c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la matrice de bâtiments.  <a href="building_8c.html#aaff28888524861a6a475a09c559328c9">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aaff28888524861a6a475a09c559328c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86ac7dec748252adb2e378d944655ad9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a86ac7dec748252adb2e378d944655ad9">addBuildingInMatrix</a> (<a class="el" href="structbuilding__s.html">building_t</a> ***building_matrix, <a class="el" href="structbuilding__s.html">building_t</a> *building)</td></tr>
+<tr class="memitem:a86ac7dec748252adb2e378d944655ad9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a86ac7dec748252adb2e378d944655ad9">addBuildingInMatrix</a> (<a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***building_matrix, <a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> *building)</td></tr>
 <tr class="memdesc:a86ac7dec748252adb2e378d944655ad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'ajouter un bâtiment sur la carte.  <a href="building_8c.html#a86ac7dec748252adb2e378d944655ad9">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a86ac7dec748252adb2e378d944655ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a990186bd0bf609a0c38489843797df02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a990186bd0bf609a0c38489843797df02">removeBuildingFromMatrix</a> (<a class="el" href="structbuilding__s.html">building_t</a> ***building_matrix, <a class="el" href="structbuilding__s.html">building_t</a> *building)</td></tr>
+<tr class="memitem:a990186bd0bf609a0c38489843797df02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a990186bd0bf609a0c38489843797df02">removeBuildingFromMatrix</a> (<a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***building_matrix, <a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> *building)</td></tr>
 <tr class="memdesc:a990186bd0bf609a0c38489843797df02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de supprimer un bâtiment de la carte.  <a href="building_8c.html#a990186bd0bf609a0c38489843797df02">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a990186bd0bf609a0c38489843797df02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae484836162b2b44181583801f583c74d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#ae484836162b2b44181583801f583c74d">updateBuildingCoord</a> (<a class="el" href="structbuilding__s.html">building_t</a> *building, SDL_Point *position)</td></tr>
-<tr class="memdesc:ae484836162b2b44181583801f583c74d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de mettre à jour la position d'un bâtiment.  <a href="building_8c.html#ae484836162b2b44181583801f583c74d">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ae484836162b2b44181583801f583c74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46ddb697279e75e0b97d6a4f50696963"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a46ddb697279e75e0b97d6a4f50696963">canPlaceBuilding</a> (<a class="el" href="structbuilding__renderer__t.html">building_renderer_t</a> *building_renderer, <a class="el" href="structbuilding__s.html">building_t</a> *building, SDL_Point *position, <a class="el" href="structbuilding__s.html">building_t</a> ***building_matrix)</td></tr>
-<tr class="memdesc:a46ddb697279e75e0b97d6a4f50696963"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de vérifier si un bâtiment peut être placé à une position donnée.  <a href="building_8c.html#a46ddb697279e75e0b97d6a4f50696963">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a46ddb697279e75e0b97d6a4f50696963"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f11e7c76ba5786c86a8a6651e158525"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbuilding__s.html">building_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a9f11e7c76ba5786c86a8a6651e158525">getBuilding</a> (<a class="el" href="structbuilding__s.html">building_t</a> ***building_matrix, SDL_Point *position)</td></tr>
-<tr class="memdesc:a9f11e7c76ba5786c86a8a6651e158525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le bâtiment à une position donnée.  <a href="building_8c.html#a9f11e7c76ba5786c86a8a6651e158525">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a9f11e7c76ba5786c86a8a6651e158525"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbf7d4e3bcae197e5aa059495e7380e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#adbf7d4e3bcae197e5aa059495e7380e3">buildingEventHandler</a> (SDL_Event *event, <a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *game_data, <a class="el" href="structbuilding__renderer__t.html">building_renderer_t</a> *building_renderer, <a class="el" href="structwindow__t.html">window_t</a> *window)</td></tr>
+<tr class="memitem:a1c99253533b55b7c4651d9c8d780ffaa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a1c99253533b55b7c4651d9c8d780ffaa">canPlaceBuilding</a> (<a class="el" href="structbuilding__renderer__t.html">building_renderer_t</a> *building_renderer, <a class="el" href="building__renderer_8h.html#a7c392720e17c5f7fb38aa063550d152c">building_type_e</a> type, SDL_Point *position, <a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***building_matrix)</td></tr>
+<tr class="memdesc:a1c99253533b55b7c4651d9c8d780ffaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de vérifier si un bâtiment peut être placé à une position donnée.  <a href="building_8c.html#a1c99253533b55b7c4651d9c8d780ffaa">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1c99253533b55b7c4651d9c8d780ffaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7591787cadd9114562fc4f34707d5529"><td class="memItemLeft" align="right" valign="top"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#a7591787cadd9114562fc4f34707d5529">getNearestBuilding</a> (<a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***building_matrix, SDL_Point *position, int wall)</td></tr>
+<tr class="memdesc:a7591787cadd9114562fc4f34707d5529"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le bâtiment le plus proche.  <a href="building_8c.html#a7591787cadd9114562fc4f34707d5529">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7591787cadd9114562fc4f34707d5529"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e7b36622e6d9818707b891e2ba5107"><td class="memItemLeft" align="right" valign="top"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#ad6e7b36622e6d9818707b891e2ba5107">getBuilding</a> (<a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***building_matrix, int x, int y)</td></tr>
+<tr class="memdesc:ad6e7b36622e6d9818707b891e2ba5107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le bâtiment à une position donnée.  <a href="building_8c.html#ad6e7b36622e6d9818707b891e2ba5107">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad6e7b36622e6d9818707b891e2ba5107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2f78ae1de8c87de7f984d227b4e21f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#ae2f78ae1de8c87de7f984d227b4e21f6">getBuildingWithPoint</a> (<a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***building_matrix, SDL_Point *position)</td></tr>
+<tr class="memdesc:ae2f78ae1de8c87de7f984d227b4e21f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le bâtiment à une position donnée.  <a href="building_8c.html#ae2f78ae1de8c87de7f984d227b4e21f6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae2f78ae1de8c87de7f984d227b4e21f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbf7d4e3bcae197e5aa059495e7380e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building_8c.html#adbf7d4e3bcae197e5aa059495e7380e3">buildingEventHandler</a> (SDL_Event *event, <a class="el" href="structclient__game__data__s.html">client_game_data_t</a> *game_data, <a class="el" href="structbuilding__renderer__t.html">building_renderer_t</a> *building_renderer, <a class="el" href="structwindow__t.html">window_t</a> *window)</td></tr>
 <tr class="memdesc:adbf7d4e3bcae197e5aa059495e7380e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'écoute des événements du système de placement de bâtiment.  <a href="building_8c.html#adbf7d4e3bcae197e5aa059495e7380e3">Plus de détails...</a><br /></td></tr>
 <tr class="separator:adbf7d4e3bcae197e5aa059495e7380e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -169,13 +181,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void addBuildingInMatrix </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> ***&#160;</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***&#160;</td>
           <td class="paramname"><em>building_matrix</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> *&#160;</td>
           <td class="paramname"><em>building</em>&#160;</td>
         </tr>
         <tr>
@@ -212,7 +224,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="game__data_8h.html#a4fd536f2307112372f84ce77d4dd58ae">client_game_data_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structclient__game__data__s.html">client_game_data_t</a> *&#160;</td>
           <td class="paramname"><em>game_data</em>, </td>
         </tr>
         <tr>
@@ -238,7 +250,7 @@ Fonctions</h2></td></tr>
 <p>Fonction d'écoute des événements du système de placement de bâtiment. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">event</td><td>un pointeur sur les événements </td></tr>
+    <tr><td class="paramname">event</td><td>un pointeur sur les données du jeu </td></tr>
     <tr><td class="paramname">game_data</td><td>un pointeur sur les données du jeu </td></tr>
     <tr><td class="paramname">building_renderer</td><td>un pointeur sur la structure qui gère l'affichage des bâtiments </td></tr>
     <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
@@ -248,22 +260,22 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a457d86207e11d8bb88876eac201006ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a457d86207e11d8bb88876eac201006ae">&#9670;&nbsp;</a></span>buildingTakesDamages()</h2>
+<a id="a96e27618dd0b85e73774d655efcc5889"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96e27618dd0b85e73774d655efcc5889">&#9670;&nbsp;</a></span>buildingTakesDamages()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void buildingTakesDamages </td>
+          <td class="memname">int buildingTakesDamages </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> ***&#160;</td>
-          <td class="paramname"><em>matrix</em>, </td>
+          <td class="paramtype"><a class="el" href="structclient__game__data__s.html">client_game_data_t</a> *&#160;</td>
+          <td class="paramname"><em>game_data</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> *&#160;</td>
           <td class="paramname"><em>building</em>, </td>
         </tr>
         <tr>
@@ -283,17 +295,18 @@ Fonctions</h2></td></tr>
 <p>Permet de gérer les dégâts subis par un bâtiment. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">matrix</td><td>matrice contenant la totalité des bâtiments placés sur la carte </td></tr>
+    <tr><td class="paramname">game_data</td><td>un pointeur sur les données du jeu </td></tr>
     <tr><td class="paramname">building</td><td>un pointeur sur un bâtiment </td></tr>
     <tr><td class="paramname">damages</td><td>les dégâts subis par le bâtiment </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
 
 </div>
 </div>
-<a id="a46ddb697279e75e0b97d6a4f50696963"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46ddb697279e75e0b97d6a4f50696963">&#9670;&nbsp;</a></span>canPlaceBuilding()</h2>
+<a id="a1c99253533b55b7c4651d9c8d780ffaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c99253533b55b7c4651d9c8d780ffaa">&#9670;&nbsp;</a></span>canPlaceBuilding()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,8 +320,8 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> *&#160;</td>
-          <td class="paramname"><em>building</em>, </td>
+          <td class="paramtype"><a class="el" href="building__renderer_8h.html#a7c392720e17c5f7fb38aa063550d152c">building_type_e</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -319,7 +332,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> ***&#160;</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***&#160;</td>
           <td class="paramname"><em>building_matrix</em>&#160;</td>
         </tr>
         <tr>
@@ -333,7 +346,8 @@ Fonctions</h2></td></tr>
 <p>Permet de vérifier si un bâtiment peut être placé à une position donnée. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">building</td><td>le bâtiment qui doit être placé </td></tr>
+    <tr><td class="paramname">building_renderer</td><td>un pointeur sur la structure qui gère l'affichage des bâtiments </td></tr>
+    <tr><td class="paramname">type</td><td>le type de bâtiment qui doit être placé </td></tr>
     <tr><td class="paramname">position</td><td>la position à vérifier </td></tr>
     <tr><td class="paramname">building_matrix</td><td>matrice contenant la totalité des bâtiments placés sur la carte </td></tr>
   </table>
@@ -343,16 +357,16 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae6507dcfe1feba95bf4f847d7d41cfe9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6507dcfe1feba95bf4f847d7d41cfe9">&#9670;&nbsp;</a></span>clearMatrix()</h2>
+<a id="af01b20372e4b3d6b0e39ee518661c54b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af01b20372e4b3d6b0e39ee518661c54b">&#9670;&nbsp;</a></span>clearBuildingMatrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void clearMatrix </td>
+          <td class="memname">void clearBuildingMatrix </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> ***&#160;</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***&#160;</td>
           <td class="paramname"><em>building_matrix</em></td><td>)</td>
           <td></td>
         </tr>
@@ -376,7 +390,7 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structbuilding__s.html">building_t</a>* createBuilding </td>
+          <td class="memname"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a>* createBuilding </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="building__renderer_8h.html#a7c392720e17c5f7fb38aa063550d152c">building_type_e</a>&#160;</td>
           <td class="paramname"><em>type</em>, </td>
@@ -401,7 +415,7 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Créer la structure qui gère l'affichage des bâtiments. </p>
+<p>Créer la structure qui gère les données des bâtiments. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
@@ -419,7 +433,7 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structbuilding__s.html">building_t</a>*** createBuildingMatrix </td>
+          <td class="memname"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a>*** createBuildingMatrix </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -441,7 +455,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void destroyBuilding </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> **&#160;</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> **&#160;</td>
           <td class="paramname"><em>building</em></td><td>)</td>
           <td></td>
         </tr>
@@ -467,7 +481,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void destroyBuildingMatrix </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> ****&#160;</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ****&#160;</td>
           <td class="paramname"><em>building_matrix</em></td><td>)</td>
           <td></td>
         </tr>
@@ -484,16 +498,88 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9f11e7c76ba5786c86a8a6651e158525"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f11e7c76ba5786c86a8a6651e158525">&#9670;&nbsp;</a></span>getBuilding()</h2>
+<a id="ad6e7b36622e6d9818707b891e2ba5107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6e7b36622e6d9818707b891e2ba5107">&#9670;&nbsp;</a></span>getBuilding()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structbuilding__s.html">building_t</a>* getBuilding </td>
+          <td class="memname"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a>* getBuilding </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> ***&#160;</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***&#160;</td>
+          <td class="paramname"><em>building_matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère le bâtiment à une position donnée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">building_matrix</td><td>matrice contenant les bâtiments </td></tr>
+    <tr><td class="paramname">x</td><td>position du bâtiment à retourner en x </td></tr>
+    <tr><td class="paramname">y</td><td>position du bâtiment à retourner en y </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>building_t* si le bâtiment existe, NULL sinon </dd></dl>
+
+</div>
+</div>
+<a id="ace35d85db13add18c8d2519c94325a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace35d85db13add18c8d2519c94325a83">&#9670;&nbsp;</a></span>getBuildingGoldCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getBuildingGoldCost </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="building__renderer_8h.html#a7c392720e17c5f7fb38aa063550d152c">building_type_e</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère le prix d'un bâtiment. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>le type de bâtiment </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>coût du bâtiment en or </dd></dl>
+
+</div>
+</div>
+<a id="ae2f78ae1de8c87de7f984d227b4e21f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2f78ae1de8c87de7f984d227b4e21f6">&#9670;&nbsp;</a></span>getBuildingWithPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a>* getBuildingWithPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***&#160;</td>
           <td class="paramname"><em>building_matrix</em>, </td>
         </tr>
         <tr>
@@ -514,11 +600,56 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">building_matrix</td><td>matrice contenant les bâtiments </td></tr>
-    <tr><td class="paramname">position</td><td>position du bätiment à retourner </td></tr>
+    <tr><td class="paramname">position</td><td>position du bâtiment à retourner </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>building_t* si le bâtiment existe, NULL sinon </dd></dl>
+
+</div>
+</div>
+<a id="a7591787cadd9114562fc4f34707d5529"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7591787cadd9114562fc4f34707d5529">&#9670;&nbsp;</a></span>getNearestBuilding()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a>* getNearestBuilding </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***&#160;</td>
+          <td class="paramname"><em>building_matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Point *&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>wall</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère le bâtiment le plus proche. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">building_matrix</td><td>matrice contenant la totalité des bâtiments placés sur la carte </td></tr>
+    <tr><td class="paramname">position</td><td>position depuis laquel chercher </td></tr>
+    <tr><td class="paramname">wall</td><td>indique si l'on compte les mures ou non </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>building_t* </dd></dl>
 
 </div>
 </div>
@@ -531,13 +662,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void removeBuildingFromMatrix </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> ***&#160;</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***&#160;</td>
           <td class="paramname"><em>building_matrix</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> *&#160;</td>
           <td class="paramname"><em>building</em>&#160;</td>
         </tr>
         <tr>
@@ -574,7 +705,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> ***&#160;</td>
+          <td class="paramtype"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***&#160;</td>
           <td class="paramname"><em>map_building</em>, </td>
         </tr>
         <tr>
@@ -596,44 +727,7 @@ Fonctions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">window</td><td>un pointeur sur une fenêtre </td></tr>
     <tr><td class="paramname">map_building</td><td>matrice contenant la totalité des bâtiments placés sur la carte </td></tr>
-    <tr><td class="paramname">building_renderer</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ae484836162b2b44181583801f583c74d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae484836162b2b44181583801f583c74d">&#9670;&nbsp;</a></span>updateBuildingCoord()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void updateBuildingCoord </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structbuilding__s.html">building_t</a> *&#160;</td>
-          <td class="paramname"><em>building</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SDL_Point *&#160;</td>
-          <td class="paramname"><em>position</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Permet de mettre à jour la position d'un bâtiment. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">building</td><td>le bâtiment à mettre à jour </td></tr>
-    <tr><td class="paramname">position</td><td>la nouvelle position du bâtiment </td></tr>
+    <tr><td class="paramname">building_renderer</td><td>un pointeur sur la structure qui gère l'affichage des bâtiments </td></tr>
   </table>
   </dd>
 </dl>

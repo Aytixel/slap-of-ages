@@ -1,15 +1,9 @@
 var searchData=
 [
-  ['packet_5fbuffer_726',['packet_buffer',['../structclient__t.html#a86845384b7035f326951f6af8e2b829c',1,'client_t::packet_buffer()'],['../structserver__client__t.html#a84c1d44e081636e53c69b37e119add16',1,'server_client_t::packet_buffer()']]],
-  ['parent_727',['parent',['../structnode__s.html#a5cef87b7c05a552d265f92cae292caac',1,'node_s']]],
-  ['player_728',['player',['../structserver__game__state__s.html#aa7bfee31a3f1f81cf9cdaf0fd93ea94f',1,'server_game_state_s']]],
-  ['port_729',['port',['../structclient__game__data__s.html#aa24e6a9eb5976f5b290e2e08e6a18c58',1,'client_game_data_s']]],
-  ['port_5flabel_730',['port_label',['../structmenu__t.html#a033178a58b226a1c8144347933726ed9',1,'menu_t']]],
-  ['port_5frect_731',['port_rect',['../structmenu__t.html#a1d28e8c3eab5320453be98c62f04c7e7',1,'menu_t']]],
-  ['port_5ftextbox_732',['port_textbox',['../structmenu__t.html#a67d1f2a8aec3cdee633ea83eb52e53c8',1,'menu_t']]],
-  ['position_733',['position',['../structnode__s.html#ab4fab5d7fb28e4677ad7f2511244602f',1,'node_s::position()'],['../structbuilding__s.html#a9c58f6af85369aebf11e2895c5fe3265',1,'building_s::position()']]],
-  ['pseudo_734',['pseudo',['../structclient__game__data__s.html#a779d64ed08c3f51b66602b65a2e7916f',1,'client_game_data_s::pseudo()'],['../structserver__client__data__s.html#ae12668052dac414bb1d8eb79442275a9',1,'server_client_data_s::pseudo()']]],
-  ['pseudo_5flabel_735',['pseudo_label',['../structmenu__t.html#ad9764036f9e539ca700673e72f4f5873',1,'menu_t']]],
-  ['pseudo_5frect_736',['pseudo_rect',['../structmenu__t.html#a4f59e26f2c1f43fbd214dba39a6d5161',1,'menu_t']]],
-  ['pseudo_5ftextbox_737',['pseudo_textbox',['../structmenu__t.html#ac43024e6bc3a106071e9b589de4c0f54',1,'menu_t']]]
+  ['offset_5ffrom_5fcenter_858',['offset_from_center',['../structmap__renderer__t.html#a35308b6a65cf850931b7029165f7b52a',1,'map_renderer_t']]],
+  ['opponent_5fgold_5fcost_859',['opponent_gold_cost',['../structclient__game__data__s.html#a0d7b1c114172b5dd93d3b368c5d369d8',1,'client_game_data_s']]],
+  ['opponent_5fmap_5fbuilding_860',['opponent_map_building',['../structclient__game__data__s.html#a6597f7d0867b6b80749e6876948a7fd6',1,'client_game_data_s']]],
+  ['opponent_5fpseudo_861',['opponent_pseudo',['../structclient__game__data__s.html#a9a1b0847c4fd2986e183bc1e7618d4d7',1,'client_game_data_s']]],
+  ['original_5fheight_862',['original_height',['../structwindow__t.html#af419e71ace36f95a7b05ccbb1260e86f',1,'window_t']]],
+  ['original_5fwidth_863',['original_width',['../structwindow__t.html#a9574ec92b7f64f8b5e44fd7056880e0e',1,'window_t']]]
 ];

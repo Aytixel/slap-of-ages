@@ -78,9 +78,14 @@ Graphe de collaboration de client_game_data_s:</div>
 <div class="dyncontent">
 <div class="center"><img src="structclient__game__data__s__coll__graph.png" border="0" usemap="#aclient__game__data__s_coll__map" alt="Collaboration graph"/></div>
 <map name="aclient__game__data__s_coll__map" id="aclient__game__data__s_coll__map">
-<area shape="rect" title="Structure de données contenant les données du jeu." alt="" coords="67,109,219,136"/>
-<area shape="rect" href="structbuilding__s.html" title="Structure contenant les données des bâtiments." alt="" coords="5,5,93,32"/>
-<area shape="rect" href="structframe__timer__t.html" title="Timer permettant l&#39;éxécution de code à intervalle régulier." alt="" coords="180,5,295,32"/>
+<area shape="rect" title="Structure de données contenant les données du jeu." alt="" coords="143,377,295,404"/>
+<area shape="rect" href="structcharacter__list__s.html" title="Structure de liste pour les troupes." alt="" coords="157,288,281,315"/>
+<area shape="rect" href="structcharacter__s.html" title="Structure contenant les données d&#39;une troupe." alt="" coords="170,184,267,211"/>
+<area shape="rect" href="structbuilding__s.html" title="Structure contenant les données des bâtiments." alt="" coords="5,95,93,121"/>
+<area shape="rect" href="structnode__s.html" title="Structure de noeud." alt="" coords="291,95,359,121"/>
+<area shape="rect" href="structanimation__t.html" title=" " alt="" coords="167,95,267,121"/>
+<area shape="rect" href="structframe__timer__t.html" title="Timer permettant l&#39;éxécution de code à intervalle régulier." alt="" coords="329,5,444,32"/>
+<area shape="rect" href="structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="182,5,253,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center></div>
 <table class="memberdecls">
@@ -88,20 +93,28 @@ Graphe de collaboration de client_game_data_s:</div>
 Attributs publics</h2></td></tr>
 <tr class="memitem:acd0137d5a8ba5830e00cd5ffff76cc8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="game__state__enum_8h.html#a5f4e5be92f57f9c4a2b5ba9ccb240c8a">client_game_state_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#acd0137d5a8ba5830e00cd5ffff76cc8c">state</a></td></tr>
 <tr class="separator:acd0137d5a8ba5830e00cd5ffff76cc8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f3c8bbd1f3f0c66eded78b6fbb12929"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a9f3c8bbd1f3f0c66eded78b6fbb12929">hostname</a> [1024]</td></tr>
-<tr class="separator:a9f3c8bbd1f3f0c66eded78b6fbb12929"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81ec00d960e1087c84b543ac17486f87"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a81ec00d960e1087c84b543ac17486f87">hostname</a> [HOSTNAME_SIZE]</td></tr>
+<tr class="separator:a81ec00d960e1087c84b543ac17486f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa24e6a9eb5976f5b290e2e08e6a18c58"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#aa24e6a9eb5976f5b290e2e08e6a18c58">port</a></td></tr>
 <tr class="separator:aa24e6a9eb5976f5b290e2e08e6a18c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a779d64ed08c3f51b66602b65a2e7916f"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a779d64ed08c3f51b66602b65a2e7916f">pseudo</a> [64]</td></tr>
-<tr class="separator:a779d64ed08c3f51b66602b65a2e7916f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab634d4a9e0de62041d4e21bf102344f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbuilding__s.html">building_t</a> ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#ab634d4a9e0de62041d4e21bf102344f7">map_building</a></td></tr>
+<tr class="memitem:a2e52931a80e06ce82b9f1a27b5a53b19"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a2e52931a80e06ce82b9f1a27b5a53b19">pseudo</a> [PSEUDO_SIZE]</td></tr>
+<tr class="separator:a2e52931a80e06ce82b9f1a27b5a53b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab634d4a9e0de62041d4e21bf102344f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#ab634d4a9e0de62041d4e21bf102344f7">map_building</a></td></tr>
 <tr class="separator:ab634d4a9e0de62041d4e21bf102344f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab95472c4b421ca2de37ef69fb224a376"><td class="memItemLeft" align="right" valign="top"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#ab95472c4b421ca2de37ef69fb224a376">character_list</a></td></tr>
+<tr class="separator:ab95472c4b421ca2de37ef69fb224a376"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e64a4e8804a0a643890039a3cda10d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="building__renderer_8h.html#a7c392720e17c5f7fb38aa063550d152c">building_type_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a6e64a4e8804a0a643890039a3cda10d3">selected_building_type</a></td></tr>
 <tr class="separator:a6e64a4e8804a0a643890039a3cda10d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97f5d425937746b68708a0e230a608b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="character__renderer_8h.html#a22f15df25fed28059bbcdfa161f843e1">character_type_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a97f5d425937746b68708a0e230a608b1">selected_character_type</a></td></tr>
+<tr class="separator:a97f5d425937746b68708a0e230a608b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45790e3280969168ff9dc8ef8273c3fd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a45790e3280969168ff9dc8ef8273c3fd">gold_count</a></td></tr>
 <tr class="separator:a45790e3280969168ff9dc8ef8273c3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bbcc157ac51dc32af9e47d7f1ce6d64"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a8bbcc157ac51dc32af9e47d7f1ce6d64">gold_cost</a></td></tr>
 <tr class="separator:a8bbcc157ac51dc32af9e47d7f1ce6d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45075142d2a124cc8039bc205d5c52c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a45075142d2a124cc8039bc205d5c52c7">elixir_count</a></td></tr>
+<tr class="separator:a45075142d2a124cc8039bc205d5c52c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f0bb2202df1a4dc65b7d356cd391e00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a2f0bb2202df1a4dc65b7d356cd391e00">elixir_cost</a></td></tr>
+<tr class="separator:a2f0bb2202df1a4dc65b7d356cd391e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a499e2d491796d1ba806d50b6288b45b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a499e2d491796d1ba806d50b6288b45b5">win_count</a></td></tr>
 <tr class="separator:a499e2d491796d1ba806d50b6288b45b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abeffe4849ee2b5bb3f8057b592475d99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structframe__timer__t.html">frame_timer_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#abeffe4849ee2b5bb3f8057b592475d99">timer</a></td></tr>
@@ -112,12 +125,57 @@ Attributs publics</h2></td></tr>
 <tr class="separator:aee20462e364861f1a381cef49ea00a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d7b1c114172b5dd93d3b368c5d369d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a0d7b1c114172b5dd93d3b368c5d369d8">opponent_gold_cost</a></td></tr>
 <tr class="separator:a0d7b1c114172b5dd93d3b368c5d369d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6597f7d0867b6b80749e6876948a7fd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbuilding__s.html">building_t</a> ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a6597f7d0867b6b80749e6876948a7fd6">opponent_map_building</a></td></tr>
+<tr class="memitem:a6597f7d0867b6b80749e6876948a7fd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a> ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclient__game__data__s.html#a6597f7d0867b6b80749e6876948a7fd6">opponent_map_building</a></td></tr>
 <tr class="separator:a6597f7d0867b6b80749e6876948a7fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Structure de données contenant les données du jeu. </p>
 </div><h2 class="groupheader">Documentation des données membres</h2>
+<a id="ab95472c4b421ca2de37ef69fb224a376"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab95472c4b421ca2de37ef69fb224a376">&#9670;&nbsp;</a></span>character_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a>* client_game_data_s::character_list</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>liste contenant la totalité des troupes </p>
+
+</div>
+</div>
+<a id="a2f0bb2202df1a4dc65b7d356cd391e00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f0bb2202df1a4dc65b7d356cd391e00">&#9670;&nbsp;</a></span>elixir_cost</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int client_game_data_s::elixir_cost</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>nombre d'élixir que coûte les troupes </p>
+
+</div>
+</div>
+<a id="a45075142d2a124cc8039bc205d5c52c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45075142d2a124cc8039bc205d5c52c7">&#9670;&nbsp;</a></span>elixir_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int client_game_data_s::elixir_count</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>nombre d'élixir en la possession du joueur </p>
+
+</div>
+</div>
 <a id="a8bbcc157ac51dc32af9e47d7f1ce6d64"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8bbcc157ac51dc32af9e47d7f1ce6d64">&#9670;&nbsp;</a></span>gold_cost</h2>
 
@@ -148,14 +206,14 @@ Attributs publics</h2></td></tr>
 
 </div>
 </div>
-<a id="a9f3c8bbd1f3f0c66eded78b6fbb12929"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f3c8bbd1f3f0c66eded78b6fbb12929">&#9670;&nbsp;</a></span>hostname</h2>
+<a id="a81ec00d960e1087c84b543ac17486f87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81ec00d960e1087c84b543ac17486f87">&#9670;&nbsp;</a></span>hostname</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char client_game_data_s::hostname[1024]</td>
+          <td class="memname">char client_game_data_s::hostname[HOSTNAME_SIZE]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -185,7 +243,7 @@ Attributs publics</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structbuilding__s.html">building_t</a>*** client_game_data_s::map_building</td>
+          <td class="memname"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a>*** client_game_data_s::map_building</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -215,7 +273,7 @@ Attributs publics</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structbuilding__s.html">building_t</a>*** client_game_data_s::opponent_map_building</td>
+          <td class="memname"><a class="el" href="building_8h.html#aee655befad3b1afa60c5fdd49663ae66">building_t</a>*** client_game_data_s::opponent_map_building</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -253,14 +311,14 @@ Attributs publics</h2></td></tr>
 
 </div>
 </div>
-<a id="a779d64ed08c3f51b66602b65a2e7916f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a779d64ed08c3f51b66602b65a2e7916f">&#9670;&nbsp;</a></span>pseudo</h2>
+<a id="a2e52931a80e06ce82b9f1a27b5a53b19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e52931a80e06ce82b9f1a27b5a53b19">&#9670;&nbsp;</a></span>pseudo</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char client_game_data_s::pseudo[64]</td>
+          <td class="memname">char client_game_data_s::pseudo[PSEUDO_SIZE]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -280,6 +338,21 @@ Attributs publics</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>type de bâtiment sélectionner </p>
+
+</div>
+</div>
+<a id="a97f5d425937746b68708a0e230a608b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97f5d425937746b68708a0e230a608b1">&#9670;&nbsp;</a></span>selected_character_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="character__renderer_8h.html#a22f15df25fed28059bbcdfa161f843e1">character_type_e</a> client_game_data_s::selected_character_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>type de troupe sélectionner </p>
 
 </div>
 </div>

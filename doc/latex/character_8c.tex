@@ -1,0 +1,392 @@
+\hypertarget{character_8c}{}\doxysection{Référence du fichier src/character/character.c}
+\label{character_8c}\index{src/character/character.c@{src/character/character.c}}
+
+
+Permet de gérer les troupes.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}client/common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}timer/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}window/animation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}window/animation\+\_\+states.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}character.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}window/window.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}window/input.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de character.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$ \mbox{\hyperlink{character_8c_adab35f96855d46ab25dca3cbf26ca46a}{create\+Character}} (\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer, \mbox{\hyperlink{character__renderer_8h_a22f15df25fed28059bbcdfa161f843e1}{character\+\_\+type\+\_\+e}} type, SDL\+\_\+\+Point $\ast$position, int is\+\_\+defender)
+\begin{DoxyCompactList}\small\item\em Créer la structure qui gère les données d\textquotesingle{}une troupes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{character_8c_afe1da29700ebdb9049a886e99afc4417}{get\+Character\+Elixir\+Cost}} (\mbox{\hyperlink{character__renderer_8h_a22f15df25fed28059bbcdfa161f843e1}{character\+\_\+type\+\_\+e}} type)
+\begin{DoxyCompactList}\small\item\em Récupère le coût d\textquotesingle{}une troupe. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$ \mbox{\hyperlink{character_8c_a4ccf4d01a1f66a61b652c610b102079f}{create\+Character\+List}} ()
+\begin{DoxyCompactList}\small\item\em Créer la liste de troupe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character_8c_a32b734447964102fbaeac8653c7412dd}{render\+Character\+List}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$character\+\_\+list, \mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em Affiche la liste de troupe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character_8c_a745967f11b91975cf43e3284412c1517}{destroy\+Character}} (\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$$\ast$character)
+\begin{DoxyCompactList}\small\item\em Détruit la structure de troupe. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{character_8c_a82cbcb289eb1acb7416932e62c79431b}{character\+Takes\+Damages}} (\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$character, int damages)
+\begin{DoxyCompactList}\small\item\em Permet de gérer les dégâts subis par une troupe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character_8c_aa0a4ccb8291cee00c6b5eb498cb0c391}{clear\+Character\+List}} (\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$character\+\_\+list)
+\begin{DoxyCompactList}\small\item\em Permet de détruire toute les troupes sur la carte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character_8c_a2df6088cabec913a5120e706669e2209}{destroy\+Character\+List}} (\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$$\ast$character\+\_\+list)
+\begin{DoxyCompactList}\small\item\em Détruit la liste de troupe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character_8c_a260970ac631785c60a2780336ebf1166}{add\+Character\+In\+List}} (\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$character\+\_\+list, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$character)
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter une troupe sur la carte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character_8c_a62fbf2baf352322ba4fcba62b4379b3e}{remove\+Character\+From\+List}} (\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$character\+\_\+list, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$character)
+\begin{DoxyCompactList}\small\item\em Permet de supprimer une troupe de la carte. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{character_8c_afd13a3794ada982357e26fef59a2908b}{can\+Place\+Character}} (\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer, SDL\+\_\+\+Point $\ast$position, \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$building\+\_\+matrix, \mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$character\+\_\+list)
+\begin{DoxyCompactList}\small\item\em Permet de vérifier si une troupe peut être placé à une position donnée. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$ \mbox{\hyperlink{character_8c_a7f46b4b6e9e43bb7a35d93156b3b9f79}{get\+Nearest\+Character}} (\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$character\+\_\+list, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$character)
+\begin{DoxyCompactList}\small\item\em Récupère la troupe la plus proche. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$ \mbox{\hyperlink{character_8c_abe5f5998d07516a7566fbf3a80142b63}{get\+Character}} (\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$character\+\_\+list, int x, int y)
+\begin{DoxyCompactList}\small\item\em Récupère la troupe à une position donnée. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$ \mbox{\hyperlink{character_8c_aaa9524625fd613242d406b423905ff7a}{get\+Character\+With\+Point}} (\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$character\+\_\+list, SDL\+\_\+\+Point $\ast$position)
+\begin{DoxyCompactList}\small\item\em Récupère la troupe à une position donnée. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character_8c_ab312a5ef092453ea9d8250b16f311938}{add\+Defence\+Character}} (\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Ajoute les troupes de défence à la carte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character_8c_a2d7d6810aa7596f80c5d0aaa8f1eeae3}{update\+Character}} (\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Met à jours les troupes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character_8c_a7db7e0a9a9c68b79cd0d524d12746d83}{character\+Event\+Handler}} (SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, \mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}écoute des événements du système de placement de troupe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Permet de gérer les troupes. 
+
+\begin{DoxyAuthor}{Auteur}
+Dureau Arthur, Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+29/03/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{character_8c_a260970ac631785c60a2780336ebf1166}\label{character_8c_a260970ac631785c60a2780336ebf1166}} 
+\index{character.c@{character.c}!addCharacterInList@{addCharacterInList}}
+\index{addCharacterInList@{addCharacterInList}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{addCharacterInList()}{addCharacterInList()}}
+{\footnotesize\ttfamily void add\+Character\+In\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$}]{character\+\_\+list,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$}]{character }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}ajouter une troupe sur la carte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+list} & liste contenant la totalité des troupes \\
+\hline
+{\em character} & un pointeur sur une troupe \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{character_8c_ab312a5ef092453ea9d8250b16f311938}\label{character_8c_ab312a5ef092453ea9d8250b16f311938}} 
+\index{character.c@{character.c}!addDefenceCharacter@{addDefenceCharacter}}
+\index{addDefenceCharacter@{addDefenceCharacter}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{addDefenceCharacter()}{addDefenceCharacter()}}
+{\footnotesize\ttfamily void add\+Defence\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$}]{character\+\_\+renderer,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Ajoute les troupes de défence à la carte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des troupes \\
+\hline
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{character_8c_afd13a3794ada982357e26fef59a2908b}\label{character_8c_afd13a3794ada982357e26fef59a2908b}} 
+\index{character.c@{character.c}!canPlaceCharacter@{canPlaceCharacter}}
+\index{canPlaceCharacter@{canPlaceCharacter}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{canPlaceCharacter()}{canPlaceCharacter()}}
+{\footnotesize\ttfamily int can\+Place\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$}]{character\+\_\+renderer,  }\item[{SDL\+\_\+\+Point $\ast$}]{position,  }\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{building\+\_\+matrix,  }\item[{\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$}]{character\+\_\+list }\end{DoxyParamCaption})}
+
+
+
+Permet de vérifier si une troupe peut être placé à une position donnée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des troupes \\
+\hline
+{\em position} & la position à vérifier \\
+\hline
+{\em building\+\_\+matrix} & matrice contenant la totalité des bâtiments placés sur la carte \\
+\hline
+{\em character\+\_\+list} & liste contenant la totalité des troupes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character_8c_a7db7e0a9a9c68b79cd0d524d12746d83}\label{character_8c_a7db7e0a9a9c68b79cd0d524d12746d83}} 
+\index{character.c@{character.c}!characterEventHandler@{characterEventHandler}}
+\index{characterEventHandler@{characterEventHandler}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{characterEventHandler()}{characterEventHandler()}}
+{\footnotesize\ttfamily void character\+Event\+Handler (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$}]{character\+\_\+renderer,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}écoute des événements du système de placement de troupe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & un pointeur sur les données du jeu \\
+\hline
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
+\hline
+{\em character\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des troupes \\
+\hline
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{character_8c_a82cbcb289eb1acb7416932e62c79431b}\label{character_8c_a82cbcb289eb1acb7416932e62c79431b}} 
+\index{character.c@{character.c}!characterTakesDamages@{characterTakesDamages}}
+\index{characterTakesDamages@{characterTakesDamages}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{characterTakesDamages()}{characterTakesDamages()}}
+{\footnotesize\ttfamily int character\+Takes\+Damages (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$}]{character,  }\item[{int}]{damages }\end{DoxyParamCaption})}
+
+
+
+Permet de gérer les dégâts subis par une troupe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
+\hline
+{\em character} & un pointeur sur une troupe \\
+\hline
+{\em damages} & les dégâts subis par la troup \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character_8c_aa0a4ccb8291cee00c6b5eb498cb0c391}\label{character_8c_aa0a4ccb8291cee00c6b5eb498cb0c391}} 
+\index{character.c@{character.c}!clearCharacterList@{clearCharacterList}}
+\index{clearCharacterList@{clearCharacterList}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{clearCharacterList()}{clearCharacterList()}}
+{\footnotesize\ttfamily void clear\+Character\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$}]{character\+\_\+list }\end{DoxyParamCaption})}
+
+
+
+Permet de détruire toute les troupes sur la carte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+list} & liste contenant la totalité des troupes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{character_8c_adab35f96855d46ab25dca3cbf26ca46a}\label{character_8c_adab35f96855d46ab25dca3cbf26ca46a}} 
+\index{character.c@{character.c}!createCharacter@{createCharacter}}
+\index{createCharacter@{createCharacter}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{createCharacter()}{createCharacter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}}$\ast$ create\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$}]{character\+\_\+renderer,  }\item[{\mbox{\hyperlink{character__renderer_8h_a22f15df25fed28059bbcdfa161f843e1}{character\+\_\+type\+\_\+e}}}]{type,  }\item[{SDL\+\_\+\+Point $\ast$}]{position,  }\item[{int}]{is\+\_\+defender }\end{DoxyParamCaption})}
+
+
+
+Créer la structure qui gère les données d\textquotesingle{}une troupes. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des troupes \\
+\hline
+{\em type} & type de troupe à créer \\
+\hline
+{\em position} & position de la troupe \\
+\hline
+{\em is\+\_\+defender} & la troupe est-\/elle défenseure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+character\+\_\+t$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character_8c_a4ccf4d01a1f66a61b652c610b102079f}\label{character_8c_a4ccf4d01a1f66a61b652c610b102079f}} 
+\index{character.c@{character.c}!createCharacterList@{createCharacterList}}
+\index{createCharacterList@{createCharacterList}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{createCharacterList()}{createCharacterList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}}$\ast$ create\+Character\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Créer la liste de troupe. 
+
+\begin{DoxyReturn}{Renvoie}
+retourne un pointeur sur la liste 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character_8c_a745967f11b91975cf43e3284412c1517}\label{character_8c_a745967f11b91975cf43e3284412c1517}} 
+\index{character.c@{character.c}!destroyCharacter@{destroyCharacter}}
+\index{destroyCharacter@{destroyCharacter}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{destroyCharacter()}{destroyCharacter()}}
+{\footnotesize\ttfamily void destroy\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$$\ast$}]{character }\end{DoxyParamCaption})}
+
+
+
+Détruit la structure de troupe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character} & un pointeur sur une troupe \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{character_8c_a2df6088cabec913a5120e706669e2209}\label{character_8c_a2df6088cabec913a5120e706669e2209}} 
+\index{character.c@{character.c}!destroyCharacterList@{destroyCharacterList}}
+\index{destroyCharacterList@{destroyCharacterList}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{destroyCharacterList()}{destroyCharacterList()}}
+{\footnotesize\ttfamily void destroy\+Character\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$$\ast$}]{character\+\_\+list }\end{DoxyParamCaption})}
+
+
+
+Détruit la liste de troupe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+list} & liste contenant la totalité des troupes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{character_8c_abe5f5998d07516a7566fbf3a80142b63}\label{character_8c_abe5f5998d07516a7566fbf3a80142b63}} 
+\index{character.c@{character.c}!getCharacter@{getCharacter}}
+\index{getCharacter@{getCharacter}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{getCharacter()}{getCharacter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}}$\ast$ get\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$}]{character\+\_\+list,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Récupère la troupe à une position donnée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+list} & liste contenant la totalité des troupes \\
+\hline
+{\em x} & position de la troupe à retourner en x \\
+\hline
+{\em y} & position de la troupe à retourner en y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+character\+\_\+t$\ast$ si la troupe existe, NULL sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character_8c_afe1da29700ebdb9049a886e99afc4417}\label{character_8c_afe1da29700ebdb9049a886e99afc4417}} 
+\index{character.c@{character.c}!getCharacterElixirCost@{getCharacterElixirCost}}
+\index{getCharacterElixirCost@{getCharacterElixirCost}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{getCharacterElixirCost()}{getCharacterElixirCost()}}
+{\footnotesize\ttfamily int get\+Character\+Elixir\+Cost (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character__renderer_8h_a22f15df25fed28059bbcdfa161f843e1}{character\+\_\+type\+\_\+e}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Récupère le coût d\textquotesingle{}une troupe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em type} & type de troupe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+coût de la troupe en élixir 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character_8c_aaa9524625fd613242d406b423905ff7a}\label{character_8c_aaa9524625fd613242d406b423905ff7a}} 
+\index{character.c@{character.c}!getCharacterWithPoint@{getCharacterWithPoint}}
+\index{getCharacterWithPoint@{getCharacterWithPoint}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{getCharacterWithPoint()}{getCharacterWithPoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}}$\ast$ get\+Character\+With\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$}]{character\+\_\+list,  }\item[{SDL\+\_\+\+Point $\ast$}]{position }\end{DoxyParamCaption})}
+
+
+
+Récupère la troupe à une position donnée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+list} & liste contenant la totalité des troupes \\
+\hline
+{\em position} & position de la troupe à retourner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+character\+\_\+t$\ast$ si la troupe existe, NULL sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character_8c_a7f46b4b6e9e43bb7a35d93156b3b9f79}\label{character_8c_a7f46b4b6e9e43bb7a35d93156b3b9f79}} 
+\index{character.c@{character.c}!getNearestCharacter@{getNearestCharacter}}
+\index{getNearestCharacter@{getNearestCharacter}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{getNearestCharacter()}{getNearestCharacter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}}$\ast$ get\+Nearest\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$}]{character\+\_\+list,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$}]{character }\end{DoxyParamCaption})}
+
+
+
+Récupère la troupe la plus proche. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+list} & liste contenant la totalité des troupes \\
+\hline
+{\em character} & un pointeur sur une troupe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+character\+\_\+t$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character_8c_a62fbf2baf352322ba4fcba62b4379b3e}\label{character_8c_a62fbf2baf352322ba4fcba62b4379b3e}} 
+\index{character.c@{character.c}!removeCharacterFromList@{removeCharacterFromList}}
+\index{removeCharacterFromList@{removeCharacterFromList}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{removeCharacterFromList()}{removeCharacterFromList()}}
+{\footnotesize\ttfamily void remove\+Character\+From\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$}]{character\+\_\+list,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$}]{character }\end{DoxyParamCaption})}
+
+
+
+Permet de supprimer une troupe de la carte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+list} & liste contenant la totalité des troupes \\
+\hline
+{\em character} & un pointeur sur une troupe \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{character_8c_a32b734447964102fbaeac8653c7412dd}\label{character_8c_a32b734447964102fbaeac8653c7412dd}} 
+\index{character.c@{character.c}!renderCharacterList@{renderCharacterList}}
+\index{renderCharacterList@{renderCharacterList}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{renderCharacterList()}{renderCharacterList()}}
+{\footnotesize\ttfamily void render\+Character\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{character_8h_aa98fe56c73c43d69dba015fa2536d391}{character\+\_\+list\+\_\+t}} $\ast$}]{character\+\_\+list,  }\item[{\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$}]{character\+\_\+renderer }\end{DoxyParamCaption})}
+
+
+
+Affiche la liste de troupe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em character\+\_\+list} & liste contenant la totalité des troupes \\
+\hline
+{\em character\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des troupes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{character_8c_a2d7d6810aa7596f80c5d0aaa8f1eeae3}\label{character_8c_a2d7d6810aa7596f80c5d0aaa8f1eeae3}} 
+\index{character.c@{character.c}!updateCharacter@{updateCharacter}}
+\index{updateCharacter@{updateCharacter}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{updateCharacter()}{updateCharacter()}}
+{\footnotesize\ttfamily void update\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Met à jours les troupes. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
+\hline
+\end{DoxyParams}

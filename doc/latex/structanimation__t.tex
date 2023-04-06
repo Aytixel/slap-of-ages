@@ -1,0 +1,103 @@
+\hypertarget{structanimation__t}{}\doxysection{Référence de la structure animation\+\_\+t}
+\label{structanimation__t}\index{animation\_t@{animation\_t}}
+
+
+Graphe de collaboration de animation\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{structanimation__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$ \mbox{\hyperlink{structanimation__t_a397f59d1d0030bf65f0138d9a0e99443}{state\+\_\+frame\+\_\+count}}
+\item 
+int \mbox{\hyperlink{structanimation__t_a9fb0bf83f4634f5270408aa4a70b8027}{state\+\_\+count}}
+\item 
+SDL\+\_\+\+Rect $\ast$$\ast$ \mbox{\hyperlink{structanimation__t_a2d13c4ef53567252263ce14da6713286}{state\+\_\+frames}}
+\item 
+int \mbox{\hyperlink{structanimation__t_a313e74dddf4e8286d1f4fb4aa3356523}{frame\+\_\+tile\+\_\+width}}
+\item 
+int \mbox{\hyperlink{structanimation__t_af388ca6991719ee9171a9cd77846c110}{frame\+\_\+tile\+\_\+height}}
+\item 
+\mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}} $\ast$ \mbox{\hyperlink{structanimation__t_a5dfe2df3368777d6ddf4776cc6ea1d59}{timer}}
+\item 
+\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{structanimation__t_adfde18ba0576f1a7de73d51b140ecd61}{sprite}}
+\item 
+int \mbox{\hyperlink{structanimation__t_a2cf1b32c5b85e490f3f0cde1c5eb21d7}{current\+\_\+state}}
+\item 
+int \mbox{\hyperlink{structanimation__t_abc6576368164323c0d7cf5ce7034700a}{current\+\_\+frame}}
+\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{structanimation__t_a05c9cac11c8c991c568f37e814f32340}{frame\+\_\+rect}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structanimation__t_abc6576368164323c0d7cf5ce7034700a}\label{structanimation__t_abc6576368164323c0d7cf5ce7034700a}} 
+\index{animation\_t@{animation\_t}!current\_frame@{current\_frame}}
+\index{current\_frame@{current\_frame}!animation\_t@{animation\_t}}
+\doxysubsubsection{\texorpdfstring{current\_frame}{current\_frame}}
+{\footnotesize\ttfamily int animation\+\_\+t\+::current\+\_\+frame}
+
+image courante \mbox{\Hypertarget{structanimation__t_a2cf1b32c5b85e490f3f0cde1c5eb21d7}\label{structanimation__t_a2cf1b32c5b85e490f3f0cde1c5eb21d7}} 
+\index{animation\_t@{animation\_t}!current\_state@{current\_state}}
+\index{current\_state@{current\_state}!animation\_t@{animation\_t}}
+\doxysubsubsection{\texorpdfstring{current\_state}{current\_state}}
+{\footnotesize\ttfamily int animation\+\_\+t\+::current\+\_\+state}
+
+état courant \mbox{\Hypertarget{structanimation__t_a05c9cac11c8c991c568f37e814f32340}\label{structanimation__t_a05c9cac11c8c991c568f37e814f32340}} 
+\index{animation\_t@{animation\_t}!frame\_rect@{frame\_rect}}
+\index{frame\_rect@{frame\_rect}!animation\_t@{animation\_t}}
+\doxysubsubsection{\texorpdfstring{frame\_rect}{frame\_rect}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect animation\+\_\+t\+::frame\+\_\+rect}
+
+rectangle d\textquotesingle{}affichage de l\textquotesingle{}animation en cour \mbox{\Hypertarget{structanimation__t_af388ca6991719ee9171a9cd77846c110}\label{structanimation__t_af388ca6991719ee9171a9cd77846c110}} 
+\index{animation\_t@{animation\_t}!frame\_tile\_height@{frame\_tile\_height}}
+\index{frame\_tile\_height@{frame\_tile\_height}!animation\_t@{animation\_t}}
+\doxysubsubsection{\texorpdfstring{frame\_tile\_height}{frame\_tile\_height}}
+{\footnotesize\ttfamily int animation\+\_\+t\+::frame\+\_\+tile\+\_\+height}
+
+hauteur d\textquotesingle{}une image \mbox{\Hypertarget{structanimation__t_a313e74dddf4e8286d1f4fb4aa3356523}\label{structanimation__t_a313e74dddf4e8286d1f4fb4aa3356523}} 
+\index{animation\_t@{animation\_t}!frame\_tile\_width@{frame\_tile\_width}}
+\index{frame\_tile\_width@{frame\_tile\_width}!animation\_t@{animation\_t}}
+\doxysubsubsection{\texorpdfstring{frame\_tile\_width}{frame\_tile\_width}}
+{\footnotesize\ttfamily int animation\+\_\+t\+::frame\+\_\+tile\+\_\+width}
+
+largeur d\textquotesingle{}une image \mbox{\Hypertarget{structanimation__t_adfde18ba0576f1a7de73d51b140ecd61}\label{structanimation__t_adfde18ba0576f1a7de73d51b140ecd61}} 
+\index{animation\_t@{animation\_t}!sprite@{sprite}}
+\index{sprite@{sprite}!animation\_t@{animation\_t}}
+\doxysubsubsection{\texorpdfstring{sprite}{sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}}$\ast$ animation\+\_\+t\+::sprite}
+
+image source de l\textquotesingle{}animation \mbox{\Hypertarget{structanimation__t_a9fb0bf83f4634f5270408aa4a70b8027}\label{structanimation__t_a9fb0bf83f4634f5270408aa4a70b8027}} 
+\index{animation\_t@{animation\_t}!state\_count@{state\_count}}
+\index{state\_count@{state\_count}!animation\_t@{animation\_t}}
+\doxysubsubsection{\texorpdfstring{state\_count}{state\_count}}
+{\footnotesize\ttfamily int animation\+\_\+t\+::state\+\_\+count}
+
+nombre d\textquotesingle{}états \mbox{\Hypertarget{structanimation__t_a397f59d1d0030bf65f0138d9a0e99443}\label{structanimation__t_a397f59d1d0030bf65f0138d9a0e99443}} 
+\index{animation\_t@{animation\_t}!state\_frame\_count@{state\_frame\_count}}
+\index{state\_frame\_count@{state\_frame\_count}!animation\_t@{animation\_t}}
+\doxysubsubsection{\texorpdfstring{state\_frame\_count}{state\_frame\_count}}
+{\footnotesize\ttfamily int$\ast$ animation\+\_\+t\+::state\+\_\+frame\+\_\+count}
+
+tableau contenant le nombre d\textquotesingle{}images par état \mbox{\Hypertarget{structanimation__t_a2d13c4ef53567252263ce14da6713286}\label{structanimation__t_a2d13c4ef53567252263ce14da6713286}} 
+\index{animation\_t@{animation\_t}!state\_frames@{state\_frames}}
+\index{state\_frames@{state\_frames}!animation\_t@{animation\_t}}
+\doxysubsubsection{\texorpdfstring{state\_frames}{state\_frames}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect$\ast$$\ast$ animation\+\_\+t\+::state\+\_\+frames}
+
+tableau contenant les images par état \mbox{\Hypertarget{structanimation__t_a5dfe2df3368777d6ddf4776cc6ea1d59}\label{structanimation__t_a5dfe2df3368777d6ddf4776cc6ea1d59}} 
+\index{animation\_t@{animation\_t}!timer@{timer}}
+\index{timer@{timer}!animation\_t@{animation\_t}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structframe__timer__t}{frame\+\_\+timer\+\_\+t}}$\ast$ animation\+\_\+t\+::timer}
+
+timer permettant de jouer une animation à une vitesse définie 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/window/\mbox{\hyperlink{animation_8h}{animation.\+h}}\end{DoxyCompactItemize}

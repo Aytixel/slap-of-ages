@@ -19,10 +19,10 @@ Graphe des dépendances par inclusion de map\+\_\+data\+\_\+serialization.\+c\+:
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{map__data__serialization_8c_a3a6a623a64cf2ce428db393b44b8ffb3}{serialize\+\_\+map}} (void $\ast$$\ast$data, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building, int gold\+\_\+cost)
-\begin{DoxyCompactList}\small\item\em Converti les données de la carte en données pouvant être stocker ou envoyer. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{map__data__serialization_8c_a175229c4e0c251f97e585883636b7001}{deserialize\+\_\+map}} (void $\ast$data, int data\+\_\+length, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building, int $\ast$gold\+\_\+cost)
-\begin{DoxyCompactList}\small\item\em Reconverti les données de la carte en structure et variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \mbox{\hyperlink{map__data__serialization_8c_a6363f9c4dd18744679fa04b8277db7a2}{serialize\+Map\+Data}} (void $\ast$$\ast$data, \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building, int gold\+\_\+cost)
+\begin{DoxyCompactList}\small\item\em Converti les données de la carte en données pouvant être stockées ou envoyées. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{map__data__serialization_8c_a458ec79a9f0ad05347b55cdae3f7011c}{deserialize\+Map\+Data}} (void $\ast$data, int data\+\_\+length, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$map\+\_\+building, int $\ast$gold\+\_\+cost)
+\begin{DoxyCompactList}\small\item\em Reconvertie les données de la carte en structure et en variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -40,15 +40,15 @@ Lucas Dureau
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{map__data__serialization_8c_a175229c4e0c251f97e585883636b7001}\label{map__data__serialization_8c_a175229c4e0c251f97e585883636b7001}} 
-\index{map\_data\_serialization.c@{map\_data\_serialization.c}!deserialize\_map@{deserialize\_map}}
-\index{deserialize\_map@{deserialize\_map}!map\_data\_serialization.c@{map\_data\_serialization.c}}
-\doxysubsubsection{\texorpdfstring{deserialize\_map()}{deserialize\_map()}}
-{\footnotesize\ttfamily int deserialize\+\_\+map (\begin{DoxyParamCaption}\item[{void $\ast$}]{data,  }\item[{int}]{data\+\_\+lenth,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building,  }\item[{int $\ast$}]{gold\+\_\+cost }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{map__data__serialization_8c_a458ec79a9f0ad05347b55cdae3f7011c}\label{map__data__serialization_8c_a458ec79a9f0ad05347b55cdae3f7011c}} 
+\index{map\_data\_serialization.c@{map\_data\_serialization.c}!deserializeMapData@{deserializeMapData}}
+\index{deserializeMapData@{deserializeMapData}!map\_data\_serialization.c@{map\_data\_serialization.c}}
+\doxysubsubsection{\texorpdfstring{deserializeMapData()}{deserializeMapData()}}
+{\footnotesize\ttfamily int deserialize\+Map\+Data (\begin{DoxyParamCaption}\item[{void $\ast$}]{data,  }\item[{int}]{data\+\_\+lenth,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building,  }\item[{int $\ast$}]{gold\+\_\+cost }\end{DoxyParamCaption})}
 
 
 
-Reconverti les données de la carte en structure et variable. 
+Reconvertie les données de la carte en structure et en variable. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -66,15 +66,15 @@ Reconverti les données de la carte en structure et variable.
 \begin{DoxyReturn}{Renvoie}
 {\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} sinon 
 \end{DoxyReturn}
-\mbox{\Hypertarget{map__data__serialization_8c_a3a6a623a64cf2ce428db393b44b8ffb3}\label{map__data__serialization_8c_a3a6a623a64cf2ce428db393b44b8ffb3}} 
-\index{map\_data\_serialization.c@{map\_data\_serialization.c}!serialize\_map@{serialize\_map}}
-\index{serialize\_map@{serialize\_map}!map\_data\_serialization.c@{map\_data\_serialization.c}}
-\doxysubsubsection{\texorpdfstring{serialize\_map()}{serialize\_map()}}
-{\footnotesize\ttfamily int serialize\+\_\+map (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{data,  }\item[{\mbox{\hyperlink{structbuilding__s}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building,  }\item[{int}]{gold\+\_\+cost }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{map__data__serialization_8c_a6363f9c4dd18744679fa04b8277db7a2}\label{map__data__serialization_8c_a6363f9c4dd18744679fa04b8277db7a2}} 
+\index{map\_data\_serialization.c@{map\_data\_serialization.c}!serializeMapData@{serializeMapData}}
+\index{serializeMapData@{serializeMapData}!map\_data\_serialization.c@{map\_data\_serialization.c}}
+\doxysubsubsection{\texorpdfstring{serializeMapData()}{serializeMapData()}}
+{\footnotesize\ttfamily int serialize\+Map\+Data (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{data,  }\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} $\ast$$\ast$$\ast$}]{map\+\_\+building,  }\item[{int}]{gold\+\_\+cost }\end{DoxyParamCaption})}
 
 
 
-Converti les données de la carte en données pouvant être stocker ou envoyer. 
+Converti les données de la carte en données pouvant être stockées ou envoyées. 
 
 
 \begin{DoxyParams}{Paramètres}

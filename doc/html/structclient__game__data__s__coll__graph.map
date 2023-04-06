@@ -1,5 +1,10 @@
 <map id="client_game_data_s" name="client_game_data_s">
-<area shape="rect" id="node1" title="Structure de données contenant les données du jeu." alt="" coords="67,109,219,136"/>
-<area shape="rect" id="node2" href="$structbuilding__s.html" title="Structure contenant les données des bâtiments." alt="" coords="5,5,93,32"/>
-<area shape="rect" id="node3" href="$structframe__timer__t.html" title="Timer permettant l&#39;éxécution de code à intervalle régulier." alt="" coords="180,5,295,32"/>
+<area shape="rect" id="node1" title="Structure de données contenant les données du jeu." alt="" coords="143,377,295,404"/>
+<area shape="rect" id="node2" href="$structcharacter__list__s.html" title="Structure de liste pour les troupes." alt="" coords="157,288,281,315"/>
+<area shape="rect" id="node3" href="$structcharacter__s.html" title="Structure contenant les données d&#39;une troupe." alt="" coords="170,184,267,211"/>
+<area shape="rect" id="node4" href="$structbuilding__s.html" title="Structure contenant les données des bâtiments." alt="" coords="5,95,93,121"/>
+<area shape="rect" id="node5" href="$structnode__s.html" title="Structure de noeud." alt="" coords="291,95,359,121"/>
+<area shape="rect" id="node6" href="$structanimation__t.html" title=" " alt="" coords="167,95,267,121"/>
+<area shape="rect" id="node7" href="$structframe__timer__t.html" title="Timer permettant l&#39;éxécution de code à intervalle régulier." alt="" coords="329,5,444,32"/>
+<area shape="rect" id="node8" href="$structsprite__t.html" title="Structure contenant les données d&#39;un sprite." alt="" coords="182,5,253,32"/>
 </map>

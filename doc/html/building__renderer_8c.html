@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Slap of Ages: Référence du fichier src/map/building_renderer.c</title>
+<title>Slap of Ages: Référence du fichier src/building/building_renderer.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_391513bbec656ad0f0b1433a02685683.html">map</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f716eb1e7b0c0983131a3eb5d1a5373.html">building</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -81,16 +81,16 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de building_renderer.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="building__renderer_8c__incl.png" border="0" usemap="#asrc_2map_2building__renderer_8c" alt=""/></div>
-<map name="asrc_2map_2building__renderer_8c" id="asrc_2map_2building__renderer_8c">
-<area shape="rect" title="Permet de gérer l&#39;affichage des bâtiments." alt="" coords="65,5,267,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,76,107"/>
-<area shape="rect" href="client_2common_8h.html" title="Definition globale pour le client." alt="" coords="101,80,231,107"/>
-<area shape="rect" href="building__renderer_8h.html" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="255,80,402,107"/>
-<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="259,229,396,256"/>
-<area shape="rect" href="map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="316,155,440,181"/>
-<area shape="rect" title=" " alt="" coords="214,304,310,331"/>
-<area shape="rect" title=" " alt="" coords="334,304,451,331"/>
+<div class="center"><img src="building__renderer_8c__incl.png" border="0" usemap="#asrc_2building_2building__renderer_8c" alt=""/></div>
+<map name="asrc_2building_2building__renderer_8c" id="asrc_2building_2building__renderer_8c">
+<area shape="rect" title="Permet de gérer l&#39;affichage des bâtiments." alt="" coords="89,5,243,47"/>
+<area shape="rect" title=" " alt="" coords="5,95,76,121"/>
+<area shape="rect" href="client_2common_8h.html" title="Definition globale pour le client." alt="" coords="101,95,231,121"/>
+<area shape="rect" href="building__renderer_8h.html" title="Implémentation des prototypes de building/building_renderer.c." alt="" coords="255,95,402,121"/>
+<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="259,244,396,271"/>
+<area shape="rect" href="map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="307,169,465,196"/>
+<area shape="rect" title=" " alt="" coords="214,319,310,345"/>
+<area shape="rect" title=" " alt="" coords="334,319,451,345"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -108,9 +108,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:aec306394ce2908916070f9f371fcc826"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building__renderer_8c.html#aec306394ce2908916070f9f371fcc826">canRenderBuilding</a> (<a class="el" href="structbuilding__renderer__t.html">building_renderer_t</a> *building_renderer, SDL_Point *position, <a class="el" href="building__renderer_8h.html#a7c392720e17c5f7fb38aa063550d152c">building_type_e</a> building_type)</td></tr>
 <tr class="memdesc:aec306394ce2908916070f9f371fcc826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détermine si on peut placer / afficher un certain type de bâtiment à tel endroit.  <a href="building__renderer_8c.html#aec306394ce2908916070f9f371fcc826">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aec306394ce2908916070f9f371fcc826"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abff8bbb236b38f38cd61b84a32c44e31"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building__renderer_8c.html#abff8bbb236b38f38cd61b84a32c44e31">renderBuilding</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="structbuilding__renderer__t.html">building_renderer_t</a> *building_renderer, SDL_Point *position, <a class="el" href="building__renderer_8h.html#a7c392720e17c5f7fb38aa063550d152c">building_type_e</a> building_type, SDL_Rect *destination_rect)</td></tr>
-<tr class="memdesc:abff8bbb236b38f38cd61b84a32c44e31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait le rendu de d'un batiment sur la carte.  <a href="building__renderer_8c.html#abff8bbb236b38f38cd61b84a32c44e31">Plus de détails...</a><br /></td></tr>
-<tr class="separator:abff8bbb236b38f38cd61b84a32c44e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa17d5e1d1af380c1f2bbd7842a698180"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building__renderer_8c.html#aa17d5e1d1af380c1f2bbd7842a698180">renderBuilding</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, <a class="el" href="structbuilding__renderer__t.html">building_renderer_t</a> *building_renderer, SDL_Point *position, <a class="el" href="building__renderer_8h.html#a7c392720e17c5f7fb38aa063550d152c">building_type_e</a> building_type)</td></tr>
+<tr class="memdesc:aa17d5e1d1af380c1f2bbd7842a698180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait le rendu de d'un batiment sur la carte.  <a href="building__renderer_8c.html#aa17d5e1d1af380c1f2bbd7842a698180">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa17d5e1d1af380c1f2bbd7842a698180"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6319379ba18df93186567827d27364c0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="building__renderer_8c.html#a6319379ba18df93186567827d27364c0">deleteBuildingRenderer</a> (<a class="el" href="structbuilding__renderer__t.html">building_renderer_t</a> **building_renderer)</td></tr>
 <tr class="memdesc:a6319379ba18df93186567827d27364c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la structure qui gère l'affichage des bâtiments.  <a href="building__renderer_8c.html#a6319379ba18df93186567827d27364c0">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a6319379ba18df93186567827d27364c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -231,8 +231,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="abff8bbb236b38f38cd61b84a32c44e31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abff8bbb236b38f38cd61b84a32c44e31">&#9670;&nbsp;</a></span>renderBuilding()</h2>
+<a id="aa17d5e1d1af380c1f2bbd7842a698180"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa17d5e1d1af380c1f2bbd7842a698180">&#9670;&nbsp;</a></span>renderBuilding()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,13 +259,7 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="building__renderer_8h.html#a7c392720e17c5f7fb38aa063550d152c">building_type_e</a>&#160;</td>
-          <td class="paramname"><em>building_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SDL_Rect *&#160;</td>
-          <td class="paramname"><em>destination_rect</em>&#160;</td>
+          <td class="paramname"><em>building_type</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

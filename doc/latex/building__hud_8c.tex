@@ -1,8 +1,8 @@
-\hypertarget{building__hud_8c}{}\doxysection{Référence du fichier src/map/building\+\_\+hud.c}
-\label{building__hud_8c}\index{src/map/building\_hud.c@{src/map/building\_hud.c}}
+\hypertarget{building__hud_8c}{}\doxysection{Référence du fichier src/building/building\+\_\+hud.c}
+\label{building__hud_8c}\index{src/building/building\_hud.c@{src/building/building\_hud.c}}
 
 
-Permet de gérer l\textquotesingle{}affichage des bâtiments.  
+Permet de gérer l\textquotesingle{}affichage de l\textquotesingle{}interface de sélection des bâtiments.  
 
 
 {\ttfamily \#include \char`\"{}building\+\_\+renderer.\+h\char`\"{}}\newline
@@ -20,8 +20,8 @@ Graphe des dépendances par inclusion de building\+\_\+hud.\+c\+:
 \item 
 \mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$ \mbox{\hyperlink{building__hud_8c_a30fa47a93ced154ab5df888bf00a9252}{create\+Building\+Hud}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window)
 \begin{DoxyCompactList}\small\item\em Créer les données de linterface de sélection de bâtiment. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{building__hud_8c_a334f527d6f207c7a9120aba752dab028}{building\+Hud\+Event\+Handler}} (SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$building\+\_\+hud, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
-\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}écoute des événements du menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{building__hud_8c_a334f527d6f207c7a9120aba752dab028}{building\+Hud\+Event\+Handler}} (SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$building\+\_\+hud, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}écoute des événements de linterface de sélection de bâtiment. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{building__hud_8c_aa17236ced591ebd837fde370506c3500}{render\+Building\+Hud}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$building\+\_\+hud, \mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer)
 \begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}affichage de linterface de sélection de bâtiment. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{building__hud_8c_af7bd7e1074a5e223e0095a62c3bf0b94}{delete\+Building\+Hud}} (\mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$$\ast$building\+\_\+hud)
@@ -29,7 +29,7 @@ int \mbox{\hyperlink{building__hud_8c_af7bd7e1074a5e223e0095a62c3bf0b94}{delete\
 
 
 \doxysubsection{Description détaillée}
-Permet de gérer l\textquotesingle{}affichage des bâtiments. 
+Permet de gérer l\textquotesingle{}affichage de l\textquotesingle{}interface de sélection des bâtiments. 
 
 \begin{DoxyAuthor}{Auteur}
 Lucas Dureau 
@@ -47,11 +47,11 @@ Lucas Dureau
 \index{building\_hud.c@{building\_hud.c}!buildingHudEventHandler@{buildingHudEventHandler}}
 \index{buildingHudEventHandler@{buildingHudEventHandler}!building\_hud.c@{building\_hud.c}}
 \doxysubsubsection{\texorpdfstring{buildingHudEventHandler()}{buildingHudEventHandler()}}
-{\footnotesize\ttfamily void building\+Hud\+Event\+Handler (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$}]{building\+\_\+hud,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void building\+Hud\+Event\+Handler (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$}]{building\+\_\+hud,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
-Fonction d\textquotesingle{}écoute des événements du menu. 
+Fonction d\textquotesingle{}écoute des événements de linterface de sélection de bâtiment. 
 
 
 \begin{DoxyParams}{Paramètres}

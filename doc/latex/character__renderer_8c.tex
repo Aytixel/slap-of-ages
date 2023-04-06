@@ -1,0 +1,127 @@
+\hypertarget{character__renderer_8c}{}\doxysection{Référence du fichier src/character/character\+\_\+renderer.c}
+\label{character__renderer_8c}\index{src/character/character\_renderer.c@{src/character/character\_renderer.c}}
+
+
+Permet de gérer l\textquotesingle{}affichage des personnages.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}client/common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}character\+\_\+renderer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}character.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de character\+\_\+renderer.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character__renderer_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$ \mbox{\hyperlink{character__renderer_8c_afd76823d6ba7d7ca3e759728819e51ea}{create\+Character\+Renderer}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$map\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em Créer la structure qui gère l\textquotesingle{}affichage des troupes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{character__renderer_8c_aa0f263b4de938aefc66eec99de9f255e}{can\+Render\+Character}} (\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer, SDL\+\_\+\+Point $\ast$position)
+\begin{DoxyCompactList}\small\item\em Détermine si on peut placer / afficher une troupe. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{character__renderer_8c_a17bb6bbaeed12b696fc612082fedfa6d}{render\+Character}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$character)
+\begin{DoxyCompactList}\small\item\em Fait le rendu de d\textquotesingle{}une troupe sur la carte. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{character__renderer_8c_a358ff8fc12410fcc9f4a599f81f7946a}{delete\+Character\+Renderer}} (\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$$\ast$character\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em Détruit la structure qui gère l\textquotesingle{}affichage des troupes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Permet de gérer l\textquotesingle{}affichage des personnages. 
+
+\begin{DoxyAuthor}{Auteur}
+Dureau Arthur, Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+29/03/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{character__renderer_8c_aa0f263b4de938aefc66eec99de9f255e}\label{character__renderer_8c_aa0f263b4de938aefc66eec99de9f255e}} 
+\index{character\_renderer.c@{character\_renderer.c}!canRenderCharacter@{canRenderCharacter}}
+\index{canRenderCharacter@{canRenderCharacter}!character\_renderer.c@{character\_renderer.c}}
+\doxysubsubsection{\texorpdfstring{canRenderCharacter()}{canRenderCharacter()}}
+{\footnotesize\ttfamily int can\+Render\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$}]{character\+\_\+renderer,  }\item[{SDL\+\_\+\+Point $\ast$}]{position }\end{DoxyParamCaption})}
+
+
+
+Détermine si on peut placer / afficher une troupe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des troupes \\
+\hline
+{\em position} & position de la troupe à placer / afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character__renderer_8c_afd76823d6ba7d7ca3e759728819e51ea}\label{character__renderer_8c_afd76823d6ba7d7ca3e759728819e51ea}} 
+\index{character\_renderer.c@{character\_renderer.c}!createCharacterRenderer@{createCharacterRenderer}}
+\index{createCharacterRenderer@{createCharacterRenderer}!character\_renderer.c@{character\_renderer.c}}
+\doxysubsubsection{\texorpdfstring{createCharacterRenderer()}{createCharacterRenderer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}}$\ast$ create\+Character\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$}]{map\+\_\+renderer }\end{DoxyParamCaption})}
+
+
+
+Créer la structure qui gère l\textquotesingle{}affichage des troupes. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em map\+\_\+renderer} & un pointeur sur la carte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+character\+\_\+renderer\+\_\+t$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character__renderer_8c_a358ff8fc12410fcc9f4a599f81f7946a}\label{character__renderer_8c_a358ff8fc12410fcc9f4a599f81f7946a}} 
+\index{character\_renderer.c@{character\_renderer.c}!deleteCharacterRenderer@{deleteCharacterRenderer}}
+\index{deleteCharacterRenderer@{deleteCharacterRenderer}!character\_renderer.c@{character\_renderer.c}}
+\doxysubsubsection{\texorpdfstring{deleteCharacterRenderer()}{deleteCharacterRenderer()}}
+{\footnotesize\ttfamily int delete\+Character\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$$\ast$}]{character\+\_\+renderer }\end{DoxyParamCaption})}
+
+
+
+Détruit la structure qui gère l\textquotesingle{}affichage des troupes. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character\+\_\+renderer} & une référence sur un pointeur sur la structure qui gère l\textquotesingle{}affichage des troupes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character__renderer_8c_a17bb6bbaeed12b696fc612082fedfa6d}\label{character__renderer_8c_a17bb6bbaeed12b696fc612082fedfa6d}} 
+\index{character\_renderer.c@{character\_renderer.c}!renderCharacter@{renderCharacter}}
+\index{renderCharacter@{renderCharacter}!character\_renderer.c@{character\_renderer.c}}
+\doxysubsubsection{\texorpdfstring{renderCharacter()}{renderCharacter()}}
+{\footnotesize\ttfamily int render\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$}]{character\+\_\+renderer,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} $\ast$}]{character }\end{DoxyParamCaption})}
+
+
+
+Fait le rendu de d\textquotesingle{}une troupe sur la carte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em character\+\_\+renderer} & un pointeur sur la structure qui gère l\textquotesingle{}affichage des troupes \\
+\hline
+{\em character} & un pointeur sur une troupe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}

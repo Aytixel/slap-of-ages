@@ -2,7 +2,7 @@
 \label{structcharacter__renderer__t}\index{character\_renderer\_t@{character\_renderer\_t}}
 
 
-Structure contenant les données pour afficher les personnages.  
+Structure contenant les données pour afficher les troupes.  
 
 
 
@@ -16,29 +16,36 @@ Graphe de collaboration de character\+\_\+renderer\+\_\+t\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{structcharacter__renderer__t__coll__graph}
+\includegraphics[width=346pt]{structcharacter__renderer__t__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Attributs publics}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structcharacter__renderer__t_a05e43e5fd8c76b1218f208cfcc336fef}\label{structcharacter__renderer__t_a05e43e5fd8c76b1218f208cfcc336fef}} 
-\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$ {\bfseries map\+\_\+renderer}
+\mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}} $\ast$ \mbox{\hyperlink{structcharacter__renderer__t_a05e43e5fd8c76b1218f208cfcc336fef}{map\+\_\+renderer}}
 \item 
-\mbox{\Hypertarget{structcharacter__renderer__t_a56de1358cf3dc0dd120c4a3c5a1be565}\label{structcharacter__renderer__t_a56de1358cf3dc0dd120c4a3c5a1be565}} 
-\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$ {\bfseries sprite}
-\item 
-\mbox{\Hypertarget{structcharacter__renderer__t_a0f3e88ec25e39af58908c9d0454c5fcd}\label{structcharacter__renderer__t_a0f3e88ec25e39af58908c9d0454c5fcd}} 
-\mbox{\hyperlink{structcharacter__sprite__rects__t}{character\+\_\+sprite\+\_\+rects\+\_\+t}} {\bfseries sprite\+\_\+tile\+\_\+rects}
-\item 
-\mbox{\Hypertarget{structcharacter__renderer__t_afe54e765307e139fb1f37b40c4c7fe88}\label{structcharacter__renderer__t_afe54e765307e139fb1f37b40c4c7fe88}} 
-\mbox{\hyperlink{structcharacter__sprite__rects__t}{character\+\_\+sprite\+\_\+rects\+\_\+t}} {\bfseries sprite\+\_\+rects}
+\mbox{\hyperlink{structcharacter__animations__data__t}{character\+\_\+animations\+\_\+data\+\_\+t}} \mbox{\hyperlink{structcharacter__renderer__t_a890be3c577d980cee490cb639f67dc42}{animations}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
-Structure contenant les données pour afficher les personnages. 
+Structure contenant les données pour afficher les troupes. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structcharacter__renderer__t_a890be3c577d980cee490cb639f67dc42}\label{structcharacter__renderer__t_a890be3c577d980cee490cb639f67dc42}} 
+\index{character\_renderer\_t@{character\_renderer\_t}!animations@{animations}}
+\index{animations@{animations}!character\_renderer\_t@{character\_renderer\_t}}
+\doxysubsubsection{\texorpdfstring{animations}{animations}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcharacter__animations__data__t}{character\+\_\+animations\+\_\+data\+\_\+t}} character\+\_\+renderer\+\_\+t\+::animations}
+
+paramètres d\textquotesingle{}animation des différentes troupes \mbox{\Hypertarget{structcharacter__renderer__t_a05e43e5fd8c76b1218f208cfcc336fef}\label{structcharacter__renderer__t_a05e43e5fd8c76b1218f208cfcc336fef}} 
+\index{character\_renderer\_t@{character\_renderer\_t}!map\_renderer@{map\_renderer}}
+\index{map\_renderer@{map\_renderer}!character\_renderer\_t@{character\_renderer\_t}}
+\doxysubsubsection{\texorpdfstring{map\_renderer}{map\_renderer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmap__renderer__t}{map\+\_\+renderer\+\_\+t}}$\ast$ character\+\_\+renderer\+\_\+t\+::map\+\_\+renderer}
+
+un pointeur sur un pointeur sur la carte 
 
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-src/game/character\+\_\+renderer.\+h\end{DoxyCompactItemize}
+src/character/\mbox{\hyperlink{character__renderer_8h}{character\+\_\+renderer.\+h}}\end{DoxyCompactItemize}

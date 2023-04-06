@@ -1,46 +1,52 @@
 <map id="src/window/window.h" name="src/window/window.h">
-<area shape="rect" id="node1" title="Implémentation des prototypes de window/window.c." alt="" coords="1719,5,1879,32"/>
-<area shape="rect" id="node2" href="$character__renderer_8h_source.html" title=" " alt="" coords="453,155,599,196"/>
-<area shape="rect" id="node4" href="$hud_8h.html" title="Implémentation des prototypes de game/hud.c." alt="" coords="1331,647,1454,673"/>
-<area shape="rect" id="node6" href="$building_8c.html" title="Permet la gestion des bâtiments, leur création, leur destruction." alt="" coords="1238,319,1379,345"/>
-<area shape="rect" id="node7" href="$building__renderer_8h.html" title="Implémentation des prototypes de map/building_renderer.c." alt="" coords="1186,162,1389,189"/>
-<area shape="rect" id="node18" href="$menu_8h.html" title="Implémentation des prototypes de menu/menu.c." alt="" coords="1825,401,1960,427"/>
-<area shape="rect" id="node19" href="$menu_8c.html" title="Fichier de création du menu multijoueur." alt="" coords="1825,490,1960,517"/>
-<area shape="rect" id="node38" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="907,80,1087,107"/>
-<area shape="rect" id="node40" href="$animation_8c.html" title="Gestion des animations." alt="" coords="2062,162,2238,189"/>
-<area shape="rect" id="node41" href="$animation_8h.html" title="Animation fonctions." alt="" coords="1973,80,2151,107"/>
-<area shape="rect" id="node42" href="$input_8c.html" title="Fichier de création des boutons et des textes." alt="" coords="1793,319,1936,345"/>
-<area shape="rect" id="node43" href="$input_8h.html" title="Implémentation des prototypes de window/input.c." alt="" coords="1633,244,1777,271"/>
-<area shape="rect" id="node44" href="$window_8c.html" title="Permets de gérer la fenêtre." alt="" coords="2313,80,2472,107"/>
-<area shape="rect" id="node3" href="$character_8h.html" title="Fonction de gestion des characters." alt="" coords="308,401,467,427"/>
-<area shape="rect" id="node5" href="$hud_8c.html" title="Implémente les fonctions pour gérer l&#39;affichage en jeux." alt="" coords="1300,721,1421,748"/>
-<area shape="rect" id="node8" href="$building_8h.html" title=" " alt="" coords="884,244,1027,271"/>
-<area shape="rect" id="node17" href="$building__hud_8c.html" title="Permet de gérer l&#39;affichage des bâtiments." alt="" coords="1368,490,1540,517"/>
-<area shape="rect" id="node37" href="$building__renderer_8c.html" title="Permet de gérer l&#39;affichage des bâtiments." alt="" coords="1211,244,1414,271"/>
-<area shape="rect" id="node9" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="935,319,1106,345"/>
-<area shape="rect" id="node13" href="$map__data__serialization_8h.html" title="Implémentation des prototypes de client/map_data_serialization.c." alt="" coords="649,393,800,435"/>
-<area shape="rect" id="node20" href="$packet_8h.html" title="Implémentation des prototypes de packet/packet.c." alt="" coords="825,401,971,427"/>
-<area shape="rect" id="node35" href="$game_8h.html" title="Fonction divers pour le jeu." alt="" coords="675,319,809,345"/>
-<area shape="rect" id="node10" href="$game__data_8c.html" title="Implémente les fonctions associées la structure de données contenant les données du jeux." alt="" coords="1047,401,1216,427"/>
-<area shape="rect" id="node11" href="$client_2game__state_8h.html" title="Implémentation des prototypes de client/game_state.c." alt="" coords="1132,647,1307,673"/>
-<area shape="rect" id="node16" href="$building__hud_8h.html" title="Implémentation des prototypes de map/building_hud.c." alt="" coords="1393,401,1566,427"/>
-<area shape="rect" id="node12" href="$client_2game__state_8c.html" title="Définition des différents états du jeux." alt="" coords="1039,721,1213,748"/>
-<area shape="rect" id="node14" href="$map__data__serialization_8c.html" title="Fonction pour transformé la carte en données pouvant être stocker ou envoyer." alt="" coords="5,483,156,524"/>
-<area shape="rect" id="node15" href="$packet_8c.html" title="Implémente toute les fonctions pour créer, et lire les différents paquets." alt="" coords="181,490,327,517"/>
-<area shape="rect" id="node21" href="$client__data_8h.html" title="Implémentation des prototypes de server/client_data.c." alt="" coords="112,647,287,673"/>
-<area shape="rect" id="node23" href="$server_2game__state_8h.html" title="Implémentation des prototypes de server/game_state.c." alt="" coords="235,721,414,748"/>
-<area shape="rect" id="node25" href="$socket_8c.html" title="Enssemble de fonctions utilitaire pour l&#39;utilisation des sockets." alt="" coords="913,572,1057,599"/>
-<area shape="rect" id="node26" href="$socket_8h.html" title="Implémentation des prototypes de socket/socket.c." alt="" coords="760,490,905,517"/>
-<area shape="rect" id="node22" href="$client__data_8c.html" title="Implémente les fonctions associées la structure de données pour les clients connectés au serveur." alt="" coords="38,721,211,748"/>
-<area shape="rect" id="node24" href="$server_2game__state_8c.html" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie." alt="" coords="235,796,414,823"/>
-<area shape="rect" id="node27" href="$socket_2client_8h.html" title="Implémentation des prototypes de socket/client.c." alt="" coords="750,572,889,599"/>
-<area shape="rect" id="node31" href="$socket_2server_8h.html" title="Implémentation des prototypes de socket/server.c." alt="" coords="544,572,687,599"/>
-<area shape="rect" id="node28" href="$connection_2client_8h.html" title="Implémentation des prototypes de connection/client.c." alt="" coords="726,647,894,673"/>
-<area shape="rect" id="node30" href="$socket_2client_8c.html" title="Client socket simple permettant l&#39;échange de paquet de manière non bloquante." alt="" coords="918,647,1057,673"/>
-<area shape="rect" id="node29" href="$connection_2client_8c.html" title="Permet de gérer la connexion du client au serveur." alt="" coords="727,721,893,748"/>
-<area shape="rect" id="node32" href="$connection_2server_8h.html" title="Implémentation des prototypes de connection/server.c." alt="" coords="529,647,701,673"/>
-<area shape="rect" id="node34" href="$socket_2server_8c.html" title="Serveur socket simple permettant l&#39;échange de paquet de manière non bloquante." alt="" coords="363,647,505,673"/>
-<area shape="rect" id="node33" href="$connection_2server_8c.html" title="Permet de gérer la connexion des clients au serveur." alt="" coords="530,721,701,748"/>
-<area shape="rect" id="node36" href="$game_8c.html" title="Fonction divers pour le jeu." alt="" coords="491,401,625,427"/>
-<area shape="rect" id="node39" href="$map__renderer_8c.html" title="Permet de gérer l&#39;affichage de la carte." alt="" coords="907,162,1086,189"/>
+<area shape="rect" id="node1" title="Implémentation des prototypes de window/window.c." alt="" coords="2360,5,2520,32"/>
+<area shape="rect" id="node2" href="$building_8c.html" title="Permet la gestion des bâtiments, leur création, leur destruction." alt="" coords="315,609,479,635"/>
+<area shape="rect" id="node3" href="$building__renderer_8h.html" title="Implémentation des prototypes de building/building_renderer.c." alt="" coords="1083,155,1237,196"/>
+<area shape="rect" id="node8" href="$main__client_8c.html" title="Main du client." alt="" coords="1558,765,1690,792"/>
+<area shape="rect" id="node10" href="$character_8c.html" title="Permet de gérer les troupes." alt="" coords="2480,519,2661,546"/>
+<area shape="rect" id="node15" href="$game__data__serialization_8h.html" title="Implémentation des prototypes de client/game_data_serialization.c." alt="" coords="1049,512,1207,553"/>
+<area shape="rect" id="node23" href="$hud_8h.html" title="Implémentation des prototypes de game/hud.c." alt="" coords="2389,691,2512,717"/>
+<area shape="rect" id="node24" href="$menu_8h.html" title="Implémentation des prototypes de menu/menu.c." alt="" coords="2374,430,2509,457"/>
+<area shape="rect" id="node25" href="$menu_8c.html" title="Fichier de création du menu multijoueur." alt="" coords="2787,519,2922,546"/>
+<area shape="rect" id="node43" href="$character__renderer_8h.html" title="Fonction de gestion de l&#39;affichage des characters." alt="" coords="1976,333,2147,375"/>
+<area shape="rect" id="node44" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="1817,80,1997,107"/>
+<area shape="rect" id="node46" href="$animation_8c.html" title="Gestion des animations." alt="" coords="2424,341,2600,367"/>
+<area shape="rect" id="node47" href="$animation_8h.html" title="Animation fonctions." alt="" coords="2323,251,2501,278"/>
+<area shape="rect" id="node48" href="$input_8c.html" title="Fichier de création des boutons et des textes." alt="" coords="2838,430,2981,457"/>
+<area shape="rect" id="node49" href="$input_8h.html" title="Implémentation des prototypes de window/input.c." alt="" coords="2675,341,2819,367"/>
+<area shape="rect" id="node50" href="$window_8c.html" title="Permets de gérer la fenêtre." alt="" coords="3158,80,3317,107"/>
+<area shape="rect" id="node4" href="$building_8h.html" title=" " alt="" coords="1261,251,1427,278"/>
+<area shape="rect" id="node7" href="$building__hud_8c.html" title="Permet de gérer l&#39;affichage de l&#39;interface de sélection des bâtiments." alt="" coords="1458,512,1611,553"/>
+<area shape="rect" id="node42" href="$building__renderer_8c.html" title="Permet de gérer l&#39;affichage des bâtiments." alt="" coords="1083,244,1237,285"/>
+<area shape="rect" id="node5" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="1308,341,1479,367"/>
+<area shape="rect" id="node20" href="$map__data__serialization_8h.html" title="Implémentation des prototypes de client/map_data_serialization.c." alt="" coords="857,423,1007,464"/>
+<area shape="rect" id="node26" href="$packet_8h.html" title="Implémentation des prototypes de packet/packet.c." alt="" coords="545,430,692,457"/>
+<area shape="rect" id="node40" href="$game_8h.html" title="Fonction divers pour le jeu." alt="" coords="1710,341,1845,367"/>
+<area shape="rect" id="node6" href="$building__hud_8h.html" title="Implémentation des prototypes de building/building_hud.c." alt="" coords="1481,423,1634,464"/>
+<area shape="rect" id="node9" href="$character_8h.html" title="Fonction de gestion des characters." alt="" coords="1921,430,2103,457"/>
+<area shape="rect" id="node12" href="$character__hud_8h.html" title="Implémentation des prototypes de character/character_hud.c." alt="" coords="2179,423,2349,464"/>
+<area shape="rect" id="node14" href="$game__data_8c.html" title="Implémente les fonctions associées la structure de données contenant les données du jeux." alt="" coords="1235,430,1405,457"/>
+<area shape="rect" id="node17" href="$client_2game__state_8h.html" title="Implémentation des prototypes de client/game_state.c." alt="" coords="1335,691,1510,717"/>
+<area shape="rect" id="node11" href="$character__renderer_8c.html" title="Permet de gérer l&#39;affichage des personnages." alt="" coords="1923,512,2093,553"/>
+<area shape="rect" id="node13" href="$character__hud_8c.html" title="Permet de gérer l&#39;affichage de l&#39;interface de sélection des troupes." alt="" coords="2168,512,2339,553"/>
+<area shape="rect" id="node16" href="$game__data__serialization_8c.html" title="Fonction pour transformé les données du jeu, en données pouvant être stocker ou envoyer." alt="" coords="1227,601,1386,643"/>
+<area shape="rect" id="node18" href="$client_2game__state_8c.html" title="Définition des différents états du jeux." alt="" coords="960,765,1133,792"/>
+<area shape="rect" id="node19" href="$hud_8c.html" title="Implémente les fonctions pour gérer l&#39;affichage en jeux." alt="" coords="2069,765,2190,792"/>
+<area shape="rect" id="node21" href="$map__data__serialization_8c.html" title="Fonction pour transformé la carte en données pouvant être stocker ou envoyer." alt="" coords="1231,512,1382,553"/>
+<area shape="rect" id="node22" href="$packet_8c.html" title="Implémente toute les fonctions pour créer, et lire les différents paquets." alt="" coords="877,519,1024,546"/>
+<area shape="rect" id="node27" href="$client__data_8h.html" title="Implémentation des prototypes de server/client_data.c." alt="" coords="159,691,334,717"/>
+<area shape="rect" id="node30" href="$server_2game__state_8h.html" title="Implémentation des prototypes de server/game_state.c." alt="" coords="32,765,211,792"/>
+<area shape="rect" id="node32" href="$socket_8c.html" title="Enssemble de fonctions utilitaire pour l&#39;utilisation des sockets." alt="" coords="656,609,800,635"/>
+<area shape="rect" id="node33" href="$socket_8h.html" title="Implémentation des prototypes de socket/socket.c." alt="" coords="707,519,853,546"/>
+<area shape="rect" id="node28" href="$main__server_8c.html" title="Main du serveur." alt="" coords="208,840,344,867"/>
+<area shape="rect" id="node29" href="$client__data_8c.html" title="Implémente les fonctions associées la structure de données pour les clients connectés au serveur." alt="" coords="285,765,459,792"/>
+<area shape="rect" id="node31" href="$server_2game__state_8c.html" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie." alt="" coords="5,840,184,867"/>
+<area shape="rect" id="node34" href="$socket_2client_8h.html" title="Implémentation des prototypes de socket/client.c." alt="" coords="1064,609,1203,635"/>
+<area shape="rect" id="node37" href="$socket_2server_8h.html" title="Implémentation des prototypes de socket/server.c." alt="" coords="825,609,967,635"/>
+<area shape="rect" id="node35" href="$connection_2client_8h.html" title="Implémentation des prototypes de connection/client.c." alt="" coords="1143,691,1311,717"/>
+<area shape="rect" id="node36" href="$socket_2client_8c.html" title="Client socket simple permettant l&#39;échange de paquet de manière non bloquante." alt="" coords="980,691,1119,717"/>
+<area shape="rect" id="node38" href="$connection_2server_8h.html" title="Implémentation des prototypes de connection/server.c." alt="" coords="358,691,530,717"/>
+<area shape="rect" id="node39" href="$socket_2server_8c.html" title="Serveur socket simple permettant l&#39;échange de paquet de manière non bloquante." alt="" coords="813,691,955,717"/>
+<area shape="rect" id="node41" href="$game_8c.html" title="Fonction divers pour le jeu." alt="" coords="1710,430,1845,457"/>
+<area shape="rect" id="node45" href="$map__renderer_8c.html" title="Permet de gérer l&#39;affichage de la carte." alt="" coords="2123,162,2301,189"/>
 </map>

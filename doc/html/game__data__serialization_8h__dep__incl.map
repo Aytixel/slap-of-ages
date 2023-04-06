@@ -1,0 +1,6 @@
+<map id="src/client/game_data_serialization.h" name="src/client/game_data_serialization.h">
+<area shape="rect" id="node1" title="Implémentation des prototypes de client/game_data_serialization.c." alt="" coords="193,5,352,47"/>
+<area shape="rect" id="node2" href="$building_8c.html" title="Permet la gestion des bâtiments, leur création, leur destruction." alt="" coords="5,102,169,129"/>
+<area shape="rect" id="node3" href="$game__data__serialization_8c.html" title="Fonction pour transformé les données du jeu, en données pouvant être stocker ou envoyer." alt="" coords="193,95,352,136"/>
+<area shape="rect" id="node4" href="$main__client_8c.html" title="Main du client." alt="" coords="376,102,508,129"/>
+</map>

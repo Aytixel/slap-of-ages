@@ -28,9 +28,9 @@ void \mbox{\hyperlink{packet_8c_ae81a3bfde9a24192f8c6dcfd69dc51da}{read\+Handsha
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant le pseudo. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{packet_8c_a122133c809cbe724167772655612afdc}{read\+Set\+Pseudo\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, char $\ast$$\ast$pseudo)
 \begin{DoxyCompactList}\small\item\em Lie un paquet définissant le pseudo. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_a65783bd7eb31b5dc30a720ac388208ba}{create\+Set\+Map\+Packet}} (\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_a65783bd7eb31b5dc30a720ac388208ba}{create\+Set\+Map\+Packet}} (\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant la carte. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{packet_8c_a16a8bdfc3a47dfd077182eb4d07fa5e3}{read\+Set\+Map\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+void \mbox{\hyperlink{packet_8c_a16a8bdfc3a47dfd077182eb4d07fa5e3}{read\+Set\+Map\+Packet}} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Lie un paquet définissant la carte. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$ \mbox{\hyperlink{packet_8c_a0909f0a69bb4b40010fef318357fa9db}{create\+Is\+Player\+Ready\+Packet}} (int is\+\_\+player\+\_\+ready)
 \begin{DoxyCompactList}\small\item\em Créer un paquet définissant si le joueur est prêt. \end{DoxyCompactList}\item 
@@ -139,7 +139,7 @@ un pointer sur un {\bfseries{paquet}}
 \index{packet.c@{packet.c}!createSetMapPacket@{createSetMapPacket}}
 \index{createSetMapPacket@{createSetMapPacket}!packet.c@{packet.c}}
 \doxysubsubsection{\texorpdfstring{createSetMapPacket()}{createSetMapPacket()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ create\+Set\+Map\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpacket__t}{packet\+\_\+t}}$\ast$ create\+Set\+Map\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 
@@ -245,7 +245,7 @@ Lie un paquet définissant si le joueur est prêt.
 \index{packet.c@{packet.c}!readSetMapPacket@{readSetMapPacket}}
 \index{readSetMapPacket@{readSetMapPacket}!packet.c@{packet.c}}
 \doxysubsubsection{\texorpdfstring{readSetMapPacket()}{readSetMapPacket()}}
-{\footnotesize\ttfamily void read\+Set\+Map\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{game__data_8h_a4fd536f2307112372f84ce77d4dd58ae}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void read\+Set\+Map\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$}]{packet,  }\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
 
 
 

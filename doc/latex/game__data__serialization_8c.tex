@@ -1,0 +1,80 @@
+\hypertarget{game__data__serialization_8c}{}\doxysection{Référence du fichier src/client/game\+\_\+data\+\_\+serialization.c}
+\label{game__data__serialization_8c}\index{src/client/game\_data\_serialization.c@{src/client/game\_data\_serialization.c}}
+
+
+Fonction pour transformé les données du jeu, en données pouvant être stocker ou envoyer.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}game\+\_\+data\+\_\+serialization.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de game\+\_\+data\+\_\+serialization.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__data__serialization_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{game__data__serialization_8c_a7aa98dc6d46d55bc7ec41a51c4c2f3a6}{serialize\+Game\+Data}} (\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Converti les données du jeu, en données pouvant être stockées et les stockes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game__data__serialization_8c_a7b9128a378de390af3db08cedb89c22e}{deserialize\+Game\+Data}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Reconvertie les données du jeu en structure et en variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fonction pour transformé les données du jeu, en données pouvant être stocker ou envoyer. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+01/04/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{game__data__serialization_8c_a7b9128a378de390af3db08cedb89c22e}\label{game__data__serialization_8c_a7b9128a378de390af3db08cedb89c22e}} 
+\index{game\_data\_serialization.c@{game\_data\_serialization.c}!deserializeGameData@{deserializeGameData}}
+\index{deserializeGameData@{deserializeGameData}!game\_data\_serialization.c@{game\_data\_serialization.c}}
+\doxysubsubsection{\texorpdfstring{deserializeGameData()}{deserializeGameData()}}
+{\footnotesize\ttfamily int deserialize\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Reconvertie les données du jeu en structure et en variable. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & un pointeur sur une fenêtre \\
+\hline
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game__data__serialization_8c_a7aa98dc6d46d55bc7ec41a51c4c2f3a6}\label{game__data__serialization_8c_a7aa98dc6d46d55bc7ec41a51c4c2f3a6}} 
+\index{game\_data\_serialization.c@{game\_data\_serialization.c}!serializeGameData@{serializeGameData}}
+\index{serializeGameData@{serializeGameData}!game\_data\_serialization.c@{game\_data\_serialization.c}}
+\doxysubsubsection{\texorpdfstring{serializeGameData()}{serializeGameData()}}
+{\footnotesize\ttfamily int serialize\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$}]{game\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Converti les données du jeu, en données pouvant être stockées et les stockes. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game\+\_\+data} & un pointeur sur les données du jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+{\bfseries{0}} si tous se passe bien, {\bfseries{-\/1}} sinon 
+\end{DoxyReturn}

@@ -1,0 +1,64 @@
+\hypertarget{main__client_8c}{}\doxysection{Référence du fichier src/main\+\_\+client.c}
+\label{main__client_8c}\index{src/main\_client.c@{src/main\_client.c}}
+
+
+Main du client.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}window/window.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}timer/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}connection/client.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}map/map\+\_\+renderer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}building/building\+\_\+renderer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}building/building.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}building/building\+\_\+hud.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}menu/menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}client/game\+\_\+data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}client/game\+\_\+state.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}client/game\+\_\+data\+\_\+serialization.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}game/hud.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}character/character\+\_\+hud.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de main\+\_\+client.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__client_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main__client_8c_a9401c9b9e7d25eb9df1df1b1ea6fe037}\label{main__client_8c_a9401c9b9e7d25eb9df1df1b1ea6fe037}} 
+void {\bfseries signal\+Handler} (int s)
+\item 
+\mbox{\Hypertarget{main__client_8c_ae711af420d91201cf3138abaf468f64c}\label{main__client_8c_ae711af420d91201cf3138abaf468f64c}} 
+void {\bfseries window\+Event\+Handler} (SDL\+\_\+\+Event $\ast$event, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, \mbox{\hyperlink{structbuilding__hud__t}{building\+\_\+hud\+\_\+t}} $\ast$building\+\_\+hud, \mbox{\hyperlink{structcharacter__hud__t}{character\+\_\+hud\+\_\+t}} $\ast$character\+\_\+hud, \mbox{\hyperlink{structbuilding__renderer__t}{building\+\_\+renderer\+\_\+t}} $\ast$building\+\_\+renderer, \mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer, \mbox{\hyperlink{structmenu__t}{menu\+\_\+t}} $\ast$menu, \mbox{\hyperlink{structhud__t}{hud\+\_\+t}} $\ast$hud)
+\item 
+\mbox{\Hypertarget{main__client_8c_af1ee20cd4b492b405bd6b089f8e5b08b}\label{main__client_8c_af1ee20cd4b492b405bd6b089f8e5b08b}} 
+void {\bfseries handle\+\_\+packet} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, \mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, \mbox{\hyperlink{structclient__game__data__s}{client\+\_\+game\+\_\+data\+\_\+t}} $\ast$game\+\_\+data, \mbox{\hyperlink{structcharacter__renderer__t}{character\+\_\+renderer\+\_\+t}} $\ast$character\+\_\+renderer)
+\item 
+\mbox{\Hypertarget{main__client_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{main__client_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+int {\bfseries main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main__client_8c_a2f45113638a0b749a8a205d2cd7fb42b}\label{main__client_8c_a2f45113638a0b749a8a205d2cd7fb42b}} 
+int {\bfseries running} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Main du client. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
