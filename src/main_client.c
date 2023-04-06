@@ -1,3 +1,11 @@
+/**
+ * @file main_client.c
+ * @author Lucas Dureau
+ * @brief Main du client
+ * @version 0.1
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

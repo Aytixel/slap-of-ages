@@ -1,7 +1,7 @@
 <map id="src/character/character_hud.h" name="src/character/character_hud.h">
 <area shape="rect" id="node1" title="Implémentation des prototypes de character/character_hud.c." alt="" coords="881,5,1052,47"/>
 <area shape="rect" id="node2" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="492,95,639,121"/>
-<area shape="rect" id="node14" href="$character__renderer_8h_source.html" title=" " alt="" coords="697,244,853,271"/>
+<area shape="rect" id="node14" href="$character__renderer_8h.html" title="Fonction de gestion de l&#39;affichage des characters." alt="" coords="697,244,853,271"/>
 <area shape="rect" id="node15" href="$animation_8h.html" title="Animation fonctions." alt="" coords="621,319,776,345"/>
 <area shape="rect" id="node23" href="$input_8h.html" title="Implémentation des prototypes de window/input.c." alt="" coords="903,468,1025,495"/>
 <area shape="rect" id="node3" title=" " alt="" coords="667,169,738,196"/>

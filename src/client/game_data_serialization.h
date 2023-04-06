@@ -1,5 +1,5 @@
 /**
- * @file game_data_serialization.c
+ * @file game_data_serialization.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de client/game_data_serialization.c
  * @version 0.1

@@ -1,0 +1,57 @@
+\hypertarget{main__server_8c}{}\doxysection{Référence du fichier src/main\+\_\+server.c}
+\label{main__server_8c}\index{src/main\_server.c@{src/main\_server.c}}
+
+
+Main du serveur.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}server/common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}timer/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}connection/server.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}server/client\+\_\+data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}server/game\+\_\+state.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/getopt.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de main\+\_\+server.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__server_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main__server_8c_a9401c9b9e7d25eb9df1df1b1ea6fe037}\label{main__server_8c_a9401c9b9e7d25eb9df1df1b1ea6fe037}} 
+void {\bfseries signal\+Handler} (int s)
+\item 
+\mbox{\Hypertarget{main__server_8c_a74867f23041742c034ae8c5d88244198}\label{main__server_8c_a74867f23041742c034ae8c5d88244198}} 
+void {\bfseries get\+\_\+connection\+\_\+info} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, char $\ast$$\ast$hostname, uint16\+\_\+t $\ast$port)
+\item 
+\mbox{\Hypertarget{main__server_8c_a02e4372e64bd7ddd5cd92111dbbfe634}\label{main__server_8c_a02e4372e64bd7ddd5cd92111dbbfe634}} 
+int {\bfseries handle\+\_\+packet} (\mbox{\hyperlink{structpacket__t}{packet\+\_\+t}} $\ast$packet, \mbox{\hyperlink{server_2game__state_8h_a39f14111b1d24e22ec6118acf38da7cb}{server\+\_\+game\+\_\+state\+\_\+array\+\_\+t}} $\ast$game\+\_\+state\+\_\+array)
+\item 
+\mbox{\Hypertarget{main__server_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{main__server_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+int {\bfseries main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main__server_8c_a2f45113638a0b749a8a205d2cd7fb42b}\label{main__server_8c_a2f45113638a0b749a8a205d2cd7fb42b}} 
+int {\bfseries running} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Main du serveur. 
+
+\begin{DoxyAuthor}{Auteur}
+Lucas Dureau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}

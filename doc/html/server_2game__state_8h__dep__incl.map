@@ -1,6 +1,7 @@
 <map id="src/server/game_state.h" name="src/server/game_state.h">
-<area shape="rect" id="node1" title="Implémentation des prototypes de server/game_state.c." alt="" coords="5,5,184,32"/>
-<area shape="rect" id="node2" href="$client__data_8h.html" title="Implémentation des prototypes de server/client_data.c." alt="" coords="7,80,182,107"/>
-<area shape="rect" id="node4" href="$server_2game__state_8c.html" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie." alt="" coords="207,80,385,107"/>
-<area shape="rect" id="node3" href="$client__data_8c.html" title="Implémente les fonctions associées la structure de données pour les clients connectés au serveur." alt="" coords="8,155,181,181"/>
+<area shape="rect" id="node1" title="Implémentation des prototypes de server/game_state.c." alt="" coords="109,5,288,32"/>
+<area shape="rect" id="node2" href="$main__server_8c.html" title="Main du serveur." alt="" coords="5,155,141,181"/>
+<area shape="rect" id="node3" href="$client__data_8h.html" title="Implémentation des prototypes de server/client_data.c." alt="" coords="111,80,286,107"/>
+<area shape="rect" id="node5" href="$server_2game__state_8c.html" title="Implémente les fonctions permettant de gérer l&#39;état d&#39;une partie." alt="" coords="311,80,489,107"/>
+<area shape="rect" id="node4" href="$client__data_8c.html" title="Implémente les fonctions associées la structure de données pour les clients connectés au serveur." alt="" coords="165,155,339,181"/>
 </map>

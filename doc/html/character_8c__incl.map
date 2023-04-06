@@ -13,7 +13,7 @@
 <area shape="rect" id="node8" title=" " alt="" coords="5,304,149,331"/>
 <area shape="rect" id="node10" title=" " alt="" coords="976,528,1072,555"/>
 <area shape="rect" id="node11" title=" " alt="" coords="1301,528,1419,555"/>
-<area shape="rect" id="node14" href="$character__renderer_8h_source.html" title=" " alt="" coords="254,155,410,181"/>
+<area shape="rect" id="node14" href="$character__renderer_8h.html" title="Fonction de gestion de l&#39;affichage des characters." alt="" coords="254,155,410,181"/>
 <area shape="rect" id="node15" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="829,379,987,405"/>
 <area shape="rect" id="node16" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="763,155,909,181"/>
 <area shape="rect" id="node21" href="$game_8h.html" title="Fonction divers pour le jeu." alt="" coords="933,155,1045,181"/>

@@ -1,6 +1,6 @@
 <map id="src/character/character.h" name="src/character/character.h">
 <area shape="rect" id="node1" title="Fonction de gestion des characters." alt="" coords="361,5,543,32"/>
-<area shape="rect" id="node2" href="$character__renderer_8h_source.html" title=" " alt="" coords="133,229,289,256"/>
+<area shape="rect" id="node2" href="$character__renderer_8h.html" title="Fonction de gestion de l&#39;affichage des characters." alt="" coords="133,229,289,256"/>
 <area shape="rect" id="node6" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="416,304,573,331"/>
 <area shape="rect" id="node9" href="$animation_8h.html" title="Animation fonctions." alt="" coords="5,304,160,331"/>
 <area shape="rect" id="node11" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="379,80,525,107"/>

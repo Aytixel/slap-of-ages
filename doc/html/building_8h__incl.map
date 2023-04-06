@@ -12,7 +12,7 @@
 <area shape="rect" id="node12" href="$character_8h.html" title="Fonction de gestion des characters." alt="" coords="275,155,434,181"/>
 <area shape="rect" id="node21" href="$game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="459,155,613,181"/>
 <area shape="rect" id="node11" title=" " alt="" coords="732,379,823,405"/>
-<area shape="rect" id="node13" href="$character__renderer_8h_source.html" title=" " alt="" coords="505,229,661,256"/>
+<area shape="rect" id="node13" href="$character__renderer_8h.html" title="Fonction de gestion de l&#39;affichage des characters." alt="" coords="505,229,661,256"/>
 <area shape="rect" id="node14" href="$animation_8h.html" title="Animation fonctions." alt="" coords="545,304,700,331"/>
 <area shape="rect" id="node16" href="$animation__states_8h.html" title="fichier contenant les différents états des animations" alt="" coords="227,229,429,256"/>
 <area shape="rect" id="node17" href="$game_8h.html" title="Fonction divers pour le jeu." alt="" coords="899,229,1011,256"/>

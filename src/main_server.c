@@ -1,3 +1,11 @@
+/**
+ * @file main_server.c
+ * @author Lucas Dureau
+ * @brief Main du serveur
+ * @version 0.1
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>

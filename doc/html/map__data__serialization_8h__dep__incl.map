@@ -1,8 +1,9 @@
 <map id="src/client/map_data_serialization.h" name="src/client/map_data_serialization.h">
-<area shape="rect" id="node1" title="Implémentation des prototypes de client/map_data_serialization.c." alt="" coords="283,5,433,47"/>
-<area shape="rect" id="node2" href="$game__data__serialization_8h_source.html" title=" " alt="" coords="100,95,259,136"/>
-<area shape="rect" id="node5" href="$map__data__serialization_8c.html" title="Fonction pour transformé la carte en données pouvant être stocker ou envoyer." alt="" coords="283,95,433,136"/>
-<area shape="rect" id="node6" href="$packet_8c.html" title="Implémente toute les fonctions pour créer, et lire les différents paquets." alt="" coords="458,102,605,129"/>
+<area shape="rect" id="node1" title="Implémentation des prototypes de client/map_data_serialization.c." alt="" coords="376,5,527,47"/>
+<area shape="rect" id="node2" href="$game__data__serialization_8h.html" title="Implémentation des prototypes de client/game_data_serialization.c." alt="" coords="193,95,352,136"/>
+<area shape="rect" id="node6" href="$map__data__serialization_8c.html" title="Fonction pour transformé la carte en données pouvant être stocker ou envoyer." alt="" coords="376,95,527,136"/>
+<area shape="rect" id="node7" href="$packet_8c.html" title="Implémente toute les fonctions pour créer, et lire les différents paquets." alt="" coords="551,102,698,129"/>
 <area shape="rect" id="node3" href="$building_8c.html" title="Permet la gestion des bâtiments, leur création, leur destruction." alt="" coords="5,191,169,218"/>
 <area shape="rect" id="node4" href="$game__data__serialization_8c.html" title="Fonction pour transformé les données du jeu, en données pouvant être stocker ou envoyer." alt="" coords="193,184,352,225"/>
+<area shape="rect" id="node5" href="$main__client_8c.html" title="Main du client." alt="" coords="376,191,508,218"/>
 </map>

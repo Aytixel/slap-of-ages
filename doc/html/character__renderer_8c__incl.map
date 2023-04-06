@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title="Permet de gérer l&#39;affichage des personnages." alt="" coords="907,5,1077,47"/>
 <area shape="rect" id="node2" title=" " alt="" coords="1347,244,1418,271"/>
 <area shape="rect" id="node3" href="$client_2common_8h.html" title="Definition globale pour le client." alt="" coords="1085,244,1216,271"/>
-<area shape="rect" id="node4" href="$character__renderer_8h_source.html" title=" " alt="" coords="193,169,349,196"/>
+<area shape="rect" id="node4" href="$character__renderer_8h.html" title="Fonction de gestion de l&#39;affichage des characters." alt="" coords="193,169,349,196"/>
 <area shape="rect" id="node13" href="$character_8h.html" title="Fonction de gestion des characters." alt="" coords="709,95,803,121"/>
 <area shape="rect" id="node5" title=" " alt="" coords="5,543,101,569"/>
 <area shape="rect" id="node6" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="126,468,263,495"/>

@@ -1,4 +1,5 @@
 <map id="src/connection/client.h" name="src/connection/client.h">
-<area shape="rect" id="node1" title="Implémentation des prototypes de connection/client.c." alt="" coords="5,5,173,32"/>
-<area shape="rect" id="node2" href="$connection_2client_8c.html" title="Permet de gérer la connexion du client au serveur." alt="" coords="6,80,173,107"/>
+<area shape="rect" id="node1" title="Implémentation des prototypes de connection/client.c." alt="" coords="91,5,259,32"/>
+<area shape="rect" id="node2" href="$connection_2client_8c.html" title="Permet de gérer la connexion du client au serveur." alt="" coords="5,80,172,107"/>
+<area shape="rect" id="node3" href="$main__client_8c.html" title="Main du client." alt="" coords="196,80,328,107"/>
 </map>
