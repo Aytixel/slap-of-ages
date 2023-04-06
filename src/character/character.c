@@ -413,21 +413,6 @@ static void updateCharacterTarget(client_game_data_t *game_data, character_t *ch
                     character->targeted_building = nearest_building;
                 }
             }
-            else if (nearest_character != NULL)
-            {
-                SDL_Point goal = {nearest_character->position.x, nearest_character->position.y};
-
-                nearest_character_path = aStar(start, goal, game_data->opponent_map_building, 0);
-
-                if (nearest_character_path != NULL)
-                {
-                    freeNodePath(character->path);
-
-                    character->path = NULL;
-                    character->path = nearest_character_path;
-                    character->targeted_character = nearest_character;
-                }
-            }
             else
             {
                 character->targeted_character = NULL;
@@ -464,21 +449,6 @@ static void updateCharacterTarget(client_game_data_t *game_data, character_t *ch
                         character->path = nearest_building_path;
                         character->targeted_building = nearest_building;
                     }
-                }
-            }
-            else if (nearest_character != NULL)
-            {
-                SDL_Point goal = {nearest_character->position.x, nearest_character->position.y};
-
-                nearest_character_path = aStar(start, goal, game_data->opponent_map_building, 1);
-
-                if (nearest_character_path != NULL)
-                {
-                    freeNodePath(character->path);
-
-                    character->path = NULL;
-                    character->path = nearest_character_path;
-                    character->targeted_character = nearest_character;
                 }
             }
             else
