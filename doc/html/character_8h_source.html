@@ -98,9 +98,9 @@ $(function() {
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structcharacter__list__s.html">   44</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcharacter__list__s.html">character_list_s</a></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="structcharacter__s.html">character_t</a> **list;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> count;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">int</span> capacity;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="structcharacter__s.html">character_t</a> **list; <span class="comment">// pointeur sur les troupes de la liste</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> count;          <span class="comment">// nombre de troupe dans la liste</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">int</span> capacity;       <span class="comment">// capacité maximale de la liste</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">   49</a></span>&#160;} <a class="code" href="character_8h.html#aa98fe56c73c43d69dba015fa2536d391">character_list_t</a>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">extern</span> <a class="code" href="structcharacter__s.html">character_t</a> *<a class="code" href="character_8h.html#adab35f96855d46ab25dca3cbf26ca46a">createCharacter</a>(<a class="code" href="structcharacter__renderer__t.html">character_renderer_t</a> *character_renderer, <a class="code" href="character__renderer_8h.html#a22f15df25fed28059bbcdfa161f843e1">character_type_e</a> type, SDL_Point *position, <span class="keywordtype">int</span> is_defender);</div>

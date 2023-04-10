@@ -112,9 +112,9 @@ Ajout d\textquotesingle{}un noeud à la liste.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em list} & \\
+{\em list} & pointeur sur une liste de noeud \\
 \hline
-{\em node} & \\
+{\em node} & pointeur sur un noeud \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{game_8h_a67fcdb7ce8eca94632eccfdf49543a60}\label{game_8h_a67fcdb7ce8eca94632eccfdf49543a60}} 
@@ -129,13 +129,13 @@ Algorithme de pathfinding A$\ast$.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em start} & \\
+{\em start} & position du noeud de départ \\
 \hline
-{\em goal} & \\
+{\em goal} & position du noeud d\textquotesingle{}arriver \\
 \hline
-{\em map\+\_\+building} & \\
+{\em map\+\_\+building} & matrice contenant les bâtiments \\
 \hline
-{\em wall} & \\
+{\em wall} & indique si l\textquotesingle{}on doit prendre en compte les murs ou non \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -153,7 +153,7 @@ Vide une liste de ses noeuds.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em list} & \\
+{\em list} & pointeur sur une liste de noeud \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{game_8h_ab375fc67d0c6d397f6967206446f8d7f}\label{game_8h_ab375fc67d0c6d397f6967206446f8d7f}} 
@@ -168,9 +168,9 @@ Creation d\textquotesingle{}une noeud.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em position} & \\
+{\em position} & position du noeud \\
 \hline
-{\em parent} & \\
+{\em parent} & pointeur sur le noeud parent \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -201,7 +201,7 @@ Affichage du chemin.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em node} & \\
+{\em node} & pointeur sur un noeud \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{game_8h_a55953001ad2cb87f62815289751624b4}\label{game_8h_a55953001ad2cb87f62815289751624b4}} 
@@ -216,7 +216,7 @@ Libération de la mémoire d\textquotesingle{}une liste de noeud.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em list} & \\
+{\em list} & pointeur sur une liste de noeud \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{game_8h_ad1f28cbf3e4f4006a84023b5c5c3ff5e}\label{game_8h_ad1f28cbf3e4f4006a84023b5c5c3ff5e}} 
@@ -231,7 +231,7 @@ Libération de la mémoire d\textquotesingle{}une node et de ses parent.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em node} & \\
+{\em node} & pointeur sur un noeud \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{game_8h_a78e0d96dfa895cffe000ecf64e5e281f}\label{game_8h_a78e0d96dfa895cffe000ecf64e5e281f}} 
@@ -246,7 +246,7 @@ Récupère la position vers la quelle avancer.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em node} & \\
+{\em node} & pointeur sur un noeud \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -264,7 +264,7 @@ Va à la prochaine position dans le chemin en enlevant le noeud courant.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em node} & \\
+{\em node} & pointeur sur un noeud \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{game_8h_a73a16060935346f073c8ce1985bc9bf4}\label{game_8h_a73a16060935346f073c8ce1985bc9bf4}} 
@@ -279,9 +279,9 @@ Heuristique pour l\textquotesingle{}algorithme A$\ast$.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em a} & \\
+{\em a} & pointeur sur un noeud \\
 \hline
-{\em b} & \\
+{\em b} & pointeur sur un noeud \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -299,17 +299,13 @@ Vérification de la validité d\textquotesingle{}un node.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em x} & \\
+{\em position} & position du noeud \\
 \hline
-{\em y} & \\
-\hline
-{\em mat} & \\
+{\em map\+\_\+building} & matrice contenant les bâtiments \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-true 
-
-false 
+true ou false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{game_8h_a40bb44712e413288d559ff0cde79d441}\label{game_8h_a40bb44712e413288d559ff0cde79d441}} 
 \index{game.h@{game.h}!isValidNoWall@{isValidNoWall}}
@@ -323,15 +319,11 @@ Vérification de la validité d\textquotesingle{}un node sans les murs.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em x} & \\
-\hline
-{\em y} & \\
+{\em position} & position du noeud \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-true 
-
-false 
+true ou false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{game_8h_a3f326593499d7991c4e06dea63330692}\label{game_8h_a3f326593499d7991c4e06dea63330692}} 
 \index{game.h@{game.h}!removeNode@{removeNode}}
@@ -345,9 +337,9 @@ Suppression d\textquotesingle{}un noeud.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em list} & \\
+{\em list} & pointeur sur une liste de noeud \\
 \hline
-{\em index} & \\
+{\em index} & position du noeud dans la liste \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -365,8 +357,8 @@ Suppression de la liste d\textquotesingle{}un noeud et de ses parents.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em list} & \\
+{\em list} & pointeur sur une liste de noeud \\
 \hline
-{\em node} & \\
+{\em node} & pointeur sur un noeud \\
 \hline
 \end{DoxyParams}

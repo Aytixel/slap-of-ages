@@ -43,9 +43,9 @@ typedef struct character_s
  */
 typedef struct character_list_s
 {
-    character_t **list;
-    int count;
-    int capacity;
+    character_t **list; // pointeur sur les troupes de la liste
+    int count;          // nombre de troupe dans la liste
+    int capacity;       // capacité maximale de la liste
 } character_list_t;
 
 /**
