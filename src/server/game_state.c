@@ -257,7 +257,7 @@ extern void setPlayerFinishedInArray(server_game_state_array_t *game_state_array
                 deletePacket(&packet_1);
                 deletePacket(&packet_2);
 
-                printf("%d : Parti finie entre %s, et %s\n", socket_fd, game_state_array->game_state[i]->player[0]->client_data->pseudo, game_state_array->game_state[i]->player[1]->client_data->pseudo);
+                printf("%d : Partie finie entre %s, et %s\n", socket_fd, game_state_array->game_state[i]->player[0]->client_data->pseudo, game_state_array->game_state[i]->player[1]->client_data->pseudo);
 
                 removeGameStateFromArray(game_state_array, i);
             }
@@ -296,7 +296,7 @@ extern void checkServerGameTimeout(server_game_state_array_t *game_state_array)
             deletePacket(&packet_1);
             deletePacket(&packet_2);
 
-            printf("  : Parti finie entre %s, et %s\n", game_state_array->game_state[i]->player[0]->client_data->pseudo, game_state_array->game_state[i]->player[1]->client_data->pseudo);
+            printf("  : Partie finie entre %s, et %s\n", game_state_array->game_state[i]->player[0]->client_data->pseudo, game_state_array->game_state[i]->player[1]->client_data->pseudo);
 
             removeGameStateFromArray(game_state_array, i--);
         }
@@ -354,7 +354,7 @@ extern void setPlayerIsReadyInArray(server_game_state_array_t *game_state_array,
             sendToServerClient(game_state_array->game_state[game_index]->player[0]->server_client, game_state_array->game_state[game_index]->player[1]->client_data->map_packet);
             sendToServerClient(game_state_array->game_state[game_index]->player[1]->server_client, game_state_array->game_state[game_index]->player[0]->client_data->map_packet);
 
-            printf("%d : Parti lancé entre %s, et %s\n", server_client->socket_fd, game_state_array->game_state[game_index]->player[0]->client_data->pseudo, game_state_array->game_state[game_index]->player[1]->client_data->pseudo);
+            printf("%d : Partie lancé entre %s, et %s\n", server_client->socket_fd, game_state_array->game_state[game_index]->player[0]->client_data->pseudo, game_state_array->game_state[game_index]->player[1]->client_data->pseudo);
         }
     }
     else
