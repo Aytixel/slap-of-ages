@@ -271,8 +271,8 @@ Fonctions</h2></td></tr>
 <p>Ajout d'un noeud à la liste. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td></td></tr>
-    <tr><td class="paramname">node</td><td></td></tr>
+    <tr><td class="paramname">list</td><td>pointeur sur une liste de noeud </td></tr>
+    <tr><td class="paramname">node</td><td>pointeur sur un noeud </td></tr>
   </table>
   </dd>
 </dl>
@@ -320,10 +320,10 @@ Fonctions</h2></td></tr>
 <p>Algorithme de pathfinding A*. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">start</td><td></td></tr>
-    <tr><td class="paramname">goal</td><td></td></tr>
-    <tr><td class="paramname">map_building</td><td></td></tr>
-    <tr><td class="paramname">wall</td><td></td></tr>
+    <tr><td class="paramname">start</td><td>position du noeud de départ </td></tr>
+    <tr><td class="paramname">goal</td><td>position du noeud d'arriver </td></tr>
+    <tr><td class="paramname">map_building</td><td>matrice contenant les bâtiments </td></tr>
+    <tr><td class="paramname">wall</td><td>indique si l'on doit prendre en compte les murs ou non </td></tr>
   </table>
   </dd>
 </dl>
@@ -350,7 +350,7 @@ Fonctions</h2></td></tr>
 <p>Vide une liste de ses noeuds. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td></td></tr>
+    <tr><td class="paramname">list</td><td>pointeur sur une liste de noeud </td></tr>
   </table>
   </dd>
 </dl>
@@ -386,8 +386,8 @@ Fonctions</h2></td></tr>
 <p>Creation d'une noeud. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">position</td><td></td></tr>
-    <tr><td class="paramname">parent</td><td></td></tr>
+    <tr><td class="paramname">position</td><td>position du noeud </td></tr>
+    <tr><td class="paramname">parent</td><td>pointeur sur le noeud parent </td></tr>
   </table>
   </dd>
 </dl>
@@ -434,7 +434,7 @@ Fonctions</h2></td></tr>
 <p>Affichage du chemin. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">node</td><td></td></tr>
+    <tr><td class="paramname">node</td><td>pointeur sur un noeud </td></tr>
   </table>
   </dd>
 </dl>
@@ -460,7 +460,7 @@ Fonctions</h2></td></tr>
 <p>Libération de la mémoire d'une liste de noeud. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td></td></tr>
+    <tr><td class="paramname">list</td><td>pointeur sur une liste de noeud </td></tr>
   </table>
   </dd>
 </dl>
@@ -486,7 +486,7 @@ Fonctions</h2></td></tr>
 <p>Libération de la mémoire d'une node et de ses parent. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">node</td><td></td></tr>
+    <tr><td class="paramname">node</td><td>pointeur sur un noeud </td></tr>
   </table>
   </dd>
 </dl>
@@ -512,7 +512,7 @@ Fonctions</h2></td></tr>
 <p>Récupère la position vers la quelle avancer. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">node</td><td></td></tr>
+    <tr><td class="paramname">node</td><td>pointeur sur un noeud </td></tr>
   </table>
   </dd>
 </dl>
@@ -539,7 +539,7 @@ Fonctions</h2></td></tr>
 <p>Va à la prochaine position dans le chemin en enlevant le noeud courant. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">node</td><td></td></tr>
+    <tr><td class="paramname">node</td><td>pointeur sur un noeud </td></tr>
   </table>
   </dd>
 </dl>
@@ -575,8 +575,8 @@ Fonctions</h2></td></tr>
 <p>Heuristique pour l'algorithme A*. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td></td></tr>
-    <tr><td class="paramname">b</td><td></td></tr>
+    <tr><td class="paramname">a</td><td>pointeur sur un noeud </td></tr>
+    <tr><td class="paramname">b</td><td>pointeur sur un noeud </td></tr>
   </table>
   </dd>
 </dl>
@@ -613,15 +613,12 @@ Fonctions</h2></td></tr>
 <p>Vérification de la validité d'un node. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
-    <tr><td class="paramname">mat</td><td></td></tr>
+    <tr><td class="paramname">position</td><td>position du noeud </td></tr>
+    <tr><td class="paramname">map_building</td><td>matrice contenant les bâtiments </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>true </dd>
-<dd>
-false </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true ou false </dd></dl>
 
 </div>
 </div>
@@ -644,14 +641,11 @@ false </dd></dl>
 <p>Vérification de la validité d'un node sans les murs. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">position</td><td>position du noeud </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>true </dd>
-<dd>
-false </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true ou false </dd></dl>
 
 </div>
 </div>
@@ -684,8 +678,8 @@ false </dd></dl>
 <p>Suppression d'un noeud. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td></td></tr>
-    <tr><td class="paramname">index</td><td></td></tr>
+    <tr><td class="paramname">list</td><td>pointeur sur une liste de noeud </td></tr>
+    <tr><td class="paramname">index</td><td>position du noeud dans la liste </td></tr>
   </table>
   </dd>
 </dl>
@@ -722,8 +716,8 @@ false </dd></dl>
 <p>Suppression de la liste d'un noeud et de ses parents. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td></td></tr>
-    <tr><td class="paramname">node</td><td></td></tr>
+    <tr><td class="paramname">list</td><td>pointeur sur une liste de noeud </td></tr>
+    <tr><td class="paramname">node</td><td>pointeur sur un noeud </td></tr>
   </table>
   </dd>
 </dl>
