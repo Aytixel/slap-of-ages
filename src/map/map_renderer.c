@@ -2,7 +2,7 @@
  * @file map_renderer.c
  * @author Lucas Dureau
  * @brief Permet de gérer l'affichage de la carte
- * @version 0.1
+ * @version 1.1
  * @date 16/02/2023
  *
  */

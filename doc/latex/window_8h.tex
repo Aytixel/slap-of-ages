@@ -6,13 +6,15 @@ Implémentation des prototypes de \mbox{\hyperlink{window_8c}{window/window.\+c}
 
 
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
 Graphe des dépendances par inclusion de window.\+h\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=258pt]{window_8h__incl}
+\includegraphics[width=350pt]{window_8h__incl}
 \end{center}
 \end{figure}
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
@@ -64,6 +66,8 @@ TTF\+\_\+\+Font $\ast$ \mbox{\hyperlink{window_8h_a1aa4702721f7b4b6a599a14fdd0a4
 \begin{DoxyCompactList}\small\item\em Génère un sprite à partir d\textquotesingle{}un texte. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{window_8h_ac84ead18493a5445ba473190996fe36b}{destroy\+Sprite}} (\mbox{\hyperlink{structsprite__t}{sprite\+\_\+t}} $\ast$$\ast$sprite)
 \begin{DoxyCompactList}\small\item\em Détruit un sprite. \end{DoxyCompactList}\item 
+Mix\+\_\+\+Music $\ast$ \mbox{\hyperlink{window_8h_a12a575ff5b10ab782dda2cda02c5a248}{load\+Music}} (char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Charge un audio depuis un fichier. \end{DoxyCompactList}\item 
 SDL\+\_\+\+Rect \mbox{\hyperlink{window_8h_ad3c4f018bc737c5c0b0436fe379817ba}{position\+From\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, int width, int height, int x, int y, \mbox{\hyperlink{window_8h_a8dca14cd1fd60c17927c8df815a291b4}{transform\+\_\+origin\+\_\+e}} origin)
 \begin{DoxyCompactList}\small\item\em Calcule une position par rapport au centre de l\textquotesingle{}écran. \end{DoxyCompactList}\item 
 SDL\+\_\+\+Rect \mbox{\hyperlink{window_8h_a1de1e31a95e63b3a09ad7c3f4a7637c6}{position\+To\+Center}} (\mbox{\hyperlink{structwindow__t}{window\+\_\+t}} $\ast$window, int width, int height)
@@ -77,7 +81,7 @@ Implémentation des prototypes de \mbox{\hyperlink{window_8c}{window/window.\+c}
 Lucas Dureau 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
-0.\+1 
+1.\+1 
 \end{DoxyVersion}
 \begin{DoxyDate}{Date}
 08/02/2023 
@@ -246,6 +250,24 @@ Charge une police depuis un fichier.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 un pointer sur une {\bfseries{TTF\+\_\+\+Font}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8h_a12a575ff5b10ab782dda2cda02c5a248}\label{window_8h_a12a575ff5b10ab782dda2cda02c5a248}} 
+\index{window.h@{window.h}!loadMusic@{loadMusic}}
+\index{loadMusic@{loadMusic}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{loadMusic()}{loadMusic()}}
+{\footnotesize\ttfamily Mix\+\_\+\+Music$\ast$ load\+Music (\begin{DoxyParamCaption}\item[{char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Charge un audio depuis un fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em path} & chemin vers le fichier audio \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un pointer sur un {\bfseries{Mix\+\_\+\+Music}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{window_8h_a12caaf6efa15b7b7ef17f25474d3f4ce}\label{window_8h_a12caaf6efa15b7b7ef17f25474d3f4ce}} 
 \index{window.h@{window.h}!loadSprite@{loadSprite}}

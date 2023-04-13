@@ -2,7 +2,7 @@
  * @file character_renderer.h
  * @author Arthur Dureau, Lucas Dureau
  * @brief Fonction de gestion de l'affichage des characters
- * @version 1.0
+ * @version 1.1
  * @date 19/03/2023
  *
  *

@@ -2,7 +2,7 @@
  * @file character.c
  * @author Dureau Arthur, Lucas Dureau
  * @brief Permet de gérer les troupes
- * @version 1.0
+ * @version 1.1
  * @date 29/03/2023
  *
  */

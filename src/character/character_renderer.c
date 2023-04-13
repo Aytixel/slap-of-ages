@@ -2,7 +2,7 @@
  * @file character_renderer.c
  * @author Dureau Arthur, Lucas Dureau
  * @brief Permet de gérer l'affichage des personnages
- * @version 1.0
+ * @version 1.1
  * @date 29/03/2023
  *
  *

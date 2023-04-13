@@ -2,7 +2,7 @@
  * @file common.h
  * @author Lucas Dureau
  * @brief Definition globale pour le client
- * @version 0.1
+ * @version 1.1
  * @date 31/03/2023
  *
  */

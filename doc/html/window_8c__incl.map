@@ -1,9 +1,10 @@
 <map id="src/window/window.c" name="src/window/window.c">
-<area shape="rect" id="node1" title="Permets de gérer la fenêtre." alt="" coords="118,5,277,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,72,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="97,80,167,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="192,80,336,107"/>
-<area shape="rect" id="node5" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="360,80,443,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="288,155,384,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="408,155,525,181"/>
+<area shape="rect" id="node1" title="Permets de gérer la fenêtre." alt="" coords="94,5,253,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="47,80,113,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="138,80,209,107"/>
+<area shape="rect" id="node4" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="233,80,316,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,155,101,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="125,155,269,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="293,155,411,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="435,155,573,181"/>
 </map>

@@ -1,7 +1,8 @@
 <map id="src/window/animation.h" name="src/window/animation.h">
-<area shape="rect" id="node1" title="Animation fonctions." alt="" coords="57,5,234,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,149,107"/>
-<area shape="rect" id="node3" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="173,80,256,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="101,155,197,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="221,155,339,181"/>
+<area shape="rect" id="node1" title="Animation fonctions." alt="" coords="93,5,270,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,155,149,181"/>
+<area shape="rect" id="node3" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="180,80,263,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="173,155,269,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="293,155,411,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="435,155,573,181"/>
 </map>

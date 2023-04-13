@@ -2,7 +2,7 @@
  * @file hud.c
  * @author Lucas Dureau
  * @brief Implémente les fonctions pour gérer l'affichage en jeux
- * @version 0.1
+ * @version 1.1
  * @date 27/03/2023
  *
  */

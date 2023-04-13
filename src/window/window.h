@@ -2,7 +2,7 @@
  * @file window.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de window/window.c
- * @version 0.1
+ * @version 1.1
  * @date 08/02/2023
  *
  */
@@ -11,7 +11,9 @@
 #define __WINDOW_H
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 
 /**
  * @brief Enumération représentant le point d'origin d'un transformation 2D
@@ -127,6 +129,14 @@ extern sprite_t *createTextSprite(window_t *window, TTF_Font *font, char *text, 
  * @return **0** si tous se passe bien, **-1** si le pointeur en entrée est null
  */
 extern int destroySprite(sprite_t **sprite);
+
+/**
+ * @brief Charge un audio depuis un fichier
+ *
+ * @param path chemin vers le fichier audio
+ * @return un pointer sur un **Mix_Music**
+ */
+extern Mix_Music *loadMusic(char *path);
 
 /**
  * @brief Calcule une position par rapport au centre de l'écran

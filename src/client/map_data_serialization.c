@@ -2,7 +2,7 @@
  * @file map_data_serialization.c
  * @author Lucas Dureau
  * @brief Fonction pour transformé la carte en données pouvant être stocker ou envoyer
- * @version 0.1
+ * @version 1.1
  * @date 28/03/2023
  *
  */

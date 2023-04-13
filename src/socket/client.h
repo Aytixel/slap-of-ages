@@ -2,7 +2,7 @@
  * @file client.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de socket/client.c
- * @version 0.1
+ * @version 1.1
  * @date 31/01/2023
  *
  */

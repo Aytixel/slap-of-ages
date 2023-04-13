@@ -2,7 +2,7 @@
  * @file game_state_enum.h
  * @author Lucas Dureau
  * @brief Définition des différents états du jeu
- * @version 0.1
+ * @version 1.1
  * @date 17/03/2023
  *
  */

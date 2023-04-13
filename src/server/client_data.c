@@ -2,7 +2,7 @@
  * @file client_data.c
  * @author Lucas Dureau
  * @brief Implémente les fonctions associées la structure de données pour les clients connectés au serveur
- * @version 0.1
+ * @version 1.1
  * @date 02/03/2023
  *
  */

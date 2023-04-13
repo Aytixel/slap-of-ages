@@ -2,7 +2,7 @@
  * @file packet.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de packet/packet.c
- * @version 0.1
+ * @version 1.1
  * @date 01/03/2023
  *
  */

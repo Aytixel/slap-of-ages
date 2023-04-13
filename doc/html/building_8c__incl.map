@@ -1,28 +1,29 @@
 <map id="src/building/building.c" name="src/building/building.c">
-<area shape="rect" id="node1" title="Permet la gestion des bâtiments, leur création, leur destruction." alt="" coords="625,5,789,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,453,72,480"/>
-<area shape="rect" id="node3" title=" " alt="" coords="97,453,167,480"/>
-<area shape="rect" id="node4" title=" " alt="" coords="283,80,351,107"/>
-<area shape="rect" id="node5" href="$client_2common_8h.html" title="Definition globale pour le client." alt="" coords="427,304,557,331"/>
-<area shape="rect" id="node6" href="$game__data__serialization_8h.html" title="Implémentation des prototypes de client/game_data_serialization.c." alt="" coords="892,80,1127,107"/>
-<area shape="rect" id="node7" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="1126,677,1263,704"/>
-<area shape="rect" id="node12" href="$timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="629,453,736,480"/>
-<area shape="rect" id="node14" href="$building_8h.html" title=" " alt="" coords="1050,453,1193,480"/>
-<area shape="rect" id="node15" href="$building__renderer_8h.html" title="Implémentation des prototypes de building/building_renderer.c." alt="" coords="1097,528,1244,555"/>
-<area shape="rect" id="node26" href="$input_8h.html" title="Implémentation des prototypes de window/input.c." alt="" coords="1371,603,1493,629"/>
-<area shape="rect" id="node10" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="891,229,997,256"/>
-<area shape="rect" id="node25" href="$map__data__serialization_8h.html" title="Implémentation des prototypes de client/map_data_serialization.c." alt="" coords="981,155,1168,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="1147,752,1243,779"/>
-<area shape="rect" id="node9" title=" " alt="" coords="1317,752,1435,779"/>
-<area shape="rect" id="node11" title=" " alt="" coords="1046,304,1117,331"/>
-<area shape="rect" id="node17" href="$character_8h.html" title="Fonction de gestion des characters." alt="" coords="582,304,741,331"/>
-<area shape="rect" id="node24" href="$game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="867,304,1021,331"/>
-<area shape="rect" id="node13" title=" " alt="" coords="637,528,728,555"/>
-<area shape="rect" id="node16" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="981,603,1139,629"/>
-<area shape="rect" id="node18" href="$character__renderer_8h.html" title="Fonction de gestion de l&#39;affichage des characters." alt="" coords="362,379,518,405"/>
-<area shape="rect" id="node19" href="$animation_8h.html" title="Animation fonctions." alt="" coords="299,453,453,480"/>
-<area shape="rect" id="node21" href="$animation__states_8h.html" title="fichier contenant les différents états des animations" alt="" coords="645,379,846,405"/>
-<area shape="rect" id="node22" href="$game_8h.html" title="Fonction divers pour le jeu." alt="" coords="175,379,287,405"/>
-<area shape="rect" id="node20" title=" " alt="" coords="259,528,403,555"/>
-<area shape="rect" id="node23" title=" " alt="" coords="192,453,275,480"/>
+<area shape="rect" id="node1" title="Permet la gestion des bâtiments, leur création, leur destruction." alt="" coords="501,5,665,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="144,453,211,480"/>
+<area shape="rect" id="node3" title=" " alt="" coords="235,453,306,480"/>
+<area shape="rect" id="node4" title=" " alt="" coords="94,80,162,107"/>
+<area shape="rect" id="node5" href="$client_2common_8h.html" title="Definition globale pour le client." alt="" coords="153,304,284,331"/>
+<area shape="rect" id="node6" href="$game__data__serialization_8h.html" title="Implémentation des prototypes de client/game_data_serialization.c." alt="" coords="641,80,876,107"/>
+<area shape="rect" id="node7" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="889,677,1026,704"/>
+<area shape="rect" id="node14" href="$timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="53,603,160,629"/>
+<area shape="rect" id="node16" href="$building_8h.html" title=" " alt="" coords="817,453,959,480"/>
+<area shape="rect" id="node17" href="$building__renderer_8h.html" title="Implémentation des prototypes de building/building_renderer.c." alt="" coords="867,528,1013,555"/>
+<area shape="rect" id="node27" href="$input_8h.html" title="Implémentation des prototypes de window/input.c." alt="" coords="1139,603,1261,629"/>
+<area shape="rect" id="node12" href="$game__data_8h.html" title="Implémentation des prototypes de client/game_data.c." alt="" coords="649,229,756,256"/>
+<area shape="rect" id="node26" href="$map__data__serialization_8h.html" title="Implémentation des prototypes de client/map_data_serialization.c." alt="" coords="731,155,917,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="805,752,901,779"/>
+<area shape="rect" id="node9" title=" " alt="" coords="613,752,757,779"/>
+<area shape="rect" id="node10" title=" " alt="" coords="1091,752,1208,779"/>
+<area shape="rect" id="node11" title=" " alt="" coords="925,752,1064,779"/>
+<area shape="rect" id="node13" title=" " alt="" coords="538,304,609,331"/>
+<area shape="rect" id="node19" href="$character_8h.html" title="Fonction de gestion des characters." alt="" coords="633,304,791,331"/>
+<area shape="rect" id="node25" href="$game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="359,304,513,331"/>
+<area shape="rect" id="node15" title=" " alt="" coords="61,677,152,704"/>
+<area shape="rect" id="node18" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="763,603,920,629"/>
+<area shape="rect" id="node20" href="$character__renderer_8h.html" title="Fonction de gestion de l&#39;affichage des characters." alt="" coords="585,528,741,555"/>
+<area shape="rect" id="node21" href="$animation_8h.html" title="Animation fonctions." alt="" coords="483,603,637,629"/>
+<area shape="rect" id="node22" href="$animation__states_8h.html" title="fichier contenant les différents états des animations" alt="" coords="489,379,690,405"/>
+<area shape="rect" id="node23" href="$game_8h.html" title="Fonction divers pour le jeu." alt="" coords="301,379,413,405"/>
+<area shape="rect" id="node24" title=" " alt="" coords="331,453,413,480"/>
 </map>

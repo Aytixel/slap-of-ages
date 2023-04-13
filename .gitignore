@@ -6,7 +6,6 @@ lib/linux/*
 include/linux/*
 lib/mac/*
 include/mac/*
-SDL*/
 
 *.soa
 

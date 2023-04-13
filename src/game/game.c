@@ -2,7 +2,7 @@
  * @file game.c
  * @author Arthur Dureau, Hôa Le Luet, Lucas Dureau
  * @brief Fonction divers pour le jeu
- * @version 1.0
+ * @version 1.1
  * @date 19/03/2023
  *
  *

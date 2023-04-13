@@ -2,7 +2,7 @@
  * @file server.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de connection/server.c
- * @version 0.1
+ * @version 1.1
  * @date 05/02/2023
  *
  */

@@ -2,7 +2,7 @@
  * @file animation_states.h
  * @brief fichier contenant les différents états des animations
  * @author Hôa Le Luet
- * @version 1.0
+ * @version 1.1
  * @date 07/03/2023
  *
  */

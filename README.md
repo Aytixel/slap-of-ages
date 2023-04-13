@@ -16,6 +16,33 @@ Gantt : https://docs.google.com/spreadsheets/d/1tzo2DsVGko6vCwdnjP4RdRnp5ozh0s1j
 
 Documentation *(prise sur la branche `dev`)* : https://aytixel.github.io/slap-of-ages/doc/html/
 
+## Règle du jeu :
+
+Commencez par vous connecter, puis créer votre village.
+
+Chaque bâtiment vous **coûtera de l'or pour le placer.**
+Cet or vous seras **remboursé quand vous l'enlèverez.**
+Votre **total d'or augmentera** uniquement **si vous perdez ou faites une égalité** avec votre adversaire.
+
+Les maisons que vous placerez feront apparaitre des troupes de défense pendant la phase d'attaque.
+La maison la moins cher fera apparaître un *rat*, celle d'après fera apparaître un *démon*, et la plus chère fera apparaître un *géant goblin*.
+
+Une fois votre village prêt appuyez sur le bouton `Attaquer`, vous pouvez aussi annulez si vous le souhaitez avec le bouton `Annuler`.
+
+Après un temps d'attente le temps de trouver un adversaire, vos commercerez à attaquer son village.
+Pour cela vous avez différentes troupes avec différentes spécificités à votre disposition :
+- Le **rat** attaque en priorité les troupes de défense adverse, puis les bâtiments, il a assez peu de vie mais tape très fort et avance vite.
+- Le **démon** n'attaque que les bâtiments, mais peut passer au-dessus des murs, au niveau de sa vie et son attaque et sa vitesse c'est un entre-deux entre le **géant goblin** et le **rat**.
+- Le **géant goblin** n'attaque lui aussi que les bâtiments, il est lent et n'attaque pas fort mais à beaucoup de vie.
+
+Pour placer ces troupes vous avez un **nombre d'elixir défini** qui **revient à son maximum à chaque début d'attaque**.
+Ce maximum **augmente** à chaque fois que **vous gagnez ou faites une égalité** avec votre adversaire.
+
+*Vous gagnerez si vous arrivez à détruire un maximum de bâtiments dans le village adverse.*
+*Si les deux villages ont le même pourcentage de destruction la victoire se joue à la vitesse.*
+
+*Si vous finissez en même temps que votre adversaire avec le même pourcentage de destruction il y a égalité.*
+
 ## Compilation :
 
 Si vous compilez le projet pour la première fois faites `make all`. Cette commande compilera la SDL, cela peut donc prendre un peu de temps.

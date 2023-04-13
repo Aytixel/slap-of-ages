@@ -2,7 +2,7 @@
  * @file input.h
  * @author Arthur Dureau, Lucas Dureau
  * @brief Implémentation des prototypes de window/input.c
- * @version 1.0
+ * @version 1.1
  * @date 03/03/2023
  *
  *

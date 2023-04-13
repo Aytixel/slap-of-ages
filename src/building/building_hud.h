@@ -2,7 +2,7 @@
  * @file building_hud.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de building/building_hud.c
- * @version 0.1
+ * @version 1.1
  * @date 30/03/2023
  *
  */

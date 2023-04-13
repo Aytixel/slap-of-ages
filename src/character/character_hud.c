@@ -2,7 +2,7 @@
  * @file character_hud.c
  * @author Lucas Dureau
  * @brief Permet de gérer l'affichage de l'interface de sélection des troupes
- * @version 0.1
+ * @version 1.1
  * @date 05/04/2023
  *
  */

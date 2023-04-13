@@ -2,7 +2,7 @@
  * @file game_state.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de server/game_state.c
- * @version 0.1
+ * @version 1.1
  * @date 02/03/2023
  *
  */

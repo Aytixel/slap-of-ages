@@ -2,7 +2,7 @@
  * @file building_renderer.c
  * @author Lucas Dureau
  * @brief Permet de gérer l'affichage des bâtiments
- * @version 0.1
+ * @version 1.1
  * @date 03/03/2023
  *
  */
