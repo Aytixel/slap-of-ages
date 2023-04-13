@@ -9,12 +9,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL2/SDL_image.h>
 #include "window.h"
 
 extern window_t *createWindow(char *title, int width, int height)
 {
-    if (SDL_Init(SDL_INIT_VIDEO) < 0)
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
     {
         fprintf(stderr, "(Erreur): Initialisation d'SDL2 impossible : %s\n", SDL_GetError());
 
@@ -26,6 +25,13 @@ extern window_t *createWindow(char *title, int width, int height)
         fprintf(stderr, "(Erreur): Initialisation d'SDL2_ttf impossible : %s\n", TTF_GetError());
 
         SDL_Quit();
+
+        return NULL;
+    }
+
+    if (Mix_Init(MIX_INIT_MP3) < 0 || Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0)
+    {
+        fprintf(stderr, "(Erreur): Initialisation d'SDL2_mixer impossible : %s\n", SDL_GetError());
 
         return NULL;
     }
@@ -88,6 +94,7 @@ extern int destroyWindow(window_t **window)
 
     SDL_DestroyRenderer((*window)->renderer);
     SDL_DestroyWindow((*window)->window);
+    Mix_CloseAudio();
     TTF_Quit();
     SDL_Quit();
 
@@ -185,6 +192,20 @@ extern int destroySprite(sprite_t **sprite)
     *sprite = NULL;
 
     return 0;
+}
+
+extern Mix_Music *loadMusic(char *path)
+{
+    Mix_Music *audio = Mix_LoadMUS(path);
+
+    if (audio == NULL)
+    {
+        fprintf(stderr, "(Erreur): Impossible de charger l'audio \"%s\" : %s\n", path, SDL_GetError());
+
+        return NULL;
+    }
+
+    return audio;
 }
 
 extern SDL_Rect positionFromCenter(window_t *window, int width, int height, int x, int y, transform_origin_e origin)

@@ -94,7 +94,12 @@ void windowEventHandler(
     }
 }
 
-void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_data, character_renderer_t *character_renderer)
+void handle_packet(
+    packet_t *packet,
+    window_t *window,
+    client_game_data_t *game_data,
+    character_renderer_t *character_renderer,
+    Mix_Music *combat_music)
 {
     char title[150] = "";
 
@@ -111,6 +116,8 @@ void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_
         readSetMapPacket(packet, window, game_data);
         startGame(client, game_data);
         addDefenceCharacter(character_renderer, game_data);
+        Mix_FadeInMusic(combat_music, 1, 250);
+        Mix_VolumeMusic(32);
         printf("Partie lancé\n");
         break;
     case HAS_PLAYER_WON_PACKET_ID:
@@ -138,6 +145,7 @@ void handle_packet(packet_t *packet, window_t *window, client_game_data_t *game_
 
         game_data->elixir_cost = 0;
         clearCharacterList(game_data->character_list);
+        Mix_FadeOutMusic(250);
 
         printf("Gagné : %d, Nombre de victoire : %d\n", has_won, game_data->win_count);
 
@@ -160,10 +168,20 @@ int main(int argc, char *argv[])
     if (window == NULL)
         return 1;
 
+    Mix_Music *combat_music = loadMusic("./asset/audio/combat.mp3");
+
+    if (combat_music == NULL)
+    {
+        destroyWindow(&window);
+
+        return 1;
+    }
+
     map_renderer_t *map_renderer = createMapRenderer(window);
 
     if (map_renderer == NULL)
     {
+        Mix_FreeMusic(combat_music);
         destroyWindow(&window);
         return 1;
     }
@@ -172,6 +190,7 @@ int main(int argc, char *argv[])
 
     if (building_renderer == NULL)
     {
+        Mix_FreeMusic(combat_music);
         destroyWindow(&window);
         deleteMapRenderer(&map_renderer);
         return 1;
@@ -181,6 +200,7 @@ int main(int argc, char *argv[])
 
     if (character_renderer == NULL)
     {
+        Mix_FreeMusic(combat_music);
         destroyWindow(&window);
         deleteMapRenderer(&map_renderer);
         deleteBuildingRenderer(&building_renderer);
@@ -198,8 +218,9 @@ int main(int argc, char *argv[])
 
     if (menu == NULL)
     {
-        deleteMapRenderer(&map_renderer);
+        Mix_FreeMusic(combat_music);
         destroyWindow(&window);
+        deleteMapRenderer(&map_renderer);
         deleteBuildingRenderer(&building_renderer);
         deleteCharacterRenderer(&character_renderer);
         return 1;
@@ -209,6 +230,7 @@ int main(int argc, char *argv[])
 
     if (hud == NULL)
     {
+        Mix_FreeMusic(combat_music);
         destroyWindow(&window);
         deleteMapRenderer(&map_renderer);
         deleteBuildingRenderer(&building_renderer);
@@ -221,6 +243,7 @@ int main(int argc, char *argv[])
 
     if (building_hud == NULL)
     {
+        Mix_FreeMusic(combat_music);
         destroyWindow(&window);
         deleteMapRenderer(&map_renderer);
         deleteBuildingRenderer(&building_renderer);
@@ -234,6 +257,7 @@ int main(int argc, char *argv[])
 
     if (building_hud == NULL)
     {
+        Mix_FreeMusic(combat_music);
         destroyWindow(&window);
         deleteMapRenderer(&map_renderer);
         deleteBuildingRenderer(&building_renderer);
@@ -294,7 +318,7 @@ int main(int argc, char *argv[])
 
                 if (packet != NULL)
                 {
-                    handle_packet(packet, window, game_data, character_renderer);
+                    handle_packet(packet, window, game_data, character_renderer, combat_music);
                     deletePacket(&packet);
                 }
                 break;
@@ -349,6 +373,7 @@ int main(int argc, char *argv[])
     deleteCharacterRenderer(&character_renderer);
     deleteBuildingRenderer(&building_renderer);
     deleteMapRenderer(&map_renderer);
+    Mix_FreeMusic(combat_music);
     destroyWindow(&window);
 
     return 0;

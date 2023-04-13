@@ -5,10 +5,10 @@ ifeq ($(OS), Windows_NT)
 
 LIB_DIR=lib/windows
 INC_DIR=include/windows
-LIB_TARGET=SDL2.dll SDL2_ttf.dll SDL2_image.dll
+LIB_TARGET=SDL2.dll SDL2_ttf.dll SDL2_image.dll SDL2_mixer.dll
 LIB_TARGET_DIR=dll
 
-LFLAGS=-L$(LIB_DIR) -lm -lmingw32 -lws2_32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+LFLAGS=-L$(LIB_DIR) -lm -lmingw32 -lws2_32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
 EXE_EXT=.exe
 PATH_SEP=\\
@@ -25,17 +25,17 @@ ifeq ($(shell uname -s), Linux)
 OS=Linux
 LIB_DIR=lib/linux
 INC_DIR=include/linux
-LIB_TARGET=libSDL2-2.0.so.0 libSDL2_ttf-2.0.so.0 libSDL2_image-2.0.so.0
+LIB_TARGET=libSDL2-2.0.so.0 libSDL2_ttf-2.0.so.0 libSDL2_image-2.0.so.0 libSDL2_mixer-2.0.so.0
 else
 OS=Darwin
 LIB_DIR=lib/mac
 INC_DIR=include/mac
-LIB_TARGET=libSDL2.dylib libSDL2_ttf.dylib libSDL2_image.dylib
+LIB_TARGET=libSDL2.dylib libSDL2_ttf.dylib libSDL2_image.dylib libSDL2_mixer.dylib
 endif
 
 LIB_TARGET_DIR=$(LIB_DIR)
 
-LFLAGS=-L $(LIB_DIR) -Wl,-rpath $(LIB_DIR) -Wl,-rpath /lib/x86_64-linux-gnu/ -Wl,-rpath /usr/local/lib/ -Wl,-rpath /usr/lib/ -Wl,-rpath ./ -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+LFLAGS=-L $(LIB_DIR) -Wl,-rpath $(LIB_DIR) -Wl,-rpath /lib/x86_64-linux-gnu/ -Wl,-rpath /usr/local/lib/ -Wl,-rpath /usr/lib/ -Wl,-rpath ./ -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
 EXE_EXT=
 PATH_SEP=/
@@ -149,6 +149,11 @@ ifneq ($(OS), Windows_NT)
 	@cd SDL_ttf && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j$(CPU_COUNT) && $(MAKE) -j$(CPU_COUNT) install
 	@rm -rf SDL_ttf
 
+	@rm -rf SDL_mixer
+	@git clone https://github.com/libsdl-org/SDL_mixer.git && cd SDL_mixer && git checkout release-2.6.3
+	@cd SDL_mixer && ./configure --prefix=$(shell pwd)/SDL_lib && $(MAKE) -j$(CPU_COUNT) && $(MAKE) -j$(CPU_COUNT) install
+	@rm -rf SDL_mixer
+
 	@cp -r SDL_lib/lib/* $(LIB_DIR)
 	@cp -r SDL_lib/include/* $(INC_DIR)
 
@@ -156,8 +161,10 @@ ifeq ($(OS), Darwin)
 	@install_name_tool -id $(shell pwd)/$(LIB_DIR)/libSDL2.dylib $(LIB_DIR)/libSDL2.dylib
 	@install_name_tool -id $(shell pwd)/$(LIB_DIR)/libSDL2_image.dylib $(LIB_DIR)/libSDL2_image.dylib
 	@install_name_tool -id $(shell pwd)/$(LIB_DIR)/libSDL2_ttf.dylib $(LIB_DIR)/libSDL2_ttf.dylib
+	@install_name_tool -id $(shell pwd)/$(LIB_DIR)/libSDL2_mixer.dylib $(LIB_DIR)/libSDL2_mixer.dylib
 	@install_name_tool -change $(shell pwd)/SDL_lib/lib/libSDL2-2.0.0.dylib $(shell pwd)/$(LIB_DIR)/libSDL2.dylib $(LIB_DIR)/libSDL2_image.dylib 
 	@install_name_tool -change $(shell pwd)/SDL_lib/lib/libSDL2-2.0.0.dylib $(shell pwd)/$(LIB_DIR)/libSDL2.dylib $(LIB_DIR)/libSDL2_ttf.dylib 
+	@install_name_tool -change $(shell pwd)/SDL_lib/lib/libSDL2-2.0.0.dylib $(shell pwd)/$(LIB_DIR)/libSDL2.dylib $(LIB_DIR)/libSDL2_mixer.dylib 
 endif
 
 	@rm -rf SDL_lib
