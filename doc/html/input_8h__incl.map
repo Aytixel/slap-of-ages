@@ -1,6 +1,8 @@
 <map id="src/window/input.h" name="src/window/input.h">
-<area shape="rect" id="node1" title="Implémentation des prototypes de window/input.c." alt="" coords="53,5,197,32"/>
+<area shape="rect" id="node1" title="Implémentation des prototypes de window/input.c." alt="" coords="72,5,216,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,155,101,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="139,155,256,181"/>
-<area shape="rect" id="node4" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="84,80,167,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="125,155,243,181"/>
+<area shape="rect" id="node4" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="181,80,264,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="267,155,411,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="435,155,573,181"/>
 </map>

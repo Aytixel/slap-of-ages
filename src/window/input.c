@@ -2,7 +2,7 @@
  * @file input.c
  * @author Arthur Dureau, Lucas Dureau
  * @brief Fichier de création des boutons et des textes
- * @version 1.0
+ * @version 1.1
  * @date 03/03/2023
  *
  *

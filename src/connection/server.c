@@ -2,7 +2,7 @@
  * @file server.c
  * @author Lucas Dureau
  * @brief Permet de gérer la connexion des clients au serveur
- * @version 0.1
+ * @version 1.1
  * @date 05/02/2023
  *
  */

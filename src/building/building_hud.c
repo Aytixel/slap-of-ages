@@ -2,7 +2,7 @@
  * @file building_hud.c
  * @author Lucas Dureau
  * @brief Permet de gérer l'affichage de l'interface de sélection des bâtiments
- * @version 0.1
+ * @version 1.1
  * @date 30/03/2023
  *
  */

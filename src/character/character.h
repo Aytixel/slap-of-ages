@@ -2,7 +2,7 @@
  * @file character.h
  * @author Arthur Dureau, Lucas Dureau
  * @brief Fonction de gestion des characters
- * @version 1.0
+ * @version 1.1
  * @date 19/03/2023
  *
  */

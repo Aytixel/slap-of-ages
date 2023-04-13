@@ -2,7 +2,7 @@
  * @file game_state.c
  * @author Lucas Dureau
  * @brief Implémente les fonctions permettant de gérer l'état d'une partie
- * @version 0.1
+ * @version 1.1
  * @date 12/03/2023
  *
  */

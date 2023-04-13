@@ -2,7 +2,7 @@
  * @file game_state.c
  * @author Lucas Dureau
  * @brief Définition des différents états  du jeux
- * @version 0.1
+ * @version 1.1
  * @date 19/03/2023
  *
  */

@@ -2,7 +2,7 @@
  * @file packet.c
  * @author Lucas Dureau
  * @brief Implémente toute les fonctions pour créer, et lire les différents paquets
- * @version 0.1
+ * @version 1.1
  * @date 05/02/2023
  *
  */

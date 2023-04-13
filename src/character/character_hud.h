@@ -2,7 +2,7 @@
  * @file character_hud.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de character/character_hud.c
- * @version 0.1
+ * @version 1.1
  * @date 05/04/2023
  *
  */

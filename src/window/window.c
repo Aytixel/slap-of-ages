@@ -2,7 +2,7 @@
  * @file window.c
  * @author Lucas Dureau
  * @brief Permets de gérer la fenêtre
- * @version 0.1
+ * @version 1.1
  * @date 08/02/2023
  *
  */

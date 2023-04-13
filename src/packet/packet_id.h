@@ -2,7 +2,7 @@
  * @file packet_id.h
  * @author Lucas Dureau
  * @brief Définition des identifiants de paquet résaux
- * @version 0.1
+ * @version 1.1
  * @date 05/02/2023
  *
  */

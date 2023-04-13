@@ -2,7 +2,7 @@
  * @file server.c
  * @author Lucas Dureau
  * @brief Serveur socket simple permettant l'échange de paquet de manière non bloquante
- * @version 0.1
+ * @version 1.1
  * @date 31/01/2023
  *
  */

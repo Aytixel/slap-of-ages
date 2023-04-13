@@ -2,7 +2,7 @@
  * @file map_data_serialization.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de client/map_data_serialization.c
- * @version 0.1
+ * @version 1.1
  * @date 28/03/2023
  *
  */

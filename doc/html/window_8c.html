@@ -76,20 +76,20 @@ $(function() {
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="window_8h_source.html">window.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de window.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="window_8c__incl.png" border="0" usemap="#asrc_2window_2window_8c" alt=""/></div>
 <map name="asrc_2window_2window_8c" id="asrc_2window_2window_8c">
-<area shape="rect" title="Permets de gérer la fenêtre." alt="" coords="118,5,277,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,72,107"/>
-<area shape="rect" title=" " alt="" coords="97,80,167,107"/>
-<area shape="rect" title=" " alt="" coords="192,80,336,107"/>
-<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="360,80,443,107"/>
-<area shape="rect" title=" " alt="" coords="288,155,384,181"/>
-<area shape="rect" title=" " alt="" coords="408,155,525,181"/>
+<area shape="rect" title="Permets de gérer la fenêtre." alt="" coords="94,5,253,32"/>
+<area shape="rect" title=" " alt="" coords="47,80,113,107"/>
+<area shape="rect" title=" " alt="" coords="138,80,209,107"/>
+<area shape="rect" href="window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="233,80,316,107"/>
+<area shape="rect" title=" " alt="" coords="5,155,101,181"/>
+<area shape="rect" title=" " alt="" coords="125,155,269,181"/>
+<area shape="rect" title=" " alt="" coords="293,155,411,181"/>
+<area shape="rect" title=" " alt="" coords="435,155,573,181"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -116,6 +116,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:ac84ead18493a5445ba473190996fe36b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#ac84ead18493a5445ba473190996fe36b">destroySprite</a> (<a class="el" href="structsprite__t.html">sprite_t</a> **sprite)</td></tr>
 <tr class="memdesc:ac84ead18493a5445ba473190996fe36b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un sprite.  <a href="window_8c.html#ac84ead18493a5445ba473190996fe36b">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac84ead18493a5445ba473190996fe36b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12a575ff5b10ab782dda2cda02c5a248"><td class="memItemLeft" align="right" valign="top">Mix_Music *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#a12a575ff5b10ab782dda2cda02c5a248">loadMusic</a> (char *path)</td></tr>
+<tr class="memdesc:a12a575ff5b10ab782dda2cda02c5a248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge un audio depuis un fichier.  <a href="window_8c.html#a12a575ff5b10ab782dda2cda02c5a248">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a12a575ff5b10ab782dda2cda02c5a248"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3c4f018bc737c5c0b0436fe379817ba"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8c.html#ad3c4f018bc737c5c0b0436fe379817ba">positionFromCenter</a> (<a class="el" href="structwindow__t.html">window_t</a> *window, int width, int height, int x, int y, <a class="el" href="window_8h.html#a8dca14cd1fd60c17927c8df815a291b4">transform_origin_e</a> origin)</td></tr>
 <tr class="memdesc:ad3c4f018bc737c5c0b0436fe379817ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule une position par rapport au centre de l'écran.  <a href="window_8c.html#ad3c4f018bc737c5c0b0436fe379817ba">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ad3c4f018bc737c5c0b0436fe379817ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,7 +129,7 @@ Fonctions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Permets de gérer la fenêtre. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Lucas Dureau </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>08/02/2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="a62b282ec4c4144041dc9263805726a73"></a>
@@ -321,6 +324,33 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>un pointer sur une <b>TTF_Font</b> </dd></dl>
+
+</div>
+</div>
+<a id="a12a575ff5b10ab782dda2cda02c5a248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12a575ff5b10ab782dda2cda02c5a248">&#9670;&nbsp;</a></span>loadMusic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mix_Music* loadMusic </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge un audio depuis un fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>chemin vers le fichier audio </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un pointer sur un <b>Mix_Music</b> </dd></dl>
 
 </div>
 </div>

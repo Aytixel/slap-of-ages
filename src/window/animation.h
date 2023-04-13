@@ -2,7 +2,7 @@
  * @file animation.h
  * @brief Animation fonctions
  * @author Hôa Le Luet, Lucas Dureau
- * @version 1.0
+ * @version 1.1
  * @date 03/03/2023
  *
  *

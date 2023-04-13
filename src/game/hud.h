@@ -2,7 +2,7 @@
  * @file hud.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de game/hud.c
- * @version 0.1
+ * @version 1.1
  * @date 27/03/2023
  *
  */

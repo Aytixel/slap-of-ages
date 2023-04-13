@@ -2,7 +2,7 @@
  * @file game_data_serialization.c
  * @author Lucas Dureau
  * @brief Fonction pour transformé les données du jeu, en données pouvant être stocker ou envoyer
- * @version 0.1
+ * @version 1.1
  * @date 01/04/2023
  *
  */

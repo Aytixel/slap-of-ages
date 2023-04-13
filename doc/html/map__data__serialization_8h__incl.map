@@ -5,20 +5,21 @@
 <area shape="rect" id="node3" title=" " alt="" coords="647,169,717,196"/>
 <area shape="rect" id="node4" href="$client_2common_8h.html" title="Definition globale pour le client." alt="" coords="793,169,883,196"/>
 <area shape="rect" id="node5" href="$timer_8h.html" title="Implémentation des prototypes de timer/timer.c." alt="" coords="735,468,842,495"/>
-<area shape="rect" id="node13" href="$character_8h.html" title="Fonction de gestion des characters." alt="" coords="284,169,443,196"/>
-<area shape="rect" id="node22" href="$game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="467,169,622,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="781,543,871,569"/>
-<area shape="rect" id="node8" href="$building__renderer_8h.html" title="Implémentation des prototypes de building/building_renderer.c." alt="" coords="107,393,254,420"/>
-<area shape="rect" id="node12" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="218,468,375,495"/>
-<area shape="rect" id="node9" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="451,543,588,569"/>
-<area shape="rect" id="node10" title=" " alt="" coords="365,617,461,644"/>
-<area shape="rect" id="node11" title=" " alt="" coords="485,617,602,644"/>
-<area shape="rect" id="node14" href="$character__renderer_8h.html" title="Fonction de gestion de l&#39;affichage des characters." alt="" coords="475,393,631,420"/>
-<area shape="rect" id="node15" href="$animation_8h.html" title="Animation fonctions." alt="" coords="557,468,711,495"/>
-<area shape="rect" id="node17" href="$animation__states_8h.html" title="fichier contenant les différents états des animations" alt="" coords="263,244,464,271"/>
-<area shape="rect" id="node18" href="$game_8h.html" title="Fonction divers pour le jeu." alt="" coords="126,244,238,271"/>
-<area shape="rect" id="node16" title=" " alt="" coords="613,543,757,569"/>
-<area shape="rect" id="node19" title=" " alt="" coords="279,319,346,345"/>
-<area shape="rect" id="node20" title=" " alt="" coords="371,319,441,345"/>
-<area shape="rect" id="node21" title=" " alt="" coords="173,319,255,345"/>
+<area shape="rect" id="node15" href="$character_8h.html" title="Fonction de gestion des characters." alt="" coords="284,169,443,196"/>
+<area shape="rect" id="node23" href="$game__state__enum_8h.html" title="Définition des différents états du jeu." alt="" coords="467,169,622,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="743,543,834,569"/>
+<area shape="rect" id="node8" href="$building__renderer_8h.html" title="Implémentation des prototypes de building/building_renderer.c." alt="" coords="163,393,310,420"/>
+<area shape="rect" id="node14" href="$map__renderer_8h.html" title="Implémentation des prototypes de map/map_renderer.c." alt="" coords="274,468,431,495"/>
+<area shape="rect" id="node9" href="$window_8h.html" title="Implémentation des prototypes de window/window.c." alt="" coords="317,543,455,569"/>
+<area shape="rect" id="node10" title=" " alt="" coords="457,617,553,644"/>
+<area shape="rect" id="node11" title=" " alt="" coords="577,617,721,644"/>
+<area shape="rect" id="node12" title=" " alt="" coords="315,617,433,644"/>
+<area shape="rect" id="node13" title=" " alt="" coords="153,617,291,644"/>
+<area shape="rect" id="node16" href="$character__renderer_8h.html" title="Fonction de gestion de l&#39;affichage des characters." alt="" coords="475,393,631,420"/>
+<area shape="rect" id="node17" href="$animation_8h.html" title="Animation fonctions." alt="" coords="557,468,711,495"/>
+<area shape="rect" id="node18" href="$animation__states_8h.html" title="fichier contenant les différents états des animations" alt="" coords="263,244,464,271"/>
+<area shape="rect" id="node19" href="$game_8h.html" title="Fonction divers pour le jeu." alt="" coords="126,244,238,271"/>
+<area shape="rect" id="node20" title=" " alt="" coords="279,319,346,345"/>
+<area shape="rect" id="node21" title=" " alt="" coords="371,319,441,345"/>
+<area shape="rect" id="node22" title=" " alt="" coords="173,319,255,345"/>
 </map>

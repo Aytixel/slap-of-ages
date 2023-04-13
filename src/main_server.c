@@ -2,7 +2,7 @@
  * @file main_server.c
  * @author Lucas Dureau
  * @brief Main du serveur
- * @version 0.1
+ * @version 1.1
  *
  */
 

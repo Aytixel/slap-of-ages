@@ -2,7 +2,7 @@
  * @file map_renderer.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de map/map_renderer.c
- * @version 0.1
+ * @version 1.1
  * @date 16/02/2023
  *
  */

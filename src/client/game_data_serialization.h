@@ -2,7 +2,7 @@
  * @file game_data_serialization.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de client/game_data_serialization.c
- * @version 0.1
+ * @version 1.1
  * @date 01/04/2023
  *
  */

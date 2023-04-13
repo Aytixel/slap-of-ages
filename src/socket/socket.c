@@ -2,7 +2,7 @@
  * @file socket.c
  * @author Lucas Dureau
  * @brief Enssemble de fonctions utilitaire pour l'utilisation des sockets
- * @version 0.1
+ * @version 1.1
  * @date 31/01/2023
  *
  */

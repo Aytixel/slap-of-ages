@@ -2,7 +2,7 @@
  * @file game_data.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de client/game_data.c
- * @version 0.1
+ * @version 1.1
  * @date 17/03/2023
  *
  */

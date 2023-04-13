@@ -2,7 +2,7 @@
  * @file building.h
  * @author Hôa Le Luet, Lucas Dureau
  * @brief
- * @version 0.1
+ * @version 1.1
  * @date 2023-03-09
  *
  */

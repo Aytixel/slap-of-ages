@@ -2,7 +2,7 @@
  * @file client.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de connection/client.c
- * @version 0.1
+ * @version 1.1
  * @date 05/02/2023
  *
  */

@@ -2,7 +2,7 @@
  * @file client_data.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de server/client_data.c
- * @version 0.1
+ * @version 1.1
  * @date 02/03/2023
  *
  */

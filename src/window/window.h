@@ -2,7 +2,7 @@
  * @file window.h
  * @author Lucas Dureau
  * @brief Implémentation des prototypes de window/window.c
- * @version 0.1
+ * @version 1.1
  * @date 08/02/2023
  *
  */

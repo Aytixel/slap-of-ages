@@ -2,7 +2,7 @@
  * @file main_client.c
  * @author Lucas Dureau
  * @brief Main du client
- * @version 0.1
+ * @version 1.1
  *
  */
 
