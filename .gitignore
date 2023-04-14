@@ -6,7 +6,9 @@ lib/linux/*
 include/linux/*
 lib/mac/*
 include/mac/*
+SDL_*/
 
 *.soa
 
 !.gitkeep
+!include/windows/*
