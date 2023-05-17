@@ -7,9 +7,6 @@
  *
  */
 
-#include <stdlib.h>
-#include <math.h>
-#include "client/common.h"
 #include "map_renderer.h"
 
 #define MAP_TILE_SIZE 16

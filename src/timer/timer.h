@@ -10,6 +10,18 @@
 #ifndef __TIMER_H
 #define __TIMER_H
 
+#ifdef WIN32
+
+#include <windows.h>
+
+#else
+
+#include <unistd.h>
+
+#endif
+
+#include <stdlib.h>
+#include <time.h>
 #include <sys/time.h>
 
 /**

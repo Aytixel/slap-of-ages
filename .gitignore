@@ -1,3 +1,5 @@
+/.maky
+
 .DS_Store
 .vscode/*
 bin/*

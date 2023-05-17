@@ -10,6 +10,8 @@
 #ifndef __CLIENT_CONNECTION_H
 #define __CLIENT_CONNECTION_H
 
+#include <stdlib.h>
+#include <string.h>
 #include "socket/client.h"
 
 /**

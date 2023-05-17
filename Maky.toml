@@ -1,0 +1,35 @@
+src = ["src", "tests"]
+
+[libs.math]
+reg = ["(test_(building|game|game_state)|main_client).c$"]
+lib = ["m"]
+
+[os.linux]
+inc = ["include/linux"]
+
+[os.linux.libs.sdl]
+reg = [
+    "(test_(animation|building|game|window)|main_client|gestion_ressources).c$",
+]
+lib = ["SDL2main", "SDL2", "SDL2_image", "SDL2_ttf", "SDL2_mixer"]
+dir = ["lib/linux"]
+
+[os.mac]
+inc = ["include/mac"]
+
+[os.mac.libs.sdl]
+reg = [
+    "(test_(animation|building|game|window)|main_client|gestion_ressources).c$",
+]
+lib = ["SDL2main", "SDL2", "SDL2_image", "SDL2_ttf", "SDL2_mixer"]
+dir = ["lib/mac"]
+
+[os.windows]
+inc = ["include/windows"]
+
+[os.windows.libs.sdl]
+reg = [
+    "(test_(animation|building|game|window)|main_client|gestion_ressources).c$",
+]
+lib = ["SDL2main", "SDL2", "SDL2_image", "SDL2_ttf", "SDL2_mixer"]
+dir = ["lib/windows"]

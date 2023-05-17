@@ -7,26 +7,6 @@
  *
  */
 
-#ifdef WIN32
-
-#include <winsock2.h>
-
-#define close closesocket
-#define SHUT_RDWR SD_BOTH
-#define poll WSAPoll
-
-#else
-
-#include <unistd.h>
-#include <sys/fcntl.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <poll.h>
-
-#endif
-
-#include <stdlib.h>
-#include <string.h>
 #include "client.h"
 
 extern client_t *createClient(char *hostname, uint16_t port)

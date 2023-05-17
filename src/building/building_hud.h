@@ -12,6 +12,7 @@
 
 #include "client/game_data.h"
 #include "window/input.h"
+#include "building_renderer.h"
 
 /**
  * @brief Structure de données contenant les données de l'interface de sélection de bâtiment

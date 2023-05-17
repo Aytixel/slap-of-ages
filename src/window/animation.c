@@ -7,15 +7,8 @@
  *
  *
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_main.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
-#include "timer/timer.h"
+
 #include "animation.h"
-#include "window.h"
 
 /**
  * @brief Initialise les images d'une animation

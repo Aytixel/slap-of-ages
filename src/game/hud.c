@@ -6,8 +6,7 @@
  * @date 27/03/2023
  *
  */
-#include "client/common.h"
-#include "client/game_state.h"
+
 #include "hud.h"
 
 extern hud_t *createHud(window_t *window)

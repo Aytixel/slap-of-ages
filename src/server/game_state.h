@@ -13,6 +13,8 @@
 typedef struct server_client_data_s server_client_data_t;
 typedef struct server_game_state_array_s server_game_state_array_t;
 
+#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include "client_data.h"
 #include "connection/server.h"

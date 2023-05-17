@@ -7,7 +7,6 @@
  *
  */
 
-#include "building_renderer.h"
 #include "building_hud.h"
 
 extern building_hud_t *createBuildingHud(window_t *window)

@@ -13,22 +13,15 @@
 
 typedef struct character_s character_t;
 
+#include <stdlib.h>
 #include <SDL2/SDL.h>
+#include "client/common.h"
 #include "window/window.h"
 #include "map/map_renderer.h"
 #include "timer/timer.h"
 #include "window/animation.h"
-
-/**
- * @brief Enumération des différents types de troupe
- *
- */
-typedef enum character_type_e
-{
-    GIANT_CHARACTER,  /**< géant goblin*/
-    DAEMON_CHARACTER, /**< démon*/
-    RAT_CHARACTER     /**< rat guerrier*/
-} character_type_e;
+#include "character_types.h"
+#include "character.h"
 
 /**
  * @brief Structure contenant les paramètres d'une animation
@@ -58,7 +51,7 @@ typedef struct
  * @brief Structure contenant les données pour afficher les troupes
  *
  */
-typedef struct
+typedef struct character_renderer_s
 {
     map_renderer_t *map_renderer;           /**< un pointeur sur un pointeur sur la carte*/
     character_animations_data_t animations; /**< paramètres d'animation des différentes troupes*/

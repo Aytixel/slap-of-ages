@@ -12,9 +12,17 @@
 
 typedef struct client_game_data_s client_game_data_t;
 
-#include "building_renderer.h"
-#include "map/map_renderer.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "client/common.h"
+#include "client/game_data_serialization.h"
 #include "client/game_data.h"
+#include "timer/timer.h"
+#include "map/map_renderer.h"
+#include "window/window.h"
+#include "window/input.h"
+#include "building_renderer.h"
 
 /**
  * @brief Structure contenant les données des bâtiments

@@ -7,10 +7,6 @@
  *
  */
 
-#include <stdlib.h>
-#include "packet/packet.h"
-#include "timer/timer.h"
-#include "game_state_enum.h"
 #include "game_state.h"
 
 extern void toggleMatchmaking(client_t *client, client_game_data_t *game_data)

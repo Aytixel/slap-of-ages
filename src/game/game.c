@@ -8,11 +8,6 @@
  *
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <math.h>
-#include "client/common.h"
 #include "game.h"
 
 #define START 1

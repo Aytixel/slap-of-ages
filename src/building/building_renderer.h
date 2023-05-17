@@ -10,28 +10,11 @@
 #ifndef __BUILDING_RENDERER_H
 #define __BUILDING_RENDERER_H
 
+#include <stdlib.h>
 #include "window/window.h"
+#include "client/common.h"
 #include "map/map_renderer.h"
-
-/**
- * @brief Enumération des différents types de bâtiments
- *
- */
-typedef enum
-{
-    HOUSE_1_BUILDING,
-    HOUSE_2_BUILDING,
-    HOUSE_3_BUILDING,
-    MILL_BUILDING,
-    MINE_BUILDING,
-    FIELD_BUILDING,
-    WELL_BUILDING,
-    CORNER_WALL_BUILDING,
-    VERTICAL_WALL_BUILDING,
-    HORIZONTAL_WALL_BUILDING,
-    VERTICAL_SPACE_FILLER_WALL_BUILDING,
-    HORIZONTAL_SPACE_FILLER_WALL_BUILDING,
-} building_type_e;
+#include "building_types.h"
 
 /**
  * @brief Structure contenant les positions et tailles des sprites des bâtiments

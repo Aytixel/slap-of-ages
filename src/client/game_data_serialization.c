@@ -7,8 +7,6 @@
  *
  */
 
-#include <stdio.h>
-#include "common.h"
 #include "game_data_serialization.h"
 
 extern int serializeGameData(client_game_data_t *game_data)

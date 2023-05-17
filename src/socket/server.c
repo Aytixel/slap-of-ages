@@ -7,24 +7,6 @@
  *
  */
 
-#ifdef WIN32
-
-#define close closesocket
-#define SHUT_RDWR SD_BOTH
-#define poll WSAPoll
-
-#else
-
-#include <unistd.h>
-#include <sys/fcntl.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <poll.h>
-
-#endif
-
-#include <stdlib.h>
-#include <string.h>
 #include "server.h"
 
 extern server_t *createServer(char *hostname, uint16_t port)
