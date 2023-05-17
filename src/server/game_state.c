@@ -7,8 +7,6 @@
  *
  */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "game_state.h"
 
 extern server_game_state_array_t *createGameStateArray()

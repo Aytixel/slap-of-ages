@@ -20,9 +20,13 @@ typedef struct SOCKADDR_IN sockaddr_in;
 #else
 
 #include <netinet/in.h>
+#include <netdb.h>
+#include <arpa/inet.h>
 
 #endif
 
+#include <stdlib.h>
+#include <string.h>
 #include "packet/packet.h"
 
 /**

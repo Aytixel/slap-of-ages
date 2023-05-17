@@ -7,8 +7,6 @@
  *
  */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "window.h"
 
 extern window_t *createWindow(char *title, int width, int height)

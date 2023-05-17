@@ -7,8 +7,6 @@
  *
  */
 
-#include <stdlib.h>
-#include "client/common.h"
 #include "building_renderer.h"
 
 #define BUILDING_TILE_SIZE 16

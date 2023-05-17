@@ -10,6 +10,8 @@
 #ifndef __MAP_DATA_SERIALIZATION_H
 #define __MAP_DATA_SERIALIZATION_H
 
+#include <stdlib.h>
+#include "client/common.h"
 #include "client/game_data.h"
 #include "building/building.h"
 

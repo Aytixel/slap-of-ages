@@ -7,9 +7,6 @@
  *
  */
 
-#include <stdlib.h>
-#include <string.h>
-#include "client/common.h"
 #include "game_data.h"
 
 extern client_game_data_t *createGameData()

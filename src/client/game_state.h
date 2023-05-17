@@ -12,6 +12,11 @@
 
 typedef struct client_game_data_s client_game_data_t;
 
+#include <stdlib.h>
+#include "packet/packet.h"
+#include "packet/client_packet.h"
+#include "timer/timer.h"
+#include "game_state_enum.h"
 #include "socket/client.h"
 #include "game_data.h"
 

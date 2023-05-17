@@ -7,17 +7,7 @@
  *
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
-#include <time.h>
-#include <assert.h>
-#include "timer/timer.h"
-#include "menu/menu.h"
-#include "window/input.h"
-#include "window/window.h"
+#include "menu.h"
 
 extern menu_t *createMenu(window_t *window, client_game_data_t *game_data)
 {

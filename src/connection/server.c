@@ -7,8 +7,6 @@
  *
  */
 
-#include <stdlib.h>
-#include <string.h>
 #include "server.h"
 
 int server_client_count = 0;

@@ -7,15 +7,7 @@
  *
  */
 
-#include <stdlib.h>
-#include <math.h>
-#include "client/common.h"
-#include "timer/timer.h"
-#include "window/animation.h"
-#include "window/animation_states.h"
 #include "character.h"
-#include "window/window.h"
-#include "window/input.h"
 
 extern character_t *createCharacter(character_renderer_t *character_renderer, character_type_e type, SDL_Point *position, int is_defender)
 {

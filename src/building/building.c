@@ -6,16 +6,7 @@
  * @date 09/03/2023
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include "client/common.h"
-#include "client/game_data_serialization.h"
-#include "timer/timer.h"
 #include "building.h"
-#include "building_renderer.h"
-#include "window/window.h"
-#include "window/input.h"
 
 extern building_t *createBuilding(building_type_e type, SDL_Point *position, window_t *window)
 {

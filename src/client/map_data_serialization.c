@@ -7,8 +7,6 @@
  *
  */
 
-#include <stdlib.h>
-#include "client/common.h"
 #include "map_data_serialization.h"
 
 extern int serializeMapData(void **data, building_t ***map_building, int gold_cost)

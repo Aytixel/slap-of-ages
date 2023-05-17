@@ -7,18 +7,6 @@
  *
  */
 
-#ifdef WIN32
-
-#include <windows.h>
-
-#else
-
-#include <unistd.h>
-
-#endif
-
-#include <stdlib.h>
-#include <time.h>
 #include "timer.h"
 
 extern frame_timer_t *createTimer(time_t interval)

@@ -8,10 +8,7 @@
  *
  */
 
-#include <stdlib.h>
-#include "client/common.h"
 #include "character_renderer.h"
-#include "character.h"
 
 extern character_renderer_t *createCharacterRenderer(window_t *window, map_renderer_t *map_renderer)
 {

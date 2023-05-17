@@ -7,8 +7,6 @@
  *
  */
 
-#include <stdlib.h>
-#include <string.h>
 #include "client.h"
 
 int handshake_data = 0;

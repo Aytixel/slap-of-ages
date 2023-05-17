@@ -7,7 +7,6 @@
  *
  */
 
-#include <stdlib.h>
 #include "client_data.h"
 
 extern server_client_data_t *createServerClientData()

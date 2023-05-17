@@ -10,9 +10,11 @@
 #ifndef __GAME_DATA_SERIALIZATION_H
 #define __GAME_DATA_SERIALIZATION_H
 
+#include <stdio.h>
 #include "window/window.h"
 #include "game_data.h"
 #include "map_data_serialization.h"
+#include "common.h"
 
 /**
  * @brief Converti les données du jeu, en données pouvant être stockées et les stockes

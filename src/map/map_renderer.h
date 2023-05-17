@@ -10,6 +10,9 @@
 #ifndef __MAP_RENDERER_H
 #define __MAP_RENDERER_H
 
+#include <stdlib.h>
+#include <math.h>
+#include "client/common.h"
 #include "window/window.h"
 
 /**

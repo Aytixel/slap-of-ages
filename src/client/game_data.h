@@ -14,10 +14,14 @@ typedef struct building_s building_t;
 typedef struct character_list_s character_list_t;
 
 #include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
 #include "common.h"
 #include "timer/timer.h"
+#include "building/building_types.h"
 #include "building/building.h"
 #include "character/character.h"
+#include "character/character_types.h"
 #include "game_state_enum.h"
 
 /**

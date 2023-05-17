@@ -12,6 +12,7 @@
 
 typedef struct server_game_state_s server_game_state_t;
 
+#include <stdlib.h>
 #include "packet/packet.h"
 #include "game_state.h"
 

@@ -11,8 +11,8 @@
 #define __PACKET_H
 
 #include <stdint.h>
-#include "client/game_data.h"
-#include "building/building.h"
+#include <stdlib.h>
+#include <string.h>
 #include "packet_id.h"
 
 /**
@@ -57,23 +57,6 @@ extern packet_t *createSetPseudoPacket(char *pseudo);
  * @param pseudo un pointeur sur le pseudo
  */
 extern void readSetPseudoPacket(packet_t *packet, char **pseudo);
-
-/**
- * @brief Créer un paquet définissant la carte
- *
- * @param game_data un pointeur sur les données du jeu
- * @return un pointer sur un **paquet**
- */
-extern packet_t *createSetMapPacket(client_game_data_t *game_data);
-
-/**
- * @brief Lie un paquet définissant la carte
- *
- * @param packet paquet à lire
- * @param window un pointeur sur une fenêtre
- * @param game_data un pointeur sur les données du jeu
- */
-extern void readSetMapPacket(packet_t *packet, window_t *window, client_game_data_t *game_data);
 
 /**
  * @brief Créer un paquet définissant si le joueur est prêt
