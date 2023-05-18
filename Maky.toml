@@ -14,10 +14,10 @@ reg = [
 lib = ["SDL2main", "SDL2", "SDL2_image", "SDL2_ttf", "SDL2_mixer"]
 dir = ["lib/linux"]
 
-[os.mac]
+[os.macos]
 inc = ["include/mac"]
 
-[os.mac.libs.sdl]
+[os.macos.libs.sdl]
 reg = [
     "(test_(animation|building|game|window)|main_client|gestion_ressources).c$",
 ]
