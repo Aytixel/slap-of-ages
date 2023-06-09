@@ -1,35 +1,40 @@
+# Global configuration
 src = ["src", "tests"]
 
 [libs.math]
-reg = ["(test_(building|game|game_state)|main_client).c$"]
-lib = ["m"]
+reg = "(test_(building|game|game_state)|main_client).c$"
+lib = "m"
 
+[libs.sdl]
+reg = "(test_(animation|building|game|window)|main_client|gestion_ressources).c$"
+pkg = { sdl2 = "*", SDL2_image = "*", SDL2_ttf = "*", SDL2_mixer = "*" }
+
+
+# Linux configuration
 [os.linux]
-inc = ["include/linux"]
+inc = "include/linux"
 
 [os.linux.libs.sdl]
-reg = [
-    "(test_(animation|building|game|window)|main_client|gestion_ressources).c$",
-]
+reg = "(test_(animation|building|game|window)|main_client|gestion_ressources).c$"
 lib = ["SDL2main", "SDL2", "SDL2_image", "SDL2_ttf", "SDL2_mixer"]
-dir = ["lib/linux"]
+dir = "lib/linux"
 
+
+# Mac configuration
 [os.macos]
-inc = ["include/mac"]
+inc = "include/mac"
 
 [os.macos.libs.sdl]
-reg = [
-    "(test_(animation|building|game|window)|main_client|gestion_ressources).c$",
-]
+reg = "(test_(animation|building|game|window)|main_client|gestion_ressources).c$"
 lib = ["SDL2main", "SDL2", "SDL2_image", "SDL2_ttf", "SDL2_mixer"]
-dir = ["lib/mac"]
+dir = "lib/mac"
 
+
+# Windows configuration
 [os.windows]
-inc = ["include/windows"]
+inc = "include/windows"
 
 [os.windows.libs.sdl]
-reg = [
-    "(test_(animation|building|game|window)|main_client|gestion_ressources).c$",
-]
+reg = "(test_(animation|building|game|window)|main_client|gestion_ressources).c$"
 lib = ["SDL2main", "SDL2", "SDL2_image", "SDL2_ttf", "SDL2_mixer"]
-dir = ["lib/windows"]
+dir = "lib/windows"
