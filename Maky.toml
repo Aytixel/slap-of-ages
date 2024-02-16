@@ -8,27 +8,6 @@ lib = "m"
 [libs.sdl]
 reg = "(test_(animation|building|game|window)|main_client|gestion_ressources).c$"
 pkg = { sdl2 = "*", SDL2_image = "*", SDL2_ttf = "*", SDL2_mixer = "*" }
-
-
-# Linux configuration
-[os.linux.libs.sdl]
-reg = "(test_(animation|building|game|window)|main_client|gestion_ressources).c$"
 lib = ["SDL2main", "SDL2", "SDL2_image", "SDL2_ttf", "SDL2_mixer"]
-dir = "lib/linux"
-inc = "include/linux"
-
-
-# Mac configuration
-[os.macos.libs.sdl]
-reg = "(test_(animation|building|game|window)|main_client|gestion_ressources).c$"
-lib = ["SDL2main", "SDL2", "SDL2_image", "SDL2_ttf", "SDL2_mixer"]
-dir = "lib/mac"
-inc = "include/mac"
-
-
-# Windows configuration
-[os.windows.libs.sdl]
-reg = "(test_(animation|building|game|window)|main_client|gestion_ressources).c$"
-lib = ["SDL2main", "SDL2", "SDL2_image", "SDL2_ttf", "SDL2_mixer"]
-dir = "lib/windows"
-inc = "include/windows"
+dir = "lib/${os}"
+inc = "include/${os}"
