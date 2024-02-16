@@ -28,8 +28,8 @@ INC_DIR=include/linux
 LIB_TARGET=libSDL2-2.0.so.0 libSDL2_ttf-2.0.so.0 libSDL2_image-2.0.so.0 libSDL2_mixer-2.0.so.0
 else
 OS=Darwin
-LIB_DIR=lib/mac
-INC_DIR=include/mac
+LIB_DIR=lib/macos
+INC_DIR=include/macos
 LIB_TARGET=libSDL2.dylib libSDL2_ttf.dylib libSDL2_image.dylib libSDL2_mixer.dylib
 endif
 

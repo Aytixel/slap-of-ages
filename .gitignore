@@ -6,8 +6,8 @@ bin/*
 obj/*
 lib/linux/*
 include/linux/*
-lib/mac/*
-include/mac/*
+lib/macos/*
+include/macos/*
 SDL_*/
 
 *.soa
