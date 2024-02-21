@@ -2,11 +2,9 @@
 src = ["src", "tests"]
 
 [libs.math]
-reg = "(test_(building|game|game_state)|main_client).c$"
 lib = "m"
 
 [libs.sdl]
-reg = "(test_(animation|building|game|window)|main_client|gestion_ressources).c$"
 pkg = { sdl2 = "*", SDL2_image = "*", SDL2_ttf = "*", SDL2_mixer = "*" }
 lib = ["SDL2main", "SDL2", "SDL2_image", "SDL2_ttf", "SDL2_mixer"]
 dir = "lib/{{os}}"

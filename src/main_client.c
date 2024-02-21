@@ -6,6 +6,8 @@
  *
  */
 
+//@import math, sdl
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

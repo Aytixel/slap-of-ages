@@ -1,3 +1,5 @@
+//@import math
+
 #include <stdio.h>
 #include <assert.h>
 #include "server/game_state.h"

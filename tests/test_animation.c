@@ -1,3 +1,5 @@
+//@import sdl
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "timer/timer.h"
