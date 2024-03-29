@@ -90,6 +90,7 @@ int handle_packet(packet_t *packet, server_game_state_array_t *game_state_array)
     return 1;
 }
 
+//@main
 int main(int argc, char *argv[])
 {
     char *hostname;

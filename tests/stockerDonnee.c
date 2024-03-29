@@ -28,6 +28,7 @@ void stockerDonnee(int nb_or, int nb_victoire, carte_t *carte)
   }
 }
 
+//@main
 int main()
 {
 

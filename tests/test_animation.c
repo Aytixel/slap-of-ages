@@ -1,5 +1,3 @@
-//@import sdl
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "timer/timer.h"
@@ -9,6 +7,8 @@
 
 #define TILE_SIZE 16
 
+//@import sdl
+//@main
 int main(int argc, char *argv[])
 {
   window_t *window = createWindow("Test Animations", 640, 480);

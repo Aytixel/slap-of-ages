@@ -6,8 +6,6 @@
  *
  */
 
-//@import math, sdl
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -161,6 +159,8 @@ void handle_packet(
     }
 }
 
+//@import math, sdl
+//@main
 int main(int argc, char *argv[])
 {
     srand(time(NULL));

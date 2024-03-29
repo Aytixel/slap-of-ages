@@ -2,6 +2,7 @@
 #include <assert.h>
 #include "timer/timer.h"
 
+//@main
 int main()
 {
     printf("Test de timer/timer.h\n\n");

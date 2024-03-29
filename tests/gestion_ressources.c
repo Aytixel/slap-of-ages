@@ -1,5 +1,3 @@
-//@import sdl
-
 #include <stdio.h>
 #include <stdbool.h>
 #include <SDL2/SDL.h>
@@ -24,6 +22,8 @@ void render_resources(SDL_Renderer *renderer, Resources *res)
     sprintf(buffer, "Gold: %d", res->gold);
 }
 
+//@import sdl
+//@main
 int main(int argc, char *argv[])
 {
     if (SDL_Init(SDL_INIT_VIDEO) < 0)

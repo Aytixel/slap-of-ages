@@ -1,5 +1,3 @@
-//@import math, sdl
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
@@ -34,6 +32,8 @@ void windowEventHandler(SDL_Event *event, window_t *window)
     // gestion des évènements de la fenêtre
 }
 
+//@import math, sdl
+//@main
 int main(int argc, char *argv[])
 {
     window_t *window = createWindow("Slap of Ages", 600, 600);
