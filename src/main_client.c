@@ -159,8 +159,6 @@ void handle_packet(
     }
 }
 
-//@import math, sdl
-//@main
 int main(int argc, char *argv[])
 {
     srand(time(NULL));

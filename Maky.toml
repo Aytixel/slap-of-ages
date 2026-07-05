@@ -1,14 +1,47 @@
 [package]
+name = "slap-of-ages"
 version = "0.1.0"
 
-# Global configuration
-src = ["src", "tests"]
-
-[libs.math]
+[dependencies.math]
 lib = "m"
 
-[libs.sdl]
+[[dependencies.sdl]]
 pkg = { sdl2 = "*", SDL2_image = "*", SDL2_ttf = "*", SDL2_mixer = "*" }
+
+[[dependencies.sdl]]
 lib = ["SDL2main", "SDL2", "SDL2_image", "SDL2_ttf", "SDL2_mixer"]
-dir = "lib/{{os}}"
-inc = "include/{{os}}"
+dir = "lib/{os}"
+inc = "include/{os}"
+
+[[bin]]
+path = "src/main_client.c"
+import = ["math", "sdl"]
+
+[[bin]]
+path = "src/main_server.c"
+
+[[test]]
+path = "tests/test_animation.c"
+import = ["sdl"]
+
+[[test]]
+path = "tests/test_building.c"
+import = ["math", "sdl"]
+
+[[test]]
+path = "tests/test_game.c"
+import = ["math", "sdl"]
+
+[[test]]
+path = "tests/test_game_state.c"
+import = ["math"]
+
+[[test]]
+path = "tests/test_socket.c"
+
+[[test]]
+path = "tests/test_timer.c"
+
+[[test]]
+path = "tests/test_window.c"
+import = ["sdl"]

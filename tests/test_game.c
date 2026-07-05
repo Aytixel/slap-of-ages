@@ -32,8 +32,6 @@ void windowEventHandler(SDL_Event *event, window_t *window)
     // gestion des évènements de la fenêtre
 }
 
-//@import math, sdl
-//@main
 int main(int argc, char *argv[])
 {
     window_t *window = createWindow("Slap of Ages", 600, 600);
@@ -41,7 +39,7 @@ int main(int argc, char *argv[])
     building_renderer_t *building_renderer = createBuildingRenderer(window, map_renderer);
     frame_timer_t *main_timer = createTimer(1000 / 30);
 
-    building_t ***map_building = createBuildingMatrix(MAP_SIZE);
+    building_t ***map_building = createBuildingMatrix();
 
     if (window == NULL || map_renderer == NULL)
         return 1;

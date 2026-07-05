@@ -2,8 +2,6 @@
 #include <assert.h>
 #include "server/game_state.h"
 
-//@import math
-//@main
 int main(int argc, char *argv[])
 {
     printf("Test de server/game_state.h\n\n");

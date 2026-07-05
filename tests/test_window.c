@@ -25,8 +25,6 @@ void windowEventHandler(SDL_Event *event, window_t *window)
     }
 }
 
-//@import sdl
-//@main
 int main(int argc, char *argv[])
 {
     printf("Test de window/window.h\n\n");
